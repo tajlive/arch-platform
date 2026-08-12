@@ -4,5 +4,7 @@ environments:
     url: http://localhost:3000
     secrets_store: .env.local
   prod:
-    url: "<TODO>"
-    worker: "<TODO>"
+    url: https://arch-platform.pages.dev/
+    pages_project: arch-platform
+    pages_production_branch: main
+    deploy_scope: apps/customer-portal (KUN sanitert publikumsvisning)
