@@ -29,6 +29,7 @@ const add = (id, label, pass, evidence) => checks.push({ id, label, pass, eviden
 //    og intern data.js inneholder dev_path med vilje (intern visning).
 const prodFiles = [
   ...walk(join(root, "packages", "data-adapters")).filter((f) => !f.endsWith("audit-leak.mjs")),
+  ...walk(join(root, "packages", "audit")),
   ...walk(join(root, "apps")).filter((f) => !f.endsWith("data.js")),
   ...walk(join(root, "packages", "health-score")),
 ];

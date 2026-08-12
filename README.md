@@ -9,7 +9,8 @@ løsninger med innebygd governance.
 
 Produktet er **Arch Platform**. Disse er moduler (ikke egne produkter): **Control Center**,
 **Customer Portal**, **Project Factory**, **Health Score**, **Data Adapters**, **Knowledge Engine**,
-**Governance** og **UI**. Senere: **Arch Audit**, **Arch Build**, **Arch Managed**.
+**Governance** og **UI**. Kommersielt lag (F4): **Arch Audit** (v1 bygget), **Arch Build** og
+**Arch Managed** (forberedt, ikke implementert — se `docs/f4-commercial-layer.md`).
 (`arch-dashboard` er ikke et eget produkt — kun historisk F3-pilot, arkivert.)
 
 ## Struktur (kanonisk monorepo)
@@ -23,6 +24,7 @@ Produktet er **Arch Platform**. Disse er moduler (ikke egne produkter): **Contro
 | `packages/data-adapters/` | GitHub/Linear/Knowledge/Hermes-adaptere + `collect.mjs` + `audit-leak.mjs` |
 | `packages/knowledge-engine/` | Knowledge Graph (failures/patterns/lessons/decisions/…) |
 | `packages/governance/` | `projects.json` (Project Registry, SSoT) + governance-regler |
+| `packages/audit/` | Arch Audit v1 (F4.1) — evidensbasert audit av repo/system |
 | `packages/ui/` | Delt design-system |
 | `templates/` | Versjonerte maler |
 | `examples/` | Referanseprosjekter (Klarpakke = #1) |
@@ -47,6 +49,11 @@ npm run score -- /sti/til/prosjekt
 
 # Leakage-audit (må være clean før deploy)
 npm run audit:leak
+
+# Arch Audit v1 (F4.1) — evidensbasert audit av repo/system
+npm run audit -- <target|project_id>      # kunderapport (markdown)
+npm run audit -- <target> --json          # intern evidence-visning
+npm run audit -- <target> --save <dir>    # begge til fil
 
 # Åpne
 open apps/customer-portal/index.html   # publikum
