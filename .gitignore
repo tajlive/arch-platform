@@ -4,4 +4,7 @@ node_modules/
 .env.*.local
 .DS_Store
 *.log
-dashboard/data.js
+apps/control-center/data.js
+apps/customer-portal/data.js
+apps/control-center/screenshot.png
+apps/customer-portal/screenshot.png

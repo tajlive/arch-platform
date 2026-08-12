@@ -5,54 +5,61 @@ løsninger med innebygd governance.
 
 > «Arch lærer av systemet, men endrer aldri sikkerhetsgrenser automatisk.»
 
-## Hva Arch gjør
-
-```
-Ny idé → analyze → arkitektur-forslag → godkjenning (Tom/kunde)
-       → project factory → AI-utviklingsteam → monitoring + forbedring → knowledge tilbake
-```
-
-Arch er ikke «vi lager nettsider». Arch er en autonom AI-plattform med kontroll, audit,
-kunnskapsarv og menneskelig godkjenning ved risiko.
-
-## Struktur
+## Struktur (kanonisk monorepo)
 
 | Katalog | Innhold |
 |---|---|
-| `dashboard/` | Arch Control Center (web, datadrevet av `collect-dashboard-data.mjs`) |
-| `project-factory/` | `analyze-project.mjs` + `init-project.mjs` + `health-score.mjs` (v2) + `collect-dashboard-data.mjs` |
-| `knowledge-engine/` | Knowledge Graph — failures/patterns/lessons/decisions/customers/architectures |
-| `templates/` | Versjonerte maler (arch/ci/docs) |
-| `control-plane/` | Governance — SSoT-tabell, approval-gates, secret://-standard |
-| `docs/` | Arkitektur + dokumentasjon |
+| `apps/control-center/` | **INTERN** kontrollpanel (full provenance, krever autentisering) |
+| `apps/customer-portal/` | **SANITERT** publikums-/demo-visning (default-deny) |
+| `packages/project-factory/` | `analyze-project.mjs` + `init-project.mjs` |
+| `packages/health-score/` | Health Score v2.1 (vektet + evidence) |
+| `packages/data-adapters/` | GitHub/Linear/Knowledge/Hermes-adaptere + `collect.mjs` + `audit-leak.mjs` |
+| `packages/knowledge-engine/` | Knowledge Graph (failures/patterns/lessons/decisions/…) |
+| `packages/governance/` | `projects.json` (Project Registry, SSoT) + governance-regler |
+| `packages/ui/` | Delt design-system |
+| `templates/` | Versjonerte maler |
 | `examples/` | Referanseprosjekter (Klarpakke = #1) |
-| `.arch/` | Arch Control Plane (prosjektets egen governance-konfig) |
+| `docs/` | Arkitektur + dokumentasjon |
+| `.arch/` | Arch Control Plane (prosjektets egen governance) |
+
+## Kjerneprinsipper
+
+1. **Project Registry** er SSoT — ingen hardkodede lokale stier i produksjonskode.
+2. **Provenance** — hvert datapunkt er `observed` / `declared` / `unknown` / `error`. Aldri vise antatt som observert.
+3. **Intern vs publikum** — to data-eksponeringsnivåer, default-deny.
+4. **Governed deploy** — publiseres kun etter grønne gater + leakage-audit.
 
 ## Kjør
 
 ```bash
-# Score et prosjekt (vektet: Gov 20/Sec 25/Eng 25/Ops 20/Docs 10)
-node project-factory/health-score.mjs /sti/til/prosjekt
+# Generer data (observert via adapters → data.js i begge apper)
+npm run build          # = node packages/data-adapters/collect.mjs
 
-# Generer dashboard-data (reelle tall → dashboard/data.js)
-node project-factory/collect-dashboard-data.mjs
+# Health Score v2.1 (vektet + evidence)
+npm run score -- /sti/til/prosjekt
 
-# Åpne dashboard
-open dashboard/index.html
+# Leakage-audit (må være clean før deploy)
+npm run audit:leak
+
+# Åpne
+open apps/customer-portal/index.html   # publikum
+open apps/control-center/index.html    # intern
 ```
 
-## Health Score v2
+## Health Score v2.1
 
-Kategorier og vekt: Governance 20 % · Security 25 % · Engineering 25 % · Operations 20 % ·
-Documentation 10 %. TOTAL = Σ(kategori% × vekt). Deterministisk og fil-basert.
+Vekter: Governance 20 · Security 25 · Engineering 25 · Operations 20 · Documentation 10.
+Hver sjekk har `PASS`/`FAIL`/`UNKNOWN`/`NOT_APPLICABLE` + evidence. UNKNOWN telles ikke
+som healthy (fail-safe).
 
 ## Referanseprosjekter
 
-- **Klarpakke** (`examples/klarpakke/`, repo `tajlive/KP`) — Arch Score 98 %.
-- **Arch Dashboard** — første Factory-genererte prosjekt (Internal Platform).
+- **Klarpakke** (`examples/klarpakke/`, repo `tajlive/KP`) — Arch Health Score 98 %.
+- **Arch Dashboard** — historisk F3-pilot, slått sammen med `arch-platform`.
 
 ## Governance
 
-- Linear = eneste oppgave-SSoT (team `ARC`).
-- `--approve`-gate: eksterne ressurser (repo, Linear-team) krever godkjenning.
-- Factory deployer/secreter/live aldri — det er governed steg utenfor Factory.
+- Linear = eneste oppgave-SSoT (team `ARC`, `KLA`).
+- `--approve`-gate for eksterne ressurser (repo, Linear-team).
+- Factory deployer/secreter/live aldri — governed steg utenfor Factory.
+- Deploy kun etter Tom-godkjenning + grønne security-gates.

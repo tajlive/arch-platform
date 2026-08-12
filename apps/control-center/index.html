@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arch Control Center</title>
+  <title>Arch Control Center — INTERN</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -13,7 +13,7 @@
         <div class="logo">▲</div>
         <div>
           <h1>ARCH CONTROL CENTER</h1>
-          <p class="tagline">Autonomous Engineering Platform</p>
+          <p class="tagline">Intern · full provenance · krever autentisering</p>
         </div>
       </div>
       <div class="masthead-meta">
@@ -23,40 +23,37 @@
     </header>
 
     <main class="grid">
-      <!-- PROSJEKTER -->
       <section class="card span-2">
-        <h2>Projects</h2>
+        <h2>Projects (full provenance)</h2>
         <div id="projects" class="project-list"></div>
       </section>
 
-      <!-- AGENTER -->
       <section class="card">
         <h2>Agents</h2>
         <div id="agents" class="agent-list"></div>
       </section>
 
-      <!-- KNOWLEDGE -->
       <section class="card">
         <h2>Knowledge Graph</h2>
         <div id="knowledge" class="knowledge-grid"></div>
+        <p class="note" id="knowledge-src"></p>
       </section>
 
-      <!-- SECURITY -->
       <section class="card">
         <h2>Security</h2>
         <div id="security" class="security-list"></div>
+        <p class="note" id="security-src"></p>
       </section>
 
-      <!-- SCORE-BREAKDOWN -->
       <section class="card span-2">
-        <h2>Arch Score — vektet</h2>
+        <h2>Arch Health Score — evidence</h2>
         <div id="breakdown"></div>
       </section>
     </main>
 
     <footer class="footer">
       <span>Arch lærer av systemet, men endrer aldri sikkerhetsgrenser automatisk.</span>
-      <span>Certified by Arch v<span id="cert-ver">—</span></span>
+      <span>Arch Health Score v<span id="cert-ver">—</span></span>
     </footer>
   </div>
   <script src="data.js"></script>

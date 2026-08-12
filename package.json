@@ -1,0 +1,13 @@
+{
+  "name": "arch-platform",
+  "version": "1.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Autonomous Engineering Platform — analyse, build, governance, knowledge.",
+  "scripts": {
+    "collect": "node packages/data-adapters/collect.mjs",
+    "build": "node packages/data-adapters/collect.mjs",
+    "score": "node packages/health-score/health-score.mjs",
+    "audit:leak": "node packages/data-adapters/audit-leak.mjs"
+  }
+}

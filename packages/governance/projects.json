@@ -1,0 +1,48 @@
+{
+  "projects": [
+    {
+      "project_id": "klarpakke",
+      "name": "Klarpakke",
+      "type": "Trading-plattform",
+      "repository": "tajlive/KP",
+      "linear_team": "KLA",
+      "linear_project": "Klarpakke",
+      "runtime": "cloudflare-workers",
+      "environment": "production",
+      "visibility": "demo",
+      "health_profile": "reference",
+      "status": "live",
+      "url": "https://klarpakke.no",
+      "dev_path": "/Users/taj/klarpakke"
+    },
+    {
+      "project_id": "arch-platform",
+      "name": "Arch Platform",
+      "type": "Internal Platform",
+      "repository": "tajlive/arch-platform",
+      "linear_team": "ARC",
+      "linear_project": "arch-dashboard",
+      "runtime": "cloudflare-pages",
+      "environment": "staging",
+      "visibility": "internal",
+      "health_profile": "platform",
+      "status": "building",
+      "url": null
+    },
+    {
+      "project_id": "arch-dashboard",
+      "name": "Arch Dashboard",
+      "type": "Internal Platform",
+      "repository": "tajlive/arch-platform",
+      "linear_team": "ARC",
+      "linear_project": "arch-dashboard",
+      "runtime": "static",
+      "environment": "archived",
+      "visibility": "archived",
+      "health_profile": "pilot",
+      "status": "archived",
+      "url": null,
+      "note": "Historisk F3-pilot — slått sammen med arch-platform. Ikke videreutvikles."
+    }
+  ]
+}
