@@ -1,37 +1,65 @@
-# CI/CD — arch-platform (generisk mal, tilpass etter stack)
-# Gates: test → deploy → smoke → auto-rollback. Ingen prod-deploy uten grønne gates.
+# Deploy — arch-platform (GOVERNED)
+# Deploy av Arch-surfaces er Tom-governed: KUN manuell trigger (workflow_dispatch),
+# ALDRI på push. Gates må være grønne FØR deploy. Deployer KUN den saniterte
+# Customer Portal (apps/customer-portal) — ALDRI apps/control-center (intern).
 name: deploy
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch: {}
 
 jobs:
-  test-gate:
+  gates:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npx tsc --noEmit
-      - run: npm test
-
-  security-check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      # TODO: secret-scan (grep + allowlist) — arv secret-audit.mjs fra Arch
+      - name: Syntaks-sjekk (alle .mjs)
+        run: |
+          for f in $(find packages -name '*.mjs'); do node --check "$f" || exit 1; done
+      - name: Build (collect — degraderer grasiøst uten secrets)
+        run: npm run build
+      - name: Leakage-audit (public-artefakter)
+        run: node packages/data-adapters/audit-leak.mjs
+      - name: Deploy Ready Gate (12 bevis)
+        run: node packages/governance/deploy-ready-check.mjs
 
   deploy:
-    needs: [test-gate, security-check]
+    needs: [gates]
     runs-on: ubuntu-latest
-    # TODO: wrangler deploy / platform-deploy. Alert via Linear fingerprint-dedup.
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build (regenerer data.js i CI)
+        run: npm run build
+      - name: Deploy Customer Portal (sanitert, KUN kunde-flate)
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy apps/customer-portal --project-name arch-platform --branch main
 
   smoke:
     needs: [deploy]
     runs-on: ubuntu-latest
-    # TODO: health + landing + i18n-nøkkel-sjekk. Ved feil → auto-rollback → Linear prio 2/1.
+    steps:
+      - name: HTTP smoke (prod + assets)
+        run: |
+          set -e
+          curl -sf -o /dev/null "https://arch-platform.pages.dev/"
+          curl -sf -o /dev/null "https://arch-platform.pages.dev/styles.css"
+          curl -sf -o /dev/null "https://arch-platform.pages.dev/app.js"
+          curl -sf -o /dev/null "https://arch-platform.pages.dev/data.js"
+          echo "✅ smoke OK"
+      - name: Privacy smoke (0 lekkasjer i live data.js)
+        run: |
+          set -e
+          DATA=$(curl -sf "https://arch-platform.pages.dev/data.js")
+          for pat in '/Users/' 'dev_path' 'LINEAR_API_KEY' 'Bearer' 'secret://'; do
+            if echo "$DATA" | grep -q "$pat"; then echo "🔴 LEKKASJE: $pat"; exit 1; fi
+          done
+          echo "✅ privacy OK (0 sensitive treff)"
