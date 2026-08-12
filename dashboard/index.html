@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arch Control Center</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <header class="masthead">
+      <div class="brand">
+        <div class="logo">▲</div>
+        <div>
+          <h1>ARCH CONTROL CENTER</h1>
+          <p class="tagline">Autonomous Engineering Platform</p>
+        </div>
+      </div>
+      <div class="masthead-meta">
+        <span class="version">Arch v<span id="ver">—</span></span>
+        <span class="updated">oppdatert <span id="gen">—</span></span>
+      </div>
+    </header>
+
+    <main class="grid">
+      <!-- PROSJEKTER -->
+      <section class="card span-2">
+        <h2>Projects</h2>
+        <div id="projects" class="project-list"></div>
+      </section>
+
+      <!-- AGENTER -->
+      <section class="card">
+        <h2>Agents</h2>
+        <div id="agents" class="agent-list"></div>
+      </section>
+
+      <!-- KNOWLEDGE -->
+      <section class="card">
+        <h2>Knowledge Graph</h2>
+        <div id="knowledge" class="knowledge-grid"></div>
+      </section>
+
+      <!-- SECURITY -->
+      <section class="card">
+        <h2>Security</h2>
+        <div id="security" class="security-list"></div>
+      </section>
+
+      <!-- SCORE-BREAKDOWN -->
+      <section class="card span-2">
+        <h2>Arch Score — vektet</h2>
+        <div id="breakdown"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Arch lærer av systemet, men endrer aldri sikkerhetsgrenser automatisk.</span>
+      <span>Certified by Arch v<span id="cert-ver">—</span></span>
+    </footer>
+  </div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

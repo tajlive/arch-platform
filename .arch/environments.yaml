@@ -1,0 +1,8 @@
+# Arch miljøer — arch-platform
+environments:
+  local:
+    url: http://localhost:3000
+    secrets_store: .env.local
+  prod:
+    url: "<TODO>"
+    worker: "<TODO>"
