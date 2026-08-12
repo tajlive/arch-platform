@@ -1,0 +1,23 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Syntaks-sjekk (alle .mjs)
+        run: |
+          for f in $(find packages -name '*.mjs'); do node --check "$f" || exit 1; done
+      - name: Health Score v2.1 (selv-sjekk)
+        run: node packages/health-score/health-score.mjs . --json
+      - name: Leakage-audit
+        run: node packages/data-adapters/audit-leak.mjs
+      - name: Deploy Ready Gate (12 bevis)
+        run: node packages/governance/deploy-ready-check.mjs

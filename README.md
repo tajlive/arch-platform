@@ -5,6 +5,13 @@ løsninger med innebygd governance.
 
 > «Arch lærer av systemet, men endrer aldri sikkerhetsgrenser automatisk.»
 
+## Moduler
+
+Produktet er **Arch Platform**. Disse er moduler (ikke egne produkter): **Control Center**,
+**Customer Portal**, **Project Factory**, **Health Score**, **Data Adapters**, **Knowledge Engine**,
+**Governance** og **UI**. Senere: **Arch Audit**, **Arch Build**, **Arch Managed**.
+(`arch-dashboard` er ikke et eget produkt — kun historisk F3-pilot, arkivert.)
+
 ## Struktur (kanonisk monorepo)
 
 | Katalog | Innhold |

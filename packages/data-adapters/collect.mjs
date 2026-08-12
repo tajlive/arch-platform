@@ -14,7 +14,7 @@
  *     intern prosjektmetadata, failure-INNHOLD.
  */
 import { execFileSync } from "node:child_process";
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -72,13 +72,19 @@ for (const p of registry) {
 internal.agents = fetchAgents();
 internal.knowledge = fetchKnowledgeCounts(knowledgeDir);
 
-// Klarpakke secret-audit (observert, read-only)
-try {
-  const out = execFileSync("node", ["/Users/taj/klarpakke/scripts/security/secret-audit.mjs", "--check"], { encoding: "utf8", timeout: 30000 });
-  const findings = (out.match(/"findings":(\d+)/) || [])[1];
-  internal.security = { secrets: "OK", policies: "OK", audit: findings === "0" ? "OK" : "funn", audit_findings: findings === undefined ? null : Number(findings), source: "secret-audit (klarpakke, observert)" };
-} catch {
-  internal.security = { secrets: "OK", policies: "OK", audit: "unknown", audit_findings: null, source: "secret-audit utilgjengelig" };
+// Klarpakke secret-audit (observert, read-only) — sti fra registry, ikke hardkodet
+const klarpakke = registry.find((p) => p.project_id === "klarpakke");
+const auditScript = klarpakke?.dev_path ? join(klarpakke.dev_path, "scripts/security/secret-audit.mjs") : null;
+if (auditScript && existsSync(auditScript)) {
+  try {
+    const out = execFileSync("node", [auditScript, "--check"], { encoding: "utf8", timeout: 30000 });
+    const findings = (out.match(/"findings":(\d+)/) || [])[1];
+    internal.security = { secrets: "OK", policies: "OK", audit: findings === "0" ? "OK" : "funn", audit_findings: findings === undefined ? null : Number(findings), source: "secret-audit (klarpakke, observert)" };
+  } catch {
+    internal.security = { secrets: "OK", policies: "OK", audit: "unknown", audit_findings: null, source: "secret-audit utilgjengelig" };
+  }
+} else {
+  internal.security = { secrets: "OK", policies: "OK", audit: "unknown", audit_findings: null, source: "secret-audit ikke tilgjengelig (ingen dev_path i registry)" };
 }
 
 // ── Sanitert publikums-visning (default-deny) ──
