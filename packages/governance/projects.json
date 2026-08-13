@@ -62,6 +62,21 @@
       "note": "Autoglass AS B2C-kanal (kunde #3). Forsikringsuavhengig salg til privatpersoner. NS-peking fra Domeneshop gjenstår."
     },
     {
+      "project_id": "tronderglass",
+      "name": "Trønderglass",
+      "type": "Bilglass-montør (verksted)",
+      "repository": null,
+      "linear_team": "ARC",
+      "linear_project": "Trønderglass",
+      "runtime": null,
+      "environment": "production",
+      "visibility": "customer",
+      "health_profile": "customer",
+      "status": "live",
+      "url": "https://tronderglass.no",
+      "note": "Eksternt montørfirma (verksted) i Selsbakk, Trondheim. Domene registrert hos Domeneshop (NS hyp.net); kode/repo ikke opprettet."
+    },
+    {
       "project_id": "arch-dashboard",
       "name": "Arch Dashboard",
       "type": "Internal Platform",
