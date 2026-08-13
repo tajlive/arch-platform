@@ -46,6 +46,7 @@ Første **eksterne** Arch-kunde. Produktet under bygging: **senior AI-ordremotta
 ## Kunde-artefakter
 
 - **Komplett prisliste** (`docs/audits/customers/autoglass/assets/PROSEKT-API-16-MAI26-prisliste.xls`) — alle Autoglass AS sine varer. Generert av Eduard Eikeland 16.05.2026. Sortert etter varenummer. Analyse-script: `assets/analyze-prisliste.py`.
+- **Importert til D1 (2026-08-13):** 29 627 unike varer i tabell `autoglass_prisliste` i `glass-catalog-db` (CF-account 2266e975, Autoglass-org). Kolonner: varenr, varenavn, kommentar, pris, eurokode, alias_av, rad_type. UNIQUE(varenr, varenavn) — idempotent re-import. Import-rute: GitHub Actions `d1-prisliste-import.yml` (autoglassnorge/autoglassgrossisten, push-trigger på generert-SQL + workflow_dispatch). Rad-fordeling: glass 25 179 · tilbehør 2 961 · alias 1 420 · frakt 59 · emballasje 8.
 
 ## Prisliste-analyse (PROSEKT API, 16.05.2026)
 
