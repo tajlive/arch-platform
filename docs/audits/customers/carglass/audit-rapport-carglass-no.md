@@ -4,6 +4,8 @@
 **Utført av:** Arch (utenfor-inn analyse, uautentisert)
 **Formål:** Ærlig gjennomgang av nettbutikken — teknikk, sikkerhet, fart, innhold og brukervennlighet.
 
+**Forretningsmodell:** 🔧 **Montør-kjede (B2C)** — monterer glass for sluttkunder. Ikke direkte konkurrent til Autoglass (B2B-grossist); scores på en annen målestokk (booking-flyt, betaling, merkevare).
+
 > **Slik leser du rapporten:** alle tekniske ord og forkortelser er forklart i vanlig norsk første gang de brukes. Alt som er målt er faktiske målinger, ikke synsing.
 
 ---

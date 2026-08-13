@@ -4,6 +4,8 @@
 **Utført av:** Arch (utenfor-inn analyse, uautentisert + innlogget varesøk)
 **Formål:** Ærlig gjennomgang av nettbutikken — teknikk, sikkerhet, fart, innhold og brukervennlighet.
 
+**Forretningsmodell:** 🏭 **B2B bilglassgrossist** — selger glass til verksteder, monterer ikke selv. Direkte konkurrent er **Bilglassgruppen** (også grossist). Carglass, Riis Bilglass og Glassdrive er montør-kjeder (et annet segment) — de er ikke direkte konkurrenter og scores ikke på samme akse.
+
 > **Slik leser du rapporten:** alle tekniske ord og forkortelser er forklart i vanlig norsk første gang de brukes. Alt som er målt er faktiske målinger, ikke synsing.
 
 ---
