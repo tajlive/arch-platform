@@ -30,6 +30,22 @@
       "url": null
     },
     {
+      "project_id": "autoglassgrossisten",
+      "name": "Autoglass Grossisten",
+      "type": "B2B-grossist portal + AI-ordremottaker",
+      "repository": "tajlive/autoglassgrossisten",
+      "linear_team": "ARC",
+      "linear_project": "Autoglass",
+      "runtime": "cloudflare-pages",
+      "environment": "production",
+      "visibility": "customer",
+      "health_profile": "customer",
+      "status": "live",
+      "url": "https://auto-glass.no",
+      "dev_path": "/Users/taj/Developer/autoglassgrossisten",
+      "note": "Archs 1. testkunde (F4.2). Control Plane onboardet 2026-08-14 via Project Factory."
+    },
+    {
       "project_id": "arch-dashboard",
       "name": "Arch Dashboard",
       "type": "Internal Platform",

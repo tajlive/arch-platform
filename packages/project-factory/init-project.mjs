@@ -27,7 +27,10 @@ import { execFileSync } from "node:child_process";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(__dirname, "../..");
 const templatesRoot = join(repoRoot, ".arch/templates");
-const lessonsDir = join(repoRoot, ".arch/knowledge/lessons");
+// Knowledge Graph: primær = Control Plane .arch/, fallback = packages/knowledge-engine
+const lessonsDir = existsSync(join(repoRoot, ".arch/knowledge/lessons"))
+  ? join(repoRoot, ".arch/knowledge/lessons")
+  : join(repoRoot, "packages/knowledge-engine/knowledge/lessons");
 
 const args = process.argv.slice(2);
 const name = args[0];

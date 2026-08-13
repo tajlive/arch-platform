@@ -40,7 +40,9 @@ function detectType(n) {
 const type = detectType(name);
 
 // ── Kunnskaps-arv fra Arch Knowledge Graph ──
-const lessonsDir = join(repoRoot, ".arch/knowledge/lessons");
+const lessonsDir = existsSync(join(repoRoot, ".arch/knowledge/lessons"))
+  ? join(repoRoot, ".arch/knowledge/lessons")
+  : join(repoRoot, "packages/knowledge-engine/knowledge/lessons");
 const lessons = existsSync(lessonsDir)
   ? readdirSync(lessonsDir).filter((f) => f.endsWith(".md"))
   : [];
