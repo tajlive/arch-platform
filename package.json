@@ -11,6 +11,7 @@
     "audit:leak": "node packages/data-adapters/audit-leak.mjs",
     "audit": "node packages/audit/audit.mjs",
     "audit:ready": "node packages/audit/lib/readiness.mjs",
-    "audit:delivery": "node packages/audit/lib/record-delivery.mjs"
+    "audit:delivery": "node packages/audit/lib/record-delivery.mjs",
+    "audit:web": "node packages/audit/audit-web.mjs"
   }
 }

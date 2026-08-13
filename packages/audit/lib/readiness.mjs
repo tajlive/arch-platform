@@ -34,6 +34,13 @@ const MODULES = [
   "packages/audit/lib/record-delivery.mjs",
   "packages/audit/lib/secret-scan.mjs",
   "packages/audit/lib/stack-detect.mjs",
+  "packages/audit/lib/web/kinds.mjs",
+  "packages/audit/lib/web/collect.mjs",
+  "packages/audit/lib/web/score.mjs",
+  "packages/audit/lib/web/findings.mjs",
+  "packages/audit/lib/web/browser.mjs",
+  "packages/audit/lib/web/report.mjs",
+  "packages/audit/audit-web.mjs",
 ];
 
 let pass = 0;

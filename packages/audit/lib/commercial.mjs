@@ -9,6 +9,8 @@
 // Alt er deterministisk (regelbasert), aldri fabrikkert: business impact og innsats
 // er malbaserte vurderinger knyttet til en dokumentert funn-type (kind), ikke fri tekst.
 
+import { WEB_KINDS } from "./web/kinds.mjs";
+
 export const BUCKETS = Object.freeze(["Critical", "High ROI", "Quick Win", "Strategic"]);
 
 export const BUCKET_LABEL = Object.freeze({
@@ -151,6 +153,9 @@ const KIND_META = {
     build_candidate: true,
   },
 };
+
+// Merge website-kinds (F4.2B) — samme bøtter/format, gjenbrukt av Website Audit.
+Object.assign(KIND_META, WEB_KINDS);
 
 // Positive/informative funn som ikke er «tiltak» — vises ikke i prioritert liste.
 export const INFO_KINDS = new Set(["secret_clean", "engineering_score"]);

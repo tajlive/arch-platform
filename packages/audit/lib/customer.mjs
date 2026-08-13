@@ -70,3 +70,49 @@ export function stampScope(m, modeLabel) {
   L.push(`> Ingen hemmeligheter er kopiert inn i Arch. Funn vises kun som fil:linje + mønster, aldri verdier.\n`);
   return L.join("\n");
 }
+
+// ── Website Audit (F4.2B) ──
+
+/** Validerer website-manifest: consent-gate med prospect_preview-unntak. */
+export function validateWebsite(m) {
+  const errors = [];
+  const site = m.website;
+  if (!site || !/^https?:\/\//i.test(site)) errors.push("website må være en gyldig http(s)-URL");
+  if (m.mode !== "prospect_preview" && m.consent_granted !== true) errors.push("consent_granted må være true for formell kunde-audit (eller bruk mode=prospect_preview for intern research)");
+  return errors;
+}
+
+/** Isolert output-katalog for formell website-audit (samme som repo-audit). */
+export const websiteCustomerDir = customerOutputDir;
+
+/** Isolert output-katalog for intern prospect-preview (IKKE formell leveranse). */
+export function prospectDir(key) {
+  const dir = join(AUDIT_OUT_ROOT, "..", "prospects", key);
+  mkdirSync(dir, { recursive: true });
+  return dir;
+}
+
+/** Website-scope-banner til rapporttopp. */
+export function stampWebsiteScope(m, modeLabel) {
+  const L = [];
+  L.push(`### Kunde & samtykke\n`);
+  L.push(`| Felt | Verdi |`);
+  L.push(`|---|---|`);
+  L.push(`| Kunde | ${m.name ?? m.id} |`);
+  L.push(`| Nettsted | ${m.website ?? "—"} |`);
+  L.push(`| Modus | ${modeLabel} |`);
+  L.push(`| Scope | Offentlig nettside (kun) |`);
+  L.push(`| Tilgang | Read-only / uautentisert (ingen endringer) |`);
+  L.push(`| Repository-tilgang | Ikke gitt |`);
+  L.push(`| Endringer utført | Ingen |`);
+  if (m.mode === "prospect_preview") {
+    L.push(`| Consent | Ikke innhentet (intern prospect-vurdering) |`);
+  } else {
+    L.push(`| Consent | ${m.consent_granted ? `✅ gitt ${m.consent_date ?? ""}` : "❌ mangler"} |`);
+  }
+  L.push(``);
+  L.push(`> **Read-only / utenfor-inn:** Arch analyserer kun offentlig observerbar informasjon.`);
+  L.push(`> Ingen login-bypass, ingen aggressive tester, ingen mutasjoner, ingen skjemainnsending.`);
+  L.push(`> Interne systemer som ikke er observerbare, rapporteres som **UNKNOWN** — aldri som feil.\n`);
+  return L.join("\n");
+}
