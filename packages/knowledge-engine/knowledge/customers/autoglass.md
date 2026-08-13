@@ -40,3 +40,8 @@ Første **eksterne** Arch-kunde. Produktet under bygging: **senior AI-ordremotta
 - Kritisk funn: blandet innhold (http på https) + WordPress 4.9.31 EOL / WooCommerce 3.4.8 (2018-stack, kjente sikkerhetshull).
 - Innlogget søk på regnr **fungerer** (EV21734 → Jaguar I-Pace 2019, 15 glassvarianter).
 - Rapporter: `docs/audits/customers/{autoglass,carglass,bilglassgruppen}/audit-rapport-*.md`.
+
+## Kunde-artefakter
+
+- **Komplett prisliste** (`docs/audits/customers/autoglass/assets/PROSEKT-API-16-MAI26-prisliste.xls`) — alle Autoglass AS sine varer, ~34 800 rader. Kolonner: **Varenr, Varenavn, Pris, Eurokode** (+ kommentarfelt med tilleggsinfo som sotet-grad `#MAX55%#`). Generert av Eduard Eikeland 16.05.2026. Sortert etter varenummer. Inneholder bilglass, viskersett (BOSCH) og frakt (POST BRING). **Status: lagt til, IKKE analysert ennå — «vi ser på det senere» (Tom).**
+
