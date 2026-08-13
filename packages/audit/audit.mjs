@@ -108,13 +108,17 @@ if (target.repo) {
 function analyzeCiCd() {
   const wfDir = join(target.path, ".github", "workflows");
   const workflows = existsSync(wfDir) ? readdirSync(wfDir).filter((f) => /\.(yml|yaml)$/.test(f)) : [];
+  const st = collect.stack;
+  const deps = st.all_deps ?? [];
+  const scriptsAll = st.all_scripts ?? [];
+  const hasScript = (re) => scriptsAll.some((s) => re.test(s));
   const toolReqs = [
-    { tool: "tsc", re: /\b(tsc|npx tsc)\b/, present: () => existsSync(join(target.path, "tsconfig.json")) },
-    { tool: "npm ci", re: /\bnpm ci\b/, present: () => existsSync(join(target.path, "package-lock.json")) },
-    { tool: "npm test", re: /\bnpm (run )?test\b/, present: () => !!collect.stack.scripts?.includes("test") },
-    { tool: "eslint", re: /\beslint\b/, present: () => existsSync(join(target.path, "eslint.config.mjs")) || existsSync(join(target.path, ".eslintrc")) || existsSync(join(target.path, ".eslintrc.json")) },
-    { tool: "vitest", re: /\bvitest\b/, present: () => ["vitest.config.ts", "vitest.config.mts", "vitest.config.js", "vitest.workspace.ts"].some((f) => existsSync(join(target.path, f))) },
-    { tool: "jest", re: /\bjest\b/, present: () => ["jest.config.js", "jest.config.ts"].some((f) => existsSync(join(target.path, f))) },
+    { tool: "tsc", re: /\b(tsc|npx tsc)\b/, present: () => (st.tsconfigs?.length > 0) || deps.includes("typescript") },
+    { tool: "npm ci", re: /\bnpm ci\b/, present: () => (st.packages ?? []).some((p) => p.has_lockfile) || existsSync(join(target.path, "package-lock.json")) },
+    { tool: "npm test", re: /\bnpm (run )?test\b/, present: () => hasScript(/^test($|:)/) },
+    { tool: "eslint", re: /\beslint\b/, present: () => (st.eslint_configs?.length > 0) || deps.includes("eslint") },
+    { tool: "vitest", re: /\bvitest\b/, present: () => deps.includes("vitest") || (st.test_configs ?? []).some((f) => /vitest/.test(f)) },
+    { tool: "jest", re: /\bjest\b/, present: () => deps.includes("jest") || (st.test_configs ?? []).some((f) => /jest\.config/.test(f)) },
   ];
   const mismatches = [];
   for (const wf of workflows) {

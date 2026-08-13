@@ -1,0 +1,849 @@
+{
+  "meta": {
+    "generated": "2026-08-13T00:03:19.488Z",
+    "version": "1.0",
+    "target": "/Users/taj/bilglass",
+    "name": "bilglass",
+    "repo": "autoglassnorge/autoglassgrossisten",
+    "url": null,
+    "commit": "52a5232c",
+    "audit_duration_ms": 6735
+  },
+  "executive_summary": "**bilglass** er analysert med Arch Audit v1. Samlet Arch Health Score: **91%**. Secret-scan: **clean (0 lekkasjer)**. CI/verktøykjede: matcher repo. **1 funn med høy/kritisk alvorlighet** bør prioriteres. Rapporten skiller automatiske funn (🟢), infererte anbefalinger (🟡) og beslutninger som krever menneske (🔴).",
+  "health": {
+    "name": "bilglass",
+    "total": 91,
+    "categories": {
+      "Governance": {
+        "pct": 0,
+        "weight": 20,
+        "pass": 0,
+        "fail": 0,
+        "unknown": 0,
+        "denom": 0,
+        "checks": [
+          {
+            "id": ".arch/project.yaml",
+            "label": "project.yaml",
+            "result": "NOT_APPLICABLE",
+            "evidence": "utenfor Arch-governance-scope",
+            "source": "n/a",
+            "observed_at": "2026-08-13T00:03:19.540Z"
+          },
+          {
+            "id": ".arch/policies.yaml",
+            "label": "policies.yaml",
+            "result": "NOT_APPLICABLE",
+            "evidence": "utenfor Arch-governance-scope",
+            "source": "n/a",
+            "observed_at": "2026-08-13T00:03:19.540Z"
+          },
+          {
+            "id": ".arch/agents.yaml",
+            "label": "agents.yaml",
+            "result": "NOT_APPLICABLE",
+            "evidence": "utenfor Arch-governance-scope",
+            "source": "n/a",
+            "observed_at": "2026-08-13T00:03:19.540Z"
+          },
+          {
+            "id": ".arch/audit-log.md",
+            "label": "audit-log.md",
+            "result": "NOT_APPLICABLE",
+            "evidence": "utenfor Arch-governance-scope",
+            "source": "n/a",
+            "observed_at": "2026-08-13T00:03:19.540Z"
+          },
+          {
+            "id": ".arch/decisions.md",
+            "label": "decisions.md",
+            "result": "NOT_APPLICABLE",
+            "evidence": "utenfor Arch-governance-scope",
+            "source": "n/a",
+            "observed_at": "2026-08-13T00:03:19.540Z"
+          }
+        ]
+      },
+      "Security": {
+        "pct": 100,
+        "weight": 25,
+        "pass": 1,
+        "fail": 0,
+        "unknown": 0,
+        "denom": 1,
+        "checks": [
+          {
+            "id": ".arch/secrets/registry.yaml",
+            "label": "secrets registry",
+            "result": "NOT_APPLICABLE",
+            "evidence": "utenfor Arch-governance-scope",
+            "source": "n/a",
+            "observed_at": "2026-08-13T00:03:19.540Z"
+          },
+          {
+            "id": ".arch/secrets/mapping.yaml",
+            "label": "secrets mapping",
+            "result": "NOT_APPLICABLE",
+            "evidence": "utenfor Arch-governance-scope",
+            "source": "n/a",
+            "observed_at": "2026-08-13T00:03:19.540Z"
+          },
+          {
+            "id": "gitignore .env",
+            "label": ".env gitignoret",
+            "result": "PASS",
+            "evidence": ".gitignore",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:03:19.540Z"
+          },
+          {
+            "id": "secret-policy",
+            "label": "secret-policy i policies",
+            "result": "NOT_APPLICABLE",
+            "evidence": "utenfor Arch-governance-scope",
+            "source": "n/a",
+            "observed_at": "2026-08-13T00:03:19.540Z"
+          }
+        ]
+      },
+      "Engineering": {
+        "pct": 100,
+        "weight": 25,
+        "pass": 4,
+        "fail": 0,
+        "unknown": 0,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "package.json",
+            "label": "package.json",
+            "result": "PASS",
+            "evidence": "package.json",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:03:19.540Z"
+          },
+          {
+            "id": "workflow",
+            "label": "CI-workflow",
+            "result": "PASS",
+            "evidence": ".github/workflows/",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:03:19.540Z"
+          },
+          {
+            "id": "tests",
+            "label": "tester tilstede",
+            "result": "PASS",
+            "evidence": "test-filer funnet",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:03:19.540Z"
+          },
+          {
+            "id": "test-runner",
+            "label": "test-runner konfig",
+            "result": "PASS",
+            "evidence": "test-runner konfig",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:03:19.540Z"
+          }
+        ]
+      },
+      "Operations": {
+        "pct": 75,
+        "weight": 20,
+        "pass": 3,
+        "fail": 1,
+        "unknown": 0,
+        "denom": 4,
+        "checks": [
+          {
+            "id": ".github/workflows/deploy.yml",
+            "label": "deploy workflow",
+            "result": "PASS",
+            "evidence": ".github/workflows/deploy.yml",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:03:19.540Z"
+          },
+          {
+            "id": "monitoring",
+            "label": "monitoring",
+            "result": "PASS",
+            "evidence": "monitor tilstede",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:03:19.540Z"
+          },
+          {
+            "id": "alerts",
+            "label": "alert-integrasjon",
+            "result": "PASS",
+            "evidence": "alert-integrasjon",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:03:19.540Z"
+          },
+          {
+            "id": "rollback",
+            "label": "rollback",
+            "result": "FAIL",
+            "evidence": "ingen rollback",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:03:19.540Z"
+          }
+        ]
+      },
+      "Documentation": {
+        "pct": 75,
+        "weight": 10,
+        "pass": 3,
+        "fail": 1,
+        "unknown": 0,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "readme",
+            "label": "README",
+            "result": "PASS",
+            "evidence": "README.md",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:03:19.540Z"
+          },
+          {
+            "id": "architect",
+            "label": "ARCHITECT",
+            "result": "FAIL",
+            "evidence": "mangler ARCHITECT",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:03:19.540Z"
+          },
+          {
+            "id": "api-docs",
+            "label": "API-dokumentasjon",
+            "result": "PASS",
+            "evidence": "docs/api",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:03:19.540Z"
+          },
+          {
+            "id": "decisions",
+            "label": "beslutningslogg",
+            "result": "PASS",
+            "evidence": "docs/adr/",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:03:19.540Z"
+          }
+        ]
+      }
+    },
+    "observed_at": "2026-08-13T00:03:19.540Z",
+    "arch_managed": false
+  },
+  "security": {
+    "secrets": {
+      "status": "clean",
+      "files_scanned": 9276,
+      "findings": 0,
+      "gitignored_notes": 2,
+      "details": [
+        {
+          "file": ".venv-pdf/lib/python3.14/site-packages/PIL/ImageFont.py",
+          "line": 1246,
+          "pattern": "aws-key",
+          "severity": "note"
+        },
+        {
+          "file": ".venv-pdf/lib/python3.14/site-packages/cryptography/hazmat/primitives/serialization/ssh.py",
+          "line": 78,
+          "pattern": "private-key",
+          "severity": "note"
+        }
+      ]
+    },
+    "secret_governance": "missing"
+  },
+  "stack": {
+    "name": "autoglass-b2b-website",
+    "version": "1.0.0",
+    "framework": "React (SPA)",
+    "language": "TypeScript",
+    "package_manager": "npm",
+    "test_runner": "vitest + playwright",
+    "has_tests": true,
+    "cloudflare": [
+      "wrangler.toml (api/cf-worker/wrangler.toml)",
+      "wrangler.toml (frontend/wrangler.toml)",
+      "Cloudflare Workers (dep)"
+    ],
+    "supabase": [],
+    "scripts": [
+      "dev",
+      "export:unimicro",
+      "lookup",
+      "scrape:glavista",
+      "scrape:pilkington",
+      "scrape:pilkington:loop",
+      "build:prefix4",
+      "premerge",
+      "merge",
+      "postmerge",
+      "precatalog:enrich:eurocode",
+      "postcatalog:enrich:eurocode",
+      "preprice:sync",
+      "postprice:sync",
+      "static:upload",
+      "migrate:d1",
+      "benchmark:d1",
+      "worker:dev",
+      "worker:deploy",
+      "preworker:upload",
+      "worker:upload",
+      "predeploy:full",
+      "deploy:full",
+      "predeploy:kv",
+      "deploy:kv",
+      "predeploy:d1",
+      "deploy:d1",
+      "pages:deploy",
+      "full:pipeline",
+      "scrape:pilkington:v2",
+      "scrape:pilkington:v2:loop",
+      "price:check",
+      "price:update",
+      "price:update:full",
+      "price:login",
+      "price:sync",
+      "price:pipeline",
+      "scrape:finn-regnr",
+      "scrape:finn-regnr:step1",
+      "scrape:finn-regnr:step2",
+      "scrape:finn-regnr:step3",
+      "scrape:finn-regnr:test",
+      "scrape:finn-regnr:reset",
+      "verify:finn-regnr",
+      "verify:finn-regnr:fast",
+      "scrape:finn-targeted",
+      "scrape:finn-targeted:test",
+      "scrape:finn-broad",
+      "scrape:finn-broad:test",
+      "scrape:finn-broad:resume",
+      "generate:ktype-inserts",
+      "verify:bovsoft",
+      "catalog:optimize",
+      "catalog:validate",
+      "catalog:build",
+      "catalog:validate-prod",
+      "backup:catalog",
+      "smoke:prod",
+      "test:e2e",
+      "test:e2e:report",
+      "test:all",
+      "test:unit",
+      "catalog:enrich:eurocode",
+      "catalog:sync:d1",
+      "catalog:sync:d1:sql",
+      "eurocode:pipeline",
+      "fuzzy:svv-tecdoc",
+      "fuzzy:svv-tecdoc:sql"
+    ],
+    "all_scripts": [
+      "dev",
+      "deploy",
+      "tail",
+      "types",
+      "test",
+      "test:search-accuracy",
+      "test:search-accuracy:watch",
+      "build",
+      "preview",
+      "lint",
+      "export:unimicro",
+      "lookup",
+      "scrape:glavista",
+      "scrape:pilkington",
+      "scrape:pilkington:loop",
+      "build:prefix4",
+      "premerge",
+      "merge",
+      "postmerge",
+      "precatalog:enrich:eurocode",
+      "postcatalog:enrich:eurocode",
+      "preprice:sync",
+      "postprice:sync",
+      "static:upload",
+      "migrate:d1",
+      "benchmark:d1",
+      "worker:dev",
+      "worker:deploy",
+      "preworker:upload",
+      "worker:upload",
+      "predeploy:full",
+      "deploy:full",
+      "predeploy:kv",
+      "deploy:kv",
+      "predeploy:d1",
+      "deploy:d1",
+      "pages:deploy",
+      "full:pipeline",
+      "scrape:pilkington:v2",
+      "scrape:pilkington:v2:loop",
+      "price:check",
+      "price:update",
+      "price:update:full",
+      "price:login",
+      "price:sync",
+      "price:pipeline",
+      "scrape:finn-regnr",
+      "scrape:finn-regnr:step1",
+      "scrape:finn-regnr:step2",
+      "scrape:finn-regnr:step3",
+      "scrape:finn-regnr:test",
+      "scrape:finn-regnr:reset",
+      "verify:finn-regnr",
+      "verify:finn-regnr:fast",
+      "scrape:finn-targeted",
+      "scrape:finn-targeted:test",
+      "scrape:finn-broad",
+      "scrape:finn-broad:test",
+      "scrape:finn-broad:resume",
+      "generate:ktype-inserts",
+      "verify:bovsoft",
+      "catalog:optimize",
+      "catalog:validate",
+      "catalog:build",
+      "catalog:validate-prod",
+      "backup:catalog",
+      "smoke:prod",
+      "test:e2e",
+      "test:e2e:report",
+      "test:all",
+      "test:unit",
+      "catalog:enrich:eurocode",
+      "catalog:sync:d1",
+      "catalog:sync:d1:sql",
+      "eurocode:pipeline",
+      "fuzzy:svv-tecdoc",
+      "fuzzy:svv-tecdoc:sql"
+    ],
+    "all_deps": [
+      "@cloudflare/vitest-pool-workers",
+      "@cloudflare/workers-types",
+      "allure-vitest",
+      "typescript",
+      "vitest",
+      "wrangler",
+      "@radix-ui/react-slot",
+      "@tanstack/react-query",
+      "@tanstack/react-virtual",
+      "class-variance-authority",
+      "clsx",
+      "lucide-react",
+      "react",
+      "react-dom",
+      "react-router-dom",
+      "tailwind-merge",
+      "tesseract.js",
+      "zustand",
+      "@testing-library/jest-dom",
+      "@testing-library/react",
+      "@types/react",
+      "@types/react-dom",
+      "@typescript-eslint/eslint-plugin",
+      "@typescript-eslint/parser",
+      "@vitejs/plugin-react",
+      "autoprefixer",
+      "eslint",
+      "eslint-plugin-react-hooks",
+      "eslint-plugin-react-refresh",
+      "jsdom",
+      "postcss",
+      "tailwindcss",
+      "vite",
+      "@google/generative-ai",
+      "node-fetch",
+      "p-limit",
+      "pdf-parse",
+      "@playwright/test",
+      "@types/node",
+      "allure-commandline",
+      "allure-playwright",
+      "chrome-launcher",
+      "csv-parse",
+      "csv-stringify",
+      "lighthouse",
+      "node-html-parser",
+      "playwright",
+      "simple-icons",
+      "ts-node",
+      "tsx"
+    ],
+    "packages": [
+      {
+        "path": "api/cf-worker",
+        "name": "autoglass-cf-worker",
+        "version": "1.0.0",
+        "scripts": [
+          "dev",
+          "deploy",
+          "tail",
+          "types",
+          "test",
+          "test:search-accuracy",
+          "test:search-accuracy:watch"
+        ],
+        "deps": [
+          "@cloudflare/vitest-pool-workers",
+          "@cloudflare/workers-types",
+          "allure-vitest",
+          "typescript",
+          "vitest",
+          "wrangler"
+        ],
+        "has_lockfile": true
+      },
+      {
+        "path": "frontend",
+        "name": "autoglass-frontend",
+        "version": "3.0.0",
+        "scripts": [
+          "dev",
+          "build",
+          "preview",
+          "lint",
+          "test"
+        ],
+        "deps": [
+          "@radix-ui/react-slot",
+          "@tanstack/react-query",
+          "@tanstack/react-virtual",
+          "class-variance-authority",
+          "clsx",
+          "lucide-react",
+          "react",
+          "react-dom",
+          "react-router-dom",
+          "tailwind-merge",
+          "tesseract.js",
+          "zustand",
+          "@testing-library/jest-dom",
+          "@testing-library/react",
+          "@types/react",
+          "@types/react-dom",
+          "@typescript-eslint/eslint-plugin",
+          "@typescript-eslint/parser",
+          "@vitejs/plugin-react",
+          "allure-vitest",
+          "autoprefixer",
+          "eslint",
+          "eslint-plugin-react-hooks",
+          "eslint-plugin-react-refresh",
+          "jsdom",
+          "postcss",
+          "tailwindcss",
+          "typescript",
+          "vite",
+          "vitest"
+        ],
+        "has_lockfile": true
+      },
+      {
+        "path": ".",
+        "name": "autoglass-b2b-website",
+        "version": "1.0.0",
+        "scripts": [
+          "dev",
+          "export:unimicro",
+          "lookup",
+          "scrape:glavista",
+          "scrape:pilkington",
+          "scrape:pilkington:loop",
+          "build:prefix4",
+          "premerge",
+          "merge",
+          "postmerge",
+          "precatalog:enrich:eurocode",
+          "postcatalog:enrich:eurocode",
+          "preprice:sync",
+          "postprice:sync",
+          "static:upload",
+          "migrate:d1",
+          "benchmark:d1",
+          "worker:dev",
+          "worker:deploy",
+          "preworker:upload",
+          "worker:upload",
+          "predeploy:full",
+          "deploy:full",
+          "predeploy:kv",
+          "deploy:kv",
+          "predeploy:d1",
+          "deploy:d1",
+          "pages:deploy",
+          "full:pipeline",
+          "scrape:pilkington:v2",
+          "scrape:pilkington:v2:loop",
+          "price:check",
+          "price:update",
+          "price:update:full",
+          "price:login",
+          "price:sync",
+          "price:pipeline",
+          "scrape:finn-regnr",
+          "scrape:finn-regnr:step1",
+          "scrape:finn-regnr:step2",
+          "scrape:finn-regnr:step3",
+          "scrape:finn-regnr:test",
+          "scrape:finn-regnr:reset",
+          "verify:finn-regnr",
+          "verify:finn-regnr:fast",
+          "scrape:finn-targeted",
+          "scrape:finn-targeted:test",
+          "scrape:finn-broad",
+          "scrape:finn-broad:test",
+          "scrape:finn-broad:resume",
+          "generate:ktype-inserts",
+          "verify:bovsoft",
+          "catalog:optimize",
+          "catalog:validate",
+          "catalog:build",
+          "catalog:validate-prod",
+          "backup:catalog",
+          "smoke:prod",
+          "test:e2e",
+          "test:e2e:report",
+          "test:all",
+          "test:unit",
+          "catalog:enrich:eurocode",
+          "catalog:sync:d1",
+          "catalog:sync:d1:sql",
+          "eurocode:pipeline",
+          "fuzzy:svv-tecdoc",
+          "fuzzy:svv-tecdoc:sql"
+        ],
+        "deps": [
+          "@google/generative-ai",
+          "node-fetch",
+          "p-limit",
+          "pdf-parse",
+          "@playwright/test",
+          "@types/node",
+          "allure-commandline",
+          "allure-playwright",
+          "allure-vitest",
+          "chrome-launcher",
+          "csv-parse",
+          "csv-stringify",
+          "lighthouse",
+          "node-html-parser",
+          "playwright",
+          "simple-icons",
+          "ts-node",
+          "tsx",
+          "typescript"
+        ],
+        "has_lockfile": true
+      }
+    ],
+    "tsconfigs": [
+      "api/cf-worker/tsconfig.json",
+      "frontend/tsconfig.json",
+      "frontend/tsconfig.node.json"
+    ],
+    "test_configs": [
+      "api/cf-worker/vitest.config.mts",
+      "frontend/vitest.config.ts",
+      "playwright.config.js"
+    ],
+    "eslint_configs": [],
+    "wrangler_files": [
+      "api/cf-worker/wrangler.toml",
+      "frontend/wrangler.toml"
+    ],
+    "monorepo": true,
+    "runtime_hint": "Cloudflare"
+  },
+  "ci_cd": {
+    "workflows": [
+      "bovsoft-kv-sync.yml",
+      "d1-migrate.yml",
+      "d1-nordglass-import.yml",
+      "d1-position-migration.yml",
+      "daily-price-check.yml",
+      "daily-scrape.yml",
+      "daily-svv-bruteforce.yml",
+      "deploy-mirror.yml",
+      "deploy.yml",
+      "scrape-catalog.yml",
+      "sync-d1-catalog.yml",
+      "tecdoc-import.yml",
+      "uptime.yml",
+      "verify.yml"
+    ],
+    "mismatches": [],
+    "last_run": {
+      "conclusion": "success",
+      "created_at": "2026-08-12T23:30:34Z",
+      "head_sha": "806467c3abff2bdeeb47f0326d8adb0907557f14",
+      "status": "completed"
+    }
+  },
+  "operations": {
+    "monitoring": true,
+    "alerts": false,
+    "rollback": false
+  },
+  "documentation": {
+    "readme": true,
+    "architect": false,
+    "api_docs": true,
+    "decisions": false
+  },
+  "knowledge": {
+    "inherited": [
+      {
+        "file": "lesson-edge-nodejs.md",
+        "keywords": [
+          "cloudflare",
+          "supabase",
+          "next"
+        ],
+        "rule": "supabase-js-ruter = runtime:\"nodejs\" (aldri edge)"
+      },
+      {
+        "file": "lesson-route-handler-server-client.md",
+        "keywords": [
+          "next",
+          "supabase"
+        ],
+        "rule": "route handlers: createServerClient(request, response)"
+      },
+      {
+        "file": "lesson-wrangler-env-empty.md",
+        "keywords": [
+          "wrangler",
+          "cloudflare"
+        ],
+        "rule": "wrangler multi-env → --env \"\""
+      },
+      {
+        "file": "lesson-kapital-kun-aktive.md",
+        "keywords": [
+          "trad",
+          "fin",
+          "crypto"
+        ],
+        "rule": "kapital/P&L kun fra aktive sesjoner"
+      },
+      {
+        "file": "lesson-registry-sot-no-hardcoded-paths.md",
+        "keywords": [
+          "collect",
+          "registry",
+          "path"
+        ],
+        "rule": "ingen hardkodede lokale stier i prod-kode"
+      },
+      {
+        "file": "lesson-governed-deploy-verifiser-verktoy.md",
+        "keywords": [
+          "deploy",
+          "ci",
+          "wrangler",
+          "workflow"
+        ],
+        "rule": "verifiser CLI-kommandoer + CI-verktøykjede FØR prosedyre dokumenteres"
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "F001",
+      "class": "automatic",
+      "section": "security",
+      "title": "Ingen secret-mønster i versjonskontrollerte filer",
+      "evidence": "9276 filer scannet, 0 lekkasje",
+      "severity": "low",
+      "priority": 1
+    },
+    {
+      "id": "F002",
+      "class": "inferred",
+      "section": "security",
+      "title": "Etablér .arch/secrets/ governance (registry + allowlist)",
+      "evidence": "ingen .arch/secrets/registry.yaml observert",
+      "severity": "medium",
+      "priority": 3
+    },
+    {
+      "id": "F003",
+      "class": "inferred",
+      "section": "operations",
+      "title": "Manglende alert-integrasjon",
+      "evidence": "ingen alert/escalation i workflows/scripts",
+      "severity": "medium",
+      "priority": 4
+    },
+    {
+      "id": "F004",
+      "class": "inferred",
+      "section": "operations",
+      "title": "Manglende rollback-mekanisme",
+      "evidence": "ingen rollback i workflow",
+      "severity": "high",
+      "priority": 3
+    },
+    {
+      "id": "F005",
+      "class": "inferred",
+      "section": "ai_automation",
+      "title": "Automasjonsmuligheter identifisert",
+      "evidence": "alert-routing til eier (Linear/Discord); dokumentasjon (ARCHITECT/API-docs)",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "F006",
+      "class": "human_approval",
+      "section": "tech_debt",
+      "title": "Regulatorisk/juridisk vurdering (GDPR m.fl.)",
+      "evidence": "ikke vurdert av Arch — krever kvalifisert juridisk gjennomgang",
+      "severity": "medium",
+      "priority": 2
+    }
+  ],
+  "quick_wins": [
+    {
+      "title": "Legg til rollback i deploy-workflow",
+      "effort": "lav",
+      "impact": "høy",
+      "class": "inferred"
+    },
+    {
+      "title": "Skriv ARCHITECT.md (arkitektur-overblikk)",
+      "effort": "lav",
+      "impact": "middels",
+      "class": "inferred"
+    }
+  ],
+  "build_opportunities": [
+    {
+      "title": "Overvåking + alerting + rollback (Arch Managed-forberedelse)",
+      "estimated_value": "høy (produksjonstrygghet)",
+      "effort": "middels",
+      "class": "inferred"
+    },
+    {
+      "title": "Arch Build — videreutvikling fra godkjent audit",
+      "estimated_value": "scopes i Architecture Proposal",
+      "effort": "varierer",
+      "class": "human_approval"
+    }
+  ],
+  "human_approvals": [
+    {
+      "title": "Godkjenn produksjonsdeploy (hvis aktuelt)",
+      "why": "deploy er Tom/governance-gated"
+    },
+    {
+      "title": "Juridisk/regulatorisk vurdering",
+      "why": "GDPR m.fl. krever kvalifisert vurdering — utenfor Archs evidensgrunnlag"
+    }
+  ]
+}

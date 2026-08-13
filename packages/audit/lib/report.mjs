@@ -39,9 +39,13 @@ export function renderCustomer(audit) {
   L.push(`| Kategori | Score | Pass/Fail/Unknown |`);
   L.push(`|---|---|---|`);
   for (const [name, c] of Object.entries(h.categories)) {
-    L.push(`| ${name} | ${c.pct}% | ${c.pass}P / ${c.fail}F / ${c.unknown}U |`);
+    const denom = (c.pass ?? 0) + (c.fail ?? 0) + (c.unknown ?? 0);
+    L.push(`| ${name} | ${denom === 0 ? "N/A" : `${c.pct}%`} | ${c.pass}P / ${c.fail}F / ${c.unknown}U |`);
   }
-  L.push(`\n> Health Score er evidensbasert: hver sjekk bærer \`evidence\` + \`observed_at\`. UNKNOWN telles som ikke-healthy (fail-safe).\n`);
+  L.push(`\n> Health Score er evidensbasert: hver sjekk bærer \`evidence\` + \`observed_at\`. UNKNOWN telles som ikke-healthy (fail-safe).`);
+  if (h.arch_managed === false) {
+    L.push(`\n> **Eksternt prosjekt:** Arch-governance-sjekker (\`.arch/*\`) er N/A og ekskluderes — totalscoren baseres på generiske helsesjekker (CI, tester, docs, secrets-gitignore, monitoring).\n`);
+  }
 
   // 3. Security & Secret Governance
   L.push(`## 3. Security & Secret Governance\n`);
