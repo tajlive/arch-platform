@@ -15,7 +15,7 @@ Auto-glass.no er en B2B-grossist (selger glass til verksteder, monterer ikke) �
 2. **Benchmark kun innenfor samme segment** — eller merk kryss-segment-sammenligninger eksplisitt («ikke direkte konkurrenter, ulik målestokk»).
 3. **Vekt funnene etter modell:** for en grossist teller søk-/ordre-flyt og lager-status tyngre enn forbruker-UX; for en montør teller booking- og betalingsflyt tyngre.
 4. **Rapporter til kunden med forbeholdet innebygd** — så kunden ikke leser «69 vs 81» som «vi taper mot Carglass», men som «vi er best i vårt segment på X, men henger etter teknisk på Y».
-5. **Kartlegg hele verdikjeden:** produsent/distributør (Saint-Gobain Sekurit, Pilkington — originalglass/ettermarked B2B) → grossist (Autoglass, Bilglassgruppen) → montør (Carglass, Riis Bilglass, Glassdrive). Å vite hvilket ledd kunden er i, avgjør hva som er «riktig» målestokk.
+5. **Kartlegg hele verdikjeden:** produsent/distributør (Saint-Gobain Sekurit, Pilkington, AGC — originalglass/ettermarked B2B) → grossist (Autoglass, Bilglassgruppen) → montør (Carglass, Riis Bilglass, Glassdrive). Å vite hvilket ledd kunden er i, avgjør hva som er «riktig» målestokk.
 
 ## Pitfall som ble fanget
 
