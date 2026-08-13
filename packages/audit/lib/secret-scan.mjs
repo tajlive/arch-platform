@@ -1,8 +1,13 @@
 // Secret-scan — generisk, read-only, parameterisert på repo-root (Arch Audit v1).
 //
 // Skanner et repo for secret-mønstre. Skriver ALDRI matchede verdier —
-// kun fil:linje + mønster-navn. Skiller lekkasje (versjonskontrollert) fra
-// note (gitignoret). Allowlist: `.arch/secret-audit.allow` (én «fil:mønster»/linje).
+// kun fil:linje + mønster-navn. Skiller lekkasje (versjonskontrollert, prod-kode) fra
+// note (gitignoret / test-fixture / eksempel / avkortet placeholder). Allowlist:
+// `.arch/secret-audit.allow` (én «fil:mønster»/linje).
+//
+// v2 (2026-08-13): avkortede placeholder-tokens (inneholder «...») og credential-
+// lignende strenger i test-/eksempel-/fixture-filer klassifiseres som NOTE, ikke lekkasje
+// — de er nesten alltid dokumenterte dummy-verdier, ikke ekte hemmeligheter.
 //
 // Ærlig grense: «0 funn» betyr «ingen matchende mønster i scannet filsett» —
 // det er IKKE en påstand om at systemet er «sikkert».
@@ -30,6 +35,9 @@ const SKIP_DIRS = new Set([
   "playwright-report", "out", ".turbo", "build", ".wrangler", ".venv", "vendor",
 ]);
 
+// Test-/eksempel-/fixture-/doc-stier: credential-lignende treff her er nesten alltid dummy.
+const FIXTURE_PATH_RE = /(^|\/)(tests?|examples?|fixtures?|spec|__tests__|_examples?)(\/|$)/;
+
 function readAllowlist(repoRoot) {
   try {
     const set = new Set();
@@ -54,7 +62,7 @@ function isGitignored(repoRoot, relPath) {
 }
 
 /**
- * scan(repoRoot) → { status, files_scanned, findings, notes, details, allowlist }
+ * scan(repoRoot) → { status, files_scanned, findings, gitignored_notes, fixture_notes, details }
  * read-only, kaster aldri. details bærer ALDRI verdier.
  */
 export function scan(repoRoot) {
@@ -74,8 +82,12 @@ export function scan(repoRoot) {
     scannedFiles++;
     const lines = text.split("\n");
     for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
       for (const p of PATTERNS) {
-        if (p.re.test(lines[i])) findings.push({ file: relPath, line: i + 1, pattern: p.name });
+        if (p.re.test(line)) {
+          // Avkortede placeholders («eyJhbG...7rOE») er aldri ekte hemmeligheter.
+          findings.push({ file: relPath, line: i + 1, pattern: p.name, truncated: line.includes("...") });
+        }
       }
     }
   };
@@ -107,19 +119,21 @@ export function scan(repoRoot) {
 
   const annotated = findings
     .filter((f) => !allowlist.has(`${f.file}:${f.pattern}`))
-    .map((f) => ({ ...f, gitignored: isGitignored(repoRoot, f.file) }));
+    .map((f) => ({ ...f, gitignored: isGitignored(repoRoot, f.file), fixture: FIXTURE_PATH_RE.test(f.file) }));
 
-  const leaks = annotated.filter((f) => !f.gitignored);
-  const notes = annotated.filter((f) => f.gitignored);
+  const isLeak = (f) => !f.gitignored && !f.fixture && !f.truncated;
+  const leaks = annotated.filter(isLeak);
+  const notes = annotated.filter((f) => !isLeak(f));
 
   return {
     status: leaks.length ? "leaks_found" : "clean",
     files_scanned: scannedFiles,
     findings: leaks.length,
-    gitignored_notes: notes.length,
+    gitignored_notes: notes.filter((n) => n.gitignored).length,
+    fixture_notes: notes.filter((n) => !n.gitignored).length,
     details: annotated.slice(0, 100).map((f) => ({
       file: f.file, line: f.line, pattern: f.pattern,
-      severity: f.gitignored ? "note" : "leak",
+      severity: isLeak(f) ? "leak" : "note",
     })),
   };
 }

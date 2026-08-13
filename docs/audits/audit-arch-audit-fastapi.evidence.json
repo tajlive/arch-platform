@@ -1,0 +1,483 @@
+{
+  "meta": {
+    "generated": "2026-08-13T00:21:34.064Z",
+    "version": "1.0",
+    "target": "/tmp/arch-audit-fastapi",
+    "name": "arch-audit-fastapi",
+    "repo": "fastapi/fastapi",
+    "url": null,
+    "commit": "f336ff8",
+    "audit_duration_ms": 3431
+  },
+  "executive_summary": "**arch-audit-fastapi** er analysert med Arch Audit v1. Samlet Arch Health Score: **59%**. Secret-scan: **clean (0 lekkasjer)**. CI/verktøykjede: matcher repo. **1 funn med høy/kritisk alvorlighet** bør prioriteres. Rapporten skiller automatiske funn (🟢), infererte anbefalinger (🟡) og beslutninger som krever menneske (🔴).",
+  "health": {
+    "name": "arch-audit-fastapi",
+    "total": 59,
+    "categories": {
+      "Governance": {
+        "pct": 0,
+        "weight": 20,
+        "pass": 0,
+        "fail": 0,
+        "unknown": 0,
+        "denom": 0,
+        "checks": [
+          {
+            "id": ".arch/project.yaml",
+            "label": "project.yaml",
+            "result": "NOT_APPLICABLE",
+            "evidence": "utenfor Arch-governance-scope",
+            "source": "n/a",
+            "observed_at": "2026-08-13T00:21:34.164Z"
+          },
+          {
+            "id": ".arch/policies.yaml",
+            "label": "policies.yaml",
+            "result": "NOT_APPLICABLE",
+            "evidence": "utenfor Arch-governance-scope",
+            "source": "n/a",
+            "observed_at": "2026-08-13T00:21:34.164Z"
+          },
+          {
+            "id": ".arch/agents.yaml",
+            "label": "agents.yaml",
+            "result": "NOT_APPLICABLE",
+            "evidence": "utenfor Arch-governance-scope",
+            "source": "n/a",
+            "observed_at": "2026-08-13T00:21:34.164Z"
+          },
+          {
+            "id": ".arch/audit-log.md",
+            "label": "audit-log.md",
+            "result": "NOT_APPLICABLE",
+            "evidence": "utenfor Arch-governance-scope",
+            "source": "n/a",
+            "observed_at": "2026-08-13T00:21:34.164Z"
+          },
+          {
+            "id": ".arch/decisions.md",
+            "label": "decisions.md",
+            "result": "NOT_APPLICABLE",
+            "evidence": "utenfor Arch-governance-scope",
+            "source": "n/a",
+            "observed_at": "2026-08-13T00:21:34.164Z"
+          }
+        ]
+      },
+      "Security": {
+        "pct": 0,
+        "weight": 25,
+        "pass": 0,
+        "fail": 0,
+        "unknown": 0,
+        "denom": 0,
+        "checks": [
+          {
+            "id": ".arch/secrets/registry.yaml",
+            "label": "secrets registry",
+            "result": "NOT_APPLICABLE",
+            "evidence": "utenfor Arch-governance-scope",
+            "source": "n/a",
+            "observed_at": "2026-08-13T00:21:34.164Z"
+          },
+          {
+            "id": ".arch/secrets/mapping.yaml",
+            "label": "secrets mapping",
+            "result": "NOT_APPLICABLE",
+            "evidence": "utenfor Arch-governance-scope",
+            "source": "n/a",
+            "observed_at": "2026-08-13T00:21:34.164Z"
+          },
+          {
+            "id": "gitignore .env",
+            "label": ".env gitignoret",
+            "result": "NOT_APPLICABLE",
+            "evidence": "utenfor Arch-governance-scope",
+            "source": "n/a",
+            "observed_at": "2026-08-13T00:21:34.164Z"
+          },
+          {
+            "id": "secret-policy",
+            "label": "secret-policy i policies",
+            "result": "NOT_APPLICABLE",
+            "evidence": "utenfor Arch-governance-scope",
+            "source": "n/a",
+            "observed_at": "2026-08-13T00:21:34.164Z"
+          }
+        ]
+      },
+      "Engineering": {
+        "pct": 100,
+        "weight": 25,
+        "pass": 4,
+        "fail": 0,
+        "unknown": 0,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "prosjektmanifest",
+            "label": "prosjektmanifest",
+            "result": "PASS",
+            "evidence": "pyproject.toml",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:21:34.164Z"
+          },
+          {
+            "id": "workflow",
+            "label": "CI-workflow",
+            "result": "PASS",
+            "evidence": ".github/workflows/",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:21:34.164Z"
+          },
+          {
+            "id": "tests",
+            "label": "tester tilstede",
+            "result": "PASS",
+            "evidence": "test-filer funnet",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:21:34.164Z"
+          },
+          {
+            "id": "test-runner",
+            "label": "test-runner konfig",
+            "result": "PASS",
+            "evidence": "test-runner konfig",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:21:34.164Z"
+          }
+        ]
+      },
+      "Operations": {
+        "pct": 25,
+        "weight": 20,
+        "pass": 1,
+        "fail": 3,
+        "unknown": 0,
+        "denom": 4,
+        "checks": [
+          {
+            "id": ".github/workflows/deploy.yml",
+            "label": "deploy workflow",
+            "result": "FAIL",
+            "evidence": "mangler .github/workflows/deploy.yml",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:21:34.164Z"
+          },
+          {
+            "id": "monitoring",
+            "label": "monitoring",
+            "result": "FAIL",
+            "evidence": "ingen monitor",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:21:34.164Z"
+          },
+          {
+            "id": "alerts",
+            "label": "alert-integrasjon",
+            "result": "PASS",
+            "evidence": "alert-integrasjon",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:21:34.164Z"
+          },
+          {
+            "id": "rollback",
+            "label": "rollback",
+            "result": "FAIL",
+            "evidence": "ingen rollback",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:21:34.164Z"
+          }
+        ]
+      },
+      "Documentation": {
+        "pct": 25,
+        "weight": 10,
+        "pass": 1,
+        "fail": 3,
+        "unknown": 0,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "readme",
+            "label": "README",
+            "result": "PASS",
+            "evidence": "README.md",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:21:34.164Z"
+          },
+          {
+            "id": "architect",
+            "label": "ARCHITECT",
+            "result": "FAIL",
+            "evidence": "mangler ARCHITECT",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:21:34.164Z"
+          },
+          {
+            "id": "api-docs",
+            "label": "API-dokumentasjon",
+            "result": "FAIL",
+            "evidence": "mangler API-docs",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:21:34.164Z"
+          },
+          {
+            "id": "decisions",
+            "label": "beslutningslogg",
+            "result": "FAIL",
+            "evidence": "mangler beslutningslogg (docs/adr)",
+            "source": "fil",
+            "observed_at": "2026-08-13T00:21:34.164Z"
+          }
+        ]
+      }
+    },
+    "observed_at": "2026-08-13T00:21:34.164Z",
+    "arch_managed": false
+  },
+  "security": {
+    "secrets": {
+      "status": "clean",
+      "files_scanned": 2949,
+      "findings": 0,
+      "gitignored_notes": 0,
+      "fixture_notes": 6,
+      "details": [
+        {
+          "file": "tests/test_tutorial/test_security/test_tutorial004.py",
+          "line": 120,
+          "pattern": "bearer-token",
+          "severity": "note"
+        },
+        {
+          "file": "tests/test_tutorial/test_security/test_tutorial004.py",
+          "line": 134,
+          "pattern": "bearer-token",
+          "severity": "note"
+        },
+        {
+          "file": "tests/test_tutorial/test_security/test_tutorial004.py",
+          "line": 148,
+          "pattern": "bearer-token",
+          "severity": "note"
+        },
+        {
+          "file": "tests/test_tutorial/test_security/test_tutorial005.py",
+          "line": 141,
+          "pattern": "bearer-token",
+          "severity": "note"
+        },
+        {
+          "file": "tests/test_tutorial/test_security/test_tutorial005.py",
+          "line": 155,
+          "pattern": "bearer-token",
+          "severity": "note"
+        },
+        {
+          "file": "tests/test_tutorial/test_security/test_tutorial005.py",
+          "line": 181,
+          "pattern": "bearer-token",
+          "severity": "note"
+        }
+      ]
+    },
+    "secret_governance": "missing"
+  },
+  "stack": {
+    "name": "fastapi",
+    "version": null,
+    "framework": "FastAPI",
+    "language": "Python",
+    "package_manager": "uv",
+    "test_runner": "pytest",
+    "has_tests": true,
+    "cloudflare": [],
+    "supabase": [],
+    "scripts": [],
+    "all_scripts": [],
+    "all_deps": [],
+    "packages": [],
+    "tsconfigs": [],
+    "test_configs": [],
+    "eslint_configs": [],
+    "wrangler_files": [],
+    "monorepo": false,
+    "runtime_hint": "Python"
+  },
+  "ci_cd": {
+    "workflows": [
+      "add-to-project.yml",
+      "build-docs.yml",
+      "bump-pre-commit-hooks.yml",
+      "create-draft-release.yml",
+      "deploy-docs.yml",
+      "detect-conflicts.yml",
+      "guard-dependencies.yml",
+      "issue-manager.yml",
+      "label-approved.yml",
+      "notify-translations.yml",
+      "pre-commit.yml",
+      "prepare-release.yml",
+      "publish.yml",
+      "smokeshow.yml",
+      "sponsors.yml",
+      "test-redistribute.yml",
+      "test.yml",
+      "topic-repos.yml",
+      "translate.yml",
+      "zizmor.yml"
+    ],
+    "mismatches": [],
+    "last_run": {
+      "conclusion": "success",
+      "created_at": "2026-08-12T22:23:57Z",
+      "head_sha": "f336ff831c4af3d4f625c2593a27b1e0cae93eb7",
+      "status": "completed"
+    }
+  },
+  "operations": {
+    "monitoring": false,
+    "alerts": true,
+    "rollback": false
+  },
+  "documentation": {
+    "readme": true,
+    "architect": false,
+    "api_docs": false,
+    "decisions": false
+  },
+  "knowledge": {
+    "inherited": [
+      {
+        "file": "lesson-edge-nodejs.md",
+        "keywords": [
+          "cloudflare",
+          "supabase",
+          "next"
+        ],
+        "rule": "supabase-js-ruter = runtime:\"nodejs\" (aldri edge)"
+      },
+      {
+        "file": "lesson-route-handler-server-client.md",
+        "keywords": [
+          "next",
+          "supabase"
+        ],
+        "rule": "route handlers: createServerClient(request, response)"
+      },
+      {
+        "file": "lesson-wrangler-env-empty.md",
+        "keywords": [
+          "wrangler",
+          "cloudflare"
+        ],
+        "rule": "wrangler multi-env → --env \"\""
+      },
+      {
+        "file": "lesson-governed-deploy-verifiser-verktoy.md",
+        "keywords": [
+          "deploy",
+          "ci",
+          "wrangler",
+          "workflow"
+        ],
+        "rule": "verifiser CLI-kommandoer + CI-verktøykjede FØR prosedyre dokumenteres"
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "F001",
+      "class": "automatic",
+      "section": "security",
+      "title": "Ingen secret-mønster i versjonskontrollerte filer",
+      "evidence": "2949 filer scannet, 0 lekkasje",
+      "severity": "low",
+      "priority": 1
+    },
+    {
+      "id": "F002",
+      "class": "inferred",
+      "section": "security",
+      "title": "Etablér .arch/secrets/ governance (registry + allowlist)",
+      "evidence": "ingen .arch/secrets/registry.yaml observert",
+      "severity": "medium",
+      "priority": 3
+    },
+    {
+      "id": "F003",
+      "class": "inferred",
+      "section": "operations",
+      "title": "Manglende monitoring",
+      "evidence": "ingen monitor i workflows/scripts",
+      "severity": "medium",
+      "priority": 4
+    },
+    {
+      "id": "F004",
+      "class": "inferred",
+      "section": "operations",
+      "title": "Manglende rollback-mekanisme",
+      "evidence": "ingen rollback i workflow",
+      "severity": "high",
+      "priority": 3
+    },
+    {
+      "id": "F005",
+      "class": "inferred",
+      "section": "ai_automation",
+      "title": "Automasjonsmuligheter identifisert",
+      "evidence": "automatisk monitorering + syntetisk smoke; dokumentasjon (ARCHITECT/API-docs)",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "F006",
+      "class": "human_approval",
+      "section": "tech_debt",
+      "title": "Regulatorisk/juridisk vurdering (GDPR m.fl.)",
+      "evidence": "ikke vurdert av Arch — krever kvalifisert juridisk gjennomgang",
+      "severity": "medium",
+      "priority": 2
+    }
+  ],
+  "quick_wins": [
+    {
+      "title": "Legg til rollback i deploy-workflow",
+      "effort": "lav",
+      "impact": "høy",
+      "class": "inferred"
+    },
+    {
+      "title": "Skriv ARCHITECT.md (arkitektur-overblikk)",
+      "effort": "lav",
+      "impact": "middels",
+      "class": "inferred"
+    }
+  ],
+  "build_opportunities": [
+    {
+      "title": "Overvåking + alerting + rollback (Arch Managed-forberedelse)",
+      "estimated_value": "høy (produksjonstrygghet)",
+      "effort": "middels",
+      "class": "inferred"
+    },
+    {
+      "title": "Arch Build — videreutvikling fra godkjent audit",
+      "estimated_value": "scopes i Architecture Proposal",
+      "effort": "varierer",
+      "class": "human_approval"
+    }
+  ],
+  "human_approvals": [
+    {
+      "title": "Godkjenn produksjonsdeploy (hvis aktuelt)",
+      "why": "deploy er Tom/governance-gated"
+    },
+    {
+      "title": "Juridisk/regulatorisk vurdering",
+      "why": "GDPR m.fl. krever kvalifisert vurdering — utenfor Archs evidensgrunnlag"
+    }
+  ]
+}

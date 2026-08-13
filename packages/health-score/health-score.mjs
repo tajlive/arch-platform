@@ -1,23 +1,20 @@
 #!/usr/bin/env node
 /**
- * Arch Health Score v2.2 — vektet + evidence/provenance.
+ * Arch Health Score v2.3 — vektet + evidence/provenance.
  *
  * v2.2 (2026-08-13) — multi-package + eksterne prosjekter:
- *   - `.arch/*`-sjekker = NOT_APPLICABLE for prosjekter uten `.arch/project.yaml`
- *     (eksterne kunder), i stedet for FAIL — eksterne straffes ikke for å ikke
- *     bruke Arch-governance.
- *   - Test-deteksjon er rekursiv (mono-repo: frontend/ + api/<worker>/ + e2e/), ikke bare root.
- *   - Total beregnes kun over AKTIVE kategorier (N/A-ekskludert), ikke tvunget 0.
- *   - Beslutningslogg aksepterer `docs/adr/` (industristandard) for eksterne prosjekter.
+ *   - .arch-sjekker = NOT_APPLICABLE for prosjekter uten .arch/project.yaml.
+ *   - Test-deteksjon rekursiv (mono-repo), total over aktive kategorier.
+ *   - Beslutningslogg aksepterer docs/adr/ for eksterne prosjekter.
+ * v2.3 (2026-08-13) — multi-språk (Python/Rust/Go m.fl.):
+ *   - "prosjektmanifest" aksepterer pyproject.toml/setup.py/Cargo.toml/go.mod m.fl.
+ *   - Test-deteksjon gjenkjenner test_*.py, *_test.py, *_test.rs, *_test.go.
+ *   - Test-runner gjenkjenner pytest (pyproject/pytest.ini/tox.ini/conftest.py).
+ *   - ".env gitignoret" = NOT_APPLICABLE når prosjektet verken har .env-filer eller er Arch-styrt.
  *
  * Kategorier (vekt): Governance 20 · Security 25 · Engineering 25 · Operations 20 · Documentation 10.
  *
- * Hver sjekk returnerer: { result: PASS|FAIL|UNKNOWN|NOT_APPLICABLE, evidence, source, observed_at }.
- *   PASS            — verifisert OK (evidence = fil/kilde)
- *   FAIL            — verifisert mangelfull (evidence = hva som mangler)
- *   UNKNOWN         — ikke verifiserbar → telles som IKKE-healthy (fail-safe)
- *   NOT_APPLICABLE  — utenfor prosjektets omfang → ekskluderes fra nevner
- *
+ * Hver sjekk: { result: PASS|FAIL|UNKNOWN|NOT_APPLICABLE, evidence, source, observed_at }.
  * Kategori-score = PASS / (PASS + FAIL + UNKNOWN) × 100  (N/A ekskludert).
  * TOTAL = Σ(kategori% × vekt) / Σ(vekt for aktive kategorier).
  *
@@ -54,7 +51,7 @@ const SKIP = new Set([
   "node_modules", ".git", ".wrangler", ".venv-pdf", ".venv", "venv",
   "dist", "dist-mirror", "allure-results", "allure-report", ".next",
   ".worktrees", ".chrome-profile", "output", "logs", "__pycache__",
-  ".src-backup-20260527-012916",
+  ".src-backup-20260527-012916", "site-packages",
 ]);
 const collectFiles = (d, depth = 10) => {
   const out = [];
@@ -77,16 +74,33 @@ const collectFiles = (d, depth = 10) => {
 const allFiles = collectFiles(dir);
 const basenameOf = (p) => p.split("/").pop();
 
-const hasTests = () => allFiles.some((f) => /\.(test|spec)\.[jt]sx?$/.test(f));
+// Test-filer: Node + Python + Rust + Go
+const TEST_FILE_RE = /(\.(test|spec)\.[jt]sx?$)|(^test_.+\.py$)|(_test\.(py|rs|go)$)/;
+const hasTests = () => allFiles.some((f) => TEST_FILE_RE.test(basenameOf(f)));
 
 const TEST_RUNNER_CONFIGS = [
   "vitest.config.ts", "vitest.config.mts", "vitest.config.js", "vitest.config.mjs", "vitest.workspace.ts",
   "jest.config.js", "jest.config.ts", "jest.config.mjs",
   "playwright.config.ts", "playwright.config.js", "playwright.config.mjs", "playwright.config.cjs",
+  "pytest.ini", "tox.ini", "conftest.py",
 ];
-const hasTestRunner = () => allFiles.some((f) => TEST_RUNNER_CONFIGS.includes(basenameOf(f)));
+const hasTestRunner = () => {
+  if (allFiles.some((f) => TEST_RUNNER_CONFIGS.includes(basenameOf(f)))) return true;
+  return allFiles.some((f) => {
+    const b = basenameOf(f);
+    if (!["pyproject.toml", "setup.cfg"].includes(b)) return false;
+    try { return /pytest|\[tool\.pytest\]/i.test(readFileSync(f, "utf8")); } catch { return false; }
+  });
+};
 
-// file-check helper: PASS/FAIL med evidence; .arch/* → N/A utenfor Arch-styrte prosjekter
+// Prosjektmanifest: Node ELLER andre språk
+const MANIFESTS = ["package.json", "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Cargo.toml", "go.mod", "pom.xml", "build.gradle", "composer.json", "Gemfile"];
+const hasManifest = () => MANIFESTS.find((m) => has(m)) ?? null;
+
+// .env-filer (faktiske, ikke .example)
+const hasEnvFile = () => allFiles.some((f) => /^\.env(\.[a-z]+)?$/.test(basenameOf(f)));
+
+// file-check helper: PASS/FAIL med evidence; .arch-sjekker = N/A utenfor Arch-styrte prosjekter
 const na = () => ({ result: "NOT_APPLICABLE", evidence: "utenfor Arch-governance-scope", source: "n/a", observed_at: NOW });
 const fileCheck = (label, rel, evidenceHint) => ({
   id: rel, label,
@@ -116,9 +130,12 @@ const categories = [
   ["Security", [
     fileCheck("secrets registry", ".arch/secrets/registry.yaml"),
     fileCheck("secrets mapping", ".arch/secrets/mapping.yaml"),
-    { id: "gitignore .env", label: ".env gitignoret", run: () => (grep(".gitignore", /(^|\n)\s*\.env(\s|\n|$)/)
-      ? { result: "PASS", evidence: ".gitignore", source: "fil", observed_at: NOW }
-      : { result: "FAIL", evidence: ".env ikke gitignoret", source: "fil", observed_at: NOW }) },
+    { id: "gitignore .env", label: ".env gitignoret", run: () => {
+      if (!archManaged && !hasEnvFile()) return na();
+      return grep(".gitignore", /(^|\n)\s*\.env(\s|\n|$)/)
+        ? { result: "PASS", evidence: ".gitignore", source: "fil", observed_at: NOW }
+        : { result: "FAIL", evidence: ".env ikke gitignoret", source: "fil", observed_at: NOW };
+    } },
     { id: "secret-policy", label: "secret-policy i policies", run: () => (archManaged
       ? (grep(".arch/policies.yaml", /secret/i)
         ? { result: "PASS", evidence: ".arch/policies.yaml", source: "fil", observed_at: NOW }
@@ -126,7 +143,12 @@ const categories = [
       : na()) },
   ]],
   ["Engineering", [
-    fileCheck("package.json", "package.json"),
+    { id: "prosjektmanifest", label: "prosjektmanifest", run: () => {
+      const found = hasManifest();
+      return found
+        ? { result: "PASS", evidence: found, source: "fil", observed_at: NOW }
+        : { result: "FAIL", evidence: "mangler prosjektmanifest", source: "fil", observed_at: NOW };
+    } },
     { id: "workflow", label: "CI-workflow", run: () => (anyWorkflow()
       ? { result: "PASS", evidence: ".github/workflows/", source: "fil", observed_at: NOW }
       : { result: "FAIL", evidence: "mangler workflow", source: "fil", observed_at: NOW }) },

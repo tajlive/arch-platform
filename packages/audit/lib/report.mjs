@@ -52,7 +52,8 @@ export function renderCustomer(audit) {
   const s = audit.security;
   L.push(`| Sjekk | Resultat | Bevis |`);
   L.push(`|---|---|---|`);
-  L.push(`| Secret-scan | ${s.secrets.status === "clean" ? "✅ clean" : `🔴 ${s.secrets.findings} lekkasje(r)`} | ${s.secrets.files_scanned} filer scannet, ${s.secrets.findings} lekkasje, ${s.secrets.gitignored_notes} gitignoret note |`);
+  const notesTxt = `${s.secrets.gitignored_notes ?? 0} gitignoret note${(s.secrets.fixture_notes ?? 0) ? `, ${s.secrets.fixture_notes} fixture/eksempel-note` : ""}`;
+  L.push(`| Secret-scan | ${s.secrets.status === "clean" ? "✅ clean" : `🔴 ${s.secrets.findings} lekkasje(r)`} | ${s.secrets.files_scanned} filer scannet, ${s.secrets.findings} lekkasje, ${notesTxt} |`);
   L.push(`| Secret-governance (.arch/secrets) | ${s.secret_governance === "observed" ? "✅ tilstede" : "🟡 mangler"} | ${s.secret_governance === "observed" ? ".arch/secrets/registry.yaml" : "ingen .arch/secrets/registry.yaml"} |`);
   if (s.secrets.details?.length) {
     L.push(`\n<details><summary>Funn (fil:linje — aldri verdier)</summary>\n`);
