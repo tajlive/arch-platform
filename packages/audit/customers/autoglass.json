@@ -1,0 +1,34 @@
+{
+  "id": "autoglass",
+  "name": "Autoglass AS",
+  "website": "https://auto-glass.no/",
+  "mode": "customer",
+  "consent_granted": true,
+  "consent_date": "2026-08-13",
+  "business_type": "Bilglassgrossist (B2B) — leverer til 500+ verksteder, eksporterer til Skandinavia/Europa; monterer IKKE selv",
+  "scope": {
+    "description": "Read-only analyse av offentlig nettside + autentisert kundeområde (/min-konto/) med kundegitte innloggingsdetaljer. Ingen endringer, ingen bestillinger, ingen mutasjoner, ingen skjema-submit som oppretter data.",
+    "exclude": []
+  },
+  "access": {
+    "level": "read_only",
+    "source": "kundegitt_login (BWS: AUTOGLASS_MIN_KONTO_LOGIN / AUTOGLASS_MIN_KONTO_PASSWORD — verdier ALDRI i repo)",
+    "secrets_copied": false
+  },
+  "credentials": {
+    "login_ref": "bws:AUTOGLASS_MIN_KONTO_LOGIN",
+    "password_ref": "bws:AUTOGLASS_MIN_KONTO_PASSWORD"
+  },
+  "nda": {
+    "signed": false,
+    "date": null
+  },
+  "contact": {
+    "name": "Eduard Eikeland",
+    "email": "eduard@auto-glass.no",
+    "phone": "40408241"
+  },
+  "commercial_angle": "AI som tar imot forhandler-/verkstedhenvendelser, finner riktig bilglass via regnr/VIN og gjør salgsforespørselen klar. (IKKE montering/booking først — de selger glass, monterer ikke selv.)",
+  "created_at": "2026-08-13T00:00:00.000Z",
+  "status": "customer"
+}

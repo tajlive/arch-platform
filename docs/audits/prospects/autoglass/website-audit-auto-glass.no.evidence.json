@@ -1,0 +1,1231 @@
+{
+  "meta": {
+    "generated": "2026-08-13T01:44:51.491Z",
+    "version": "1.0",
+    "name": "Autoglass AS",
+    "website": "https://auto-glass.no/",
+    "domain": "auto-glass.no",
+    "final_url": "https://auto-glass.no/",
+    "mode": "website",
+    "design_partner": false,
+    "audit_duration_ms": 59898
+  },
+  "customer": {
+    "id": "autoglass",
+    "name": "Autoglass AS",
+    "mode": "prospect_preview",
+    "modeLabel": "Intern prospect-vurdering",
+    "website": "https://auto-glass.no/",
+    "consent_granted": false,
+    "consent_date": null
+  },
+  "score": {
+    "total": 69,
+    "categories": {
+      "performance": {
+        "pct": 60,
+        "weight": 20,
+        "pass": 3,
+        "fail": 2,
+        "unknown": 0,
+        "denom": 5,
+        "checks": [
+          {
+            "id": "compression",
+            "label": "Komprimering (gzip/brotli)",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "gzip",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:16.938Z"
+          },
+          {
+            "id": "caching",
+            "label": "Cache-headere",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "public, no-cache",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:16.938Z"
+          },
+          {
+            "id": "render_blocking",
+            "label": "Render-blokkerende ressurser",
+            "dimension": "performance",
+            "result": "FAIL",
+            "evidence": "14 blokkerende skript, 7 stylesheets",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:16.939Z"
+          },
+          {
+            "id": "image_optim",
+            "label": "Bilde-optimalisering",
+            "dimension": "performance",
+            "result": "FAIL",
+            "evidence": "4 bilder, 1 m/ dimensjoner, 0 lazy",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:16.939Z"
+          },
+          {
+            "id": "third_party",
+            "label": "Tredjeparts-skript/-ressurser",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "1 eksterne domener (use.typekit.net)",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:16.940Z"
+          }
+        ]
+      },
+      "security": {
+        "pct": 50,
+        "weight": 20,
+        "pass": 5,
+        "fail": 4,
+        "unknown": 1,
+        "denom": 10,
+        "checks": [
+          {
+            "id": "https",
+            "label": "HTTPS/TLS",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "HTTPS leverte respons",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:43:52.188Z"
+          },
+          {
+            "id": "header_csp",
+            "label": "Header: csp",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:27.815Z"
+          },
+          {
+            "id": "header_hsts",
+            "label": "Header: hsts",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:27.815Z"
+          },
+          {
+            "id": "header_xcto",
+            "label": "Header: xcto",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:27.815Z"
+          },
+          {
+            "id": "header_referrer",
+            "label": "Header: referrer",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:27.815Z"
+          },
+          {
+            "id": "header_permissions",
+            "label": "Header: permissions",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:27.815Z"
+          },
+          {
+            "id": "header_frame",
+            "label": "Header: frame",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:27.815Z"
+          },
+          {
+            "id": "mixed_content",
+            "label": "Blandet innhold (http på https)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "2 http-referanser",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:27.815Z"
+          },
+          {
+            "id": "source_maps",
+            "label": "Eksponerte source maps",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "skript ikke observerbare",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:27.818Z"
+          },
+          {
+            "id": "tech_disclosure",
+            "label": "Versjons-avsløring",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "Prometheus",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:27.818Z"
+          }
+        ]
+      },
+      "ux_mobile": {
+        "pct": 100,
+        "weight": 15,
+        "pass": 2,
+        "fail": 0,
+        "unknown": 0,
+        "denom": 2,
+        "checks": [
+          {
+            "id": "viewport",
+            "label": "Viewport meta",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "viewport tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:16.940Z"
+          },
+          {
+            "id": "media_queries",
+            "label": "Responsive CSS (@media)",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "@media funnet",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:17.612Z"
+          }
+        ]
+      },
+      "accessibility": {
+        "pct": 60,
+        "weight": 15,
+        "pass": 3,
+        "fail": 2,
+        "unknown": 0,
+        "denom": 5,
+        "checks": [
+          {
+            "id": "lang",
+            "label": "Språk-attributt (lang)",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "nb-NO",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:17.612Z"
+          },
+          {
+            "id": "alt_text",
+            "label": "Alt-tekst på bilder",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "0/4 bilder mangler alt",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:17.612Z"
+          },
+          {
+            "id": "form_labels",
+            "label": "Skjemaetiketter",
+            "dimension": "accessibility",
+            "result": "FAIL",
+            "evidence": "3 input, 3 label",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:17.613Z"
+          },
+          {
+            "id": "heading_hierarchy",
+            "label": "Overskriftshierarki",
+            "dimension": "accessibility",
+            "result": "FAIL",
+            "evidence": "h1=2 h2=1 h3=4",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:17.613Z"
+          },
+          {
+            "id": "semantic",
+            "label": "Semantiske landemerker",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "3/4 (header, nav, footer)",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:17.613Z"
+          }
+        ]
+      },
+      "seo": {
+        "pct": 63,
+        "weight": 10,
+        "pass": 5,
+        "fail": 3,
+        "unknown": 0,
+        "denom": 8,
+        "checks": [
+          {
+            "id": "title",
+            "label": "Tittel",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "Autoglass AS - Vi kan bilglass - Autoglass",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:17.614Z"
+          },
+          {
+            "id": "meta_description",
+            "label": "Meta-beskrivelse",
+            "dimension": "seo",
+            "result": "FAIL",
+            "evidence": "mangler meta description",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:17.614Z"
+          },
+          {
+            "id": "canonical",
+            "label": "Canonical",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "https://auto-glass.no/",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:17.614Z"
+          },
+          {
+            "id": "robots_meta",
+            "label": "Robots-meta",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "ingen robots-meta (standard: indekserbart)",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:17.614Z"
+          },
+          {
+            "id": "robots_txt",
+            "label": "robots.txt",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "robots.txt tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:17.614Z"
+          },
+          {
+            "id": "sitemap",
+            "label": "Sitemap.xml",
+            "dimension": "seo",
+            "result": "FAIL",
+            "evidence": "mangler sitemap.xml",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:27.813Z"
+          },
+          {
+            "id": "open_graph",
+            "label": "OpenGraph",
+            "dimension": "seo",
+            "result": "FAIL",
+            "evidence": "title=true description=true image=false",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:27.814Z"
+          },
+          {
+            "id": "structured_data",
+            "label": "Strukturert data (JSON-LD)",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "JSON-LD tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:27.815Z"
+          }
+        ]
+      },
+      "reliability": {
+        "pct": 100,
+        "weight": 10,
+        "pass": 3,
+        "fail": 0,
+        "unknown": 0,
+        "denom": 3,
+        "checks": [
+          {
+            "id": "http_status",
+            "label": "HTTP-status (hovedsiden)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "HTTP 200",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:43:52.188Z"
+          },
+          {
+            "id": "redirect_chain",
+            "label": "Omdirigeringskjede",
+            "dimension": "reliability",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen redirects",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:43:52.188Z"
+          },
+          {
+            "id": "broken_links",
+            "label": "Ødelagte interne lenker",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "13 sider sjekket, 0 ødelagt",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:10.384Z"
+          },
+          {
+            "id": "asset_failures",
+            "label": "Ressurs-feil (img/css/js)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "0 av 10 ressurser feilet",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:16.938Z"
+          }
+        ]
+      },
+      "trust_privacy": {
+        "pct": 80,
+        "weight": 5,
+        "pass": 4,
+        "fail": 1,
+        "unknown": 0,
+        "denom": 5,
+        "checks": [
+          {
+            "id": "cookie_banner",
+            "label": "Cookie-banner",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "cookie/samtykke-element observert",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:27.818Z"
+          },
+          {
+            "id": "privacy_link",
+            "label": "Personvernerklæring-link",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "link til personvern observert",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:27.822Z"
+          },
+          {
+            "id": "consent_cmp",
+            "label": "Samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "trackere observert uten CMP",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:27.822Z"
+          },
+          {
+            "id": "contact_form",
+            "label": "Kontakt-/lead-skjema",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "3 <form> observert",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:27.822Z"
+          },
+          {
+            "id": "cta",
+            "label": "Call-to-action",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "CTA-tekst observert",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-13T01:44:27.823Z"
+          }
+        ]
+      },
+      "automation": {
+        "pct": 50,
+        "leverage": 50,
+        "potential": 50,
+        "weight": 5,
+        "pass": 3,
+        "fail": 3,
+        "unknown": 0,
+        "denom": 6,
+        "checks": []
+      }
+    },
+    "weights": {
+      "performance": 20,
+      "security": 20,
+      "ux_mobile": 15,
+      "accessibility": 15,
+      "seo": 10,
+      "reliability": 10,
+      "trust_privacy": 5
+    },
+    "labels": {
+      "performance": "Performance",
+      "security": "Security Surface",
+      "ux_mobile": "UX / Mobile",
+      "accessibility": "Accessibility",
+      "seo": "SEO / Discovery",
+      "reliability": "Reliability",
+      "trust_privacy": "Trust / Privacy",
+      "automation": "Automation Potential"
+    },
+    "automation": {
+      "leverage": 50,
+      "potential": 50,
+      "present": 3,
+      "total": 6,
+      "signals": {
+        "contact_form": true,
+        "analytics": true,
+        "cmp": false,
+        "chat": false,
+        "booking": true,
+        "newsletter": false
+      }
+    },
+    "observed_at": "2026-08-13T01:44:51.490Z"
+  },
+  "findings": [
+    {
+      "id": "W001",
+      "kind": "web_render_blocking",
+      "title": "Render-blokkerende ressurser",
+      "evidence": "14 blokkerende skript, 7 stylesheets",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W002",
+      "kind": "web_image_optim",
+      "title": "Bilde-optimalisering",
+      "evidence": "4 bilder, 1 m/ dimensjoner, 0 lazy",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W003",
+      "kind": "web_form_labels",
+      "title": "Skjemaetiketter",
+      "evidence": "3 input, 3 label",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W004",
+      "kind": "web_heading_hierarchy",
+      "title": "Overskriftshierarki",
+      "evidence": "h1=2 h2=1 h3=4",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W005",
+      "kind": "web_seo_meta",
+      "title": "Meta-beskrivelse",
+      "evidence": "mangler meta description",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W006",
+      "kind": "web_seo_sitemap",
+      "title": "Sitemap.xml",
+      "evidence": "mangler sitemap.xml",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W007",
+      "kind": "web_seo_og",
+      "title": "OpenGraph",
+      "evidence": "title=true description=true image=false",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W008",
+      "kind": "web_security_headers",
+      "title": "Header: csp",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W009",
+      "kind": "web_security_headers",
+      "title": "Header: permissions",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W010",
+      "kind": "web_mixed_content",
+      "title": "Blandet innhold (http på https)",
+      "evidence": "2 http-referanser",
+      "class": "inferred",
+      "section": "web",
+      "severity": "critical",
+      "priority": 5
+    },
+    {
+      "id": "W011",
+      "kind": "web_tech_disclosure",
+      "title": "Versjons-avsløring",
+      "evidence": "Prometheus",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W012",
+      "kind": "web_automation",
+      "title": "Automatiseringsmuligheter identifisert",
+      "evidence": "uutnyttet potensial 50% — manglende signaler: cmp, chat, newsletter",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    }
+  ],
+  "browser": {
+    "available": true,
+    "rendered": {
+      "length": 60613,
+      "dom": "<!DOCTYPE html>\n<html lang=\"nb-NO\" prefix=\"og: http://ogp.me/ns#\" class=\"wf-futurapt-n7-active wf-futurapt-n4-active wf-futurapt-n6-active wf-futurapt-i4-active wf-futurapt-n5-active wf-futurapt-n3-active wf-futurapt-n8-active wf-active\"><head>\n\t\t<meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\">\n\t\t<meta name=\"viewport\" content=\"initial-scale=1.0, maximum-scale=1.0, user-scalable=yes\">\n\t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n\t\t<title>Autoglass AS - Vi kan bilglass - Autoglass</title>\n\n<!-- Google Tag Manager for WordPress by DuracellTomi -->\n<script type=\"text/javascript\" async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=G-X8QCNN7ZX9&amp;cx=c&amp;_slc=1\"></script><script type=\"text/javascript\" async=\"\" src=\"https://www.google-analytics.com/analytics.js\"></script><script src=\"https://connect.facebook.net/nb_NO/bundle/sdk.js/\" async=\"\" crossorigin=\"anonymous\"></script><script id=\"facebook-jssdk\" src=\"https://connect.facebook.net/nb_NO/sdk.js#xfbml=1&amp;version=v2.11&amp;appId=408971282581856&amp;autoLogAppEvents=1\"></script><script async=\"\" src=\"//www.googletagmanager.com/gtm.js?id=GTM-W2B6C8J\"></script><script data-cfasync=\"false\" type=\"text/javascript\">//<![CDATA[\n\tvar gtm4wp_datalayer_name = \"dataLayer\";\n\tvar dataLayer = dataLayer || [];//]]>\t\n</script>\n<!-- End Google Tag Manager for WordPress by DuracellTomi -->\n<!-- This site is optimized with the Yoast SEO plugin v8.2 - https://yoast.com/wordpress/plugins/seo/ -->\n<link rel=\"canonical\" href=\"https://auto-glass.no/\">\n<meta property=\"og:locale\" content=\"nb_NO\">\n<meta property=\"og:type\" content=\"website\">\n<meta property=\"og:title\" content=\"Autoglass AS - Vi kan bilglass - Autoglass\">\n<meta property=\"og:description\" content=\"Autoglass AS – vi kan bilglass Vårt hovedlager i Oslo har en lagerbeholdning på over 130.000 ruter. Vi leverer bilglass til over 500 verksteder. Vi er stolte av vårt motto: vi sier ja der andre sier nei… Med andre ord: Vi har det bilglasset du trenger når du har et knust bilglass… Autoglass AS eksporterer …\">\n<meta property=\"og:url\" content=\"https://auto-glass.no/\">\n<meta property=\"og:site_name\" content=\"Autoglass\">\n<meta name=\"twitter:card\" content=\"summary_large_image\">\n<meta name=\"twitter:description\" content=\"Autoglass AS – vi kan bilglass Vårt hovedlager i Oslo har en lagerbeholdning på over 130.000 ruter. Vi leverer bilglass til over 500 verksteder. Vi er stolte av vårt motto: vi sier ja der andre sier nei… Med andre ord: Vi har det bilglasset du trenger når du har et knust bilglass… Autoglass AS eksporterer […]\">\n<meta name=\"twitter:title\" content=\"Autoglass AS - Vi kan bilglass - Autoglass\">\n<script type=\"application/ld+json\">{\"@context\":\"https:\\/\\/schema.org\",\"@type\":\"WebSite\",\"@id\":\"#website\",\"url\":\"https:\\/\\/auto-glass.no\\/\",\"name\":\"Autoglass\",\"potentialAction\":{\"@type\":\"SearchAction\",\"target\":\"https:\\/\\/auto-glass.no\\/?s={search_term_string}\",\"query-input\":\"required name=search_term_string\"}}</script>\n<script type=\"application/ld+json\">{\"@context\":\"https:\\/\\/schema.org\",\"@type\":\"Organization\",\"url\":\"https:\\/\\/auto-glass.no\\/\",\"sameAs\":[],\"@id\":\"https:\\/\\/auto-glass.no\\/#organization\",\"name\":\"Autoglass AS\",\"logo\":\"\"}</script>\n<!-- / Yoast SEO plugin. -->\n\n<link rel=\"dns-prefetch\" href=\"//use.typekit.net\">\n<link rel=\"dns-prefetch\" href=\"//s.w.org\">\n\t\t<script type=\"text/javascript\">\n\t\t\twindow._wpemojiSettings = {\"baseUrl\":\"https:\\/\\/s.w.org\\/images\\/core\\/emoji\\/11\\/72x72\\/\",\"ext\":\".png\",\"svgUrl\":\"https:\\/\\/s.w.org\\/images\\/core\\/emoji\\/11\\/svg\\/\",\"svgExt\":\".svg\",\"source\":{\"concatemoji\":\"https:\\/\\/auto-glass.no\\/wp-includes\\/js\\/wp-emoji-release.min.js?ver=4.9.31\"}};\n\t\t\t!function(e,a,t){var n,r,o,i=a.createElement(\"canvas\"),p=i.getContext&&i.getContext(\"2d\");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement(\"script\");t.src=e,t.defer=t.type=\"text/javascript\",a.getElementsByTagName(\"head\")[0].appendChild(t)}for(o=Array(\"flag\",\"emoji\"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline=\"top\",p.font=\"600 32px Arial\",e){case\"flag\":return s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])?!1:!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case\"emoji\":return!s([55358,56760,9792,65039],[55358,56760,8203,9792,65039])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],\"flag\"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener(\"DOMContentLoaded\",n,!1),e.addEventListener(\"load\",n,!1)):(e.attachEvent(\"onload\",n),a.attachEvent(\"onreadystatechange\",function(){\"complete\"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);\n\t\t</script><script src=\"https://auto-glass.no/wp-includes/js/wp-emoji-release.min.js?ver=4.9.31\" type=\"text/javascript\" defer=\"\"></script>\n\t\t<style type=\"text/css\">\nimg.wp-smiley,\nimg.emoji {\n\tdisplay: inline !important;\n\tborder: none !important;\n\tbox-shadow: none !important;\n\theight: 1em !important;\n\twidth: 1em !important;\n\tmargin: 0 .07em !important;\n\tvertical-align: -0.1em !important;\n\tbackground: none !important;\n\tpadding: 0 !important;\n}\n</style>\n<link rel=\"stylesheet\" id=\"font_awesome-css\" href=\"https://auto-glass.no/wp-content/plugins/maksimer-content-builder/assets/font-awesome/css/font-awesome.min.css?ver=4.7.0\" type=\"text/css\" media=\"all\">\n<link rel=\"stylesheet\" id=\"mcb_maksimer-content-builder-css\" href=\"https://auto-glass.no/wp-content/plugins/maksimer-content-builder/assets/css/maksimer-content-builder.css?ver=4.9.31\" type=\"text/css\" media=\"all\">\n<link rel=\"stylesheet\" id=\"mcb_slideshow-css\" href=\"https://auto-glass.no/wp-content/plugins/maksimer-content-builder/assets/css/modules/slideshow.css?ver=4.9.31\" type=\"text/css\" media=\"all\">\n<link rel=\"stylesheet\" id=\"maksimer-store-info-css\" href=\"https://auto-glass.no/wp-content/plugins/maksimer-store-info/assets/css/maksimer-store-info.css?ver=4.9.31\" type=\"text/css\" media=\"all\">\n<style id=\"woocommerce-inline-inline-css\" type=\"text/css\">\n.woocommerce form .form-row .required { visibility: visible; }\n</style>\n<link rel=\"stylesheet\" id=\"marineholmen-child-css\" href=\"https://auto-glass.no/wp-content/themes/marineholmen/style.css?ver=1530100669\" type=\"text/css\" media=\"all\">\n<link rel=\"stylesheet\" id=\"style-css\" href=\"https://auto-glass.no/wp-content/themes/marineholmen-child/style.css?ver=1530100669\" type=\"text/css\" media=\"all\">\n<link rel=\"stylesheet\" id=\"moove_gdpr_frontend-css\" href=\"https://auto-glass.no/wp-content/plugins/gdpr-cookie-compliance/dist/styles/main.css?ver=1.1.2\" type=\"text/css\" media=\"all\">\n<script type=\"text/javascript\" src=\"https://auto-glass.no/wp-includes/js/jquery/jquery.js?ver=1.12.4\"></script>\n<script type=\"text/javascript\" src=\"https://auto-glass.no/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1\"></script>\n<script type=\"text/javascript\" src=\"https://auto-glass.no/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-form-move-tracker.js?ver=1.8.1\"></script>\n<script type=\"text/javascript\" src=\"https://use.typekit.net/lei2aec.js?ver=4.9.31\"></script>\n<script type=\"text/javascript\">\n/* <![CDATA[ */\nvar maksimer_lang = {\"view_categories\":\"Vis kategorier\",\"hide_categories\":\"Skjul kategorier\",\"view_filters\":\"Vis filtre\",\"hide_filters\":\"Skjul filtre\"};\n/* ]]> */\n</script>\n<script type=\"text/javascript\" src=\"https://auto-glass.no/wp-content/themes/marineholmen/assets/js/maksimer.js?ver=1530100669\"></script>\n<link rel=\"https://api.w.org/\" href=\"https://auto-glass.no/wp-json/\">\n<link rel=\"EditURI\" type=\"application/rsd+xml\" title=\"RSD\" href=\"https://auto-glass.no/xmlrpc.php?rsd\">\n<link rel=\"wlwmanifest\" type=\"application/wlwmanifest+xml\" href=\"https://auto-glass.no/wp-includes/wlwmanifest.xml\"> \n<meta name=\"generator\" content=\"WordPress 4.9.31\">\n<meta name=\"generator\" content=\"WooCommerce 3.4.8\">\n<link rel=\"shortlink\" href=\"https://auto-glass.no/\">\n<link rel=\"alternate\" type=\"application/json+oembed\" href=\"https://auto-glass.no/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fauto-glass.no%2F\">\n<link rel=\"alternate\" type=\"text/xml+oembed\" href=\"https://auto-glass.no/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fauto-glass.no%2F&amp;format=xml\">\n\n<!-- Google Tag Manager for WordPress by DuracellTomi -->\n<script data-cfasync=\"false\" type=\"text/javascript\">//<![CDATA[\n\tdataLayer.push({\"pagePostType\":\"frontpage\",\"pagePostType2\":\"single-page\",\"pagePostAuthor\":\"maksimer\"});//]]>\n</script>\n<script data-cfasync=\"false\">//<![CDATA[\n(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\nnew Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\nj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n'//www.googletagmanager.com/gtm.'+'js?id='+i+dl;f.parentNode.insertBefore(j,f);\n})(window,document,'script','dataLayer','GTM-W2B6C8J');//]]>\n</script>\n<!-- End Google Tag Manager -->\n<!-- End Google Tag Manager for WordPress by DuracellTomi --><style type=\"text/css\">.tk-futura-pt{font-family:\"futura-pt\",sans-serif;}</style><style type=\"text/css\">@font-face{font-family:tk-futura-pt-n5;src:url(https://use.typekit.net/af/2cd6bf/00000000000000000001008f/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3) format(\"woff2\"),url(https://use.typekit.net/af/2cd6bf/00000000000000000001008f/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3) format(\"woff\"),url(https://use.typekit.net/af/2cd6bf/00000000000000000001008f/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3) format(\"opentype\");font-weight:500;font-style:normal;font-stretch:normal;font-display:auto;}@font-face{font-family:tk-futura-pt-n7;src:url(https://use.typekit.net/af/309dfe/000000000000000000010091/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format(\"woff2\"),url(https://use.typekit.net/af/309dfe/000000000000000000010091/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format(\"woff\"),url(https://use.typekit.net/af/309dfe/000000000000000000010091/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format(\"opentype\");font-weight:700;font-style:normal;font-stretch:normal;font-display:auto;}@font-face{font-family:tk-futura-pt-n4;src:url(https://use.typekit.net/af/9b05f3/000000000000000000013365/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format(\"woff2\"),url(https://use.typekit.net/af/9b05f3/000000000000000000013365/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format(\"woff\"),url(https://use.typekit.net/af/9b05f3/000000000000000000013365/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format(\"opentype\");font-weight:400;font-style:normal;font-stretch:normal;font-display:auto;}@font-face{font-family:tk-futura-pt-i4;src:url(https://use.typekit.net/af/cf3e4e/000000000000000000010095/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format(\"woff2\"),url(https://use.typekit.net/af/cf3e4e/000000000000000000010095/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format(\"woff\"),url(https://use.typekit.net/af/cf3e4e/000000000000000000010095/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format(\"opentype\");font-weight:400;font-style:italic;font-stretch:normal;font-display:auto;}@font-face{font-family:tk-futura-pt-n3;src:url(https://use.typekit.net/af/ae4f6c/000000000000000000010096/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3) format(\"woff2\"),url(https://use.typekit.net/af/ae4f6c/000000000000000000010096/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3) format(\"woff\"),url(https://use.typekit.net/af/ae4f6c/000000000000000000010096/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3) format(\"opentype\");font-weight:300;font-style:normal;font-stretch:normal;font-display:auto;}@font-face{font-family:tk-futura-pt-n8;src:url(https://use.typekit.net/af/0c71d1/000000000000000000010097/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3) format(\"woff2\"),url(https://use.typekit.net/af/0c71d1/000000000000000000010097/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3) format(\"woff\"),url(https://use.typekit.net/af/0c71d1/000000000000000000010097/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3) format(\"opentype\");font-weight:800;font-style:normal;font-stretch:normal;font-display:auto;}@font-face{font-family:tk-futura-pt-n6;src:url(https://use.typekit.net/af/c4c302/000000000000000000012192/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format(\"woff2\"),url(https://use.typekit.net/af/c4c302/000000000000000000012192/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format(\"woff\"),url(https://use.typekit.net/af/c4c302/000000000000000000012192/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format(\"opentype\");font-weight:600;font-style:normal;font-stretch:normal;font-display:auto;}</style><script>try{Typekit.load({ async: true });}catch(e){}</script><style type=\"text/css\" id=\"maksimer-customizer-css\">.header,.wrap{background:#ffffff;}.main-menu,.onsale,.main-menu ul.menu>li>ul,.woocommerce-account .woocommerce-MyAccount-navigation{background:#d1202a;}.header{border-color:#d1202a;}body{color:#4a4a4a;}a{color:#d1202a;}.woocommerce-pagination ul.page-numbers li .page-numbers:hover,.woocommerce-pagination ul.page-numbers li .page-numbers:focus,nav.navigation.pagination .nav-links .page-numbers:hover,nav.navigation.pagination .nav-links .page-numbers:focus{background:#d1202a;}.woocommerce-pagination ul.page-numbers li .page-numbers:hover,.woocommerce-pagination ul.page-numbers li .page-numbers:focus,nav.navigation.pagination .nav-links .page-numbers:hover,nav.navigation.pagination .nav-links .page-numbers:focus{border-color:#d1202a;}a:focus,a:hover,a h1:hover,h1 a:hover,a .h1:hover,.h1 a:hover,a h2:hover,h2 a:hover,a .h2:hover,h2 a:hover,a h3:hover,h3 a:hover,a .h3:hover,.h3 a:hover,a h4:hover,h4 a:hover,a .h4:hover,.h4 a:hover,a h5:hover,h5 a:hover,a .h5:hover,h5 a:hover,a h6:hover,h6 a:hover,a .h6:hover,.h6 a:hover,.single-widget ul li.current-cat>a,.single-widget ul li.cat-parent>a,.mini-cart-wrap ul.cart_list li a:focus,.mini-cart-wrap ul.cart_list li a:hover{color:#ba050e;}body,.secondary-menu,.footer{background:#313131;}.footer{color:#ffffff;}.main-menu,.header .inner-header .secondary-menu-wrapper a.cart-contents,input[type=text],input[type=url],input[type=email],input[type=tel],input[type=number],input[type=password],input[type=search],textarea,select,.select2-container .select2-choice,body.list-view ul.products,body.list-view ul.products li.product,body.list-view ul.products li.product .inside-wrap .col,.woocommerce-pagination ul.page-numbers li .page-numbers,nav.navigation.pagination .nav-links span.page-numbers,nav.navigation.pagination .nav-links a.page-numbers,body.grid-view ul.products li.product .inside-wrap,body.single-product .product .images a.woocommerce-main-image,body.single-product .product .images .thumbnails a,body.single-product .product .woocommerce-tabs .tabs.wc-tabs,body.single-product .product .woocommerce-tabs .tabs.wc-tabs li,body.single-product .product .woocommerce-tabs .panel,.post,.single-widget ul,.single-widget ul li{border-color:#efefef;}.button,a.button,.knapp,a.knapp,.submit,a.submit,.wc-forward,a.wc-forward,.single-widget.widget_product_search .woocommerce-product-search input[type=submit]{background:#d1202a;}.button,a.button,.knapp,a.knapp,.submit,a.submit,.wc-forward,a.wc-forward,.single-widget.widget_product_search .woocommerce-product-search input[type=submit]{border-color:#d1202a;}.button,a.button,.knapp,a.knapp,.submit,a.submit,.wc-forward,a.wc-forward,.single-widget.widget_product_search .woocommerce-product-search input[type=submit]{color:#ffffff;}.button:focus,.button:hover,a.button:focus,a.button:hover,.knapp:focus,.knapp:hover,a.knapp:focus,a.knapp:hover,.submit:focus,.submit:hover,a.submit:focus,a.submit:hover,.wc-forward:focus,.wc-forward:hover,a.wc-forward:focus,a.wc-forward:hover,.single-widget.widget_product_search .woocommerce-product-search input[type=submit]:focus,.single-widget.widget_product_search .woocommerce-product-search input[type=submit]:hover{background:#ba050e;}.button:focus,.button:hover,a.button:focus,a.button:hover,.knapp:focus,.knapp:hover,a.knapp:focus,a.knapp:hover,.submit:focus,.submit:hover,a.submit:focus,a.submit:hover,.wc-forward:focus,.wc-forward:hover,a.wc-forward:focus,a.wc-forward:hover,.single-widget.widget_product_search .woocommerce-product-search input[type=submit]:focus,.single-widget.widget_product_search .woocommerce-product-search input[type=submit]:hover{border-color:#ba050e;}.button:focus,.button:hover,a.button:focus,a.button:hover,.knapp:focus,.knapp:hover,a.knapp:focus,a.knapp:hover,.submit:focus,.submit:hover,a.submit:focus,a.submit:hover,.wc-forward:focus,.wc-forward:hover,a.wc-forward:focus,a.wc-forward:hover,.single-widget.widget_product_search .woocommerce-product-search input[type=submit]:focus,.single-widget.widget_product_search .woocommerce-product-search input[type=submit]:hover{color:#ffffff;}table.shop_table td.actions .coupon>.button,table.shop_table td.actions>.button{background:#d1202a;}table.shop_table td.actions .coupon>.button,table.shop_table td.actions>.button{border-color:#d1202a;}table.shop_table td.actions .coupon>.button,table.shop_table td.actions>.button{color:#ffffff;}table.shop_table td.actions .coupon>.button:focus,table.shop_table td.actions .coupon>.button:hover,table.shop_table td.actions>.button:focus,table.shop_table td.actions>.button:hover{background:#ba050e;}table.shop_table td.actions .coupon>.button:focus,table.shop_table td.actions .coupon>.button:hover,table.shop_table td.actions>.button:focus,table.shop_table td.actions>.button:hover{border-color:#ba050e;}table.shop_table td.actions .coupon>.button:focus,table.shop_table td.actions .coupon>.button:hover,table.shop_table td.actions>.button:focus,table.shop_table td.actions>.button:hover{color:#ffffff;}body.single-product .product .summary.entry-summary .price{color:#4a4a4a;}{radio:small;}.mini-cart-link-icon .icon{fill:#d1202a;}{:https://auto-glass.no/wp-content/uploads/2017/10/truck.png;}{radio:1;}{radio:1;}{:1;}{:Søk: rutenr, euronr, regnr, varenavn;}.search-form .icon{fill:#d1202a;}.header-search-form{border-color:#efefef;}{radio:list-view;}</style>\t<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>\n\t<link rel=\"icon\" href=\"https://auto-glass.no/wp-content/uploads/2017/10/autoglass-favicon.png\" sizes=\"32x32\">\n<link rel=\"icon\" href=\"https://auto-glass.no/wp-content/uploads/2017/10/autoglass-favicon.png\" sizes=\"192x192\">\n<link rel=\"apple-touch-icon-precomposed\" href=\"https://auto-glass.no/wp-content/uploads/2017/10/autoglass-favicon.png\">\n<meta name=\"msapplication-TileImage\" content=\"https://auto-glass.no/wp-content/uploads/2017/10/autoglass-favicon.png\">\n\t\t<style type=\"text/css\" id=\"wp-custom-css\">\n\t\t\t/* Adds flex to search bar for non ie browsers */\n@supports (display: grid) {\n.header-search-form.active-search .search-by-wrapper{\n\t\tdisplay: flex;\n\t}\n\t.header-search-form .search-by-wrapper .search-by-field .search-by-radio+.fa{\n\ttop:0;\n\t}\n}\t\t</style>\n\t\t<link href=\"https://auto-glass.no/wp-content/plugins/gdpr-cookie-compliance/dist/styles/lity.css\" rel=\"stylesheet\"><style type=\"text/css\">@font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/2cd6bf/00000000000000000001008f/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3) format(\"woff2\"),url(https://use.typekit.net/af/2cd6bf/00000000000000000001008f/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3) format(\"woff\"),url(https://use.typekit.net/af/2cd6bf/00000000000000000001008f/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n5&v=3) format(\"opentype\");font-weight:500;font-style:normal;font-stretch:normal;font-display:auto;}@font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/309dfe/000000000000000000010091/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format(\"woff2\"),url(https://use.typekit.net/af/309dfe/000000000000000000010091/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format(\"woff\"),url(https://use.typekit.net/af/309dfe/000000000000000000010091/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3) format(\"opentype\");font-weight:700;font-style:normal;font-stretch:normal;font-display:auto;}@font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9b05f3/000000000000000000013365/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format(\"woff2\"),url(https://use.typekit.net/af/9b05f3/000000000000000000013365/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format(\"woff\"),url(https://use.typekit.net/af/9b05f3/000000000000000000013365/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3) format(\"opentype\");font-weight:400;font-style:normal;font-stretch:normal;font-display:auto;}@font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/cf3e4e/000000000000000000010095/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format(\"woff2\"),url(https://use.typekit.net/af/cf3e4e/000000000000000000010095/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format(\"woff\"),url(https://use.typekit.net/af/cf3e4e/000000000000000000010095/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3) format(\"opentype\");font-weight:400;font-style:italic;font-stretch:normal;font-display:auto;}@font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/ae4f6c/000000000000000000010096/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3) format(\"woff2\"),url(https://use.typekit.net/af/ae4f6c/000000000000000000010096/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3) format(\"woff\"),url(https://use.typekit.net/af/ae4f6c/000000000000000000010096/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n3&v=3) format(\"opentype\");font-weight:300;font-style:normal;font-stretch:normal;font-display:auto;}@font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/0c71d1/000000000000000000010097/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3) format(\"woff2\"),url(https://use.typekit.net/af/0c71d1/000000000000000000010097/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3) format(\"woff\"),url(https://use.typekit.net/af/0c71d1/000000000000000000010097/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3) format(\"opentype\");font-weight:800;font-style:normal;font-stretch:normal;font-display:auto;}@font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/c4c302/000000000000000000012192/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format(\"woff2\"),url(https://use.typekit.net/af/c4c302/000000000000000000012192/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format(\"woff\"),url(https://use.typekit.net/af/c4c302/000000000000000000012192/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3) format(\"opentype\");font-weight:600;font-style:normal;font-stretch:normal;font-display:auto;}</style><style type=\"text/css\" data-fbcssmodules=\"css:fb.css.base css:fb.css.dialog css:fb.css.iframewidget\">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0px;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:lucida grande,tahoma,verdana,arial,sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:400;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{0%{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}\n\n.fb_dialog{background:#525252b3;position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://connect.facebook.net/rsrc.php/v4/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:700;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://connect.facebook.net/rsrc.php/v4/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://connect.facebook.net/rsrc.php/v4/ya/r/3rhSv5V8j3o.gif) #fff no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:#0006;inset:0;min-height:100%;position:absolute;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba),to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:#fff 0 1px 1px -1px inset;color:#fff;font:700 14px Helvetica,sans-serif;text-overflow:ellipsis;text-shadow:rgba(0,30,84,.296875) 0px -1px 0px;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2),to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:700 12px Helvetica,sans-serif;margin:2px -12px;padding:2px 6px 3px;text-shadow:rgba(0,30,84,.296875) 0px -1px 0px}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:700;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://connect.facebook.net/rsrc.php/v4/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4A4A4A;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4A4A4A;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://connect.facebook.net/rsrc.php/v4/y2/r/onuUJj0tCqE.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0)}to{transform:rotate(360deg)}}\n\n.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}\n</style></head>\n\t<body class=\"home page-template-default page page-id-60 wp-custom-logo woocommerce-js\">\n\n\t\t\n\t\t<header class=\"header\">\n\t\t\t<nav class=\"secondary-menu\"></nav>\n\t\t\t<div class=\"header-wrapper wrapper\">\n\n\t\t\t\t<section class=\"logo\">\n\t\t\t\t\t<a href=\"https://auto-glass.no/\" class=\"custom-logo-link\" rel=\"home\" itemprop=\"url\"><img width=\"249\" height=\"54\" src=\"https://auto-glass.no/wp-content/uploads/2017/10/autoglass-logo.png\" class=\"custom-logo\" alt=\"Autoglass\" itemprop=\"logo\"></a>\t\t\t\t</section> \n\t\t\t\t\n\t\t\t\t\n\t\t\t\t<div class=\"mobile-menu-button\">\n\t\t\t\t\t<span class=\"item open-menu\">\n\t\t\t\t\t\t<i class=\"fa fa-bars\" aria-hidden=\"true\"></i>\n\t\t\t\t\t</span>\n\t\t\t\t\t<span class=\"item close-menu\">\n\t\t\t\t\t\t<i class=\"fa fa-times\" aria-hidden=\"true\"></i>\n\t\t\t\t\t</span>\n\t\t\t\t</div>\n\n\t\t\t</div> \n\t\t\t<nav class=\"main-menu\"><ul id=\"menu-hovedmeny\" class=\"menu\"><li id=\"menu-item-64\" class=\"menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-60 current_page_item menu-item-64\"><a href=\"https://auto-glass.no/\">Hovedside</a></li>\n<li id=\"menu-item-66\" class=\"menu-item menu-item-type-post_type menu-item-object-page menu-item-66\"><a href=\"https://auto-glass.no/om-oss/\">Om Autoglass</a></li>\n<li id=\"menu-item-67\" class=\"menu-item menu-item-type-post_type menu-item-object-page menu-item-67\"><a href=\"https://auto-glass.no/bli-kunde/\">Bli kunde</a></li>\n<li id=\"menu-item-68\" class=\"menu-item menu-item-type-post_type menu-item-object-page menu-item-68\"><a href=\"https://auto-glass.no/kundeservice/\">Kontakt oss</a></li>\n</ul><ul id=\"menu-sekundaermeny-ikke-innlogget\" class=\"menu secondary-menu-list\"><li id=\"menu-item-71\" class=\"menu-item menu-item-type-post_type menu-item-object-page menu-item-71\"><a href=\"https://auto-glass.no/min-konto/\">Logg inn</a></li>\n<li id=\"menu-item-75\" class=\"menuitem-swedish menu-item menu-item-type-custom menu-item-object-custom menu-item-75\"><a target=\"_blank\" href=\"http://www.autoglasnorden.se\"><span class=\"hidden\">Svensk</span><img src=\"https://auto-glass.no/wp-content/uploads/2017/10/sweden-flag-round.png\" alt=\"Besøk vår Svenske side\"></a></li>\n</ul></nav>\n\t\t</header> \n\t\t\n\t\t<div class=\"wrap\">\n\t\t\t<div class=\"wrapper main-wrapper\">\n\n\t<section class=\"main-content-wrap\">\n\n\t\t<article id=\"post-id-60\" class=\"clearfix post-60 page type-page status-publish hentry\">\n\n\t\t<section class=\"innholdsbygger-seksjon slideshow module module-slideshow\">\n\n\t<div class=\"innhold content\" style=\"padding-top:auto; padding-bottom:auto;\">\n\n\t\t\n\t\t\t\t\t\t\t<div class=\"slideshow-id-23653\">\n\t\t\t\t\t<ul class=\"slides\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<li class=\"single-slide flex-active-slide\" style=\"width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"slide-innhold slide-1\">\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"slide-innhold-1\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"slide-innhold-2\" style=\"vertical-align:middle;text-align:left;\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h1></h1>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"overlay-farge\" style=\"opacity: 0.0;\"></div>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<img src=\"https://auto-glass.no/wp-content/uploads/2017/10/knust-rute-860x380.jpg\" alt=\"\" draggable=\"false\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t<ol class=\"flex-control-nav flex-control-paging\"></ol><ul class=\"flex-direction-nav\"><li class=\"flex-nav-prev\"><a class=\"flex-prev flex-disabled\" href=\"#\" tabindex=\"-1\"><i class=\"fa fa-angle-left\"></i></a></li><li class=\"flex-nav-next\"><a class=\"flex-next flex-disabled\" href=\"#\" tabindex=\"-1\"><i class=\"fa fa-angle-right\"></i></a></li></ul></div>\n\t\t\t\n\t\t\n\t</div>\n\n\t\n\t<script type=\"text/javascript\">\n\t\tjQuery(window).load(function() {\n\t\t\tjQuery('.slideshow-id-23653').flexslider(\n\t\t\t\t{\n    \"multipleKeyboard\": true,\n    \"smoothHeight\": false,\n    \"pauseOnHover\": true,\n    \"slideshowSpeed\": \"7000\",\n    \"controlNav\": true,\n    \"directionNav\": true,\n    \"prevText\": \"<i class=\\\"fa fa-angle-left\\\"><\\/i>\",\n    \"nextText\": \"<i class=\\\"fa fa-angle-right\\\"><\\/i>\"\n}\t\t\t);\n\t\t});\n\t</script>\n\n</section>\n<section class=\"innholdsbygger-seksjon modul-en-kolonne module module-one-column\">\n\n\t<div class=\"innhold content\" style=\"  padding-top:auto; padding-bottom:auto;\">\n\n\t\t\n\t\t\t<h1>Autoglass AS – vi kan bilglass</h1>\n<h5>Vårt hovedlager i Oslo har en lagerbeholdning på over 130.000 ruter. Vi leverer bilglass til over 500 verksteder.</h5>\n<p>Vi er stolte av vårt motto: vi sier ja der andre sier nei…</p>\n<p>Med andre ord: Vi har det bilglasset du trenger når du har et knust bilglass…</p>\n<p>Autoglass AS eksporterer også bilglass til hele Skandinavia og resten av Europa.</p>\n<p>Alle våre samarbeidspartnere har montører med lang erfaring fra bilglassbransjen. Glasset blir skiftet etter de mest moderne prinsipper. Vårt mål er å alltid være best på kvalitet og sikkerhet innen vårt fagområde.</p>\n<p>&nbsp;</p>\n\n\t\t\n\t</div>\n\n</section>\n<section class=\"innholdsbygger-seksjon modul-knapper module module-buttons\">\n\n\t<div class=\"innhold content\" style=\" padding-top:auto; padding-bottom:auto;\">\n\n\t\t\n\t\t\t\n\t\t\t\t<a href=\"https://auto-glass.no/bli-kunde/\" class=\"knapp button\">Bli kunde her</a>\n\t\t\t\n\t\t\n\t</div>\n\n</section>\n\t\t</article>\n\n\t</section> \n\t<aside class=\"sidebar\">\n\t<div id=\"text-2\" class=\"single-widget widget_text\"><p class=\"widget-title\">Kontakt oss</p>\t\t\t<div class=\"textwidget\"><p>Ole Deviks vei 26 (Alna)<br>\n0666 Oslo</p>\n<p>+47&nbsp;21 37 83 90</p>\n<p><a href=\"mailto:post@auto-glass.no\">post@auto-glass.no</a></p>\n</div>\n\t\t</div><div id=\"nav_menu-4\" class=\"single-widget widget_nav_menu\"><p class=\"widget-title\">INFORMASJON</p><div class=\"menu-footer-meny-container\"><ul id=\"menu-footer-meny\" class=\"menu\"><li id=\"menu-item-45\" class=\"menu-item menu-item-type-post_type menu-item-object-page menu-item-45\"><a href=\"https://auto-glass.no/om-oss/\">Om oss</a></li>\n<li id=\"menu-item-46\" class=\"menu-item menu-item-type-post_type menu-item-object-page menu-item-46\"><a href=\"https://auto-glass.no/kundeservice/\">Kundeservice</a></li>\n<li id=\"menu-item-47\" class=\"menu-item menu-item-type-post_type menu-item-object-page menu-item-47\"><a href=\"https://auto-glass.no/vilkar-betingelser/\">Vilkår &amp; Betingelser</a></li>\n<li id=\"menu-item-48\" class=\"menu-item menu-item-type-post_type menu-item-object-page menu-item-48\"><a href=\"https://auto-glass.no/personvern/\">Personvern</a></li>\n</ul></div></div><div id=\"text-4\" class=\"single-widget widget_text\">\t\t\t<div class=\"textwidget\"></div>\n\t\t</div></aside>\n\n\t\t\t</div> \t\t</div> \n\t\t<footer class=\"footer\">\n\n\t\t\t<div class=\"wrapper\">\n\n\t\t\t\t\n\t\t\t<div class=\"col-set col-4\">\n\t\t\t\t<div class=\"col\">\n\t\t\t\t\t<h4>Autoglass AS</h4><p>Ole Deviks vei 26 (Alna)<br>\n0666 Oslo</p><p>+47 21 37 83 90<br><a href=\"mailto:post@auto-glass.no\">post@auto-glass.no</a></p><p>Org nr.: 968 552 732 MVA</p>\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col w2\"><nav class=\"footer-menu\"><ul id=\"menu-footer-meny-1\" class=\"menu\"><li class=\"menu-item menu-item-type-post_type menu-item-object-page menu-item-45\"><a href=\"https://auto-glass.no/om-oss/\">Om oss</a></li>\n<li class=\"menu-item menu-item-type-post_type menu-item-object-page menu-item-46\"><a href=\"https://auto-glass.no/kundeservice/\">Kundeservice</a></li>\n<li class=\"menu-item menu-item-type-post_type menu-item-object-page menu-item-47\"><a href=\"https://auto-glass.no/vilkar-betingelser/\">Vilkår &amp; Betingelser</a></li>\n<li class=\"menu-item menu-item-type-post_type menu-item-object-page menu-item-48\"><a href=\"https://auto-glass.no/personvern/\">Personvern</a></li>\n</ul></nav></div>\n\t\t\t\t\t<div class=\"col social-media\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t\n\t\t\t\t\n\t\t\t</div> \n\t\t</footer>\n\n\t\t        <div id=\"moove_gdpr_cookie_info_bar\" class=\"moove-gdpr-align-center moove-gdpr-dark-scheme gdpr_infobar_postion_bottom\">\n            <div class=\"moove-gdpr-info-bar-container\">\n\n                <div class=\"moove-gdpr-info-bar-content\">\n                    <div class=\"moove-gdpr-cookie-notice\">\n                        <p>Disse nettsidene bruker såkalte cookies for å gi deg den beste brukeropplevelsen på våre sider. Du kan lese mer om dette eller skru de av i <span data-href=\"#moove_gdpr_cookie_modal\" class=\"change-settings-button\">innstillinger</span>.</p>\n                    </div>\n                    <!--  .moove-gdpr-cookie-notice -->\n                    <div class=\"moove-gdpr-button-holder\">\n                        <button class=\"mgbutton moove-gdpr-infobar-allow-all\" rel=\"nofollow\">Jeg forstår</button>\n                    </div>\n                    <!--  .button-container -->\n                </div>\n            </div>\n\n        </div>\n        <!-- #moove_gdpr_cookie_info_bar  -->\n        <div id=\"fb-root\" class=\" fb_reset\"><div style=\"position: absolute; top: -10000px; width: 0px; height: 0px;\"><div></div></div></div>\n<script>(function(d, s, id) {\n  var js, fjs = d.getElementsByTagName(s)[0];\n  if (d.getElementById(id)) return;\n  js = d.createElement(s); js.id = id;\n  js.src = 'https://connect.facebook.net/nb_NO/sdk.js#xfbml=1&version=v2.11&appId=408971282581856&autoLogAppEvents=1';\n  fjs.parentNode.insertBefore(js, fjs);\n}(document, 'script', 'facebook-jssdk'));</script>\n<!-- Google Tag Manager (noscript) -->\n<noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-W2B6C8J\"\nheight=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>\n<!-- End Google Tag Manager (noscript) --><div class=\"overlay\"><div class=\"modal\" id=\"typecode-modal\"><button class=\"modal-close\" data-modal=\"#typecode-modal\" aria-label=\"Lukk\"><i class=\"fa fa-times-circle fa-4x\" aria-hidden=\"true\"></i></button><div class=\"modal-content\"><h2>Forklaring til Frontrute-benevninger</h2>\n<table>\n<tbody>\n<tr>\n<td><a href=\"http://WS\">WS</a></td>\n<td><span id=\"lblDescItem\" class=\"lbldesc\">WINDSCREEN </span>/FRONTRUTE</td>\n</tr>\n<tr>\n<td>GN / BL</td>\n<td>Grønn rute / Blå rute</td>\n</tr>\n<tr>\n<td>CS</td>\n<td>Coated rute</td>\n</tr>\n<tr>\n<td>GG/GY/GB/BB</td>\n<td>2 Farget rute med skygge, Grønn/Blå eller Grå solskygge</td>\n</tr>\n<tr>\n<td>GNM/GYM/GBM</td>\n<td>Grønn eller 2 farget rute m sensor</td>\n</tr>\n<tr>\n<td>GNELM/GYELM</td>\n<td>Grønn eller 2 farget rute m sensor og Elektrisk</td>\n</tr>\n<tr>\n<td>GNAG/GYAG</td>\n<td>Grønn eller 2 farget rute m antenne</td>\n</tr>\n<tr>\n<td>CSBLMS</td>\n<td>Coated blå med sensor og evt kamera</td>\n</tr>\n<tr>\n<td>GNCELM</td>\n<td>Grønn coated rute elektisk med sensor</td>\n</tr>\n<tr>\n<td>HUD</td>\n<td>Head Up display, Kamera</td>\n</tr>\n<tr>\n<td>LDW</td>\n<td>Lane Departure warning, Feltskifte varsler</td>\n</tr>\n<tr>\n<td>CITY</td>\n<td>City Safety, Nødbremsesystem</td>\n</tr>\n<tr>\n<td>Sensor</td>\n<td>Lys &amp; Regnsensor på noen, andre med bare sensor for viskere</td>\n</tr>\n<tr>\n<td>EL.</td>\n<td>Elektrisk oppvarmet</td>\n</tr>\n<tr>\n<td>ANT.</td>\n<td>Forkortet for antenne</td>\n</tr>\n<tr>\n<td>Innk.</td>\n<td>Forkortet for innkapslet rute</td>\n</tr>\n<tr>\n<td>Solar</td>\n<td>Beskytter mot sol-energi og UV stråler</td>\n</tr>\n<tr>\n<td>Sotet</td>\n<td>Sotet rute begrenser innsyn i kupe</td>\n</tr>\n<tr>\n<td>YP</td>\n<td>Forkortet for sotning på rute</td>\n</tr>\n<tr>\n<td>GD</td>\n<td>Mørkere grønn rute</td>\n</tr>\n<tr>\n<td>GNL / YPL</td>\n<td>Laminert Rute Grønn eller Sotet</td>\n</tr>\n<tr>\n<td>GNAQ</td>\n<td>Agua Kontroll</td>\n</tr>\n<tr>\n<td>K</td>\n<td>Klips</td>\n</tr>\n<tr>\n<td>PY / PYT</td>\n<td>List</td>\n</tr>\n<tr>\n<td>PYB</td>\n<td>Listsett komplett, eller bare list, eller list bunn mm</td>\n</tr>\n<tr>\n<td>PYK</td>\n<td>Listsett komplett, eller bare list, eller list bunn og i noen tilfelle med klips</td>\n</tr>\n<tr>\n<td>EMS</td>\n<td>EMERGENCY MESSAGING SYSTEM</td>\n</tr>\n<tr>\n<td>DAB</td>\n<td>Digital antenne</td>\n</tr>\n<tr>\n<td>AKU</td>\n<td>Akustikk lydisolert rute</td>\n</tr>\n</tbody>\n</table>\n<p><!--more--></p>\n</div></div></div>\t<script type=\"text/javascript\">\n\t\tvar c = document.body.className;\n\t\tc = c.replace(/woocommerce-no-js/, 'woocommerce-js');\n\t\tdocument.body.className = c;\n\t</script>\n\t<script type=\"text/javascript\" src=\"https://auto-glass.no/wp-content/plugins/maksimer-content-builder/assets/js/frontend/jquery.flexslider-min.js?ver=2.6.3\"></script>\n<script type=\"text/javascript\" src=\"https://auto-glass.no/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.70\"></script>\n<script type=\"text/javascript\" src=\"https://auto-glass.no/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4\"></script>\n<script type=\"text/javascript\">\n/* <![CDATA[ */\nvar woocommerce_params = {\"ajax_url\":\"\\/wp-admin\\/admin-ajax.php\",\"wc_ajax_url\":\"\\/?wc-ajax=%%endpoint%%\"};\n/* ]]> */\n</script>\n<script type=\"text/javascript\" src=\"https://auto-glass.no/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=3.4.8\"></script>\n<script type=\"text/javascript\">\n/* <![CDATA[ */\nvar wc_cart_fragments_params = {\"ajax_url\":\"\\/wp-admin\\/admin-ajax.php\",\"wc_ajax_url\":\"\\/?wc-ajax=%%endpoint%%\",\"cart_hash_key\":\"wc_cart_hash_c3cba015a895de4262defab25ccc3686\",\"fragment_name\":\"wc_fragments_c3cba015a895de4262defab25ccc3686\"};\n/* ]]> */\n</script>\n<script type=\"text/javascript\" src=\"https://auto-glass.no/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=3.4.8\"></script>\n<script type=\"text/javascript\" src=\"https://auto-glass.no/wp-content/themes/marineholmen-child/assets/js/maksimer.js?ver=1530781811\"></script>\n<script type=\"text/javascript\" src=\"https://auto-glass.no/wp-content/themes/marineholmen/assets/js/originals/analyse.js?ver=1530100669\"></script>\n<script type=\"text/javascript\">\n/* <![CDATA[ */\nvar moove_frontend_gdpr_scripts = {\"ajaxurl\":\"https:\\/\\/auto-glass.no\\/wp-admin\\/admin-ajax.php\",\"post_id\":\"60\",\"plugin_dir\":\"https:\\/\\/auto-glass.no\\/wp-content\\/plugins\\/gdpr-cookie-compliance\",\"is_page\":\"1\",\"enabled_default\":{\"third_party\":0,\"advanced\":0},\"is_single\":\"\",\"current_user\":\"0\"};\n/* ]]> */\n</script>\n<script type=\"text/javascript\" src=\"https://auto-glass.no/wp-content/plugins/gdpr-cookie-compliance/dist/scripts/main.js?ver=1.1.2\"></script>\n<script type=\"text/javascript\" src=\"https://auto-glass.no/wp-includes/js/wp-embed.min.js?ver=4.9.31\"></script>\n\n                \n\n        <style>\n            #moove_gdpr_cookie_modal,#moove_gdpr_cookie_info_bar{font-family:Nunito,sans-serif}#moove_gdpr_save_popup_settings_button{background-color:#373737!important;color:#fff!important}#moove_gdpr_save_popup_settings_button:hover{background-color:#000!important}#moove_gdpr_cookie_info_bar .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a.mgbutton,#moove_gdpr_cookie_info_bar .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button.mgbutton{background-color:#d02a32!important}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-footer-content .moove-gdpr-button-holder a.mgbutton,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-footer-content .moove-gdpr-button-holder button.mgbutton{background-color:#d02a32!important;border-color:#d02a32!important}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-footer-content .moove-gdpr-button-holder a.mgbutton:hover,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-footer-content .moove-gdpr-button-holder button.mgbutton:hover{background-color:#fff!important;color:#d02a32!important}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-close i{background-color:#d02a32!important;border:1px solid #d02a32!important}#moove_gdpr_cookie_modal .gdpr-acc-link{line-height:0;font-size:0;color:transparent}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-close:hover i,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li a,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li button,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li button i,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li a i,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-tab-main .moove-gdpr-tab-main-content a:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a.mgbutton:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button.mgbutton:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content a:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content button:hover,#moove_gdpr_cookie_info_bar.moove-gdpr-dark-scheme .moove-gdpr-info-bar-container .moove-gdpr-info-bar-content span.change-settings-button:hover{color:#d02a32!important}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li.menu-item-selected a,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li.menu-item-selected button{color:#000!important}#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li.menu-item-selected a i,#moove_gdpr_cookie_modal .moove-gdpr-modal-content .moove-gdpr-modal-left-content #moove-gdpr-menu li.menu-item-selected button i{color:#000!important}#moove_gdpr_cookie_modal.lity-hide{display:none}        </style>\n\n        <div id=\"moove_gdpr_cookie_modal\" class=\"lity-hide\">\n            <div class=\"moove-gdpr-modal-content moove-clearfix logo-position-center moove_gdpr_modal_theme_v1\">\n                <a href=\"#\" class=\"moove-gdpr-modal-close\" rel=\"nofollow\"><i class=\"moovegdpr-arrow-close\"></i></a>\n                <div class=\"moove-gdpr-modal-left-content\">\n                            <div class=\"moove-gdpr-company-logo-holder\">\n                        <img src=\"https://auto-glass.no/wp-content/uploads/2017/10/autoglass-logo.png\" alt=\"\" class=\"img-responsive\">\n        </div>\n        <!--  .moove-gdpr-company-logo-holder -->\n                            <ul id=\"moove-gdpr-menu\">\n                                                <li class=\"menu-item-on menu-item-privacy_overview menu-item-selected\">\n                            <button data-href=\"#privacy_overview\" class=\"moove-gdpr-tab-nav\"><i class=\"moovegdpr-privacy-overview\"></i> <span>Personvernoversikt</span></button>\n                        </li>\n\n                                                                            <li class=\"menu-item-strict-necesarry-cookies menu-item-off\">\n                                <button data-href=\"#strict-necesarry-cookies\" class=\"moove-gdpr-tab-nav\"><i class=\"moovegdpr-strict-necessary\"></i> <span>Nødvendige informasjonskapsler</span></button>\n                            </li>\n                        \n\n                                                                            <li class=\"menu-item-off menu-item-third_party_cookies\">\n                                <button data-href=\"#third_party_cookies\" class=\"moove-gdpr-tab-nav\"><i class=\"moovegdpr-3rd-party\"></i> <span>Analyse Cookies</span></button>\n                            </li>\n                        \n                                                                            <li class=\"menu-item-advanced-cookies menu-item-off\">\n                                <button data-href=\"#advanced-cookies\" class=\"moove-gdpr-tab-nav\"><i class=\"moovegdpr-advanced\"></i> <span>Markedsføring/Social Media</span></button>\n                            </li>\n                        \n                                                                    </ul>\n\n                            <div class=\"moove-gdpr-branding-cnt\">\n                    </div>\n        <!--  .moove-gdpr-branding -->\n                        </div>\n                <!--  .moove-gdpr-modal-left-content -->\n                                <div class=\"moove-gdpr-modal-right-content\">\n                    <div class=\"moove-gdpr-modal-title\">\n\n                                                                    </div>\n                    <!-- .moove-gdpr-modal-ritle -->\n                    <div class=\"main-modal-content\">\n\n                        <div class=\"moove-gdpr-tab-content\">\n                            <div id=\"privacy_overview\" class=\"moove-gdpr-tab-main\">\n                                                                    <h3 class=\"tab-title\">Personvernoversikt</h3>\n                                                                <div class=\"moove-gdpr-tab-main-content\">\n                                    <p>Disse nettsidene bruker cookies som er små tekstfiler som lagres på din enhet når du bruker nettsidene. Cookies brukes for å gi deg den beste brukeropplevelsen og for å kjenne deg igjen og gi deg relevant informasjon når du returnerer til siden.</p>\n<p>Du kan justere cookies-innstillingene ved å bruke menyen til venstre.</p>\n<p> Les mer om personvern på vår <a href=\"https://auto-glass.no/personvern\" rel=\"noopener\" target=\"_blank\">personvern side</a> </p>\n                                </div>\n                                <!--  .moove-gdpr-tab-main-content -->\n                            </div>\n\n                                                            <div id=\"strict-necesarry-cookies\" class=\"moove-gdpr-tab-main\" style=\"display:none\">\n                                                                        <h3 class=\"tab-title\">Nødvendige informasjonskapsler</h3>\n                                    <div class=\"moove-gdpr-tab-main-content\">\n                                        <p>Disse informasjonskapslene er viktige, noe som betyr at hvis de deaktiveres, vil nettstedet slutte å fungere.</p>\n<p>Typekit by Adobe</p>\n                                                                                                                        <div class=\"moove-gdpr-status-bar gdpr-checkbox-disabled checkbox-selected\">\n                                            <form>\n                                                <fieldset>\n                                                    <label class=\"switch\">\n                                                        <span class=\"gdpr-acc-link\">disable</span>\n                                                        <input type=\"checkbox\" disabled=\"\" checked=\"checked\" value=\"check\" id=\"moove_gdpr_strict_cookies\">\n                                                        <span class=\"slider round\" data-text-enable=\"Aktivert\" data-text-disabled=\"Deaktivert\"></span>\n                                                    </label>\n                                                </fieldset>\n                                            </form>\n                                        </div>\n                                        <!-- .moove-gdpr-status-bar -->\n                                                                                    <div class=\"moove-gdpr-tab-main-content moove-gdpr-strict-warning-message\" style=\"margin-top: 10px;\">\n                                                <p>Hvis du deaktiverer denne informasjonskapselen, kan vi ikke lagre dine preferanser. Dette betyr at hver gang du besøker denne nettsiden, må du aktivere eller deaktivere informasjonskapsler på nytt.</p>\n                                            </div>\n                                            <!--  .moove-gdpr-tab-main-content -->\n                                                                                \n                                    </div>\n                                    <!--  .moove-gdpr-tab-main-content -->\n                                </div>\n                            \n                                                                                            <div id=\"third_party_cookies\" class=\"moove-gdpr-tab-main\" style=\"display:none\">\n                                    <h3 class=\"tab-title\">Analyse Cookies</h3>\n                                    <div class=\"moove-gdpr-tab-main-content\">\n                                        <p>Dette nettstedet bruker Google Analytics til å samle inn anonym informasjon, for eksempel antall besøkende til nettstedet og de mest populære sidene.</p>\n<p>Å holde denne informasjonen aktivert, hjelper oss med å forbedre nettstedet vårt.</p>\n<p>Google Analytics (https://apps.ghostery.com/en/apps/google_analytics)</p>\n                                        <div class=\"moove-gdpr-status-bar\">\n                                            <form>\n                                                <fieldset class=\"fl-strenabled\">\n                                                    <label class=\"switch\">\n                                                        <span class=\"gdpr-acc-link\">disable</span>\n                                                        <input type=\"checkbox\" value=\"check\" id=\"moove_gdpr_performance_cookies\">\n                                                        <span class=\"slider round\" data-text-enable=\"Aktivert\" data-text-disabled=\"Deaktivert\"></span>\n                                                    </label>\n                                                </fieldset>\n                                            </form>\n                                        </div>\n                                        <!-- .moove-gdpr-status-bar -->\n                                                                                    <div class=\"moove-gdpr-tab-main-content moove-gdpr-strict-secondary-warning-message\" style=\"margin-top: 10px; display: none;\">\n                                                <p>Please enable Strictly Necessary Cookies first so that we can save your preferences!</p>\n                                            </div>\n                                            <!--  .moove-gdpr-tab-main-content -->\n                                                                            </div>\n                                    <!--  .moove-gdpr-tab-main-content -->\n                                </div>\n                            \n                                                            <div id=\"advanced-cookies\" class=\"moove-gdpr-tab-main\" style=\"display:none\">\n                                                                        <h3 class=\"tab-title\">Markedsføring/Social Media</h3>\n                                    <div class=\"moove-gdpr-tab-main-content\">\n                                        <p>Markedsføring ved bruk av cookies bestemmer en brukers surfe adferd. Informasjonen er brukt til å vise tilpasset innhold gjennom annonsenettverk som AdWords, Facebook og LinkedIn ved hjelp av videresalgskampanjer. Sporing av cookies er nødvendig for å utføre videresalgs markedsføringskampanjer. Hensikten med å samle inn denne informasjonen er:</p>\n<p>Vise relevante personlige annonser eller tilbud gjennom ulike typer medier (for eksempel e-post, sosiale medier og bannere) basert på ditt besøk og klikkadferd på nettsiden for å vise mer relevant innhold.<br>\nFor å begrense antall ganger hver annonse vises (frekvenstak).<br>\nÅ måle effektiviteten av en annonsekampanje.<br>\nHvis du ikke gir tillatelse til disse informasjonskapslene, blir ikke informasjonskapslene plassert på enheten.</p>\n<p>Følgende informasjonskapsler er i bruk på dette nettstedet: </p>\n<p>Facebook Custom Audience (https://apps.ghostery.com/en/apps/facebook_custom_audience)<br>\nFacebook Connect (https://apps.ghostery.com/en/apps/facebook_connect)</p>\n                                        <div class=\"moove-gdpr-status-bar\">\n                                            <form>\n                                                <fieldset class=\"fl-strenabled\">\n                                                    <label class=\"switch\">\n                                                        <span class=\"gdpr-acc-link\">disable</span>\n                                                        <input type=\"checkbox\" value=\"check\" id=\"moove_gdpr_advanced_cookies\">\n                                                        <span class=\"slider round\" data-text-enable=\"Aktivert\" data-text-disabled=\"Deaktivert\"></span>\n                                                    </label>\n                                                </fieldset>\n                                            </form>\n                                        </div>\n                                        <!-- .moove-gdpr-status-bar -->\n                                                                            <div class=\"moove-gdpr-tab-main-content moove-gdpr-strict-secondary-warning-message\" style=\"margin-top: 10px; display: none;\">\n                                            <p>Please enable Strictly Necessary Cookies first so that we can save your preferences!</p>\n                                        </div>\n                                        <!--  .moove-gdpr-tab-main-content -->\n                                                                        </div>\n                                    <!--  .moove-gdpr-tab-main-content -->\n                                </div>\n                            \n                                                    </div>\n                        <!--  .moove-gdpr-tab-content -->\n                    </div>\n                    <!--  .main-modal-content -->\n                    <div class=\"moove-gdpr-modal-footer-content\">\n                        <div class=\"moove-gdpr-button-holder\">\n                                                        <button class=\"mgbutton moove-gdpr-modal-allow-all button-visible\" rel=\"nofollow\">Aktiver alle</button>\n                            <button class=\"mgbutton moove-gdpr-modal-save-settings button-visible\" rel=\"nofollow\">Lagre endringer</button>\n                        </div>\n                        <!--  .moove-gdpr-button-holder -->\n                                            </div>\n                    <!--  .moove-gdpr-modal-footer-content -->\n                </div>\n                <!--  .moove-gdpr-modal-right-content -->\n\n                <div class=\"moove-clearfix\"></div>\n\n            </div>\n            <!--  .moove-gdpr-modal-content -->\n        </div>\n        <!-- #moove_gdpr_cookie_modal  -->\n        \t\n\n<script src=\"https://auto-glass.no/wp-content/plugins/gdpr-cookie-compliance/dist/scripts/lity.js\"></script></body></html>\n"
+    },
+    "screenshots": [
+      "/Users/taj/arch-platform/docs/audits/prospects/autoglass/browser-evidence/screenshot-desktop.png",
+      "/Users/taj/arch-platform/docs/audits/prospects/autoglass/browser-evidence/screenshot-mobile.png"
+    ],
+    "screenshots_error": null
+  },
+  "web": {
+    "meta": {
+      "url": "https://auto-glass.no/",
+      "domain": "auto-glass.no",
+      "origin": "https://auto-glass.no",
+      "final_url": "https://auto-glass.no/",
+      "fetched_at": "2026-08-13T01:44:27.827Z"
+    },
+    "checks": [
+      {
+        "id": "http_status",
+        "label": "HTTP-status (hovedsiden)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "HTTP 200",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:43:52.188Z"
+      },
+      {
+        "id": "https",
+        "label": "HTTPS/TLS",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "HTTPS leverte respons",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:43:52.188Z"
+      },
+      {
+        "id": "redirect_chain",
+        "label": "Omdirigeringskjede",
+        "dimension": "reliability",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen redirects",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:43:52.188Z"
+      },
+      {
+        "id": "broken_links",
+        "label": "Ødelagte interne lenker",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "13 sider sjekket, 0 ødelagt",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:10.384Z"
+      },
+      {
+        "id": "asset_failures",
+        "label": "Ressurs-feil (img/css/js)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "0 av 10 ressurser feilet",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:16.938Z"
+      },
+      {
+        "id": "compression",
+        "label": "Komprimering (gzip/brotli)",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "gzip",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:16.938Z"
+      },
+      {
+        "id": "caching",
+        "label": "Cache-headere",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "public, no-cache",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:16.938Z"
+      },
+      {
+        "id": "render_blocking",
+        "label": "Render-blokkerende ressurser",
+        "dimension": "performance",
+        "result": "FAIL",
+        "evidence": "14 blokkerende skript, 7 stylesheets",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:16.939Z"
+      },
+      {
+        "id": "image_optim",
+        "label": "Bilde-optimalisering",
+        "dimension": "performance",
+        "result": "FAIL",
+        "evidence": "4 bilder, 1 m/ dimensjoner, 0 lazy",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:16.939Z"
+      },
+      {
+        "id": "third_party",
+        "label": "Tredjeparts-skript/-ressurser",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "1 eksterne domener (use.typekit.net)",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:16.940Z"
+      },
+      {
+        "id": "viewport",
+        "label": "Viewport meta",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "viewport tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:16.940Z"
+      },
+      {
+        "id": "media_queries",
+        "label": "Responsive CSS (@media)",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "@media funnet",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:17.612Z"
+      },
+      {
+        "id": "lang",
+        "label": "Språk-attributt (lang)",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "nb-NO",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:17.612Z"
+      },
+      {
+        "id": "alt_text",
+        "label": "Alt-tekst på bilder",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "0/4 bilder mangler alt",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:17.612Z"
+      },
+      {
+        "id": "form_labels",
+        "label": "Skjemaetiketter",
+        "dimension": "accessibility",
+        "result": "FAIL",
+        "evidence": "3 input, 3 label",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:17.613Z"
+      },
+      {
+        "id": "heading_hierarchy",
+        "label": "Overskriftshierarki",
+        "dimension": "accessibility",
+        "result": "FAIL",
+        "evidence": "h1=2 h2=1 h3=4",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:17.613Z"
+      },
+      {
+        "id": "semantic",
+        "label": "Semantiske landemerker",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "3/4 (header, nav, footer)",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:17.613Z"
+      },
+      {
+        "id": "title",
+        "label": "Tittel",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "Autoglass AS - Vi kan bilglass - Autoglass",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:17.614Z"
+      },
+      {
+        "id": "meta_description",
+        "label": "Meta-beskrivelse",
+        "dimension": "seo",
+        "result": "FAIL",
+        "evidence": "mangler meta description",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:17.614Z"
+      },
+      {
+        "id": "canonical",
+        "label": "Canonical",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "https://auto-glass.no/",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:17.614Z"
+      },
+      {
+        "id": "robots_meta",
+        "label": "Robots-meta",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "ingen robots-meta (standard: indekserbart)",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:17.614Z"
+      },
+      {
+        "id": "robots_txt",
+        "label": "robots.txt",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "robots.txt tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:17.614Z"
+      },
+      {
+        "id": "sitemap",
+        "label": "Sitemap.xml",
+        "dimension": "seo",
+        "result": "FAIL",
+        "evidence": "mangler sitemap.xml",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:27.813Z"
+      },
+      {
+        "id": "open_graph",
+        "label": "OpenGraph",
+        "dimension": "seo",
+        "result": "FAIL",
+        "evidence": "title=true description=true image=false",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:27.814Z"
+      },
+      {
+        "id": "structured_data",
+        "label": "Strukturert data (JSON-LD)",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "JSON-LD tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:27.815Z"
+      },
+      {
+        "id": "header_csp",
+        "label": "Header: csp",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:27.815Z"
+      },
+      {
+        "id": "header_hsts",
+        "label": "Header: hsts",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:27.815Z"
+      },
+      {
+        "id": "header_xcto",
+        "label": "Header: xcto",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:27.815Z"
+      },
+      {
+        "id": "header_referrer",
+        "label": "Header: referrer",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:27.815Z"
+      },
+      {
+        "id": "header_permissions",
+        "label": "Header: permissions",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:27.815Z"
+      },
+      {
+        "id": "header_frame",
+        "label": "Header: frame",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:27.815Z"
+      },
+      {
+        "id": "mixed_content",
+        "label": "Blandet innhold (http på https)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "2 http-referanser",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:27.815Z"
+      },
+      {
+        "id": "source_maps",
+        "label": "Eksponerte source maps",
+        "dimension": "security",
+        "result": "UNKNOWN",
+        "evidence": "skript ikke observerbare",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:27.818Z"
+      },
+      {
+        "id": "tech_disclosure",
+        "label": "Versjons-avsløring",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "Prometheus",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:27.818Z"
+      },
+      {
+        "id": "cookie_banner",
+        "label": "Cookie-banner",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "cookie/samtykke-element observert",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:27.818Z"
+      },
+      {
+        "id": "privacy_link",
+        "label": "Personvernerklæring-link",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "link til personvern observert",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:27.822Z"
+      },
+      {
+        "id": "consent_cmp",
+        "label": "Samtykke-plattform (CMP)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "trackere observert uten CMP",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:27.822Z"
+      },
+      {
+        "id": "contact_form",
+        "label": "Kontakt-/lead-skjema",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "3 <form> observert",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:27.822Z"
+      },
+      {
+        "id": "cta",
+        "label": "Call-to-action",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "CTA-tekst observert",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:27.823Z"
+      },
+      {
+        "id": "tech_cms",
+        "label": "Teknologi: cms",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "WordPress",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:27.827Z"
+      },
+      {
+        "id": "tech_hosting",
+        "label": "Teknologi: hosting",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "Prometheus",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:27.827Z"
+      },
+      {
+        "id": "tech_analytics",
+        "label": "Teknologi: analytics",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "Google Analytics/Tag Manager, Facebook Pixel",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-13T01:44:27.827Z"
+      }
+    ],
+    "raw": {
+      "home": {
+        "status": 200,
+        "status_text": "OK",
+        "error": null,
+        "final_url": "https://auto-glass.no/",
+        "redirects": []
+      },
+      "https": {
+        "ok": true,
+        "detail": "HTTPS leverte respons"
+      },
+      "redirect_chain": [],
+      "robots": {
+        "present": true,
+        "disallow": [
+          "/wp-admin/"
+        ]
+      },
+      "crawl": {
+        "pages_checked": 13,
+        "crawled": 13,
+        "broken": []
+      },
+      "html_length": 44754,
+      "asset_failures": {
+        "checked": 10,
+        "failed": 0,
+        "details": []
+      },
+      "compression": "gzip",
+      "caching": "public, no-cache",
+      "render_blocking_scripts": 14,
+      "images": {
+        "total": 4,
+        "with_dimensions": 1,
+        "lazy": 0
+      },
+      "third_party": [
+        "use.typekit.net"
+      ],
+      "viewport": true,
+      "media_queries": true,
+      "lang": "nb-NO",
+      "img_missing_alt": 0,
+      "forms_accessibility": {
+        "inputs": 3,
+        "labels": 3,
+        "inputs_with_label": 0
+      },
+      "headings": {
+        "h1": 2,
+        "h2": 1,
+        "h3": 4,
+        "h4": 1,
+        "h5": 1,
+        "h6": 0
+      },
+      "landmarks": [
+        "header",
+        "nav",
+        "footer"
+      ],
+      "title": "Autoglass AS - Vi kan bilglass - Autoglass",
+      "meta_description": null,
+      "canonical": "https://auto-glass.no/",
+      "robots_meta": null,
+      "sitemap": null,
+      "open_graph": {
+        "title": true,
+        "description": true,
+        "image": false
+      },
+      "structured_data": true,
+      "security_headers": {
+        "csp": null,
+        "hsts": "max-age=31536000",
+        "xcto": "nosniff",
+        "referrer": "strict-origin-when-cross-origin",
+        "permissions": null,
+        "frame": "SAMEORIGIN"
+      },
+      "mixed_content": 2,
+      "source_maps": null,
+      "tech_disclosure": {
+        "server": "Prometheus",
+        "x_powered_by": null
+      },
+      "cookie_banner": true,
+      "analytics": [
+        "Google Analytics/Tag Manager",
+        "Facebook Pixel"
+      ],
+      "privacy_link": true,
+      "consent_cmp": false,
+      "forms_count": 3,
+      "cta": true,
+      "automation_signals": {
+        "contact_form": true,
+        "analytics": true,
+        "cmp": false,
+        "chat": false,
+        "booking": true,
+        "newsletter": false
+      },
+      "technology": {
+        "framework": null,
+        "cms": "WordPress",
+        "cdn": null,
+        "hosting": "Prometheus",
+        "analytics": [
+          "Google Analytics/Tag Manager",
+          "Facebook Pixel"
+        ]
+      }
+    }
+  },
+  "automation": {
+    "leverage": 50,
+    "potential": 50,
+    "present": 3,
+    "total": 6,
+    "signals": {
+      "contact_form": true,
+      "analytics": true,
+      "cmp": false,
+      "chat": false,
+      "booking": true,
+      "newsletter": false
+    }
+  },
+  "quick_wins": [],
+  "build_opportunities": [],
+  "human_approvals": [],
+  "executive_summary": "Autoglass AS sin offentlige nettside scorer **69%** på Arch Website Score. Den største risikoen er: **Blandet innhold (http på https)**. **4 funn** bør prioriteres (1 kritisk, 3 høy ROI). Største mulighet: **50% uutnyttet automatiseringsverdi** — prosesser som kan automatiseres (lead-ruting, kundestøtte, avtalebooking, oppfølging). Forretningsmessig betyr dette: konkret risiko som bør lukkes raskt, og målbar gevinst i hastighet, konvertering og frigjort tid. Merk: dette er en **utenfor-inn** vurdering av kun den offentlige nettsiden — interne systemer er ikke vurdert."
+}
