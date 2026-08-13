@@ -66,7 +66,7 @@ projects:
     note: "Autoglass AS B2C-kanal (kunde #3). Forsikringsuavhengig salg til privatpersoner. NS-peking fra Domeneshop gjenstår."
 
   - project_id: tronderglass
-    name: Trønderglass
+    name: Trønder Bilglass AS
     type: Bilglass-montør (verksted)
     repository: null
     linear_team: ARC
@@ -77,7 +77,7 @@ projects:
     health_profile: customer
     status: live
     url: https://tronderglass.no
-    note: "Eksternt montørfirma (verksted) i Selsbakk, Trondheim. Domene registrert hos Domeneshop (NS hyp.net); kode/repo ikke opprettet."
+    note: "Montørfirma i Selsbakk, Trondheim. Org.nr 931835289 (Brreg, AS stiftet 2023-04-28, næring 95.310). Navneendring venter — markedsnavn 'Trønderglass'. Domene tronderglass.no (Domeneshop, parkeringsside). Kode/repo ikke opprettet."
 
   - project_id: arch-dashboard
     name: Arch Dashboard
