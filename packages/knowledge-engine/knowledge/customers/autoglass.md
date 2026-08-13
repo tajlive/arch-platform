@@ -55,8 +55,6 @@ Første **eksterne** Arch-kunde. Produktet under bygging: **senior AI-ordremotta
 
 **Mønster (verifisert på tvers av Norden):** montør-kjeder kjører forsikringssamarbeid (egenandel), online booking, ADAS-kalibrering — og Ryds, Dansk Bilglas og 123Tuulilasi har ALLE AI-skadevurdering fra bilde. Dette er direkte relevant for Autoglass-ordremottakeren.
 
-**IKKE bilglass-aktører:** themeforest (tema-markedsplass), webdesignawards/rimbodesigns/sitebuilderreport (design-inspirasjon), werksta.no (karosseri-skade, ikke glass-spesifikk), y-glas.se (byggglass-grossist, ikke bilglass).
-
 ## Kunde-artefakter
 
 - **Komplett prisliste** (`docs/audits/customers/autoglass/assets/PROSEKT-API-16-MAI26-prisliste.xls`) — alle Autoglass AS sine varer. Generert av Eduard Eikeland 16.05.2026. Sortert etter varenummer. Analyse-script: `assets/analyze-prisliste.py`.
