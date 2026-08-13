@@ -25,11 +25,12 @@ Første **eksterne** Arch-kunde. Produktet under bygging: **senior AI-ordremotta
 | **Produsent/distributør (originalglass, B2B)** | Saint-Gobain (Sekurit) | Grossister/verksteder | Distribuerer ORIGINALE Sekurit-bilglass B2B |
 | **Produsent/distributør (B2B)** | Pilkington (NSG Group) | Grossister/verksteder | Sender bilglass B2B fra Sverige til Norge |
 | **Produsent/distributør (B2B)** | AGC (Asahi Glass, AGC Automotive) | Grossister/verksteder | Global bilglassprodusent (japansk) |
+| **Produsent/distributør (B2B)** | Xinyi Glass Holdings | Grossister/verksteder | Global bilglassprodusent (kinesisk/HK) |
 | **Montør-kjede (B2C)** | Carglass (carglass.no) | Sluttkunde | Booke time online, betaling, merkevare |
 | **Montør-kjede (B2C)** | Riis Bilglass AS (bilglass.no) | Sluttkunde | Norges største kjede, ~200 avdelinger |
 | **Montør-kjede (B2C)** | Glassdrive (glassdrive.no) | Sluttkunde | Montørbedrift |
 
-**Konsekvens for audit:** en grossist-nettbutikk og en montør-nettbutikk har ulik suksessmålestokk. Auto-glass.no sin **direkte konkurrent er Bilglassgruppen** (begge B2B-grossister) — der vinner Auto-glass (69 vs 60). Carglass, Riis Bilglass og Glassdrive er i montør-segmentet (ikke direkte konkurrenter). Saint-Gobain Sekurit er ett nivå opp i verdikjeden (originalglass-produsent/distributør) og selger B2B til grossister/verksteder. Pilkington (NSG Group) er tilsvarende en B2B-produsent/distributør som sender bilglass fra Sverige til Norge. AGC (Asahi Glass / AGC Automotive) er en tredje global bilglassprodusent i samme ledd.
+**Konsekvens for audit:** en grossist-nettbutikk og en montør-nettbutikk har ulik suksessmålestokk. Auto-glass.no sin **direkte konkurrent er Bilglassgruppen** (begge B2B-grossister) — der vinner Auto-glass (69 vs 60). Carglass, Riis Bilglass og Glassdrive er i montør-segmentet (ikke direkte konkurrenter). Saint-Gobain Sekurit er ett nivå opp i verdikjeden (originalglass-produsent/distributør) og selger B2B til grossister/verksteder. Pilkington (NSG Group) er tilsvarende en B2B-produsent/distributør som sender bilglass fra Sverige til Norge. AGC (Asahi Glass / AGC Automotive) er en tredje global bilglassprodusent i samme ledd. Xinyi Glass Holdings er en fjerde (kinesisk/Hong Kong-basert).
 
 ## Nøkkelfakta (verifisert 2026-08-13, website-audit)
 
