@@ -46,6 +46,22 @@
       "note": "Archs 1. testkunde (F4.2). Control Plane onboardet 2026-08-14 via Project Factory."
     },
     {
+      "project_id": "finnbilglass",
+      "name": "Finnbilglass",
+      "type": "B2C bilglass-salg (forsikringsuavhengig)",
+      "repository": "tajlive/finnbilglass",
+      "linear_team": "ARC",
+      "linear_project": "Finnbilglass",
+      "runtime": "cloudflare-pages",
+      "environment": "staging",
+      "visibility": "customer",
+      "health_profile": "customer",
+      "status": "building",
+      "url": "https://finnbilglass.no",
+      "dev_path": "/Users/taj/finnbilglass",
+      "note": "Autoglass AS B2C-kanal (kunde #3). Forsikringsuavhengig salg til privatpersoner. NS-peking fra Domeneshop gjenstår."
+    },
+    {
       "project_id": "arch-dashboard",
       "name": "Arch Dashboard",
       "type": "Internal Platform",
