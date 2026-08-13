@@ -43,6 +43,20 @@ Første **eksterne** Arch-kunde. Produktet under bygging: **senior AI-ordremotta
 - Innlogget søk på regnr **fungerer** (EV21734 → Jaguar I-Pace 2019, 15 glassvarianter).
 - Rapporter: `docs/audits/customers/{autoglass,carglass,bilglassgruppen}/audit-rapport-*.md`.
 
+## Internasjonalt bilglass-marked (Tom 2026-08-13, klassifisert)
+
+**Produsenter (B2B):** Pilkington (sv/fi, egen AGR-webbshop) · Nielsen & Moller (siden 1919, eksportør) · Carlex Glass America (OEM+ettermarked) · Vitro (Mexico, OEM+5 000 produkter) · + eksisterende: Saint-Gobain, AGC, Xinyi, Fuyao.
+
+**Grossister/distributører (B2B):** Jüllich Glas (Ungarn/CEE — Xinyi/Guardian/Nordglass-distributør, 17 000 glass) · Autoboss (Ukraina — importør, alle merker) · Glass4Cars (Polen — offisiell Fuyao-distributør + retail) · Dakotaland (USA — montør + wholesale).
+
+**Montør-kjeder (B2C):** Glassdrive (NO) · Ryds Bilglas (SE, 190 verksteder) · Carglass (SE/DK, Belron) · Dansk Bilglas (DK) · Bilglasgruppen Randers (DK) · 123Tuulilasi (FI, AGE-medlem) · Novus (FI) · Glasspoint (FI) · National Windscreens (UK) · Glass America (US).
+
+**Lokale montører (B2C):** Glaskedjan (SE) · Glas Tech System (SE, stenskott-spesialist) · AD-Autolider (FI) · Autolasipalvelu (FI) · Suomen Autolasi (FI) · Lasiset J. Kananoja (FI, tunge kjøretøy) · Szyby24 (PL) · Color-Mix Autosklo (SK, Autosklo H&D-gruppen).
+
+**Mønster (verifisert på tvers av Norden):** montør-kjeder kjører forsikringssamarbeid (egenandel), online booking, ADAS-kalibrering — og Ryds, Dansk Bilglas og 123Tuulilasi har ALLE AI-skadevurdering fra bilde. Dette er direkte relevant for Autoglass-ordremottakeren.
+
+**IKKE bilglass-aktører:** themeforest (tema-markedsplass), webdesignawards/rimbodesigns/sitebuilderreport (design-inspirasjon), werksta.no (karosseri-skade, ikke glass-spesifikk), y-glas.se (byggglass-grossist, ikke bilglass).
+
 ## Kunde-artefakter
 
 - **Komplett prisliste** (`docs/audits/customers/autoglass/assets/PROSEKT-API-16-MAI26-prisliste.xls`) — alle Autoglass AS sine varer. Generert av Eduard Eikeland 16.05.2026. Sortert etter varenummer. Analyse-script: `assets/analyze-prisliste.py`.
