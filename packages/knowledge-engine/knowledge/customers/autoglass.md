@@ -43,5 +43,20 @@ Første **eksterne** Arch-kunde. Produktet under bygging: **senior AI-ordremotta
 
 ## Kunde-artefakter
 
-- **Komplett prisliste** (`docs/audits/customers/autoglass/assets/PROSEKT-API-16-MAI26-prisliste.xls`) — alle Autoglass AS sine varer, ~34 800 rader. Kolonner: **Varenr, Varenavn, Pris, Eurokode** (+ kommentarfelt med tilleggsinfo som sotet-grad `#MAX55%#`). Generert av Eduard Eikeland 16.05.2026. Sortert etter varenummer. Inneholder bilglass, viskersett (BOSCH) og frakt (POST BRING). **Status: lagt til, IKKE analysert ennå — «vi ser på det senere» (Tom).**
+- **Komplett prisliste** (`docs/audits/customers/autoglass/assets/PROSEKT-API-16-MAI26-prisliste.xls`) — alle Autoglass AS sine varer. Generert av Eduard Eikeland 16.05.2026. Sortert etter varenummer. Analyse-script: `assets/analyze-prisliste.py`.
+
+## Prisliste-analyse (PROSEKT API, 16.05.2026)
+
+**Omfang:** 33 083 varer (datarader). Kolonner: Varenr, Varenavn, kommentar, Pris, Eurokode.
+
+- **Pris:** 1–149 565 kr. Median 4 115 kr, snitt 6 299 kr. (eks. mva — katalogpris = FULL PRIS, rabatt trekkes på ordre/faktura.)
+- **27 479 varer har Eurokode** (= bilglass) · **5 604 uten** (= tilbehør, viskersett, frakt, emballasje).
+- **Kategorier** (nøkkelord i varenavn): glass/annet 24 780 · dørrute 3 434 · bakrute 1 511 · siderute 1 012 · frontrute 623 · pyntelist 471 · ventilrute 424 · viskersett 266 · klips 198 · primer 77 · frakt 59 · lim 43.
+- **Topp bilmerker** (antall varer): FORD 2 075 · MERCEDES 1 902 · TOYOTA 1 717 · VW 1 683 · BMW 1 474 · OPEL 1 308 · AUDI 1 185 · RENAULT 938 · PEUGEOT 908 · NISSAN 854 · HONDA 797 · MAZDA 784 · VOLVO 769.
+
+**Viktige konvensjoner avdekket i prislisten:**
+
+1. **Sensorgel/sensortape = «S»-serien.** 88 varer heter eksplisitt «SENSORGEL» (f.eks. 1850S CITROEN XANTIA, 2123S SAAB 9-5), og 70 til heter «SENSORTAPE»/«SENSOR PAD» med alias mot S-nummer: `1580 = S1`, `21111 = S4`, `BRUK S3`, `BRUK S8`. Bekrefter at S+tall (S1/S3/S4/S8) er produktkodene, og at sensortape = sensorgel (Tom-korrigering).
+2. **«BRUK <varenr>»-konvensjonen** (945 varer) = erstatnings-/alias-referanse: «BRUK 1158K» betyr «bruk varenummer 1158K i stedet». Engelsk variant «USE» finnes på US-import (502 varer). Ordremottakeren må behandle «BRUK X» som en peker til X, ikke som et eget glass.
+3. **Sotet-grad i kommentarfeltet:** `#-10%#`, `#-5%#` osv. (lystransmisjon), `EMB` = emballasje (2 670 varer), `NB` = merknad (1 942 varer).
 
