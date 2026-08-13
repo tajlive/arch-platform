@@ -1,0 +1,27 @@
+{
+  "id": "bilglass",
+  "name": "Autoglass AS",
+  "mode": "design_partner",
+  "repository": null,
+  "consent_granted": true,
+  "consent_date": "2026-08-13",
+  "scope": {
+    "description": "Read-only analyse av kodebasen (repository-innhold): arkitektur, sikkerhet, teknisk gjeld og automatiseringspotensial. Ingen endringer, ingen deploy, ingen prod-tilgang.",
+    "exclude": []
+  },
+  "access": {
+    "level": "read_only",
+    "source": "lokal read-only klon (ingen push/rettigheter)",
+    "secrets_copied": false
+  },
+  "nda": {
+    "signed": true,
+    "date": "2026-08-13"
+  },
+  "contact": {
+    "name": "",
+    "email": ""
+  },
+  "created_at": "2026-08-13T00:00:00.000Z",
+  "status": "consented"
+}

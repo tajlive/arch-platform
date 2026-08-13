@@ -1,117 +1,95 @@
 # Arch Audit — Klarpakke
 
-> **Generert:** 2026-08-12T23:40:55.782Z · **Arch Audit v1.0** · **Commit:** `6ad6dfef7`
+> **Generert:** 2026-08-13T00:40:41.330Z · **Arch Audit v1.1** · **Commit:** `6ad6dfef7`
 
-> **Klassifikasjon:** 🟢 automatisk funn · 🟡 inferert anbefaling · 🔴 krever menneskelig beslutning
+> **Slik leser du rapporten:** 🟢 automatisk funn · 🟡 inferert anbefaling · 🔴 krever menneskelig beslutning
 
-## 1. Executive Summary
+## 1. Sammendrag (executive summary)
 
-**Klarpakke** er analysert med Arch Audit v1. Samlet Arch Health Score: **98%**. Secret-scan: **clean (0 lekkasjer)**. CI/verktøykjede: matcher repo. Ingen kritiske funn. Rapporten skiller automatiske funn (🟢), infererte anbefalinger (🟡) og beslutninger som krever menneske (🔴).
+**Klarpakke** er analysert med Arch Audit v1. Samlet Arch Health Score: **98%**. Secret-scan: **clean (0 lekkasjer)**. CI/verktøykjede: matcher repo. Ingen kritiske funn. Uutnyttet automatiseringsverdi (Automation Potential): **0%**. Rapporten skiller automatiske funn (🟢), infererte anbefalinger (🟡) og beslutninger som krever menneske (🔴).
 
-## 2. Arch Health Score
+## Executive Scorecard
 
-**Total: 98%** (vektet: Governance 20 · Security 25 · Engineering 25 · Operations 20 · Documentation 10)
-
-| Kategori | Score | Pass/Fail/Unknown |
-|---|---|---|
-| Governance | 100% | 5P / 0F / 0U |
-| Security | 100% | 4P / 0F / 0U |
-| Engineering | 100% | 4P / 0F / 0U |
-| Operations | 100% | 4P / 0F / 0U |
-| Documentation | 75% | 3P / 1F / 0U |
-
-> Health Score er evidensbasert: hver sjekk bærer `evidence` + `observed_at`. UNKNOWN telles som ikke-healthy (fail-safe).
-
-## 3. Security & Secret Governance
-
-| Sjekk | Resultat | Bevis |
-|---|---|---|
-| Secret-scan | ✅ clean | 7726 filer scannet, 0 lekkasje, 1 gitignoret note |
-| Secret-governance (.arch/secrets) | ✅ tilstede | .arch/secrets/registry.yaml |
-
-<details><summary>Funn (fil:linje — aldri verdier)</summary>
-
-```
-[note] .env.mcp.local:28 — supabase-pat
-```
-</details>
-
-> ⚠️ «0 funn» = ingen matchende secret-mønster i scannet filsett. Det er IKKE en sikkerhetssertifisering. Juridisk/regulatorisk status (GDPR m.fl.) krever egen kvalifisert vurdering (se §12).
-
-## 4. Architecture Review
-
-| Aspekt | Observert |
+| Dimensjon | Score |
 |---|---|
-| Rammeverk | Next.js |
-| Språk | TypeScript |
-| Package manager | npm |
-| Test-runner | vitest |
-| Runtime | Cloudflare |
-| Cloudflare | wrangler.jsonc, open-next.config.ts, @opennextjs/cloudflare |
-| Supabase | @supabase/supabase-js, supabase/config.toml |
+| 🟢 Security | ██████████ 100% |
+| 🟢 Governance | ██████████ 100% |
+| 🟢 Engineering | ██████████ 100% |
+| 🟢 Operations | ██████████ 100% |
+| 🟠 Documentation | ████████░░ 75% |
+| 🔵 Automation Potential | ░░░░░░░░░░ 0% |
 
-- (ingen)
+> **Slik leser du dette:** høyere score = bedre i den dimensjonen.
+> **Automation Potential** er motsatt: høy verdi = mye uutnyttet automatiseringsverdi
+> som Arch kan levere. Score er en evidensbasert vurdering, **ikke** en sertifisering.
 
+## 2. Prioriterte funn og anbefalte tiltak
 
-## 5. CI/CD & Engineering Quality
+### 🔴 Kritisk — må håndteres først
 
-| Sjekk | Resultat | Bevis |
+**F003 Regulatorisk/juridisk vurdering (GDPR m.fl.)**
+- **Problem:** Regulatorisk/juridisk vurdering (GDPR m.fl.)
+- **Forretningsmessig betydning:** Regulatorisk eksponering (GDPR m.fl.) kan gi bøter og ansvar. Arch vurderer IKKE dette — det krever kvalifisert juridisk gjennomgang.
+- **Anbefalt løsning:** Kvalifisert juridisk vurdering (ekstern rådgiver).
+- **Forventet innsats:** Lav (timer)
+- **Arch Build-kandidat:** — (menneskelig/lavkode)
+
+### 🟠 Høy ROI — størst verdi per innsats
+
+- *(ingen funn i denne kategorien)*
+
+### 🟢 Quick win — gjør det denne uka
+
+- *(ingen funn i denne kategorien)*
+
+### 🔵 Strategisk — planlegg neste kvartal
+
+**F002 Automasjonsmuligheter identifisert**
+- **Problem:** Automasjonsmuligheter identifisert
+- **Forretningsmessig betydning:** Flere manuelle steg kan automatiseres — dette frigjør tid og reduserer menneskelige feil.
+- **Anbefalt løsning:** Automatiser de identifiserte stegene (se detalj i teknisk appendix).
+- **Forventet innsats:** Betydelig (1–2 uker)
+- **Arch Build-kandidat:** ✅ ja
+
+** Arch Build — videreutvikling fra godkjent audit**
+- **Problem:** Arch Build — videreutvikling fra godkjent audit
+- **Forretningsmessig betydning:** Videreutvikling etter godkjent audit — scope fastsettes i Architecture Proposal.
+- **Anbefalt løsning:** Arch Build — videreutvikling fra godkjent audit.
+- **Forventet innsats:** Betydelig (1–2 uker)
+- **Arch Build-kandidat:** ✅ ja
+
+## Arch Build Proposal — utkast
+
+> **Status:** automatisk utkast fra audit-funn — **ikke bindende**, krever kundegodkjenning.
+> Arch implementerer **ingen** endringer i kundens system under audit-fasen.
+
+### Foreslått scope
+
+Følgende tiltak er identifisert som Arch Build-kandidater (fra godkjent audit):
+
+| # | Tiltak | Innsats |
 |---|---|---|
-| CI-workflows | deploy-production.yml, deploy-staging.yml, deploy.yml, e2e-lighthouse-qa.yml, health-monitor.yml, pilot-weekly-backtest.yml, pre-merge-gates.yml, security-audit.yml, synthetic-monitor.yml | tilstede |
-| Verktøykjede-match | ✅ matcher | workflow-verktøy finnes i repo |
-| Siste CI-run | success | 6ad6dfe · 2026-08-12T23:09:45Z |
+| 1 | Automasjonsmuligheter identifisert | Betydelig (1–2 uker) |
+| 2 | Arch Build — videreutvikling fra godkjent audit | Betydelig (1–2 uker) |
 
-- (ingen)
+**Samlet innsats-estimat:** ~16 dager (vurdering, ikke løfte).
 
+### Verdi for kunden
 
-## 6. Operations & Monitoring
+- Redusert risiko for nedetid, lekkasjer og feilleveranser.
+- Færre manuelle steg — frigjør utviklertid.
+- Forutsigbar kvalitetsport før hver deploy (test → smoke → rollback).
 
-| Sjekk | Resultat |
-|---|---|
-| Monitoring | ✅ |
-| Alert-integrasjon | ✅ |
-| Rollback | ✅ |
+### Neste steg
 
-- (ingen)
-
-
-## 7. AI / automasjonsmuligheter
-
-| F002 | **Automasjonsmuligheter identifisert** | Inferert anbefaling (regelavledet) | dokumentasjon (ARCHITECT/API-docs) |
-
-## 8. Teknisk gjeld / risiko
-
-| F003 | **Regulatorisk/juridisk vurdering (GDPR m.fl.)** | Krever menneskelig beslutning | ikke vurdert av Arch — krever kvalifisert juridisk gjennomgang |
-
-## 9. Prioriterte anbefalinger
-
-| Prio | Tittel | Klasse | Bevis |
-|---|---|---|---|
-| P1 | **Ingen secret-mønster i versjonskontrollerte filer** | Automatisk funn (maskinverifisert) | 7726 filer scannet, 0 lekkasje |
-| P2 | **Regulatorisk/juridisk vurdering (GDPR m.fl.)** | Krever menneskelig beslutning | ikke vurdert av Arch — krever kvalifisert juridisk gjennomgang |
-| P5 | **Automasjonsmuligheter identifisert** | Inferert anbefaling (regelavledet) | dokumentasjon (ARCHITECT/API-docs) |
-
-
-## 10. Quick wins
-
-- (ingen identifisert)
-
-
-
-## 11. Estimerte Build-muligheter
-
-| Mulighet | Verdi-estimat | Innsats | Klasse |
-|---|---|---|---|
-| **Arch Build — videreutvikling fra godkjent audit** | scopes i Architecture Proposal | varierer | Krever menneskelig beslutning |
-
-> Verdi-estimat er en vurdering, ikke et løfte. Endelig pris/scope fastsettes i Architecture Proposal + godkjenning.
-
-## 12. Krav til menneskelig godkjenning
-
-| Beslutning | Hvorfor menneskelig |
-|---|---|
-| **Godkjenn produksjonsdeploy (hvis aktuelt)** | deploy er Tom/governance-gated |
-| **Juridisk/regulatorisk vurdering** | GDPR m.fl. krever kvalifisert vurdering — utenfor Archs evidensgrunnlag |
+1. Kundegjennomgang av dette utkastet.
+2. Endelig Architecture Proposal med fastsatt scope, pris og akseptkriterier.
+3. Godkjenning → Arch Build (separat fase, egen tilgang).
 
 ---
-_Arch Audit er en evidensbasert vurdering, ikke en sertifisering. Ingen sikkerhets-, juridiske eller regulatoriske påstander uten dokumentert grunnlag._
+
+---
+_Arch Audit er en evidensbasert vurdering, ikke en sertifisering. 
+Ingen endringer ble gjort i systemet under analysen. 
+Ingen hemmeligheter er kopiert inn i Arch. 
+Juridiske/regulatoriske forhold (GDPR m.fl.) er ikke vurdert — krever kvalifisert gjennomgang._

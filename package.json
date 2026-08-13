@@ -9,6 +9,7 @@
     "build": "node packages/data-adapters/collect.mjs",
     "score": "node packages/health-score/health-score.mjs",
     "audit:leak": "node packages/data-adapters/audit-leak.mjs",
-    "audit": "node packages/audit/audit.mjs"
+    "audit": "node packages/audit/audit.mjs",
+    "audit:ready": "node packages/audit/lib/readiness.mjs"
   }
 }

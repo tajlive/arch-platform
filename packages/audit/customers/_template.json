@@ -1,0 +1,27 @@
+{
+  "id": "acme",
+  "name": "Acme AS",
+  "mode": "design_partner",
+  "repository": "org/repo",
+  "consent_granted": false,
+  "consent_date": null,
+  "scope": {
+    "description": "Read-only analyse av kodebasen (repository-innhold). Ingen endringer, ingen deploy, ingen prod-tilgang.",
+    "exclude": []
+  },
+  "access": {
+    "level": "read_only",
+    "source": "github_readonly_deploy_key_eller_leseklon",
+    "secrets_copied": false
+  },
+  "nda": {
+    "signed": false,
+    "date": null
+  },
+  "contact": {
+    "name": "",
+    "email": ""
+  },
+  "created_at": "2026-08-13T00:00:00.000Z",
+  "status": "onboarding"
+}

@@ -1,128 +1,138 @@
 # Arch Audit — arch-audit-fastapi
 
-> **Generert:** 2026-08-13T00:21:34.064Z · **Arch Audit v1.0** · **Commit:** `f336ff8`
+> **Generert:** 2026-08-13T00:43:22.192Z · **Arch Audit v1.1** · **Commit:** `f336ff8`
 
-> **Klassifikasjon:** 🟢 automatisk funn · 🟡 inferert anbefaling · 🔴 krever menneskelig beslutning
+> **Slik leser du rapporten:** 🟢 automatisk funn · 🟡 inferert anbefaling · 🔴 krever menneskelig beslutning
 
-## 1. Executive Summary
+## 1. Sammendrag (executive summary)
 
-**arch-audit-fastapi** er analysert med Arch Audit v1. Samlet Arch Health Score: **59%**. Secret-scan: **clean (0 lekkasjer)**. CI/verktøykjede: matcher repo. **1 funn med høy/kritisk alvorlighet** bør prioriteres. Rapporten skiller automatiske funn (🟢), infererte anbefalinger (🟡) og beslutninger som krever menneske (🔴).
+**arch-audit-fastapi** er analysert med Arch Audit v1. Samlet Arch Health Score: **59%**. Secret-scan: **clean (0 lekkasjer)**. CI/verktøykjede: matcher repo. **1 funn med høy/kritisk alvorlighet** bør prioriteres. Uutnyttet automatiseringsverdi (Automation Potential): **50%**. Rapporten skiller automatiske funn (🟢), infererte anbefalinger (🟡) og beslutninger som krever menneske (🔴).
 
-## 2. Arch Health Score
+## Executive Scorecard
 
-**Total: 59%** (vektet: Governance 20 · Security 25 · Engineering 25 · Operations 20 · Documentation 10)
-
-| Kategori | Score | Pass/Fail/Unknown |
-|---|---|---|
-| Governance | N/A | 0P / 0F / 0U |
-| Security | N/A | 0P / 0F / 0U |
-| Engineering | 100% | 4P / 0F / 0U |
-| Operations | 25% | 1P / 3F / 0U |
-| Documentation | 25% | 1P / 3F / 0U |
-
-> Health Score er evidensbasert: hver sjekk bærer `evidence` + `observed_at`. UNKNOWN telles som ikke-healthy (fail-safe).
-
-> **Eksternt prosjekt:** Arch-governance-sjekker (`.arch/*`) er N/A og ekskluderes — totalscoren baseres på generiske helsesjekker (CI, tester, docs, secrets-gitignore, monitoring).
-
-## 3. Security & Secret Governance
-
-| Sjekk | Resultat | Bevis |
-|---|---|---|
-| Secret-scan | ✅ clean | 2949 filer scannet, 0 lekkasje, 0 gitignoret note, 6 fixture/eksempel-note |
-| Secret-governance (.arch/secrets) | 🟡 mangler | ingen .arch/secrets/registry.yaml |
-
-<details><summary>Funn (fil:linje — aldri verdier)</summary>
-
-```
-[note] tests/test_tutorial/test_security/test_tutorial004.py:120 — bearer-token
-[note] tests/test_tutorial/test_security/test_tutorial004.py:134 — bearer-token
-[note] tests/test_tutorial/test_security/test_tutorial004.py:148 — bearer-token
-[note] tests/test_tutorial/test_security/test_tutorial005.py:141 — bearer-token
-[note] tests/test_tutorial/test_security/test_tutorial005.py:155 — bearer-token
-[note] tests/test_tutorial/test_security/test_tutorial005.py:181 — bearer-token
-```
-</details>
-
-> ⚠️ «0 funn» = ingen matchende secret-mønster i scannet filsett. Det er IKKE en sikkerhetssertifisering. Juridisk/regulatorisk status (GDPR m.fl.) krever egen kvalifisert vurdering (se §12).
-
-## 4. Architecture Review
-
-| Aspekt | Observert |
+| Dimensjon | Score |
 |---|---|
-| Rammeverk | FastAPI |
-| Språk | Python |
-| Package manager | uv |
-| Test-runner | pytest |
-| Runtime | Python |
-| Cloudflare | — |
-| Supabase | — |
+| ⚪ Security | N/A |
+| ⚪ Governance | N/A |
+| 🟢 Engineering | ██████████ 100% |
+| 🔴 Operations | ███░░░░░░░ 25% |
+| 🔴 Documentation | ███░░░░░░░ 25% |
+| 🔵 Automation Potential | █████░░░░░ 50% |
 
-- (ingen)
+> **Slik leser du dette:** høyere score = bedre i den dimensjonen.
+> **Automation Potential** er motsatt: høy verdi = mye uutnyttet automatiseringsverdi
+> som Arch kan levere. Score er en evidensbasert vurdering, **ikke** en sertifisering.
 
+## 2. Prioriterte funn og anbefalte tiltak
 
-## 5. CI/CD & Engineering Quality
+### 🔴 Kritisk — må håndteres først
 
-| Sjekk | Resultat | Bevis |
+**F006 Regulatorisk/juridisk vurdering (GDPR m.fl.)**
+- **Problem:** Regulatorisk/juridisk vurdering (GDPR m.fl.)
+- **Forretningsmessig betydning:** Regulatorisk eksponering (GDPR m.fl.) kan gi bøter og ansvar. Arch vurderer IKKE dette — det krever kvalifisert juridisk gjennomgang.
+- **Anbefalt løsning:** Kvalifisert juridisk vurdering (ekstern rådgiver).
+- **Forventet innsats:** Lav (timer)
+- **Arch Build-kandidat:** — (menneskelig/lavkode)
+
+### 🟠 Høy ROI — størst verdi per innsats
+
+**F002 Etablér .arch/secrets/ governance (registry + allowlist)**
+- **Problem:** Etablér .arch/secrets/ governance (registry + allowlist)
+- **Forretningsmessig betydning:** Uten sentral styring av hemmeligheter vil nye nøkler igjen havne i kode — problemet gjentar seg.
+- **Anbefalt løsning:** Etablér .arch/secrets (registry + allowlist) og en CI-scanner som blokkerer nye lekkasjer.
+- **Forventet innsats:** Middels (1–3 dager)
+- **Arch Build-kandidat:** ✅ ja
+
+**F003 Manglende monitoring**
+- **Problem:** Manglende monitoring
+- **Forretningsmessig betydning:** Dere oppdager ikke feil før kundene deres gjør det — nedetid og støttebelastning.
+- **Anbefalt løsning:** Automatisk monitorering + syntetisk røyk-test som varsler ved avvik.
+- **Forventet innsats:** Middels (1–3 dager)
+- **Arch Build-kandidat:** ✅ ja
+
+**F004 Manglende rollback-mekanisme**
+- **Problem:** Manglende rollback-mekanisme
+- **Forretningsmessig betydning:** En dårlig deploy kan ikke rulles tilbake automatisk — hver feil betyr lengre nedetid.
+- **Anbefalt løsning:** Legg til rollback-steg i deploy-workflowen (eller re-deploy av forrige versjon).
+- **Forventet innsats:** Lav (timer)
+- **Arch Build-kandidat:** ✅ ja
+
+### 🟢 Quick win — gjør det denne uka
+
+** Legg til rollback i deploy-workflow**
+- **Problem:** Legg til rollback i deploy-workflow
+- **Forretningsmessig betydning:** Rask trygghet: muligheten til å rulle tilbake en dårlig endring på sekunder.
+- **Anbefalt løsning:** Legg til rollback i deploy-workflowen.
+- **Forventet innsats:** Lav (timer)
+- **Arch Build-kandidat:** ✅ ja
+
+** Skriv ARCHITECT.md (arkitektur-overblikk)**
+- **Problem:** Skriv ARCHITECT.md (arkitektur-overblikk)
+- **Forretningsmessig betydning:** Et arkitektur-overblikk gjør nye folk produktive raskere og reduserer feilbeslutninger.
+- **Anbefalt løsning:** Skriv ARCHITECT.md (arkitektur-overblikk på én side).
+- **Forventet innsats:** Lav (timer)
+- **Arch Build-kandidat:** — (menneskelig/lavkode)
+
+### 🔵 Strategisk — planlegg neste kvartal
+
+**F005 Automasjonsmuligheter identifisert**
+- **Problem:** Automasjonsmuligheter identifisert
+- **Forretningsmessig betydning:** Flere manuelle steg kan automatiseres — dette frigjør tid og reduserer menneskelige feil.
+- **Anbefalt løsning:** Automatiser de identifiserte stegene (se detalj i teknisk appendix).
+- **Forventet innsats:** Betydelig (1–2 uker)
+- **Arch Build-kandidat:** ✅ ja
+
+** Overvåking + alerting + rollback (Arch Managed-forberedelse)**
+- **Problem:** Overvåking + alerting + rollback (Arch Managed-forberedelse)
+- **Forretningsmessig betydning:** Produksjonstrygghet: overvåking, varsling og rollback gjør at feil fanges og rettes før kundene merker det.
+- **Anbefalt løsning:** Overvåking + alerting + rollback (forberedelse for Arch Managed).
+- **Forventet innsats:** Betydelig (1–2 uker)
+- **Arch Build-kandidat:** ✅ ja
+
+** Arch Build — videreutvikling fra godkjent audit**
+- **Problem:** Arch Build — videreutvikling fra godkjent audit
+- **Forretningsmessig betydning:** Videreutvikling etter godkjent audit — scope fastsettes i Architecture Proposal.
+- **Anbefalt løsning:** Arch Build — videreutvikling fra godkjent audit.
+- **Forventet innsats:** Betydelig (1–2 uker)
+- **Arch Build-kandidat:** ✅ ja
+
+## Arch Build Proposal — utkast
+
+> **Status:** automatisk utkast fra audit-funn — **ikke bindende**, krever kundegodkjenning.
+> Arch implementerer **ingen** endringer i kundens system under audit-fasen.
+
+### Foreslått scope
+
+Følgende tiltak er identifisert som Arch Build-kandidater (fra godkjent audit):
+
+| # | Tiltak | Innsats |
 |---|---|---|
-| CI-workflows | add-to-project.yml, build-docs.yml, bump-pre-commit-hooks.yml, create-draft-release.yml, deploy-docs.yml, detect-conflicts.yml, guard-dependencies.yml, issue-manager.yml, label-approved.yml, notify-translations.yml, pre-commit.yml, prepare-release.yml, publish.yml, smokeshow.yml, sponsors.yml, test-redistribute.yml, test.yml, topic-repos.yml, translate.yml, zizmor.yml | tilstede |
-| Verktøykjede-match | ✅ matcher | workflow-verktøy finnes i repo |
-| Siste CI-run | success | f336ff8 · 2026-08-12T22:23:57Z |
+| 1 | Manglende rollback-mekanisme | Lav (timer) |
+| 2 | Legg til rollback i deploy-workflow | Lav (timer) |
+| 3 | Etablér .arch/secrets/ governance (registry + allowlist) | Middels (1–3 dager) |
+| 4 | Manglende monitoring | Middels (1–3 dager) |
+| 5 | Automasjonsmuligheter identifisert | Betydelig (1–2 uker) |
+| 6 | Overvåking + alerting + rollback (Arch Managed-forberedelse) | Betydelig (1–2 uker) |
+| 7 | Arch Build — videreutvikling fra godkjent audit | Betydelig (1–2 uker) |
 
-- (ingen)
+**Samlet innsats-estimat:** ~29 dager (vurdering, ikke løfte).
 
+### Verdi for kunden
 
-## 6. Operations & Monitoring
+- Redusert risiko for nedetid, lekkasjer og feilleveranser.
+- Færre manuelle steg — frigjør utviklertid.
+- Forutsigbar kvalitetsport før hver deploy (test → smoke → rollback).
 
-| Sjekk | Resultat |
-|---|---|
-| Monitoring | 🟡 mangler |
-| Alert-integrasjon | ✅ |
-| Rollback | 🟡 mangler |
+### Neste steg
 
-| F003 | **Manglende monitoring** | Inferert anbefaling (regelavledet) | ingen monitor i workflows/scripts |
-| F004 | **Manglende rollback-mekanisme** | Inferert anbefaling (regelavledet) | ingen rollback i workflow |
-
-## 7. AI / automasjonsmuligheter
-
-| F005 | **Automasjonsmuligheter identifisert** | Inferert anbefaling (regelavledet) | automatisk monitorering + syntetisk smoke; dokumentasjon (ARCHITECT/API-docs) |
-
-## 8. Teknisk gjeld / risiko
-
-| F006 | **Regulatorisk/juridisk vurdering (GDPR m.fl.)** | Krever menneskelig beslutning | ikke vurdert av Arch — krever kvalifisert juridisk gjennomgang |
-
-## 9. Prioriterte anbefalinger
-
-| Prio | Tittel | Klasse | Bevis |
-|---|---|---|---|
-| P1 | **Ingen secret-mønster i versjonskontrollerte filer** | Automatisk funn (maskinverifisert) | 2949 filer scannet, 0 lekkasje |
-| P2 | **Regulatorisk/juridisk vurdering (GDPR m.fl.)** | Krever menneskelig beslutning | ikke vurdert av Arch — krever kvalifisert juridisk gjennomgang |
-| P3 | **Etablér .arch/secrets/ governance (registry + allowlist)** | Inferert anbefaling (regelavledet) | ingen .arch/secrets/registry.yaml observert |
-| P3 | **Manglende rollback-mekanisme** | Inferert anbefaling (regelavledet) | ingen rollback i workflow |
-| P4 | **Manglende monitoring** | Inferert anbefaling (regelavledet) | ingen monitor i workflows/scripts |
-| P5 | **Automasjonsmuligheter identifisert** | Inferert anbefaling (regelavledet) | automatisk monitorering + syntetisk smoke; dokumentasjon (ARCHITECT/API-docs) |
-
-
-## 10. Quick wins
-
-- **Legg til rollback i deploy-workflow** — innsats: lav · effekt: høy · [Inferert anbefaling (regelavledet)]
-- **Skriv ARCHITECT.md (arkitektur-overblikk)** — innsats: lav · effekt: middels · [Inferert anbefaling (regelavledet)]
-
-
-## 11. Estimerte Build-muligheter
-
-| Mulighet | Verdi-estimat | Innsats | Klasse |
-|---|---|---|---|
-| **Overvåking + alerting + rollback (Arch Managed-forberedelse)** | høy (produksjonstrygghet) | middels | Inferert anbefaling (regelavledet) |
-| **Arch Build — videreutvikling fra godkjent audit** | scopes i Architecture Proposal | varierer | Krever menneskelig beslutning |
-
-> Verdi-estimat er en vurdering, ikke et løfte. Endelig pris/scope fastsettes i Architecture Proposal + godkjenning.
-
-## 12. Krav til menneskelig godkjenning
-
-| Beslutning | Hvorfor menneskelig |
-|---|---|
-| **Godkjenn produksjonsdeploy (hvis aktuelt)** | deploy er Tom/governance-gated |
-| **Juridisk/regulatorisk vurdering** | GDPR m.fl. krever kvalifisert vurdering — utenfor Archs evidensgrunnlag |
+1. Kundegjennomgang av dette utkastet.
+2. Endelig Architecture Proposal med fastsatt scope, pris og akseptkriterier.
+3. Godkjenning → Arch Build (separat fase, egen tilgang).
 
 ---
-_Arch Audit er en evidensbasert vurdering, ikke en sertifisering. Ingen sikkerhets-, juridiske eller regulatoriske påstander uten dokumentert grunnlag._
+
+---
+_Arch Audit er en evidensbasert vurdering, ikke en sertifisering. 
+Ingen endringer ble gjort i systemet under analysen. 
+Ingen hemmeligheter er kopiert inn i Arch. 
+Juridiske/regulatoriske forhold (GDPR m.fl.) er ikke vurdert — krever kvalifisert gjennomgang._

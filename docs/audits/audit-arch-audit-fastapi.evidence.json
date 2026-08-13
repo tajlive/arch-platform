@@ -1,15 +1,17 @@
 {
   "meta": {
-    "generated": "2026-08-13T00:21:34.064Z",
-    "version": "1.0",
+    "generated": "2026-08-13T00:43:22.192Z",
+    "version": "1.1",
     "target": "/tmp/arch-audit-fastapi",
     "name": "arch-audit-fastapi",
     "repo": "fastapi/fastapi",
     "url": null,
     "commit": "f336ff8",
-    "audit_duration_ms": 3431
+    "audit_duration_ms": 2267,
+    "design_partner": false
   },
-  "executive_summary": "**arch-audit-fastapi** er analysert med Arch Audit v1. Samlet Arch Health Score: **59%**. Secret-scan: **clean (0 lekkasjer)**. CI/verktøykjede: matcher repo. **1 funn med høy/kritisk alvorlighet** bør prioriteres. Rapporten skiller automatiske funn (🟢), infererte anbefalinger (🟡) og beslutninger som krever menneske (🔴).",
+  "customer": null,
+  "executive_summary": "**arch-audit-fastapi** er analysert med Arch Audit v1. Samlet Arch Health Score: **59%**. Secret-scan: **clean (0 lekkasjer)**. CI/verktøykjede: matcher repo. **1 funn med høy/kritisk alvorlighet** bør prioriteres. Uutnyttet automatiseringsverdi (Automation Potential): **50%**. Rapporten skiller automatiske funn (🟢), infererte anbefalinger (🟡) og beslutninger som krever menneske (🔴).",
   "health": {
     "name": "arch-audit-fastapi",
     "total": 59,
@@ -28,7 +30,7 @@
             "result": "NOT_APPLICABLE",
             "evidence": "utenfor Arch-governance-scope",
             "source": "n/a",
-            "observed_at": "2026-08-13T00:21:34.164Z"
+            "observed_at": "2026-08-13T00:43:22.250Z"
           },
           {
             "id": ".arch/policies.yaml",
@@ -36,7 +38,7 @@
             "result": "NOT_APPLICABLE",
             "evidence": "utenfor Arch-governance-scope",
             "source": "n/a",
-            "observed_at": "2026-08-13T00:21:34.164Z"
+            "observed_at": "2026-08-13T00:43:22.250Z"
           },
           {
             "id": ".arch/agents.yaml",
@@ -44,7 +46,7 @@
             "result": "NOT_APPLICABLE",
             "evidence": "utenfor Arch-governance-scope",
             "source": "n/a",
-            "observed_at": "2026-08-13T00:21:34.164Z"
+            "observed_at": "2026-08-13T00:43:22.250Z"
           },
           {
             "id": ".arch/audit-log.md",
@@ -52,7 +54,7 @@
             "result": "NOT_APPLICABLE",
             "evidence": "utenfor Arch-governance-scope",
             "source": "n/a",
-            "observed_at": "2026-08-13T00:21:34.164Z"
+            "observed_at": "2026-08-13T00:43:22.250Z"
           },
           {
             "id": ".arch/decisions.md",
@@ -60,7 +62,7 @@
             "result": "NOT_APPLICABLE",
             "evidence": "utenfor Arch-governance-scope",
             "source": "n/a",
-            "observed_at": "2026-08-13T00:21:34.164Z"
+            "observed_at": "2026-08-13T00:43:22.250Z"
           }
         ]
       },
@@ -78,7 +80,7 @@
             "result": "NOT_APPLICABLE",
             "evidence": "utenfor Arch-governance-scope",
             "source": "n/a",
-            "observed_at": "2026-08-13T00:21:34.164Z"
+            "observed_at": "2026-08-13T00:43:22.250Z"
           },
           {
             "id": ".arch/secrets/mapping.yaml",
@@ -86,7 +88,7 @@
             "result": "NOT_APPLICABLE",
             "evidence": "utenfor Arch-governance-scope",
             "source": "n/a",
-            "observed_at": "2026-08-13T00:21:34.164Z"
+            "observed_at": "2026-08-13T00:43:22.250Z"
           },
           {
             "id": "gitignore .env",
@@ -94,7 +96,7 @@
             "result": "NOT_APPLICABLE",
             "evidence": "utenfor Arch-governance-scope",
             "source": "n/a",
-            "observed_at": "2026-08-13T00:21:34.164Z"
+            "observed_at": "2026-08-13T00:43:22.250Z"
           },
           {
             "id": "secret-policy",
@@ -102,7 +104,7 @@
             "result": "NOT_APPLICABLE",
             "evidence": "utenfor Arch-governance-scope",
             "source": "n/a",
-            "observed_at": "2026-08-13T00:21:34.164Z"
+            "observed_at": "2026-08-13T00:43:22.250Z"
           }
         ]
       },
@@ -120,7 +122,7 @@
             "result": "PASS",
             "evidence": "pyproject.toml",
             "source": "fil",
-            "observed_at": "2026-08-13T00:21:34.164Z"
+            "observed_at": "2026-08-13T00:43:22.250Z"
           },
           {
             "id": "workflow",
@@ -128,7 +130,7 @@
             "result": "PASS",
             "evidence": ".github/workflows/",
             "source": "fil",
-            "observed_at": "2026-08-13T00:21:34.164Z"
+            "observed_at": "2026-08-13T00:43:22.250Z"
           },
           {
             "id": "tests",
@@ -136,7 +138,7 @@
             "result": "PASS",
             "evidence": "test-filer funnet",
             "source": "fil",
-            "observed_at": "2026-08-13T00:21:34.164Z"
+            "observed_at": "2026-08-13T00:43:22.250Z"
           },
           {
             "id": "test-runner",
@@ -144,7 +146,7 @@
             "result": "PASS",
             "evidence": "test-runner konfig",
             "source": "fil",
-            "observed_at": "2026-08-13T00:21:34.164Z"
+            "observed_at": "2026-08-13T00:43:22.250Z"
           }
         ]
       },
@@ -162,7 +164,7 @@
             "result": "FAIL",
             "evidence": "mangler .github/workflows/deploy.yml",
             "source": "fil",
-            "observed_at": "2026-08-13T00:21:34.164Z"
+            "observed_at": "2026-08-13T00:43:22.250Z"
           },
           {
             "id": "monitoring",
@@ -170,7 +172,7 @@
             "result": "FAIL",
             "evidence": "ingen monitor",
             "source": "fil",
-            "observed_at": "2026-08-13T00:21:34.164Z"
+            "observed_at": "2026-08-13T00:43:22.250Z"
           },
           {
             "id": "alerts",
@@ -178,7 +180,7 @@
             "result": "PASS",
             "evidence": "alert-integrasjon",
             "source": "fil",
-            "observed_at": "2026-08-13T00:21:34.164Z"
+            "observed_at": "2026-08-13T00:43:22.250Z"
           },
           {
             "id": "rollback",
@@ -186,7 +188,7 @@
             "result": "FAIL",
             "evidence": "ingen rollback",
             "source": "fil",
-            "observed_at": "2026-08-13T00:21:34.164Z"
+            "observed_at": "2026-08-13T00:43:22.250Z"
           }
         ]
       },
@@ -204,7 +206,7 @@
             "result": "PASS",
             "evidence": "README.md",
             "source": "fil",
-            "observed_at": "2026-08-13T00:21:34.164Z"
+            "observed_at": "2026-08-13T00:43:22.250Z"
           },
           {
             "id": "architect",
@@ -212,7 +214,7 @@
             "result": "FAIL",
             "evidence": "mangler ARCHITECT",
             "source": "fil",
-            "observed_at": "2026-08-13T00:21:34.164Z"
+            "observed_at": "2026-08-13T00:43:22.250Z"
           },
           {
             "id": "api-docs",
@@ -220,7 +222,7 @@
             "result": "FAIL",
             "evidence": "mangler API-docs",
             "source": "fil",
-            "observed_at": "2026-08-13T00:21:34.164Z"
+            "observed_at": "2026-08-13T00:43:22.250Z"
           },
           {
             "id": "decisions",
@@ -228,12 +230,12 @@
             "result": "FAIL",
             "evidence": "mangler beslutningslogg (docs/adr)",
             "source": "fil",
-            "observed_at": "2026-08-13T00:21:34.164Z"
+            "observed_at": "2026-08-13T00:43:22.250Z"
           }
         ]
       }
     },
-    "observed_at": "2026-08-13T00:21:34.164Z",
+    "observed_at": "2026-08-13T00:43:22.250Z",
     "arch_managed": false
   },
   "security": {
@@ -339,7 +341,8 @@
   "operations": {
     "monitoring": false,
     "alerts": true,
-    "rollback": false
+    "rollback": false,
+    "deploy_pipeline": true
   },
   "documentation": {
     "readme": true,
@@ -386,6 +389,7 @@
       }
     ]
   },
+  "automation_potential": 50,
   "findings": [
     {
       "id": "F001",
@@ -393,6 +397,7 @@
       "section": "security",
       "title": "Ingen secret-mønster i versjonskontrollerte filer",
       "evidence": "2949 filer scannet, 0 lekkasje",
+      "kind": "secret_clean",
       "severity": "low",
       "priority": 1
     },
@@ -402,6 +407,7 @@
       "section": "security",
       "title": "Etablér .arch/secrets/ governance (registry + allowlist)",
       "evidence": "ingen .arch/secrets/registry.yaml observert",
+      "kind": "secret_governance",
       "severity": "medium",
       "priority": 3
     },
@@ -411,6 +417,7 @@
       "section": "operations",
       "title": "Manglende monitoring",
       "evidence": "ingen monitor i workflows/scripts",
+      "kind": "monitoring_missing",
       "severity": "medium",
       "priority": 4
     },
@@ -420,6 +427,7 @@
       "section": "operations",
       "title": "Manglende rollback-mekanisme",
       "evidence": "ingen rollback i workflow",
+      "kind": "rollback_missing",
       "severity": "high",
       "priority": 3
     },
@@ -429,6 +437,7 @@
       "section": "ai_automation",
       "title": "Automasjonsmuligheter identifisert",
       "evidence": "automatisk monitorering + syntetisk smoke; dokumentasjon (ARCHITECT/API-docs)",
+      "kind": "ai_opportunities",
       "severity": "low",
       "priority": 5
     },
@@ -438,35 +447,40 @@
       "section": "tech_debt",
       "title": "Regulatorisk/juridisk vurdering (GDPR m.fl.)",
       "evidence": "ikke vurdert av Arch — krever kvalifisert juridisk gjennomgang",
+      "kind": "legal_regulatory",
       "severity": "medium",
       "priority": 2
     }
   ],
   "quick_wins": [
     {
+      "kind": "qw_rollback",
       "title": "Legg til rollback i deploy-workflow",
-      "effort": "lav",
+      "effort": "S",
       "impact": "høy",
       "class": "inferred"
     },
     {
+      "kind": "qw_architect",
       "title": "Skriv ARCHITECT.md (arkitektur-overblikk)",
-      "effort": "lav",
+      "effort": "S",
       "impact": "middels",
       "class": "inferred"
     }
   ],
   "build_opportunities": [
     {
+      "kind": "bo_ops",
       "title": "Overvåking + alerting + rollback (Arch Managed-forberedelse)",
       "estimated_value": "høy (produksjonstrygghet)",
-      "effort": "middels",
+      "effort": "L",
       "class": "inferred"
     },
     {
+      "kind": "bo_build",
       "title": "Arch Build — videreutvikling fra godkjent audit",
       "estimated_value": "scopes i Architecture Proposal",
-      "effort": "varierer",
+      "effort": "L",
       "class": "human_approval"
     }
   ],
