@@ -31,6 +31,7 @@ const MODULES = [
   "packages/audit/lib/scorecard.mjs",
   "packages/audit/lib/customer.mjs",
   "packages/audit/lib/report.mjs",
+  "packages/audit/lib/record-delivery.mjs",
   "packages/audit/lib/secret-scan.mjs",
   "packages/audit/lib/stack-detect.mjs",
 ];

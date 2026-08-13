@@ -1,0 +1,30 @@
+{
+  "customer_id": "",
+  "milestone": "F4.2 — First Real Customer",
+  "started_at": null,
+  "completed_at": null,
+  "timing": {
+    "lead_to_consent_hours": null,
+    "audit_machine_ms": null,
+    "total_elapsed_hours": null,
+    "manual_steps": null,
+    "automation_rate_pct": null
+  },
+  "findings": {
+    "by_category": {},
+    "customer_cared_about": [],
+    "build_candidates": null
+  },
+  "customer": {
+    "objections": [],
+    "questions": [],
+    "feedback": ""
+  },
+  "commercial": {
+    "outcome": null,
+    "notes": ""
+  },
+  "learning": {
+    "knowledge_graph_entries": []
+  }
+}
