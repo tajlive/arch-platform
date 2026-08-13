@@ -5,8 +5,9 @@ Dato: 2026-08-13 · Kontakt: Eduard Eikeland (eduard@auto-glass.no, 40408241) ·
 ## Profil
 
 - **Produkt:** Bilglass + tilbehør (klips, pyntelist, lim, primer, sensorgel) til verksteder.
-- **Forretningsmodell:** **B2B-grossist** — selger glass til 500+ verksteder, **monterer IKKE selv**. Kun B2B-priser (kundens rabatt trekkes på ordre/faktura).
-- **Nettbutikk:** auto-glass.no — WooCommerce/WordPress (gammel stack, se audit).
+- **Forretningsmodell:** **B2B-grossist** — selger glass til 500+ verksteder, **monterer IKKE selv**. Kun B2B-priser (kundens rabatt trekkes på ordre/faktura). **Har OGSÅ en B2C-kanal for salg av bilglass til private:** `autoglass.finnbilglass.no` (Tom 2026-08-13).
+- **Nettbutikk B2B:** auto-glass.no — WooCommerce/WordPress (gammel stack, se audit).
+- **Nettbutikk B2C (private):** autoglass.finnbilglass.no — React/Vite-frontend som snakker med Worker-en `autoglass-glass-sok.autoglassnorge.workers.dev` (vår CF Worker med D1 glass-catalog-db).
 - **Katalog:** 27 184 produkter (glass + viskersett + klips/pyntelister).
 - **Kontakt:** +47 21 37 83 90, post@auto-glass.no, Ole Deviks vei 26, Oslo.
 
@@ -21,6 +22,7 @@ Første **eksterne** Arch-kunde. Produktet under bygging: **senior AI-ordremotta
 | Type | Firma | Kunde | Nettbutikk-mål |
 |---|---|---|---|
 | **B2B-grossist** | Autoglass AS (auto-glass.no) | Verksteder | Rask katalog-/ordre-tilgang, B2B-priser, lager-status |
+| **B2B-grossist (+ B2C-kanal til private)** | Autoglass AS (autoglass.finnbilglass.no) | Private (B2C) | Salg av bilglass til private — React/Vite + vår CF Worker |
 | **B2B-grossist** | Bilglassgruppen AS (bilglassgruppen.no) | Verksteder | Samme som over |
 | **Produsent/distributør (originalglass, B2B)** | Saint-Gobain (Sekurit) | Grossister/verksteder | Distribuerer ORIGINALE Sekurit-bilglass B2B |
 | **Produsent/distributør (B2B)** | Pilkington (NSG Group) | Grossister/verksteder | Sender bilglass B2B fra Sverige til Norge |
