@@ -9,3 +9,4 @@ apps/customer-portal/data.js
 apps/control-center/screenshot.png
 apps/customer-portal/screenshot.png
 .wrangler/
+data/cost/
