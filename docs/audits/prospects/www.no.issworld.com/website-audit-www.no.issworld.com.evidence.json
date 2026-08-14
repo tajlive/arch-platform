@@ -1,0 +1,1203 @@
+{
+  "meta": {
+    "generated": "2026-08-14T16:21:07.561Z",
+    "version": "1.0",
+    "name": "www.no.issworld.com",
+    "website": "https://www.no.issworld.com/",
+    "domain": "www.no.issworld.com",
+    "final_url": "https://www.no.issworld.com/",
+    "mode": "website",
+    "design_partner": false,
+    "audit_duration_ms": 130227
+  },
+  "customer": {
+    "id": "www.no.issworld.com",
+    "name": "www.no.issworld.com",
+    "mode": "prospect_preview",
+    "modeLabel": "Intern prospect-vurdering",
+    "website": "https://www.no.issworld.com/",
+    "consent_granted": false,
+    "consent_date": null
+  },
+  "score": {
+    "total": 77,
+    "categories": {
+      "performance": {
+        "pct": 60,
+        "weight": 20,
+        "pass": 3,
+        "fail": 2,
+        "unknown": 0,
+        "denom": 5,
+        "checks": [
+          {
+            "id": "compression",
+            "label": "Komprimering (gzip/brotli)",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "br",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:42.680Z"
+          },
+          {
+            "id": "caching",
+            "label": "Cache-headere",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "s-maxage=0,max-age=5",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:42.680Z"
+          },
+          {
+            "id": "render_blocking",
+            "label": "Render-blokkerende ressurser",
+            "dimension": "performance",
+            "result": "FAIL",
+            "evidence": "3 blokkerende skript, 3 stylesheets",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:42.681Z"
+          },
+          {
+            "id": "image_optim",
+            "label": "Bilde-optimalisering",
+            "dimension": "performance",
+            "result": "FAIL",
+            "evidence": "16 bilder, 14 m/ dimensjoner, 15 lazy",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:42.682Z"
+          },
+          {
+            "id": "third_party",
+            "label": "Tredjeparts-skript/-ressurser",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "1 eksterne domener (web.cmp.usercentrics.eu)",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:42.682Z"
+          }
+        ]
+      },
+      "security": {
+        "pct": 60,
+        "weight": 20,
+        "pass": 6,
+        "fail": 3,
+        "unknown": 1,
+        "denom": 10,
+        "checks": [
+          {
+            "id": "https",
+            "label": "HTTPS/TLS",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "HTTPS leverte respons",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:18:58.337Z"
+          },
+          {
+            "id": "header_csp",
+            "label": "Header: csp",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:43.999Z"
+          },
+          {
+            "id": "header_hsts",
+            "label": "Header: hsts",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:43.999Z"
+          },
+          {
+            "id": "header_xcto",
+            "label": "Header: xcto",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:43.999Z"
+          },
+          {
+            "id": "header_referrer",
+            "label": "Header: referrer",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:43.999Z"
+          },
+          {
+            "id": "header_permissions",
+            "label": "Header: permissions",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:43.999Z"
+          },
+          {
+            "id": "header_frame",
+            "label": "Header: frame",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:43.999Z"
+          },
+          {
+            "id": "mixed_content",
+            "label": "Blandet innhold (http på https)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen http-referanser i HTML",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:44.000Z"
+          },
+          {
+            "id": "source_maps",
+            "label": "Eksponerte source maps",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "skript ikke observerbare",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:44.000Z"
+          },
+          {
+            "id": "tech_disclosure",
+            "label": "Versjons-avsløring",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "cloudflare",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:44.000Z"
+          }
+        ]
+      },
+      "ux_mobile": {
+        "pct": 100,
+        "weight": 15,
+        "pass": 2,
+        "fail": 0,
+        "unknown": 0,
+        "denom": 2,
+        "checks": [
+          {
+            "id": "viewport",
+            "label": "Viewport meta",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "viewport tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:42.682Z"
+          },
+          {
+            "id": "media_queries",
+            "label": "Responsive CSS (@media)",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "@media funnet",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:43.400Z"
+          }
+        ]
+      },
+      "accessibility": {
+        "pct": 80,
+        "weight": 15,
+        "pass": 4,
+        "fail": 1,
+        "unknown": 0,
+        "denom": 5,
+        "checks": [
+          {
+            "id": "lang",
+            "label": "Språk-attributt (lang)",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "no-no",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:43.400Z"
+          },
+          {
+            "id": "alt_text",
+            "label": "Alt-tekst på bilder",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "0/16 bilder mangler alt",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:43.400Z"
+          },
+          {
+            "id": "form_labels",
+            "label": "Skjemaetiketter",
+            "dimension": "accessibility",
+            "result": "FAIL",
+            "evidence": "2 input, 1 label",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:43.404Z"
+          },
+          {
+            "id": "heading_hierarchy",
+            "label": "Overskriftshierarki",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "h1=1 h2=19 h3=8",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:43.405Z"
+          },
+          {
+            "id": "semantic",
+            "label": "Semantiske landemerker",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "4/4 (header, nav, main, footer)",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:43.406Z"
+          }
+        ]
+      },
+      "seo": {
+        "pct": 88,
+        "weight": 10,
+        "pass": 7,
+        "fail": 1,
+        "unknown": 0,
+        "denom": 8,
+        "checks": [
+          {
+            "id": "title",
+            "label": "Tittel",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "ISS Norge",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:43.406Z"
+          },
+          {
+            "id": "meta_description",
+            "label": "Meta-beskrivelse",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "ISS skaper arbeidsplasser som får mennesker til å trives – med renhold, mat, eiendom/tekniske tjenester, support og arbeidsplassløsninger. Kontakt oss.",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:43.406Z"
+          },
+          {
+            "id": "canonical",
+            "label": "Canonical",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "https://www.no.issworld.com",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:43.406Z"
+          },
+          {
+            "id": "robots_meta",
+            "label": "Robots-meta",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "ingen robots-meta (standard: indekserbart)",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:43.407Z"
+          },
+          {
+            "id": "robots_txt",
+            "label": "robots.txt",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "robots.txt tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:43.407Z"
+          },
+          {
+            "id": "sitemap",
+            "label": "Sitemap.xml",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "sitemap tilstede (51 URL-er)",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:43.999Z"
+          },
+          {
+            "id": "open_graph",
+            "label": "OpenGraph",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "title=true description=true image=true",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:43.999Z"
+          },
+          {
+            "id": "structured_data",
+            "label": "Strukturert data (JSON-LD)",
+            "dimension": "seo",
+            "result": "FAIL",
+            "evidence": "ingen JSON-LD",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:43.999Z"
+          }
+        ]
+      },
+      "reliability": {
+        "pct": 100,
+        "weight": 10,
+        "pass": 3,
+        "fail": 0,
+        "unknown": 0,
+        "denom": 3,
+        "checks": [
+          {
+            "id": "http_status",
+            "label": "HTTP-status (hovedsiden)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "HTTP 200",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:18:58.336Z"
+          },
+          {
+            "id": "redirect_chain",
+            "label": "Omdirigeringskjede",
+            "dimension": "reliability",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen redirects",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:18:58.337Z"
+          },
+          {
+            "id": "broken_links",
+            "label": "Ødelagte interne lenker",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "16 sider sjekket, 0 ødelagt",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:30.452Z"
+          },
+          {
+            "id": "asset_failures",
+            "label": "Ressurs-feil (img/css/js)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "0 av 10 ressurser feilet",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:42.680Z"
+          }
+        ]
+      },
+      "trust_privacy": {
+        "pct": 80,
+        "weight": 5,
+        "pass": 4,
+        "fail": 1,
+        "unknown": 0,
+        "denom": 5,
+        "checks": [
+          {
+            "id": "cookie_banner",
+            "label": "Cookie-banner",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "cookie/samtykke-element observert",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:44.000Z"
+          },
+          {
+            "id": "privacy_link",
+            "label": "Personvernerklæring-link",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "link til personvern observert",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:44.002Z"
+          },
+          {
+            "id": "consent_cmp",
+            "label": "Samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "CMP observert",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:44.002Z"
+          },
+          {
+            "id": "contact_form",
+            "label": "Kontakt-/lead-skjema",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen <form> observert",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:44.002Z"
+          },
+          {
+            "id": "cta",
+            "label": "Call-to-action",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "CTA-tekst observert",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-14T16:19:44.003Z"
+          }
+        ]
+      },
+      "automation": {
+        "pct": 33,
+        "leverage": 67,
+        "potential": 33,
+        "weight": 5,
+        "pass": 4,
+        "fail": 2,
+        "unknown": 0,
+        "denom": 6,
+        "checks": []
+      }
+    },
+    "weights": {
+      "performance": 20,
+      "security": 20,
+      "ux_mobile": 15,
+      "accessibility": 15,
+      "seo": 10,
+      "reliability": 10,
+      "trust_privacy": 5
+    },
+    "labels": {
+      "performance": "Performance",
+      "security": "Security Surface",
+      "ux_mobile": "UX / Mobile",
+      "accessibility": "Accessibility",
+      "seo": "SEO / Discovery",
+      "reliability": "Reliability",
+      "trust_privacy": "Trust / Privacy",
+      "automation": "Automation Potential"
+    },
+    "automation": {
+      "leverage": 67,
+      "potential": 33,
+      "present": 4,
+      "total": 6,
+      "signals": {
+        "contact_form": false,
+        "analytics": true,
+        "cmp": true,
+        "chat": true,
+        "booking": true,
+        "newsletter": false
+      }
+    },
+    "observed_at": "2026-08-14T16:21:07.559Z"
+  },
+  "findings": [
+    {
+      "id": "W001",
+      "kind": "web_render_blocking",
+      "title": "Render-blokkerende ressurser",
+      "evidence": "3 blokkerende skript, 3 stylesheets",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W002",
+      "kind": "web_image_optim",
+      "title": "Bilde-optimalisering",
+      "evidence": "16 bilder, 14 m/ dimensjoner, 15 lazy",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W003",
+      "kind": "web_form_labels",
+      "title": "Skjemaetiketter",
+      "evidence": "2 input, 1 label",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W004",
+      "kind": "web_seo_structured",
+      "title": "Strukturert data (JSON-LD)",
+      "evidence": "ingen JSON-LD",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W005",
+      "kind": "web_security_headers",
+      "title": "Header: permissions",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W006",
+      "kind": "web_security_headers",
+      "title": "Header: frame",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W007",
+      "kind": "web_tech_disclosure",
+      "title": "Versjons-avsløring",
+      "evidence": "cloudflare",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W008",
+      "kind": "web_contact_form",
+      "title": "Kontakt-/lead-skjema",
+      "evidence": "ingen <form> observert",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W009",
+      "kind": "web_automation",
+      "title": "Automatiseringsmuligheter identifisert",
+      "evidence": "uutnyttet potensial 33% — manglende signaler: contact_form, newsletter",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    }
+  ],
+  "browser": {
+    "available": true,
+    "rendered": {
+      "error": "spawnSync /Applications/Google Chrome.app/Contents/MacOS/Google Chrome ETIMEDOUT"
+    },
+    "screenshots": [],
+    "screenshots_error": "spawnSync /Applications/Google Chrome.app/Contents/MacOS/Google Chrome ETIMEDOUT"
+  },
+  "web": {
+    "meta": {
+      "url": "https://www.no.issworld.com/",
+      "domain": "www.no.issworld.com",
+      "origin": "https://www.no.issworld.com",
+      "final_url": "https://www.no.issworld.com/",
+      "fetched_at": "2026-08-14T16:19:44.007Z"
+    },
+    "checks": [
+      {
+        "id": "http_status",
+        "label": "HTTP-status (hovedsiden)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "HTTP 200",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:18:58.336Z"
+      },
+      {
+        "id": "https",
+        "label": "HTTPS/TLS",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "HTTPS leverte respons",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:18:58.337Z"
+      },
+      {
+        "id": "redirect_chain",
+        "label": "Omdirigeringskjede",
+        "dimension": "reliability",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen redirects",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:18:58.337Z"
+      },
+      {
+        "id": "broken_links",
+        "label": "Ødelagte interne lenker",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "16 sider sjekket, 0 ødelagt",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:30.452Z"
+      },
+      {
+        "id": "asset_failures",
+        "label": "Ressurs-feil (img/css/js)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "0 av 10 ressurser feilet",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:42.680Z"
+      },
+      {
+        "id": "compression",
+        "label": "Komprimering (gzip/brotli)",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "br",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:42.680Z"
+      },
+      {
+        "id": "caching",
+        "label": "Cache-headere",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "s-maxage=0,max-age=5",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:42.680Z"
+      },
+      {
+        "id": "render_blocking",
+        "label": "Render-blokkerende ressurser",
+        "dimension": "performance",
+        "result": "FAIL",
+        "evidence": "3 blokkerende skript, 3 stylesheets",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:42.681Z"
+      },
+      {
+        "id": "image_optim",
+        "label": "Bilde-optimalisering",
+        "dimension": "performance",
+        "result": "FAIL",
+        "evidence": "16 bilder, 14 m/ dimensjoner, 15 lazy",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:42.682Z"
+      },
+      {
+        "id": "third_party",
+        "label": "Tredjeparts-skript/-ressurser",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "1 eksterne domener (web.cmp.usercentrics.eu)",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:42.682Z"
+      },
+      {
+        "id": "viewport",
+        "label": "Viewport meta",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "viewport tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:42.682Z"
+      },
+      {
+        "id": "media_queries",
+        "label": "Responsive CSS (@media)",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "@media funnet",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:43.400Z"
+      },
+      {
+        "id": "lang",
+        "label": "Språk-attributt (lang)",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "no-no",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:43.400Z"
+      },
+      {
+        "id": "alt_text",
+        "label": "Alt-tekst på bilder",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "0/16 bilder mangler alt",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:43.400Z"
+      },
+      {
+        "id": "form_labels",
+        "label": "Skjemaetiketter",
+        "dimension": "accessibility",
+        "result": "FAIL",
+        "evidence": "2 input, 1 label",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:43.404Z"
+      },
+      {
+        "id": "heading_hierarchy",
+        "label": "Overskriftshierarki",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "h1=1 h2=19 h3=8",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:43.405Z"
+      },
+      {
+        "id": "semantic",
+        "label": "Semantiske landemerker",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "4/4 (header, nav, main, footer)",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:43.406Z"
+      },
+      {
+        "id": "title",
+        "label": "Tittel",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "ISS Norge",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:43.406Z"
+      },
+      {
+        "id": "meta_description",
+        "label": "Meta-beskrivelse",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "ISS skaper arbeidsplasser som får mennesker til å trives – med renhold, mat, eiendom/tekniske tjenester, support og arbeidsplassløsninger. Kontakt oss.",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:43.406Z"
+      },
+      {
+        "id": "canonical",
+        "label": "Canonical",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "https://www.no.issworld.com",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:43.406Z"
+      },
+      {
+        "id": "robots_meta",
+        "label": "Robots-meta",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "ingen robots-meta (standard: indekserbart)",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:43.407Z"
+      },
+      {
+        "id": "robots_txt",
+        "label": "robots.txt",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "robots.txt tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:43.407Z"
+      },
+      {
+        "id": "sitemap",
+        "label": "Sitemap.xml",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "sitemap tilstede (51 URL-er)",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:43.999Z"
+      },
+      {
+        "id": "open_graph",
+        "label": "OpenGraph",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "title=true description=true image=true",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:43.999Z"
+      },
+      {
+        "id": "structured_data",
+        "label": "Strukturert data (JSON-LD)",
+        "dimension": "seo",
+        "result": "FAIL",
+        "evidence": "ingen JSON-LD",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:43.999Z"
+      },
+      {
+        "id": "header_csp",
+        "label": "Header: csp",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:43.999Z"
+      },
+      {
+        "id": "header_hsts",
+        "label": "Header: hsts",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:43.999Z"
+      },
+      {
+        "id": "header_xcto",
+        "label": "Header: xcto",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:43.999Z"
+      },
+      {
+        "id": "header_referrer",
+        "label": "Header: referrer",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:43.999Z"
+      },
+      {
+        "id": "header_permissions",
+        "label": "Header: permissions",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:43.999Z"
+      },
+      {
+        "id": "header_frame",
+        "label": "Header: frame",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:43.999Z"
+      },
+      {
+        "id": "mixed_content",
+        "label": "Blandet innhold (http på https)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "ingen http-referanser i HTML",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:44.000Z"
+      },
+      {
+        "id": "source_maps",
+        "label": "Eksponerte source maps",
+        "dimension": "security",
+        "result": "UNKNOWN",
+        "evidence": "skript ikke observerbare",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:44.000Z"
+      },
+      {
+        "id": "tech_disclosure",
+        "label": "Versjons-avsløring",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "cloudflare",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:44.000Z"
+      },
+      {
+        "id": "cookie_banner",
+        "label": "Cookie-banner",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "cookie/samtykke-element observert",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:44.000Z"
+      },
+      {
+        "id": "privacy_link",
+        "label": "Personvernerklæring-link",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "link til personvern observert",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:44.002Z"
+      },
+      {
+        "id": "consent_cmp",
+        "label": "Samtykke-plattform (CMP)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "CMP observert",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:44.002Z"
+      },
+      {
+        "id": "contact_form",
+        "label": "Kontakt-/lead-skjema",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen <form> observert",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:44.002Z"
+      },
+      {
+        "id": "cta",
+        "label": "Call-to-action",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "CTA-tekst observert",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:44.003Z"
+      },
+      {
+        "id": "tech_cdn",
+        "label": "Teknologi: cdn",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "Cloudflare",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:44.007Z"
+      },
+      {
+        "id": "tech_hosting",
+        "label": "Teknologi: hosting",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "cloudflare",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:44.007Z"
+      },
+      {
+        "id": "tech_analytics",
+        "label": "Teknologi: analytics",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "Google Analytics/Tag Manager",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T16:19:44.007Z"
+      }
+    ],
+    "raw": {
+      "home": {
+        "status": 200,
+        "status_text": "OK",
+        "error": null,
+        "final_url": "https://www.no.issworld.com/",
+        "redirects": []
+      },
+      "https": {
+        "ok": true,
+        "detail": "HTTPS leverte respons"
+      },
+      "redirect_chain": [],
+      "robots": {
+        "present": true,
+        "disallow": [
+          "/_hcms/preview/",
+          "/hs/manage-preferences/",
+          "/hs/preferences-center/",
+          "/*?*hs_preview=*",
+          "/*?*hsCacheBuster=*"
+        ]
+      },
+      "crawl": {
+        "pages_checked": 16,
+        "crawled": 16,
+        "broken": []
+      },
+      "html_length": 289576,
+      "asset_failures": {
+        "checked": 10,
+        "failed": 0,
+        "details": []
+      },
+      "compression": "br",
+      "caching": "s-maxage=0,max-age=5",
+      "render_blocking_scripts": 3,
+      "images": {
+        "total": 16,
+        "with_dimensions": 14,
+        "lazy": 15
+      },
+      "third_party": [
+        "web.cmp.usercentrics.eu"
+      ],
+      "viewport": true,
+      "media_queries": true,
+      "lang": "no-no",
+      "img_missing_alt": 0,
+      "forms_accessibility": {
+        "inputs": 2,
+        "labels": 1,
+        "inputs_with_label": 0
+      },
+      "headings": {
+        "h1": 1,
+        "h2": 19,
+        "h3": 8,
+        "h4": 35,
+        "h5": 0,
+        "h6": 0
+      },
+      "landmarks": [
+        "header",
+        "nav",
+        "main",
+        "footer"
+      ],
+      "title": "ISS Norge",
+      "meta_description": "ISS skaper arbeidsplasser som får mennesker til å trives – med renhold, mat, eiendom/tekniske tjenester, support og arbeidsplassløsninger. Kontakt oss.",
+      "canonical": "https://www.no.issworld.com",
+      "robots_meta": null,
+      "sitemap": {
+        "status": 200,
+        "urls": 51
+      },
+      "open_graph": {
+        "title": true,
+        "description": true,
+        "image": true
+      },
+      "structured_data": false,
+      "security_headers": {
+        "csp": "upgrade-insecure-requests",
+        "hsts": "max-age=31536000",
+        "xcto": "nosniff",
+        "referrer": "no-referrer-when-downgrade",
+        "permissions": null,
+        "frame": null
+      },
+      "mixed_content": 0,
+      "source_maps": null,
+      "tech_disclosure": {
+        "server": "cloudflare",
+        "x_powered_by": null
+      },
+      "cookie_banner": true,
+      "analytics": [
+        "Google Analytics/Tag Manager"
+      ],
+      "privacy_link": true,
+      "consent_cmp": true,
+      "forms_count": 0,
+      "cta": true,
+      "automation_signals": {
+        "contact_form": false,
+        "analytics": true,
+        "cmp": true,
+        "chat": true,
+        "booking": true,
+        "newsletter": false
+      },
+      "technology": {
+        "framework": null,
+        "cms": null,
+        "cdn": "Cloudflare",
+        "hosting": "cloudflare",
+        "analytics": [
+          "Google Analytics/Tag Manager"
+        ]
+      }
+    }
+  },
+  "automation": {
+    "leverage": 67,
+    "potential": 33,
+    "present": 4,
+    "total": 6,
+    "signals": {
+      "contact_form": false,
+      "analytics": true,
+      "cmp": true,
+      "chat": true,
+      "booking": true,
+      "newsletter": false
+    }
+  },
+  "quick_wins": [],
+  "build_opportunities": [],
+  "human_approvals": [],
+  "executive_summary": "www.no.issworld.com sin offentlige nettside scorer **77%** på Arch Website Score. Den største risikoen er: **Skjemaetiketter**. **4 funn** bør prioriteres (0 kritisk, 4 høy ROI). Største mulighet: **33% uutnyttet automatiseringsverdi** — prosesser som kan automatiseres (lead-ruting, kundestøtte, avtalebooking, oppfølging). Forretningsmessig betyr dette: målbar gevinst i hastighet, konvertering og frigjort tid. Merk: dette er en **utenfor-inn** vurdering av kun den offentlige nettsiden — interne systemer er ikke vurdert."
+}
