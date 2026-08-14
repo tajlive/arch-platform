@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arch Website Audit — ISS Norge (no.issworld.com)</title>
+<style>
+  :root { --bg:#0f1220; --panel:#171b2e; --ink:#e8eaf2; --mut:#9aa3b8; --acc:#4f8cff; --ok:#3ddc84; --warn:#ffb454; --bad:#ff6b6b; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--ink); font-family:-apple-system,"Segoe UI",Roboto,sans-serif; line-height:1.6; padding:24px; }
+  .wrap { max-width:860px; margin:0 auto; }
+  .card { background:var(--panel); border-radius:14px; padding:24px; margin-bottom:18px; }
+  h1 { font-size:1.5rem; margin-bottom:6px; }
+  h2 { font-size:1.1rem; margin:18px 0 10px; color:var(--acc); }
+  .score { font-size:3rem; font-weight:800; color:var(--warn); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px; }
+  .dim { background:#1d2238; border-radius:10px; padding:12px; }
+  .dim b { display:block; }
+  .bar { height:8px; background:#2a3050; border-radius:6px; margin-top:8px; overflow:hidden; }
+  .bar i { display:block; height:100%; border-radius:6px; }
+  table { width:100%; border-collapse:collapse; margin:10px 0; }
+  th,td { text-align:left; padding:8px 10px; border-bottom:1px solid #2a3050; font-size:.92rem; }
+  th { color:var(--mut); font-weight:600; }
+  .tag { display:inline-block; padding:2px 10px; border-radius:20px; font-size:.78rem; font-weight:700; }
+  .t-ok { background:rgba(61,220,132,.15); color:var(--ok); }
+  .t-warn { background:rgba(255,180,84,.15); color:var(--warn); }
+  .t-bad { background:rgba(255,107,107,.15); color:var(--bad); }
+  .mut { color:var(--mut); font-size:.88rem; }
+  ul { padding-left:20px; margin:8px 0; }
+  .foot { color:var(--mut); font-size:.8rem; margin-top:20px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="card">
+    <h1>Arch Website Audit</h1>
+    <p class="mut">www.no.issworld.com · utført 14. august 2026 · passiv, utenfor-inn · ingen endringer gjort</p>
+    <p style="margin-top:14px">Total score</p>
+    <div class="score">77 %</div>
+    <p class="mut">0 kritiske funn · 4 høy-ROI-funn · 33 % uutnyttet automatiseringsverdi</p>
+  </div>
+
+  <div class="card">
+    <h2>Dimensjoner</h2>
+    <div class="grid">
+      <div class="dim"><b>Performance <span class="tag t-warn">60 %</span></b><div class="bar"><i style="width:60%;background:var(--warn)"></i></div></div>
+      <div class="dim"><b>Security Surface <span class="tag t-warn">60 %</span></b><div class="bar"><i style="width:60%;background:var(--warn)"></i></div></div>
+      <div class="dim"><b>UX / Mobile <span class="tag t-ok">100 %</span></b><div class="bar"><i style="width:100%;background:var(--ok)"></i></div></div>
+      <div class="dim"><b>Accessibility <span class="tag t-ok">80 %</span></b><div class="bar"><i style="width:80%;background:var(--ok)"></i></div></div>
+      <div class="dim"><b>SEO / Discovery <span class="tag t-ok">88 %</span></b><div class="bar"><i style="width:88%;background:var(--ok)"></i></div></div>
+      <div class="dim"><b>Reliability <span class="tag t-ok">100 %</span></b><div class="bar"><i style="width:100%;background:var(--ok)"></i></div></div>
+      <div class="dim"><b>Trust / Privacy <span class="tag t-ok">80 %</span></b><div class="bar"><i style="width:80%;background:var(--ok)"></i></div></div>
+      <div class="dim"><b>Automation Potential <span class="tag t-warn">33 %</span></b><div class="bar"><i style="width:33%;background:var(--warn)"></i></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Toppfunn (prioritert)</h2>
+    <p><span class="tag t-bad">KRITISK</span> — ingen funn i denne kategorien.</p>
+    <table>
+      <tr><th>Funn</th><th>Betydning</th><th>Innsats</th></tr>
+      <tr><td><b>Skjemaetiketter</b></td><td>Skjemafelt mangler etiketter — skjermlesere forstår ikke feltene; lavere konvertering og tilgjengelighetsrisiko</td><td>Lav (timer)</td></tr>
+      <tr><td><b>Header: permissions</b></td><td>Mangler grunnleggende sikkerhetsheadere — svekket beskyttelse mot vanlige nettangrep</td><td>Middels</td></tr>
+      <tr><td><b>Header: frame</b></td><td>Mangler frame-beskyttelse (klikk-kapring-signal)</td><td>Middels</td></tr>
+      <tr><td><b>Render-blokkerende ressurser</b></td><td>Treg oppstart — svekker fart og rangering</td><td>Lav</td></tr>
+      <tr><td><b>Bilde-optimalisering</b></td><td>Store bilder uten moderne formater/lazy-load</td><td>Middels</td></tr>
+      <tr><td><b>Strukturert data (JSON-LD)</b></td><td>Mangler maskinlesbar metadata — svakere søkeresultater</td><td>Middels</td></tr>
+      <tr><td><b>Kontakt-/lead-skjema</b></td><td>Identifisert forbedringspotensial i lead-fangst</td><td>Middels</td></tr>
+      <tr><td><b>Automatiseringsmuligheter</b></td><td>Lead-ruting, kundestøtte, avtalebooking og oppfølging kan automatiseres</td><td>Betydelig</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Offentlige registerdata (Norge)</h2>
+    <table>
+      <tr><th>Kilde</th><th>Funn</th></tr>
+      <tr><td>Brønnøysundregistrene</td><td>ISS Facility Services AS — org.nr 914 791 723, stiftet 1952, registrert 1995. Tilknyttede enheter: ISS Facility Services AB (NUF 918 450 130, UTLA 918 563 709)</td></tr>
+      <tr><td>E-post (SPF)</td><td>SPF finnes med streng avvisning (-all) — men inneholder private IP-adresser (konfigurasjonssignal)</td></tr>
+      <tr><td>E-post (DMARC)</td><td><span class="tag t-warn">SIGNAL</span> DMARC-policy i overvåkningsmodus (p=none) — blokkerer ikke forfalskede e-poster</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Hva som IKKE ble vurdert</h2>
+    <ul class="mut">
+      <li>Interne systemer, repository, CI/CD og backend (ingen tilgang gitt)</li>
+      <li>Ekte Core Web Vitals (feltdata) og dyp kontrast/WCAG-gjennomgang</li>
+      <li>Juridisk/regulatorisk samsvar — kun signaler, krever kvalifisert vurdering</li>
+      <li>Aktiv sikkerhetsskanning (utføres aldri uten skriftlig samtykke)</li>
+    </ul>
+  </div>
+
+  <p class="foot">Arch Website Audit er en evidensbasert utenfor-inn vurdering av offentlig observerbar informasjon — ikke en sertifisering. Ingen login-bypass, ingen mutasjoner, ingen skjemainnsending. Kilde: offentlig nettside + offentlige registre. Laget av Arch Platform.</p>
+
+</div>
+</body>
+</html>
