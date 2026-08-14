@@ -1,0 +1,61 @@
+# Kali-lab på Lima (Apple Silicon) — Arch Vakt lab-miljø
+# Opprettet av Hermes 2026-08-14. Metode: Kali on Debian (offisiell Kali-metode).
+# Base: Debian 14 forky (testing) — Kali 2026.x er basert på Debian testing, så
+# pakkene matcher uten libcurl3/libcurl4-konflikter (lærdom fra bookworm-forsøket).
+images:
+  - location: "https://cloud.debian.org/images/cloud/forky/daily/latest/debian-14-genericcloud-arm64-daily.qcow2"
+    arch: "aarch64"
+
+cpus: 2
+memory: "3GiB"
+disk: "25GiB"
+vmType: "qemu"
+
+# Ingen mounts — lab-en er isolert fra vertsfilsystemet (sikkerhetsvalg).
+mounts: []
+
+containerd:
+  system: false
+  user: false
+
+provision:
+  - mode: system
+    script: |
+      #!/bin/bash
+      set -eux
+      # --- SSH-nøkkel for Hermes fjernstyring (offentlig nøkkel, ikke hemmelig) ---
+      mkdir -p /root/.ssh && chmod 700 /root/.ssh
+      echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPtPW9Me9K7LU6zv/xANReS/Ovch0D3RSxlrY5RW6/Wx hermes-arch-lab" > /root/.ssh/authorized_keys
+      chmod 600 /root/.ssh/authorized_keys
+      # --- Kali-overlay: keyring FØR apt update (NO_PUBKEY-felle) ---
+      echo "deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware" > /etc/apt/sources.list.d/kali.list
+      wget -qO /tmp/kali-key.asc https://archive.kali.org/archive-key.asc
+      gpg --batch --yes --dearmor -o /etc/apt/trusted.gpg.d/kali-archive-keyring.gpg /tmp/kali-key.asc
+      apt-get update
+      # --- Verktøy (ikke hele kali-linux-headless — disk/vektbevisst) ---
+      DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        kali-defaults \
+        nmap masscan netcat-traditional \
+        ffuf sqlmap wpscan \
+        theharvester h8mail \
+        hydra john hashcat \
+        aircrack-ng \
+        exploitdb metasploit-framework \
+        impacket-scripts nuclei \
+        dnsutils whois iproute2 tcpdump \
+        openssh-server vim git curl python3-pip
+      # --- SSH: root-innlogging med nøkkel for fjernstyring ---
+      sed -i 's/^#*PermitRootLogin.*/PermitRootLogin prohibit-password/' /etc/ssh/sshd_config
+      sed -i 's/^#*PasswordAuthentication.*/PasswordAuthentication no/' /etc/ssh/sshd_config
+      systemctl enable --now ssh
+
+probes:
+  - script: |
+      #!/bin/bash
+      set -eux
+      test -x /usr/bin/nmap && test -x /usr/bin/msfconsole && echo "KALI LAB KLAR"
+    hint: "Kali-verktøyene installeres (metasploit tar lengst tid)"
+
+message: |
+  Kali-lab (Kali on Debian, arm64) er klar.
+  Fjernstyring: `limactl shell kali` eller `ssh -i ~/.ssh/arch_lab root@127.0.0.1 -p <lima-ssh-port>`
