@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>En smakebit fra Arch — Toma &amp; Hvass</title>
+<style>
+  :root { --teal:#0E9F6E; --ink:#10201a; --muted:#5b6b64; --line:#e3eae6; --bg:#ffffff; --soft:#f4f8f6; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--ink); background:var(--bg); line-height:1.55; }
+  .page { max-width:720px; margin:0 auto; padding:48px 40px; }
+  .kicker { font-size:12px; letter-spacing:2.5px; text-transform:uppercase; color:var(--teal); font-weight:700; margin-bottom:14px; }
+  h1 { font-size:30px; line-height:1.2; letter-spacing:-0.02em; margin-bottom:10px; }
+  .sub { font-size:16px; color:var(--muted); margin-bottom:34px; max-width:560px; }
+  .scores { display:flex; gap:14px; margin-bottom:34px; }
+  .score-card { flex:1; border:1px solid var(--line); border-radius:14px; padding:18px 18px 16px; background:var(--soft); }
+  .score-card .domain { font-size:13px; color:var(--muted); margin-bottom:6px; }
+  .score-card .num { font-size:34px; font-weight:800; letter-spacing:-0.03em; }
+  .score-card .bar { height:7px; border-radius:4px; background:#dde8e2; margin:8px 0 6px; overflow:hidden; }
+  .score-card .bar span { display:block; height:100%; background:var(--teal); border-radius:4px; }
+  .score-card .note { font-size:12px; color:var(--muted); }
+  h2 { font-size:19px; margin:30px 0 12px; letter-spacing:-0.01em; }
+  .funn { border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin-bottom:12px; background:#fff; }
+  .funn .tag { display:inline-block; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:3px 9px; border-radius:999px; margin-bottom:8px; }
+  .tag.kritisk { background:#fdecec; color:#b42318; }
+  .tag.hoy { background:#fef4e6; color:#b54708; }
+  .tag.signal { background:#e8f4ee; color:#0b6b4a; }
+  .funn h3 { font-size:16px; margin-bottom:4px; }
+  .funn p { font-size:14px; color:#3c4b44; }
+  .hemmelig { background:var(--ink); color:#f2f7f4; border-radius:16px; padding:26px 28px; margin-top:34px; }
+  .hemmelig h2 { color:#fff; margin-top:0; }
+  .hemmelig ul { margin:12px 0 0 18px; font-size:14.5px; color:#cfe0d8; }
+  .hemmelig li { margin-bottom:8px; }
+  .cta { margin-top:34px; text-align:center; }
+  .cta .knapp { display:inline-block; background:var(--teal); color:#fff; font-weight:700; font-size:15px; padding:14px 30px; border-radius:999px; text-decoration:none; }
+  .footer { margin-top:40px; padding-top:18px; border-top:1px solid var(--line); font-size:12px; color:var(--muted); }
+  @media print { .page { padding:24px 8px; } .hemmelig { background:#10201a; -webkit-print-color-adjust:exact; print-color-adjust:exact; } .knapp { display:none; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="kicker">Arch · En smakebit</div>
+  <h1>Vi har sett på nettsidene deres.<br>Her er tre ting dere bør vite.</h1>
+  <p class="sub">Arch har analysert <strong>toma.no</strong> og <strong>hvass.no</strong> utenfra — helt uten å endre noe. Dette er en to-minutters smakebit av hva vi fant. Hele bildet ligger bak neste møte.</p>
+
+  <div class="scores">
+    <div class="score-card">
+      <div class="domain">toma.no</div>
+      <div class="num">70<span style="font-size:16px;color:var(--muted)">/100</span></div>
+      <div class="bar"><span style="width:70%"></span></div>
+      <div class="note">God helhetsprofil · klare mangler i grunnmuren</div>
+    </div>
+    <div class="score-card">
+      <div class="domain">hvass.no</div>
+      <div class="num">57<span style="font-size:16px;color:var(--muted)">/100</span></div>
+      <div class="bar"><span style="width:57%"></span></div>
+      <div class="note">Inkl. ett kritisk funn · bør ses på først</div>
+    </div>
+  </div>
+
+  <h2>Tre funn fra overflaten</h2>
+
+  <div class="funn">
+    <span class="tag kritisk">Kritisk · hvass.no</span>
+    <h3>Blandet innhold: http-elementer på en https-side</h3>
+    <p>Deler av siden lastes over usikret forbindelse. Nettlesere kan vise «ikke sikker» eller blokkere innholdet — det svekker tilliten hos besøkende og i verste fall konverteringen.</p>
+  </div>
+
+  <div class="funn">
+    <span class="tag hoy">Høy ROI · toma.no</span>
+    <h3>Seks grunnleggende sikkerhetsheadere mangler</h3>
+    <p>CSP, HSTS og fire til. Dette er standardbeskyttelsen de fleste seriøse nettsteder har på plass — for et konsern som skal inn i en børsnotert struktur, er dette lavthengende frukt å rydde.</p>
+  </div>
+
+  <div class="funn">
+    <span class="tag signal">Signal · begge</span>
+    <h3>Henvendelsene rutes manuelt — halve automatiseringsverdien ligger ubenyttet</h3>
+    <p>Kontaktskjemaer, avtalebooking og oppfølging er i dag manuelle prosesser. Ut fra det som er observerbart utenfra, står omtrent halvparten av den tilgjengelige automatiseringsverdien ubrukt.</p>
+  </div>
+
+  <div class="hemmelig">
+    <h2>Det dere ikke har sett ennå</h2>
+    <ul>
+      <li>Full funnliste med prioriteter og forretningsmessig konsekvens for begge merkevarene</li>
+      <li>Hva vi fant av automatiseringsmuligheter i kantinedriften — konkrete kroner og øre</li>
+      <li>Hvordan dette posisjonerer dere foran konkurrentene og foran det som kommer</li>
+    </ul>
+    <p style="margin-top:14px;font-size:14px;color:#9fbdae">Resten deles i en halvtimes samtale — ikke i et dokument.</p>
+  </div>
+
+  <div class="cta">
+    <a class="knapp" href="#">Be om hele bildet — 30 minutter</a>
+  </div>
+
+  <div class="footer">
+    Arch er en utenfor-inn-analyse av offentlig tilgjengelig informasjon. Ingen endringer ble gjort på nettsidene, ingen systemer ble berørt, og scorene er en evidensbasert vurdering — ikke en sertifisering. Interne systemer er ikke vurdert.
+  </div>
+
+</div>
+</body>
+</html>

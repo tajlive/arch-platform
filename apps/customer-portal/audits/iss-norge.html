@@ -82,6 +82,32 @@
   </div>
 
   <div class="card">
+    <h2>Konkurrent-benchmark (norsk FM-marked)</h2>
+    <p class="mut">Samme passive metode, kjørt samme dag (14. august 2026).</p>
+    <table>
+      <tr><th>Selskap</th><th>Score</th><th>Status</th></tr>
+      <tr><td><b>Coor Norge</b> (coor.no)</td><td>80 %</td><td><span class="tag t-ok">Leder</span></td></tr>
+      <tr><td><b>ISS Norge</b> (no.issworld.com)</td><td><b>77 %</b></td><td><span class="tag t-warn">#2</span></td></tr>
+      <tr><td><b>Sodexo Norge</b> (sodexo.no)</td><td>70 %</td><td><span class="tag t-warn">#3</span></td></tr>
+      <tr><td><b>Toma</b> (toma.no)</td><td>70 %</td><td><span class="tag t-warn">#3</span></td></tr>
+    </table>
+    <p class="mut">ISS ligger 3 poeng bak Coor — de to nærmeste hullene (sikkerhetsheadere + skjemaetiketter) er nettopp de to billigste å lukke.</p>
+  </div>
+
+  <div class="card">
+    <h2>Forbedringspotensiale (prioritert etter verdi)</h2>
+    <table>
+      <tr><th>#</th><th>Tiltak</th><th>Forretningsverdi</th><th>Innsats</th></tr>
+      <tr><td>1</td><td>Sikkerhetsheadere (permissions/frame/CSP)</td><td>Lukker det ISS scorer dårligst på — løfter Security Surface direkte og tar igjen Coor</td><td>Lav (timer)</td></tr>
+      <tr><td>2</td><td>Skjemaetiketter på alle skjemaer</td><td>Høyere konvertering + fjerner tilgjengelighetsrisiko (UU-loven)</td><td>Lav (timer)</td></tr>
+      <tr><td>3</td><td>DMARC: p=none → p=reject (faset)</td><td>Stopper e-postforfalskning i ISS' navn — phishing er reelt mulig i dag</td><td>Middels</td></tr>
+      <tr><td>4</td><td>Render-blokkerende ressurser + bilde-optimalisering</td><td>Raskere side, bedre rangering, lavere bounce</td><td>Middels</td></tr>
+      <tr><td>5</td><td>JSON-LD strukturdata</td><td>Rikere søkeresultater (Organization + FAQ)</td><td>Middels</td></tr>
+      <tr><td>6</td><td>Lead-ruting + avtalebooking automatisert</td><td>33 % uutnyttet automatiseringsverdi — direkte konverteringsgevinst</td><td>Betydelig</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
     <h2>Hva som IKKE ble vurdert</h2>
     <ul class="mut">
       <li>Interne systemer, repository, CI/CD og backend (ingen tilgang gitt)</li>
