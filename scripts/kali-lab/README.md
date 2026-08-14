@@ -32,10 +32,12 @@ Kali sin `nvidia-opencl-icd` (550-serien) er inkompatibel med WSL-passthrough-dr
 ```
 limactl start --name=kali --tty=false scripts/kali-lab/lima-kali.yaml
 limactl shell kali
+# eller direkte SSH med nøkkel:
+ssh -i ~/.ssh/arch_lab -p <port fra limactl list> root@127.0.0.1
 ```
 - Base: Debian 14 forky genericcloud arm64 (Kali 2026.x = Debian testing-base)
 - Kali-overlay: `provision-kali.sh` — keyring (`gpg --batch --yes --dearmor`) FØR `apt update`
-- Verktøy: nmap, masscan, ffuf, sqlmap, wpscan, theharvester, h8mail, hydra, john, hashcat (CPU), aircrack-ng, exploitdb, metasploit, impacket, nuclei, m.m.
+- Verktøy verifisert 2026-08-14: nmap, msfconsole, hashcat (CPU), sqlmap, ffuf, hydra, john, wpscan, nuclei ✅
 
 ### Pitfalls (lært på den harde måten)
 1. **Bookworm-base = FrankenDebian** — Kali-rolling krever testing-base (libcurl3 vs libcurl4-konflikt). Bruk forky.
