@@ -1,0 +1,2 @@
+https://www.klarpakke.no [[33m307[0m] [[35mCloudflare,HTTP/3[0m]
+https://klarpakke.no [[33m301[0m] [[36m301 Moved Permanently[0m] [[35mCloudflare[0m]

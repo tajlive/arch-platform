@@ -1,0 +1,44 @@
+{
+  "domain": "klarpakke.no",
+  "scanned_at": "2026-08-14T08:53:06.093Z",
+  "scope": "authorized",
+  "tools": {
+    "subfinder": {
+      "ok": true,
+      "count": 1
+    },
+    "httpx": {
+      "ok": true,
+      "count": 2
+    },
+    "nuclei": {
+      "ok": true,
+      "count": 0
+    },
+    "wpscan": {
+      "ok": true,
+      "skipped": "ikke WordPress"
+    },
+    "ffuf": {
+      "ok": true,
+      "count": 0
+    }
+  },
+  "subdomains": [
+    "www.klarpakke.no"
+  ],
+  "live_hosts": [
+    {
+      "url": "https://www.klarpakke.no [\u001b[33m307\u001b[0m] [\u001b[35mCloudflare,HTTP/3\u001b[0m]",
+      "status": "?",
+      "title": ""
+    },
+    {
+      "url": "https://klarpakke.no [\u001b[33m301\u001b[0m] [\u001b[36m301 Moved Permanently\u001b[0m] [\u001b[35mCloudflare\u001b[0m]",
+      "status": "?",
+      "title": ""
+    }
+  ],
+  "findings": [],
+  "directories": []
+}
