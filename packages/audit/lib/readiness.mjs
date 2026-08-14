@@ -41,6 +41,17 @@ const MODULES = [
   "packages/audit/lib/web/browser.mjs",
   "packages/audit/lib/web/report.mjs",
   "packages/audit/audit-web.mjs",
+  // Audit v2 (ARC-10)
+  "packages/audit/lib/web/security.mjs",
+  "packages/audit/lib/web/dns-email.mjs",
+  "packages/audit/lib/web/norge.mjs",
+  "packages/audit/lib/web/wayback.mjs",
+  "packages/audit/lib/web/compliance.mjs",
+  "packages/audit/lib/web/pagespeed.mjs",
+  "packages/audit/lib/web/presence.mjs",
+  "packages/audit/lib/web/ai-analysis.mjs",
+  "packages/audit/lib/web/report-v2.mjs",
+  "packages/audit/audit-web-v2.mjs",
 ];
 
 let pass = 0;
@@ -102,6 +113,27 @@ try {
   smokeDetail = String(e.message || e).split("\n").slice(0, 2).join(" | ");
 }
 check("røyk-audit: 3 filer + 6-dimensjonalt scorecard + 4 bøtter + Build Proposal", smokeOk, smokeDetail);
+
+// 5b. V2-røyk (ARC-10): alle v2-seksjoner renderes uten krasj
+const tmpV2 = mkdtempSync(join(tmpdir(), "arch-ready-v2-"));
+let v2Ok = false;
+let v2Detail = "";
+try {
+  execFileSync("node", [join(root, "packages", "audit", "audit-web-v2.mjs"), "https://example.com",
+    "--prospect-preview", "--save", tmpV2], { encoding: "utf8", timeout: 300000 });
+  const v2files = readdirSync(tmpV2);
+  const v2md = v2files.find((f) => f.endsWith(".md") && !f.includes("technical"));
+  const v2ev = v2files.find((f) => f.endsWith(".evidence.json"));
+  let content = v2md ? readFileSync(join(tmpV2, v2md), "utf8") : "";
+  const sections = ["Hva en hacker ser", "E-post & DNS-sikkerhet", "Norge-data", "Historikk", "Compliance-signaler", "Fart (PageSpeed", "Tilstedeværelse", "AI-analyse", "AI-synlighet"];
+  const present = sections.filter((s) => content.includes(s));
+  v2Ok = !!v2md && !!v2ev && present.length >= 6;
+  v2Detail = `v2-filer=${!!v2md && !!v2ev}, seksjoner=${present.length}/9`;
+} catch (e) {
+  v2Detail = String(e.message || e).split("\n").slice(0, 2).join(" | ");
+}
+check("v2-røyk: kundesider + evidence + ≥6 v2-seksjoner renderes", v2Ok, v2Detail);
+try { rmSync(tmpV2, { recursive: true, force: true }); } catch { /* best-effort */ }
 
 // 6. Consent-gate avbryter
 let gateOk = false;

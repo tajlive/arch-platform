@@ -18,6 +18,9 @@ const WEIGHTS = {
   seo: 10,
   reliability: 10,
   trust_privacy: 5,
+  // ARC-10 v2: AI-synlighet (GEO) — 2026-standard: AI-assistenter blir en
+  // hovedinngang til bedriftssøk. Vekt 5, dokumentert (Peec.ai-modellen).
+  ai_visibility: 5,
 };
 
 const DIM_LABEL = {
@@ -29,6 +32,7 @@ const DIM_LABEL = {
   reliability: "Reliability",
   trust_privacy: "Trust / Privacy",
   automation: "Automation Potential",
+  ai_visibility: "AI-synlighet (GEO)",
 };
 
 const AUTOMATION_SIGNALS = ["contact_form", "analytics", "cmp", "chat", "booking", "newsletter"];

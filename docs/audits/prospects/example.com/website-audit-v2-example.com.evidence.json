@@ -1,0 +1,3253 @@
+{
+  "meta": {
+    "generated": "2026-08-14T23:14:41.710Z",
+    "version": "2.0",
+    "name": "example.com",
+    "website": "https://example.com",
+    "domain": "example.com",
+    "registrable_domain": "example.com",
+    "mode": "website",
+    "design_partner": false,
+    "audit_duration_ms": 47739,
+    "v2_modules_ms": 45937
+  },
+  "customer": {
+    "id": "example.com",
+    "name": "example.com",
+    "mode": "prospect_preview",
+    "modeLabel": "Intern prospect-vurdering",
+    "website": "https://example.com",
+    "consent_granted": false,
+    "consent_date": null
+  },
+  "score": {
+    "total": 38,
+    "categories": {
+      "performance": {
+        "pct": 43,
+        "weight": 20,
+        "pass": 3,
+        "fail": 1,
+        "unknown": 3,
+        "denom": 7,
+        "checks": [
+          {
+            "id": "compression",
+            "label": "Komprimering (gzip/brotli)",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "br",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.583Z"
+          },
+          {
+            "id": "caching",
+            "label": "Cache-headere",
+            "dimension": "performance",
+            "result": "FAIL",
+            "evidence": "ingen cache-control",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.583Z"
+          },
+          {
+            "id": "render_blocking",
+            "label": "Render-blokkerende ressurser",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "0 blokkerende skript, 0 stylesheets",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.583Z"
+          },
+          {
+            "id": "image_optim",
+            "label": "Bilde-optimalisering",
+            "dimension": "performance",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen <img>",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.583Z"
+          },
+          {
+            "id": "third_party",
+            "label": "Tredjeparts-skript/-ressurser",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "0 eksterne domener",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.583Z"
+          },
+          {
+            "id": "psi_mobile",
+            "label": "PageSpeed mobil",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-14T23:14:09.188Z"
+          },
+          {
+            "id": "psi_desktop",
+            "label": "PageSpeed desktop",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-14T23:14:09.188Z"
+          },
+          {
+            "id": "psi_availability",
+            "label": "PageSpeed API tilgjengelig",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-14T23:14:09.188Z"
+          }
+        ]
+      },
+      "security": {
+        "pct": 44,
+        "weight": 20,
+        "pass": 11,
+        "fail": 12,
+        "unknown": 2,
+        "denom": 25,
+        "checks": [
+          {
+            "id": "https",
+            "label": "HTTPS/TLS",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "HTTPS leverte respons",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:54.884Z"
+          },
+          {
+            "id": "header_csp",
+            "label": "Header: csp",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.714Z"
+          },
+          {
+            "id": "header_hsts",
+            "label": "Header: hsts",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.714Z"
+          },
+          {
+            "id": "header_xcto",
+            "label": "Header: xcto",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.714Z"
+          },
+          {
+            "id": "header_referrer",
+            "label": "Header: referrer",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.714Z"
+          },
+          {
+            "id": "header_permissions",
+            "label": "Header: permissions",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.714Z"
+          },
+          {
+            "id": "header_frame",
+            "label": "Header: frame",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.714Z"
+          },
+          {
+            "id": "mixed_content",
+            "label": "Blandet innhold (http på https)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen http-referanser i HTML",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.714Z"
+          },
+          {
+            "id": "source_maps",
+            "label": "Eksponerte source maps",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "skript ikke observerbare",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.714Z"
+          },
+          {
+            "id": "tech_disclosure",
+            "label": "Versjons-avsløring",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "cloudflare",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.714Z"
+          },
+          {
+            "id": "security_headers",
+            "label": "Sikkerhetsheadere — gradering F",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "Gradering F. Content-Security-Policy: MANGLER; Strict-Transport-Security: MANGLER; X-Frame-Options: MANGLER; X-Content-Type-Options: MANGLER; Referrer-Policy: MANGLER; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS mangler · X-Frame-Options mangler (og ingen frame-ancestors i CSP) · X-Content-Type-Options mangler nosniff · Referrer-Policy mangler · Permissions-Policy mangler",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-14T23:13:56.498Z"
+          },
+          {
+            "id": "cookies_attributes",
+            "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-14T23:13:56.499Z"
+          },
+          {
+            "id": "version_leaks",
+            "label": "Ingen versjonslekkasjer",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen server/x-powered-by/x-aspnet-version-header, <meta generator>, gammel jQuery eller WordPress-signatur observert.",
+            "confidence": "medium",
+            "source": "http_headers",
+            "observed_at": "2026-08-14T23:13:56.499Z"
+          },
+          {
+            "id": "tls_cert",
+            "label": "TLS-sertifikat gyldighet",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "notBefore=2026-07-29T22:10:08.000Z, notAfter=2026-10-27T22:17:21.000Z, issuer=/C=US/O=SSL Corporation/CN=Cloudflare TLS Issuing ECC CA 3, SAN=example.com, *.example.com",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-14T23:14:41.695Z"
+          },
+          {
+            "id": "tls_verify",
+            "label": "TLS-sertifikat-verifisering",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "verify return code: 0 (ok)",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-14T23:14:41.695Z"
+          },
+          {
+            "id": "tls_legacy",
+            "label": "Legacy-TLS (1.0/1.1) støtte",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "TLS 1.0: available · TLS 1.1: available",
+            "confidence": "medium",
+            "source": "tls",
+            "observed_at": "2026-08-14T23:14:41.695Z"
+          },
+          {
+            "id": "spf",
+            "label": "SPF (avsender-verifisering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "v=spf1 -all",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T23:13:56.531Z"
+          },
+          {
+            "id": "spf_private_ip",
+            "label": "SPF: private IP-er i mekanismene",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen private IP-er i SPF",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-14T23:13:56.531Z"
+          },
+          {
+            "id": "dkim",
+            "label": "DKIM (e-post-signering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "selectorer: default, dkim, google, selector1, selector2, s1, k1",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-14T23:13:56.879Z"
+          },
+          {
+            "id": "dmarc",
+            "label": "DMARC (spoofing-beskyttelse)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "p=reject (blokk) — v=DMARC1;p=reject;sp=reject;adkim=s;aspf=s",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T23:13:56.996Z"
+          },
+          {
+            "id": "mta_sts",
+            "label": "MTA-STS (håndhevet e-post-TLS)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T23:13:57.053Z"
+          },
+          {
+            "id": "tls_rpt",
+            "label": "TLS-RPT (TLS-rapportering)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen TLS-rapportering",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-14T23:13:57.111Z"
+          },
+          {
+            "id": "caa",
+            "label": "CAA (sertifikat-utsteder-kontroll)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen CAA",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T23:13:57.215Z"
+          },
+          {
+            "id": "dnssec",
+            "label": "DNSSEC (signert sone)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "AD-flag — signert sone validert",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T23:13:57.307Z"
+          },
+          {
+            "id": "subdomains",
+            "label": "Subdomene-eksponering (crt.sh)",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "crt.sh-feil: HTTP 502",
+            "confidence": "low",
+            "source": "https",
+            "observed_at": "2026-08-14T23:13:59.776Z"
+          }
+        ]
+      },
+      "ux_mobile": {
+        "pct": 25,
+        "weight": 15,
+        "pass": 1,
+        "fail": 1,
+        "unknown": 2,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "viewport",
+            "label": "Viewport meta",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "viewport tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.583Z"
+          },
+          {
+            "id": "media_queries",
+            "label": "Responsive CSS (@media)",
+            "dimension": "ux_mobile",
+            "result": "UNKNOWN",
+            "evidence": "stylesheets ikke observerbare",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.583Z"
+          },
+          {
+            "id": "ai_content_quality",
+            "label": "Innholdskvalitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "FAIL",
+            "evidence": "Teksten er svært kort og generisk, uten tydelig kommersielt eller informativt innhold for en norsk bedrift. Den henvender seg hovedsakelig til utviklere som trenger eksempeldomenenavn, men mangler stavefeil og ufullstendige setninger. Aktualiteten er vanskelig å vurdere på grunn av manglende datoer, men innholdet fremstår som nøytralt og tidløst.",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-14T23:14:00.045Z"
+          },
+          {
+            "id": "ai_content_freshness",
+            "label": "Aktualitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "UNKNOWN",
+            "evidence": "ingen årstall-signaler funnet i teksten · teksten er svært kort og generisk · manglende meta-beskrivelse",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-14T23:14:00.045Z"
+          }
+        ]
+      },
+      "accessibility": {
+        "pct": 33,
+        "weight": 15,
+        "pass": 1,
+        "fail": 2,
+        "unknown": 0,
+        "denom": 3,
+        "checks": [
+          {
+            "id": "lang",
+            "label": "Språk-attributt (lang)",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "en",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.583Z"
+          },
+          {
+            "id": "alt_text",
+            "label": "Alt-tekst på bilder",
+            "dimension": "accessibility",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen <img>",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.583Z"
+          },
+          {
+            "id": "form_labels",
+            "label": "Skjemaetiketter",
+            "dimension": "accessibility",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen skjemainput",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.583Z"
+          },
+          {
+            "id": "heading_hierarchy",
+            "label": "Overskriftshierarki",
+            "dimension": "accessibility",
+            "result": "FAIL",
+            "evidence": "h1=1 h2=0 h3=0",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.583Z"
+          },
+          {
+            "id": "semantic",
+            "label": "Semantiske landemerker",
+            "dimension": "accessibility",
+            "result": "FAIL",
+            "evidence": "0/4 (ingen)",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.584Z"
+          }
+        ]
+      },
+      "seo": {
+        "pct": 25,
+        "weight": 10,
+        "pass": 2,
+        "fail": 6,
+        "unknown": 0,
+        "denom": 8,
+        "checks": [
+          {
+            "id": "title",
+            "label": "Tittel",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "Example Domain",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.584Z"
+          },
+          {
+            "id": "meta_description",
+            "label": "Meta-beskrivelse",
+            "dimension": "seo",
+            "result": "FAIL",
+            "evidence": "mangler meta description",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.584Z"
+          },
+          {
+            "id": "canonical",
+            "label": "Canonical",
+            "dimension": "seo",
+            "result": "FAIL",
+            "evidence": "mangler canonical",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.584Z"
+          },
+          {
+            "id": "robots_meta",
+            "label": "Robots-meta",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "ingen robots-meta (standard: indekserbart)",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.584Z"
+          },
+          {
+            "id": "robots_txt",
+            "label": "robots.txt",
+            "dimension": "seo",
+            "result": "FAIL",
+            "evidence": "mangler robots.txt",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.584Z"
+          },
+          {
+            "id": "sitemap",
+            "label": "Sitemap.xml",
+            "dimension": "seo",
+            "result": "FAIL",
+            "evidence": "mangler sitemap.xml",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.713Z"
+          },
+          {
+            "id": "open_graph",
+            "label": "OpenGraph",
+            "dimension": "seo",
+            "result": "FAIL",
+            "evidence": "title=false description=false image=false",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.714Z"
+          },
+          {
+            "id": "structured_data",
+            "label": "Strukturert data (JSON-LD)",
+            "dimension": "seo",
+            "result": "FAIL",
+            "evidence": "ingen JSON-LD",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.714Z"
+          }
+        ]
+      },
+      "reliability": {
+        "pct": 67,
+        "weight": 10,
+        "pass": 4,
+        "fail": 1,
+        "unknown": 1,
+        "denom": 6,
+        "checks": [
+          {
+            "id": "http_status",
+            "label": "HTTP-status (hovedsiden)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "HTTP 200",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:54.854Z"
+          },
+          {
+            "id": "redirect_chain",
+            "label": "Omdirigeringskjede",
+            "dimension": "reliability",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen redirects",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:54.884Z"
+          },
+          {
+            "id": "broken_links",
+            "label": "Ødelagte interne lenker",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "1 sider sjekket, 0 ødelagt",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.583Z"
+          },
+          {
+            "id": "asset_failures",
+            "label": "Ressurs-feil (img/css/js)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "ingen same-origin-ressurser å sample",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.583Z"
+          },
+          {
+            "id": "history_exists",
+            "label": "Arkivhistorikk finnes",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "arkivert siden 2002-01-20",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-14T23:14:23.637Z"
+          },
+          {
+            "id": "history_freshness",
+            "label": "Aktualitet (siste arkiverte versjon)",
+            "dimension": "reliability",
+            "result": "FAIL",
+            "evidence": "ingen fangst i Wayback siste 12 måneder — siden kan være inaktiv",
+            "confidence": "medium",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-14T23:14:23.638Z"
+          },
+          {
+            "id": "history_scope",
+            "label": "Arkivomfang",
+            "dimension": "reliability",
+            "result": "UNKNOWN",
+            "evidence": "omfang ikke tilgjengelig (Wayback CDX timeout på full historikk)",
+            "confidence": "medium",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-14T23:14:23.638Z"
+          }
+        ]
+      },
+      "trust_privacy": {
+        "pct": 24,
+        "weight": 5,
+        "pass": 4,
+        "fail": 10,
+        "unknown": 3,
+        "denom": 17,
+        "checks": [
+          {
+            "id": "cookie_banner",
+            "label": "Cookie-banner",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen cookie-banner observert",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.714Z"
+          },
+          {
+            "id": "privacy_link",
+            "label": "Personvernerklæring-link",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen personvern-link observert",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.715Z"
+          },
+          {
+            "id": "consent_cmp",
+            "label": "Samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen trackere observert — CMP ikke nødvendig",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.715Z"
+          },
+          {
+            "id": "contact_form",
+            "label": "Kontakt-/lead-skjema",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen <form> observert",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.715Z"
+          },
+          {
+            "id": "cta",
+            "label": "Call-to-action",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen tydelig CTA observert",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-14T23:13:55.715Z"
+          },
+          {
+            "id": "bimi",
+            "label": "BIMI (merkevare-logo i innboks)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen BIMI (ikke påkrevd)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-14T23:13:57.168Z"
+          },
+          {
+            "id": "dnsbl",
+            "label": "E-post-omdømme (DNSBL)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "kunne ikke oppslå IP for ",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-14T23:13:57.383Z"
+          },
+          {
+            "id": "brreg_org",
+            "label": "Firma i Brreg (Enhetsregisteret)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "N kandidater for «Example Domain», ingen med Brreg-hjemmeside som matcher example.com — kan ikke entydig knytte firma til domene. Kandidater: DOMAINS DA (981478908) · DIBASEY DOMAIN (927701308) · EF DOMAIN (994230050)",
+            "confidence": "medium",
+            "source": "brreg",
+            "observed_at": "2026-08-14T23:13:56.069Z"
+          },
+          {
+            "id": "ssb_context",
+            "label": "Bransjekontekst (SSB, næring 63)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "SSB tabell 12817: Informasjonstjenester — 1 302 foretak (2024)",
+            "confidence": "high",
+            "source": "ssb",
+            "observed_at": "2026-08-14T23:13:56.370Z"
+          },
+          {
+            "id": "norid_registered",
+            "label": "Domenet registrert (Norid)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "utenlandsk domene — Norid ikke autoritativ",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-14T23:13:56.370Z"
+          },
+          {
+            "id": "cmp_banner",
+            "label": "Cookie-banner / samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.384Z"
+          },
+          {
+            "id": "consent_real_choice",
+            "label": "Reelt valg (avvis-knapp)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen banner/CMP observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.384Z"
+          },
+          {
+            "id": "consent_prechecked",
+            "label": "Forhåndsavkrysset samtykke",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.386Z"
+          },
+          {
+            "id": "privacy_policy",
+            "label": "Personvernerklæring",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen personvernerklæring-link observert — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.387Z"
+          },
+          {
+            "id": "third_party_trackers",
+            "label": "Tredjeparts-trackere",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen kjente tredjeparts-trackere observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.387Z"
+          },
+          {
+            "id": "google_fonts",
+            "label": "Google Fonts (ekstern)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen ekstern Google Fonts observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.387Z"
+          },
+          {
+            "id": "ecom_price_vat",
+            "label": "Pris inkl. mva",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.387Z"
+          },
+          {
+            "id": "ecom_angrerett",
+            "label": "Angrerett-informasjon",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.387Z"
+          },
+          {
+            "id": "ecom_klage",
+            "label": "Klageadgang / tvisteløsning",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.387Z"
+          },
+          {
+            "id": "social_profiles",
+            "label": "Sosiale medier (lenker fra nettsiden)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.396Z"
+          },
+          {
+            "id": "nap_phone",
+            "label": "Telefon på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.397Z"
+          },
+          {
+            "id": "nap_email",
+            "label": "E-post på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.397Z"
+          },
+          {
+            "id": "nap_name_consistency",
+            "label": "Navn-konsistens (nettside ↔ Brreg)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "nettsidenavn «Example Domain» avviker fra Brreg-navn «DOMAINS DA» — signal",
+            "confidence": "high",
+            "source": "html+brreg",
+            "observed_at": "2026-08-14T23:13:56.397Z"
+          },
+          {
+            "id": "google_business",
+            "label": "Google Business Profile (anmeldelser, kategori)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+            "confidence": "medium",
+            "source": "places_api",
+            "observed_at": "2026-08-14T23:13:56.397Z"
+          }
+        ]
+      },
+      "ai_visibility": {
+        "pct": 75,
+        "weight": 5,
+        "pass": 3,
+        "fail": 1,
+        "unknown": 0,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "ai_vis_visibility",
+            "label": "Synlighet i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "2/3 svar nevner Example Domain · sitat: «Ja, absolutt. `example.com` (og de andre reserverte domenene som `example.org`, `example.net` og `example.edu`) er fortsatt like relevante i» · prompter: «Hvilket domene anbefaler du for å teste dokumentas…» / «Hva er det beste alternativet for å demonstrere ne…»",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-14T23:14:32.493Z"
+          },
+          {
+            "id": "ai_vis_position",
+            "label": "Posisjon i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "FAIL",
+            "evidence": "beste posisjon: nevnt i løpende tekst (ikke topp-liste) av 3 svar",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-14T23:14:32.493Z"
+          },
+          {
+            "id": "ai_vis_sentiment",
+            "label": "Sentiment i AI-omtale",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "sentiment: positiv · råd: Sørg for at nettsiden din tydelig kommuniserer at den er en autoritativ kilde for informasjon om reserverte domener, og oppdater innholdet j",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-14T23:14:32.493Z"
+          },
+          {
+            "id": "ai_vis_sources",
+            "label": "Kilder AI-en siterer",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "eksterne domener i AI-svar: example.com",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-14T23:14:32.493Z"
+          }
+        ]
+      },
+      "automation": {
+        "pct": 100,
+        "leverage": 0,
+        "potential": 100,
+        "weight": 5,
+        "pass": 0,
+        "fail": 6,
+        "unknown": 0,
+        "denom": 6,
+        "checks": []
+      }
+    },
+    "weights": {
+      "performance": 20,
+      "security": 20,
+      "ux_mobile": 15,
+      "accessibility": 15,
+      "seo": 10,
+      "reliability": 10,
+      "trust_privacy": 5,
+      "ai_visibility": 5
+    },
+    "labels": {
+      "performance": "Performance",
+      "security": "Security Surface",
+      "ux_mobile": "UX / Mobile",
+      "accessibility": "Accessibility",
+      "seo": "SEO / Discovery",
+      "reliability": "Reliability",
+      "trust_privacy": "Trust / Privacy",
+      "automation": "Automation Potential",
+      "ai_visibility": "AI-synlighet (GEO)"
+    },
+    "automation": {
+      "leverage": 0,
+      "potential": 100,
+      "present": 0,
+      "total": 6,
+      "signals": {
+        "contact_form": false,
+        "analytics": false,
+        "cmp": false,
+        "chat": false,
+        "booking": false,
+        "newsletter": false
+      }
+    },
+    "observed_at": "2026-08-14T23:14:41.708Z"
+  },
+  "findings": [
+    {
+      "id": "W001",
+      "kind": "web_caching",
+      "title": "Cache-headere",
+      "evidence": "ingen cache-control",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W002",
+      "kind": "web_heading_hierarchy",
+      "title": "Overskriftshierarki",
+      "evidence": "h1=1 h2=0 h3=0",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W003",
+      "kind": "web_semantic",
+      "title": "Semantiske landemerker",
+      "evidence": "0/4 (ingen)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W004",
+      "kind": "web_seo_meta",
+      "title": "Meta-beskrivelse",
+      "evidence": "mangler meta description",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W005",
+      "kind": "web_seo_canonical",
+      "title": "Canonical",
+      "evidence": "mangler canonical",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W006",
+      "kind": "web_seo_robots",
+      "title": "robots.txt",
+      "evidence": "mangler robots.txt",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W007",
+      "kind": "web_seo_sitemap",
+      "title": "Sitemap.xml",
+      "evidence": "mangler sitemap.xml",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W008",
+      "kind": "web_seo_og",
+      "title": "OpenGraph",
+      "evidence": "title=false description=false image=false",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W009",
+      "kind": "web_seo_structured",
+      "title": "Strukturert data (JSON-LD)",
+      "evidence": "ingen JSON-LD",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W010",
+      "kind": "web_security_headers",
+      "title": "Header: csp",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W011",
+      "kind": "web_security_headers",
+      "title": "Header: hsts",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W012",
+      "kind": "web_security_headers",
+      "title": "Header: xcto",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W013",
+      "kind": "web_security_headers",
+      "title": "Header: referrer",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W014",
+      "kind": "web_security_headers",
+      "title": "Header: permissions",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W015",
+      "kind": "web_security_headers",
+      "title": "Header: frame",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W016",
+      "kind": "web_tech_disclosure",
+      "title": "Versjons-avsløring",
+      "evidence": "cloudflare",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W017",
+      "kind": "web_privacy",
+      "title": "Cookie-banner",
+      "evidence": "ingen cookie-banner observert",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W018",
+      "kind": "web_privacy",
+      "title": "Personvernerklæring-link",
+      "evidence": "ingen personvern-link observert",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W019",
+      "kind": "web_contact_form",
+      "title": "Kontakt-/lead-skjema",
+      "evidence": "ingen <form> observert",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W020",
+      "kind": "web_cta",
+      "title": "Call-to-action",
+      "evidence": "ingen tydelig CTA observert",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W021",
+      "kind": "web_security_headers",
+      "title": "Sikkerhetsheadere — gradering F",
+      "evidence": "Gradering F. Content-Security-Policy: MANGLER; Strict-Transport-Security: MANGLER; X-Frame-Options: MANGLER; X-Content-Type-Options: MANGLER; Referrer-Policy: MANGLER; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS mangler · X-Frame-Options mangler (og ingen frame-ancestors i CSP) · X-Content-Type-Options mangler nosniff · Referrer-Policy mangler · Permissions-Policy mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W022",
+      "kind": "web_tls",
+      "title": "Legacy-TLS (1.0/1.1) støtte",
+      "evidence": "TLS 1.0: available · TLS 1.1: available",
+      "class": "inferred",
+      "section": "web",
+      "severity": "critical",
+      "priority": 5
+    },
+    {
+      "id": "W023",
+      "kind": "web_email_mta_sts",
+      "title": "MTA-STS (håndhevet e-post-TLS)",
+      "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W024",
+      "kind": "web_email_mta_sts",
+      "title": "TLS-RPT (TLS-rapportering)",
+      "evidence": "ingen TLS-rapportering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W025",
+      "kind": "web_dns_hardening",
+      "title": "CAA (sertifikat-utsteder-kontroll)",
+      "evidence": "ingen CAA",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W026",
+      "kind": "web_freshness",
+      "title": "Aktualitet (siste arkiverte versjon)",
+      "evidence": "ingen fangst i Wayback siste 12 måneder — siden kan være inaktiv",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W027",
+      "kind": "web_privacy",
+      "title": "Cookie-banner / samtykke-plattform (CMP)",
+      "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W028",
+      "kind": "web_privacy",
+      "title": "Personvernerklæring",
+      "evidence": "ingen personvernerklæring-link observert — potential concern, krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W029",
+      "kind": "web_social",
+      "title": "Sosiale medier (lenker fra nettsiden)",
+      "evidence": "ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W030",
+      "kind": "web_nap",
+      "title": "Telefon på nettsiden",
+      "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W031",
+      "kind": "web_nap",
+      "title": "E-post på nettsiden",
+      "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W032",
+      "kind": "web_company_consistency",
+      "title": "Navn-konsistens (nettside ↔ Brreg)",
+      "evidence": "nettsidenavn «Example Domain» avviker fra Brreg-navn «DOMAINS DA» — signal",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W033",
+      "kind": "web_content",
+      "title": "Innholdskvalitet (AI-vurdert)",
+      "evidence": "Teksten er svært kort og generisk, uten tydelig kommersielt eller informativt innhold for en norsk bedrift. Den henvender seg hovedsakelig til utviklere som trenger eksempeldomenenavn, men mangler stavefeil og ufullstendige setninger. Aktualiteten er vanskelig å vurdere på grunn av manglende datoer, men innholdet fremstår som nøytralt og tidløst.",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W034",
+      "kind": "web_ai_position",
+      "title": "Posisjon i AI-svar",
+      "evidence": "beste posisjon: nevnt i løpende tekst (ikke topp-liste) av 3 svar",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W035",
+      "kind": "web_automation",
+      "title": "Automatiseringsmuligheter identifisert",
+      "evidence": "uutnyttet potensial 100% — manglende signaler: contact_form, analytics, cmp, chat, booking, newsletter",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    }
+  ],
+  "browser": {
+    "available": false
+  },
+  "web": {
+    "meta": {
+      "url": "https://example.com",
+      "domain": "example.com",
+      "origin": "https://example.com",
+      "final_url": "https://example.com",
+      "fetched_at": "2026-08-14T23:13:55.715Z"
+    },
+    "checks": [
+      {
+        "id": "http_status",
+        "label": "HTTP-status (hovedsiden)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "HTTP 200",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:54.854Z"
+      },
+      {
+        "id": "https",
+        "label": "HTTPS/TLS",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "HTTPS leverte respons",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:54.884Z"
+      },
+      {
+        "id": "redirect_chain",
+        "label": "Omdirigeringskjede",
+        "dimension": "reliability",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen redirects",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:54.884Z"
+      },
+      {
+        "id": "broken_links",
+        "label": "Ødelagte interne lenker",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "1 sider sjekket, 0 ødelagt",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.583Z"
+      },
+      {
+        "id": "asset_failures",
+        "label": "Ressurs-feil (img/css/js)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "ingen same-origin-ressurser å sample",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.583Z"
+      },
+      {
+        "id": "compression",
+        "label": "Komprimering (gzip/brotli)",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "br",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.583Z"
+      },
+      {
+        "id": "caching",
+        "label": "Cache-headere",
+        "dimension": "performance",
+        "result": "FAIL",
+        "evidence": "ingen cache-control",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.583Z"
+      },
+      {
+        "id": "render_blocking",
+        "label": "Render-blokkerende ressurser",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "0 blokkerende skript, 0 stylesheets",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.583Z"
+      },
+      {
+        "id": "image_optim",
+        "label": "Bilde-optimalisering",
+        "dimension": "performance",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen <img>",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.583Z"
+      },
+      {
+        "id": "third_party",
+        "label": "Tredjeparts-skript/-ressurser",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "0 eksterne domener",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.583Z"
+      },
+      {
+        "id": "viewport",
+        "label": "Viewport meta",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "viewport tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.583Z"
+      },
+      {
+        "id": "media_queries",
+        "label": "Responsive CSS (@media)",
+        "dimension": "ux_mobile",
+        "result": "UNKNOWN",
+        "evidence": "stylesheets ikke observerbare",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.583Z"
+      },
+      {
+        "id": "lang",
+        "label": "Språk-attributt (lang)",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "en",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.583Z"
+      },
+      {
+        "id": "alt_text",
+        "label": "Alt-tekst på bilder",
+        "dimension": "accessibility",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen <img>",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.583Z"
+      },
+      {
+        "id": "form_labels",
+        "label": "Skjemaetiketter",
+        "dimension": "accessibility",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen skjemainput",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.583Z"
+      },
+      {
+        "id": "heading_hierarchy",
+        "label": "Overskriftshierarki",
+        "dimension": "accessibility",
+        "result": "FAIL",
+        "evidence": "h1=1 h2=0 h3=0",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.583Z"
+      },
+      {
+        "id": "semantic",
+        "label": "Semantiske landemerker",
+        "dimension": "accessibility",
+        "result": "FAIL",
+        "evidence": "0/4 (ingen)",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.584Z"
+      },
+      {
+        "id": "title",
+        "label": "Tittel",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "Example Domain",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.584Z"
+      },
+      {
+        "id": "meta_description",
+        "label": "Meta-beskrivelse",
+        "dimension": "seo",
+        "result": "FAIL",
+        "evidence": "mangler meta description",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.584Z"
+      },
+      {
+        "id": "canonical",
+        "label": "Canonical",
+        "dimension": "seo",
+        "result": "FAIL",
+        "evidence": "mangler canonical",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.584Z"
+      },
+      {
+        "id": "robots_meta",
+        "label": "Robots-meta",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "ingen robots-meta (standard: indekserbart)",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.584Z"
+      },
+      {
+        "id": "robots_txt",
+        "label": "robots.txt",
+        "dimension": "seo",
+        "result": "FAIL",
+        "evidence": "mangler robots.txt",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.584Z"
+      },
+      {
+        "id": "sitemap",
+        "label": "Sitemap.xml",
+        "dimension": "seo",
+        "result": "FAIL",
+        "evidence": "mangler sitemap.xml",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.713Z"
+      },
+      {
+        "id": "open_graph",
+        "label": "OpenGraph",
+        "dimension": "seo",
+        "result": "FAIL",
+        "evidence": "title=false description=false image=false",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.714Z"
+      },
+      {
+        "id": "structured_data",
+        "label": "Strukturert data (JSON-LD)",
+        "dimension": "seo",
+        "result": "FAIL",
+        "evidence": "ingen JSON-LD",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.714Z"
+      },
+      {
+        "id": "header_csp",
+        "label": "Header: csp",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.714Z"
+      },
+      {
+        "id": "header_hsts",
+        "label": "Header: hsts",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.714Z"
+      },
+      {
+        "id": "header_xcto",
+        "label": "Header: xcto",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.714Z"
+      },
+      {
+        "id": "header_referrer",
+        "label": "Header: referrer",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.714Z"
+      },
+      {
+        "id": "header_permissions",
+        "label": "Header: permissions",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.714Z"
+      },
+      {
+        "id": "header_frame",
+        "label": "Header: frame",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.714Z"
+      },
+      {
+        "id": "mixed_content",
+        "label": "Blandet innhold (http på https)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "ingen http-referanser i HTML",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.714Z"
+      },
+      {
+        "id": "source_maps",
+        "label": "Eksponerte source maps",
+        "dimension": "security",
+        "result": "UNKNOWN",
+        "evidence": "skript ikke observerbare",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.714Z"
+      },
+      {
+        "id": "tech_disclosure",
+        "label": "Versjons-avsløring",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "cloudflare",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.714Z"
+      },
+      {
+        "id": "cookie_banner",
+        "label": "Cookie-banner",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen cookie-banner observert",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.714Z"
+      },
+      {
+        "id": "privacy_link",
+        "label": "Personvernerklæring-link",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen personvern-link observert",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.715Z"
+      },
+      {
+        "id": "consent_cmp",
+        "label": "Samtykke-plattform (CMP)",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen trackere observert — CMP ikke nødvendig",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.715Z"
+      },
+      {
+        "id": "contact_form",
+        "label": "Kontakt-/lead-skjema",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen <form> observert",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.715Z"
+      },
+      {
+        "id": "cta",
+        "label": "Call-to-action",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen tydelig CTA observert",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.715Z"
+      },
+      {
+        "id": "tech_cdn",
+        "label": "Teknologi: cdn",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "Cloudflare",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.715Z"
+      },
+      {
+        "id": "tech_hosting",
+        "label": "Teknologi: hosting",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "cloudflare",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T23:13:55.715Z"
+      },
+      {
+        "id": "security_headers",
+        "label": "Sikkerhetsheadere — gradering F",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "Gradering F. Content-Security-Policy: MANGLER; Strict-Transport-Security: MANGLER; X-Frame-Options: MANGLER; X-Content-Type-Options: MANGLER; Referrer-Policy: MANGLER; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS mangler · X-Frame-Options mangler (og ingen frame-ancestors i CSP) · X-Content-Type-Options mangler nosniff · Referrer-Policy mangler · Permissions-Policy mangler",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-14T23:13:56.498Z"
+      },
+      {
+        "id": "cookies_attributes",
+        "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-14T23:13:56.499Z"
+      },
+      {
+        "id": "version_leaks",
+        "label": "Ingen versjonslekkasjer",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "Ingen server/x-powered-by/x-aspnet-version-header, <meta generator>, gammel jQuery eller WordPress-signatur observert.",
+        "confidence": "medium",
+        "source": "http_headers",
+        "observed_at": "2026-08-14T23:13:56.499Z"
+      },
+      {
+        "id": "tls_cert",
+        "label": "TLS-sertifikat gyldighet",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "notBefore=2026-07-29T22:10:08.000Z, notAfter=2026-10-27T22:17:21.000Z, issuer=/C=US/O=SSL Corporation/CN=Cloudflare TLS Issuing ECC CA 3, SAN=example.com, *.example.com",
+        "confidence": "high",
+        "source": "tls",
+        "observed_at": "2026-08-14T23:14:41.695Z"
+      },
+      {
+        "id": "tls_verify",
+        "label": "TLS-sertifikat-verifisering",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "verify return code: 0 (ok)",
+        "confidence": "high",
+        "source": "tls",
+        "observed_at": "2026-08-14T23:14:41.695Z"
+      },
+      {
+        "id": "tls_legacy",
+        "label": "Legacy-TLS (1.0/1.1) støtte",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "TLS 1.0: available · TLS 1.1: available",
+        "confidence": "medium",
+        "source": "tls",
+        "observed_at": "2026-08-14T23:14:41.695Z"
+      },
+      {
+        "id": "spf",
+        "label": "SPF (avsender-verifisering)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "v=spf1 -all",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-14T23:13:56.531Z"
+      },
+      {
+        "id": "spf_private_ip",
+        "label": "SPF: private IP-er i mekanismene",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "ingen private IP-er i SPF",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-14T23:13:56.531Z"
+      },
+      {
+        "id": "dkim",
+        "label": "DKIM (e-post-signering)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "selectorer: default, dkim, google, selector1, selector2, s1, k1",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-14T23:13:56.879Z"
+      },
+      {
+        "id": "dmarc",
+        "label": "DMARC (spoofing-beskyttelse)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "p=reject (blokk) — v=DMARC1;p=reject;sp=reject;adkim=s;aspf=s",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-14T23:13:56.996Z"
+      },
+      {
+        "id": "mta_sts",
+        "label": "MTA-STS (håndhevet e-post-TLS)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-14T23:13:57.053Z"
+      },
+      {
+        "id": "tls_rpt",
+        "label": "TLS-RPT (TLS-rapportering)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen TLS-rapportering",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-14T23:13:57.111Z"
+      },
+      {
+        "id": "bimi",
+        "label": "BIMI (merkevare-logo i innboks)",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen BIMI (ikke påkrevd)",
+        "confidence": "low",
+        "source": "dns",
+        "observed_at": "2026-08-14T23:13:57.168Z"
+      },
+      {
+        "id": "caa",
+        "label": "CAA (sertifikat-utsteder-kontroll)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen CAA",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-14T23:13:57.215Z"
+      },
+      {
+        "id": "dnssec",
+        "label": "DNSSEC (signert sone)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "AD-flag — signert sone validert",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-14T23:13:57.307Z"
+      },
+      {
+        "id": "dnsbl",
+        "label": "E-post-omdømme (DNSBL)",
+        "dimension": "trust_privacy",
+        "result": "UNKNOWN",
+        "evidence": "kunne ikke oppslå IP for ",
+        "confidence": "low",
+        "source": "dns",
+        "observed_at": "2026-08-14T23:13:57.383Z"
+      },
+      {
+        "id": "subdomains",
+        "label": "Subdomene-eksponering (crt.sh)",
+        "dimension": "security",
+        "result": "UNKNOWN",
+        "evidence": "crt.sh-feil: HTTP 502",
+        "confidence": "low",
+        "source": "https",
+        "observed_at": "2026-08-14T23:13:59.776Z"
+      },
+      {
+        "id": "brreg_org",
+        "label": "Firma i Brreg (Enhetsregisteret)",
+        "dimension": "trust_privacy",
+        "result": "UNKNOWN",
+        "evidence": "N kandidater for «Example Domain», ingen med Brreg-hjemmeside som matcher example.com — kan ikke entydig knytte firma til domene. Kandidater: DOMAINS DA (981478908) · DIBASEY DOMAIN (927701308) · EF DOMAIN (994230050)",
+        "confidence": "medium",
+        "source": "brreg",
+        "observed_at": "2026-08-14T23:13:56.069Z"
+      },
+      {
+        "id": "ssb_context",
+        "label": "Bransjekontekst (SSB, næring 63)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "SSB tabell 12817: Informasjonstjenester — 1 302 foretak (2024)",
+        "confidence": "high",
+        "source": "ssb",
+        "observed_at": "2026-08-14T23:13:56.370Z"
+      },
+      {
+        "id": "norid_registered",
+        "label": "Domenet registrert (Norid)",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "utenlandsk domene — Norid ikke autoritativ",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-14T23:13:56.370Z"
+      },
+      {
+        "id": "history_exists",
+        "label": "Arkivhistorikk finnes",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "arkivert siden 2002-01-20",
+        "confidence": "high",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-14T23:14:23.637Z"
+      },
+      {
+        "id": "history_freshness",
+        "label": "Aktualitet (siste arkiverte versjon)",
+        "dimension": "reliability",
+        "result": "FAIL",
+        "evidence": "ingen fangst i Wayback siste 12 måneder — siden kan være inaktiv",
+        "confidence": "medium",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-14T23:14:23.638Z"
+      },
+      {
+        "id": "history_scope",
+        "label": "Arkivomfang",
+        "dimension": "reliability",
+        "result": "UNKNOWN",
+        "evidence": "omfang ikke tilgjengelig (Wayback CDX timeout på full historikk)",
+        "confidence": "medium",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-14T23:14:23.638Z"
+      },
+      {
+        "id": "cmp_banner",
+        "label": "Cookie-banner / samtykke-plattform (CMP)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-14T23:13:56.384Z"
+      },
+      {
+        "id": "consent_real_choice",
+        "label": "Reelt valg (avvis-knapp)",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen banner/CMP observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T23:13:56.384Z"
+      },
+      {
+        "id": "consent_prechecked",
+        "label": "Forhåndsavkrysset samtykke",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T23:13:56.386Z"
+      },
+      {
+        "id": "privacy_policy",
+        "label": "Personvernerklæring",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen personvernerklæring-link observert — potential concern, krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T23:13:56.387Z"
+      },
+      {
+        "id": "third_party_trackers",
+        "label": "Tredjeparts-trackere",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "ingen kjente tredjeparts-trackere observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T23:13:56.387Z"
+      },
+      {
+        "id": "google_fonts",
+        "label": "Google Fonts (ekstern)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "ingen ekstern Google Fonts observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T23:13:56.387Z"
+      },
+      {
+        "id": "ecom_price_vat",
+        "label": "Pris inkl. mva",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T23:13:56.387Z"
+      },
+      {
+        "id": "ecom_angrerett",
+        "label": "Angrerett-informasjon",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T23:13:56.387Z"
+      },
+      {
+        "id": "ecom_klage",
+        "label": "Klageadgang / tvisteløsning",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T23:13:56.387Z"
+      },
+      {
+        "id": "psi_mobile",
+        "label": "PageSpeed mobil",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-feil: HTTP 429",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-14T23:14:09.188Z"
+      },
+      {
+        "id": "psi_desktop",
+        "label": "PageSpeed desktop",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-feil: HTTP 429",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-14T23:14:09.188Z"
+      },
+      {
+        "id": "psi_availability",
+        "label": "PageSpeed API tilgjengelig",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-14T23:14:09.188Z"
+      },
+      {
+        "id": "social_profiles",
+        "label": "Sosiale medier (lenker fra nettsiden)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T23:13:56.396Z"
+      },
+      {
+        "id": "nap_phone",
+        "label": "Telefon på nettsiden",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-14T23:13:56.397Z"
+      },
+      {
+        "id": "nap_email",
+        "label": "E-post på nettsiden",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-14T23:13:56.397Z"
+      },
+      {
+        "id": "nap_name_consistency",
+        "label": "Navn-konsistens (nettside ↔ Brreg)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "nettsidenavn «Example Domain» avviker fra Brreg-navn «DOMAINS DA» — signal",
+        "confidence": "high",
+        "source": "html+brreg",
+        "observed_at": "2026-08-14T23:13:56.397Z"
+      },
+      {
+        "id": "google_business",
+        "label": "Google Business Profile (anmeldelser, kategori)",
+        "dimension": "trust_privacy",
+        "result": "UNKNOWN",
+        "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+        "confidence": "medium",
+        "source": "places_api",
+        "observed_at": "2026-08-14T23:13:56.397Z"
+      },
+      {
+        "id": "ai_content_quality",
+        "label": "Innholdskvalitet (AI-vurdert)",
+        "dimension": "ux_mobile",
+        "result": "FAIL",
+        "evidence": "Teksten er svært kort og generisk, uten tydelig kommersielt eller informativt innhold for en norsk bedrift. Den henvender seg hovedsakelig til utviklere som trenger eksempeldomenenavn, men mangler stavefeil og ufullstendige setninger. Aktualiteten er vanskelig å vurdere på grunn av manglende datoer, men innholdet fremstår som nøytralt og tidløst.",
+        "confidence": "medium",
+        "source": "llm_analysis",
+        "observed_at": "2026-08-14T23:14:00.045Z"
+      },
+      {
+        "id": "ai_content_freshness",
+        "label": "Aktualitet (AI-vurdert)",
+        "dimension": "ux_mobile",
+        "result": "UNKNOWN",
+        "evidence": "ingen årstall-signaler funnet i teksten · teksten er svært kort og generisk · manglende meta-beskrivelse",
+        "confidence": "medium",
+        "source": "llm_analysis",
+        "observed_at": "2026-08-14T23:14:00.045Z"
+      },
+      {
+        "id": "ai_vis_visibility",
+        "label": "Synlighet i AI-svar",
+        "dimension": "ai_visibility",
+        "result": "PASS",
+        "evidence": "2/3 svar nevner Example Domain · sitat: «Ja, absolutt. `example.com` (og de andre reserverte domenene som `example.org`, `example.net` og `example.edu`) er fortsatt like relevante i» · prompter: «Hvilket domene anbefaler du for å teste dokumentas…» / «Hva er det beste alternativet for å demonstrere ne…»",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-14T23:14:32.493Z"
+      },
+      {
+        "id": "ai_vis_position",
+        "label": "Posisjon i AI-svar",
+        "dimension": "ai_visibility",
+        "result": "FAIL",
+        "evidence": "beste posisjon: nevnt i løpende tekst (ikke topp-liste) av 3 svar",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-14T23:14:32.493Z"
+      },
+      {
+        "id": "ai_vis_sentiment",
+        "label": "Sentiment i AI-omtale",
+        "dimension": "ai_visibility",
+        "result": "PASS",
+        "evidence": "sentiment: positiv · råd: Sørg for at nettsiden din tydelig kommuniserer at den er en autoritativ kilde for informasjon om reserverte domener, og oppdater innholdet j",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-14T23:14:32.493Z"
+      },
+      {
+        "id": "ai_vis_sources",
+        "label": "Kilder AI-en siterer",
+        "dimension": "ai_visibility",
+        "result": "PASS",
+        "evidence": "eksterne domener i AI-svar: example.com",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-14T23:14:32.493Z"
+      }
+    ],
+    "raw": {
+      "home": {
+        "status": 200,
+        "status_text": "OK",
+        "error": null,
+        "final_url": "https://example.com",
+        "redirects": []
+      },
+      "https": {
+        "ok": true,
+        "detail": "HTTPS leverte respons"
+      },
+      "redirect_chain": [],
+      "robots": {
+        "present": false,
+        "disallow": []
+      },
+      "crawl": {
+        "pages_checked": 1,
+        "crawled": 1,
+        "broken": []
+      },
+      "html_length": 559,
+      "asset_failures": {
+        "checked": 0,
+        "failed": 0,
+        "details": []
+      },
+      "compression": "br",
+      "caching": null,
+      "render_blocking_scripts": 0,
+      "images": {
+        "total": 0,
+        "with_dimensions": 0,
+        "lazy": 0
+      },
+      "third_party": [],
+      "viewport": true,
+      "media_queries": null,
+      "lang": "en",
+      "img_missing_alt": 0,
+      "forms_accessibility": {
+        "inputs": 0,
+        "labels": 0,
+        "inputs_with_label": 0
+      },
+      "headings": {
+        "h1": 1,
+        "h2": 0,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "landmarks": [],
+      "title": "Example Domain",
+      "meta_description": null,
+      "canonical": null,
+      "robots_meta": null,
+      "sitemap": null,
+      "open_graph": {
+        "title": false,
+        "description": false,
+        "image": false
+      },
+      "structured_data": false,
+      "security_headers": {
+        "csp": null,
+        "hsts": null,
+        "xcto": null,
+        "referrer": null,
+        "permissions": null,
+        "frame": null
+      },
+      "mixed_content": 0,
+      "source_maps": null,
+      "tech_disclosure": {
+        "server": "cloudflare",
+        "x_powered_by": null
+      },
+      "cookie_banner": false,
+      "analytics": [],
+      "privacy_link": false,
+      "consent_cmp": false,
+      "forms_count": 0,
+      "cta": false,
+      "automation_signals": {
+        "contact_form": false,
+        "analytics": false,
+        "cmp": false,
+        "chat": false,
+        "booking": false,
+        "newsletter": false
+      },
+      "technology": {
+        "framework": null,
+        "cms": null,
+        "cdn": "Cloudflare",
+        "hosting": "cloudflare",
+        "analytics": []
+      }
+    }
+  },
+  "v2": {
+    "sections": [
+      {
+        "section": "security_hacker",
+        "title": "Hva en hacker ser",
+        "checks": [
+          {
+            "id": "security_headers",
+            "label": "Sikkerhetsheadere — gradering F",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "Gradering F. Content-Security-Policy: MANGLER; Strict-Transport-Security: MANGLER; X-Frame-Options: MANGLER; X-Content-Type-Options: MANGLER; Referrer-Policy: MANGLER; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS mangler · X-Frame-Options mangler (og ingen frame-ancestors i CSP) · X-Content-Type-Options mangler nosniff · Referrer-Policy mangler · Permissions-Policy mangler",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-14T23:13:56.498Z"
+          },
+          {
+            "id": "cookies_attributes",
+            "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-14T23:13:56.499Z"
+          },
+          {
+            "id": "version_leaks",
+            "label": "Ingen versjonslekkasjer",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen server/x-powered-by/x-aspnet-version-header, <meta generator>, gammel jQuery eller WordPress-signatur observert.",
+            "confidence": "medium",
+            "source": "http_headers",
+            "observed_at": "2026-08-14T23:13:56.499Z"
+          },
+          {
+            "id": "tls_cert",
+            "label": "TLS-sertifikat gyldighet",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "notBefore=2026-07-29T22:10:08.000Z, notAfter=2026-10-27T22:17:21.000Z, issuer=/C=US/O=SSL Corporation/CN=Cloudflare TLS Issuing ECC CA 3, SAN=example.com, *.example.com",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-14T23:14:41.695Z"
+          },
+          {
+            "id": "tls_verify",
+            "label": "TLS-sertifikat-verifisering",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "verify return code: 0 (ok)",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-14T23:14:41.695Z"
+          },
+          {
+            "id": "tls_legacy",
+            "label": "Legacy-TLS (1.0/1.1) støtte",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "TLS 1.0: available · TLS 1.1: available",
+            "confidence": "medium",
+            "source": "tls",
+            "observed_at": "2026-08-14T23:14:41.695Z"
+          }
+        ],
+        "raw": {
+          "url": "https://example.com/",
+          "final_url": "https://example.com/",
+          "status": 200,
+          "status_text": "OK",
+          "redirects": [],
+          "headers": {
+            "age": "9985",
+            "allow": "GET, HEAD",
+            "cf-cache-status": "HIT",
+            "cf-ray": "a2b3a7288fe7b518-OSL",
+            "connection": "keep-alive",
+            "content-encoding": "br",
+            "content-type": "text/html",
+            "date": "Fri, 14 Aug 2026 23:13:56 GMT",
+            "last-modified": "Wed, 12 Aug 2026 20:17:18 GMT",
+            "server": "cloudflare",
+            "transfer-encoding": "chunked"
+          },
+          "security_grade": "F",
+          "security_deductions": [
+            "CSP mangler",
+            "HSTS mangler",
+            "X-Frame-Options mangler (og ingen frame-ancestors i CSP)",
+            "X-Content-Type-Options mangler nosniff",
+            "Referrer-Policy mangler",
+            "Permissions-Policy mangler"
+          ],
+          "cookies": [],
+          "version_leaks": [],
+          "tls": {
+            "opensslAvailable": true,
+            "cert": {
+              "notBefore": "2026-07-29T22:10:08.000Z",
+              "notAfter": "2026-10-27T22:17:21.000Z",
+              "issuer": "/C=US/O=SSL Corporation/CN=Cloudflare TLS Issuing ECC CA 3",
+              "san": [
+                "example.com",
+                "*.example.com"
+              ]
+            },
+            "verify": {
+              "code": 0,
+              "description": "ok"
+            },
+            "legacy": {
+              "tls1": "available",
+              "tls1_1": "available"
+            }
+          }
+        }
+      },
+      {
+        "section": "email_dns",
+        "title": "E-post & DNS-sikkerhet",
+        "checks": [
+          {
+            "id": "spf",
+            "label": "SPF (avsender-verifisering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "v=spf1 -all",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T23:13:56.531Z"
+          },
+          {
+            "id": "spf_private_ip",
+            "label": "SPF: private IP-er i mekanismene",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen private IP-er i SPF",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-14T23:13:56.531Z"
+          },
+          {
+            "id": "dkim",
+            "label": "DKIM (e-post-signering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "selectorer: default, dkim, google, selector1, selector2, s1, k1",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-14T23:13:56.879Z"
+          },
+          {
+            "id": "dmarc",
+            "label": "DMARC (spoofing-beskyttelse)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "p=reject (blokk) — v=DMARC1;p=reject;sp=reject;adkim=s;aspf=s",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T23:13:56.996Z"
+          },
+          {
+            "id": "mta_sts",
+            "label": "MTA-STS (håndhevet e-post-TLS)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T23:13:57.053Z"
+          },
+          {
+            "id": "tls_rpt",
+            "label": "TLS-RPT (TLS-rapportering)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen TLS-rapportering",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-14T23:13:57.111Z"
+          },
+          {
+            "id": "bimi",
+            "label": "BIMI (merkevare-logo i innboks)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen BIMI (ikke påkrevd)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-14T23:13:57.168Z"
+          },
+          {
+            "id": "caa",
+            "label": "CAA (sertifikat-utsteder-kontroll)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen CAA",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T23:13:57.215Z"
+          },
+          {
+            "id": "dnssec",
+            "label": "DNSSEC (signert sone)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "AD-flag — signert sone validert",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T23:13:57.307Z"
+          },
+          {
+            "id": "dnsbl",
+            "label": "E-post-omdømme (DNSBL)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "kunne ikke oppslå IP for ",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-14T23:13:57.383Z"
+          },
+          {
+            "id": "subdomains",
+            "label": "Subdomene-eksponering (crt.sh)",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "crt.sh-feil: HTTP 502",
+            "confidence": "low",
+            "source": "https",
+            "observed_at": "2026-08-14T23:13:59.776Z"
+          }
+        ],
+        "raw": {
+          "original": "example.com",
+          "registrable": "example.com",
+          "subdomain_of_input": false,
+          "spf": {
+            "record": "v=spf1 -all",
+            "policy": "-all",
+            "private_ips": []
+          },
+          "dkim": "default, dkim, google, selector1, selector2, s1, k1",
+          "dmarc": {
+            "record": "v=DMARC1;p=reject;sp=reject;adkim=s;aspf=s",
+            "p": "reject",
+            "policy": "reject"
+          },
+          "mta_sts": {
+            "txt": false,
+            "policy": false,
+            "policy_status": 0
+          },
+          "tls_rpt": null,
+          "bimi": null,
+          "caa": {
+            "records": [],
+            "issuers": []
+          },
+          "dnssec": "\n; <<>> DiG 9.10.6 <<>> +dnssec DNSKEY example.com +time=5 +tries=1\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 49558\n;; flags: qr rd ra ad; QUERY: 1, ANSWER: 5, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags: do; udp: 512\n;; QUESTION SECTION:\n;example.com.\t\t\tIN\tDNSKEY\n\n;; ANSWER SECTION:\nexample.com.\t\t3600\tIN\tDNSKEY\t256 3 13 kxipjoIbNZDsWqEKaYaGq6fM/XThrRp1ue6AV9R/n3eWxpGCeCWJb47P EEEj/Q6VAYFW/7UFo5mXoZfxKYZa3A==\nexample.com.\t\t3600\tIN\tDNSKEY\t257 3 13 mdsswUyr3DPW132mOi8V9xESWE8jTo0dxCjjnopKl+GqJxpVXckHAeF+ KkxLbxILfDLUT0rAK9iUzy1L53eKGQ==\nexample.com.\t\t3600\tIN\tDNSKEY\t256 3 13 MjyZielP0GqniI1+j+wAG/3t0ImDDIlj1CxR0oobkZQHSKH2Fqx6tm2N cYu57POJ83SzCWLkqIjZHS1mh5wbaw==\nexample.com.\t\t3600\tIN\tDNSKEY\t256 3 13 oJMRESz5E4gYzS/q6XDrvU1qMPYIjCWzJaOau8XNEZeqCYKD5ar0IRd8 KqXXFJkqmVfRvMGPmM1x8fGAa2XhSA==\nexample.com.\t\t3600\tIN\tRRSIG\tDNSKEY 13 2 3600 20261008174644 20260808174644 2371 example.com. dpLooW0rFNvAXlISkR6EdK3oMFeUE0YRXoFUVymtTbKpYHGdQEJ6VaY0 0b0NJtgZGX08aN4DNBM/T9ttnToIng==\n\n;; Query time: 44 msec\n;; SERVER: 100.100.100.100#53(100.100.100.100)\n;; WHEN: Sat Aug 15 01:13:57 CEST 2026\n;; MSG SIZE  rcvd: 467\n\n",
+          "mx": [
+            {
+              "exchange": "",
+              "priority": 0
+            }
+          ],
+          "dnsbl": {
+            "mx": "",
+            "error": "queryA ENODATA"
+          },
+          "subdomains": {
+            "count": 0,
+            "unique": [],
+            "interesting": [],
+            "error": "HTTP 502"
+          }
+        }
+      },
+      {
+        "section": "norge",
+        "title": "Norge-data (Brreg · Norid · SSB)",
+        "checks": [
+          {
+            "id": "brreg_org",
+            "label": "Firma i Brreg (Enhetsregisteret)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "N kandidater for «Example Domain», ingen med Brreg-hjemmeside som matcher example.com — kan ikke entydig knytte firma til domene. Kandidater: DOMAINS DA (981478908) · DIBASEY DOMAIN (927701308) · EF DOMAIN (994230050)",
+            "confidence": "medium",
+            "source": "brreg",
+            "observed_at": "2026-08-14T23:13:56.069Z"
+          },
+          {
+            "id": "ssb_context",
+            "label": "Bransjekontekst (SSB, næring 63)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "SSB tabell 12817: Informasjonstjenester — 1 302 foretak (2024)",
+            "confidence": "high",
+            "source": "ssb",
+            "observed_at": "2026-08-14T23:13:56.370Z"
+          },
+          {
+            "id": "norid_registered",
+            "label": "Domenet registrert (Norid)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "utenlandsk domene — Norid ikke autoritativ",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-14T23:13:56.370Z"
+          }
+        ],
+        "raw": {
+          "brreg": {
+            "unit": {
+              "organisasjonsnummer": "981478908",
+              "navn": "DOMAINS DA",
+              "organisasjonsform": {
+                "kode": "DA",
+                "beskrivelse": "Ansvarlig selskap med delt ansvar",
+                "_links": {
+                  "self": {
+                    "href": "https://data.brreg.no/enhetsregisteret/api/organisasjonsformer/DA"
+                  }
+                }
+              },
+              "historiskeNavn": [],
+              "hjemmeside": "navn.no",
+              "registreringsdatoEnhetsregisteret": "2000-02-24",
+              "registrertIMvaregisteret": false,
+              "naeringskode1": {
+                "kode": "63.100",
+                "beskrivelse": "Datainfrastruktur, -behandling, -lagring og tilknyttede tjenester"
+              },
+              "harRegistrertAntallAnsatte": false,
+              "epostadresse": "firmapost@navn.no",
+              "telefon": "95 06 59 09",
+              "forretningsadresse": {
+                "land": "Norge",
+                "landkode": "NO",
+                "postnummer": "1368",
+                "poststed": "STABEKK",
+                "adresse": [
+                  "Skogveien 61B"
+                ],
+                "kommune": "BÆRUM",
+                "kommunenummer": "3201"
+              },
+              "stiftelsesdato": "1999-12-16",
+              "institusjonellSektorkode": {
+                "kode": "2300",
+                "beskrivelse": "Personlige foretak"
+              },
+              "registrertIForetaksregisteret": true,
+              "registrertIStiftelsesregisteret": false,
+              "registrertIFrivillighetsregisteret": false,
+              "konkurs": false,
+              "underAvvikling": false,
+              "underTvangsavviklingEllerTvangsopplosning": false,
+              "maalform": "Bokmål",
+              "vedtektsdato": "1999-12-16",
+              "vedtektsfestetFormaal": [
+                "Selskapets formål er å bruke internett som verktøy for å utvikle nye",
+                "konsepter rundt domenenavn."
+              ],
+              "aktivitet": [
+                "Selskapets formål er å bruke internett som verktøy for å utvikle nye",
+                "konsepter rundt domenenavn."
+              ],
+              "registreringsdatoForetaksregisteret": "2000-02-24",
+              "registrertIPartiregisteret": false,
+              "paategninger": [],
+              "erIKonsern": false,
+              "_links": {
+                "self": {
+                  "href": "https://data.brreg.no/enhetsregisteret/api/enheter/981478908"
+                }
+              },
+              "respons_klasse": "Enhet"
+            },
+            "search": {
+              "method": "navn",
+              "query": "Example Domain",
+              "nameCandidate": "Example Domain",
+              "totalHits": 5,
+              "matchedHjemmeside": false,
+              "matchedExactName": false,
+              "hits": [
+                {
+                  "organisasjonsnummer": "981478908",
+                  "navn": "DOMAINS DA",
+                  "hjemmeside": "navn.no"
+                },
+                {
+                  "organisasjonsnummer": "927701308",
+                  "navn": "DIBASEY DOMAIN",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "994230050",
+                  "navn": "EF DOMAIN",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "928855074",
+                  "navn": "JERIN DOMAIN",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "930258083",
+                  "navn": "EIDE DOMAINS",
+                  "hjemmeside": null
+                }
+              ]
+            },
+            "selection": {
+              "method": "navn",
+              "query": "Example Domain",
+              "nameCandidate": "Example Domain",
+              "totalHits": 5,
+              "matchedHjemmeside": false,
+              "matchedExactName": false,
+              "hits": [
+                {
+                  "organisasjonsnummer": "981478908",
+                  "navn": "DOMAINS DA",
+                  "hjemmeside": "navn.no"
+                },
+                {
+                  "organisasjonsnummer": "927701308",
+                  "navn": "DIBASEY DOMAIN",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "994230050",
+                  "navn": "EF DOMAIN",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "928855074",
+                  "navn": "JERIN DOMAIN",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "930258083",
+                  "navn": "EIDE DOMAINS",
+                  "hjemmeside": null
+                }
+              ]
+            },
+            "confirmed": false
+          },
+          "norid": {
+            "domain": "example.com",
+            "authoritative": false
+          },
+          "ssb": {
+            "table": "12817",
+            "nace": "63",
+            "value": 1302,
+            "year": "2024",
+            "label": "Informasjonstjenester",
+            "evidence": "SSB tabell 12817: Informasjonstjenester — 1 302 foretak (2024)"
+          }
+        }
+      },
+      {
+        "section": "history",
+        "title": "Historikk (Wayback Machine)",
+        "checks": [
+          {
+            "id": "history_exists",
+            "label": "Arkivhistorikk finnes",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "arkivert siden 2002-01-20",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-14T23:14:23.637Z"
+          },
+          {
+            "id": "history_freshness",
+            "label": "Aktualitet (siste arkiverte versjon)",
+            "dimension": "reliability",
+            "result": "FAIL",
+            "evidence": "ingen fangst i Wayback siste 12 måneder — siden kan være inaktiv",
+            "confidence": "medium",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-14T23:14:23.638Z"
+          },
+          {
+            "id": "history_scope",
+            "label": "Arkivomfang",
+            "dimension": "reliability",
+            "result": "UNKNOWN",
+            "evidence": "omfang ikke tilgjengelig (Wayback CDX timeout på full historikk)",
+            "confidence": "medium",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-14T23:14:23.638Z"
+          }
+        ],
+        "raw": {
+          "snapshots": [
+            {
+              "timestamp": "20020120142510",
+              "original": null
+            }
+          ],
+          "first_seen": "2002-01-20",
+          "last_seen": null,
+          "snapshot_count": null,
+          "error": "timeout",
+          "fallback": true
+        }
+      },
+      {
+        "section": "compliance",
+        "title": "Compliance-signaler Norge",
+        "checks": [
+          {
+            "id": "cmp_banner",
+            "label": "Cookie-banner / samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.384Z"
+          },
+          {
+            "id": "consent_real_choice",
+            "label": "Reelt valg (avvis-knapp)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen banner/CMP observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.384Z"
+          },
+          {
+            "id": "consent_prechecked",
+            "label": "Forhåndsavkrysset samtykke",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.386Z"
+          },
+          {
+            "id": "privacy_policy",
+            "label": "Personvernerklæring",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen personvernerklæring-link observert — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.387Z"
+          },
+          {
+            "id": "third_party_trackers",
+            "label": "Tredjeparts-trackere",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen kjente tredjeparts-trackere observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.387Z"
+          },
+          {
+            "id": "google_fonts",
+            "label": "Google Fonts (ekstern)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen ekstern Google Fonts observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.387Z"
+          },
+          {
+            "id": "ecom_price_vat",
+            "label": "Pris inkl. mva",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.387Z"
+          },
+          {
+            "id": "ecom_angrerett",
+            "label": "Angrerett-informasjon",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.387Z"
+          },
+          {
+            "id": "ecom_klage",
+            "label": "Klageadgang / tvisteløsning",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.387Z"
+          }
+        ],
+        "raw": {
+          "url": "https://example.com",
+          "fetched": false,
+          "status": null,
+          "fetch_error": null,
+          "html_length": 559,
+          "script_srcs": [],
+          "cmp": {
+            "named": [],
+            "generic_text": false
+          },
+          "consent_reject": null,
+          "consent_prechecked": {
+            "count": 0,
+            "described": []
+          },
+          "privacy": {
+            "linked": false,
+            "in_footer": false
+          },
+          "trackers": [],
+          "google_fonts": {
+            "external": false,
+            "self_hosted": false
+          },
+          "ecommerce": {
+            "shop_signal": false
+          }
+        }
+      },
+      {
+        "section": "pagespeed",
+        "title": "Fart (PageSpeed Insights + CrUX)",
+        "checks": [
+          {
+            "id": "psi_mobile",
+            "label": "PageSpeed mobil",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-14T23:14:09.188Z"
+          },
+          {
+            "id": "psi_desktop",
+            "label": "PageSpeed desktop",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-14T23:14:09.188Z"
+          },
+          {
+            "id": "psi_availability",
+            "label": "PageSpeed API tilgjengelig",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-14T23:14:09.188Z"
+          }
+        ],
+        "raw": {
+          "mobile": {
+            "error": "HTTP 429",
+            "data": null
+          },
+          "desktop": {
+            "error": "HTTP 429",
+            "data": null
+          }
+        }
+      },
+      {
+        "section": "presence",
+        "title": "Tilstedeværelse (sosiale medier · NAP)",
+        "checks": [
+          {
+            "id": "social_profiles",
+            "label": "Sosiale medier (lenker fra nettsiden)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.396Z"
+          },
+          {
+            "id": "nap_phone",
+            "label": "Telefon på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.397Z"
+          },
+          {
+            "id": "nap_email",
+            "label": "E-post på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-14T23:13:56.397Z"
+          },
+          {
+            "id": "nap_name_consistency",
+            "label": "Navn-konsistens (nettside ↔ Brreg)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "nettsidenavn «Example Domain» avviker fra Brreg-navn «DOMAINS DA» — signal",
+            "confidence": "high",
+            "source": "html+brreg",
+            "observed_at": "2026-08-14T23:13:56.397Z"
+          },
+          {
+            "id": "google_business",
+            "label": "Google Business Profile (anmeldelser, kategori)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+            "confidence": "medium",
+            "source": "places_api",
+            "observed_at": "2026-08-14T23:13:56.397Z"
+          }
+        ],
+        "raw": {
+          "social": {},
+          "contact": {
+            "tel": null,
+            "email": null,
+            "org_nr_on_page": null
+          },
+          "google_business": {
+            "status": "unknown",
+            "reason": "krever Google Places API-nøkkel — ikke tilgjengelig uten"
+          }
+        }
+      },
+      {
+        "section": "ai_analysis",
+        "title": "AI-analyse av innhold (DeepSeek)",
+        "checks": [
+          {
+            "id": "ai_content_quality",
+            "label": "Innholdskvalitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "FAIL",
+            "evidence": "Teksten er svært kort og generisk, uten tydelig kommersielt eller informativt innhold for en norsk bedrift. Den henvender seg hovedsakelig til utviklere som trenger eksempeldomenenavn, men mangler stavefeil og ufullstendige setninger. Aktualiteten er vanskelig å vurdere på grunn av manglende datoer, men innholdet fremstår som nøytralt og tidløst.",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-14T23:14:00.045Z"
+          },
+          {
+            "id": "ai_content_freshness",
+            "label": "Aktualitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "UNKNOWN",
+            "evidence": "ingen årstall-signaler funnet i teksten · teksten er svært kort og generisk · manglende meta-beskrivelse",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-14T23:14:00.045Z"
+          }
+        ],
+        "raw": {
+          "available": true,
+          "error": null,
+          "prompt": "Du er analyse-delen av Arch Audit (norsk verktøy). Analyser TEKSTEN på en norsk bedrifts hjemmeside. Vurder kun det som står i teksten under — ikke finn på noe.\nURL: https://example.com\nTittel: Example Domain\nMeta-beskrivelse: mangler\nTekstutdrag (hjemmesiden):\nExample Domain Example Domain This domain is for use in documentation examples without needing permission. Avoid use in operations. Learn more\nIngen årstall-signaler funnet i teksten.\n\nSvar KUN med JSON (ingen markdown-kodeblokk):\n{\"content_quality\":\"god|middels|svak\",\"tone\":\"...\",\"aktualitet\":\"frisk|middels|utdatert\",\"signals\":[\"...\"],\"summary_nb\":\"2-3 setninger på norsk, executive-språk, konkret\"}\nVurdering: aktualitet baseres på gamle datoer/©-år/nyhetsinnlegg i teksten; svak = stavefeil/ufullstendige setninger/meningsløs tekst; tone = hvem teksten henvender seg til og hvordan.",
+          "response": "{\"content_quality\":\"svak\",\"tone\":\"nøytral og informativ, henvender seg til utviklere og dokumentasjonsbrukere\",\"aktualitet\":\"middels\",\"signals\":[\"ingen årstall-signaler funnet i teksten\",\"teksten er svært kort og generisk\",\"manglende meta-beskrivelse\"],\"summary_nb\":\"Teksten er svært kort og generisk, uten tydelig kommersielt eller informativt innhold for en norsk bedrift. Den henvender seg hovedsakelig til utviklere som trenger eksempeldomenenavn, men mangler stavefeil og ufullstendige setninger. Aktualiteten er vanskelig å vurdere på grunn av manglende datoer, men innholdet fremstår som nøytralt og tidløst.\"}",
+          "model": "deepseek-chat"
+        }
+      },
+      {
+        "section": "ai_visibility",
+        "title": "AI-synlighet (GEO — hvordan AI-assistenter omtaler dere)",
+        "checks": [
+          {
+            "id": "ai_vis_visibility",
+            "label": "Synlighet i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "2/3 svar nevner Example Domain · sitat: «Ja, absolutt. `example.com` (og de andre reserverte domenene som `example.org`, `example.net` og `example.edu`) er fortsatt like relevante i» · prompter: «Hvilket domene anbefaler du for å teste dokumentas…» / «Hva er det beste alternativet for å demonstrere ne…»",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-14T23:14:32.493Z"
+          },
+          {
+            "id": "ai_vis_position",
+            "label": "Posisjon i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "FAIL",
+            "evidence": "beste posisjon: nevnt i løpende tekst (ikke topp-liste) av 3 svar",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-14T23:14:32.493Z"
+          },
+          {
+            "id": "ai_vis_sentiment",
+            "label": "Sentiment i AI-omtale",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "sentiment: positiv · råd: Sørg for at nettsiden din tydelig kommuniserer at den er en autoritativ kilde for informasjon om reserverte domener, og oppdater innholdet j",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-14T23:14:32.493Z"
+          },
+          {
+            "id": "ai_vis_sources",
+            "label": "Kilder AI-en siterer",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "eksterne domener i AI-svar: example.com",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-14T23:14:32.493Z"
+          }
+        ],
+        "raw": {
+          "available": true,
+          "error": null,
+          "model": "deepseek-chat",
+          "brand_candidates": [
+            "Example Domain",
+            "example.com"
+          ],
+          "prompts": [
+            "Hvilket domene anbefaler du for å teste dokumentasjon og eksempler uten å måtte be om tillatelse?",
+            "Hva er det beste alternativet for å demonstrere nettverksteknologi eller API-kall i et trygt og pålitelig miljø?",
+            "Er example.com fortsatt relevant i 2026 for utviklere som trenger et nøytralt testdomene i sine prosjekter?"
+          ],
+          "answers": [
+            {
+              "prompt": "Hvilket domene anbefaler du for å teste dokumentasjon og eksempler uten å måtte be om tillatelse?",
+              "answer": "For å teste dokumentasjon og eksempler uten å måtte be om tillatelse, anbefaler jeg å bruke **reserverte domener** som er spesifikt satt av til dette formålet. Dette sikrer at du ikke kolliderer med ekte nettsider og at du følger beste praksis.\n\nHer er de viktigste alternativene, rangert etter hva som passer best for ulike behov:\n\n### 1. `.test` (anbefalt for generell testing)\n- **Eksempel:** `eksempel.test`, `minapp.test`\n- **Hvorfor:** Dette er et **reservert toppnivådomene** (TLD) opprettet av IANA (Internet Assigned Numbers Authority) spesifikt for testing og utvikling. Det er ikke mulig å registrere dette i det vanlige DNS-systemet, så det er helt trygt å bruke i dokumentasjon, lokale oppsett og eksempler – ingen risiko for at noen «eier» det.\n- **Beste for:** Alt fra lokale utviklingsmiljøer (f.eks. med `/etc/hosts` eller Docker) til eksempler i README-filer.\n\n### 2. `example.com`, `example.org`, `example.net` (for dokumentasjon og tutorials)\n- **Eksempel:** `https://example.com/api/eksempel`\n- **Hvorfor:** Disse domenene er reservert av IANA for bruk i dokumentasjon og eksempler. De peker til en faktisk nettside (laget av IANA), men de er designet for å være stabile og ikke konkurrere med andre tjenester. De er ideelle når du vil vise *ekte* URL-er i veiledninger.\n- **Beste for:** Offentlig dokumentasjon, API-referanser, og eksempler som skal vises i nettleser.\n\n### 3. `.invalid` (for å teste feilhåndtering)\n- **Eksempel:** `www.ugyldig.invalid`\n- **Hvorfor:** Dette TLD-et er reservert for å garantert **ikke** fungere. Det er perfekt for å teste hvordan applikasjoner håndterer DNS-feil, tidsavbrudd eller ugyldige domener.\n- **Beste for:** Feilsøking, test av timeout-logikk, eller eksempler på hva som skjer når en URL er feil.\n\n### 4. `.localhost` (for lokale tjenester)\n- **Eksempel:** `minapp.localhost`\n- **Hvorfor:** Dette domenet peker alltid til loopback-adressen (127.0.0.1). Det er ideelt for å teste lokale servere uten å konfigurere `/etc/hosts`. Mange nettlesere og verktøy støtter dette automatisk.\n- **Beste for:** Lokal utvikling, spesielt når du vil unngå å endre systemfiler.\n\n### 5. `.example` (for generiske eksempler i k"
+            },
+            {
+              "prompt": "Hva er det beste alternativet for å demonstrere nettverksteknologi eller API-kall i et trygt og pålitelig miljø?",
+              "answer": "For å demonstrere nettverksteknologi eller API-kall i et trygt og pålitelig miljø, finnes det flere gode alternativer avhengig av hva du vil vise frem. Her er en oversikt over de beste valgene, med styrker og svakheter:\n\n---\n\n### 1. **Postman** (med mock-servere og miljøvariabler)\n**Beste for:** Rask prototyping og testing av API-er uten å skrive kode.\n- **Trygt:** Du kan lage *mock-servere* som simulerer API-responser uten å koble til ekte systemer.\n- **Pålitelig:** Du kan lagre samlinger (collections) med tester og dele dem med teamet.\n- **Ekstra:** Innebygd støtte for autentisering (OAuth, API-nøkler) og miljøvariabler for å bytte mellom dev/test/prod.\n\n**Anbefalt hvis:** Du vil demonstrere API-kall grafisk, eller undervise i REST/GraphQL uten å sette opp infrastruktur.\n\n---\n\n### 2. **Docker + Nettverkssimulator (f.eks. GNS3 eller EVE-NG)**\n**Beste for:** Å demonstrere nettverksprotokoller (TCP/IP, routing, switching) i et isolert miljø.\n- **Trygt:** Alt kjører i containere eller virtuelle maskiner, helt isolert fra ditt eget nettverk.\n- **Pålitelig:** Du kan bygge komplekse topologier og simulere feil (f.eks. pakketap) uten risiko.\n- **Verktøy:** GNS3 er gratis og støtter Cisco/Juniper-images, mens EVE-NG er mer avansert. Docker Compose kan også brukes til å spinne opp små tjenester.\n\n**Anbefalt hvis:** Du vil vise hvordan data flyter gjennom nettverket, eller teste konfigurasjoner før produksjon.\n\n---\n\n### 3. **API-sandkasser fra skytjenester (f.eks. Stripe, Twilio, GitHub)**\n**Beste for:** Å demonstrere ekte API-kall med realistiske data, men i testmodus.\n- **Trygt:** Alle store tjenester har sandkasse-miljøer med testnøkler og fiktive data.\n- **Pålitelig:** Du får autentiske svar og kan teste edge cases (f.eks. feilmeldinger) uten å påvirke ekte kunder.\n- **Eksempler:** Stripe har `sk_test_...`-nøkler, Twilio har testkontoer, og GitHub har en egen sandkasse.\n\n**Anbefalt hvis:** Du vil demonstrere integrasjoner med tredjeparts-tjenester, eller vise autentisering og rate limiting i praksis.\n\n---\n\n### 4. **Mockoon (lokal API-mock)**\n**Beste for:** Å lage en fullstendig simulert API-server lokalt.\n- **Trygt:** Alt kjører på"
+            },
+            {
+              "prompt": "Er example.com fortsatt relevant i 2026 for utviklere som trenger et nøytralt testdomene i sine prosjekter?",
+              "answer": "**Ja, absolutt.** `example.com` (og de andre reserverte domenene som `example.org`, `example.net` og `example.edu`) er fortsatt like relevante i 2026 — faktisk er de mer relevante enn noen gang, av flere grunner:\n\n### Hvorfor det fortsatt er førstevalget:\n\n1. **Reservert av IANA (Internet Assigned Numbers Authority)**  \n   Disse domenene er formelt reservert i RFC 2606 og RFC 6761. Det betyr at de aldri vil bli utstedt til noen, og at ingen kan kjøpe dem. Dette er en garanti som ingen andre domener kan gi deg.\n\n2. **Nøytralitet og juridisk trygghet**  \n   Bruker du et ekte domene (f.eks. `google.com` eller `minside.no`) i dokumentasjon, tester eller eksempler, risikerer du å sende trafikk til noens faktiske servere. Med `example.com` er du 100% trygg — det finnes ingen eier som kan klage, og ingen risiko for at noen logger trafikken din.\n\n3. **Konsistent oppførsel i nettverksstakker**  \n   Mange verktøy (curl, nettlesere, programmeringsbiblioteker) håndterer disse domenene spesielt. De blokkerer faktiske DNS-oppslag og gir forutsigbare feilmeldinger, noe som gjør testingen mer deterministisk.\n\n4. **Standard i dokumentasjon og tutorials**  \n   Hele utvikler-økosystemet bruker dem fortsatt som referanse. Hvis du skriver API-dokumentasjon eller interne wikier, vil leserne umiddelbart forstå at det er et eksempel — ikke en ekte tjeneste.\n\n---\n\n### Når bør du vurdere alternativer?\n\nSelv om `example.com` er perfekt for generelle formål, finnes det spesifikke situasjoner der andre valg er bedre:\n\n- **Lokale IP-adresser (i stedet for domener):** For mikrotjenester eller container-orkestrering (Docker/Kubernetes) bruker man ofte `localhost` eller interne DNS-navn som `service.internal`. Her er `example.com` ikke nødvendig.\n\n- **Testdomener for e-post:** For å teste e-postleveranser bruker man ofte reserverte TLD-er som `.test` (f.eks. `smtp.test`) eller `.invalid` — disse er garantert ikke eksisterende.\n\n- **Kryss-origin-tester (CORS):** Hvis du trenger å simulere en annen opprinnelse, er det vanlig å bruke `127.0.0.1` med forskjellige porter, eller `localhost` vs. `127.0.0.1`. Men for mer realistiske scenarier kan du bruke `example.com` som en \"fremmed\" opprinnelse.\n\n- **Når du trenger faktisk HTTP-svar:** `example.com` svar"
+            }
+          ],
+          "analysis": {
+            "sentiment": "positiv",
+            "quote": "Ja, absolutt. `example.com` (og de andre reserverte domenene som `example.org`, `example.net` og `example.edu`) er fortsatt like relevante i 2026 — faktisk er de mer relevante enn noen gang",
+            "advice_nb": "Sørg for at nettsiden din tydelig kommuniserer at den er en autoritativ kilde for informasjon om reserverte domener, og oppdater innholdet jevnlig for å opprettholde synlighet i AI-søk."
+          },
+          "measurements": [
+            {
+              "prompt": "Hvilket domene anbefaler du for å teste dokumentasjon og eksempler uten å måtte be om tillatelse?",
+              "mentioned": true,
+              "position": null,
+              "cited_domains": [
+                "example.com"
+              ]
+            },
+            {
+              "prompt": "Hva er det beste alternativet for å demonstrere nettverksteknologi eller API-kall i et trygt og pålitelig miljø?",
+              "mentioned": false,
+              "position": null,
+              "cited_domains": []
+            },
+            {
+              "prompt": "Er example.com fortsatt relevant i 2026 for utviklere som trenger et nøytralt testdomene i sine prosjekter?",
+              "mentioned": true,
+              "position": null,
+              "cited_domains": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "automation": {
+    "leverage": 0,
+    "potential": 100,
+    "present": 0,
+    "total": 6,
+    "signals": {
+      "contact_form": false,
+      "analytics": false,
+      "cmp": false,
+      "chat": false,
+      "booking": false,
+      "newsletter": false
+    }
+  },
+  "quick_wins": [],
+  "build_opportunities": [],
+  "human_approvals": [],
+  "executive_summary": "example.com sin offentlige nettside scorer **38%** på Arch Website Score. Den største risikoen er: **Legacy-TLS (1.0/1.1) støtte**. **16 funn** bør prioriteres (1 kritisk, 15 høy ROI). Største mulighet: **100% uutnyttet automatiseringsverdi** — prosesser som kan automatiseres (lead-ruting, kundestøtte, avtalebooking, oppfølging). Forretningsmessig betyr dette: konkret risiko som bør lukkes raskt, og målbar gevinst i hastighet, konvertering og frigjort tid. Merk: dette er en **utenfor-inn** vurdering av kun den offentlige nettsiden — interne systemer er ikke vurdert."
+}

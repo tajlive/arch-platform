@@ -40,7 +40,59 @@ const CHECK_KIND = {
   cookie_banner: "web_privacy",
   contact_form: "web_contact_form",
   cta: "web_cta",
+  // ── Audit v2 (ARC-10) ──
+  spf: "web_email_spf",
+  spf_private_ip: "web_email_spf",
+  dmarc: "web_email_dmarc",
+  dmarc_subdomain: "web_email_dmarc",
+  mta_sts: "web_email_mta_sts",
+  tls_rpt: "web_email_mta_sts",
+  caa: "web_dns_hardening",
+  dnssec: "web_dns_hardening",
+  exposed_files: "web_exposed_files",
+  cmp_banner: "web_privacy",
+  consent_real_choice: "web_privacy",
+  consent_prechecked: "web_privacy",
+  privacy_policy: "web_privacy",
+  third_party_trackers: "web_privacy",
+  google_fonts: "web_privacy",
+  ecom_price_vat: "web_privacy",
+  ecom_angrerett: "web_privacy",
+  ecom_klage: "web_privacy",
+  psi_mobile: "web_perf_psi",
+  psi_desktop: "web_perf_psi",
+  psi_crux_mobile: "web_perf_crux",
+  psi_crux_desktop: "web_perf_crux",
+  social_profiles: "web_social",
+  social_dead_links: "web_social",
+  nap_phone: "web_nap",
+  nap_email: "web_nap",
+  nap_name_consistency: "web_company_consistency",
+  nap_orgnr_consistency: "web_company_consistency",
+  ai_content_quality: "web_content",
+  ai_content_freshness: "web_content",
+  ai_vis_visibility: "web_ai_visibility",
+  ai_vis_position: "web_ai_position",
+  ai_vis_sentiment: "web_ai_sentiment",
+  ai_vis_sources: "web_ai_visibility",
+  history_freshness: "web_freshness",
+  brreg_konkurs: "web_konkurs",
+  brreg_hjemmeside: "web_company_consistency",
+  brreg_navn_consistency: "web_company_consistency",
+  norid_dnssec: "web_dns_hardening",
+  security_headers: "web_security_headers",
+  cookies_attributes: "web_security_headers",
+  tls_cert: "web_tls",
+  tls_verify: "web_tls",
+  tls_legacy: "web_tls",
 };
+
+// Dynamiske versjonslekkasje-id-er (leak_0_server, leak_1_powered_by, …) — prefix-match.
+function kindFor(ch) {
+  if (CHECK_KIND[ch.id]) return CHECK_KIND[ch.id];
+  if (/^leak_\d+_/.test(ch.id)) return "web_tech_disclosure";
+  return null;
+}
 
 const SEVERITY = {
   web_no_https: "critical",
@@ -58,6 +110,24 @@ const SEVERITY = {
   web_privacy: "medium",
   web_contact_form: "high",
   web_automation: "low",
+  // ── Audit v2 (ARC-10) ──
+  web_email_spf: "medium",
+  web_email_dmarc: "medium",
+  web_email_mta_sts: "low",
+  web_dns_hardening: "low",
+  web_exposed_files: "critical",
+  web_tls: "critical",
+  web_company_consistency: "medium",
+  web_konkurs: "critical",
+  web_perf_psi: "medium",
+  web_perf_crux: "high",
+  web_social: "low",
+  web_nap: "low",
+  web_content: "low",
+  web_freshness: "low",
+  web_ai_visibility: "medium",
+  web_ai_position: "medium",
+  web_ai_sentiment: "low",
 };
 
 export function buildWebFindings(collectResult, scoreResult, browserEvidence = null) {
@@ -77,7 +147,7 @@ export function buildWebFindings(collectResult, scoreResult, browserEvidence = n
   // 1. FAIL-sjekker → funn
   for (const ch of collectResult.checks ?? []) {
     if (ch.result !== "FAIL") continue;
-    const kind = CHECK_KIND[ch.id];
+    const kind = kindFor(ch);
     if (!kind) continue;
     findings.push(finding(kind, ch.label, ch.evidence));
   }

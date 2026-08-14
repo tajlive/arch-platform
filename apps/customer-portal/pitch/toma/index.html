@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arch × Toma — En utenfor-inn analyse</title>
+<style>
+  :root { --teal:#12B981; --teal-d:#0E9F6E; --ink:#0A100E; --ink2:#101915; --panel:#141F1B; --line:#22312B; --txt:#F2F7F4; --mut:#9FB3AB; --gold:#F5C518; --red:#F04438; --amber:#F79009; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { background:#050807; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--txt); }
+  .deck { max-width:1280px; margin:0 auto; }
+  .slide { width:100%; aspect-ratio:16/9; background:radial-gradient(1200px 700px at 85% -10%, #0F2A20 0%, var(--ink) 55%); position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:center; padding:72px 84px; }
+  .slide::after { content:""; position:absolute; inset:0; background:radial-gradient(1px 1px at 25% 30%, rgba(18,185,129,.25), transparent 40%), radial-gradient(1px 1px at 70% 75%, rgba(18,185,129,.18), transparent 45%); pointer-events:none; }
+  .slide > * { position:relative; z-index:1; }
+  .brand { position:absolute; top:44px; left:84px; display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:1.5px; font-size:14px; }
+  .brand .mark { width:26px; height:26px; border-radius:7px; background:linear-gradient(135deg,var(--teal),var(--teal-d)); display:inline-block; }
+  .pageno { position:absolute; bottom:36px; right:84px; font-size:12px; color:var(--mut); letter-spacing:2px; }
+  .kicker { font-size:12px; letter-spacing:3.5px; text-transform:uppercase; color:var(--teal); font-weight:700; margin-bottom:18px; }
+  h1 { font-size:64px; line-height:1.05; letter-spacing:-0.03em; font-weight:800; margin-bottom:22px; }
+  h2 { font-size:40px; line-height:1.12; letter-spacing:-0.02em; font-weight:800; margin-bottom:18px; }
+  .lead { font-size:21px; color:var(--mut); max-width:720px; line-height:1.55; }
+  .slide-footer-note { position:absolute; bottom:38px; left:84px; font-size:12px; color:#5F726A; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:8px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:28px 30px; }
+  .card h3 { font-size:22px; margin-bottom:6px; letter-spacing:-0.01em; }
+  .card .sub { font-size:14px; color:var(--mut); margin-bottom:16px; }
+  .big { font-size:76px; font-weight:800; letter-spacing:-0.04em; line-height:1; }
+  .big small { font-size:22px; color:var(--mut); font-weight:600; letter-spacing:0; }
+  .bar { height:10px; border-radius:6px; background:#1C2A24; margin:10px 0 8px; overflow:hidden; }
+  .bar span { display:block; height:100%; border-radius:6px; background:linear-gradient(90deg,var(--teal-d),var(--teal)); }
+  .dims { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:26px; }
+  .dim { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:14px 16px; }
+  .dim .t { font-size:12px; color:var(--mut); margin-bottom:8px; letter-spacing:1px; text-transform:uppercase; }
+  .dim .v { font-size:22px; font-weight:800; }
+  .dim .v.ok { color:var(--teal); } .dim .v.mid { color:var(--amber); } .dim .v.bad { color:var(--red); }
+  .funn { display:flex; gap:20px; align-items:flex-start; background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:26px 30px; margin-bottom:16px; }
+  .funn .n { flex:0 0 46px; height:46px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:20px; }
+  .funn.k .n { background:rgba(240,68,56,.14); color:var(--red); }
+  .funn.h .n { background:rgba(247,144,9,.14); color:var(--amber); }
+  .funn.s .n { background:rgba(18,185,129,.14); color:var(--teal); }
+  .funn h3 { font-size:20px; margin-bottom:6px; }
+  .funn p { font-size:15.5px; color:var(--mut); line-height:1.5; }
+  .tag { display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; padding:3px 10px; border-radius:999px; margin-bottom:8px; }
+  .tag.k { background:rgba(240,68,56,.14); color:var(--red); } .tag.h { background:rgba(247,144,9,.14); color:var(--amber); } .tag.s { background:rgba(18,185,129,.14); color:var(--teal); }
+  .secret { background:linear-gradient(135deg,#12261E 0%, #0C1713 100%); border:1px solid #1E3A2E; border-radius:24px; padding:44px 48px; margin-top:10px; }
+  .secret ul { list-style:none; margin-top:18px; }
+  .secret li { display:flex; gap:14px; align-items:flex-start; font-size:19px; padding:12px 0; border-bottom:1px solid var(--line); color:#D6E4DE; }
+  .secret li:last-child { border-bottom:none; }
+  .secret li .dot { flex:0 0 10px; height:10px; margin-top:9px; border-radius:50%; background:var(--teal); }
+  .secret .lock-note { margin-top:20px; font-size:14px; color:#7FA094; }
+  .cta-center { text-align:center; }
+  .cta-center .big-cta { font-size:54px; font-weight:800; letter-spacing:-0.03em; }
+  .contact { display:flex; gap:18px; justify-content:center; margin-top:36px; }
+  .contact .c { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:18px 26px; text-align:left; }
+  .contact .c .l { font-size:11px; letter-spacing:2px; color:var(--mut); text-transform:uppercase; margin-bottom:6px; }
+  .contact .c .v { font-size:18px; font-weight:700; }
+  .knapp { display:inline-block; background:var(--teal); color:#04110B; font-weight:800; font-size:17px; padding:16px 34px; border-radius:999px; text-decoration:none; margin-top:30px; }
+  .nav { position:fixed; bottom:18px; left:50%; transform:translateX(-50%); display:flex; gap:8px; z-index:50; }
+  .nav button { width:38px; height:10px; border-radius:6px; border:none; background:#22312B; cursor:pointer; }
+  .nav button.on { background:var(--teal); }
+  @media print {
+    .nav { display:none; }
+    body { background:#fff; }
+    .slide { display:flex !important; break-after:page; page-break-after:always; width:100%; aspect-ratio:16/9; }
+  }
+  @page { size: 1280px 720px; margin:0; }
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <!-- SLIDE 1 — FORSIDE -->
+  <section class="slide">
+    <div class="brand"><span class="mark"></span> ARCH · UTENFOR-INN ANALYSE</div>
+    <div class="kicker">Til Eskil Henriksen · Regionsdirektør Food &amp; support Midt</div>
+    <h1>Vi har sett på<br>nettsidene deres.</h1>
+    <p class="lead">toma.no og hvass.no er analysert utenfra — uten å endre noe. Dette er det vi vil fortelle deg før alle andre gjør det.</p>
+    <div class="pageno">01 / 06</div>
+    <div class="slide-footer-note">Fra Tom Arne Jensen · Arch</div>
+  </section>
+
+  <!-- SLIDE 2 — METODEN -->
+  <section class="slide">
+    <div class="brand"><span class="mark"></span> ARCH · UTENFOR-INN ANALYSE</div>
+    <div class="kicker">Metoden</div>
+    <h2>Åtte dimensjoner.<br>Null endringer. Kun fakta.</h2>
+    <p class="lead">Vi måler det alle besøkende og maskiner allerede ser: ytelse, sikkerhet, mobilbruk, tilgjengelighet, søkbarhet, pålitelighet, tillit — og hvor mye som kunne vært automatisert.</p>
+    <div class="dims">
+      <div class="dim"><div class="t">Performance</div><div class="v mid">●</div></div>
+      <div class="dim"><div class="t">Sikkerhet</div><div class="v bad">●</div></div>
+      <div class="dim"><div class="t">UX / Mobil</div><div class="v mid">●</div></div>
+      <div class="dim"><div class="t">Tilgjengelighet</div><div class="v ok">●</div></div>
+      <div class="dim"><div class="t">SEO</div><div class="v ok">●</div></div>
+      <div class="dim"><div class="t">Pålitelighet</div><div class="v mid">●</div></div>
+      <div class="dim"><div class="t">Tillit</div><div class="v mid">●</div></div>
+      <div class="dim"><div class="t">Automasjon</div><div class="v bad">●</div></div>
+    </div>
+    <div class="pageno">02 / 06</div>
+  </section>
+
+  <!-- SLIDE 3 — SCOREKORT -->
+  <section class="slide">
+    <div class="brand"><span class="mark"></span> ARCH · UTENFOR-INN ANALYSE</div>
+    <div class="kicker">Resultatet</div>
+    <h2>To merkevarer. To scorekort.</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3>toma.no</h3>
+        <div class="sub">Konsernets hovednettsted</div>
+        <div class="big">70<small> / 100</small></div>
+        <div class="bar"><span style="width:70%"></span></div>
+        <div class="sub" style="margin-top:12px">God helhetsprofil — men grunnmuren har hull.</div>
+      </div>
+      <div class="card">
+        <h3>hvass.no</h3>
+        <div class="sub">Konsernets andre merkevare</div>
+        <div class="big">57<small> / 100</small></div>
+        <div class="bar"><span style="width:57%; background:linear-gradient(90deg,#B42318,#F79009)"></span></div>
+        <div class="sub" style="margin-top:12px">Inkludert ett kritisk funn — bør håndteres først.</div>
+      </div>
+    </div>
+    <div class="pageno">03 / 06</div>
+  </section>
+
+  <!-- SLIDE 4 — TRE FUNN -->
+  <section class="slide">
+    <div class="brand"><span class="mark"></span> ARCH · UTENFOR-INN ANALYSE</div>
+    <div class="kicker">Tre funn fra overflaten</div>
+    <div class="funn k">
+      <div class="n">1</div>
+      <div><span class="tag k">Kritisk · hvass.no</span>
+      <h3>Blandet innhold: http-elementer på en https-side</h3>
+      <p>Deler av siden lastes over usikret forbindelse. Nettlesere kan vise «ikke sikker» eller blokkere innhold — tilliten svekkes for besøkende.</p></div>
+    </div>
+    <div class="funn h">
+      <div class="n">2</div>
+      <div><span class="tag h">Høy ROI · toma.no</span>
+      <h3>Seks grunnleggende sikkerhetsheadere mangler</h3>
+      <p>CSP, HSTS og fire til. Standardbeskyttelsen seriøse nettsteder har på plass — spesielt relevant når konsernet skal inn i en børsnotert struktur.</p></div>
+    </div>
+    <div class="funn s">
+      <div class="n">3</div>
+      <div><span class="tag s">Signal · begge</span>
+      <h3>Henvendelser rutes manuelt — halve automatiseringsverdien ubrukt</h3>
+      <p>Kontaktskjemaer, avtalebooking og oppfølging er manuelle prosesser. Ut fra det som er observerbart utenfra, står omtrent halvparten av den tilgjengelige verdien ubenyttet.</p></div>
+    </div>
+    <div class="pageno">04 / 06</div>
+  </section>
+
+  <!-- SLIDE 5 — HEMMELIGHETEN -->
+  <section class="slide">
+    <div class="brand"><span class="mark"></span> ARCH · UTENFOR-INN ANALYSE</div>
+    <div class="kicker">Det dere ikke har sett ennå</div>
+    <div class="secret">
+      <h2 style="margin-bottom:6px">Resten finnes ikke i dette dokumentet.</h2>
+      <p class="lead" style="color:#9FBDae; font-size:17px">Vi har mer. Mye mer. Det deles ansikt til ansikt.</p>
+      <ul>
+        <li><span class="dot"></span><span>Full funnliste med prioriteringer og forretningsmessig konsekvens for begge merkevarene</span></li>
+        <li><span class="dot"></span><span>Hva vi fant av automatiseringsmuligheter i kantinedriften — konkret, i kroner</span></li>
+        <li><span class="dot"></span><span>Hvordan dette posisjonerer dere foran konkurrentene — og foran det som kommer</span></li>
+      </ul>
+      <p class="lock-note">En halvtimes samtale. Ikke et dokument. Det koster deg tid — ikke penger.</p>
+    </div>
+    <div class="pageno">05 / 06</div>
+  </section>
+
+  <!-- SLIDE 6 — CTA -->
+  <section class="slide">
+    <div class="brand"><span class="mark"></span> ARCH · UTENFOR-INN ANALYSE</div>
+    <div class="cta-center">
+      <div class="kicker">Neste steg</div>
+      <div class="big-cta">30 minutter.<br>Hele bildet.</div>
+      <div class="contact">
+        <div class="c"><div class="l">Kontakt</div><div class="v">Tom Arne Jensen</div></div>
+        <div class="c"><div class="l">Selskap</div><div class="v">Arch</div></div>
+        <div class="c"><div class="l">LinkedIn</div><div class="v">tom-arne-jensen</div></div>
+      </div>
+      <a class="knapp" href="#">Book en prat på LinkedIn</a>
+    </div>
+    <div class="pageno">06 / 06</div>
+  </section>
+
+</div>
+<div class="nav" id="nav"></div>
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const nav = document.getElementById('nav');
+  let cur = 0;
+  slides.forEach((s, i) => { const b = document.createElement('button'); if (i === 0) b.classList.add('on'); b.addEventListener('click', () => go(i)); nav.appendChild(b); });
+  function go(i) { cur = Math.max(0, Math.min(slides.length - 1, i)); document.querySelectorAll('.slide').forEach((s, j) => { s.style.display = j === cur ? 'flex' : 'none'; }); document.querySelectorAll('#nav button').forEach((b, j) => b.classList.toggle('on', j === cur)); }
+  go(0);
+  document.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') go(cur + 1); if (e.key === 'ArrowLeft') go(cur - 1); });
+</script>
+</body>
+</html>

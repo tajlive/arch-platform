@@ -1,0 +1,2894 @@
+{
+  "meta": {
+    "generated": "2026-08-14T21:37:41.237Z",
+    "version": "2.0",
+    "name": "klarpakke.no",
+    "website": "https://klarpakke.no",
+    "domain": "klarpakke.no",
+    "registrable_domain": "klarpakke.no",
+    "mode": "website",
+    "design_partner": false,
+    "audit_duration_ms": 35929,
+    "v2_modules_ms": 18263
+  },
+  "customer": {
+    "id": "klarpakke.no",
+    "name": "klarpakke.no",
+    "mode": "prospect_preview",
+    "modeLabel": "Intern prospect-vurdering",
+    "website": "https://klarpakke.no",
+    "consent_granted": false,
+    "consent_date": null
+  },
+  "score": {
+    "total": 66,
+    "categories": {
+      "performance": {
+        "pct": 38,
+        "weight": 20,
+        "pass": 3,
+        "fail": 2,
+        "unknown": 3,
+        "denom": 8,
+        "checks": [
+          {
+            "id": "compression",
+            "label": "Komprimering (gzip/brotli)",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "br",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:21.832Z"
+          },
+          {
+            "id": "caching",
+            "label": "Cache-headere",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "public, max-age=60, s-maxage=300, stale-while-revalidate=86400, stale-if-error=3600",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:21.832Z"
+          },
+          {
+            "id": "render_blocking",
+            "label": "Render-blokkerende ressurser",
+            "dimension": "performance",
+            "result": "FAIL",
+            "evidence": "1 blokkerende skript, 2 stylesheets",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:21.856Z"
+          },
+          {
+            "id": "image_optim",
+            "label": "Bilde-optimalisering",
+            "dimension": "performance",
+            "result": "FAIL",
+            "evidence": "2 bilder, 2 m/ dimensjoner, 0 lazy",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:21.920Z"
+          },
+          {
+            "id": "third_party",
+            "label": "Tredjeparts-skript/-ressurser",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "1 eksterne domener (www.klarpakke.no)",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:21.921Z"
+          },
+          {
+            "id": "psi_mobile",
+            "label": "PageSpeed mobil",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 403",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-14T21:37:26.895Z"
+          },
+          {
+            "id": "psi_desktop",
+            "label": "PageSpeed desktop",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 403",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-14T21:37:26.895Z"
+          },
+          {
+            "id": "psi_availability",
+            "label": "PageSpeed API tilgjengelig",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-14T21:37:26.895Z"
+          }
+        ]
+      },
+      "security": {
+        "pct": 54,
+        "weight": 20,
+        "pass": 14,
+        "fail": 9,
+        "unknown": 3,
+        "denom": 26,
+        "checks": [
+          {
+            "id": "https",
+            "label": "HTTPS/TLS",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "HTTPS leverte respons",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:07.658Z"
+          },
+          {
+            "id": "header_csp",
+            "label": "Header: csp",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:22.438Z"
+          },
+          {
+            "id": "header_hsts",
+            "label": "Header: hsts",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:22.438Z"
+          },
+          {
+            "id": "header_xcto",
+            "label": "Header: xcto",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:22.438Z"
+          },
+          {
+            "id": "header_referrer",
+            "label": "Header: referrer",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:22.438Z"
+          },
+          {
+            "id": "header_permissions",
+            "label": "Header: permissions",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:22.438Z"
+          },
+          {
+            "id": "header_frame",
+            "label": "Header: frame",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:22.438Z"
+          },
+          {
+            "id": "mixed_content",
+            "label": "Blandet innhold (http på https)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen http-referanser i HTML",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:22.439Z"
+          },
+          {
+            "id": "source_maps",
+            "label": "Eksponerte source maps",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "skript ikke observerbare",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:22.439Z"
+          },
+          {
+            "id": "tech_disclosure",
+            "label": "Versjons-avsløring",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "cloudflare",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:22.439Z"
+          },
+          {
+            "id": "security_headers",
+            "label": "Sikkerhetsheadere — gradering A",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Gradering A. Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://pskhryjzkobytnfwucrb.supabas…; Strict-Transport-Security: max-age=63072000; includeSubDomains; preload; X-Frame-Options: DENY; X-Content-Type-Options: nosniff; Referrer-Policy: strict-origin-when-cross-origin; Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(… Trekk: CSP svak (unsafe-inline/unsafe-eval)",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-14T21:37:24.392Z"
+          },
+          {
+            "id": "cookies_attributes",
+            "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "1 cookies observert. Mangler HttpOnly: NEXT_LOCALE. Mangler Secure: NEXT_LOCALE. Mangler SameSite: alle har SameSite. (Cookie-navn + flagg kun — verdier aldri lagret/vist.)",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-14T21:37:24.394Z"
+          },
+          {
+            "id": "version_leaks",
+            "label": "Ingen versjonslekkasjer",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen server/x-powered-by/x-aspnet-version-header, <meta generator>, gammel jQuery eller WordPress-signatur observert.",
+            "confidence": "medium",
+            "source": "http_headers",
+            "observed_at": "2026-08-14T21:37:24.399Z"
+          },
+          {
+            "id": "tls_cert",
+            "label": "TLS-sertifikat gyldighet",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "notBefore=2026-07-28T08:21:14.000Z, notAfter=2026-10-26T09:20:56.000Z, issuer=C=US, O=Google Trust Services, CN=WE1, SAN=klarpakke.no, *.klarpakke.no",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-14T21:37:41.233Z"
+          },
+          {
+            "id": "tls_verify",
+            "label": "TLS-sertifikat-verifisering",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "verify return code: 0 (ok)",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-14T21:37:41.233Z"
+          },
+          {
+            "id": "tls_legacy",
+            "label": "Legacy-TLS (1.0/1.1) støtte",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+            "confidence": "medium",
+            "source": "tls",
+            "observed_at": "2026-08-14T21:37:41.233Z"
+          },
+          {
+            "id": "spf",
+            "label": "SPF (avsender-verifisering)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "v=spf1 include:_spf.domeneshop.no include:_spf.google.com include:spf.resend.com ~all — ~all er svakt, spoofing mulig",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:37:23.937Z"
+          },
+          {
+            "id": "spf_private_ip",
+            "label": "SPF: private IP-er i mekanismene",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen private IP-er i SPF",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:37:23.938Z"
+          },
+          {
+            "id": "dkim",
+            "label": "DKIM (e-post-signering)",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "ingen av probede selektorer funnet (kan ikke konkludere fravær)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:37:24.762Z"
+          },
+          {
+            "id": "dmarc",
+            "label": "DMARC (spoofing-beskyttelse)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "p=none (kun overvåkning) — v=DMARC1; p=none; rua=mailto:dmarc@klarpakke.no; ruf=mailto:dmarc@klarpakke.no; fo=1; adkim=s; aspf=s",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:37:24.810Z"
+          },
+          {
+            "id": "mta_sts",
+            "label": "MTA-STS (håndhevet e-post-TLS)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:37:24.895Z"
+          },
+          {
+            "id": "tls_rpt",
+            "label": "TLS-RPT (TLS-rapportering)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen TLS-rapportering",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:37:24.954Z"
+          },
+          {
+            "id": "caa",
+            "label": "CAA (sertifikat-utsteder-kontroll)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen CAA",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:37:25.214Z"
+          },
+          {
+            "id": "dnssec",
+            "label": "DNSSEC (signert sone)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "manglende AD-flag — sonen er ikke DNSSEC-signert",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:37:25.371Z"
+          },
+          {
+            "id": "subdomains",
+            "label": "Subdomene-eksponering (crt.sh)",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "ingen data i crt.sh",
+            "confidence": "medium",
+            "source": "https",
+            "observed_at": "2026-08-14T21:37:29.409Z"
+          },
+          {
+            "id": "norid_dnssec",
+            "label": "DNSSEC (Norid)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "DNSSEC ikke aktivert (delegationSigned=false)",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-14T21:37:23.647Z"
+          }
+        ]
+      },
+      "ux_mobile": {
+        "pct": 75,
+        "weight": 15,
+        "pass": 3,
+        "fail": 0,
+        "unknown": 1,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "viewport",
+            "label": "Viewport meta",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "viewport tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:21.922Z"
+          },
+          {
+            "id": "media_queries",
+            "label": "Responsive CSS (@media)",
+            "dimension": "ux_mobile",
+            "result": "UNKNOWN",
+            "evidence": "stylesheets ikke observerbare",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:21.922Z"
+          },
+          {
+            "id": "ai_content_quality",
+            "label": "Innholdskvalitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "Klarpakke posisjonerer seg som en transparent og risikofri inngang til kryptotrading for det norske markedet, med vekt på dokumentasjon og ærlighet om risiko. Siden tilbyr en gratis beta med lekepenger, AI-veiledning på norsk og backtest-resultater som viser både tap og gevinster, noe som bygger tillit. Budskapet er klart og pedagogisk, med tydelige løfter om hva de aldri vil gjøre, og en konkret oppfordring til handling for de første 100 registrerte.",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-14T21:37:28.787Z"
+          },
+          {
+            "id": "ai_content_freshness",
+            "label": "Aktualitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "Gratis beta kun i Norge · 100 000 kr i lekepenger · AI-pilot som forklarer på norsk · Backtest-bevis med gebyr inkludert · Ingen kredittkort, KYC eller binding · Norsk plattform · 5000 KLT-tokens til de 100 første · 90 dager med ekte data · Historisk avkastning er ingen garanti for fremtidig avkastning · De 100 første får gratis tilgang for alltid",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-14T21:37:28.787Z"
+          }
+        ]
+      },
+      "accessibility": {
+        "pct": 75,
+        "weight": 15,
+        "pass": 3,
+        "fail": 1,
+        "unknown": 0,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "lang",
+            "label": "Språk-attributt (lang)",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "no",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:21.922Z"
+          },
+          {
+            "id": "alt_text",
+            "label": "Alt-tekst på bilder",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "0/2 bilder mangler alt",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:21.922Z"
+          },
+          {
+            "id": "form_labels",
+            "label": "Skjemaetiketter",
+            "dimension": "accessibility",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen skjemainput",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:21.923Z"
+          },
+          {
+            "id": "heading_hierarchy",
+            "label": "Overskriftshierarki",
+            "dimension": "accessibility",
+            "result": "FAIL",
+            "evidence": "h1=2 h2=10 h3=10",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:21.944Z"
+          },
+          {
+            "id": "semantic",
+            "label": "Semantiske landemerker",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "3/4 (nav, main, footer)",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:21.959Z"
+          }
+        ]
+      },
+      "seo": {
+        "pct": 100,
+        "weight": 10,
+        "pass": 8,
+        "fail": 0,
+        "unknown": 0,
+        "denom": 8,
+        "checks": [
+          {
+            "id": "title",
+            "label": "Tittel",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "Klarpakke — Se regnestykket før du stoler på oss | Klarpakke",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:21.959Z"
+          },
+          {
+            "id": "meta_description",
+            "label": "Meta-beskrivelse",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "Gratis beta: 100 000 kr i lekepenger, en AI-pilot som forklarer alt på norsk, og backtest-bevis med gebyr inkludert. Kun i Norge.",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:21.960Z"
+          },
+          {
+            "id": "canonical",
+            "label": "Canonical",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "https://www.klarpakke.no",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:21.960Z"
+          },
+          {
+            "id": "robots_meta",
+            "label": "Robots-meta",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "index, follow",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:21.961Z"
+          },
+          {
+            "id": "robots_txt",
+            "label": "robots.txt",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "robots.txt tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:21.961Z"
+          },
+          {
+            "id": "sitemap",
+            "label": "Sitemap.xml",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "sitemap tilstede (16 URL-er)",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:22.437Z"
+          },
+          {
+            "id": "open_graph",
+            "label": "OpenGraph",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "title=true description=true image=true",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:22.438Z"
+          },
+          {
+            "id": "structured_data",
+            "label": "Strukturert data (JSON-LD)",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "JSON-LD tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:22.438Z"
+          }
+        ]
+      },
+      "reliability": {
+        "pct": 83,
+        "weight": 10,
+        "pass": 5,
+        "fail": 0,
+        "unknown": 1,
+        "denom": 6,
+        "checks": [
+          {
+            "id": "http_status",
+            "label": "HTTP-status (hovedsiden)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "HTTP 200",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:07.643Z"
+          },
+          {
+            "id": "redirect_chain",
+            "label": "Omdirigeringskjede",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "301 klarpakke.no→www.klarpakke.no, 307 www.klarpakke.no→www.klarpakke.no",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:07.672Z"
+          },
+          {
+            "id": "broken_links",
+            "label": "Ødelagte interne lenker",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "10 sider sjekket, 0 ødelagt",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:21.804Z"
+          },
+          {
+            "id": "asset_failures",
+            "label": "Ressurs-feil (img/css/js)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "ingen same-origin-ressurser å sample",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:21.832Z"
+          },
+          {
+            "id": "norid_changed",
+            "label": "Sist endret (Norid)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "sist endret 2026-02-01",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-14T21:37:23.647Z"
+          },
+          {
+            "id": "history_exists",
+            "label": "Arkivhistorikk finnes",
+            "dimension": "reliability",
+            "result": "UNKNOWN",
+            "evidence": "ingen arkiverte versjoner funnet i Wayback for klarpakke.no",
+            "confidence": "medium",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-14T21:37:37.361Z"
+          }
+        ]
+      },
+      "trust_privacy": {
+        "pct": 61,
+        "weight": 5,
+        "pass": 14,
+        "fail": 6,
+        "unknown": 3,
+        "denom": 23,
+        "checks": [
+          {
+            "id": "cookie_banner",
+            "label": "Cookie-banner",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "cookie/samtykke-element observert",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:22.441Z"
+          },
+          {
+            "id": "privacy_link",
+            "label": "Personvernerklæring-link",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "link til personvern observert",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:22.444Z"
+          },
+          {
+            "id": "consent_cmp",
+            "label": "Samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "trackere observert uten CMP",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:22.446Z"
+          },
+          {
+            "id": "contact_form",
+            "label": "Kontakt-/lead-skjema",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen <form> observert",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:22.446Z"
+          },
+          {
+            "id": "cta",
+            "label": "Call-to-action",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "CTA-tekst observert",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:22.447Z"
+          },
+          {
+            "id": "bimi",
+            "label": "BIMI (merkevare-logo i innboks)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen BIMI (ikke påkrevd)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:37:25.100Z"
+          },
+          {
+            "id": "dnsbl",
+            "label": "E-post-omdømme (DNSBL)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "mx.domeneshop.no (194.63.252.29) ikke listet",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:37:25.555Z"
+          },
+          {
+            "id": "brreg_org",
+            "label": "Firma i Brreg (Enhetsregisteret)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "ingen Brreg-treff for «Klarpakke»",
+            "confidence": "medium",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:37:23.362Z"
+          },
+          {
+            "id": "ssb_context",
+            "label": "Bransjekontekst (SSB)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "ingen næringskode tilgjengelig",
+            "confidence": "medium",
+            "source": "ssb",
+            "observed_at": "2026-08-14T21:37:23.362Z"
+          },
+          {
+            "id": "norid_registered",
+            "label": "Domenet registrert (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrert 2025-08-30",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-14T21:37:23.647Z"
+          },
+          {
+            "id": "norid_registrar",
+            "label": "Registrar (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrar: Domeneshop AS",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-14T21:37:23.647Z"
+          },
+          {
+            "id": "cmp_banner",
+            "label": "Cookie-banner / samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "generisk cookie/samtykke-banner observert (norsk tekst: cookie/informasjonskapsler + samtykke/godta/aksepter)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.746Z"
+          },
+          {
+            "id": "consent_real_choice",
+            "label": "Reelt valg (avvis-knapp)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "avvis/avslå/reject-alternativ observert («avvis»)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.751Z"
+          },
+          {
+            "id": "consent_prechecked",
+            "label": "Forhåndsavkrysset samtykke",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.773Z"
+          },
+          {
+            "id": "privacy_policy",
+            "label": "Personvernerklæring",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "personvernerklæring lenket i footer",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.804Z"
+          },
+          {
+            "id": "third_party_trackers",
+            "label": "Tredjeparts-trackere",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen kjente tredjeparts-trackere observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.817Z"
+          },
+          {
+            "id": "google_fonts",
+            "label": "Google Fonts (ekstern)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen ekstern Google Fonts observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.824Z"
+          },
+          {
+            "id": "ecom_price_vat",
+            "label": "Pris inkl. mva",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "pris inkl. mva-tekst observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.831Z"
+          },
+          {
+            "id": "ecom_angrerett",
+            "label": "Angrerett-informasjon",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.838Z"
+          },
+          {
+            "id": "ecom_klage",
+            "label": "Klageadgang / tvisteløsning",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "klageadgang/tvisteløsning observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.845Z"
+          },
+          {
+            "id": "social_profiles",
+            "label": "Sosiale medier (lenker fra nettsiden)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.897Z"
+          },
+          {
+            "id": "nap_phone",
+            "label": "Telefon på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.900Z"
+          },
+          {
+            "id": "nap_email",
+            "label": "E-post på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.900Z"
+          },
+          {
+            "id": "google_business",
+            "label": "Google Business Profile (anmeldelser, kategori)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+            "confidence": "medium",
+            "source": "places_api",
+            "observed_at": "2026-08-14T21:37:23.905Z"
+          }
+        ]
+      },
+      "automation": {
+        "pct": 33,
+        "leverage": 67,
+        "potential": 33,
+        "weight": 5,
+        "pass": 4,
+        "fail": 2,
+        "unknown": 0,
+        "denom": 6,
+        "checks": []
+      }
+    },
+    "weights": {
+      "performance": 20,
+      "security": 20,
+      "ux_mobile": 15,
+      "accessibility": 15,
+      "seo": 10,
+      "reliability": 10,
+      "trust_privacy": 5
+    },
+    "labels": {
+      "performance": "Performance",
+      "security": "Security Surface",
+      "ux_mobile": "UX / Mobile",
+      "accessibility": "Accessibility",
+      "seo": "SEO / Discovery",
+      "reliability": "Reliability",
+      "trust_privacy": "Trust / Privacy",
+      "automation": "Automation Potential"
+    },
+    "automation": {
+      "leverage": 67,
+      "potential": 33,
+      "present": 4,
+      "total": 6,
+      "signals": {
+        "contact_form": false,
+        "analytics": true,
+        "cmp": false,
+        "chat": true,
+        "booking": true,
+        "newsletter": true
+      }
+    },
+    "observed_at": "2026-08-14T21:37:41.236Z"
+  },
+  "findings": [
+    {
+      "id": "W001",
+      "kind": "web_render_blocking",
+      "title": "Render-blokkerende ressurser",
+      "evidence": "1 blokkerende skript, 2 stylesheets",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W002",
+      "kind": "web_image_optim",
+      "title": "Bilde-optimalisering",
+      "evidence": "2 bilder, 2 m/ dimensjoner, 0 lazy",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W003",
+      "kind": "web_heading_hierarchy",
+      "title": "Overskriftshierarki",
+      "evidence": "h1=2 h2=10 h3=10",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W004",
+      "kind": "web_tech_disclosure",
+      "title": "Versjons-avsløring",
+      "evidence": "cloudflare",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W005",
+      "kind": "web_contact_form",
+      "title": "Kontakt-/lead-skjema",
+      "evidence": "ingen <form> observert",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W006",
+      "kind": "web_security_headers",
+      "title": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+      "evidence": "1 cookies observert. Mangler HttpOnly: NEXT_LOCALE. Mangler Secure: NEXT_LOCALE. Mangler SameSite: alle har SameSite. (Cookie-navn + flagg kun — verdier aldri lagret/vist.)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W007",
+      "kind": "web_email_spf",
+      "title": "SPF (avsender-verifisering)",
+      "evidence": "v=spf1 include:_spf.domeneshop.no include:_spf.google.com include:spf.resend.com ~all — ~all er svakt, spoofing mulig",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W008",
+      "kind": "web_email_dmarc",
+      "title": "DMARC (spoofing-beskyttelse)",
+      "evidence": "p=none (kun overvåkning) — v=DMARC1; p=none; rua=mailto:dmarc@klarpakke.no; ruf=mailto:dmarc@klarpakke.no; fo=1; adkim=s; aspf=s",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W009",
+      "kind": "web_email_mta_sts",
+      "title": "MTA-STS (håndhevet e-post-TLS)",
+      "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W010",
+      "kind": "web_email_mta_sts",
+      "title": "TLS-RPT (TLS-rapportering)",
+      "evidence": "ingen TLS-rapportering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W011",
+      "kind": "web_dns_hardening",
+      "title": "CAA (sertifikat-utsteder-kontroll)",
+      "evidence": "ingen CAA",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W012",
+      "kind": "web_dns_hardening",
+      "title": "DNSSEC (signert sone)",
+      "evidence": "manglende AD-flag — sonen er ikke DNSSEC-signert",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W013",
+      "kind": "web_dns_hardening",
+      "title": "DNSSEC (Norid)",
+      "evidence": "DNSSEC ikke aktivert (delegationSigned=false)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W014",
+      "kind": "web_privacy",
+      "title": "Angrerett-informasjon",
+      "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W015",
+      "kind": "web_social",
+      "title": "Sosiale medier (lenker fra nettsiden)",
+      "evidence": "ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W016",
+      "kind": "web_nap",
+      "title": "Telefon på nettsiden",
+      "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W017",
+      "kind": "web_nap",
+      "title": "E-post på nettsiden",
+      "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W018",
+      "kind": "web_automation",
+      "title": "Automatiseringsmuligheter identifisert",
+      "evidence": "uutnyttet potensial 33% — manglende signaler: contact_form, cmp",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    }
+  ],
+  "browser": {
+    "available": false
+  },
+  "web": {
+    "meta": {
+      "url": "https://klarpakke.no",
+      "domain": "klarpakke.no",
+      "origin": "https://klarpakke.no",
+      "final_url": "https://www.klarpakke.no/no",
+      "fetched_at": "2026-08-14T21:37:22.457Z"
+    },
+    "checks": [
+      {
+        "id": "http_status",
+        "label": "HTTP-status (hovedsiden)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "HTTP 200",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:07.643Z"
+      },
+      {
+        "id": "https",
+        "label": "HTTPS/TLS",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "HTTPS leverte respons",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:07.658Z"
+      },
+      {
+        "id": "redirect_chain",
+        "label": "Omdirigeringskjede",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "301 klarpakke.no→www.klarpakke.no, 307 www.klarpakke.no→www.klarpakke.no",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:07.672Z"
+      },
+      {
+        "id": "broken_links",
+        "label": "Ødelagte interne lenker",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "10 sider sjekket, 0 ødelagt",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:21.804Z"
+      },
+      {
+        "id": "asset_failures",
+        "label": "Ressurs-feil (img/css/js)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "ingen same-origin-ressurser å sample",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:21.832Z"
+      },
+      {
+        "id": "compression",
+        "label": "Komprimering (gzip/brotli)",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "br",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:21.832Z"
+      },
+      {
+        "id": "caching",
+        "label": "Cache-headere",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "public, max-age=60, s-maxage=300, stale-while-revalidate=86400, stale-if-error=3600",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:21.832Z"
+      },
+      {
+        "id": "render_blocking",
+        "label": "Render-blokkerende ressurser",
+        "dimension": "performance",
+        "result": "FAIL",
+        "evidence": "1 blokkerende skript, 2 stylesheets",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:21.856Z"
+      },
+      {
+        "id": "image_optim",
+        "label": "Bilde-optimalisering",
+        "dimension": "performance",
+        "result": "FAIL",
+        "evidence": "2 bilder, 2 m/ dimensjoner, 0 lazy",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:21.920Z"
+      },
+      {
+        "id": "third_party",
+        "label": "Tredjeparts-skript/-ressurser",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "1 eksterne domener (www.klarpakke.no)",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:21.921Z"
+      },
+      {
+        "id": "viewport",
+        "label": "Viewport meta",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "viewport tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:21.922Z"
+      },
+      {
+        "id": "media_queries",
+        "label": "Responsive CSS (@media)",
+        "dimension": "ux_mobile",
+        "result": "UNKNOWN",
+        "evidence": "stylesheets ikke observerbare",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:21.922Z"
+      },
+      {
+        "id": "lang",
+        "label": "Språk-attributt (lang)",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "no",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:21.922Z"
+      },
+      {
+        "id": "alt_text",
+        "label": "Alt-tekst på bilder",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "0/2 bilder mangler alt",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:21.922Z"
+      },
+      {
+        "id": "form_labels",
+        "label": "Skjemaetiketter",
+        "dimension": "accessibility",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen skjemainput",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:21.923Z"
+      },
+      {
+        "id": "heading_hierarchy",
+        "label": "Overskriftshierarki",
+        "dimension": "accessibility",
+        "result": "FAIL",
+        "evidence": "h1=2 h2=10 h3=10",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:21.944Z"
+      },
+      {
+        "id": "semantic",
+        "label": "Semantiske landemerker",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "3/4 (nav, main, footer)",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:21.959Z"
+      },
+      {
+        "id": "title",
+        "label": "Tittel",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "Klarpakke — Se regnestykket før du stoler på oss | Klarpakke",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:21.959Z"
+      },
+      {
+        "id": "meta_description",
+        "label": "Meta-beskrivelse",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "Gratis beta: 100 000 kr i lekepenger, en AI-pilot som forklarer alt på norsk, og backtest-bevis med gebyr inkludert. Kun i Norge.",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:21.960Z"
+      },
+      {
+        "id": "canonical",
+        "label": "Canonical",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "https://www.klarpakke.no",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:21.960Z"
+      },
+      {
+        "id": "robots_meta",
+        "label": "Robots-meta",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "index, follow",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:21.961Z"
+      },
+      {
+        "id": "robots_txt",
+        "label": "robots.txt",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "robots.txt tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:21.961Z"
+      },
+      {
+        "id": "sitemap",
+        "label": "Sitemap.xml",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "sitemap tilstede (16 URL-er)",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:22.437Z"
+      },
+      {
+        "id": "open_graph",
+        "label": "OpenGraph",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "title=true description=true image=true",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:22.438Z"
+      },
+      {
+        "id": "structured_data",
+        "label": "Strukturert data (JSON-LD)",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "JSON-LD tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:22.438Z"
+      },
+      {
+        "id": "header_csp",
+        "label": "Header: csp",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:22.438Z"
+      },
+      {
+        "id": "header_hsts",
+        "label": "Header: hsts",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:22.438Z"
+      },
+      {
+        "id": "header_xcto",
+        "label": "Header: xcto",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:22.438Z"
+      },
+      {
+        "id": "header_referrer",
+        "label": "Header: referrer",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:22.438Z"
+      },
+      {
+        "id": "header_permissions",
+        "label": "Header: permissions",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:22.438Z"
+      },
+      {
+        "id": "header_frame",
+        "label": "Header: frame",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:22.438Z"
+      },
+      {
+        "id": "mixed_content",
+        "label": "Blandet innhold (http på https)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "ingen http-referanser i HTML",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:22.439Z"
+      },
+      {
+        "id": "source_maps",
+        "label": "Eksponerte source maps",
+        "dimension": "security",
+        "result": "UNKNOWN",
+        "evidence": "skript ikke observerbare",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:22.439Z"
+      },
+      {
+        "id": "tech_disclosure",
+        "label": "Versjons-avsløring",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "cloudflare",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:22.439Z"
+      },
+      {
+        "id": "cookie_banner",
+        "label": "Cookie-banner",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "cookie/samtykke-element observert",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:22.441Z"
+      },
+      {
+        "id": "privacy_link",
+        "label": "Personvernerklæring-link",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "link til personvern observert",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:22.444Z"
+      },
+      {
+        "id": "consent_cmp",
+        "label": "Samtykke-plattform (CMP)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "trackere observert uten CMP",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:22.446Z"
+      },
+      {
+        "id": "contact_form",
+        "label": "Kontakt-/lead-skjema",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen <form> observert",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:22.446Z"
+      },
+      {
+        "id": "cta",
+        "label": "Call-to-action",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "CTA-tekst observert",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:22.447Z"
+      },
+      {
+        "id": "tech_framework",
+        "label": "Teknologi: framework",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "Next.js",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:22.457Z"
+      },
+      {
+        "id": "tech_cdn",
+        "label": "Teknologi: cdn",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "Cloudflare",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:22.457Z"
+      },
+      {
+        "id": "tech_hosting",
+        "label": "Teknologi: hosting",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "cloudflare",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:22.457Z"
+      },
+      {
+        "id": "tech_analytics",
+        "label": "Teknologi: analytics",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "Google Analytics/Tag Manager, Plausible",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:22.457Z"
+      },
+      {
+        "id": "security_headers",
+        "label": "Sikkerhetsheadere — gradering A",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "Gradering A. Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://pskhryjzkobytnfwucrb.supabas…; Strict-Transport-Security: max-age=63072000; includeSubDomains; preload; X-Frame-Options: DENY; X-Content-Type-Options: nosniff; Referrer-Policy: strict-origin-when-cross-origin; Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(… Trekk: CSP svak (unsafe-inline/unsafe-eval)",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-14T21:37:24.392Z"
+      },
+      {
+        "id": "cookies_attributes",
+        "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "1 cookies observert. Mangler HttpOnly: NEXT_LOCALE. Mangler Secure: NEXT_LOCALE. Mangler SameSite: alle har SameSite. (Cookie-navn + flagg kun — verdier aldri lagret/vist.)",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-14T21:37:24.394Z"
+      },
+      {
+        "id": "version_leaks",
+        "label": "Ingen versjonslekkasjer",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "Ingen server/x-powered-by/x-aspnet-version-header, <meta generator>, gammel jQuery eller WordPress-signatur observert.",
+        "confidence": "medium",
+        "source": "http_headers",
+        "observed_at": "2026-08-14T21:37:24.399Z"
+      },
+      {
+        "id": "tls_cert",
+        "label": "TLS-sertifikat gyldighet",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "notBefore=2026-07-28T08:21:14.000Z, notAfter=2026-10-26T09:20:56.000Z, issuer=C=US, O=Google Trust Services, CN=WE1, SAN=klarpakke.no, *.klarpakke.no",
+        "confidence": "high",
+        "source": "tls",
+        "observed_at": "2026-08-14T21:37:41.233Z"
+      },
+      {
+        "id": "tls_verify",
+        "label": "TLS-sertifikat-verifisering",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "verify return code: 0 (ok)",
+        "confidence": "high",
+        "source": "tls",
+        "observed_at": "2026-08-14T21:37:41.233Z"
+      },
+      {
+        "id": "tls_legacy",
+        "label": "Legacy-TLS (1.0/1.1) støtte",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+        "confidence": "medium",
+        "source": "tls",
+        "observed_at": "2026-08-14T21:37:41.233Z"
+      },
+      {
+        "id": "spf",
+        "label": "SPF (avsender-verifisering)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "v=spf1 include:_spf.domeneshop.no include:_spf.google.com include:spf.resend.com ~all — ~all er svakt, spoofing mulig",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-14T21:37:23.937Z"
+      },
+      {
+        "id": "spf_private_ip",
+        "label": "SPF: private IP-er i mekanismene",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "ingen private IP-er i SPF",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-14T21:37:23.938Z"
+      },
+      {
+        "id": "dkim",
+        "label": "DKIM (e-post-signering)",
+        "dimension": "security",
+        "result": "UNKNOWN",
+        "evidence": "ingen av probede selektorer funnet (kan ikke konkludere fravær)",
+        "confidence": "low",
+        "source": "dns",
+        "observed_at": "2026-08-14T21:37:24.762Z"
+      },
+      {
+        "id": "dmarc",
+        "label": "DMARC (spoofing-beskyttelse)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "p=none (kun overvåkning) — v=DMARC1; p=none; rua=mailto:dmarc@klarpakke.no; ruf=mailto:dmarc@klarpakke.no; fo=1; adkim=s; aspf=s",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-14T21:37:24.810Z"
+      },
+      {
+        "id": "mta_sts",
+        "label": "MTA-STS (håndhevet e-post-TLS)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-14T21:37:24.895Z"
+      },
+      {
+        "id": "tls_rpt",
+        "label": "TLS-RPT (TLS-rapportering)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen TLS-rapportering",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-14T21:37:24.954Z"
+      },
+      {
+        "id": "bimi",
+        "label": "BIMI (merkevare-logo i innboks)",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen BIMI (ikke påkrevd)",
+        "confidence": "low",
+        "source": "dns",
+        "observed_at": "2026-08-14T21:37:25.100Z"
+      },
+      {
+        "id": "caa",
+        "label": "CAA (sertifikat-utsteder-kontroll)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen CAA",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-14T21:37:25.214Z"
+      },
+      {
+        "id": "dnssec",
+        "label": "DNSSEC (signert sone)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "manglende AD-flag — sonen er ikke DNSSEC-signert",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-14T21:37:25.371Z"
+      },
+      {
+        "id": "dnsbl",
+        "label": "E-post-omdømme (DNSBL)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "mx.domeneshop.no (194.63.252.29) ikke listet",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-14T21:37:25.555Z"
+      },
+      {
+        "id": "subdomains",
+        "label": "Subdomene-eksponering (crt.sh)",
+        "dimension": "security",
+        "result": "UNKNOWN",
+        "evidence": "ingen data i crt.sh",
+        "confidence": "medium",
+        "source": "https",
+        "observed_at": "2026-08-14T21:37:29.409Z"
+      },
+      {
+        "id": "brreg_org",
+        "label": "Firma i Brreg (Enhetsregisteret)",
+        "dimension": "trust_privacy",
+        "result": "UNKNOWN",
+        "evidence": "ingen Brreg-treff for «Klarpakke»",
+        "confidence": "medium",
+        "source": "brreg",
+        "observed_at": "2026-08-14T21:37:23.362Z"
+      },
+      {
+        "id": "ssb_context",
+        "label": "Bransjekontekst (SSB)",
+        "dimension": "trust_privacy",
+        "result": "UNKNOWN",
+        "evidence": "ingen næringskode tilgjengelig",
+        "confidence": "medium",
+        "source": "ssb",
+        "observed_at": "2026-08-14T21:37:23.362Z"
+      },
+      {
+        "id": "norid_registered",
+        "label": "Domenet registrert (Norid)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "registrert 2025-08-30",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-14T21:37:23.647Z"
+      },
+      {
+        "id": "norid_changed",
+        "label": "Sist endret (Norid)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "sist endret 2026-02-01",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-14T21:37:23.647Z"
+      },
+      {
+        "id": "norid_dnssec",
+        "label": "DNSSEC (Norid)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "DNSSEC ikke aktivert (delegationSigned=false)",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-14T21:37:23.647Z"
+      },
+      {
+        "id": "norid_registrar",
+        "label": "Registrar (Norid)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "registrar: Domeneshop AS",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-14T21:37:23.647Z"
+      },
+      {
+        "id": "history_exists",
+        "label": "Arkivhistorikk finnes",
+        "dimension": "reliability",
+        "result": "UNKNOWN",
+        "evidence": "ingen arkiverte versjoner funnet i Wayback for klarpakke.no",
+        "confidence": "medium",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-14T21:37:37.361Z"
+      },
+      {
+        "id": "cmp_banner",
+        "label": "Cookie-banner / samtykke-plattform (CMP)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "generisk cookie/samtykke-banner observert (norsk tekst: cookie/informasjonskapsler + samtykke/godta/aksepter)",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-14T21:37:23.746Z"
+      },
+      {
+        "id": "consent_real_choice",
+        "label": "Reelt valg (avvis-knapp)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "avvis/avslå/reject-alternativ observert («avvis»)",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T21:37:23.751Z"
+      },
+      {
+        "id": "consent_prechecked",
+        "label": "Forhåndsavkrysset samtykke",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T21:37:23.773Z"
+      },
+      {
+        "id": "privacy_policy",
+        "label": "Personvernerklæring",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "personvernerklæring lenket i footer",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T21:37:23.804Z"
+      },
+      {
+        "id": "third_party_trackers",
+        "label": "Tredjeparts-trackere",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "ingen kjente tredjeparts-trackere observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T21:37:23.817Z"
+      },
+      {
+        "id": "google_fonts",
+        "label": "Google Fonts (ekstern)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "ingen ekstern Google Fonts observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T21:37:23.824Z"
+      },
+      {
+        "id": "ecom_price_vat",
+        "label": "Pris inkl. mva",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "pris inkl. mva-tekst observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T21:37:23.831Z"
+      },
+      {
+        "id": "ecom_angrerett",
+        "label": "Angrerett-informasjon",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T21:37:23.838Z"
+      },
+      {
+        "id": "ecom_klage",
+        "label": "Klageadgang / tvisteløsning",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "klageadgang/tvisteløsning observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T21:37:23.845Z"
+      },
+      {
+        "id": "psi_mobile",
+        "label": "PageSpeed mobil",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-feil: HTTP 403",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-14T21:37:26.895Z"
+      },
+      {
+        "id": "psi_desktop",
+        "label": "PageSpeed desktop",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-feil: HTTP 403",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-14T21:37:26.895Z"
+      },
+      {
+        "id": "psi_availability",
+        "label": "PageSpeed API tilgjengelig",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-14T21:37:26.895Z"
+      },
+      {
+        "id": "social_profiles",
+        "label": "Sosiale medier (lenker fra nettsiden)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T21:37:23.897Z"
+      },
+      {
+        "id": "nap_phone",
+        "label": "Telefon på nettsiden",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-14T21:37:23.900Z"
+      },
+      {
+        "id": "nap_email",
+        "label": "E-post på nettsiden",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-14T21:37:23.900Z"
+      },
+      {
+        "id": "google_business",
+        "label": "Google Business Profile (anmeldelser, kategori)",
+        "dimension": "trust_privacy",
+        "result": "UNKNOWN",
+        "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+        "confidence": "medium",
+        "source": "places_api",
+        "observed_at": "2026-08-14T21:37:23.905Z"
+      },
+      {
+        "id": "ai_content_quality",
+        "label": "Innholdskvalitet (AI-vurdert)",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "Klarpakke posisjonerer seg som en transparent og risikofri inngang til kryptotrading for det norske markedet, med vekt på dokumentasjon og ærlighet om risiko. Siden tilbyr en gratis beta med lekepenger, AI-veiledning på norsk og backtest-resultater som viser både tap og gevinster, noe som bygger tillit. Budskapet er klart og pedagogisk, med tydelige løfter om hva de aldri vil gjøre, og en konkret oppfordring til handling for de første 100 registrerte.",
+        "confidence": "medium",
+        "source": "llm_analysis",
+        "observed_at": "2026-08-14T21:37:28.787Z"
+      },
+      {
+        "id": "ai_content_freshness",
+        "label": "Aktualitet (AI-vurdert)",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "Gratis beta kun i Norge · 100 000 kr i lekepenger · AI-pilot som forklarer på norsk · Backtest-bevis med gebyr inkludert · Ingen kredittkort, KYC eller binding · Norsk plattform · 5000 KLT-tokens til de 100 første · 90 dager med ekte data · Historisk avkastning er ingen garanti for fremtidig avkastning · De 100 første får gratis tilgang for alltid",
+        "confidence": "medium",
+        "source": "llm_analysis",
+        "observed_at": "2026-08-14T21:37:28.787Z"
+      }
+    ],
+    "raw": {
+      "home": {
+        "status": 200,
+        "status_text": "OK",
+        "error": null,
+        "final_url": "https://www.klarpakke.no/no",
+        "redirects": [
+          {
+            "from": "https://klarpakke.no",
+            "to": "https://www.klarpakke.no/",
+            "status": 301
+          },
+          {
+            "from": "https://www.klarpakke.no/",
+            "to": "https://www.klarpakke.no/no",
+            "status": 307
+          }
+        ]
+      },
+      "https": {
+        "ok": true,
+        "detail": "HTTPS leverte respons"
+      },
+      "redirect_chain": [
+        {
+          "from": "https://klarpakke.no",
+          "to": "https://www.klarpakke.no/",
+          "status": 301
+        },
+        {
+          "from": "https://www.klarpakke.no/",
+          "to": "https://www.klarpakke.no/no",
+          "status": 307
+        }
+      ],
+      "robots": {
+        "present": true,
+        "disallow": [
+          "/api/",
+          "/_next/",
+          "/admin-dashboard/",
+          "/admin/",
+          "/super-admin/",
+          "/private/",
+          "/*.json$",
+          "/*.rsc$",
+          "/admin-login",
+          "/dashboard/",
+          "/login",
+          "/register",
+          "/registrer"
+        ]
+      },
+      "crawl": {
+        "pages_checked": 10,
+        "crawled": 10,
+        "broken": []
+      },
+      "html_length": 335492,
+      "asset_failures": {
+        "checked": 0,
+        "failed": 0,
+        "details": []
+      },
+      "compression": "br",
+      "caching": "public, max-age=60, s-maxage=300, stale-while-revalidate=86400, stale-if-error=3600",
+      "render_blocking_scripts": 1,
+      "images": {
+        "total": 2,
+        "with_dimensions": 2,
+        "lazy": 0
+      },
+      "third_party": [
+        "www.klarpakke.no"
+      ],
+      "viewport": true,
+      "media_queries": null,
+      "lang": "no",
+      "img_missing_alt": 0,
+      "forms_accessibility": {
+        "inputs": 0,
+        "labels": 0,
+        "inputs_with_label": 0
+      },
+      "headings": {
+        "h1": 2,
+        "h2": 10,
+        "h3": 10,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "landmarks": [
+        "nav",
+        "main",
+        "footer"
+      ],
+      "title": "Klarpakke — Se regnestykket før du stoler på oss | Klarpakke",
+      "meta_description": "Gratis beta: 100 000 kr i lekepenger, en AI-pilot som forklarer alt på norsk, og backtest-bevis med gebyr inkludert. Kun i Norge.",
+      "canonical": "https://www.klarpakke.no",
+      "robots_meta": "index, follow",
+      "sitemap": {
+        "status": 200,
+        "urls": 16
+      },
+      "open_graph": {
+        "title": true,
+        "description": true,
+        "image": true
+      },
+      "structured_data": true,
+      "security_headers": {
+        "csp": "default-src 'self'; script-src 'self' 'unsafe-inline' https://pskhryjzkobytnfwucrb.supabase.co https://*.tradingview.com https://plausible.io https://utt.impactcdn.com https://www.googletagmanager.com https://www.google-analytics.com https://challenges.cloudflare.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://pskhryjzkobytnfwucrb.supabase.co https://*.tradingview.com https://*.coingecko.com https://klarpakke.no https://www.klarpakke.no; font-src 'self' data: https://r2cdn.perplexity.ai; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; connect-src 'self' https://pskhryjzkobytnfwucrb.supabase.co wss://pskhryjzkobytnfwucrb.supabase.co https://api.kraken.com https://api.coingecko.com wss://ws.kraken.com https://*.sanity.io wss://*.sanity.io https://plausible.io https://o4509555622608896.ingest.de.sentry.io https://*.ingest.de.sentry.io; frame-src 'self'; upgrade-insecure-requests",
+        "hsts": "max-age=63072000; includeSubDomains; preload",
+        "xcto": "nosniff",
+        "referrer": "strict-origin-when-cross-origin",
+        "permissions": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()",
+        "frame": "DENY"
+      },
+      "mixed_content": 0,
+      "source_maps": null,
+      "tech_disclosure": {
+        "server": "cloudflare",
+        "x_powered_by": null
+      },
+      "cookie_banner": true,
+      "analytics": [
+        "Google Analytics/Tag Manager",
+        "Plausible"
+      ],
+      "privacy_link": true,
+      "consent_cmp": false,
+      "forms_count": 0,
+      "cta": true,
+      "automation_signals": {
+        "contact_form": false,
+        "analytics": true,
+        "cmp": false,
+        "chat": true,
+        "booking": true,
+        "newsletter": true
+      },
+      "technology": {
+        "framework": "Next.js",
+        "cms": null,
+        "cdn": "Cloudflare",
+        "hosting": "cloudflare",
+        "analytics": [
+          "Google Analytics/Tag Manager",
+          "Plausible"
+        ]
+      }
+    }
+  },
+  "v2": {
+    "sections": [
+      {
+        "section": "security_hacker",
+        "title": "Hva en hacker ser",
+        "checks": [
+          {
+            "id": "security_headers",
+            "label": "Sikkerhetsheadere — gradering A",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Gradering A. Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://pskhryjzkobytnfwucrb.supabas…; Strict-Transport-Security: max-age=63072000; includeSubDomains; preload; X-Frame-Options: DENY; X-Content-Type-Options: nosniff; Referrer-Policy: strict-origin-when-cross-origin; Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(… Trekk: CSP svak (unsafe-inline/unsafe-eval)",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-14T21:37:24.392Z"
+          },
+          {
+            "id": "cookies_attributes",
+            "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "1 cookies observert. Mangler HttpOnly: NEXT_LOCALE. Mangler Secure: NEXT_LOCALE. Mangler SameSite: alle har SameSite. (Cookie-navn + flagg kun — verdier aldri lagret/vist.)",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-14T21:37:24.394Z"
+          },
+          {
+            "id": "version_leaks",
+            "label": "Ingen versjonslekkasjer",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen server/x-powered-by/x-aspnet-version-header, <meta generator>, gammel jQuery eller WordPress-signatur observert.",
+            "confidence": "medium",
+            "source": "http_headers",
+            "observed_at": "2026-08-14T21:37:24.399Z"
+          },
+          {
+            "id": "tls_cert",
+            "label": "TLS-sertifikat gyldighet",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "notBefore=2026-07-28T08:21:14.000Z, notAfter=2026-10-26T09:20:56.000Z, issuer=C=US, O=Google Trust Services, CN=WE1, SAN=klarpakke.no, *.klarpakke.no",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-14T21:37:41.233Z"
+          },
+          {
+            "id": "tls_verify",
+            "label": "TLS-sertifikat-verifisering",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "verify return code: 0 (ok)",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-14T21:37:41.233Z"
+          },
+          {
+            "id": "tls_legacy",
+            "label": "Legacy-TLS (1.0/1.1) støtte",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+            "confidence": "medium",
+            "source": "tls",
+            "observed_at": "2026-08-14T21:37:41.233Z"
+          }
+        ],
+        "raw": {
+          "url": "https://klarpakke.no/",
+          "final_url": "https://www.klarpakke.no/no",
+          "status": 200,
+          "status_text": "OK",
+          "redirects": [
+            {
+              "from": "https://klarpakke.no/",
+              "to": "https://www.klarpakke.no/",
+              "status": 301
+            },
+            {
+              "from": "https://www.klarpakke.no/",
+              "to": "https://www.klarpakke.no/no",
+              "status": 307
+            }
+          ],
+          "headers": {
+            "alt-svc": "h3=\":443\"; ma=86400",
+            "cache-control": "public, max-age=60, s-maxage=300, stale-while-revalidate=86400, stale-if-error=3600",
+            "cf-ray": "a2b319bf59f0712d-OSL",
+            "connection": "keep-alive",
+            "content-encoding": "br",
+            "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline' https://pskhryjzkobytnfwucrb.supabase.co https://*.tradingview.com https://plausible.io https://utt.impactcdn.com https://www.googletagmanager.com https://www.google-analytics.com https://challenges.cloudflare.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://pskhryjzkobytnfwucrb.supabase.co https://*.tradingview.com https://*.coingecko.com https://klarpakke.no https://www.klarpakke.no; font-src 'self' data: https://r2cdn.perplexity.ai; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; connect-src 'self' https://pskhryjzkobytnfwucrb.supabase.co wss://pskhryjzkobytnfwucrb.supabase.co https://api.kraken.com https://api.coingecko.com wss://ws.kraken.com https://*.sanity.io wss://*.sanity.io https://plausible.io https://o4509555622608896.ingest.de.sentry.io https://*.ingest.de.sentry.io; frame-src 'self'; upgrade-insecure-requests",
+            "content-type": "text/html; charset=utf-8",
+            "cross-origin-embedder-policy": "credentialless",
+            "cross-origin-opener-policy": "same-origin",
+            "cross-origin-resource-policy": "cross-origin",
+            "date": "Fri, 14 Aug 2026 21:37:24 GMT",
+            "link": "<https://www.klarpakke.no/no>; rel=\"alternate\"; hreflang=\"no\", <https://www.klarpakke.no/en>; rel=\"alternate\"; hreflang=\"en\", <https://www.klarpakke.no/>; rel=\"alternate\"; hreflang=\"x-default\", <https://klarpakke.no/:path*>; rel=\"canonical\"",
+            "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+            "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=X8oRrW41VObJnR8v6hoSJLGqpF9RZg6xAof5Z28MfG2o%2B7q9EJl%2BVU0KNi1iNkzxqIlQucL8lxW%2BCFcpdf7NjVePxlEb4bRAai%2BuzOVa%2B61FE6peqfTtHlT4XatcLv7dUS5G\"}]}",
+            "server": "cloudflare",
+            "speculation-rules": "\"/cdn-cgi/speculation\"",
+            "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+            "transfer-encoding": "chunked",
+            "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+            "x-content-type-options": "nosniff",
+            "x-csp-nonce": "McMgKxboFxEcQQ3Vd8LXvg",
+            "x-dns-prefetch-control": "on",
+            "x-frame-options": "DENY"
+          },
+          "security_grade": "A",
+          "security_deductions": [
+            "CSP svak (unsafe-inline/unsafe-eval)"
+          ],
+          "cookies": [
+            {
+              "name": "NEXT_LOCALE",
+              "httpOnly": false,
+              "secure": false,
+              "sameSite": "lax"
+            }
+          ],
+          "version_leaks": [],
+          "tls": {
+            "opensslAvailable": true,
+            "cert": {
+              "notBefore": "2026-07-28T08:21:14.000Z",
+              "notAfter": "2026-10-26T09:20:56.000Z",
+              "issuer": "C=US, O=Google Trust Services, CN=WE1",
+              "san": [
+                "klarpakke.no",
+                "*.klarpakke.no"
+              ]
+            },
+            "verify": {
+              "code": 0,
+              "description": "ok"
+            },
+            "legacy": {
+              "tls1": "blocked",
+              "tls1_1": "blocked"
+            }
+          }
+        }
+      },
+      {
+        "section": "email_dns",
+        "title": "E-post & DNS-sikkerhet",
+        "checks": [
+          {
+            "id": "spf",
+            "label": "SPF (avsender-verifisering)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "v=spf1 include:_spf.domeneshop.no include:_spf.google.com include:spf.resend.com ~all — ~all er svakt, spoofing mulig",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:37:23.937Z"
+          },
+          {
+            "id": "spf_private_ip",
+            "label": "SPF: private IP-er i mekanismene",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen private IP-er i SPF",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:37:23.938Z"
+          },
+          {
+            "id": "dkim",
+            "label": "DKIM (e-post-signering)",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "ingen av probede selektorer funnet (kan ikke konkludere fravær)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:37:24.762Z"
+          },
+          {
+            "id": "dmarc",
+            "label": "DMARC (spoofing-beskyttelse)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "p=none (kun overvåkning) — v=DMARC1; p=none; rua=mailto:dmarc@klarpakke.no; ruf=mailto:dmarc@klarpakke.no; fo=1; adkim=s; aspf=s",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:37:24.810Z"
+          },
+          {
+            "id": "mta_sts",
+            "label": "MTA-STS (håndhevet e-post-TLS)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:37:24.895Z"
+          },
+          {
+            "id": "tls_rpt",
+            "label": "TLS-RPT (TLS-rapportering)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen TLS-rapportering",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:37:24.954Z"
+          },
+          {
+            "id": "bimi",
+            "label": "BIMI (merkevare-logo i innboks)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen BIMI (ikke påkrevd)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:37:25.100Z"
+          },
+          {
+            "id": "caa",
+            "label": "CAA (sertifikat-utsteder-kontroll)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen CAA",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:37:25.214Z"
+          },
+          {
+            "id": "dnssec",
+            "label": "DNSSEC (signert sone)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "manglende AD-flag — sonen er ikke DNSSEC-signert",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:37:25.371Z"
+          },
+          {
+            "id": "dnsbl",
+            "label": "E-post-omdømme (DNSBL)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "mx.domeneshop.no (194.63.252.29) ikke listet",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:37:25.555Z"
+          },
+          {
+            "id": "subdomains",
+            "label": "Subdomene-eksponering (crt.sh)",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "ingen data i crt.sh",
+            "confidence": "medium",
+            "source": "https",
+            "observed_at": "2026-08-14T21:37:29.409Z"
+          }
+        ],
+        "raw": {
+          "original": "klarpakke.no",
+          "registrable": "klarpakke.no",
+          "subdomain_of_input": false,
+          "spf": {
+            "record": "v=spf1 include:_spf.domeneshop.no include:_spf.google.com include:spf.resend.com ~all",
+            "policy": "~all",
+            "private_ips": []
+          },
+          "dkim": null,
+          "dmarc": {
+            "record": "v=DMARC1; p=none; rua=mailto:dmarc@klarpakke.no; ruf=mailto:dmarc@klarpakke.no; fo=1; adkim=s; aspf=s",
+            "p": "none",
+            "policy": "none"
+          },
+          "mta_sts": {
+            "txt": false,
+            "policy": false,
+            "policy_status": 0
+          },
+          "tls_rpt": null,
+          "bimi": null,
+          "caa": {
+            "records": [],
+            "issuers": []
+          },
+          "dnssec": "\n; <<>> DiG 9.10.6 <<>> +dnssec DNSKEY klarpakke.no +time=5 +tries=1\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 62704\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags: do; udp: 512\n;; QUESTION SECTION:\n;klarpakke.no.\t\t\tIN\tDNSKEY\n\n;; AUTHORITY SECTION:\nklarpakke.no.\t\t624\tIN\tSOA\thaley.ns.cloudflare.com. dns.cloudflare.com. 2412064480 10000 2400 604800 1800\n\n;; Query time: 47 msec\n;; SERVER: 100.100.100.100#53(100.100.100.100)\n;; WHEN: Fri Aug 14 23:37:25 CEST 2026\n;; MSG SIZE  rcvd: 104\n\n",
+          "mx": [
+            {
+              "exchange": "mx.domeneshop.no",
+              "priority": 10
+            },
+            {
+              "exchange": "mail.domeneshop.net",
+              "priority": 10
+            },
+            {
+              "exchange": "mail2.domeneshop.net",
+              "priority": 20
+            }
+          ],
+          "dnsbl": {
+            "mx": "mx.domeneshop.no",
+            "ip": "194.63.252.29",
+            "listed": false,
+            "host": "29.252.63.194.zen.spamhaus.org"
+          },
+          "subdomains": {
+            "count": 0,
+            "unique": [],
+            "interesting": []
+          }
+        }
+      },
+      {
+        "section": "norge",
+        "title": "Norge-data (Brreg · Norid · SSB)",
+        "checks": [
+          {
+            "id": "brreg_org",
+            "label": "Firma i Brreg (Enhetsregisteret)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "ingen Brreg-treff for «Klarpakke»",
+            "confidence": "medium",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:37:23.362Z"
+          },
+          {
+            "id": "ssb_context",
+            "label": "Bransjekontekst (SSB)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "ingen næringskode tilgjengelig",
+            "confidence": "medium",
+            "source": "ssb",
+            "observed_at": "2026-08-14T21:37:23.362Z"
+          },
+          {
+            "id": "norid_registered",
+            "label": "Domenet registrert (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrert 2025-08-30",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-14T21:37:23.647Z"
+          },
+          {
+            "id": "norid_changed",
+            "label": "Sist endret (Norid)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "sist endret 2026-02-01",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-14T21:37:23.647Z"
+          },
+          {
+            "id": "norid_dnssec",
+            "label": "DNSSEC (Norid)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "DNSSEC ikke aktivert (delegationSigned=false)",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-14T21:37:23.647Z"
+          },
+          {
+            "id": "norid_registrar",
+            "label": "Registrar (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrar: Domeneshop AS",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-14T21:37:23.647Z"
+          }
+        ],
+        "raw": {
+          "brreg": {
+            "unit": null,
+            "search": {
+              "tried": [
+                {
+                  "query": "Klarpakke",
+                  "hits": 0
+                }
+              ]
+            },
+            "selection": null,
+            "error": "ingen treff"
+          },
+          "norid": {
+            "domain": "klarpakke.no",
+            "created": "2025-08-30",
+            "changed": "2026-02-01",
+            "dnssec": false,
+            "registrar": "Domeneshop AS",
+            "status": null
+          },
+          "ssb": {}
+        }
+      },
+      {
+        "section": "history",
+        "title": "Historikk (Wayback Machine)",
+        "checks": [
+          {
+            "id": "history_exists",
+            "label": "Arkivhistorikk finnes",
+            "dimension": "reliability",
+            "result": "UNKNOWN",
+            "evidence": "ingen arkiverte versjoner funnet i Wayback for klarpakke.no",
+            "confidence": "medium",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-14T21:37:37.361Z"
+          }
+        ],
+        "raw": {
+          "snapshots": [],
+          "first_seen": null,
+          "last_seen": null,
+          "snapshot_count": 0,
+          "error": "ingen arkiverte versjoner"
+        }
+      },
+      {
+        "section": "compliance",
+        "title": "Compliance-signaler Norge",
+        "checks": [
+          {
+            "id": "cmp_banner",
+            "label": "Cookie-banner / samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "generisk cookie/samtykke-banner observert (norsk tekst: cookie/informasjonskapsler + samtykke/godta/aksepter)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.746Z"
+          },
+          {
+            "id": "consent_real_choice",
+            "label": "Reelt valg (avvis-knapp)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "avvis/avslå/reject-alternativ observert («avvis»)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.751Z"
+          },
+          {
+            "id": "consent_prechecked",
+            "label": "Forhåndsavkrysset samtykke",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.773Z"
+          },
+          {
+            "id": "privacy_policy",
+            "label": "Personvernerklæring",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "personvernerklæring lenket i footer",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.804Z"
+          },
+          {
+            "id": "third_party_trackers",
+            "label": "Tredjeparts-trackere",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen kjente tredjeparts-trackere observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.817Z"
+          },
+          {
+            "id": "google_fonts",
+            "label": "Google Fonts (ekstern)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen ekstern Google Fonts observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.824Z"
+          },
+          {
+            "id": "ecom_price_vat",
+            "label": "Pris inkl. mva",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "pris inkl. mva-tekst observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.831Z"
+          },
+          {
+            "id": "ecom_angrerett",
+            "label": "Angrerett-informasjon",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.838Z"
+          },
+          {
+            "id": "ecom_klage",
+            "label": "Klageadgang / tvisteløsning",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "klageadgang/tvisteløsning observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.845Z"
+          }
+        ],
+        "raw": {
+          "url": "https://klarpakke.no",
+          "fetched": false,
+          "status": null,
+          "fetch_error": null,
+          "html_length": 335492,
+          "script_srcs": [
+            "/_next/static/chunks/22beg46bl_447.js",
+            "/_next/static/chunks/310g312ovqhr9.js",
+            "/_next/static/chunks/2n_cspchycar5.js",
+            "/_next/static/chunks/2ejk_26znfoeu.js",
+            "/_next/static/chunks/1_d--gflcn6sb.js",
+            "/_next/static/chunks/3l9mpdpv245m9.js",
+            "/_next/static/chunks/turbopack-0_e1yl_v_pyj5.js",
+            "/_next/static/chunks/2yl1jv4w6po1z.js",
+            "/_next/static/chunks/3jbpx80-t4ivc.js",
+            "/_next/static/chunks/2bi0t_zht75p6.js",
+            "/_next/static/chunks/15ykg6jqzh9vs.js",
+            "/_next/static/chunks/30ycni0ezcatm.js",
+            "/_next/static/chunks/3a4pqfcm4v55w.js",
+            "/_next/static/chunks/2at7bpa4hj1i0.js",
+            "/_next/static/chunks/3pj4fs3yq0zx2.js",
+            "/_next/static/chunks/2ji0md2z-xiez.js",
+            "/_next/static/chunks/1g_clkpc_z1ra.js",
+            "/_next/static/chunks/0f-m5-d1c0u1-.js",
+            "/_next/static/chunks/2kjkvd1637tzc.js",
+            "/_next/static/chunks/3j1kmqrdu36cu.js",
+            "/_next/static/chunks/1ln2hsnmw2dkq.js",
+            "/_next/static/chunks/3m_4_yz8isiky.js",
+            "/_next/static/chunks/12pqe7y9wkaqy.js",
+            "/_next/static/chunks/38ofk4_z-r_t1.js",
+            "/_next/static/chunks/1q4vgyeta7r1r.js",
+            "/_next/static/chunks/1y4ctjtq-1fwp.js",
+            "/_next/static/chunks/0cz1d0mv5g_q7.js",
+            "/_next/static/chunks/08wim6u7-nkq7.js"
+          ],
+          "cmp": {
+            "named": [],
+            "generic_text": true
+          },
+          "consent_reject": "avvis",
+          "consent_prechecked": {
+            "count": 0,
+            "described": []
+          },
+          "privacy": {
+            "linked": true,
+            "in_footer": true
+          },
+          "trackers": [],
+          "google_fonts": {
+            "external": false,
+            "self_hosted": false
+          },
+          "ecommerce": {
+            "shop_signal": true,
+            "price_vat": true,
+            "angrerett": false,
+            "klage": true
+          }
+        }
+      },
+      {
+        "section": "pagespeed",
+        "title": "Fart (PageSpeed Insights + CrUX)",
+        "checks": [
+          {
+            "id": "psi_mobile",
+            "label": "PageSpeed mobil",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 403",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-14T21:37:26.895Z"
+          },
+          {
+            "id": "psi_desktop",
+            "label": "PageSpeed desktop",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 403",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-14T21:37:26.895Z"
+          },
+          {
+            "id": "psi_availability",
+            "label": "PageSpeed API tilgjengelig",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-14T21:37:26.895Z"
+          }
+        ],
+        "raw": {
+          "mobile": {
+            "error": "HTTP 403",
+            "data": null
+          },
+          "desktop": {
+            "error": "HTTP 403",
+            "data": null
+          }
+        }
+      },
+      {
+        "section": "presence",
+        "title": "Tilstedeværelse (sosiale medier · NAP)",
+        "checks": [
+          {
+            "id": "social_profiles",
+            "label": "Sosiale medier (lenker fra nettsiden)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.897Z"
+          },
+          {
+            "id": "nap_phone",
+            "label": "Telefon på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.900Z"
+          },
+          {
+            "id": "nap_email",
+            "label": "E-post på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-14T21:37:23.900Z"
+          },
+          {
+            "id": "google_business",
+            "label": "Google Business Profile (anmeldelser, kategori)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+            "confidence": "medium",
+            "source": "places_api",
+            "observed_at": "2026-08-14T21:37:23.905Z"
+          }
+        ],
+        "raw": {
+          "social": {},
+          "contact": {
+            "tel": null,
+            "email": null,
+            "org_nr_on_page": null
+          },
+          "google_business": {
+            "status": "unknown",
+            "reason": "krever Google Places API-nøkkel — ikke tilgjengelig uten"
+          }
+        }
+      },
+      {
+        "section": "ai_analysis",
+        "title": "AI-analyse av innhold (DeepSeek)",
+        "checks": [
+          {
+            "id": "ai_content_quality",
+            "label": "Innholdskvalitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "Klarpakke posisjonerer seg som en transparent og risikofri inngang til kryptotrading for det norske markedet, med vekt på dokumentasjon og ærlighet om risiko. Siden tilbyr en gratis beta med lekepenger, AI-veiledning på norsk og backtest-resultater som viser både tap og gevinster, noe som bygger tillit. Budskapet er klart og pedagogisk, med tydelige løfter om hva de aldri vil gjøre, og en konkret oppfordring til handling for de første 100 registrerte.",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-14T21:37:28.787Z"
+          },
+          {
+            "id": "ai_content_freshness",
+            "label": "Aktualitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "Gratis beta kun i Norge · 100 000 kr i lekepenger · AI-pilot som forklarer på norsk · Backtest-bevis med gebyr inkludert · Ingen kredittkort, KYC eller binding · Norsk plattform · 5000 KLT-tokens til de 100 første · 90 dager med ekte data · Historisk avkastning er ingen garanti for fremtidig avkastning · De 100 første får gratis tilgang for alltid",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-14T21:37:28.787Z"
+          }
+        ],
+        "raw": {
+          "available": true,
+          "error": null,
+          "prompt": "Du er analyse-delen av Arch Audit (norsk verktøy). Analyser TEKSTEN på en norsk bedrifts hjemmeside. Vurder kun det som står i teksten under — ikke finn på noe.\nURL: https://klarpakke.no\nTittel: Klarpakke — Se regnestykket før du stoler på oss | Klarpakke\nMeta-beskrivelse: Gratis beta: 100 000 kr i lekepenger, en AI-pilot som forklarer alt på norsk, og backtest-bevis med gebyr inkludert. Kun i Norge.\nTekstutdrag (hjemmesiden):\nKlarpakke — Se regnestykket før du stoler på oss | Klarpakke Klarpakke Klarpakke — Lær å trade krypto på den smarte måten I BETA Lær Priser Om oss Logg inn Start gratis Lær Priser Om oss Logg inn Start gratis Laster... Klarpakke | Norges enkleste krypto-trading Vilkår Personvern Kontakt © 2026 Klarpakke Project. · — Klarpakke Klarpakke — Lær å trade krypto på den smarte måten I BETA Lær Priser Om oss Logg inn Start gratis Lær Priser Om oss Logg inn Start gratis Laster... Klarpakke | Norges enkleste krypto-trading Vilkår Personvern Kontakt © 2026 Klarpakke Project. · — 🔬 Gratis beta — kun i Norge · 5000 KLT (Klarpakke-tokens) til de 100 første 🪙 Vi viser deg regnestykket før du stoler på oss. 100 000 kr i lekepenger. En AI-pilot som forklarer alt på norsk. Og bevis på hvordan strategien har gått — med gebyr og alt regnet inn. Start gratis → ✓ Ingen kredittkort ✓ Ingen KYC ✓ Ingen binding ✓ Norsk plattform Dette lover vi. Dette lover vi aldri. Krypto-bransjen er full av løfter. Her er våre — og grensene våre. Dette lover vi ✓ ✓ Du trener alltid gratis med 100 000 kr lekepenger ✓ Hver handel forklart med én norsk setning ✓ Vi viser deg backtest-resultatene — med gebyr inkludert ✓ Vi rører aldri pengene dine ✓ Du kan stoppe alt med én stor rød knapp Dette lover vi aldri ✕ ✕ Vi lover aldri gevinst — ingen kan garantere det i krypto ✕ Vi viser aldri tall vi ikke kan dokumentere ✕ Vi tar aldri ut penger fra kontoen din ✕ Vi skjuler aldri risiko i liten skrift ✕ Vi selger aldri drømmen om å bli rik fort Beviset: 90 dager med ekte data Vi kjører strategien mot faktiske historiske kurser — og viser deg utfallet. −1 229 kr Slik hadde det gått med 100 000 kr siste 90 dager. Markedet (kjøp og hold) i samme periode : −1 924 kr Ekte kursdata Kurser hentet fra faktiske børsdata, dag for dag. Gebyr inkludert Vi trekker fra handelsgebyr og slippage i regnestykket — slik det ville vært i virkeligheten. Alt vises Også periodene hvor strategien gikk på tap. Du får hele bildet. Historisk avkastning er ingen garanti for fremtidig avkastning. Slik kommer du i gang 1 Lag gratis konto E-post er alt som trengs. Under ett minutt. 2 Få 100 000 kr lekepenger Ekte markedspriser, null ekte risiko. 3 Start Piloten Den handler og forklarer. Du lærer underveis. De 100 første får gratis tilgang — for alltid Som takk for at dere tester Klarpakke først, får de 100 første registrerte gratis tilgang for livet — og 5000 KLT (Klarpakke-tokens). Sikre din plass → Spørsmål og svar Hvorfor skal jeg stole på dere? + Det skal du ikke — ikke uten bevis. Derfor viser vi deg backtest-resultatene med gebyr inkludert, lar deg trene gratis med lekepenger, og rører aldri pengene dine. Still oss gjerne spørsmål på post@klarpakke.no. Koster det noe? + Nei. Beta er gratis, og paper trading er gratis og ubegrenset. Senere kommer betalte planer — da betaler du for verktøyene, aldri for avkastningsløfter. Hva er en backtest? + Vi kjører handelsstrategien mot historiske kursdata og viser hva utfallet ville blitt. Det forteller deg hvordan strategien har oppført seg — ikke hvordan fremtiden blir. Kan jeg tape ekte penger? + Nei — Klarpakke er i beta. Du handler kun med lekepenger på ekte markedsdata. Betaling og live-handel er ikke tilgjengelig ennå. Hva er KLT? + KLT er Klarpakke-tokens — vår takk til tidlige testere. De 100 første registrerte får 5000 KLT og gratis tilgang for livet. 🔬 Gratis beta — kun i Norge · 5000 KLT (Klarpakke-tokens) til de 100 første 🪙 Vi viser deg regnestykket før du stoler på oss. 100 000 kr i lekepenger. En AI-pilot som forklarer alt på norsk. Og bevis på hvordan strategien har gått — med gebyr og alt regnet inn. Start gratis → ✓ Ingen kredittkort ✓ Ingen KYC ✓ Ingen binding ✓ Norsk plattform Dette lover vi. Dette lover vi aldri. Krypto-bransjen er full av løfter. Her er våre — og grensene våre. Dette lover vi ✓ ✓ Du trener alltid gratis med 100 000 kr lekepenger ✓ Hver handel forklart med én norsk setning ✓ Vi viser deg backtest-resultatene — med gebyr inkludert ✓ Vi rører aldri pengene dine ✓ Du kan stoppe alt med én stor rød knapp Dette lover vi aldri ✕ ✕ Vi lover aldri gevinst — ingen kan garantere det i krypto ✕ Vi viser aldri tall vi ikke kan dokumentere ✕ Vi tar aldri ut penger fra kontoen din ✕ Vi skjuler aldri risiko i liten skrift ✕ Vi selger aldri drømmen om å bli rik fort Beviset: 90 dager med ekte data Vi kjører strategien mot faktiske historiske kurser — og viser deg utfallet. −1 229 kr Slik hadde det gått med 100 000 kr siste 90 dager. Markedet (kjøp og hold) i samme periode : −1 924 kr Ekte kursdata Kurser hentet fra faktiske børsdata, dag for dag. Gebyr inkludert Vi trekker fra handelsgebyr og slippage i regnestykket — slik det ville vært i virkeligheten. Alt vises Også periodene hvor strategien gikk på tap. Du får hele bildet. Historisk avkastning er ingen garanti for fremtidig avkastning. Slik kommer du i gang 1 Lag gratis konto E-post er alt som trengs. Under ett minutt. 2 Få 100 000 kr lekepenger Ekte markedspriser, null ekte risiko. 3 Start Piloten Den handler og forklarer. Du lærer underveis. De 100 første får gratis tilgang — for alltid Som takk for at dere tester Klarpakke først, får de 100 første registrerte gratis tilgang for livet — og 5000 KLT (Klarpakke-tokens). Sikre din plass → Spørsmål og svar Hvorfor skal jeg stole på dere? + Det skal du ikke — ikke uten bevis. Derfor viser vi deg backtest-resultatene med gebyr inkludert, lar deg trene gratis med lekepenger, og rører aldri pengene dine. Still oss gjerne spørsmål på post@klarpakke.no. Koster det noe? + Nei. Beta er gratis, og paper trading er gratis og ubegrenset. Senere kommer betalte planer — da betaler du for verktøyene, aldri for avkastningsløfter. Hva er en backtest? + Vi kjører handelsstrategien mot historiske kursdata og viser hva utfallet ville blitt. Det forteller deg hvordan strategien har oppført seg — ikke hvordan fremtiden blir. Kan jeg tape ekte penger? + Nei — Klarpakke er i beta. Du handler kun med lekepenger på ekte\nIngen årstall-signaler funnet i teksten.\n\nSvar KUN med JSON (ingen markdown-kodeblokk):\n{\"content_quality\":\"god|middels|svak\",\"tone\":\"...\",\"aktualitet\":\"frisk|middels|utdatert\",\"signals\":[\"...\"],\"summary_nb\":\"2-3 setninger på norsk, executive-språk, konkret\"}\nVurdering: aktualitet baseres på gamle datoer/©-år/nyhetsinnlegg i teksten; svak = stavefeil/ufullstendige setninger/meningsløs tekst; tone = hvem teksten henvender seg til og hvordan.",
+          "response": "{\"content_quality\":\"god\",\"tone\":\"Direkte, ærlig og pedagogisk henvendt til norske nybegynnere i kryptohandel, med fokus på tillit og gjennomsiktighet.\",\"aktualitet\":\"frisk\",\"signals\":[\"Gratis beta kun i Norge\",\"100 000 kr i lekepenger\",\"AI-pilot som forklarer på norsk\",\"Backtest-bevis med gebyr inkludert\",\"Ingen kredittkort, KYC eller binding\",\"Norsk plattform\",\"5000 KLT-tokens til de 100 første\",\"90 dager med ekte data\",\"Historisk avkastning er ingen garanti for fremtidig avkastning\",\"De 100 første får gratis tilgang for alltid\"],\"summary_nb\":\"Klarpakke posisjonerer seg som en transparent og risikofri inngang til kryptotrading for det norske markedet, med vekt på dokumentasjon og ærlighet om risiko. Siden tilbyr en gratis beta med lekepenger, AI-veiledning på norsk og backtest-resultater som viser både tap og gevinster, noe som bygger tillit. Budskapet er klart og pedagogisk, med tydelige løfter om hva de aldri vil gjøre, og en konkret oppfordring til handling for de første 100 registrerte.\"}",
+          "model": "deepseek-chat"
+        }
+      }
+    ]
+  },
+  "automation": {
+    "leverage": 67,
+    "potential": 33,
+    "present": 4,
+    "total": 6,
+    "signals": {
+      "contact_form": false,
+      "analytics": true,
+      "cmp": false,
+      "chat": true,
+      "booking": true,
+      "newsletter": true
+    }
+  },
+  "quick_wins": [],
+  "build_opportunities": [],
+  "human_approvals": [],
+  "executive_summary": "klarpakke.no sin offentlige nettside scorer **66%** på Arch Website Score. Den største risikoen er: **Kontakt-/lead-skjema**. **5 funn** bør prioriteres (0 kritisk, 5 høy ROI). Største mulighet: **33% uutnyttet automatiseringsverdi** — prosesser som kan automatiseres (lead-ruting, kundestøtte, avtalebooking, oppfølging). Forretningsmessig betyr dette: målbar gevinst i hastighet, konvertering og frigjort tid. Merk: dette er en **utenfor-inn** vurdering av kun den offentlige nettsiden — interne systemer er ikke vurdert."
+}

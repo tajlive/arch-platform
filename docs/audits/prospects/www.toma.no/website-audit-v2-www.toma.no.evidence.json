@@ -1,0 +1,3405 @@
+{
+  "meta": {
+    "generated": "2026-08-14T21:38:33.761Z",
+    "version": "2.0",
+    "name": "www.toma.no",
+    "website": "https://www.toma.no",
+    "domain": "www.toma.no",
+    "registrable_domain": "toma.no",
+    "mode": "website",
+    "design_partner": false,
+    "audit_duration_ms": 52023,
+    "v2_modules_ms": 22731
+  },
+  "customer": {
+    "id": "www.toma.no",
+    "name": "www.toma.no",
+    "mode": "prospect_preview",
+    "modeLabel": "Intern prospect-vurdering",
+    "website": "https://www.toma.no",
+    "consent_granted": false,
+    "consent_date": null
+  },
+  "score": {
+    "total": 64,
+    "categories": {
+      "performance": {
+        "pct": 38,
+        "weight": 20,
+        "pass": 3,
+        "fail": 2,
+        "unknown": 3,
+        "denom": 8,
+        "checks": [
+          {
+            "id": "compression",
+            "label": "Komprimering (gzip/brotli)",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "br",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:09.964Z"
+          },
+          {
+            "id": "caching",
+            "label": "Cache-headere",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "public, max-age=0",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:09.964Z"
+          },
+          {
+            "id": "render_blocking",
+            "label": "Render-blokkerende ressurser",
+            "dimension": "performance",
+            "result": "FAIL",
+            "evidence": "1 blokkerende skript, 2 stylesheets",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:09.972Z"
+          },
+          {
+            "id": "image_optim",
+            "label": "Bilde-optimalisering",
+            "dimension": "performance",
+            "result": "FAIL",
+            "evidence": "13 bilder, 0 m/ dimensjoner, 12 lazy",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:09.972Z"
+          },
+          {
+            "id": "third_party",
+            "label": "Tredjeparts-skript/-ressurser",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "1 eksterne domener (fonts.bunny.net)",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:09.973Z"
+          },
+          {
+            "id": "psi_mobile",
+            "label": "PageSpeed mobil",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 403",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-14T21:38:17.646Z"
+          },
+          {
+            "id": "psi_desktop",
+            "label": "PageSpeed desktop",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 403",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-14T21:38:17.646Z"
+          },
+          {
+            "id": "psi_availability",
+            "label": "PageSpeed API tilgjengelig",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-14T21:38:17.646Z"
+          }
+        ]
+      },
+      "security": {
+        "pct": 43,
+        "weight": 20,
+        "pass": 12,
+        "fail": 14,
+        "unknown": 2,
+        "denom": 28,
+        "checks": [
+          {
+            "id": "https",
+            "label": "HTTPS/TLS",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "HTTPS leverte respons",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:42.815Z"
+          },
+          {
+            "id": "header_csp",
+            "label": "Header: csp",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.919Z"
+          },
+          {
+            "id": "header_hsts",
+            "label": "Header: hsts",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.919Z"
+          },
+          {
+            "id": "header_xcto",
+            "label": "Header: xcto",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.919Z"
+          },
+          {
+            "id": "header_referrer",
+            "label": "Header: referrer",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.919Z"
+          },
+          {
+            "id": "header_permissions",
+            "label": "Header: permissions",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.919Z"
+          },
+          {
+            "id": "header_frame",
+            "label": "Header: frame",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.919Z"
+          },
+          {
+            "id": "mixed_content",
+            "label": "Blandet innhold (http på https)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen http-referanser i HTML",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.920Z"
+          },
+          {
+            "id": "source_maps",
+            "label": "Eksponerte source maps",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "skript ikke observerbare",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.920Z"
+          },
+          {
+            "id": "tech_disclosure",
+            "label": "Versjons-avsløring",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "BunnyCDN-NO1-830",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.920Z"
+          },
+          {
+            "id": "security_headers",
+            "label": "Sikkerhetsheadere — gradering F",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "Gradering F. Content-Security-Policy: MANGLER; Strict-Transport-Security: MANGLER; X-Frame-Options: MANGLER; X-Content-Type-Options: MANGLER; Referrer-Policy: MANGLER; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS mangler · X-Frame-Options mangler (og ingen frame-ancestors i CSP) · X-Content-Type-Options mangler nosniff · Referrer-Policy mangler · Permissions-Policy mangler",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-14T21:38:14.200Z"
+          },
+          {
+            "id": "cookies_attributes",
+            "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-14T21:38:14.200Z"
+          },
+          {
+            "id": "leak_0_server",
+            "label": "Versjonslekkasje: server-header",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "server: BunnyCDN-NO1-830",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-14T21:38:14.202Z"
+          },
+          {
+            "id": "tls_cert",
+            "label": "TLS-sertifikat gyldighet",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "notBefore=2026-07-30T00:02:39.000Z, notAfter=2026-10-28T00:02:38.000Z, issuer=C=US, O=Let's Encrypt, CN=YR1, SAN=www.toma.no",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-14T21:38:33.264Z"
+          },
+          {
+            "id": "tls_verify",
+            "label": "TLS-sertifikat-verifisering",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "verify return code: 0 (ok)",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-14T21:38:33.264Z"
+          },
+          {
+            "id": "tls_legacy",
+            "label": "Legacy-TLS (1.0/1.1) støtte",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+            "confidence": "medium",
+            "source": "tls",
+            "observed_at": "2026-08-14T21:38:33.264Z"
+          },
+          {
+            "id": "spf",
+            "label": "SPF (avsender-verifisering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "v=spf1 include:spf.protection.outlook.com -all",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:38:14.914Z"
+          },
+          {
+            "id": "spf_private_ip",
+            "label": "SPF: private IP-er i mekanismene",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen private IP-er i SPF",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:38:14.914Z"
+          },
+          {
+            "id": "dkim",
+            "label": "DKIM (e-post-signering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "selectorer: default, selector1",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:38:15.727Z"
+          },
+          {
+            "id": "dmarc",
+            "label": "DMARC (spoofing-beskyttelse)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "p=none (kun overvåkning) — v=DMARC1; p=none",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:38:15.770Z"
+          },
+          {
+            "id": "dmarc_subdomain",
+            "label": "DMARC for subdomene",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen _dmarc.www.toma.no — subdomener kan spoofes",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:38:15.825Z"
+          },
+          {
+            "id": "mta_sts",
+            "label": "MTA-STS (håndhevet e-post-TLS)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:38:16.031Z"
+          },
+          {
+            "id": "tls_rpt",
+            "label": "TLS-RPT (TLS-rapportering)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen TLS-rapportering",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:38:16.110Z"
+          },
+          {
+            "id": "caa",
+            "label": "CAA (sertifikat-utsteder-kontroll)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen CAA",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:38:16.240Z"
+          },
+          {
+            "id": "dnssec",
+            "label": "DNSSEC (signert sone)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "AD-flag — signert sone validert",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:38:17.361Z"
+          },
+          {
+            "id": "subdomains",
+            "label": "Subdomene-eksponering (crt.sh)",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "crt.sh-feil: HTTP 503",
+            "confidence": "low",
+            "source": "https",
+            "observed_at": "2026-08-14T21:38:28.890Z"
+          },
+          {
+            "id": "brreg_konkurs",
+            "label": "Konkurs / under avvikling",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ikke konkurs og ikke under avvikling",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:38:11.507Z"
+          },
+          {
+            "id": "norid_dnssec",
+            "label": "DNSSEC (Norid)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "DNSSEC aktivert (delegationSigned=true)",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-14T21:38:13.744Z"
+          }
+        ]
+      },
+      "ux_mobile": {
+        "pct": 75,
+        "weight": 15,
+        "pass": 3,
+        "fail": 0,
+        "unknown": 1,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "viewport",
+            "label": "Viewport meta",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "viewport tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:09.973Z"
+          },
+          {
+            "id": "media_queries",
+            "label": "Responsive CSS (@media)",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "@media funnet",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.136Z"
+          },
+          {
+            "id": "ai_content_quality",
+            "label": "Innholdskvalitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "Teksten presenterer Toma som en erfaren og familieeid FM-leverandør med bredt tjenestetilbud, og kommuniserer tydelig verdi som trygghet, effektivitet og personlig service. Innholdet er godt strukturert og profesjonelt skrevet, men mangler konkrete årstall eller datoer som kan bekrefte hvor oppdatert informasjonen er. Aktualiteten vurderes som middels på grunn av fravær av tidsmarkører, selv om referanser til oppkjøp og sertifiseringer indikerer nylig aktivitet.",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-14T21:38:19.041Z"
+          },
+          {
+            "id": "ai_content_freshness",
+            "label": "Aktualitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "UNKNOWN",
+            "evidence": "ingen årstall-signaler funnet i teksten · nevner oppkjøp av ISS som kan være tidsrelevant · refererer til ISO-sertifiseringer og bærekraftsrapportering",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-14T21:38:19.054Z"
+          }
+        ]
+      },
+      "accessibility": {
+        "pct": 80,
+        "weight": 15,
+        "pass": 4,
+        "fail": 1,
+        "unknown": 0,
+        "denom": 5,
+        "checks": [
+          {
+            "id": "lang",
+            "label": "Språk-attributt (lang)",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "nb-NO",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.136Z"
+          },
+          {
+            "id": "alt_text",
+            "label": "Alt-tekst på bilder",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "0/13 bilder mangler alt",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.136Z"
+          },
+          {
+            "id": "form_labels",
+            "label": "Skjemaetiketter",
+            "dimension": "accessibility",
+            "result": "FAIL",
+            "evidence": "1 input, 0 label",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.137Z"
+          },
+          {
+            "id": "heading_hierarchy",
+            "label": "Overskriftshierarki",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "h1=1 h2=8 h3=14",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.138Z"
+          },
+          {
+            "id": "semantic",
+            "label": "Semantiske landemerker",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "4/4 (header, nav, main, footer)",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.138Z"
+          }
+        ]
+      },
+      "seo": {
+        "pct": 100,
+        "weight": 10,
+        "pass": 8,
+        "fail": 0,
+        "unknown": 0,
+        "denom": 8,
+        "checks": [
+          {
+            "id": "title",
+            "label": "Tittel",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "Toma gir mennesker en bedre arbeidsdag - Toma",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.139Z"
+          },
+          {
+            "id": "meta_description",
+            "label": "Meta-beskrivelse",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "Toma er en bedrift med 45 års erfaring som skaper trygge og effektive arbeidsplasser – fra kantine og renhold til eiendomsdrift og vakthold.",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.139Z"
+          },
+          {
+            "id": "canonical",
+            "label": "Canonical",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "https://www.toma.no/",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.139Z"
+          },
+          {
+            "id": "robots_meta",
+            "label": "Robots-meta",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.139Z"
+          },
+          {
+            "id": "robots_txt",
+            "label": "robots.txt",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "robots.txt tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.139Z"
+          },
+          {
+            "id": "sitemap",
+            "label": "Sitemap.xml",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "sitemap tilstede (14 URL-er)",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.918Z"
+          },
+          {
+            "id": "open_graph",
+            "label": "OpenGraph",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "title=true description=true image=true",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.919Z"
+          },
+          {
+            "id": "structured_data",
+            "label": "Strukturert data (JSON-LD)",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "JSON-LD tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.919Z"
+          }
+        ]
+      },
+      "reliability": {
+        "pct": 86,
+        "weight": 10,
+        "pass": 6,
+        "fail": 0,
+        "unknown": 1,
+        "denom": 7,
+        "checks": [
+          {
+            "id": "http_status",
+            "label": "HTTP-status (hovedsiden)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "HTTP 200",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:42.807Z"
+          },
+          {
+            "id": "redirect_chain",
+            "label": "Omdirigeringskjede",
+            "dimension": "reliability",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen redirects",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:37:42.815Z"
+          },
+          {
+            "id": "broken_links",
+            "label": "Ødelagte interne lenker",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "25 sider sjekket, 0 ødelagt",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:08.512Z"
+          },
+          {
+            "id": "asset_failures",
+            "label": "Ressurs-feil (img/css/js)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "0 av 3 ressurser feilet",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:09.964Z"
+          },
+          {
+            "id": "norid_changed",
+            "label": "Sist endret (Norid)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "sist endret 2025-10-07",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-14T21:38:13.744Z"
+          },
+          {
+            "id": "history_exists",
+            "label": "Arkivhistorikk finnes",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "arkivert siden 2000-11-10",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-14T21:38:33.758Z"
+          },
+          {
+            "id": "history_freshness",
+            "label": "Aktualitet (siste arkiverte versjon)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "siste snapshot 2025-09-15",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-14T21:38:33.758Z"
+          },
+          {
+            "id": "history_scope",
+            "label": "Arkivomfang",
+            "dimension": "reliability",
+            "result": "UNKNOWN",
+            "evidence": "omfang ikke tilgjengelig (Wayback CDX timeout på full historikk)",
+            "confidence": "medium",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-14T21:38:33.758Z"
+          }
+        ]
+      },
+      "trust_privacy": {
+        "pct": 71,
+        "weight": 5,
+        "pass": 20,
+        "fail": 6,
+        "unknown": 2,
+        "denom": 28,
+        "checks": [
+          {
+            "id": "cookie_banner",
+            "label": "Cookie-banner",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "cookie/samtykke-element observert",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.920Z"
+          },
+          {
+            "id": "privacy_link",
+            "label": "Personvernerklæring-link",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "link til personvern observert",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.921Z"
+          },
+          {
+            "id": "consent_cmp",
+            "label": "Samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "trackere observert uten CMP",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.921Z"
+          },
+          {
+            "id": "contact_form",
+            "label": "Kontakt-/lead-skjema",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "1 <form> observert",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.921Z"
+          },
+          {
+            "id": "cta",
+            "label": "Call-to-action",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "CTA-tekst observert",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-14T21:38:10.922Z"
+          },
+          {
+            "id": "bimi",
+            "label": "BIMI (merkevare-logo i innboks)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen BIMI (ikke påkrevd)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:38:16.176Z"
+          },
+          {
+            "id": "dnsbl",
+            "label": "E-post-omdømme (DNSBL)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "toma-no.mail.protection.outlook.com (52.101.73.12) ikke listet",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:38:17.644Z"
+          },
+          {
+            "id": "brreg_org",
+            "label": "Organisasjonsnummer og navn",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "org 923327487 — TOMADESIGN TOMA KUNCE",
+            "confidence": "medium",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:38:11.507Z"
+          },
+          {
+            "id": "brreg_orgform",
+            "label": "Organisasjonsform",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "Enkeltpersonforetak (ENK)",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:38:11.507Z"
+          },
+          {
+            "id": "brreg_mva",
+            "label": "Registrert i Merverdiavgiftsregisteret",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ikke registrert i MVA",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:38:11.507Z"
+          },
+          {
+            "id": "brreg_dates",
+            "label": "Stiftelses- og registreringsdato",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrert i Enhetsregisteret 2019-09-04",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:38:11.507Z"
+          },
+          {
+            "id": "brreg_ansatte",
+            "label": "Antall ansatte",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "antall ansatte ikke oppgitt",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:38:11.507Z"
+          },
+          {
+            "id": "brreg_naering",
+            "label": "Næringskode og beskrivelse",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "96.990 — Andre personlige tjenester ikke nevnt annet sted",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:38:11.507Z"
+          },
+          {
+            "id": "brreg_hjemmeside",
+            "label": "Hjemmeside registrert i Brreg",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen hjemmeside registrert i Brreg for «TOMADESIGN TOMA KUNCE»",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:38:11.507Z"
+          },
+          {
+            "id": "brreg_navn_consistency",
+            "label": "Navn-konsistens (nettside vs Brreg)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "«Toma» samsvarer med Brreg-navn «TOMADESIGN TOMA KUNCE»",
+            "confidence": "medium",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:38:11.507Z"
+          },
+          {
+            "id": "brreg_regnskap",
+            "label": "Siste årsregnskap",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ikke regnskapspliktig eller ikke innsendt årsregnskap",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:38:11.914Z"
+          },
+          {
+            "id": "brreg_roller",
+            "label": "Daglig leder / styreleder (Brreg)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "ingen daglig leder i åpent roller-API (ENK har ofte 0 roller)",
+            "confidence": "medium",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:38:12.155Z"
+          },
+          {
+            "id": "ssb_context",
+            "label": "Bransjekontekst (SSB, næring 96)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "SSB tabell 12817: Annen personlig tjenesteyting — 16 771 foretak (2024)",
+            "confidence": "high",
+            "source": "ssb",
+            "observed_at": "2026-08-14T21:38:13.434Z"
+          },
+          {
+            "id": "norid_registered",
+            "label": "Domenet registrert (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrert 2015-11-04",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-14T21:38:13.744Z"
+          },
+          {
+            "id": "norid_registrar",
+            "label": "Registrar (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrar: Domeneshop AS",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-14T21:38:13.744Z"
+          },
+          {
+            "id": "cmp_banner",
+            "label": "Cookie-banner / samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.791Z"
+          },
+          {
+            "id": "consent_real_choice",
+            "label": "Reelt valg (avvis-knapp)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen banner/CMP observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.791Z"
+          },
+          {
+            "id": "consent_prechecked",
+            "label": "Forhåndsavkrysset samtykke",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.792Z"
+          },
+          {
+            "id": "privacy_policy",
+            "label": "Personvernerklæring",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "personvernerklæring lenket i footer",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.793Z"
+          },
+          {
+            "id": "third_party_trackers",
+            "label": "Tredjeparts-trackere",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "trackere observert (Google Tag Manager) — ingen synlig samtykke-gating observert — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.793Z"
+          },
+          {
+            "id": "google_fonts",
+            "label": "Google Fonts (ekstern)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen ekstern Google Fonts observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.794Z"
+          },
+          {
+            "id": "ecom_price_vat",
+            "label": "Pris inkl. mva",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.801Z"
+          },
+          {
+            "id": "ecom_angrerett",
+            "label": "Angrerett-informasjon",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.801Z"
+          },
+          {
+            "id": "ecom_klage",
+            "label": "Klageadgang / tvisteløsning",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.801Z"
+          },
+          {
+            "id": "social_profiles",
+            "label": "Sosiale medier (lenker fra nettsiden)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.865Z"
+          },
+          {
+            "id": "nap_phone",
+            "label": "Telefon på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "tel-lenke: 09090",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.867Z"
+          },
+          {
+            "id": "nap_email",
+            "label": "E-post på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.867Z"
+          },
+          {
+            "id": "nap_name_consistency",
+            "label": "Navn-konsistens (nettside ↔ Brreg)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "«TOMADESIGN TOMA KUNCE» (Brreg) samsvarer med nettsidenavn",
+            "confidence": "high",
+            "source": "html+brreg",
+            "observed_at": "2026-08-14T21:38:13.867Z"
+          },
+          {
+            "id": "google_business",
+            "label": "Google Business Profile (anmeldelser, kategori)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+            "confidence": "medium",
+            "source": "places_api",
+            "observed_at": "2026-08-14T21:38:13.867Z"
+          }
+        ]
+      },
+      "automation": {
+        "pct": 50,
+        "leverage": 50,
+        "potential": 50,
+        "weight": 5,
+        "pass": 3,
+        "fail": 3,
+        "unknown": 0,
+        "denom": 6,
+        "checks": []
+      }
+    },
+    "weights": {
+      "performance": 20,
+      "security": 20,
+      "ux_mobile": 15,
+      "accessibility": 15,
+      "seo": 10,
+      "reliability": 10,
+      "trust_privacy": 5
+    },
+    "labels": {
+      "performance": "Performance",
+      "security": "Security Surface",
+      "ux_mobile": "UX / Mobile",
+      "accessibility": "Accessibility",
+      "seo": "SEO / Discovery",
+      "reliability": "Reliability",
+      "trust_privacy": "Trust / Privacy",
+      "automation": "Automation Potential"
+    },
+    "automation": {
+      "leverage": 50,
+      "potential": 50,
+      "present": 3,
+      "total": 6,
+      "signals": {
+        "contact_form": true,
+        "analytics": true,
+        "cmp": false,
+        "chat": true,
+        "booking": false,
+        "newsletter": false
+      }
+    },
+    "observed_at": "2026-08-14T21:38:33.759Z"
+  },
+  "findings": [
+    {
+      "id": "W001",
+      "kind": "web_render_blocking",
+      "title": "Render-blokkerende ressurser",
+      "evidence": "1 blokkerende skript, 2 stylesheets",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W002",
+      "kind": "web_image_optim",
+      "title": "Bilde-optimalisering",
+      "evidence": "13 bilder, 0 m/ dimensjoner, 12 lazy",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W003",
+      "kind": "web_form_labels",
+      "title": "Skjemaetiketter",
+      "evidence": "1 input, 0 label",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W004",
+      "kind": "web_security_headers",
+      "title": "Header: csp",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W005",
+      "kind": "web_security_headers",
+      "title": "Header: hsts",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W006",
+      "kind": "web_security_headers",
+      "title": "Header: xcto",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W007",
+      "kind": "web_security_headers",
+      "title": "Header: referrer",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W008",
+      "kind": "web_security_headers",
+      "title": "Header: permissions",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W009",
+      "kind": "web_security_headers",
+      "title": "Header: frame",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W010",
+      "kind": "web_tech_disclosure",
+      "title": "Versjons-avsløring",
+      "evidence": "BunnyCDN-NO1-830",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W011",
+      "kind": "web_security_headers",
+      "title": "Sikkerhetsheadere — gradering F",
+      "evidence": "Gradering F. Content-Security-Policy: MANGLER; Strict-Transport-Security: MANGLER; X-Frame-Options: MANGLER; X-Content-Type-Options: MANGLER; Referrer-Policy: MANGLER; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS mangler · X-Frame-Options mangler (og ingen frame-ancestors i CSP) · X-Content-Type-Options mangler nosniff · Referrer-Policy mangler · Permissions-Policy mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W012",
+      "kind": "web_tech_disclosure",
+      "title": "Versjonslekkasje: server-header",
+      "evidence": "server: BunnyCDN-NO1-830",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W013",
+      "kind": "web_email_dmarc",
+      "title": "DMARC (spoofing-beskyttelse)",
+      "evidence": "p=none (kun overvåkning) — v=DMARC1; p=none",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W014",
+      "kind": "web_email_dmarc",
+      "title": "DMARC for subdomene",
+      "evidence": "ingen _dmarc.www.toma.no — subdomener kan spoofes",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W015",
+      "kind": "web_email_mta_sts",
+      "title": "MTA-STS (håndhevet e-post-TLS)",
+      "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W016",
+      "kind": "web_email_mta_sts",
+      "title": "TLS-RPT (TLS-rapportering)",
+      "evidence": "ingen TLS-rapportering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W017",
+      "kind": "web_dns_hardening",
+      "title": "CAA (sertifikat-utsteder-kontroll)",
+      "evidence": "ingen CAA",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W018",
+      "kind": "web_company_consistency",
+      "title": "Hjemmeside registrert i Brreg",
+      "evidence": "ingen hjemmeside registrert i Brreg for «TOMADESIGN TOMA KUNCE»",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W019",
+      "kind": "web_privacy",
+      "title": "Cookie-banner / samtykke-plattform (CMP)",
+      "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W020",
+      "kind": "web_privacy",
+      "title": "Tredjeparts-trackere",
+      "evidence": "trackere observert (Google Tag Manager) — ingen synlig samtykke-gating observert — potential concern, krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W021",
+      "kind": "web_social",
+      "title": "Sosiale medier (lenker fra nettsiden)",
+      "evidence": "ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W022",
+      "kind": "web_nap",
+      "title": "E-post på nettsiden",
+      "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W023",
+      "kind": "web_automation",
+      "title": "Automatiseringsmuligheter identifisert",
+      "evidence": "uutnyttet potensial 50% — manglende signaler: cmp, booking, newsletter",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    }
+  ],
+  "browser": {
+    "available": false
+  },
+  "web": {
+    "meta": {
+      "url": "https://www.toma.no",
+      "domain": "www.toma.no",
+      "origin": "https://www.toma.no",
+      "final_url": "https://www.toma.no",
+      "fetched_at": "2026-08-14T21:38:10.924Z"
+    },
+    "checks": [
+      {
+        "id": "http_status",
+        "label": "HTTP-status (hovedsiden)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "HTTP 200",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:42.807Z"
+      },
+      {
+        "id": "https",
+        "label": "HTTPS/TLS",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "HTTPS leverte respons",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:42.815Z"
+      },
+      {
+        "id": "redirect_chain",
+        "label": "Omdirigeringskjede",
+        "dimension": "reliability",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen redirects",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:37:42.815Z"
+      },
+      {
+        "id": "broken_links",
+        "label": "Ødelagte interne lenker",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "25 sider sjekket, 0 ødelagt",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:08.512Z"
+      },
+      {
+        "id": "asset_failures",
+        "label": "Ressurs-feil (img/css/js)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "0 av 3 ressurser feilet",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:09.964Z"
+      },
+      {
+        "id": "compression",
+        "label": "Komprimering (gzip/brotli)",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "br",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:09.964Z"
+      },
+      {
+        "id": "caching",
+        "label": "Cache-headere",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "public, max-age=0",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:09.964Z"
+      },
+      {
+        "id": "render_blocking",
+        "label": "Render-blokkerende ressurser",
+        "dimension": "performance",
+        "result": "FAIL",
+        "evidence": "1 blokkerende skript, 2 stylesheets",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:09.972Z"
+      },
+      {
+        "id": "image_optim",
+        "label": "Bilde-optimalisering",
+        "dimension": "performance",
+        "result": "FAIL",
+        "evidence": "13 bilder, 0 m/ dimensjoner, 12 lazy",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:09.972Z"
+      },
+      {
+        "id": "third_party",
+        "label": "Tredjeparts-skript/-ressurser",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "1 eksterne domener (fonts.bunny.net)",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:09.973Z"
+      },
+      {
+        "id": "viewport",
+        "label": "Viewport meta",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "viewport tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:09.973Z"
+      },
+      {
+        "id": "media_queries",
+        "label": "Responsive CSS (@media)",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "@media funnet",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.136Z"
+      },
+      {
+        "id": "lang",
+        "label": "Språk-attributt (lang)",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "nb-NO",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.136Z"
+      },
+      {
+        "id": "alt_text",
+        "label": "Alt-tekst på bilder",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "0/13 bilder mangler alt",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.136Z"
+      },
+      {
+        "id": "form_labels",
+        "label": "Skjemaetiketter",
+        "dimension": "accessibility",
+        "result": "FAIL",
+        "evidence": "1 input, 0 label",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.137Z"
+      },
+      {
+        "id": "heading_hierarchy",
+        "label": "Overskriftshierarki",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "h1=1 h2=8 h3=14",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.138Z"
+      },
+      {
+        "id": "semantic",
+        "label": "Semantiske landemerker",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "4/4 (header, nav, main, footer)",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.138Z"
+      },
+      {
+        "id": "title",
+        "label": "Tittel",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "Toma gir mennesker en bedre arbeidsdag - Toma",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.139Z"
+      },
+      {
+        "id": "meta_description",
+        "label": "Meta-beskrivelse",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "Toma er en bedrift med 45 års erfaring som skaper trygge og effektive arbeidsplasser – fra kantine og renhold til eiendomsdrift og vakthold.",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.139Z"
+      },
+      {
+        "id": "canonical",
+        "label": "Canonical",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "https://www.toma.no/",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.139Z"
+      },
+      {
+        "id": "robots_meta",
+        "label": "Robots-meta",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.139Z"
+      },
+      {
+        "id": "robots_txt",
+        "label": "robots.txt",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "robots.txt tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.139Z"
+      },
+      {
+        "id": "sitemap",
+        "label": "Sitemap.xml",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "sitemap tilstede (14 URL-er)",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.918Z"
+      },
+      {
+        "id": "open_graph",
+        "label": "OpenGraph",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "title=true description=true image=true",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.919Z"
+      },
+      {
+        "id": "structured_data",
+        "label": "Strukturert data (JSON-LD)",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "JSON-LD tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.919Z"
+      },
+      {
+        "id": "header_csp",
+        "label": "Header: csp",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.919Z"
+      },
+      {
+        "id": "header_hsts",
+        "label": "Header: hsts",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.919Z"
+      },
+      {
+        "id": "header_xcto",
+        "label": "Header: xcto",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.919Z"
+      },
+      {
+        "id": "header_referrer",
+        "label": "Header: referrer",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.919Z"
+      },
+      {
+        "id": "header_permissions",
+        "label": "Header: permissions",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.919Z"
+      },
+      {
+        "id": "header_frame",
+        "label": "Header: frame",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.919Z"
+      },
+      {
+        "id": "mixed_content",
+        "label": "Blandet innhold (http på https)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "ingen http-referanser i HTML",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.920Z"
+      },
+      {
+        "id": "source_maps",
+        "label": "Eksponerte source maps",
+        "dimension": "security",
+        "result": "UNKNOWN",
+        "evidence": "skript ikke observerbare",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.920Z"
+      },
+      {
+        "id": "tech_disclosure",
+        "label": "Versjons-avsløring",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "BunnyCDN-NO1-830",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.920Z"
+      },
+      {
+        "id": "cookie_banner",
+        "label": "Cookie-banner",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "cookie/samtykke-element observert",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.920Z"
+      },
+      {
+        "id": "privacy_link",
+        "label": "Personvernerklæring-link",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "link til personvern observert",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.921Z"
+      },
+      {
+        "id": "consent_cmp",
+        "label": "Samtykke-plattform (CMP)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "trackere observert uten CMP",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.921Z"
+      },
+      {
+        "id": "contact_form",
+        "label": "Kontakt-/lead-skjema",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "1 <form> observert",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.921Z"
+      },
+      {
+        "id": "cta",
+        "label": "Call-to-action",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "CTA-tekst observert",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.922Z"
+      },
+      {
+        "id": "tech_cms",
+        "label": "Teknologi: cms",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "WordPress",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.924Z"
+      },
+      {
+        "id": "tech_hosting",
+        "label": "Teknologi: hosting",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "BunnyCDN-NO1-830",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.924Z"
+      },
+      {
+        "id": "tech_analytics",
+        "label": "Teknologi: analytics",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "Google Analytics/Tag Manager",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-14T21:38:10.924Z"
+      },
+      {
+        "id": "security_headers",
+        "label": "Sikkerhetsheadere — gradering F",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "Gradering F. Content-Security-Policy: MANGLER; Strict-Transport-Security: MANGLER; X-Frame-Options: MANGLER; X-Content-Type-Options: MANGLER; Referrer-Policy: MANGLER; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS mangler · X-Frame-Options mangler (og ingen frame-ancestors i CSP) · X-Content-Type-Options mangler nosniff · Referrer-Policy mangler · Permissions-Policy mangler",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-14T21:38:14.200Z"
+      },
+      {
+        "id": "cookies_attributes",
+        "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-14T21:38:14.200Z"
+      },
+      {
+        "id": "leak_0_server",
+        "label": "Versjonslekkasje: server-header",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "server: BunnyCDN-NO1-830",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-14T21:38:14.202Z"
+      },
+      {
+        "id": "tls_cert",
+        "label": "TLS-sertifikat gyldighet",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "notBefore=2026-07-30T00:02:39.000Z, notAfter=2026-10-28T00:02:38.000Z, issuer=C=US, O=Let's Encrypt, CN=YR1, SAN=www.toma.no",
+        "confidence": "high",
+        "source": "tls",
+        "observed_at": "2026-08-14T21:38:33.264Z"
+      },
+      {
+        "id": "tls_verify",
+        "label": "TLS-sertifikat-verifisering",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "verify return code: 0 (ok)",
+        "confidence": "high",
+        "source": "tls",
+        "observed_at": "2026-08-14T21:38:33.264Z"
+      },
+      {
+        "id": "tls_legacy",
+        "label": "Legacy-TLS (1.0/1.1) støtte",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+        "confidence": "medium",
+        "source": "tls",
+        "observed_at": "2026-08-14T21:38:33.264Z"
+      },
+      {
+        "id": "spf",
+        "label": "SPF (avsender-verifisering)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "v=spf1 include:spf.protection.outlook.com -all",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-14T21:38:14.914Z"
+      },
+      {
+        "id": "spf_private_ip",
+        "label": "SPF: private IP-er i mekanismene",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "ingen private IP-er i SPF",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-14T21:38:14.914Z"
+      },
+      {
+        "id": "dkim",
+        "label": "DKIM (e-post-signering)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "selectorer: default, selector1",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-14T21:38:15.727Z"
+      },
+      {
+        "id": "dmarc",
+        "label": "DMARC (spoofing-beskyttelse)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "p=none (kun overvåkning) — v=DMARC1; p=none",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-14T21:38:15.770Z"
+      },
+      {
+        "id": "dmarc_subdomain",
+        "label": "DMARC for subdomene",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen _dmarc.www.toma.no — subdomener kan spoofes",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-14T21:38:15.825Z"
+      },
+      {
+        "id": "mta_sts",
+        "label": "MTA-STS (håndhevet e-post-TLS)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-14T21:38:16.031Z"
+      },
+      {
+        "id": "tls_rpt",
+        "label": "TLS-RPT (TLS-rapportering)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen TLS-rapportering",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-14T21:38:16.110Z"
+      },
+      {
+        "id": "bimi",
+        "label": "BIMI (merkevare-logo i innboks)",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen BIMI (ikke påkrevd)",
+        "confidence": "low",
+        "source": "dns",
+        "observed_at": "2026-08-14T21:38:16.176Z"
+      },
+      {
+        "id": "caa",
+        "label": "CAA (sertifikat-utsteder-kontroll)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen CAA",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-14T21:38:16.240Z"
+      },
+      {
+        "id": "dnssec",
+        "label": "DNSSEC (signert sone)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "AD-flag — signert sone validert",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-14T21:38:17.361Z"
+      },
+      {
+        "id": "dnsbl",
+        "label": "E-post-omdømme (DNSBL)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "toma-no.mail.protection.outlook.com (52.101.73.12) ikke listet",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-14T21:38:17.644Z"
+      },
+      {
+        "id": "subdomains",
+        "label": "Subdomene-eksponering (crt.sh)",
+        "dimension": "security",
+        "result": "UNKNOWN",
+        "evidence": "crt.sh-feil: HTTP 503",
+        "confidence": "low",
+        "source": "https",
+        "observed_at": "2026-08-14T21:38:28.890Z"
+      },
+      {
+        "id": "brreg_org",
+        "label": "Organisasjonsnummer og navn",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "org 923327487 — TOMADESIGN TOMA KUNCE",
+        "confidence": "medium",
+        "source": "brreg",
+        "observed_at": "2026-08-14T21:38:11.507Z"
+      },
+      {
+        "id": "brreg_orgform",
+        "label": "Organisasjonsform",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "Enkeltpersonforetak (ENK)",
+        "confidence": "high",
+        "source": "brreg",
+        "observed_at": "2026-08-14T21:38:11.507Z"
+      },
+      {
+        "id": "brreg_konkurs",
+        "label": "Konkurs / under avvikling",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "ikke konkurs og ikke under avvikling",
+        "confidence": "high",
+        "source": "brreg",
+        "observed_at": "2026-08-14T21:38:11.507Z"
+      },
+      {
+        "id": "brreg_mva",
+        "label": "Registrert i Merverdiavgiftsregisteret",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "ikke registrert i MVA",
+        "confidence": "high",
+        "source": "brreg",
+        "observed_at": "2026-08-14T21:38:11.507Z"
+      },
+      {
+        "id": "brreg_dates",
+        "label": "Stiftelses- og registreringsdato",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "registrert i Enhetsregisteret 2019-09-04",
+        "confidence": "high",
+        "source": "brreg",
+        "observed_at": "2026-08-14T21:38:11.507Z"
+      },
+      {
+        "id": "brreg_ansatte",
+        "label": "Antall ansatte",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "antall ansatte ikke oppgitt",
+        "confidence": "high",
+        "source": "brreg",
+        "observed_at": "2026-08-14T21:38:11.507Z"
+      },
+      {
+        "id": "brreg_naering",
+        "label": "Næringskode og beskrivelse",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "96.990 — Andre personlige tjenester ikke nevnt annet sted",
+        "confidence": "high",
+        "source": "brreg",
+        "observed_at": "2026-08-14T21:38:11.507Z"
+      },
+      {
+        "id": "brreg_hjemmeside",
+        "label": "Hjemmeside registrert i Brreg",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen hjemmeside registrert i Brreg for «TOMADESIGN TOMA KUNCE»",
+        "confidence": "high",
+        "source": "brreg",
+        "observed_at": "2026-08-14T21:38:11.507Z"
+      },
+      {
+        "id": "brreg_navn_consistency",
+        "label": "Navn-konsistens (nettside vs Brreg)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "«Toma» samsvarer med Brreg-navn «TOMADESIGN TOMA KUNCE»",
+        "confidence": "medium",
+        "source": "brreg",
+        "observed_at": "2026-08-14T21:38:11.507Z"
+      },
+      {
+        "id": "brreg_regnskap",
+        "label": "Siste årsregnskap",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ikke regnskapspliktig eller ikke innsendt årsregnskap",
+        "confidence": "high",
+        "source": "brreg",
+        "observed_at": "2026-08-14T21:38:11.914Z"
+      },
+      {
+        "id": "brreg_roller",
+        "label": "Daglig leder / styreleder (Brreg)",
+        "dimension": "trust_privacy",
+        "result": "UNKNOWN",
+        "evidence": "ingen daglig leder i åpent roller-API (ENK har ofte 0 roller)",
+        "confidence": "medium",
+        "source": "brreg",
+        "observed_at": "2026-08-14T21:38:12.155Z"
+      },
+      {
+        "id": "ssb_context",
+        "label": "Bransjekontekst (SSB, næring 96)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "SSB tabell 12817: Annen personlig tjenesteyting — 16 771 foretak (2024)",
+        "confidence": "high",
+        "source": "ssb",
+        "observed_at": "2026-08-14T21:38:13.434Z"
+      },
+      {
+        "id": "norid_registered",
+        "label": "Domenet registrert (Norid)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "registrert 2015-11-04",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-14T21:38:13.744Z"
+      },
+      {
+        "id": "norid_changed",
+        "label": "Sist endret (Norid)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "sist endret 2025-10-07",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-14T21:38:13.744Z"
+      },
+      {
+        "id": "norid_dnssec",
+        "label": "DNSSEC (Norid)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "DNSSEC aktivert (delegationSigned=true)",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-14T21:38:13.744Z"
+      },
+      {
+        "id": "norid_registrar",
+        "label": "Registrar (Norid)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "registrar: Domeneshop AS",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-14T21:38:13.744Z"
+      },
+      {
+        "id": "history_exists",
+        "label": "Arkivhistorikk finnes",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "arkivert siden 2000-11-10",
+        "confidence": "high",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-14T21:38:33.758Z"
+      },
+      {
+        "id": "history_freshness",
+        "label": "Aktualitet (siste arkiverte versjon)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "siste snapshot 2025-09-15",
+        "confidence": "high",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-14T21:38:33.758Z"
+      },
+      {
+        "id": "history_scope",
+        "label": "Arkivomfang",
+        "dimension": "reliability",
+        "result": "UNKNOWN",
+        "evidence": "omfang ikke tilgjengelig (Wayback CDX timeout på full historikk)",
+        "confidence": "medium",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-14T21:38:33.758Z"
+      },
+      {
+        "id": "cmp_banner",
+        "label": "Cookie-banner / samtykke-plattform (CMP)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-14T21:38:13.791Z"
+      },
+      {
+        "id": "consent_real_choice",
+        "label": "Reelt valg (avvis-knapp)",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen banner/CMP observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T21:38:13.791Z"
+      },
+      {
+        "id": "consent_prechecked",
+        "label": "Forhåndsavkrysset samtykke",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T21:38:13.792Z"
+      },
+      {
+        "id": "privacy_policy",
+        "label": "Personvernerklæring",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "personvernerklæring lenket i footer",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T21:38:13.793Z"
+      },
+      {
+        "id": "third_party_trackers",
+        "label": "Tredjeparts-trackere",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "trackere observert (Google Tag Manager) — ingen synlig samtykke-gating observert — potential concern, krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T21:38:13.793Z"
+      },
+      {
+        "id": "google_fonts",
+        "label": "Google Fonts (ekstern)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "ingen ekstern Google Fonts observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T21:38:13.794Z"
+      },
+      {
+        "id": "ecom_price_vat",
+        "label": "Pris inkl. mva",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T21:38:13.801Z"
+      },
+      {
+        "id": "ecom_angrerett",
+        "label": "Angrerett-informasjon",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T21:38:13.801Z"
+      },
+      {
+        "id": "ecom_klage",
+        "label": "Klageadgang / tvisteløsning",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T21:38:13.801Z"
+      },
+      {
+        "id": "psi_mobile",
+        "label": "PageSpeed mobil",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-feil: HTTP 403",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-14T21:38:17.646Z"
+      },
+      {
+        "id": "psi_desktop",
+        "label": "PageSpeed desktop",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-feil: HTTP 403",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-14T21:38:17.646Z"
+      },
+      {
+        "id": "psi_availability",
+        "label": "PageSpeed API tilgjengelig",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-14T21:38:17.646Z"
+      },
+      {
+        "id": "social_profiles",
+        "label": "Sosiale medier (lenker fra nettsiden)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-14T21:38:13.865Z"
+      },
+      {
+        "id": "nap_phone",
+        "label": "Telefon på nettsiden",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "tel-lenke: 09090",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-14T21:38:13.867Z"
+      },
+      {
+        "id": "nap_email",
+        "label": "E-post på nettsiden",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-14T21:38:13.867Z"
+      },
+      {
+        "id": "nap_name_consistency",
+        "label": "Navn-konsistens (nettside ↔ Brreg)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "«TOMADESIGN TOMA KUNCE» (Brreg) samsvarer med nettsidenavn",
+        "confidence": "high",
+        "source": "html+brreg",
+        "observed_at": "2026-08-14T21:38:13.867Z"
+      },
+      {
+        "id": "google_business",
+        "label": "Google Business Profile (anmeldelser, kategori)",
+        "dimension": "trust_privacy",
+        "result": "UNKNOWN",
+        "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+        "confidence": "medium",
+        "source": "places_api",
+        "observed_at": "2026-08-14T21:38:13.867Z"
+      },
+      {
+        "id": "ai_content_quality",
+        "label": "Innholdskvalitet (AI-vurdert)",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "Teksten presenterer Toma som en erfaren og familieeid FM-leverandør med bredt tjenestetilbud, og kommuniserer tydelig verdi som trygghet, effektivitet og personlig service. Innholdet er godt strukturert og profesjonelt skrevet, men mangler konkrete årstall eller datoer som kan bekrefte hvor oppdatert informasjonen er. Aktualiteten vurderes som middels på grunn av fravær av tidsmarkører, selv om referanser til oppkjøp og sertifiseringer indikerer nylig aktivitet.",
+        "confidence": "medium",
+        "source": "llm_analysis",
+        "observed_at": "2026-08-14T21:38:19.041Z"
+      },
+      {
+        "id": "ai_content_freshness",
+        "label": "Aktualitet (AI-vurdert)",
+        "dimension": "ux_mobile",
+        "result": "UNKNOWN",
+        "evidence": "ingen årstall-signaler funnet i teksten · nevner oppkjøp av ISS som kan være tidsrelevant · refererer til ISO-sertifiseringer og bærekraftsrapportering",
+        "confidence": "medium",
+        "source": "llm_analysis",
+        "observed_at": "2026-08-14T21:38:19.054Z"
+      }
+    ],
+    "raw": {
+      "home": {
+        "status": 200,
+        "status_text": "OK",
+        "error": null,
+        "final_url": "https://www.toma.no",
+        "redirects": []
+      },
+      "https": {
+        "ok": true,
+        "detail": "HTTPS leverte respons"
+      },
+      "redirect_chain": [],
+      "robots": {
+        "present": true,
+        "disallow": []
+      },
+      "crawl": {
+        "pages_checked": 25,
+        "crawled": 25,
+        "broken": []
+      },
+      "html_length": 69601,
+      "asset_failures": {
+        "checked": 3,
+        "failed": 0,
+        "details": []
+      },
+      "compression": "br",
+      "caching": "public, max-age=0",
+      "render_blocking_scripts": 1,
+      "images": {
+        "total": 13,
+        "with_dimensions": 0,
+        "lazy": 12
+      },
+      "third_party": [
+        "fonts.bunny.net"
+      ],
+      "viewport": true,
+      "media_queries": true,
+      "lang": "nb-NO",
+      "img_missing_alt": 0,
+      "forms_accessibility": {
+        "inputs": 1,
+        "labels": 0,
+        "inputs_with_label": 0
+      },
+      "headings": {
+        "h1": 1,
+        "h2": 8,
+        "h3": 14,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "landmarks": [
+        "header",
+        "nav",
+        "main",
+        "footer"
+      ],
+      "title": "Toma gir mennesker en bedre arbeidsdag - Toma",
+      "meta_description": "Toma er en bedrift med 45 års erfaring som skaper trygge og effektive arbeidsplasser – fra kantine og renhold til eiendomsdrift og vakthold.",
+      "canonical": "https://www.toma.no/",
+      "robots_meta": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "sitemap": {
+        "status": 200,
+        "urls": 14
+      },
+      "open_graph": {
+        "title": true,
+        "description": true,
+        "image": true
+      },
+      "structured_data": true,
+      "security_headers": {
+        "csp": null,
+        "hsts": null,
+        "xcto": null,
+        "referrer": null,
+        "permissions": null,
+        "frame": null
+      },
+      "mixed_content": 0,
+      "source_maps": null,
+      "tech_disclosure": {
+        "server": "BunnyCDN-NO1-830",
+        "x_powered_by": null
+      },
+      "cookie_banner": true,
+      "analytics": [
+        "Google Analytics/Tag Manager"
+      ],
+      "privacy_link": true,
+      "consent_cmp": false,
+      "forms_count": 1,
+      "cta": true,
+      "automation_signals": {
+        "contact_form": true,
+        "analytics": true,
+        "cmp": false,
+        "chat": true,
+        "booking": false,
+        "newsletter": false
+      },
+      "technology": {
+        "framework": null,
+        "cms": "WordPress",
+        "cdn": null,
+        "hosting": "BunnyCDN-NO1-830",
+        "analytics": [
+          "Google Analytics/Tag Manager"
+        ]
+      }
+    }
+  },
+  "v2": {
+    "sections": [
+      {
+        "section": "security_hacker",
+        "title": "Hva en hacker ser",
+        "checks": [
+          {
+            "id": "security_headers",
+            "label": "Sikkerhetsheadere — gradering F",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "Gradering F. Content-Security-Policy: MANGLER; Strict-Transport-Security: MANGLER; X-Frame-Options: MANGLER; X-Content-Type-Options: MANGLER; Referrer-Policy: MANGLER; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS mangler · X-Frame-Options mangler (og ingen frame-ancestors i CSP) · X-Content-Type-Options mangler nosniff · Referrer-Policy mangler · Permissions-Policy mangler",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-14T21:38:14.200Z"
+          },
+          {
+            "id": "cookies_attributes",
+            "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-14T21:38:14.200Z"
+          },
+          {
+            "id": "leak_0_server",
+            "label": "Versjonslekkasje: server-header",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "server: BunnyCDN-NO1-830",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-14T21:38:14.202Z"
+          },
+          {
+            "id": "tls_cert",
+            "label": "TLS-sertifikat gyldighet",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "notBefore=2026-07-30T00:02:39.000Z, notAfter=2026-10-28T00:02:38.000Z, issuer=C=US, O=Let's Encrypt, CN=YR1, SAN=www.toma.no",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-14T21:38:33.264Z"
+          },
+          {
+            "id": "tls_verify",
+            "label": "TLS-sertifikat-verifisering",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "verify return code: 0 (ok)",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-14T21:38:33.264Z"
+          },
+          {
+            "id": "tls_legacy",
+            "label": "Legacy-TLS (1.0/1.1) støtte",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+            "confidence": "medium",
+            "source": "tls",
+            "observed_at": "2026-08-14T21:38:33.264Z"
+          }
+        ],
+        "raw": {
+          "url": "https://www.toma.no/",
+          "final_url": "https://www.toma.no/",
+          "status": 200,
+          "status_text": "OK",
+          "redirects": [],
+          "headers": {
+            "cache-control": "public, max-age=0",
+            "cdn-cache": "BYPASS",
+            "cdn-cachedat": "08/14/2026 21:38:14",
+            "cdn-edgestorageid": "830",
+            "cdn-proxyver": "1.61",
+            "cdn-pullzone": "3114908",
+            "cdn-requestcountrycode": "NO",
+            "cdn-requestid": "f9ba2de1287f1ec56e096d081472db08",
+            "cdn-requestpullcode": "200",
+            "cdn-requestpullsuccess": "True",
+            "cdn-requesttime": "0",
+            "cdn-status": "200",
+            "connection": "keep-alive",
+            "content-encoding": "br",
+            "content-type": "text/html; charset=UTF-8",
+            "date": "Fri, 14 Aug 2026 21:38:14 GMT",
+            "last-modified": "Fri, 14 Aug 2026 21:02:30 GMT",
+            "server": "BunnyCDN-NO1-830",
+            "transfer-encoding": "chunked",
+            "vary": "Accept-Encoding"
+          },
+          "security_grade": "F",
+          "security_deductions": [
+            "CSP mangler",
+            "HSTS mangler",
+            "X-Frame-Options mangler (og ingen frame-ancestors i CSP)",
+            "X-Content-Type-Options mangler nosniff",
+            "Referrer-Policy mangler",
+            "Permissions-Policy mangler"
+          ],
+          "cookies": [],
+          "version_leaks": [
+            {
+              "kind": "header",
+              "header": "server",
+              "value": "BunnyCDN-NO1-830"
+            }
+          ],
+          "tls": {
+            "opensslAvailable": true,
+            "cert": {
+              "notBefore": "2026-07-30T00:02:39.000Z",
+              "notAfter": "2026-10-28T00:02:38.000Z",
+              "issuer": "C=US, O=Let's Encrypt, CN=YR1",
+              "san": [
+                "www.toma.no"
+              ]
+            },
+            "verify": {
+              "code": 0,
+              "description": "ok"
+            },
+            "legacy": {
+              "tls1": "blocked",
+              "tls1_1": "blocked"
+            }
+          }
+        }
+      },
+      {
+        "section": "email_dns",
+        "title": "E-post & DNS-sikkerhet",
+        "checks": [
+          {
+            "id": "spf",
+            "label": "SPF (avsender-verifisering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "v=spf1 include:spf.protection.outlook.com -all",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:38:14.914Z"
+          },
+          {
+            "id": "spf_private_ip",
+            "label": "SPF: private IP-er i mekanismene",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen private IP-er i SPF",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:38:14.914Z"
+          },
+          {
+            "id": "dkim",
+            "label": "DKIM (e-post-signering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "selectorer: default, selector1",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:38:15.727Z"
+          },
+          {
+            "id": "dmarc",
+            "label": "DMARC (spoofing-beskyttelse)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "p=none (kun overvåkning) — v=DMARC1; p=none",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:38:15.770Z"
+          },
+          {
+            "id": "dmarc_subdomain",
+            "label": "DMARC for subdomene",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen _dmarc.www.toma.no — subdomener kan spoofes",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:38:15.825Z"
+          },
+          {
+            "id": "mta_sts",
+            "label": "MTA-STS (håndhevet e-post-TLS)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:38:16.031Z"
+          },
+          {
+            "id": "tls_rpt",
+            "label": "TLS-RPT (TLS-rapportering)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen TLS-rapportering",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:38:16.110Z"
+          },
+          {
+            "id": "bimi",
+            "label": "BIMI (merkevare-logo i innboks)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen BIMI (ikke påkrevd)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:38:16.176Z"
+          },
+          {
+            "id": "caa",
+            "label": "CAA (sertifikat-utsteder-kontroll)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen CAA",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:38:16.240Z"
+          },
+          {
+            "id": "dnssec",
+            "label": "DNSSEC (signert sone)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "AD-flag — signert sone validert",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:38:17.361Z"
+          },
+          {
+            "id": "dnsbl",
+            "label": "E-post-omdømme (DNSBL)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "toma-no.mail.protection.outlook.com (52.101.73.12) ikke listet",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-14T21:38:17.644Z"
+          },
+          {
+            "id": "subdomains",
+            "label": "Subdomene-eksponering (crt.sh)",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "crt.sh-feil: HTTP 503",
+            "confidence": "low",
+            "source": "https",
+            "observed_at": "2026-08-14T21:38:28.890Z"
+          }
+        ],
+        "raw": {
+          "original": "www.toma.no",
+          "registrable": "toma.no",
+          "subdomain_of_input": true,
+          "spf": {
+            "record": "v=spf1 include:spf.protection.outlook.com -all",
+            "policy": "-all",
+            "private_ips": []
+          },
+          "dkim": "default, selector1",
+          "dmarc": {
+            "record": "v=DMARC1; p=none",
+            "p": "none",
+            "policy": "none",
+            "subdomain": {
+              "name": "_dmarc.www.toma.no",
+              "present": false,
+              "record": null
+            }
+          },
+          "mta_sts": {
+            "txt": false,
+            "policy": false,
+            "policy_status": 0
+          },
+          "tls_rpt": null,
+          "bimi": null,
+          "caa": {
+            "records": [],
+            "issuers": []
+          },
+          "dnssec": "\n; <<>> DiG 9.10.6 <<>> +dnssec DNSKEY toma.no +time=5 +tries=1\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 40972\n;; flags: qr rd ra ad; QUERY: 1, ANSWER: 6, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags: do; udp: 512\n;; QUESTION SECTION:\n;toma.no.\t\t\tIN\tDNSKEY\n\n;; ANSWER SECTION:\ntoma.no.\t\t3600\tIN\tDNSKEY\t257 3 15 I1aY/0OCdPQrTZ3bt/BG0g9AudUxZgPyerQbtAvo110=\ntoma.no.\t\t3600\tIN\tRRSIG\tDNSKEY 15 2 3600 20260910005225 20260811005225 12315 toma.no. a+ffse/S2XpzTMSo6V/finPQxFnYKkD/IHTItnlQ5lboD0vuhI15EzUD Ku77ulv0oPxLuNsjLA1ez7VZasM4AQ==\ntoma.no.\t\t3600\tIN\tRRSIG\tDNSKEY 15 2 3600 20260910005225 20260811005225 9507 toma.no. SdVWIf8+CL+yY3kcbGt8kzoKOZ/IQgif9Xk64cBp2JGbfT8srC/qDT0k huzJTNJ/TY9cdEv84w/anFzHZCYYAA==\ntoma.no.\t\t3600\tIN\tDNSKEY\t256 3 15 mp5YuLp9FiYpMTgw1H94eH012a7T9Pv9RswYTb2fdic=\ntoma.no.\t\t3600\tIN\tRRSIG\tDNSKEY 15 2 3600 20260910005225 20260811005225 47332 toma.no. 2sokSjxr55zmcSBonq0hoyp41F2s0ty8M97ADvZijN+uluq1aI81Rtk5 V3S4KS7G0/bq8mEmk78xax1RAokuCA==\ntoma.no.\t\t3600\tIN\tDNSKEY\t256 3 15 GZg425e4diFKoSp97gb2IH9Uyx4b8B/8fi46wT4D6i0=\n\n;; Query time: 87 msec\n;; SERVER: 100.100.100.100#53(100.100.100.100)\n;; WHEN: Fri Aug 14 23:38:17 CEST 2026\n;; MSG SIZE  rcvd: 489\n\n",
+          "mx": [
+            {
+              "exchange": "toma-no.mail.protection.outlook.com",
+              "priority": 10
+            }
+          ],
+          "dnsbl": {
+            "mx": "toma-no.mail.protection.outlook.com",
+            "ip": "52.101.73.12",
+            "listed": false,
+            "host": "12.73.101.52.zen.spamhaus.org"
+          },
+          "subdomains": {
+            "count": 0,
+            "unique": [],
+            "interesting": [],
+            "error": "HTTP 503"
+          }
+        }
+      },
+      {
+        "section": "norge",
+        "title": "Norge-data (Brreg · Norid · SSB)",
+        "checks": [
+          {
+            "id": "brreg_org",
+            "label": "Organisasjonsnummer og navn",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "org 923327487 — TOMADESIGN TOMA KUNCE",
+            "confidence": "medium",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:38:11.507Z"
+          },
+          {
+            "id": "brreg_orgform",
+            "label": "Organisasjonsform",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "Enkeltpersonforetak (ENK)",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:38:11.507Z"
+          },
+          {
+            "id": "brreg_konkurs",
+            "label": "Konkurs / under avvikling",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ikke konkurs og ikke under avvikling",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:38:11.507Z"
+          },
+          {
+            "id": "brreg_mva",
+            "label": "Registrert i Merverdiavgiftsregisteret",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ikke registrert i MVA",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:38:11.507Z"
+          },
+          {
+            "id": "brreg_dates",
+            "label": "Stiftelses- og registreringsdato",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrert i Enhetsregisteret 2019-09-04",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:38:11.507Z"
+          },
+          {
+            "id": "brreg_ansatte",
+            "label": "Antall ansatte",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "antall ansatte ikke oppgitt",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:38:11.507Z"
+          },
+          {
+            "id": "brreg_naering",
+            "label": "Næringskode og beskrivelse",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "96.990 — Andre personlige tjenester ikke nevnt annet sted",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:38:11.507Z"
+          },
+          {
+            "id": "brreg_hjemmeside",
+            "label": "Hjemmeside registrert i Brreg",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen hjemmeside registrert i Brreg for «TOMADESIGN TOMA KUNCE»",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:38:11.507Z"
+          },
+          {
+            "id": "brreg_navn_consistency",
+            "label": "Navn-konsistens (nettside vs Brreg)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "«Toma» samsvarer med Brreg-navn «TOMADESIGN TOMA KUNCE»",
+            "confidence": "medium",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:38:11.507Z"
+          },
+          {
+            "id": "brreg_regnskap",
+            "label": "Siste årsregnskap",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ikke regnskapspliktig eller ikke innsendt årsregnskap",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:38:11.914Z"
+          },
+          {
+            "id": "brreg_roller",
+            "label": "Daglig leder / styreleder (Brreg)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "ingen daglig leder i åpent roller-API (ENK har ofte 0 roller)",
+            "confidence": "medium",
+            "source": "brreg",
+            "observed_at": "2026-08-14T21:38:12.155Z"
+          },
+          {
+            "id": "ssb_context",
+            "label": "Bransjekontekst (SSB, næring 96)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "SSB tabell 12817: Annen personlig tjenesteyting — 16 771 foretak (2024)",
+            "confidence": "high",
+            "source": "ssb",
+            "observed_at": "2026-08-14T21:38:13.434Z"
+          },
+          {
+            "id": "norid_registered",
+            "label": "Domenet registrert (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrert 2015-11-04",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-14T21:38:13.744Z"
+          },
+          {
+            "id": "norid_changed",
+            "label": "Sist endret (Norid)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "sist endret 2025-10-07",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-14T21:38:13.744Z"
+          },
+          {
+            "id": "norid_dnssec",
+            "label": "DNSSEC (Norid)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "DNSSEC aktivert (delegationSigned=true)",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-14T21:38:13.744Z"
+          },
+          {
+            "id": "norid_registrar",
+            "label": "Registrar (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrar: Domeneshop AS",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-14T21:38:13.744Z"
+          }
+        ],
+        "raw": {
+          "brreg": {
+            "unit": {
+              "organisasjonsnummer": "923327487",
+              "navn": "TOMADESIGN TOMA KUNCE",
+              "organisasjonsform": {
+                "kode": "ENK",
+                "beskrivelse": "Enkeltpersonforetak",
+                "_links": {
+                  "self": {
+                    "href": "https://data.brreg.no/enhetsregisteret/api/organisasjonsformer/ENK"
+                  }
+                }
+              },
+              "historiskeNavn": [],
+              "registreringsdatoEnhetsregisteret": "2019-09-04",
+              "registrertIMvaregisteret": false,
+              "naeringskode1": {
+                "kode": "96.990",
+                "beskrivelse": "Andre personlige tjenester ikke nevnt annet sted"
+              },
+              "harRegistrertAntallAnsatte": false,
+              "forretningsadresse": {
+                "land": "Norge",
+                "landkode": "NO",
+                "postnummer": "5237",
+                "poststed": "RÅDAL",
+                "adresse": [
+                  "Steinsvikkroken 21"
+                ],
+                "kommune": "BERGEN",
+                "kommunenummer": "4601"
+              },
+              "institusjonellSektorkode": {
+                "kode": "8200",
+                "beskrivelse": "Personlig næringsdrivende"
+              },
+              "registrertIForetaksregisteret": false,
+              "registrertIStiftelsesregisteret": false,
+              "registrertIFrivillighetsregisteret": false,
+              "konkurs": false,
+              "underAvvikling": false,
+              "underTvangsavviklingEllerTvangsopplosning": false,
+              "maalform": "Bokmål",
+              "aktivitet": [
+                "Tatoveringer"
+              ],
+              "registrertIPartiregisteret": false,
+              "paategninger": [],
+              "erIKonsern": false,
+              "_links": {
+                "self": {
+                  "href": "https://data.brreg.no/enhetsregisteret/api/enheter/923327487"
+                }
+              },
+              "respons_klasse": "Enhet"
+            },
+            "search": {
+              "method": "navn",
+              "query": "Toma",
+              "nameCandidate": "Toma",
+              "totalHits": 5,
+              "matchedHjemmeside": false,
+              "hits": [
+                {
+                  "organisasjonsnummer": "923327487",
+                  "navn": "TOMADESIGN TOMA KUNCE",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "934854713",
+                  "navn": "TOMA",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "927374013",
+                  "navn": "BETANCUR TOMA",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "824740372",
+                  "navn": "JUOCIENE TOMA",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "934875974",
+                  "navn": "LILLEGÅRD TOMA",
+                  "hjemmeside": null
+                }
+              ]
+            },
+            "selection": {
+              "method": "navn",
+              "query": "Toma",
+              "nameCandidate": "Toma",
+              "totalHits": 5,
+              "matchedHjemmeside": false,
+              "hits": [
+                {
+                  "organisasjonsnummer": "923327487",
+                  "navn": "TOMADESIGN TOMA KUNCE",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "934854713",
+                  "navn": "TOMA",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "927374013",
+                  "navn": "BETANCUR TOMA",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "824740372",
+                  "navn": "JUOCIENE TOMA",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "934875974",
+                  "navn": "LILLEGÅRD TOMA",
+                  "hjemmeside": null
+                }
+              ]
+            },
+            "regnskap": null,
+            "roller": null
+          },
+          "norid": {
+            "domain": "toma.no",
+            "created": "2015-11-04",
+            "changed": "2025-10-07",
+            "dnssec": true,
+            "registrar": "Domeneshop AS",
+            "status": null
+          },
+          "ssb": {
+            "table": "12817",
+            "nace": "96",
+            "value": 16771,
+            "year": "2024",
+            "label": "Annen personlig tjenesteyting",
+            "evidence": "SSB tabell 12817: Annen personlig tjenesteyting — 16 771 foretak (2024)"
+          }
+        }
+      },
+      {
+        "section": "history",
+        "title": "Historikk (Wayback Machine)",
+        "checks": [
+          {
+            "id": "history_exists",
+            "label": "Arkivhistorikk finnes",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "arkivert siden 2000-11-10",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-14T21:38:33.758Z"
+          },
+          {
+            "id": "history_freshness",
+            "label": "Aktualitet (siste arkiverte versjon)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "siste snapshot 2025-09-15",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-14T21:38:33.758Z"
+          },
+          {
+            "id": "history_scope",
+            "label": "Arkivomfang",
+            "dimension": "reliability",
+            "result": "UNKNOWN",
+            "evidence": "omfang ikke tilgjengelig (Wayback CDX timeout på full historikk)",
+            "confidence": "medium",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-14T21:38:33.758Z"
+          }
+        ],
+        "raw": {
+          "snapshots": [
+            {
+              "timestamp": "20001110083900",
+              "original": null
+            },
+            {
+              "timestamp": "20250915063633",
+              "original": null
+            }
+          ],
+          "first_seen": "2000-11-10",
+          "last_seen": "2025-09-15",
+          "snapshot_count": null,
+          "error": "timeout",
+          "fallback": true
+        }
+      },
+      {
+        "section": "compliance",
+        "title": "Compliance-signaler Norge",
+        "checks": [
+          {
+            "id": "cmp_banner",
+            "label": "Cookie-banner / samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.791Z"
+          },
+          {
+            "id": "consent_real_choice",
+            "label": "Reelt valg (avvis-knapp)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen banner/CMP observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.791Z"
+          },
+          {
+            "id": "consent_prechecked",
+            "label": "Forhåndsavkrysset samtykke",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.792Z"
+          },
+          {
+            "id": "privacy_policy",
+            "label": "Personvernerklæring",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "personvernerklæring lenket i footer",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.793Z"
+          },
+          {
+            "id": "third_party_trackers",
+            "label": "Tredjeparts-trackere",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "trackere observert (Google Tag Manager) — ingen synlig samtykke-gating observert — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.793Z"
+          },
+          {
+            "id": "google_fonts",
+            "label": "Google Fonts (ekstern)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen ekstern Google Fonts observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.794Z"
+          },
+          {
+            "id": "ecom_price_vat",
+            "label": "Pris inkl. mva",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.801Z"
+          },
+          {
+            "id": "ecom_angrerett",
+            "label": "Angrerett-informasjon",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.801Z"
+          },
+          {
+            "id": "ecom_klage",
+            "label": "Klageadgang / tvisteløsning",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.801Z"
+          }
+        ],
+        "raw": {
+          "url": "https://www.toma.no",
+          "fetched": false,
+          "status": null,
+          "fetch_error": null,
+          "html_length": 69601,
+          "script_srcs": [
+            "https://www.toma.no/wp-content/themes/toma/public/js/app.852bc2.js"
+          ],
+          "cmp": {
+            "named": [],
+            "generic_text": false
+          },
+          "consent_reject": null,
+          "consent_prechecked": {
+            "count": 0,
+            "described": []
+          },
+          "privacy": {
+            "linked": true,
+            "in_footer": true
+          },
+          "trackers": [
+            "Google Tag Manager"
+          ],
+          "google_fonts": {
+            "external": false,
+            "self_hosted": false
+          },
+          "ecommerce": {
+            "shop_signal": false
+          }
+        }
+      },
+      {
+        "section": "pagespeed",
+        "title": "Fart (PageSpeed Insights + CrUX)",
+        "checks": [
+          {
+            "id": "psi_mobile",
+            "label": "PageSpeed mobil",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 403",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-14T21:38:17.646Z"
+          },
+          {
+            "id": "psi_desktop",
+            "label": "PageSpeed desktop",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 403",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-14T21:38:17.646Z"
+          },
+          {
+            "id": "psi_availability",
+            "label": "PageSpeed API tilgjengelig",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-14T21:38:17.646Z"
+          }
+        ],
+        "raw": {
+          "mobile": {
+            "error": "HTTP 403",
+            "data": null
+          },
+          "desktop": {
+            "error": "HTTP 403",
+            "data": null
+          }
+        }
+      },
+      {
+        "section": "presence",
+        "title": "Tilstedeværelse (sosiale medier · NAP)",
+        "checks": [
+          {
+            "id": "social_profiles",
+            "label": "Sosiale medier (lenker fra nettsiden)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.865Z"
+          },
+          {
+            "id": "nap_phone",
+            "label": "Telefon på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "tel-lenke: 09090",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.867Z"
+          },
+          {
+            "id": "nap_email",
+            "label": "E-post på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-14T21:38:13.867Z"
+          },
+          {
+            "id": "nap_name_consistency",
+            "label": "Navn-konsistens (nettside ↔ Brreg)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "«TOMADESIGN TOMA KUNCE» (Brreg) samsvarer med nettsidenavn",
+            "confidence": "high",
+            "source": "html+brreg",
+            "observed_at": "2026-08-14T21:38:13.867Z"
+          },
+          {
+            "id": "google_business",
+            "label": "Google Business Profile (anmeldelser, kategori)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+            "confidence": "medium",
+            "source": "places_api",
+            "observed_at": "2026-08-14T21:38:13.867Z"
+          }
+        ],
+        "raw": {
+          "social": {},
+          "contact": {
+            "tel": "09090",
+            "email": null,
+            "org_nr_on_page": null
+          },
+          "google_business": {
+            "status": "unknown",
+            "reason": "krever Google Places API-nøkkel — ikke tilgjengelig uten"
+          }
+        }
+      },
+      {
+        "section": "ai_analysis",
+        "title": "AI-analyse av innhold (DeepSeek)",
+        "checks": [
+          {
+            "id": "ai_content_quality",
+            "label": "Innholdskvalitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "Teksten presenterer Toma som en erfaren og familieeid FM-leverandør med bredt tjenestetilbud, og kommuniserer tydelig verdi som trygghet, effektivitet og personlig service. Innholdet er godt strukturert og profesjonelt skrevet, men mangler konkrete årstall eller datoer som kan bekrefte hvor oppdatert informasjonen er. Aktualiteten vurderes som middels på grunn av fravær av tidsmarkører, selv om referanser til oppkjøp og sertifiseringer indikerer nylig aktivitet.",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-14T21:38:19.041Z"
+          },
+          {
+            "id": "ai_content_freshness",
+            "label": "Aktualitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "UNKNOWN",
+            "evidence": "ingen årstall-signaler funnet i teksten · nevner oppkjøp av ISS som kan være tidsrelevant · refererer til ISO-sertifiseringer og bærekraftsrapportering",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-14T21:38:19.054Z"
+          }
+        ],
+        "raw": {
+          "available": true,
+          "error": null,
+          "prompt": "Du er analyse-delen av Arch Audit (norsk verktøy). Analyser TEKSTEN på en norsk bedrifts hjemmeside. Vurder kun det som står i teksten under — ikke finn på noe.\nURL: https://www.toma.no\nTittel: Toma gir mennesker en bedre arbeidsdag - Toma\nMeta-beskrivelse: Toma er en bedrift med 45 års erfaring som skaper trygge og effektive arbeidsplasser – fra kantine og renhold til eiendomsdrift og vakthold.\nTekstutdrag (hjemmesiden):\nToma gir mennesker en bedre arbeidsdag - Toma Hopp til hovedinnhold Renhold Kantine Camps Eiendomsdrift Kontakt oss div'), }, { triggerElement: $el.querySelector('.home-hero__bottom'), triggerHook: 1, targets: $el.querySelector('.home-hero__bg__figures__overlay'), opacity: ['0', '0.85'], distance: $el.querySelector('.a-2'), }] }\" x-data=\"{ bottomContentTop: 0, updateBottomContentTop() { this.bottomContentTop = (window.innerHeight - this.$refs.bottomContent.offsetHeight) / 2; this.$el.style.setProperty('--bottom-content-top', `${this.bottomContentTop}px`); } }\" x-init=\"updateBottomContentTop()\" @resize.window=\"updateBottomContentTop()\"> Toma gir mennesker en bedre arbeidsdag Toma er en familieeid bedrift med over 45 års erfaring, og vi vet at trivsel og produktivitet starter med en trygg og effektiv arbeidsplass. Dette gjenspeiles i alle våre tjenester – fra kantine og renhold til eiendomsdrift, camps, vakthold og kontortjenester. Vårt mål er enkelt og tydelig: vi ønsker å gjøre din hverdag lettere ved å levere personlig service og høy kvalitet, slik at du kan fokusere på det som er viktigst for deg og din virksomhet. Våre tjenester Om Toma Tjenester Renhold Kantine Camps Eiendomsdrift Vakthold Kontortjenester Kontakt oss for et uforpliktende tilbud Renhold som gjør en forskjell Renhold handler om mer enn bare rene overflater. Våre renholdere er alltid oppdatert på det nyeste innen faget, slik at du får renhold av topp kvalitet – enten det er daglig rengjøring eller spesialrenhold du trenger. Renhold Kantine som gir energi Ønsker du en kantine eller personalrestaurant som gjør lunsjen til dagens høydepunkt for ansatte? Toma leverer smakfulle matopplevelser basert på ferske, bærekraftige råvarer, slik at alle får næringen de trenger for å prestere. Kantine Camps som dekker alle behov Velger du Toma Camps, får de ansatte mer enn bare et sted å sove – de får et bomiljø som fremmer trivsel og produktivitet. Camps Eiendomsdrift som varer Vi tilbyr hele spekteret av eiendomsdrift slik at dine bygg kan fungere optimalt. Fra teknisk drift og vedlikehold, til driftsoptimalisering og digitale tvillinger, hjelper vi deg å forlenge levetiden til bygget og redusere driftskostnadene. Eiendomsdrift Vakthold du kan stole på Vi setter sikkerheten din først, og tilbyr fleksible vaktholdsløsninger som passer dine behov. Det kan være faste vektere, mobile patruljer, eller rask utrykning. Vakthold Kontortjenester som forenkler Fra en varm velkomst i resepsjonen til sømløs håndtering av post og møterom – vi sørger for at alt fungerer som det skal. Våre kontortjenester gjør arbeidsdagen enklere og mer effektiv for alle. Kontortjenester Aktuelt ')\" x-bind:disabled=\"!hasNext\"target='_self'> – Bærekraft må være praktisk For Toma er bærekraftsrapportering mer enn en oppsummering av året som gikk. De bruker arbeidet til å ta bedre valg, prioritere tydeligere og skape reell endring. ISS og Toma blir ett selskap ISS, et av Norges ledende selskaper innenfor Facility Management, overtar aksjene i det familieeide selskapet Toma. Sammen blir ISS og Toma en ledende FM-aktør i Norge. Oppkjøpet er betinget av godkjenning fra Konkurransetilsynet. Fra motbakke til medvind i Honningsvåg Honningsvåg – byen ved Nordkapp – ligger på Magerøya, ei øy med rundt 3000 innbyggere og flere små fiskevær. Her har Toma vært til stede i mange år, og historien om vår virksomhet i nord er også historien om endring, tilpasning og sterk laginnsats. Ansatte Renhold – En stor milepæl for hele Toma Toma Camps kan nå vise til tre ISO-sertifiseringer gjennomført samtidig innen kvalitet, miljø og HMS. Bak denne milepælen ligger et omfattende lagarbeid og en solid innsats fra hele organisasjonen Camps Nav-samarbeid ble kantinesuksess: – Det betyr utrolig mye Da Toma fikk jobben med å bygge opp kantina hos robotselskapet 1X Technologies, fikk de raskt på plass et team som leverte fra første dag. Fire unge arbeidssøkere fra Nav som ønsket jobb i kantine og renhold ble stor suksess. Kantine Kjøkkensjefens tips og oppskrifter til julelunsjen Lukten av ribbe ga gjestene på Kontrazten julestemning, men de fikk også smake på en helt spesiell sennep og marmelade. Her kommer oppskriften. Kantine Se alle Jobb i Toma Toma er en av de største Facility Management-leverandørene i Norge og Danmark. Vi leter kontinuerlig etter flere flinke kollegaer til laget vårt. Les mer Tomagruppen AS Krokatjønnveien 15 5147 Fyllingsdalen Bergen Kontakt oss Sentralbord: 09090 Finn kontaktperson Kontaktskjema Tjenester Jobb Aktuelt Om Toma Kontakt Personvern Informasjonskapsler Åpenhetsloven For ansatte Tjenester Renhold Kantine Camps Eiendomsdrift Vakthold Kontortjenester Aktuelt Camps Eiendomsdrift Renhold Kantine Om Toma Bærekraft Historie Kvalitet og HMS Årsrapporter Tomafondet Jobb Ledige stillinger For ansatte Kontakt oss – Bærekraft må være praktisk Søk Vi fant dessverre ingen resultater for søket ditt. Forsøk med et annet søkeord eller se om du finner svaret under ofte stilte spørsmål . Last inn flere resultater\nIngen årstall-signaler funnet i teksten.\n\nSvar KUN med JSON (ingen markdown-kodeblokk):\n{\"content_quality\":\"god|middels|svak\",\"tone\":\"...\",\"aktualitet\":\"frisk|middels|utdatert\",\"signals\":[\"...\"],\"summary_nb\":\"2-3 setninger på norsk, executive-språk, konkret\"}\nVurdering: aktualitet baseres på gamle datoer/©-år/nyhetsinnlegg i teksten; svak = stavefeil/ufullstendige setninger/meningsløs tekst; tone = hvem teksten henvender seg til og hvordan.",
+          "response": "{\"content_quality\":\"god\",\"tone\":\"profesjonell og imøtekommende, henvender seg til bedrifter som trenger FM-tjenester\",\"aktualitet\":\"middels\",\"signals\":[\"ingen årstall-signaler funnet i teksten\",\"nevner oppkjøp av ISS som kan være tidsrelevant\",\"refererer til ISO-sertifiseringer og bærekraftsrapportering\"],\"summary_nb\":\"Teksten presenterer Toma som en erfaren og familieeid FM-leverandør med bredt tjenestetilbud, og kommuniserer tydelig verdi som trygghet, effektivitet og personlig service. Innholdet er godt strukturert og profesjonelt skrevet, men mangler konkrete årstall eller datoer som kan bekrefte hvor oppdatert informasjonen er. Aktualiteten vurderes som middels på grunn av fravær av tidsmarkører, selv om referanser til oppkjøp og sertifiseringer indikerer nylig aktivitet.\"}",
+          "model": "deepseek-chat"
+        }
+      }
+    ]
+  },
+  "automation": {
+    "leverage": 50,
+    "potential": 50,
+    "present": 3,
+    "total": 6,
+    "signals": {
+      "contact_form": true,
+      "analytics": true,
+      "cmp": false,
+      "chat": true,
+      "booking": false,
+      "newsletter": false
+    }
+  },
+  "quick_wins": [],
+  "build_opportunities": [],
+  "human_approvals": [],
+  "executive_summary": "www.toma.no sin offentlige nettside scorer **64%** på Arch Website Score. Den største risikoen er: **Skjemaetiketter**. **13 funn** bør prioriteres (0 kritisk, 13 høy ROI). Største mulighet: **50% uutnyttet automatiseringsverdi** — prosesser som kan automatiseres (lead-ruting, kundestøtte, avtalebooking, oppfølging). Forretningsmessig betyr dette: målbar gevinst i hastighet, konvertering og frigjort tid. Merk: dette er en **utenfor-inn** vurdering av kun den offentlige nettsiden — interne systemer er ikke vurdert."
+}
