@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arch Website Audit — www.bilglass.no</title>
+<style>
+  :root { --bg:#0f1220; --panel:#171b2e; --ink:#e8eaf2; --mut:#9aa3b8; --acc:#4f8cff; --ok:#3ddc84; --warn:#ffb454; --bad:#ff6b6b; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--ink); font-family:-apple-system,"Segoe UI",Roboto,sans-serif; line-height:1.6; padding:24px; }
+  .wrap { max-width:860px; margin:0 auto; }
+  .card { background:var(--panel); border-radius:14px; padding:24px; margin-bottom:18px; }
+  h1 { font-size:1.5rem; margin-bottom:6px; }
+  h2 { font-size:1.1rem; margin:0 0 10px; color:var(--acc); }
+  h3 { font-size:1rem; margin:14px 0 8px; color:var(--ink); }
+  .score { font-size:3rem; font-weight:800; color:var(--warn); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px; }
+  .dim { background:#1d2238; border-radius:10px; padding:12px; }
+  .dim b { display:block; }
+  .bar { height:8px; background:#2a3050; border-radius:6px; margin-top:8px; overflow:hidden; }
+  .bar i { display:block; height:100%; border-radius:6px; }
+  table { width:100%; border-collapse:collapse; margin:10px 0; }
+  th,td { text-align:left; padding:8px 10px; border-bottom:1px solid #2a3050; font-size:.92rem; }
+  th { color:var(--mut); font-weight:600; }
+  .tag { display:inline-block; padding:2px 10px; border-radius:20px; font-size:.78rem; font-weight:700; }
+  .t-ok { background:rgba(61,220,132,.15); color:var(--ok); }
+  .t-warn { background:rgba(255,180,84,.15); color:var(--warn); }
+  .t-bad { background:rgba(255,107,107,.15); color:var(--bad); }
+  .mut { color:var(--mut); font-size:.88rem; }
+  ul,ol { padding-left:20px; margin:8px 0; }
+  code { background:#232a45; padding:1px 6px; border-radius:5px; font-size:.85em; }
+  blockquote { border-left:3px solid var(--acc); padding-left:12px; margin:10px 0; color:var(--mut); }
+  a { color:var(--acc); }
+  .foot { color:var(--mut); font-size:.8rem; margin-top:20px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="card">
+    <h1>Arch Website Audit</h1>
+    <p class="mut">www.bilglass.no · utført 15. august 2026 · passiv, utenfor-inn · ingen endringer gjort</p>
+    <p style="margin-top:14px">Total score</p>
+    <div class="score">58 %</div>
+    <p class="mut">0 kritiske funn · 8 høye · 17 medium · 7 lave</p>
+  </div>
+
+  <div class="card">
+    <h2>Dimensjoner</h2>
+    <div class="grid"><div class="dim"><b>performance <span class="tag t-bad">38 %</span></b><div class="bar"><i style="width:38%;background:var(--bad)"></i></div></div>
+<div class="dim"><b>security <span class="tag t-bad">41 %</span></b><div class="bar"><i style="width:41%;background:var(--bad)"></i></div></div>
+<div class="dim"><b>ux_mobile <span class="tag t-warn">75 %</span></b><div class="bar"><i style="width:75%;background:var(--warn)"></i></div></div>
+<div class="dim"><b>accessibility <span class="tag t-warn">60 %</span></b><div class="bar"><i style="width:60%;background:var(--warn)"></i></div></div>
+<div class="dim"><b>seo <span class="tag t-ok">88 %</span></b><div class="bar"><i style="width:88%;background:var(--ok)"></i></div></div>
+<div class="dim"><b>reliability <span class="tag t-ok">86 %</span></b><div class="bar"><i style="width:86%;background:var(--ok)"></i></div></div>
+<div class="dim"><b>trust_privacy <span class="tag t-warn">57 %</span></b><div class="bar"><i style="width:57%;background:var(--warn)"></i></div></div>
+<div class="dim"><b>ai_visibility <span class="tag t-bad">25 %</span></b><div class="bar"><i style="width:25%;background:var(--bad)"></i></div></div>
+<div class="dim"><b>automation <span class="tag t-bad">33 %</span></b><div class="bar"><i style="width:33%;background:var(--bad)"></i></div></div></div>
+  </div>
+
+  <div class="card">
+    <h2>Funn (prioritert)</h2>
+    <p><span class="tag t-bad">HØY</span> <b>Ødelagte interne lenker</b><br><span class="mut">3 ødelagt (www.bilglass.no/cdn-cgi/content → 404, www.bilglass.no/cdn-cgi/l/email-protection → 404, www.bilglass.no/cdn-cgi/content → 404)</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Render-blokkerende ressurser</b><br><span class="mut">2 blokkerende skript, 1 stylesheets</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Bilde-optimalisering</b><br><span class="mut">2 bilder, 0 m/ dimensjoner, 2 lazy</span></p>
+<p><span class="tag t-bad">HØY</span> <b>Skjemaetiketter</b><br><span class="mut">2 input, 0 label</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Overskriftshierarki</b><br><span class="mut">h1=0 h2=0 h3=0</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Canonical</b><br><span class="mut">mangler canonical</span></p>
+<p><span class="tag t-bad">HØY</span> <b>Header: csp</b><br><span class="mut">mangler</span></p>
+<p><span class="tag t-bad">HØY</span> <b>Header: xcto</b><br><span class="mut">mangler</span></p>
+<p><span class="tag t-bad">HØY</span> <b>Header: referrer</b><br><span class="mut">mangler</span></p>
+<p><span class="tag t-bad">HØY</span> <b>Header: permissions</b><br><span class="mut">mangler</span></p>
+<p><span class="tag t-bad">HØY</span> <b>Header: frame</b><br><span class="mut">mangler</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Versjons-avsløring</b><br><span class="mut">cloudflare, Next.js</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Cookie-banner</b><br><span class="mut">ingen cookie-banner observert</span></p>
+<p><span class="tag t-bad">HØY</span> <b>Sikkerhetsheadere — gradering F</b><br><span class="mut">Gradering F. Content-Security-Policy: MANGLER; Strict-Transport-Security: max-age=63072000; X-Frame-Options: MANGLER; X-Content-Type-Options: MANGLER; Referrer-Policy: MANGLER; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS uten includeSubDomains · X-Frame-Options mangler (og ingen frame-ancestors i CSP) · X-Content-Type-Options mangler nosniff · Referrer-Policy mangler · Permissions-Policy mangler</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Versjonslekkasje: x-powered-by-header</b><br><span class="mut">x-powered-by: Next.js</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>DMARC (spoofing-beskyttelse)</b><br><span class="mut">ingen DMARC</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>DMARC for subdomene</b><br><span class="mut">ingen _dmarc.www.bilglass.no — subdomener kan spoofes</span></p>
+<p><span class="tag t-ok">LAV</span> <b>MTA-STS (håndhevet e-post-TLS)</b><br><span class="mut">ingen MTA-STS (TXT + policy-fil mangler)</span></p>
+<p><span class="tag t-ok">LAV</span> <b>TLS-RPT (TLS-rapportering)</b><br><span class="mut">ingen TLS-rapportering</span></p>
+<p><span class="tag t-ok">LAV</span> <b>CAA (sertifikat-utsteder-kontroll)</b><br><span class="mut">ingen CAA</span></p>
+<p><span class="tag t-ok">LAV</span> <b>DNSSEC (signert sone)</b><br><span class="mut">manglende AD-flag — sonen er ikke DNSSEC-signert</span></p>
+<p><span class="tag t-ok">LAV</span> <b>DNSSEC (Norid)</b><br><span class="mut">DNSSEC ikke aktivert (delegationSigned=false)</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Cookie-banner / samtykke-plattform (CMP)</b><br><span class="mut">ingen CMP/banner observert — potential concern, krever juridisk vurdering</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Tredjeparts-trackere</b><br><span class="mut">trackere observert (Google Tag Manager) — ingen synlig samtykke-gating observert — potential concern, krever juridisk vurdering</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Pris inkl. mva</b><br><span class="mut">pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Angrerett-informasjon</b><br><span class="mut">angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Klageadgang / tvisteløsning</b><br><span class="mut">klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering</span></p>
+<p><span class="tag t-ok">LAV</span> <b>E-post på nettsiden</b><br><span class="mut">ingen mailto:-lenke observert — potential concern (kontaktbarhet)</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Synlighet i AI-svar</b><br><span class="mut">0/3 svar nevner Riis Bilglass · sitat: «Det er et par aktører som skiller seg ut.» · prompter: «Hvilket bilglassfirma bør jeg velge for rask og på…» / «Er det verdt å reparere en steinsprutskade fremfor…»</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Posisjon i AI-svar</b><br><span class="mut">ikke nevnt i noen av svarene</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Trackere observert uten synlig samtykke</b><br><span class="mut">Google Analytics/Tag Manager — potensielt concern, krever juridisk gjennomgang</span></p>
+<p><span class="tag t-ok">LAV</span> <b>Automatiseringsmuligheter identifisert</b><br><span class="mut">uutnyttet potensial 33% — manglende signaler: cmp, newsletter</span></p>
+  </div>
+
+<div class="card"><h2>## Arch Audit v2 — utvidede undersøkelser</h2></div>
+<div class="card"><h2>Hva en hacker ser</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>❌ Funn</td><td>Sikkerhetsheadere — gradering F</td><td>Gradering F. Content-Security-Policy: MANGLER; Strict-Transport-Security: max-age=63072000; X-Frame-Options: MANGLER; X-Content-Type-Options: MANGLER; Referrer-Policy: MANGLER; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS uten includeSubDomains · X-Frame-Options mangler (og ingen frame-ancestors i CSP) · X-Content-Type-Options mangler nosniff · Referrer-Policy mangler · Permissions-Policy mangler</td></tr><tr><td>✅ OK</td><td>Cookie-sikkerhet (HttpOnly/Secure/SameSite)</td><td>Ingen cookies satt av serveren (0 set-cookie-headere).</td></tr><tr><td>❌ Funn</td><td>Versjonslekkasje: x-powered-by-header</td><td>x-powered-by: Next.js</td></tr><tr><td>✅ OK</td><td>TLS-sertifikat gyldighet</td><td>notBefore=2026-07-09T20:26:45.000Z, notAfter=2026-10-07T21:25:26.000Z, issuer=C=US, O=Google Trust Services, CN=WE1, SAN=bilglass.no, *.bilglass.no</td></tr><tr><td>✅ OK</td><td>TLS-sertifikat-verifisering</td><td>verify return code: 0 (ok)</td></tr><tr><td>✅ OK</td><td>Legacy-TLS (1.0/1.1) støtte</td><td>TLS 1.0: blocked · TLS 1.1: blocked</td></tr></tbody></table></div>
+<div class="card"><h2>E-post & DNS-sikkerhet</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>✅ OK</td><td>SPF (avsender-verifisering)</td><td>v=spf1 include:mail.eu1.inforcloudsuite.com include:spf.protection.outlook.com include:spf.eye-share.com include:167.89.93.88 include:193.69.152.146 -all</td></tr><tr><td>✅ OK</td><td>SPF: private IP-er i mekanismene</td><td>ingen private IP-er i SPF</td></tr><tr><td>⚠️ Ikke verifisert</td><td>DKIM (e-post-signering)</td><td>ingen av probede selektorer funnet (kan ikke konkludere fravær)</td></tr><tr><td>❌ Funn</td><td>DMARC (spoofing-beskyttelse)</td><td>ingen DMARC</td></tr><tr><td>❌ Funn</td><td>DMARC for subdomene</td><td>ingen _dmarc.www.bilglass.no — subdomener kan spoofes</td></tr><tr><td>❌ Funn</td><td>MTA-STS (håndhevet e-post-TLS)</td><td>ingen MTA-STS (TXT + policy-fil mangler)</td></tr><tr><td>❌ Funn</td><td>TLS-RPT (TLS-rapportering)</td><td>ingen TLS-rapportering</td></tr><tr><td>➖ N/A</td><td>BIMI (merkevare-logo i innboks)</td><td>ingen BIMI (ikke påkrevd)</td></tr><tr><td>❌ Funn</td><td>CAA (sertifikat-utsteder-kontroll)</td><td>ingen CAA</td></tr><tr><td>❌ Funn</td><td>DNSSEC (signert sone)</td><td>manglende AD-flag — sonen er ikke DNSSEC-signert</td></tr><tr><td>✅ OK</td><td>E-post-omdømme (DNSBL)</td><td>bilglass-no.mail.protection.outlook.com (52.101.73.16) ikke listet</td></tr><tr><td>✅ OK</td><td>Subdomene-eksponering (crt.sh)</td><td>15 subdomener — interessant: admin.bilglass.no, booking.test.bilglass.no, mail.bilglass.no</td></tr></tbody></table><table><thead><tr><th>Protokoll</th><th>Observert</th></tr></thead><tbody><tr><td>SPF</td><td>v=spf1 include:mail.eu1.inforcloudsuite.com include:spf.protection.outlook.com include:spf.eye-share.com include:167.89.93.88 include:193.69.152.146 -all</td></tr><tr><td>DMARC</td><td>{"record":null,"p":null,"policy":null,"subdomain":{"name":"_dmarc.www.bilglass.no","present":false,"record":null}}</td></tr><tr><td>MTA-STS</td><td>TXT: nei · policy-fil: nei</td></tr><tr><td>CAA</td><td>ingen CAA</td></tr><tr><td>DNSSEC</td><td>ikke signert</td></tr><tr><td>DNSBL</td><td>bilglass-no.mail.protection.outlook.com ikke listet</td></tr><tr><td>Subdomener (crt.sh)</td><td>15 observert — interessant: admin.bilglass.no, booking.test.bilglass.no, mail.bilglass.no</td></tr></tbody></table><p><b>Derfor betyr dette noe:</b> SPF/DKIM/DMARC avgjør om «hvem som helst» kan sende e-post som om de er dere. Kun ~15 % av domener har full SPF+DKIM+DMARC.</p></div>
+<div class="card"><h2>Norge-data (Brreg · Norid · SSB)</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>⚠️ Ikke verifisert</td><td>Firma i Brreg (Enhetsregisteret)</td><td>N kandidater for «Riis Bilglass», ingen med Brreg-hjemmeside som matcher bilglass.no — kan ikke entydig knytte firma til domene. Kandidater: RIIS BILGLASS AS (979224907) · RIIS (920721427) · BILGLASS AS (995566559)</td></tr><tr><td>✅ OK</td><td>Bransjekontekst (SSB, næring 95)</td><td>SSB tabell 12817: Reparasjon av varer til personlig bruk — 1 461 foretak (2024)</td></tr><tr><td>✅ OK</td><td>Domenet registrert (Norid)</td><td>registrert 2012-08-06</td></tr><tr><td>✅ OK</td><td>Sist endret (Norid)</td><td>sist endret 2026-07-06</td></tr><tr><td>❌ Funn</td><td>DNSSEC (Norid)</td><td>DNSSEC ikke aktivert (delegationSigned=false)</td></tr><tr><td>✅ OK</td><td>Registrar (Norid)</td><td>registrar: SIRCON NORGE AS</td></tr></tbody></table><p><b>Brreg-enhet:</b> RIIS BILGLASS AS — org.nr 979224907 · Aksjeselskap · stiftet 1997-08-04 · næring: Formidlingstjenester tilknyttet reparasjon og vedlikehold av datamaskiner, husholdningsvarer og varer til personlig bruk, og motorvogner og motorsykler · 25 ansatte.</p><p><b>Norid (bilglass.no):</b> registrert 2012-08-06 · sist endret 2026-07-06 · registrar: SIRCON NORGE AS · DNSSEC: nei.</p><p><b>Bransjekontekst (SSB):</b> SSB tabell 12817: Reparasjon av varer til personlig bruk — 1 461 foretak (2024).</p></div>
+<div class="card"><h2>Historikk (Wayback Machine)</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>✅ OK</td><td>Arkivhistorikk finnes</td><td>arkivert siden 2001-03-02</td></tr><tr><td>✅ OK</td><td>Aktualitet (siste arkiverte versjon)</td><td>siste snapshot 2026-07-16</td></tr><tr><td>✅ OK</td><td>Arkivomfang</td><td>100 arkiverte versjoner (unike URL-nøkler, limit 100)</td></tr></tbody></table><p><b>Arkivomfang:</b> første arkiverte versjon 2001-03-02, siste 2026-07-16 (100 arkiverte versjoner).</p></div>
+<div class="card"><h2>Compliance-signaler Norge</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>❌ Funn</td><td>Cookie-banner / samtykke-plattform (CMP)</td><td>ingen CMP/banner observert — potential concern, krever juridisk vurdering</td></tr><tr><td>➖ N/A</td><td>Reelt valg (avvis-knapp)</td><td>ingen banner/CMP observert</td></tr><tr><td>✅ OK</td><td>Forhåndsavkrysset samtykke</td><td>ingen forhåndsavkryssede samtykke-inputs observert</td></tr><tr><td>✅ OK</td><td>Personvernerklæring</td><td>personvernerklæring lenket i footer</td></tr><tr><td>❌ Funn</td><td>Tredjeparts-trackere</td><td>trackere observert (Google Tag Manager) — ingen synlig samtykke-gating observert — potential concern, krever juridisk vurdering</td></tr><tr><td>✅ OK</td><td>Google Fonts (ekstern)</td><td>ingen ekstern Google Fonts observert</td></tr><tr><td>❌ Funn</td><td>Pris inkl. mva</td><td>pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering</td></tr><tr><td>❌ Funn</td><td>Angrerett-informasjon</td><td>angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering</td></tr><tr><td>❌ Funn</td><td>Klageadgang / tvisteløsning</td><td>klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering</td></tr></tbody></table><p><b>Viktig:</b> Disse punktene er maskinlesbare SIGNALER, ikke en juridisk vurdering. «Funn» betyr at noe mangler eller er observert — om det faktisk utgjør et problem krever juridisk vurdering.</p></div>
+<div class="card"><h2>Fart (PageSpeed Insights + CrUX)</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>⚠️ Ikke verifisert</td><td>PageSpeed mobil</td><td>API-feil: HTTP 429</td></tr><tr><td>⚠️ Ikke verifisert</td><td>PageSpeed desktop</td><td>API-feil: HTTP 429</td></tr><tr><td>⚠️ Ikke verifisert</td><td>PageSpeed API tilgjengelig</td><td>API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig</td></tr></tbody></table></div>
+<div class="card"><h2>Tilstedeværelse (sosiale medier · NAP)</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>✅ OK</td><td>Sosiale medier (lenker fra nettsiden)</td><td>3 profiler lenket — alle svarer (instagram: 200 · facebook: 400 · linkedin: 200)</td></tr><tr><td>✅ OK</td><td>Telefon på nettsiden</td><td>tel-lenke: 090 09</td></tr><tr><td>❌ Funn</td><td>E-post på nettsiden</td><td>ingen mailto:-lenke observert — potential concern (kontaktbarhet)</td></tr><tr><td>✅ OK</td><td>Navn-konsistens (nettside ↔ Brreg)</td><td>«RIIS BILGLASS AS» (Brreg) samsvarer med nettsidenavn</td></tr><tr><td>⚠️ Ikke verifisert</td><td>Google Business Profile (anmeldelser, kategori)</td><td>krever Google Places API-nøkkel — støttes når nøkkel er konfigurert</td></tr></tbody></table><p><b>Sosiale profiler (lenket fra nettsiden):</b> instagram: 200 · facebook: 400 · linkedin: 200.</p><p><b>Kontakt på nettsiden:</b> telefon 090 09.</p></div>
+<div class="card"><h2>AI-analyse av innhold (DeepSeek)</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>⚠️ Ikke verifisert</td><td>Innholdskvalitet (AI-vurdert)</td><td>Nettstedet presenterer et bredt spekter av bilglass-tjenester og tydelig kontaktinformasjon, med fokus på rask og enkel bestilling via telefon. Innholdet er strukturert og profesjonelt, men mangler dybde og konkrete detaljer om priser eller garantier. Teksten er uten stavefeil og virker oppdatert, men gir lite informasjon om selskapets historie eller kvalitetsbevis utover sertifisering.</td></tr><tr><td>✅ OK</td><td>Aktualitet (AI-vurdert)</td><td>ingen årstall eller datoer funnet · teksten er oppdatert med tjenester og kontaktinformasjon · ingen tegn på utdatert innhold</td></tr></tbody></table><p><b>AI-vurdering (DeepSeek, deepseek-chat):</b> analysen er reproduserbar — prompt og rå-svar ligger i evidence-filen.</p></div>
+<div class="card"><h2>AI-synlighet (GEO — hvordan AI-assistenter omtaler dere)</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>❌ Funn</td><td>Synlighet i AI-svar</td><td>0/3 svar nevner Riis Bilglass · sitat: «Det er et par aktører som skiller seg ut.» · prompter: «Hvilket bilglassfirma bør jeg velge for rask og på…» / «Er det verdt å reparere en steinsprutskade fremfor…»</td></tr><tr><td>❌ Funn</td><td>Posisjon i AI-svar</td><td>ikke nevnt i noen av svarene</td></tr><tr><td>✅ OK</td><td>Sentiment i AI-omtale</td><td>sentiment: nøytral · råd: Sørg for at bedriftens åpningstider og tjenester (gratis lånebil, døgnvakt) er tydelig og konsistent beskrevet på nettsiden og i lokale søk.</td></tr><tr><td>⚠️ Ikke verifisert</td><td>Kilder AI-en siterer</td><td>ingen eksterne domener sitert</td></tr></tbody></table><p><b>Målemetode (Peec.ai-modellen):</b> 3 kunderelevante spørsmål ble stilt til en AI-assistent (deepseek-chat). Spørsmålene er generert fra nettsidens eget innhold og ligger i evidence-filen.</p><p><b>Stilte spørsmål:</b></p><ul><li>Hvilket bilglassfirma bør jeg velge for rask og pålitelig steinsprutreparasjon i Oslo-området, med gratis lånebil og åpent alle dager fra 07:00 til 24:00?</li><li>Er det verdt å reparere en steinsprutskade fremfor å bytte hele frontruten, og hvilket firma anbefaler du for kostnadsfri reparasjon og kalibrering av frontruten?</li><li>Hva er det beste alternativet for å fikse en sprukket frontrute før EU-kontroll, med mulighet for original rute og samarbeid med forsikringsselskaper?</li></ul><p><b>Målinger per spørsmål:</b></p><ul><li>«Hvilket bilglassfirma bør jeg velge for rask og pålitelig steinsprutre…» → ikke nevnt</li><li>«Er det verdt å reparere en steinsprutskade fremfor å bytte hele frontr…» → ikke nevnt</li><li>«Hva er det beste alternativet for å fikse en sprukket frontrute før EU…» → ikke nevnt</li></ul><p><b>Anbefaling (AI-vurdert):</b> Sørg for at bedriftens åpningstider og tjenester (gratis lånebil, døgnvakt) er tydelig og konsistent beskrevet på nettsiden og i lokale søk.</p><hr><p>_Alle sjekker er passive og utenfor-inn (kun offentlig observerbar informasjon). Kilde og rådata ligger i evidence-filen._</p></div>
+
+  <div class="card">
+    <h2>Hva Arch kan gjøre for deg</h2>
+    <p>Arch leverer Build-fix (rettelser), Compliance (Norge-spesifikke krav) og Managed (løpende overvåking og drift) basert på funnene over.</p>
+  </div>
+
+  <p class="foot">Generert av Arch Platform · website-audit v2 · 2026-08-15</p>
+</div>
+</body>
+</html>

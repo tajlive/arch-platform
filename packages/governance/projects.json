@@ -128,6 +128,25 @@
    "audit_report": "docs/audits/prospects/www.toma.no/",
    "public_report": "https://arch-platform.pages.dev/audits/toma",
    "consent": "none (passiv prospect-audit)"
+  },
+  {
+   "project_id": "riis-bilglass",
+   "name": "Riis Bilglass (Andr. L. Riis AS) — bilglasskjede",
+   "type": "Prospect — Automotive Glass",
+   "repository": null,
+   "linear_team": "ARC",
+   "linear_project": null,
+   "runtime": "external",
+   "environment": "prospect",
+   "visibility": "internal",
+   "health_profile": "audited",
+   "status": "prospect",
+   "url": "https://www.bilglass.no",
+   "audit_score": 58,
+   "audit_date": "2026-08-15",
+   "audit_report": "docs/audits/prospects/www.bilglass.no/",
+   "public_report": "https://arch-platform.pages.dev/audits/riis-bilglass",
+   "consent": "none (passiv prospect-audit)"
   }
  ]
 }

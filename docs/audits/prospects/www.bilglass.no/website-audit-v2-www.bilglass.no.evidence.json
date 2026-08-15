@@ -1,0 +1,3878 @@
+{
+  "meta": {
+    "generated": "2026-08-15T00:30:46.118Z",
+    "version": "2.0",
+    "name": "www.bilglass.no",
+    "website": "https://www.bilglass.no",
+    "domain": "www.bilglass.no",
+    "registrable_domain": "bilglass.no",
+    "mode": "website",
+    "design_partner": false,
+    "audit_duration_ms": 74323,
+    "v2_modules_ms": 37490
+  },
+  "customer": null,
+  "score": {
+    "total": 58,
+    "categories": {
+      "performance": {
+        "pct": 38,
+        "weight": 20,
+        "pass": 3,
+        "fail": 2,
+        "unknown": 3,
+        "denom": 8,
+        "checks": [
+          {
+            "id": "compression",
+            "label": "Komprimering (gzip/brotli)",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "br",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:07.905Z"
+          },
+          {
+            "id": "caching",
+            "label": "Cache-headere",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "public, max-age=0, must-revalidate",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:07.905Z"
+          },
+          {
+            "id": "render_blocking",
+            "label": "Render-blokkerende ressurser",
+            "dimension": "performance",
+            "result": "FAIL",
+            "evidence": "2 blokkerende skript, 1 stylesheets",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:07.909Z"
+          },
+          {
+            "id": "image_optim",
+            "label": "Bilde-optimalisering",
+            "dimension": "performance",
+            "result": "FAIL",
+            "evidence": "2 bilder, 0 m/ dimensjoner, 2 lazy",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:07.910Z"
+          },
+          {
+            "id": "third_party",
+            "label": "Tredjeparts-skript/-ressurser",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "1 eksterne domener (cdn.sanity.io)",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:07.910Z"
+          },
+          {
+            "id": "psi_mobile",
+            "label": "PageSpeed mobil",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:30:23.695Z"
+          },
+          {
+            "id": "psi_desktop",
+            "label": "PageSpeed desktop",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:30:23.695Z"
+          },
+          {
+            "id": "psi_availability",
+            "label": "PageSpeed API tilgjengelig",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:30:23.695Z"
+          }
+        ]
+      },
+      "security": {
+        "pct": 41,
+        "weight": 20,
+        "pass": 11,
+        "fail": 15,
+        "unknown": 1,
+        "denom": 27,
+        "checks": [
+          {
+            "id": "https",
+            "label": "HTTPS/TLS",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "HTTPS leverte respons",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:29:32.051Z"
+          },
+          {
+            "id": "header_csp",
+            "label": "Header: csp",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.344Z"
+          },
+          {
+            "id": "header_hsts",
+            "label": "Header: hsts",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.344Z"
+          },
+          {
+            "id": "header_xcto",
+            "label": "Header: xcto",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.344Z"
+          },
+          {
+            "id": "header_referrer",
+            "label": "Header: referrer",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.344Z"
+          },
+          {
+            "id": "header_permissions",
+            "label": "Header: permissions",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.344Z"
+          },
+          {
+            "id": "header_frame",
+            "label": "Header: frame",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.344Z"
+          },
+          {
+            "id": "mixed_content",
+            "label": "Blandet innhold (http på https)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen http-referanser i HTML",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.344Z"
+          },
+          {
+            "id": "source_maps",
+            "label": "Eksponerte source maps",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen sourceMappingURL i sjekkede skript",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.521Z"
+          },
+          {
+            "id": "tech_disclosure",
+            "label": "Versjons-avsløring",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "cloudflare, Next.js",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.521Z"
+          },
+          {
+            "id": "security_headers",
+            "label": "Sikkerhetsheadere — gradering F",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "Gradering F. Content-Security-Policy: MANGLER; Strict-Transport-Security: max-age=63072000; X-Frame-Options: MANGLER; X-Content-Type-Options: MANGLER; Referrer-Policy: MANGLER; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS uten includeSubDomains · X-Frame-Options mangler (og ingen frame-ancestors i CSP) · X-Content-Type-Options mangler nosniff · Referrer-Policy mangler · Permissions-Policy mangler",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:30:10.959Z"
+          },
+          {
+            "id": "cookies_attributes",
+            "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:30:10.962Z"
+          },
+          {
+            "id": "leak_0_x-powered-by",
+            "label": "Versjonslekkasje: x-powered-by-header",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "x-powered-by: Next.js",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:30:10.966Z"
+          },
+          {
+            "id": "tls_cert",
+            "label": "TLS-sertifikat gyldighet",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "notBefore=2026-07-09T20:26:45.000Z, notAfter=2026-10-07T21:25:26.000Z, issuer=C=US, O=Google Trust Services, CN=WE1, SAN=bilglass.no, *.bilglass.no",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:30:26.418Z"
+          },
+          {
+            "id": "tls_verify",
+            "label": "TLS-sertifikat-verifisering",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "verify return code: 0 (ok)",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:30:26.418Z"
+          },
+          {
+            "id": "tls_legacy",
+            "label": "Legacy-TLS (1.0/1.1) støtte",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+            "confidence": "medium",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:30:26.418Z"
+          },
+          {
+            "id": "spf",
+            "label": "SPF (avsender-verifisering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "v=spf1 include:mail.eu1.inforcloudsuite.com include:spf.protection.outlook.com include:spf.eye-share.com include:167.89.93.88 include:193.69.152.146 -all",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:30:10.562Z"
+          },
+          {
+            "id": "spf_private_ip",
+            "label": "SPF: private IP-er i mekanismene",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen private IP-er i SPF",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:30:10.563Z"
+          },
+          {
+            "id": "dkim",
+            "label": "DKIM (e-post-signering)",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "ingen av probede selektorer funnet (kan ikke konkludere fravær)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:30:11.562Z"
+          },
+          {
+            "id": "dmarc",
+            "label": "DMARC (spoofing-beskyttelse)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen DMARC",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:30:11.616Z"
+          },
+          {
+            "id": "dmarc_subdomain",
+            "label": "DMARC for subdomene",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen _dmarc.www.bilglass.no — subdomener kan spoofes",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:30:11.683Z"
+          },
+          {
+            "id": "mta_sts",
+            "label": "MTA-STS (håndhevet e-post-TLS)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:30:11.864Z"
+          },
+          {
+            "id": "tls_rpt",
+            "label": "TLS-RPT (TLS-rapportering)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen TLS-rapportering",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:30:11.927Z"
+          },
+          {
+            "id": "caa",
+            "label": "CAA (sertifikat-utsteder-kontroll)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen CAA",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:30:12.059Z"
+          },
+          {
+            "id": "dnssec",
+            "label": "DNSSEC (signert sone)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "manglende AD-flag — sonen er ikke DNSSEC-signert",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:30:12.152Z"
+          },
+          {
+            "id": "subdomains",
+            "label": "Subdomene-eksponering (crt.sh)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "15 subdomener — interessant: admin.bilglass.no, booking.test.bilglass.no, mail.bilglass.no",
+            "confidence": "medium",
+            "source": "https",
+            "observed_at": "2026-08-15T00:30:18.909Z"
+          },
+          {
+            "id": "norid_dnssec",
+            "label": "DNSSEC (Norid)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "DNSSEC ikke aktivert (delegationSigned=false)",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:30:10.464Z"
+          }
+        ]
+      },
+      "ux_mobile": {
+        "pct": 75,
+        "weight": 15,
+        "pass": 3,
+        "fail": 0,
+        "unknown": 1,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "viewport",
+            "label": "Viewport meta",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "viewport tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:07.910Z"
+          },
+          {
+            "id": "media_queries",
+            "label": "Responsive CSS (@media)",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "@media funnet",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.039Z"
+          },
+          {
+            "id": "ai_content_quality",
+            "label": "Innholdskvalitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "UNKNOWN",
+            "evidence": "Nettstedet presenterer et bredt spekter av bilglass-tjenester og tydelig kontaktinformasjon, med fokus på rask og enkel bestilling via telefon. Innholdet er strukturert og profesjonelt, men mangler dybde og konkrete detaljer om priser eller garantier. Teksten er uten stavefeil og virker oppdatert, men gir lite informasjon om selskapets historie eller kvalitetsbevis utover sertifisering.",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T00:30:14.381Z"
+          },
+          {
+            "id": "ai_content_freshness",
+            "label": "Aktualitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "ingen årstall eller datoer funnet · teksten er oppdatert med tjenester og kontaktinformasjon · ingen tegn på utdatert innhold",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T00:30:14.381Z"
+          }
+        ]
+      },
+      "accessibility": {
+        "pct": 60,
+        "weight": 15,
+        "pass": 3,
+        "fail": 2,
+        "unknown": 0,
+        "denom": 5,
+        "checks": [
+          {
+            "id": "lang",
+            "label": "Språk-attributt (lang)",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "no",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.039Z"
+          },
+          {
+            "id": "alt_text",
+            "label": "Alt-tekst på bilder",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "0/2 bilder mangler alt",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.040Z"
+          },
+          {
+            "id": "form_labels",
+            "label": "Skjemaetiketter",
+            "dimension": "accessibility",
+            "result": "FAIL",
+            "evidence": "2 input, 0 label",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.043Z"
+          },
+          {
+            "id": "heading_hierarchy",
+            "label": "Overskriftshierarki",
+            "dimension": "accessibility",
+            "result": "FAIL",
+            "evidence": "h1=0 h2=0 h3=0",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.045Z"
+          },
+          {
+            "id": "semantic",
+            "label": "Semantiske landemerker",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "3/4 (header, nav, footer)",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.046Z"
+          }
+        ]
+      },
+      "seo": {
+        "pct": 88,
+        "weight": 10,
+        "pass": 7,
+        "fail": 1,
+        "unknown": 0,
+        "denom": 8,
+        "checks": [
+          {
+            "id": "title",
+            "label": "Tittel",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "Riis Bilglass - Reparasjon av steinsprut - ring 090 09",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.046Z"
+          },
+          {
+            "id": "meta_description",
+            "label": "Meta-beskrivelse",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "Riis Bilglass – Profesjonell reparasjon av steinsprut. Rask og pålitelig service. Ring 090 09 for hjelp i dag!",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.046Z"
+          },
+          {
+            "id": "canonical",
+            "label": "Canonical",
+            "dimension": "seo",
+            "result": "FAIL",
+            "evidence": "mangler canonical",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.046Z"
+          },
+          {
+            "id": "robots_meta",
+            "label": "Robots-meta",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "ingen robots-meta (standard: indekserbart)",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.047Z"
+          },
+          {
+            "id": "robots_txt",
+            "label": "robots.txt",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "robots.txt tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.047Z"
+          },
+          {
+            "id": "sitemap",
+            "label": "Sitemap.xml",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "sitemap tilstede (225 URL-er)",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.343Z"
+          },
+          {
+            "id": "open_graph",
+            "label": "OpenGraph",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "title=true description=true image=true",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.343Z"
+          },
+          {
+            "id": "structured_data",
+            "label": "Strukturert data (JSON-LD)",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "JSON-LD tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.344Z"
+          }
+        ]
+      },
+      "reliability": {
+        "pct": 86,
+        "weight": 10,
+        "pass": 6,
+        "fail": 1,
+        "unknown": 0,
+        "denom": 7,
+        "checks": [
+          {
+            "id": "http_status",
+            "label": "HTTP-status (hovedsiden)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "HTTP 200",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:29:32.050Z"
+          },
+          {
+            "id": "redirect_chain",
+            "label": "Omdirigeringskjede",
+            "dimension": "reliability",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen redirects",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:29:32.051Z"
+          },
+          {
+            "id": "broken_links",
+            "label": "Ødelagte interne lenker",
+            "dimension": "reliability",
+            "result": "FAIL",
+            "evidence": "3 ødelagt (www.bilglass.no/cdn-cgi/content → 404, www.bilglass.no/cdn-cgi/l/email-protection → 404, www.bilglass.no/cdn-cgi/content → 404)",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:03.052Z"
+          },
+          {
+            "id": "asset_failures",
+            "label": "Ressurs-feil (img/css/js)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "0 av 10 ressurser feilet",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:07.887Z"
+          },
+          {
+            "id": "norid_changed",
+            "label": "Sist endret (Norid)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "sist endret 2026-07-06",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:30:10.464Z"
+          },
+          {
+            "id": "history_exists",
+            "label": "Arkivhistorikk finnes",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "arkivert siden 2001-03-02",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:30:23.517Z"
+          },
+          {
+            "id": "history_freshness",
+            "label": "Aktualitet (siste arkiverte versjon)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "siste snapshot 2026-07-16",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:30:23.517Z"
+          },
+          {
+            "id": "history_scope",
+            "label": "Arkivomfang",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "100 arkiverte versjoner (unike URL-nøkler, limit 100)",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:30:23.517Z"
+          }
+        ]
+      },
+      "trust_privacy": {
+        "pct": 57,
+        "weight": 5,
+        "pass": 13,
+        "fail": 8,
+        "unknown": 2,
+        "denom": 23,
+        "checks": [
+          {
+            "id": "cookie_banner",
+            "label": "Cookie-banner",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen cookie-banner observert",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.522Z"
+          },
+          {
+            "id": "privacy_link",
+            "label": "Personvernerklæring-link",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "link til personvern observert",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.524Z"
+          },
+          {
+            "id": "consent_cmp",
+            "label": "Samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "trackere observert uten CMP",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.525Z"
+          },
+          {
+            "id": "contact_form",
+            "label": "Kontakt-/lead-skjema",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "1 <form> observert",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.525Z"
+          },
+          {
+            "id": "cta",
+            "label": "Call-to-action",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "CTA-tekst observert",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-15T00:30:08.526Z"
+          },
+          {
+            "id": "bimi",
+            "label": "BIMI (merkevare-logo i innboks)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen BIMI (ikke påkrevd)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:30:11.998Z"
+          },
+          {
+            "id": "dnsbl",
+            "label": "E-post-omdømme (DNSBL)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "bilglass-no.mail.protection.outlook.com (52.101.73.16) ikke listet",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:30:12.368Z"
+          },
+          {
+            "id": "brreg_org",
+            "label": "Firma i Brreg (Enhetsregisteret)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "N kandidater for «Riis Bilglass», ingen med Brreg-hjemmeside som matcher bilglass.no — kan ikke entydig knytte firma til domene. Kandidater: RIIS BILGLASS AS (979224907) · RIIS (920721427) · BILGLASS AS (995566559)",
+            "confidence": "medium",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:30:08.925Z"
+          },
+          {
+            "id": "ssb_context",
+            "label": "Bransjekontekst (SSB, næring 95)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "SSB tabell 12817: Reparasjon av varer til personlig bruk — 1 461 foretak (2024)",
+            "confidence": "high",
+            "source": "ssb",
+            "observed_at": "2026-08-15T00:30:10.198Z"
+          },
+          {
+            "id": "norid_registered",
+            "label": "Domenet registrert (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrert 2012-08-06",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:30:10.464Z"
+          },
+          {
+            "id": "norid_registrar",
+            "label": "Registrar (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrar: SIRCON NORGE AS",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:30:10.464Z"
+          },
+          {
+            "id": "cmp_banner",
+            "label": "Cookie-banner / samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:10.510Z"
+          },
+          {
+            "id": "consent_real_choice",
+            "label": "Reelt valg (avvis-knapp)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen banner/CMP observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:10.510Z"
+          },
+          {
+            "id": "consent_prechecked",
+            "label": "Forhåndsavkrysset samtykke",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:10.512Z"
+          },
+          {
+            "id": "privacy_policy",
+            "label": "Personvernerklæring",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "personvernerklæring lenket i footer",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:10.514Z"
+          },
+          {
+            "id": "third_party_trackers",
+            "label": "Tredjeparts-trackere",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "trackere observert (Google Tag Manager) — ingen synlig samtykke-gating observert — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:10.520Z"
+          },
+          {
+            "id": "google_fonts",
+            "label": "Google Fonts (ekstern)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen ekstern Google Fonts observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:10.521Z"
+          },
+          {
+            "id": "ecom_price_vat",
+            "label": "Pris inkl. mva",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:10.525Z"
+          },
+          {
+            "id": "ecom_angrerett",
+            "label": "Angrerett-informasjon",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:10.526Z"
+          },
+          {
+            "id": "ecom_klage",
+            "label": "Klageadgang / tvisteløsning",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:10.527Z"
+          },
+          {
+            "id": "social_profiles",
+            "label": "Sosiale medier (lenker fra nettsiden)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "3 profiler lenket — alle svarer (instagram: 200 · facebook: 400 · linkedin: 200)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:12.903Z"
+          },
+          {
+            "id": "nap_phone",
+            "label": "Telefon på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "tel-lenke: 090 09",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:12.904Z"
+          },
+          {
+            "id": "nap_email",
+            "label": "E-post på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:12.904Z"
+          },
+          {
+            "id": "nap_name_consistency",
+            "label": "Navn-konsistens (nettside ↔ Brreg)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "«RIIS BILGLASS AS» (Brreg) samsvarer med nettsidenavn",
+            "confidence": "high",
+            "source": "html+brreg",
+            "observed_at": "2026-08-15T00:30:12.904Z"
+          },
+          {
+            "id": "google_business",
+            "label": "Google Business Profile (anmeldelser, kategori)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+            "confidence": "medium",
+            "source": "places_api",
+            "observed_at": "2026-08-15T00:30:12.904Z"
+          }
+        ]
+      },
+      "ai_visibility": {
+        "pct": 25,
+        "weight": 5,
+        "pass": 1,
+        "fail": 2,
+        "unknown": 1,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "ai_vis_visibility",
+            "label": "Synlighet i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "FAIL",
+            "evidence": "0/3 svar nevner Riis Bilglass · sitat: «Det er et par aktører som skiller seg ut.» · prompter: «Hvilket bilglassfirma bør jeg velge for rask og på…» / «Er det verdt å reparere en steinsprutskade fremfor…»",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:30:46.116Z"
+          },
+          {
+            "id": "ai_vis_position",
+            "label": "Posisjon i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "FAIL",
+            "evidence": "ikke nevnt i noen av svarene",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:30:46.116Z"
+          },
+          {
+            "id": "ai_vis_sentiment",
+            "label": "Sentiment i AI-omtale",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "sentiment: nøytral · råd: Sørg for at bedriftens åpningstider og tjenester (gratis lånebil, døgnvakt) er tydelig og konsistent beskrevet på nettsiden og i lokale søk.",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:30:46.116Z"
+          },
+          {
+            "id": "ai_vis_sources",
+            "label": "Kilder AI-en siterer",
+            "dimension": "ai_visibility",
+            "result": "UNKNOWN",
+            "evidence": "ingen eksterne domener sitert",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:30:46.116Z"
+          }
+        ]
+      },
+      "automation": {
+        "pct": 33,
+        "leverage": 67,
+        "potential": 33,
+        "weight": 5,
+        "pass": 4,
+        "fail": 2,
+        "unknown": 0,
+        "denom": 6,
+        "checks": []
+      }
+    },
+    "weights": {
+      "performance": 20,
+      "security": 20,
+      "ux_mobile": 15,
+      "accessibility": 15,
+      "seo": 10,
+      "reliability": 10,
+      "trust_privacy": 5,
+      "ai_visibility": 5
+    },
+    "labels": {
+      "performance": "Performance",
+      "security": "Security Surface",
+      "ux_mobile": "UX / Mobile",
+      "accessibility": "Accessibility",
+      "seo": "SEO / Discovery",
+      "reliability": "Reliability",
+      "trust_privacy": "Trust / Privacy",
+      "automation": "Automation Potential",
+      "ai_visibility": "AI-synlighet (GEO)"
+    },
+    "automation": {
+      "leverage": 67,
+      "potential": 33,
+      "present": 4,
+      "total": 6,
+      "signals": {
+        "contact_form": true,
+        "analytics": true,
+        "cmp": false,
+        "chat": true,
+        "booking": true,
+        "newsletter": false
+      }
+    },
+    "observed_at": "2026-08-15T00:30:46.117Z"
+  },
+  "findings": [
+    {
+      "id": "W001",
+      "kind": "web_broken_links",
+      "title": "Ødelagte interne lenker",
+      "evidence": "3 ødelagt (www.bilglass.no/cdn-cgi/content → 404, www.bilglass.no/cdn-cgi/l/email-protection → 404, www.bilglass.no/cdn-cgi/content → 404)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W002",
+      "kind": "web_render_blocking",
+      "title": "Render-blokkerende ressurser",
+      "evidence": "2 blokkerende skript, 1 stylesheets",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W003",
+      "kind": "web_image_optim",
+      "title": "Bilde-optimalisering",
+      "evidence": "2 bilder, 0 m/ dimensjoner, 2 lazy",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W004",
+      "kind": "web_form_labels",
+      "title": "Skjemaetiketter",
+      "evidence": "2 input, 0 label",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W005",
+      "kind": "web_heading_hierarchy",
+      "title": "Overskriftshierarki",
+      "evidence": "h1=0 h2=0 h3=0",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W006",
+      "kind": "web_seo_canonical",
+      "title": "Canonical",
+      "evidence": "mangler canonical",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W007",
+      "kind": "web_security_headers",
+      "title": "Header: csp",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W008",
+      "kind": "web_security_headers",
+      "title": "Header: xcto",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W009",
+      "kind": "web_security_headers",
+      "title": "Header: referrer",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W010",
+      "kind": "web_security_headers",
+      "title": "Header: permissions",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W011",
+      "kind": "web_security_headers",
+      "title": "Header: frame",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W012",
+      "kind": "web_tech_disclosure",
+      "title": "Versjons-avsløring",
+      "evidence": "cloudflare, Next.js",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W013",
+      "kind": "web_privacy",
+      "title": "Cookie-banner",
+      "evidence": "ingen cookie-banner observert",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W014",
+      "kind": "web_security_headers",
+      "title": "Sikkerhetsheadere — gradering F",
+      "evidence": "Gradering F. Content-Security-Policy: MANGLER; Strict-Transport-Security: max-age=63072000; X-Frame-Options: MANGLER; X-Content-Type-Options: MANGLER; Referrer-Policy: MANGLER; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS uten includeSubDomains · X-Frame-Options mangler (og ingen frame-ancestors i CSP) · X-Content-Type-Options mangler nosniff · Referrer-Policy mangler · Permissions-Policy mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W015",
+      "kind": "web_tech_disclosure",
+      "title": "Versjonslekkasje: x-powered-by-header",
+      "evidence": "x-powered-by: Next.js",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W016",
+      "kind": "web_email_dmarc",
+      "title": "DMARC (spoofing-beskyttelse)",
+      "evidence": "ingen DMARC",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W017",
+      "kind": "web_email_dmarc",
+      "title": "DMARC for subdomene",
+      "evidence": "ingen _dmarc.www.bilglass.no — subdomener kan spoofes",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W018",
+      "kind": "web_email_mta_sts",
+      "title": "MTA-STS (håndhevet e-post-TLS)",
+      "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W019",
+      "kind": "web_email_mta_sts",
+      "title": "TLS-RPT (TLS-rapportering)",
+      "evidence": "ingen TLS-rapportering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W020",
+      "kind": "web_dns_hardening",
+      "title": "CAA (sertifikat-utsteder-kontroll)",
+      "evidence": "ingen CAA",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W021",
+      "kind": "web_dns_hardening",
+      "title": "DNSSEC (signert sone)",
+      "evidence": "manglende AD-flag — sonen er ikke DNSSEC-signert",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W022",
+      "kind": "web_dns_hardening",
+      "title": "DNSSEC (Norid)",
+      "evidence": "DNSSEC ikke aktivert (delegationSigned=false)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W023",
+      "kind": "web_privacy",
+      "title": "Cookie-banner / samtykke-plattform (CMP)",
+      "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W024",
+      "kind": "web_privacy",
+      "title": "Tredjeparts-trackere",
+      "evidence": "trackere observert (Google Tag Manager) — ingen synlig samtykke-gating observert — potential concern, krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W025",
+      "kind": "web_privacy",
+      "title": "Pris inkl. mva",
+      "evidence": "pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W026",
+      "kind": "web_privacy",
+      "title": "Angrerett-informasjon",
+      "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W027",
+      "kind": "web_privacy",
+      "title": "Klageadgang / tvisteløsning",
+      "evidence": "klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W028",
+      "kind": "web_nap",
+      "title": "E-post på nettsiden",
+      "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W029",
+      "kind": "web_ai_visibility",
+      "title": "Synlighet i AI-svar",
+      "evidence": "0/3 svar nevner Riis Bilglass · sitat: «Det er et par aktører som skiller seg ut.» · prompter: «Hvilket bilglassfirma bør jeg velge for rask og på…» / «Er det verdt å reparere en steinsprutskade fremfor…»",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W030",
+      "kind": "web_ai_position",
+      "title": "Posisjon i AI-svar",
+      "evidence": "ikke nevnt i noen av svarene",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W031",
+      "kind": "web_privacy",
+      "title": "Trackere observert uten synlig samtykke",
+      "evidence": "Google Analytics/Tag Manager — potensielt concern, krever juridisk gjennomgang",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W032",
+      "kind": "web_automation",
+      "title": "Automatiseringsmuligheter identifisert",
+      "evidence": "uutnyttet potensial 33% — manglende signaler: cmp, newsletter",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    }
+  ],
+  "browser": {
+    "available": false
+  },
+  "web": {
+    "meta": {
+      "url": "https://www.bilglass.no",
+      "domain": "www.bilglass.no",
+      "origin": "https://www.bilglass.no",
+      "final_url": "https://www.bilglass.no",
+      "fetched_at": "2026-08-15T00:30:08.530Z"
+    },
+    "checks": [
+      {
+        "id": "http_status",
+        "label": "HTTP-status (hovedsiden)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "HTTP 200",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:29:32.050Z"
+      },
+      {
+        "id": "https",
+        "label": "HTTPS/TLS",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "HTTPS leverte respons",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:29:32.051Z"
+      },
+      {
+        "id": "redirect_chain",
+        "label": "Omdirigeringskjede",
+        "dimension": "reliability",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen redirects",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:29:32.051Z"
+      },
+      {
+        "id": "broken_links",
+        "label": "Ødelagte interne lenker",
+        "dimension": "reliability",
+        "result": "FAIL",
+        "evidence": "3 ødelagt (www.bilglass.no/cdn-cgi/content → 404, www.bilglass.no/cdn-cgi/l/email-protection → 404, www.bilglass.no/cdn-cgi/content → 404)",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:03.052Z"
+      },
+      {
+        "id": "asset_failures",
+        "label": "Ressurs-feil (img/css/js)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "0 av 10 ressurser feilet",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:07.887Z"
+      },
+      {
+        "id": "compression",
+        "label": "Komprimering (gzip/brotli)",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "br",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:07.905Z"
+      },
+      {
+        "id": "caching",
+        "label": "Cache-headere",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "public, max-age=0, must-revalidate",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:07.905Z"
+      },
+      {
+        "id": "render_blocking",
+        "label": "Render-blokkerende ressurser",
+        "dimension": "performance",
+        "result": "FAIL",
+        "evidence": "2 blokkerende skript, 1 stylesheets",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:07.909Z"
+      },
+      {
+        "id": "image_optim",
+        "label": "Bilde-optimalisering",
+        "dimension": "performance",
+        "result": "FAIL",
+        "evidence": "2 bilder, 0 m/ dimensjoner, 2 lazy",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:07.910Z"
+      },
+      {
+        "id": "third_party",
+        "label": "Tredjeparts-skript/-ressurser",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "1 eksterne domener (cdn.sanity.io)",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:07.910Z"
+      },
+      {
+        "id": "viewport",
+        "label": "Viewport meta",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "viewport tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:07.910Z"
+      },
+      {
+        "id": "media_queries",
+        "label": "Responsive CSS (@media)",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "@media funnet",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.039Z"
+      },
+      {
+        "id": "lang",
+        "label": "Språk-attributt (lang)",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "no",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.039Z"
+      },
+      {
+        "id": "alt_text",
+        "label": "Alt-tekst på bilder",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "0/2 bilder mangler alt",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.040Z"
+      },
+      {
+        "id": "form_labels",
+        "label": "Skjemaetiketter",
+        "dimension": "accessibility",
+        "result": "FAIL",
+        "evidence": "2 input, 0 label",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.043Z"
+      },
+      {
+        "id": "heading_hierarchy",
+        "label": "Overskriftshierarki",
+        "dimension": "accessibility",
+        "result": "FAIL",
+        "evidence": "h1=0 h2=0 h3=0",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.045Z"
+      },
+      {
+        "id": "semantic",
+        "label": "Semantiske landemerker",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "3/4 (header, nav, footer)",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.046Z"
+      },
+      {
+        "id": "title",
+        "label": "Tittel",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "Riis Bilglass - Reparasjon av steinsprut - ring 090 09",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.046Z"
+      },
+      {
+        "id": "meta_description",
+        "label": "Meta-beskrivelse",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "Riis Bilglass – Profesjonell reparasjon av steinsprut. Rask og pålitelig service. Ring 090 09 for hjelp i dag!",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.046Z"
+      },
+      {
+        "id": "canonical",
+        "label": "Canonical",
+        "dimension": "seo",
+        "result": "FAIL",
+        "evidence": "mangler canonical",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.046Z"
+      },
+      {
+        "id": "robots_meta",
+        "label": "Robots-meta",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "ingen robots-meta (standard: indekserbart)",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.047Z"
+      },
+      {
+        "id": "robots_txt",
+        "label": "robots.txt",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "robots.txt tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.047Z"
+      },
+      {
+        "id": "sitemap",
+        "label": "Sitemap.xml",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "sitemap tilstede (225 URL-er)",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.343Z"
+      },
+      {
+        "id": "open_graph",
+        "label": "OpenGraph",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "title=true description=true image=true",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.343Z"
+      },
+      {
+        "id": "structured_data",
+        "label": "Strukturert data (JSON-LD)",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "JSON-LD tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.344Z"
+      },
+      {
+        "id": "header_csp",
+        "label": "Header: csp",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.344Z"
+      },
+      {
+        "id": "header_hsts",
+        "label": "Header: hsts",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.344Z"
+      },
+      {
+        "id": "header_xcto",
+        "label": "Header: xcto",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.344Z"
+      },
+      {
+        "id": "header_referrer",
+        "label": "Header: referrer",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.344Z"
+      },
+      {
+        "id": "header_permissions",
+        "label": "Header: permissions",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.344Z"
+      },
+      {
+        "id": "header_frame",
+        "label": "Header: frame",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.344Z"
+      },
+      {
+        "id": "mixed_content",
+        "label": "Blandet innhold (http på https)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "ingen http-referanser i HTML",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.344Z"
+      },
+      {
+        "id": "source_maps",
+        "label": "Eksponerte source maps",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "ingen sourceMappingURL i sjekkede skript",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.521Z"
+      },
+      {
+        "id": "tech_disclosure",
+        "label": "Versjons-avsløring",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "cloudflare, Next.js",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.521Z"
+      },
+      {
+        "id": "cookie_banner",
+        "label": "Cookie-banner",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen cookie-banner observert",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.522Z"
+      },
+      {
+        "id": "privacy_link",
+        "label": "Personvernerklæring-link",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "link til personvern observert",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.524Z"
+      },
+      {
+        "id": "consent_cmp",
+        "label": "Samtykke-plattform (CMP)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "trackere observert uten CMP",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.525Z"
+      },
+      {
+        "id": "contact_form",
+        "label": "Kontakt-/lead-skjema",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "1 <form> observert",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.525Z"
+      },
+      {
+        "id": "cta",
+        "label": "Call-to-action",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "CTA-tekst observert",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.526Z"
+      },
+      {
+        "id": "tech_framework",
+        "label": "Teknologi: framework",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "Next.js",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.530Z"
+      },
+      {
+        "id": "tech_cdn",
+        "label": "Teknologi: cdn",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "Cloudflare",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.530Z"
+      },
+      {
+        "id": "tech_hosting",
+        "label": "Teknologi: hosting",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "cloudflare",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.530Z"
+      },
+      {
+        "id": "tech_analytics",
+        "label": "Teknologi: analytics",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "Google Analytics/Tag Manager",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:30:08.530Z"
+      },
+      {
+        "id": "security_headers",
+        "label": "Sikkerhetsheadere — gradering F",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "Gradering F. Content-Security-Policy: MANGLER; Strict-Transport-Security: max-age=63072000; X-Frame-Options: MANGLER; X-Content-Type-Options: MANGLER; Referrer-Policy: MANGLER; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS uten includeSubDomains · X-Frame-Options mangler (og ingen frame-ancestors i CSP) · X-Content-Type-Options mangler nosniff · Referrer-Policy mangler · Permissions-Policy mangler",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-15T00:30:10.959Z"
+      },
+      {
+        "id": "cookies_attributes",
+        "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-15T00:30:10.962Z"
+      },
+      {
+        "id": "leak_0_x-powered-by",
+        "label": "Versjonslekkasje: x-powered-by-header",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "x-powered-by: Next.js",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-15T00:30:10.966Z"
+      },
+      {
+        "id": "tls_cert",
+        "label": "TLS-sertifikat gyldighet",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "notBefore=2026-07-09T20:26:45.000Z, notAfter=2026-10-07T21:25:26.000Z, issuer=C=US, O=Google Trust Services, CN=WE1, SAN=bilglass.no, *.bilglass.no",
+        "confidence": "high",
+        "source": "tls",
+        "observed_at": "2026-08-15T00:30:26.418Z"
+      },
+      {
+        "id": "tls_verify",
+        "label": "TLS-sertifikat-verifisering",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "verify return code: 0 (ok)",
+        "confidence": "high",
+        "source": "tls",
+        "observed_at": "2026-08-15T00:30:26.418Z"
+      },
+      {
+        "id": "tls_legacy",
+        "label": "Legacy-TLS (1.0/1.1) støtte",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+        "confidence": "medium",
+        "source": "tls",
+        "observed_at": "2026-08-15T00:30:26.418Z"
+      },
+      {
+        "id": "spf",
+        "label": "SPF (avsender-verifisering)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "v=spf1 include:mail.eu1.inforcloudsuite.com include:spf.protection.outlook.com include:spf.eye-share.com include:167.89.93.88 include:193.69.152.146 -all",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:30:10.562Z"
+      },
+      {
+        "id": "spf_private_ip",
+        "label": "SPF: private IP-er i mekanismene",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "ingen private IP-er i SPF",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:30:10.563Z"
+      },
+      {
+        "id": "dkim",
+        "label": "DKIM (e-post-signering)",
+        "dimension": "security",
+        "result": "UNKNOWN",
+        "evidence": "ingen av probede selektorer funnet (kan ikke konkludere fravær)",
+        "confidence": "low",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:30:11.562Z"
+      },
+      {
+        "id": "dmarc",
+        "label": "DMARC (spoofing-beskyttelse)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen DMARC",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:30:11.616Z"
+      },
+      {
+        "id": "dmarc_subdomain",
+        "label": "DMARC for subdomene",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen _dmarc.www.bilglass.no — subdomener kan spoofes",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:30:11.683Z"
+      },
+      {
+        "id": "mta_sts",
+        "label": "MTA-STS (håndhevet e-post-TLS)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:30:11.864Z"
+      },
+      {
+        "id": "tls_rpt",
+        "label": "TLS-RPT (TLS-rapportering)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen TLS-rapportering",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:30:11.927Z"
+      },
+      {
+        "id": "bimi",
+        "label": "BIMI (merkevare-logo i innboks)",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen BIMI (ikke påkrevd)",
+        "confidence": "low",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:30:11.998Z"
+      },
+      {
+        "id": "caa",
+        "label": "CAA (sertifikat-utsteder-kontroll)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen CAA",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:30:12.059Z"
+      },
+      {
+        "id": "dnssec",
+        "label": "DNSSEC (signert sone)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "manglende AD-flag — sonen er ikke DNSSEC-signert",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:30:12.152Z"
+      },
+      {
+        "id": "dnsbl",
+        "label": "E-post-omdømme (DNSBL)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "bilglass-no.mail.protection.outlook.com (52.101.73.16) ikke listet",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:30:12.368Z"
+      },
+      {
+        "id": "subdomains",
+        "label": "Subdomene-eksponering (crt.sh)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "15 subdomener — interessant: admin.bilglass.no, booking.test.bilglass.no, mail.bilglass.no",
+        "confidence": "medium",
+        "source": "https",
+        "observed_at": "2026-08-15T00:30:18.909Z"
+      },
+      {
+        "id": "brreg_org",
+        "label": "Firma i Brreg (Enhetsregisteret)",
+        "dimension": "trust_privacy",
+        "result": "UNKNOWN",
+        "evidence": "N kandidater for «Riis Bilglass», ingen med Brreg-hjemmeside som matcher bilglass.no — kan ikke entydig knytte firma til domene. Kandidater: RIIS BILGLASS AS (979224907) · RIIS (920721427) · BILGLASS AS (995566559)",
+        "confidence": "medium",
+        "source": "brreg",
+        "observed_at": "2026-08-15T00:30:08.925Z"
+      },
+      {
+        "id": "ssb_context",
+        "label": "Bransjekontekst (SSB, næring 95)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "SSB tabell 12817: Reparasjon av varer til personlig bruk — 1 461 foretak (2024)",
+        "confidence": "high",
+        "source": "ssb",
+        "observed_at": "2026-08-15T00:30:10.198Z"
+      },
+      {
+        "id": "norid_registered",
+        "label": "Domenet registrert (Norid)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "registrert 2012-08-06",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T00:30:10.464Z"
+      },
+      {
+        "id": "norid_changed",
+        "label": "Sist endret (Norid)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "sist endret 2026-07-06",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T00:30:10.464Z"
+      },
+      {
+        "id": "norid_dnssec",
+        "label": "DNSSEC (Norid)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "DNSSEC ikke aktivert (delegationSigned=false)",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T00:30:10.464Z"
+      },
+      {
+        "id": "norid_registrar",
+        "label": "Registrar (Norid)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "registrar: SIRCON NORGE AS",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T00:30:10.464Z"
+      },
+      {
+        "id": "history_exists",
+        "label": "Arkivhistorikk finnes",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "arkivert siden 2001-03-02",
+        "confidence": "high",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-15T00:30:23.517Z"
+      },
+      {
+        "id": "history_freshness",
+        "label": "Aktualitet (siste arkiverte versjon)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "siste snapshot 2026-07-16",
+        "confidence": "high",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-15T00:30:23.517Z"
+      },
+      {
+        "id": "history_scope",
+        "label": "Arkivomfang",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "100 arkiverte versjoner (unike URL-nøkler, limit 100)",
+        "confidence": "high",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-15T00:30:23.517Z"
+      },
+      {
+        "id": "cmp_banner",
+        "label": "Cookie-banner / samtykke-plattform (CMP)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T00:30:10.510Z"
+      },
+      {
+        "id": "consent_real_choice",
+        "label": "Reelt valg (avvis-knapp)",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen banner/CMP observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:30:10.510Z"
+      },
+      {
+        "id": "consent_prechecked",
+        "label": "Forhåndsavkrysset samtykke",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:30:10.512Z"
+      },
+      {
+        "id": "privacy_policy",
+        "label": "Personvernerklæring",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "personvernerklæring lenket i footer",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:30:10.514Z"
+      },
+      {
+        "id": "third_party_trackers",
+        "label": "Tredjeparts-trackere",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "trackere observert (Google Tag Manager) — ingen synlig samtykke-gating observert — potential concern, krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:30:10.520Z"
+      },
+      {
+        "id": "google_fonts",
+        "label": "Google Fonts (ekstern)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "ingen ekstern Google Fonts observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:30:10.521Z"
+      },
+      {
+        "id": "ecom_price_vat",
+        "label": "Pris inkl. mva",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:30:10.525Z"
+      },
+      {
+        "id": "ecom_angrerett",
+        "label": "Angrerett-informasjon",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:30:10.526Z"
+      },
+      {
+        "id": "ecom_klage",
+        "label": "Klageadgang / tvisteløsning",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:30:10.527Z"
+      },
+      {
+        "id": "psi_mobile",
+        "label": "PageSpeed mobil",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-feil: HTTP 429",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-15T00:30:23.695Z"
+      },
+      {
+        "id": "psi_desktop",
+        "label": "PageSpeed desktop",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-feil: HTTP 429",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-15T00:30:23.695Z"
+      },
+      {
+        "id": "psi_availability",
+        "label": "PageSpeed API tilgjengelig",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-15T00:30:23.695Z"
+      },
+      {
+        "id": "social_profiles",
+        "label": "Sosiale medier (lenker fra nettsiden)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "3 profiler lenket — alle svarer (instagram: 200 · facebook: 400 · linkedin: 200)",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:30:12.903Z"
+      },
+      {
+        "id": "nap_phone",
+        "label": "Telefon på nettsiden",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "tel-lenke: 090 09",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T00:30:12.904Z"
+      },
+      {
+        "id": "nap_email",
+        "label": "E-post på nettsiden",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T00:30:12.904Z"
+      },
+      {
+        "id": "nap_name_consistency",
+        "label": "Navn-konsistens (nettside ↔ Brreg)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "«RIIS BILGLASS AS» (Brreg) samsvarer med nettsidenavn",
+        "confidence": "high",
+        "source": "html+brreg",
+        "observed_at": "2026-08-15T00:30:12.904Z"
+      },
+      {
+        "id": "google_business",
+        "label": "Google Business Profile (anmeldelser, kategori)",
+        "dimension": "trust_privacy",
+        "result": "UNKNOWN",
+        "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+        "confidence": "medium",
+        "source": "places_api",
+        "observed_at": "2026-08-15T00:30:12.904Z"
+      },
+      {
+        "id": "ai_content_quality",
+        "label": "Innholdskvalitet (AI-vurdert)",
+        "dimension": "ux_mobile",
+        "result": "UNKNOWN",
+        "evidence": "Nettstedet presenterer et bredt spekter av bilglass-tjenester og tydelig kontaktinformasjon, med fokus på rask og enkel bestilling via telefon. Innholdet er strukturert og profesjonelt, men mangler dybde og konkrete detaljer om priser eller garantier. Teksten er uten stavefeil og virker oppdatert, men gir lite informasjon om selskapets historie eller kvalitetsbevis utover sertifisering.",
+        "confidence": "medium",
+        "source": "llm_analysis",
+        "observed_at": "2026-08-15T00:30:14.381Z"
+      },
+      {
+        "id": "ai_content_freshness",
+        "label": "Aktualitet (AI-vurdert)",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "ingen årstall eller datoer funnet · teksten er oppdatert med tjenester og kontaktinformasjon · ingen tegn på utdatert innhold",
+        "confidence": "medium",
+        "source": "llm_analysis",
+        "observed_at": "2026-08-15T00:30:14.381Z"
+      },
+      {
+        "id": "ai_vis_visibility",
+        "label": "Synlighet i AI-svar",
+        "dimension": "ai_visibility",
+        "result": "FAIL",
+        "evidence": "0/3 svar nevner Riis Bilglass · sitat: «Det er et par aktører som skiller seg ut.» · prompter: «Hvilket bilglassfirma bør jeg velge for rask og på…» / «Er det verdt å reparere en steinsprutskade fremfor…»",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:30:46.116Z"
+      },
+      {
+        "id": "ai_vis_position",
+        "label": "Posisjon i AI-svar",
+        "dimension": "ai_visibility",
+        "result": "FAIL",
+        "evidence": "ikke nevnt i noen av svarene",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:30:46.116Z"
+      },
+      {
+        "id": "ai_vis_sentiment",
+        "label": "Sentiment i AI-omtale",
+        "dimension": "ai_visibility",
+        "result": "PASS",
+        "evidence": "sentiment: nøytral · råd: Sørg for at bedriftens åpningstider og tjenester (gratis lånebil, døgnvakt) er tydelig og konsistent beskrevet på nettsiden og i lokale søk.",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:30:46.116Z"
+      },
+      {
+        "id": "ai_vis_sources",
+        "label": "Kilder AI-en siterer",
+        "dimension": "ai_visibility",
+        "result": "UNKNOWN",
+        "evidence": "ingen eksterne domener sitert",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:30:46.116Z"
+      }
+    ],
+    "raw": {
+      "home": {
+        "status": 200,
+        "status_text": "OK",
+        "error": null,
+        "final_url": "https://www.bilglass.no",
+        "redirects": []
+      },
+      "https": {
+        "ok": true,
+        "detail": "HTTPS leverte respons"
+      },
+      "redirect_chain": [],
+      "robots": {
+        "present": true,
+        "disallow": []
+      },
+      "crawl": {
+        "pages_checked": 25,
+        "crawled": 22,
+        "broken": [
+          {
+            "url": "https://www.bilglass.no/cdn-cgi/content?id=Ue0hH63uZaCFBcbhmMfRUxtfre2v_MLNq.Q9xCMUmDY-1786753772.7875392-1.2.1.1-9KoUhuhQdStK6tucY5I6Cu_0ezMbwN7i_56tpzcMOCYrNuYd5dqCN92ftV1AvRwx",
+            "status": 404
+          },
+          {
+            "url": "https://www.bilglass.no/cdn-cgi/l/email-protection#f3819a9a80b3919a9f949f928080dd9d9c",
+            "status": 404
+          },
+          {
+            "url": "https://www.bilglass.no/cdn-cgi/content?id=QS.FPMmlSBWyDEzWhE87nYAH5c8rfjVPmF3K3sgDuJk-1786753773.7745607-1.2.1.1-jlOxsKlxjBijEBqwANKWBM7jQAcWv0tKrUuWJTZTuD74ilKgJpH.dBjTBpdpp5Ez",
+            "status": 404
+          }
+        ]
+      },
+      "html_length": 449387,
+      "asset_failures": {
+        "checked": 10,
+        "failed": 0,
+        "details": []
+      },
+      "compression": "br",
+      "caching": "public, max-age=0, must-revalidate",
+      "render_blocking_scripts": 2,
+      "images": {
+        "total": 2,
+        "with_dimensions": 0,
+        "lazy": 2
+      },
+      "third_party": [
+        "cdn.sanity.io"
+      ],
+      "viewport": true,
+      "media_queries": true,
+      "lang": "no",
+      "img_missing_alt": 0,
+      "forms_accessibility": {
+        "inputs": 2,
+        "labels": 0,
+        "inputs_with_label": 0
+      },
+      "headings": {
+        "h1": 0,
+        "h2": 0,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "landmarks": [
+        "header",
+        "nav",
+        "footer"
+      ],
+      "title": "Riis Bilglass - Reparasjon av steinsprut - ring 090 09",
+      "meta_description": "Riis Bilglass – Profesjonell reparasjon av steinsprut. Rask og pålitelig service. Ring 090 09 for hjelp i dag!",
+      "canonical": null,
+      "robots_meta": null,
+      "sitemap": {
+        "status": 200,
+        "urls": 225
+      },
+      "open_graph": {
+        "title": true,
+        "description": true,
+        "image": true
+      },
+      "structured_data": true,
+      "security_headers": {
+        "csp": null,
+        "hsts": "max-age=63072000",
+        "xcto": null,
+        "referrer": null,
+        "permissions": null,
+        "frame": null
+      },
+      "mixed_content": 0,
+      "source_maps": false,
+      "tech_disclosure": {
+        "server": "cloudflare",
+        "x_powered_by": "Next.js"
+      },
+      "cookie_banner": false,
+      "analytics": [
+        "Google Analytics/Tag Manager"
+      ],
+      "privacy_link": true,
+      "consent_cmp": false,
+      "forms_count": 1,
+      "cta": true,
+      "automation_signals": {
+        "contact_form": true,
+        "analytics": true,
+        "cmp": false,
+        "chat": true,
+        "booking": true,
+        "newsletter": false
+      },
+      "technology": {
+        "framework": "Next.js",
+        "cms": null,
+        "cdn": "Cloudflare",
+        "hosting": "cloudflare",
+        "analytics": [
+          "Google Analytics/Tag Manager"
+        ]
+      }
+    }
+  },
+  "v2": {
+    "sections": [
+      {
+        "section": "security_hacker",
+        "title": "Hva en hacker ser",
+        "checks": [
+          {
+            "id": "security_headers",
+            "label": "Sikkerhetsheadere — gradering F",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "Gradering F. Content-Security-Policy: MANGLER; Strict-Transport-Security: max-age=63072000; X-Frame-Options: MANGLER; X-Content-Type-Options: MANGLER; Referrer-Policy: MANGLER; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS uten includeSubDomains · X-Frame-Options mangler (og ingen frame-ancestors i CSP) · X-Content-Type-Options mangler nosniff · Referrer-Policy mangler · Permissions-Policy mangler",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:30:10.959Z"
+          },
+          {
+            "id": "cookies_attributes",
+            "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:30:10.962Z"
+          },
+          {
+            "id": "leak_0_x-powered-by",
+            "label": "Versjonslekkasje: x-powered-by-header",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "x-powered-by: Next.js",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:30:10.966Z"
+          },
+          {
+            "id": "tls_cert",
+            "label": "TLS-sertifikat gyldighet",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "notBefore=2026-07-09T20:26:45.000Z, notAfter=2026-10-07T21:25:26.000Z, issuer=C=US, O=Google Trust Services, CN=WE1, SAN=bilglass.no, *.bilglass.no",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:30:26.418Z"
+          },
+          {
+            "id": "tls_verify",
+            "label": "TLS-sertifikat-verifisering",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "verify return code: 0 (ok)",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:30:26.418Z"
+          },
+          {
+            "id": "tls_legacy",
+            "label": "Legacy-TLS (1.0/1.1) støtte",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+            "confidence": "medium",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:30:26.418Z"
+          }
+        ],
+        "raw": {
+          "url": "https://www.bilglass.no/",
+          "final_url": "https://www.bilglass.no/",
+          "status": 200,
+          "status_text": "OK",
+          "redirects": [],
+          "headers": {
+            "age": "843",
+            "alt-svc": "h3=\":443\"; ma=86400",
+            "cache-control": "public, max-age=0, must-revalidate",
+            "cf-cache-status": "DYNAMIC",
+            "cf-ray": "a2b416d4eeea56a9-OSL",
+            "connection": "keep-alive",
+            "content-encoding": "br",
+            "content-type": "text/html; charset=utf-8",
+            "date": "Sat, 15 Aug 2026 00:30:10 GMT",
+            "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+            "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=qkhtIUd3S2aoB0tf3ZSpYRvGMQPKkUYMVZdY2W%2FDZLRK4e1PWL%2FHHD%2B5yCxE8hp6tQCpA87iFEZap0wxSy%2F9QrAH6c03gvlwKXcyVyDxaT8xx2gEqTAuezoTGa8Y3%2FyFIpk%3D\"}]}",
+            "server": "cloudflare",
+            "strict-transport-security": "max-age=63072000",
+            "transfer-encoding": "chunked",
+            "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, accept-encoding",
+            "x-matched-path": "/",
+            "x-nextjs-prerender": "1",
+            "x-nextjs-stale-time": "300",
+            "x-powered-by": "Next.js",
+            "x-vercel-cache": "HIT",
+            "x-vercel-id": "arn1::iad1::lg765-1786753810711-f2cfc7b0c954"
+          },
+          "security_grade": "F",
+          "security_deductions": [
+            "CSP mangler",
+            "HSTS uten includeSubDomains",
+            "X-Frame-Options mangler (og ingen frame-ancestors i CSP)",
+            "X-Content-Type-Options mangler nosniff",
+            "Referrer-Policy mangler",
+            "Permissions-Policy mangler"
+          ],
+          "cookies": [],
+          "version_leaks": [
+            {
+              "kind": "header",
+              "header": "x-powered-by",
+              "value": "Next.js"
+            }
+          ],
+          "tls": {
+            "opensslAvailable": true,
+            "cert": {
+              "notBefore": "2026-07-09T20:26:45.000Z",
+              "notAfter": "2026-10-07T21:25:26.000Z",
+              "issuer": "C=US, O=Google Trust Services, CN=WE1",
+              "san": [
+                "bilglass.no",
+                "*.bilglass.no"
+              ]
+            },
+            "verify": {
+              "code": 0,
+              "description": "ok"
+            },
+            "legacy": {
+              "tls1": "blocked",
+              "tls1_1": "blocked"
+            }
+          }
+        }
+      },
+      {
+        "section": "email_dns",
+        "title": "E-post & DNS-sikkerhet",
+        "checks": [
+          {
+            "id": "spf",
+            "label": "SPF (avsender-verifisering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "v=spf1 include:mail.eu1.inforcloudsuite.com include:spf.protection.outlook.com include:spf.eye-share.com include:167.89.93.88 include:193.69.152.146 -all",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:30:10.562Z"
+          },
+          {
+            "id": "spf_private_ip",
+            "label": "SPF: private IP-er i mekanismene",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen private IP-er i SPF",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:30:10.563Z"
+          },
+          {
+            "id": "dkim",
+            "label": "DKIM (e-post-signering)",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "ingen av probede selektorer funnet (kan ikke konkludere fravær)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:30:11.562Z"
+          },
+          {
+            "id": "dmarc",
+            "label": "DMARC (spoofing-beskyttelse)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen DMARC",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:30:11.616Z"
+          },
+          {
+            "id": "dmarc_subdomain",
+            "label": "DMARC for subdomene",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen _dmarc.www.bilglass.no — subdomener kan spoofes",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:30:11.683Z"
+          },
+          {
+            "id": "mta_sts",
+            "label": "MTA-STS (håndhevet e-post-TLS)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:30:11.864Z"
+          },
+          {
+            "id": "tls_rpt",
+            "label": "TLS-RPT (TLS-rapportering)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen TLS-rapportering",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:30:11.927Z"
+          },
+          {
+            "id": "bimi",
+            "label": "BIMI (merkevare-logo i innboks)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen BIMI (ikke påkrevd)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:30:11.998Z"
+          },
+          {
+            "id": "caa",
+            "label": "CAA (sertifikat-utsteder-kontroll)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen CAA",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:30:12.059Z"
+          },
+          {
+            "id": "dnssec",
+            "label": "DNSSEC (signert sone)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "manglende AD-flag — sonen er ikke DNSSEC-signert",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:30:12.152Z"
+          },
+          {
+            "id": "dnsbl",
+            "label": "E-post-omdømme (DNSBL)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "bilglass-no.mail.protection.outlook.com (52.101.73.16) ikke listet",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:30:12.368Z"
+          },
+          {
+            "id": "subdomains",
+            "label": "Subdomene-eksponering (crt.sh)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "15 subdomener — interessant: admin.bilglass.no, booking.test.bilglass.no, mail.bilglass.no",
+            "confidence": "medium",
+            "source": "https",
+            "observed_at": "2026-08-15T00:30:18.909Z"
+          }
+        ],
+        "raw": {
+          "original": "www.bilglass.no",
+          "registrable": "bilglass.no",
+          "subdomain_of_input": true,
+          "spf": {
+            "record": "v=spf1 include:mail.eu1.inforcloudsuite.com include:spf.protection.outlook.com include:spf.eye-share.com include:167.89.93.88 include:193.69.152.146 -all",
+            "policy": "-all",
+            "private_ips": []
+          },
+          "dkim": null,
+          "dmarc": {
+            "record": null,
+            "p": null,
+            "policy": null,
+            "subdomain": {
+              "name": "_dmarc.www.bilglass.no",
+              "present": false,
+              "record": null
+            }
+          },
+          "mta_sts": {
+            "txt": false,
+            "policy": false,
+            "policy_status": 0
+          },
+          "tls_rpt": null,
+          "bimi": null,
+          "caa": {
+            "records": [],
+            "issuers": []
+          },
+          "dnssec": "\n; <<>> DiG 9.10.6 <<>> +dnssec DNSKEY bilglass.no +time=5 +tries=1\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 56386\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags: do; udp: 512\n;; QUESTION SECTION:\n;bilglass.no.\t\t\tIN\tDNSKEY\n\n;; AUTHORITY SECTION:\nbilglass.no.\t\t1800\tIN\tSOA\tashton.ns.cloudflare.com. dns.cloudflare.com. 2409118136 10000 2400 604800 1800\n\n;; Query time: 56 msec\n;; SERVER: 100.100.100.100#53(100.100.100.100)\n;; WHEN: Sat Aug 15 02:30:12 CEST 2026\n;; MSG SIZE  rcvd: 104\n\n",
+          "mx": [
+            {
+              "exchange": "bilglass-no.mail.protection.outlook.com",
+              "priority": 0
+            }
+          ],
+          "dnsbl": {
+            "mx": "bilglass-no.mail.protection.outlook.com",
+            "ip": "52.101.73.16",
+            "listed": false,
+            "host": "16.73.101.52.zen.spamhaus.org"
+          },
+          "subdomains": {
+            "count": 15,
+            "unique": [
+              "booking-test.bilglass.no",
+              "booking.bilglass.no",
+              "kjedenett.bilglass.no",
+              "servicepartner.bilglass.no",
+              "admin.bilglass.no",
+              "booking.test.bilglass.no",
+              "booking.prod.bilglass.no",
+              "m.bilglass.no",
+              "intranettrm.bilglass.no",
+              "mail.bilglass.no",
+              "autodiscover.bilglass.no",
+              "owa.bilglass.no",
+              "lyncdiscover.bilglass.no",
+              "meet.bilglass.no",
+              "sip.bilglass.no"
+            ],
+            "interesting": [
+              "admin.bilglass.no",
+              "booking.test.bilglass.no",
+              "mail.bilglass.no"
+            ],
+            "queried": true
+          }
+        }
+      },
+      {
+        "section": "norge",
+        "title": "Norge-data (Brreg · Norid · SSB)",
+        "checks": [
+          {
+            "id": "brreg_org",
+            "label": "Firma i Brreg (Enhetsregisteret)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "N kandidater for «Riis Bilglass», ingen med Brreg-hjemmeside som matcher bilglass.no — kan ikke entydig knytte firma til domene. Kandidater: RIIS BILGLASS AS (979224907) · RIIS (920721427) · BILGLASS AS (995566559)",
+            "confidence": "medium",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:30:08.925Z"
+          },
+          {
+            "id": "ssb_context",
+            "label": "Bransjekontekst (SSB, næring 95)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "SSB tabell 12817: Reparasjon av varer til personlig bruk — 1 461 foretak (2024)",
+            "confidence": "high",
+            "source": "ssb",
+            "observed_at": "2026-08-15T00:30:10.198Z"
+          },
+          {
+            "id": "norid_registered",
+            "label": "Domenet registrert (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrert 2012-08-06",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:30:10.464Z"
+          },
+          {
+            "id": "norid_changed",
+            "label": "Sist endret (Norid)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "sist endret 2026-07-06",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:30:10.464Z"
+          },
+          {
+            "id": "norid_dnssec",
+            "label": "DNSSEC (Norid)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "DNSSEC ikke aktivert (delegationSigned=false)",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:30:10.464Z"
+          },
+          {
+            "id": "norid_registrar",
+            "label": "Registrar (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrar: SIRCON NORGE AS",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:30:10.464Z"
+          }
+        ],
+        "raw": {
+          "brreg": {
+            "unit": {
+              "organisasjonsnummer": "979224907",
+              "navn": "RIIS BILGLASS AS",
+              "organisasjonsform": {
+                "kode": "AS",
+                "beskrivelse": "Aksjeselskap",
+                "_links": {
+                  "self": {
+                    "href": "https://data.brreg.no/enhetsregisteret/api/organisasjonsformer/AS"
+                  }
+                }
+              },
+              "historiskeNavn": [
+                {
+                  "navn": "BILGLASSRINGEN AS",
+                  "fraDato": "1997-09-25 21:42:22",
+                  "tilDato": "2004-02-07 15:34:25"
+                }
+              ],
+              "registreringsdatoEnhetsregisteret": "1997-09-18",
+              "registrertIMvaregisteret": true,
+              "naeringskode1": {
+                "kode": "95.400",
+                "beskrivelse": "Formidlingstjenester tilknyttet reparasjon og vedlikehold av datamaskiner, husholdningsvarer og varer til personlig bruk, og motorvogner og motorsykler"
+              },
+              "antallAnsatte": 25,
+              "harRegistrertAntallAnsatte": true,
+              "registreringsdatoMerverdiavgiftsregisteret": "1998-09-01",
+              "registreringsdatoMerverdiavgiftsregisteretEnhetsregisteret": "1998-12-09",
+              "registreringsdatoAntallAnsatteEnhetsregisteret": "2026-07-15",
+              "registreringsdatoAntallAnsatteNAVAaregisteret": "2026-07-10",
+              "telefon": "73 84 98 00",
+              "forretningsadresse": {
+                "land": "Norge",
+                "landkode": "NO",
+                "postnummer": "1364",
+                "poststed": "FORNEBU",
+                "adresse": [
+                  "Martin Linges vei 25"
+                ],
+                "kommune": "BÆRUM",
+                "kommunenummer": "3201"
+              },
+              "stiftelsesdato": "1997-08-04",
+              "institusjonellSektorkode": {
+                "kode": "2100",
+                "beskrivelse": "Private aksjeselskaper mv."
+              },
+              "registrertIForetaksregisteret": true,
+              "registrertIStiftelsesregisteret": false,
+              "registrertIFrivillighetsregisteret": false,
+              "sisteInnsendteAarsregnskap": "2025",
+              "konkurs": false,
+              "underAvvikling": false,
+              "underTvangsavviklingEllerTvangsopplosning": false,
+              "maalform": "Bokmål",
+              "vedtektsdato": "2024-11-22",
+              "vedtektsfestetFormaal": [
+                "Organisering og drift av kjedevirkosmhet, hreunder markedsføring og",
+                "salg, der kjedemedlemmenes virksomhet er salg og montering av bilglass",
+                "og tilhørende produkter.",
+                " "
+              ],
+              "aktivitet": [
+                "Markedsføring og salg av bilglassprodukter."
+              ],
+              "registreringsdatoForetaksregisteret": "1997-09-24",
+              "registrertIPartiregisteret": false,
+              "paategninger": [],
+              "erIKonsern": true,
+              "kapital": {
+                "belop": 100000,
+                "antallAksjer": 100,
+                "type": "Aksjekapital",
+                "valuta": "NOK",
+                "innfortDato": "2003-08-30"
+              },
+              "_links": {
+                "self": {
+                  "href": "https://data.brreg.no/enhetsregisteret/api/enheter/979224907"
+                }
+              },
+              "respons_klasse": "Enhet"
+            },
+            "search": {
+              "method": "navn",
+              "query": "Riis Bilglass",
+              "nameCandidate": "Riis Bilglass",
+              "totalHits": 5,
+              "matchedHjemmeside": false,
+              "matchedExactName": false,
+              "hits": [
+                {
+                  "organisasjonsnummer": "979224907",
+                  "navn": "RIIS BILGLASS AS",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "920721427",
+                  "navn": "RIIS",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "995566559",
+                  "navn": "BILGLASS AS",
+                  "hjemmeside": "www.glass-senteret.no"
+                },
+                {
+                  "organisasjonsnummer": "983399819",
+                  "navn": "RIISE",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "917238022",
+                  "navn": "RIIS ENTERTAINMENTS EIRIK RIIS MOSSEFINN",
+                  "hjemmeside": null
+                }
+              ]
+            },
+            "selection": {
+              "method": "navn",
+              "query": "Riis Bilglass",
+              "nameCandidate": "Riis Bilglass",
+              "totalHits": 5,
+              "matchedHjemmeside": false,
+              "matchedExactName": false,
+              "hits": [
+                {
+                  "organisasjonsnummer": "979224907",
+                  "navn": "RIIS BILGLASS AS",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "920721427",
+                  "navn": "RIIS",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "995566559",
+                  "navn": "BILGLASS AS",
+                  "hjemmeside": "www.glass-senteret.no"
+                },
+                {
+                  "organisasjonsnummer": "983399819",
+                  "navn": "RIISE",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "917238022",
+                  "navn": "RIIS ENTERTAINMENTS EIRIK RIIS MOSSEFINN",
+                  "hjemmeside": null
+                }
+              ]
+            },
+            "confirmed": false
+          },
+          "norid": {
+            "domain": "bilglass.no",
+            "created": "2012-08-06",
+            "changed": "2026-07-06",
+            "dnssec": false,
+            "registrar": "SIRCON NORGE AS",
+            "status": null
+          },
+          "ssb": {
+            "table": "12817",
+            "nace": "95",
+            "value": 1461,
+            "year": "2024",
+            "label": "Reparasjon av varer til personlig bruk",
+            "evidence": "SSB tabell 12817: Reparasjon av varer til personlig bruk — 1 461 foretak (2024)"
+          }
+        }
+      },
+      {
+        "section": "history",
+        "title": "Historikk (Wayback Machine)",
+        "checks": [
+          {
+            "id": "history_exists",
+            "label": "Arkivhistorikk finnes",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "arkivert siden 2001-03-02",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:30:23.517Z"
+          },
+          {
+            "id": "history_freshness",
+            "label": "Aktualitet (siste arkiverte versjon)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "siste snapshot 2026-07-16",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:30:23.517Z"
+          },
+          {
+            "id": "history_scope",
+            "label": "Arkivomfang",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "100 arkiverte versjoner (unike URL-nøkler, limit 100)",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:30:23.517Z"
+          }
+        ],
+        "raw": {
+          "snapshots": [
+            {
+              "timestamp": "20010302054145",
+              "original": "http://www.bilglass.no:80/"
+            },
+            {
+              "timestamp": "20230716104929",
+              "original": "https://www.bilglass.no/.well-known/ai-plugin.json"
+            },
+            {
+              "timestamp": "20230716115510",
+              "original": "https://www.bilglass.no/.well-known/assetlinks.json"
+            },
+            {
+              "timestamp": "20230716105628",
+              "original": "https://www.bilglass.no/.well-known/dnt-policy.txt"
+            },
+            {
+              "timestamp": "20230716104345",
+              "original": "https://www.bilglass.no/.well-known/gpc.json"
+            },
+            {
+              "timestamp": "20230716111419",
+              "original": "https://www.bilglass.no/.well-known/nodeinfo"
+            },
+            {
+              "timestamp": "20230716113120",
+              "original": "https://www.bilglass.no/.well-known/openid-configuration"
+            },
+            {
+              "timestamp": "20230716104630",
+              "original": "https://www.bilglass.no/.well-known/security.txt"
+            },
+            {
+              "timestamp": "20230716115352",
+              "original": "https://www.bilglass.no/.well-known/trust.txt"
+            },
+            {
+              "timestamp": "20250207084820",
+              "original": "https://www.bilglass.no/?gad=1&gclid=Cj0KCQjwsIejBhDOARIsANYqkD374kNwq47nVnEuySZleexIbbho9LsLEQ4I0yMxDT3wIhCJeWFUgO0aAiFAEALw_wcB"
+            },
+            {
+              "timestamp": "20250930233036",
+              "original": "https://www.bilglass.no/?gad_source=1&gad_campaignid=125017110&gbraid=0AAAAADudKHIwVIm8Ni836XmN9_mWIDSkF"
+            },
+            {
+              "timestamp": "20250930233226",
+              "original": "https://www.bilglass.no/?gad_source=1&gad_campaignid=125017110&gbraid=0AAAAADudKHIwVIm8Ni836XmN9_mWIDSkF&gclid=EAIaIQobChMIoPHbx-HujwMVTmqRBR3B7wzxEAAYASAAEgKAF_D_BwE"
+            },
+            {
+              "timestamp": "20220817195928",
+              "original": "https://www.bilglass.no/?gclid=Cj0KCQiAmKiQBhClARIsAKtSj-mNK44_5JhA23UChd7PyIqn9ha2gwkC8PD9xGksp2WLQZyphXbTSkkaAh3TEALw_wcB&gclsrc=aw.ds"
+            },
+            {
+              "timestamp": "20210515213830",
+              "original": "https://www.bilglass.no/?gclid=Cj0KCQjwkpfWBRDZARIsAAfeXaq1uksesShHFIdkETIDyC2A0kxJ69ic7JzBEptoJd-aCMfjaIgeD9saAoaxEALw_wcB"
+            },
+            {
+              "timestamp": "20170906235625",
+              "original": "http://bilglass.no:80/?gclid=CJjOxoW-nNQCFV6Usgods8UDwA"
+            },
+            {
+              "timestamp": "20210116183626",
+              "original": "https://www.bilglass.no/?gclid=CJSAitedh8ECFaIMcwod2UQAyQ"
+            },
+            {
+              "timestamp": "20221118105606",
+              "original": "https://www.bilglass.no/?gclid=CjwKCAjwvsqZBhAlEiwAqAHElQ5K6IzkEx6LQNE6XlYqNks5GOoSoZjFeQ2PIJ4hb0cocZV0Y1qTHRoCj94QAvD_BwE"
+            },
+            {
+              "timestamp": "20211022150658",
+              "original": "https://www.bilglass.no/?gclid=CjwKEAiA2abEBRCdx7PqqunM1CYSJABf3qva9rXem9vDIX3KJIz5Tx3tdyI3sKsMpaMrsS6BypqrbBoC24_w_wcB"
+            },
+            {
+              "timestamp": "20160209032456",
+              "original": "http://www.bilglass.no:80/?gclid=CjwKEAiA8K20BRDetNv3p6DNhXwSJADSwa3tp-lZU7d224ANXmgo6pW0gsRIVNNA-rBbBPhFANB_NRoCpfbw_wcB"
+            },
+            {
+              "timestamp": "20171112220559",
+              "original": "http://www.bilglass.no:80/?gclid=CJX29L_dtcoCFYsNcwodFhUNcw"
+            },
+            {
+              "timestamp": "20160923220949",
+              "original": "http://bilglass.no:80/?gclid=CKPPh5u9_84CFSHicgodDWcGDQ"
+            },
+            {
+              "timestamp": "20250914154735",
+              "original": "https://www.bilglass.no/?gclid=EAIaIQobChMI-KCrl7f88wIV0ImyCh0UhwTIEAAYASAAEgJ9yfD_BwE&gclsrc=aw.ds"
+            },
+            {
+              "timestamp": "20211127224106",
+              "original": "https://www.bilglass.no/?newWindow=1"
+            },
+            {
+              "timestamp": "20080428003815",
+              "original": "http://www.bilglass.no:80/?p=26-26-26"
+            },
+            {
+              "timestamp": "20250427044330",
+              "original": "https://www.bilglass.no/?s="
+            },
+            {
+              "timestamp": "20230319015650",
+              "original": "https://www.bilglass.no/?sted=2013+Skjetten"
+            },
+            {
+              "timestamp": "20210728231807",
+              "original": "https://www.bilglass.no/?sted=2072"
+            },
+            {
+              "timestamp": "20190823045733",
+              "original": "https://www.bilglass.no/?sted=narvik"
+            },
+            {
+              "timestamp": "20220118191829",
+              "original": "https://www.bilglass.no/?sted=trondheim"
+            },
+            {
+              "timestamp": "20211127230808",
+              "original": "https://www.bilglass.no/?utm_source=forsikring&utm_medium=Frende&utm_campaign=Frende"
+            },
+            {
+              "timestamp": "20250207200332",
+              "original": "https://www.bilglass.no/?ver=2.1.2"
+            },
+            {
+              "timestamp": "20250207200337",
+              "original": "https://www.bilglass.no/?ver=4.7.6.4"
+            },
+            {
+              "timestamp": "20250207200338",
+              "original": "https://www.bilglass.no/?ver=5.6"
+            },
+            {
+              "timestamp": "20260716064053",
+              "original": "https://www.bilglass.no/_next/static/chunks/37c23472cdc8bd59.js?dpl=dpl_56anLymNRMSXbtjGhxcnmkfnyRB6"
+            },
+            {
+              "timestamp": "20250810172337",
+              "original": "https://www.bilglass.no/_next/static/chunks/398-0f69cf3ff6f36dca.js"
+            },
+            {
+              "timestamp": "20260716064053",
+              "original": "https://www.bilglass.no/_next/static/chunks/4121d175c41cc1b1.js?dpl=dpl_56anLymNRMSXbtjGhxcnmkfnyRB6"
+            },
+            {
+              "timestamp": "20250930233049",
+              "original": "https://www.bilglass.no/_next/static/chunks/430fbe94-13756a2c5cda0a8b.js"
+            },
+            {
+              "timestamp": "20250810172249",
+              "original": "https://www.bilglass.no/_next/static/chunks/477-7239055da082cd6f.js"
+            },
+            {
+              "timestamp": "20250810172306",
+              "original": "https://www.bilglass.no/_next/static/chunks/50-45e5eeb56c1d23f6.js"
+            },
+            {
+              "timestamp": "20250930233238",
+              "original": "https://www.bilglass.no/_next/static/chunks/53-02c6bfa45543f308.js"
+            },
+            {
+              "timestamp": "20250930233115",
+              "original": "https://www.bilglass.no/_next/static/chunks/571-90af5ce0cbc67fa2.js"
+            },
+            {
+              "timestamp": "20260716064053",
+              "original": "https://www.bilglass.no/_next/static/chunks/5b17ab9557dc8ff1.js?dpl=dpl_56anLymNRMSXbtjGhxcnmkfnyRB6"
+            },
+            {
+              "timestamp": "20250930233103",
+              "original": "https://www.bilglass.no/_next/static/chunks/62-d14ad512d485fced.js"
+            },
+            {
+              "timestamp": "20260716064053",
+              "original": "https://www.bilglass.no/_next/static/chunks/6bc6ac5e2cbb2492.js?dpl=dpl_56anLymNRMSXbtjGhxcnmkfnyRB6"
+            },
+            {
+              "timestamp": "20250930233147",
+              "original": "https://www.bilglass.no/_next/static/chunks/707-c479a97a595a6560.js"
+            },
+            {
+              "timestamp": "20250810172249",
+              "original": "https://www.bilglass.no/_next/static/chunks/710-831a96d1cfd6b2f8.js"
+            },
+            {
+              "timestamp": "20250810172223",
+              "original": "https://www.bilglass.no/_next/static/chunks/742-f2239aadfcd05bb1.js"
+            },
+            {
+              "timestamp": "20260716064053",
+              "original": "https://www.bilglass.no/_next/static/chunks/786fb9fb90accfcb.js?dpl=dpl_56anLymNRMSXbtjGhxcnmkfnyRB6"
+            },
+            {
+              "timestamp": "20260716064053",
+              "original": "https://www.bilglass.no/_next/static/chunks/78870c3d98acdf29.js?dpl=dpl_56anLymNRMSXbtjGhxcnmkfnyRB6"
+            },
+            {
+              "timestamp": "20250930233043",
+              "original": "https://www.bilglass.no/_next/static/chunks/837-ee095c1f17d7ec07.js"
+            },
+            {
+              "timestamp": "20250810172305",
+              "original": "https://www.bilglass.no/_next/static/chunks/860-9460b66136154372.js"
+            },
+            {
+              "timestamp": "20250930233043",
+              "original": "https://www.bilglass.no/_next/static/chunks/954-8d196052803a74e5.js"
+            },
+            {
+              "timestamp": "20260716064053",
+              "original": "https://www.bilglass.no/_next/static/chunks/9c6d1ba178888614.js?dpl=dpl_56anLymNRMSXbtjGhxcnmkfnyRB6"
+            },
+            {
+              "timestamp": "20250810172514",
+              "original": "https://www.bilglass.no/_next/static/chunks/a3698194-ae2377e74b2a8ddf.js"
+            },
+            {
+              "timestamp": "20260716064053",
+              "original": "https://www.bilglass.no/_next/static/chunks/a6dad97d9634a72d.js?dpl=dpl_56anLymNRMSXbtjGhxcnmkfnyRB6"
+            },
+            {
+              "timestamp": "20260716064053",
+              "original": "https://www.bilglass.no/_next/static/chunks/ac5ddfdfb87e5c25.css?dpl=dpl_56anLymNRMSXbtjGhxcnmkfnyRB6"
+            },
+            {
+              "timestamp": "20260716064053",
+              "original": "https://www.bilglass.no/_next/static/chunks/ad8105cfd802da8d.js?dpl=dpl_56anLymNRMSXbtjGhxcnmkfnyRB6"
+            },
+            {
+              "timestamp": "20250930233831",
+              "original": "https://www.bilglass.no/_next/static/chunks/app/(website)/(catch-all)/%5B...slugs%5D/page-0a0af00847a0c2bf.js"
+            },
+            {
+              "timestamp": "20250810172320",
+              "original": "https://www.bilglass.no/_next/static/chunks/app/(website)/(catch-all)/%5B...slugs%5D/page-4f9b4e4bd6db868a.js"
+            },
+            {
+              "timestamp": "20260112200421",
+              "original": "https://www.bilglass.no/_next/static/chunks/app/(website)/(departments)/department/page-2976f31e8fcd1afe.js"
+            },
+            {
+              "timestamp": "20250930233328",
+              "original": "https://www.bilglass.no/_next/static/chunks/app/(website)/(homepage)/page-5daca9b8d38e2c14.js"
+            },
+            {
+              "timestamp": "20250810172249",
+              "original": "https://www.bilglass.no/_next/static/chunks/app/(website)/(homepage)/page-86b8fc245b60be45.js"
+            },
+            {
+              "timestamp": "20250930233040",
+              "original": "https://www.bilglass.no/_next/static/chunks/app/(website)/error-2a30258ae49c61d3.js"
+            },
+            {
+              "timestamp": "20250810172431",
+              "original": "https://www.bilglass.no/_next/static/chunks/app/(website)/error-3b6a7a25425dee77.js"
+            },
+            {
+              "timestamp": "20250810172222",
+              "original": "https://www.bilglass.no/_next/static/chunks/app/(website)/layout-8bd7b5db311fd037.js"
+            },
+            {
+              "timestamp": "20250930233132",
+              "original": "https://www.bilglass.no/_next/static/chunks/app/(website)/layout-a425830d1a31bfaf.js"
+            },
+            {
+              "timestamp": "20250810172212",
+              "original": "https://www.bilglass.no/_next/static/chunks/app/(website)/not-found-16448a0706a45a71.js"
+            },
+            {
+              "timestamp": "20250930233041",
+              "original": "https://www.bilglass.no/_next/static/chunks/app/(website)/not-found-f9da14bc08ffe3c7.js"
+            },
+            {
+              "timestamp": "20250930233048",
+              "original": "https://www.bilglass.no/_next/static/chunks/app/layout-164e5fa7a5c7320e.js"
+            },
+            {
+              "timestamp": "20250810172308",
+              "original": "https://www.bilglass.no/_next/static/chunks/app/layout-d4494e92431080a5.js"
+            },
+            {
+              "timestamp": "20250930233232",
+              "original": "https://www.bilglass.no/_next/static/chunks/app/not-found-cda6ef3878f5bed3.js"
+            },
+            {
+              "timestamp": "20250810172237",
+              "original": "https://www.bilglass.no/_next/static/chunks/app/not-found-ee1daac01203014b.js"
+            },
+            {
+              "timestamp": "20260716064053",
+              "original": "https://www.bilglass.no/_next/static/chunks/bb08c5ff85cb8d0d.js?dpl=dpl_56anLymNRMSXbtjGhxcnmkfnyRB6"
+            },
+            {
+              "timestamp": "20260716064053",
+              "original": "https://www.bilglass.no/_next/static/chunks/bf0d347ae223fa00.js?dpl=dpl_56anLymNRMSXbtjGhxcnmkfnyRB6"
+            },
+            {
+              "timestamp": "20260716064053",
+              "original": "https://www.bilglass.no/_next/static/chunks/bf842986f062840e.js?dpl=dpl_56anLymNRMSXbtjGhxcnmkfnyRB6"
+            },
+            {
+              "timestamp": "20250930233050",
+              "original": "https://www.bilglass.no/_next/static/chunks/c25e0690-6431489e0a75e6b2.js"
+            },
+            {
+              "timestamp": "20260716064053",
+              "original": "https://www.bilglass.no/_next/static/chunks/d655025716e39f59.js?dpl=dpl_56anLymNRMSXbtjGhxcnmkfnyRB6"
+            },
+            {
+              "timestamp": "20260716064053",
+              "original": "https://www.bilglass.no/_next/static/chunks/dc75b58f12bb90c7.js?dpl=dpl_56anLymNRMSXbtjGhxcnmkfnyRB6"
+            },
+            {
+              "timestamp": "20260716064053",
+              "original": "https://www.bilglass.no/_next/static/chunks/dcd70765fe009eb3.js?dpl=dpl_56anLymNRMSXbtjGhxcnmkfnyRB6"
+            },
+            {
+              "timestamp": "20260716064053",
+              "original": "https://www.bilglass.no/_next/static/chunks/fa3aa1e3d1b4e821.js?dpl=dpl_56anLymNRMSXbtjGhxcnmkfnyRB6"
+            },
+            {
+              "timestamp": "20250810172652",
+              "original": "https://www.bilglass.no/_next/static/chunks/ffcb966f-82e86dc82b89fcfe.js"
+            },
+            {
+              "timestamp": "20250810172513",
+              "original": "https://www.bilglass.no/_next/static/chunks/main-app-6fd1566012967ba1.js"
+            },
+            {
+              "timestamp": "20250930233055",
+              "original": "https://www.bilglass.no/_next/static/chunks/main-app-aa921688d6d5dcad.js"
+            },
+            {
+              "timestamp": "20250810172231",
+              "original": "https://www.bilglass.no/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"
+            },
+            {
+              "timestamp": "20260716064053",
+              "original": "https://www.bilglass.no/_next/static/chunks/turbopack-5932509fa09b0ea2.js?dpl=dpl_56anLymNRMSXbtjGhxcnmkfnyRB6"
+            },
+            {
+              "timestamp": "20250810172223",
+              "original": "https://www.bilglass.no/_next/static/chunks/webpack-af15e37bb4fd55fb.js"
+            },
+            {
+              "timestamp": "20250930233058",
+              "original": "https://www.bilglass.no/_next/static/chunks/webpack-c14580148bc99dbb.js"
+            },
+            {
+              "timestamp": "20251002203650",
+              "original": "https://www.bilglass.no/_next/static/css/46a647389540ba27.css"
+            },
+            {
+              "timestamp": "20250810172228",
+              "original": "https://www.bilglass.no/_next/static/css/83506b9d4a231f67.css"
+            },
+            {
+              "timestamp": "20260716064053",
+              "original": "https://www.bilglass.no/_next/static/media/1a072933b891bea6-s.p.5b1e0e00.woff2"
+            },
+            {
+              "timestamp": "20250814164942",
+              "original": "https://www.bilglass.no/_next/static/media/25cee0f10fd31036-s.woff2"
+            },
+            {
+              "timestamp": "20260716064053",
+              "original": "https://www.bilglass.no/_next/static/media/490cbca7f386131e-s.p.116c03d8.woff2"
+            },
+            {
+              "timestamp": "20260716064056",
+              "original": "https://www.bilglass.no/_next/static/media/4c42083b9bffcb01-s.4364391d.woff2"
+            },
+            {
+              "timestamp": "20250814164942",
+              "original": "https://www.bilglass.no/_next/static/media/4e502e6f7b437f41-s.woff2"
+            },
+            {
+              "timestamp": "20260716064053",
+              "original": "https://www.bilglass.no/_next/static/media/6c98c9fb873995d2-s.p.4a6499bc.woff2"
+            },
+            {
+              "timestamp": "20250814164942",
+              "original": "https://www.bilglass.no/_next/static/media/6cfec49062bc30de-s.woff2"
+            },
+            {
+              "timestamp": "20260716064056",
+              "original": "https://www.bilglass.no/_next/static/media/7136e67f09dfad82-s.fa2ea323.woff2"
+            },
+            {
+              "timestamp": "20260716064056",
+              "original": "https://www.bilglass.no/_next/static/media/72c7138918e4c44c-s.45ce3d12.woff2"
+            },
+            {
+              "timestamp": "20250811155704",
+              "original": "https://www.bilglass.no/_next/static/media/95a978e26cc29d74-s.p.woff2"
+            },
+            {
+              "timestamp": "20260716064056",
+              "original": "https://www.bilglass.no/_next/static/media/a60ff2ef47611254-s.2b2b1727.woff2"
+            }
+          ],
+          "first_seen": "2001-03-02",
+          "last_seen": "2026-07-16",
+          "snapshot_count": 100
+        }
+      },
+      {
+        "section": "compliance",
+        "title": "Compliance-signaler Norge",
+        "checks": [
+          {
+            "id": "cmp_banner",
+            "label": "Cookie-banner / samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:10.510Z"
+          },
+          {
+            "id": "consent_real_choice",
+            "label": "Reelt valg (avvis-knapp)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen banner/CMP observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:10.510Z"
+          },
+          {
+            "id": "consent_prechecked",
+            "label": "Forhåndsavkrysset samtykke",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:10.512Z"
+          },
+          {
+            "id": "privacy_policy",
+            "label": "Personvernerklæring",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "personvernerklæring lenket i footer",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:10.514Z"
+          },
+          {
+            "id": "third_party_trackers",
+            "label": "Tredjeparts-trackere",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "trackere observert (Google Tag Manager) — ingen synlig samtykke-gating observert — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:10.520Z"
+          },
+          {
+            "id": "google_fonts",
+            "label": "Google Fonts (ekstern)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen ekstern Google Fonts observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:10.521Z"
+          },
+          {
+            "id": "ecom_price_vat",
+            "label": "Pris inkl. mva",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:10.525Z"
+          },
+          {
+            "id": "ecom_angrerett",
+            "label": "Angrerett-informasjon",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:10.526Z"
+          },
+          {
+            "id": "ecom_klage",
+            "label": "Klageadgang / tvisteløsning",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:10.527Z"
+          }
+        ],
+        "raw": {
+          "url": "https://www.bilglass.no",
+          "fetched": false,
+          "status": null,
+          "fetch_error": null,
+          "html_length": 449387,
+          "script_srcs": [
+            "/_next/static/chunks/5b17ab9557dc8ff1.js?dpl=dpl_4pgdc2pRQ1fmjNpGGQqJB5sXE9qB",
+            "/_next/static/chunks/78870c3d98acdf29.js?dpl=dpl_4pgdc2pRQ1fmjNpGGQqJB5sXE9qB",
+            "/_next/static/chunks/aae49f733c32d11d.js?dpl=dpl_4pgdc2pRQ1fmjNpGGQqJB5sXE9qB",
+            "/_next/static/chunks/turbopack-76831efb9187d8f2.js?dpl=dpl_4pgdc2pRQ1fmjNpGGQqJB5sXE9qB",
+            "/_next/static/chunks/fa3aa1e3d1b4e821.js?dpl=dpl_4pgdc2pRQ1fmjNpGGQqJB5sXE9qB",
+            "/_next/static/chunks/bf842986f062840e.js?dpl=dpl_4pgdc2pRQ1fmjNpGGQqJB5sXE9qB",
+            "/_next/static/chunks/402a06693346f58b.js?dpl=dpl_4pgdc2pRQ1fmjNpGGQqJB5sXE9qB",
+            "/_next/static/chunks/6bc6ac5e2cbb2492.js?dpl=dpl_4pgdc2pRQ1fmjNpGGQqJB5sXE9qB",
+            "/_next/static/chunks/ad8105cfd802da8d.js?dpl=dpl_4pgdc2pRQ1fmjNpGGQqJB5sXE9qB",
+            "/_next/static/chunks/dcd70765fe009eb3.js?dpl=dpl_4pgdc2pRQ1fmjNpGGQqJB5sXE9qB",
+            "/_next/static/chunks/858afcf25228e124.js?dpl=dpl_4pgdc2pRQ1fmjNpGGQqJB5sXE9qB",
+            "/_next/static/chunks/4121d175c41cc1b1.js?dpl=dpl_4pgdc2pRQ1fmjNpGGQqJB5sXE9qB",
+            "/_next/static/chunks/bf0d347ae223fa00.js?dpl=dpl_4pgdc2pRQ1fmjNpGGQqJB5sXE9qB",
+            "/_next/static/chunks/9c6d1ba178888614.js?dpl=dpl_4pgdc2pRQ1fmjNpGGQqJB5sXE9qB",
+            "/_next/static/chunks/786fb9fb90accfcb.js?dpl=dpl_4pgdc2pRQ1fmjNpGGQqJB5sXE9qB",
+            "/_next/static/chunks/a6dad97d9634a72d.js?dpl=dpl_4pgdc2pRQ1fmjNpGGQqJB5sXE9qB",
+            "/_next/static/chunks/d655025716e39f59.js?dpl=dpl_4pgdc2pRQ1fmjNpGGQqJB5sXE9qB",
+            "/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+          ],
+          "cmp": {
+            "named": [],
+            "generic_text": false
+          },
+          "consent_reject": null,
+          "consent_prechecked": {
+            "count": 0,
+            "described": []
+          },
+          "privacy": {
+            "linked": true,
+            "in_footer": true
+          },
+          "trackers": [
+            "Google Tag Manager"
+          ],
+          "google_fonts": {
+            "external": false,
+            "self_hosted": false
+          },
+          "ecommerce": {
+            "shop_signal": true,
+            "price_vat": false,
+            "angrerett": false,
+            "klage": false
+          }
+        }
+      },
+      {
+        "section": "pagespeed",
+        "title": "Fart (PageSpeed Insights + CrUX)",
+        "checks": [
+          {
+            "id": "psi_mobile",
+            "label": "PageSpeed mobil",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:30:23.695Z"
+          },
+          {
+            "id": "psi_desktop",
+            "label": "PageSpeed desktop",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:30:23.695Z"
+          },
+          {
+            "id": "psi_availability",
+            "label": "PageSpeed API tilgjengelig",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:30:23.695Z"
+          }
+        ],
+        "raw": {
+          "mobile": {
+            "error": "HTTP 429",
+            "data": null
+          },
+          "desktop": {
+            "error": "HTTP 429",
+            "data": null
+          }
+        }
+      },
+      {
+        "section": "presence",
+        "title": "Tilstedeværelse (sosiale medier · NAP)",
+        "checks": [
+          {
+            "id": "social_profiles",
+            "label": "Sosiale medier (lenker fra nettsiden)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "3 profiler lenket — alle svarer (instagram: 200 · facebook: 400 · linkedin: 200)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:12.903Z"
+          },
+          {
+            "id": "nap_phone",
+            "label": "Telefon på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "tel-lenke: 090 09",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:12.904Z"
+          },
+          {
+            "id": "nap_email",
+            "label": "E-post på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:30:12.904Z"
+          },
+          {
+            "id": "nap_name_consistency",
+            "label": "Navn-konsistens (nettside ↔ Brreg)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "«RIIS BILGLASS AS» (Brreg) samsvarer med nettsidenavn",
+            "confidence": "high",
+            "source": "html+brreg",
+            "observed_at": "2026-08-15T00:30:12.904Z"
+          },
+          {
+            "id": "google_business",
+            "label": "Google Business Profile (anmeldelser, kategori)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+            "confidence": "medium",
+            "source": "places_api",
+            "observed_at": "2026-08-15T00:30:12.904Z"
+          }
+        ],
+        "raw": {
+          "social": {
+            "instagram": {
+              "url": "https://www.instagram.com/riisbilglass.no/",
+              "status": 200,
+              "error": null
+            },
+            "facebook": {
+              "url": "https://www.facebook.com/riisbilglass",
+              "status": 400,
+              "error": null
+            },
+            "linkedin": {
+              "url": "https://www.linkedin.com/company/riis-bilglass-as/",
+              "status": 200,
+              "error": null
+            }
+          },
+          "contact": {
+            "tel": "090 09",
+            "email": null,
+            "org_nr_on_page": null
+          },
+          "google_business": {
+            "status": "unknown",
+            "reason": "krever Google Places API-nøkkel — ikke tilgjengelig uten"
+          }
+        }
+      },
+      {
+        "section": "ai_analysis",
+        "title": "AI-analyse av innhold (DeepSeek)",
+        "checks": [
+          {
+            "id": "ai_content_quality",
+            "label": "Innholdskvalitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "UNKNOWN",
+            "evidence": "Nettstedet presenterer et bredt spekter av bilglass-tjenester og tydelig kontaktinformasjon, med fokus på rask og enkel bestilling via telefon. Innholdet er strukturert og profesjonelt, men mangler dybde og konkrete detaljer om priser eller garantier. Teksten er uten stavefeil og virker oppdatert, men gir lite informasjon om selskapets historie eller kvalitetsbevis utover sertifisering.",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T00:30:14.381Z"
+          },
+          {
+            "id": "ai_content_freshness",
+            "label": "Aktualitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "ingen årstall eller datoer funnet · teksten er oppdatert med tjenester og kontaktinformasjon · ingen tegn på utdatert innhold",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T00:30:14.381Z"
+          }
+        ],
+        "raw": {
+          "available": true,
+          "error": null,
+          "prompt": "Du er analyse-delen av Arch Audit (norsk verktøy). Analyser TEKSTEN på en norsk bedrifts hjemmeside. Vurder kun det som står i teksten under — ikke finn på noe.\nURL: https://www.bilglass.no\nTittel: Riis Bilglass - Reparasjon av steinsprut - ring 090 09\nMeta-beskrivelse: Riis Bilglass – Profesjonell reparasjon av steinsprut. Rask og pålitelig service. Ring 090 09 for hjelp i dag!\nTekstutdrag (hjemmesiden):\nRiis Bilglass - Reparasjon av steinsprut - ring 090 09 Hoppe over navigering Tjenester Nyttig å vite Om oss 090 09 090 09 Bestill time Steinsprut-telefonen Alle dager 07:00 - 24:00 090 09 Bestill time [email&#160;protected] Martin Lingesvei 25, 1364 Fornebu Finn din avdeling her Alle tjenester Steinsprut Skifte frontrute Skifte av bakrute Skifte siderute Utskifting av takvindu Solfilm Vindusviskere Kalibrering av frontruten Lyktepolering Reparasjon av bilglass for storbil/bobil Nyttig å vite Kostnadsfri reparasjon Spylervæskeavtalen Gratis lånebil Slitt frontrute Steinsprutskade Hva er en original rute EU-Kontroll Andre produkter Om oss Kontakt oss Avdelinger Om Riis Bilglass Samarbeidspartnere forsikring Samarbeidspartnere Miljøfyrtårn Europeisk samarbeid Ledige stillinger Alle tjenester Steinsprut Skifte frontrute Skifte av bakrute Skifte siderute Utskifting av takvindu Solfilm Vindusviskere Kalibrering av frontruten Lyktepolering Reparasjon av bilglass for storbil/bobil Nyttig å vite Kostnadsfri reparasjon Spylervæskeavtalen Gratis lånebil Slitt frontrute Steinsprutskade Hva er en original rute EU-Kontroll Andre produkter Om oss Kontakt oss Avdelinger Om Riis Bilglass Samarbeidspartnere forsikring Samarbeidspartnere Miljøfyrtårn Europeisk samarbeid Ledige stillinger Sertifisert bilglassfirma Personvernerklæring og informasjonskapsler Logg inn\nIngen årstall-signaler funnet i teksten.\n\nSvar KUN med JSON (ingen markdown-kodeblokk):\n{\"content_quality\":\"god|middels|svak\",\"tone\":\"...\",\"aktualitet\":\"frisk|middels|utdatert\",\"signals\":[\"...\"],\"summary_nb\":\"2-3 setninger på norsk, executive-språk, konkret\"}\nVurdering: aktualitet baseres på gamle datoer/©-år/nyhetsinnlegg i teksten; svak = stavefeil/ufullstendige setninger/meningsløs tekst; tone = hvem teksten henvender seg til og hvordan.",
+          "response": "{\"content_quality\":\"middels\",\"tone\":\"profesjonell og kundeorientert, henvender seg direkte til bil-eiere med behov for glassreparasjon\",\"aktualitet\":\"frisk\",\"signals\":[\"ingen årstall eller datoer funnet\",\"teksten er oppdatert med tjenester og kontaktinformasjon\",\"ingen tegn på utdatert innhold\"],\"summary_nb\":\"Nettstedet presenterer et bredt spekter av bilglass-tjenester og tydelig kontaktinformasjon, med fokus på rask og enkel bestilling via telefon. Innholdet er strukturert og profesjonelt, men mangler dybde og konkrete detaljer om priser eller garantier. Teksten er uten stavefeil og virker oppdatert, men gir lite informasjon om selskapets historie eller kvalitetsbevis utover sertifisering.\"}",
+          "model": "deepseek-chat"
+        }
+      },
+      {
+        "section": "ai_visibility",
+        "title": "AI-synlighet (GEO — hvordan AI-assistenter omtaler dere)",
+        "checks": [
+          {
+            "id": "ai_vis_visibility",
+            "label": "Synlighet i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "FAIL",
+            "evidence": "0/3 svar nevner Riis Bilglass · sitat: «Det er et par aktører som skiller seg ut.» · prompter: «Hvilket bilglassfirma bør jeg velge for rask og på…» / «Er det verdt å reparere en steinsprutskade fremfor…»",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:30:46.116Z"
+          },
+          {
+            "id": "ai_vis_position",
+            "label": "Posisjon i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "FAIL",
+            "evidence": "ikke nevnt i noen av svarene",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:30:46.116Z"
+          },
+          {
+            "id": "ai_vis_sentiment",
+            "label": "Sentiment i AI-omtale",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "sentiment: nøytral · råd: Sørg for at bedriftens åpningstider og tjenester (gratis lånebil, døgnvakt) er tydelig og konsistent beskrevet på nettsiden og i lokale søk.",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:30:46.116Z"
+          },
+          {
+            "id": "ai_vis_sources",
+            "label": "Kilder AI-en siterer",
+            "dimension": "ai_visibility",
+            "result": "UNKNOWN",
+            "evidence": "ingen eksterne domener sitert",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:30:46.116Z"
+          }
+        ],
+        "raw": {
+          "available": true,
+          "error": null,
+          "model": "deepseek-chat",
+          "brand_candidates": [
+            "Riis Bilglass",
+            "bilglass.no"
+          ],
+          "prompts": [
+            "Hvilket bilglassfirma bør jeg velge for rask og pålitelig steinsprutreparasjon i Oslo-området, med gratis lånebil og åpent alle dager fra 07:00 til 24:00?",
+            "Er det verdt å reparere en steinsprutskade fremfor å bytte hele frontruten, og hvilket firma anbefaler du for kostnadsfri reparasjon og kalibrering av frontruten?",
+            "Hva er det beste alternativet for å fikse en sprukket frontrute før EU-kontroll, med mulighet for original rute og samarbeid med forsikringsselskaper?"
+          ],
+          "answers": [
+            {
+              "prompt": "Hvilket bilglassfirma bør jeg velge for rask og pålitelig steinsprutreparasjon i Oslo-området, med gratis lånebil og åpent alle dager fra 07:00 til 24:00?",
+              "answer": "For å få både **rask og pålitelig** steinsprutreparasjon i Oslo-området, med **gratis lånebil** og **åpent fra 07:00 til 24:00 alle dager**, er det et par aktører som skiller seg ut.  \n\nDet er viktig å merke seg at **nesten ingen bilglassfirmaer har faste åpningstider helt til 24:00** – men flere har **døgnvakt/beredskap** eller **mobil service** som kan møte deg på jobb eller hjemme utenom vanlig arbeidstid.  \n\nHer er de mest relevante alternativene, med styrker og svakheter:\n\n---\n\n### 1. **Carglass** (nå del av Belron)  \n- **Åpningstider:** De fleste avdelingene i Oslo har **man–fre 07:00–17:00/18:00**, men de har **døgnvakt for akutte skader** og mobil service.  \n- **Lånebil:** Ja, **gratis lånebil** i Oslo-området ved reparasjon eller skifte.  \n- **Pålitelighet:** Veldig høy – de har egne teknikere, lang erfaring og gode garantier.  \n- **Hastighet:** Ofte time samme dag eller neste dag, men ikke 24/7 fast åpent.  \n- **Vurdering:** Beste valg hvis du prioriterer **trygghet og standard**, og kan tilpasse deg deres arbeidstid.  \n\n---\n\n### 2. **Glass & Bilservice (GBS)**  \n- **Åpningstider:** Flere avdelinger i Oslo-området har **man–lør 07:00–18:00**, men de har også **døgnvakt** og mobil service.  \n- **Lånebil:** Ja, **gratis lånebil** i forbindelse med skifte/reparasjon.  \n- **Pålitelighet:** Godt ansett, konkurransedyktige priser, og de samarbeider med de fleste forsikringsselskaper.  \n- **Hastighet:** Rask respons, men ikke fast åpent til 24:00.  \n- **Vurdering:** Et godt alternativ hvis du vil ha lokal tilstedeværelse og fleksibilitet, men fortsatt innenfor \"vanlig\" arbeidstid.\n\n---\n\n### 3. **AutoGlas / Bilglass-ekspressen**  \n- **Åpningstider:** Noen avdelinger har **utvidet åpningstid** til 20:00 på hverdager, og lørdag.  \n- **Lånebil:** Gratis lånebil i Oslo-området, men avhenger av tilgjengelighet.  \n- **Pålitelighet:** Middels til god – mange fornøyde kunder, men variasjon mellom avdelinger.  \n- **Hastighet:** Rask"
+            },
+            {
+              "prompt": "Er det verdt å reparere en steinsprutskade fremfor å bytte hele frontruten, og hvilket firma anbefaler du for kostnadsfri reparasjon og kalibrering av frontruten?",
+              "answer": "Dette er et veldig godt spørsmål, og svaret avhenger av størrelsen og plasseringen på skaden.\n\n**Kort svar:**\nJa, i de aller fleste tilfeller er det absolutt verdt å reparere en steinsprutskade fremfor å bytte hele ruten. Det er både billigere, raskere og mer miljøvennlig. Men det er noen viktige unntak.\n\n**Når reparasjon er verdt det (anbefales):**\n- **Størrelsen:** Skaden (steinen) er mindre enn en 20-krone, og sprekkene som stråler ut fra den er under ca. 3 cm totalt (noen verksteder opererer med litt andre mål, men dette er en god tommelfingerregel).\n- **Plassering:** Skaden er ikke i førerens direkte synsfelt (sikten rett frem) og ikke helt ute i kanten av ruten.\n- **Ingen gjennomgående sprekk:** Det er ikke en sprekk som går tvers gjennom hele ruten.\n\n**Når bytte er nødvendig (ikke reparasjon):**\n- **Store sprekker:** Hvis sprekken er lang (over noen cm) eller sprer seg raskt.\n- **I synsfeltet:** Skader rett foran øynene til føreren kan gi synsforstyrrelser selv etter reparasjon (lysbrytning), og dette er ofte ikke godkjent av bilkontrollen (EU-kontroll).\n- **Kantsprekker:** Skader som starter i kanten av ruten svekker strukturen betydelig og er nesten umulig å reparere holdbart.\n- **Flere skader:** Hvis det er mange steinsprut på samme rute.\n\n**Viktig om kalibrering:**\nDersom bilen din har kamerabasert sikkerhetsutstyr (f.eks. filholderassistent, automatisk nødbrems, adaptiv cruise control), er kameraet ofte montert på frontruten. Da er **kalibrering etter bytte absolutt nødvendig** — og noen ganger også etter reparasjon. Hvis dette ikke gjøres, kan systemene bli unøyaktige og i verste fall feilaktig bremse eller styre.\n\n---\n\n**Anbefalinger for kostnadsfri reparasjon og kalibrering:**\n\nDet er viktig å presisere at **fullstendig kostnadsfri reparasjon og kalibrering er sjeldent** — men det finnes gode ordninger. Her er det jeg anbefaler:\n\n1.  **Forsikringsselskapet ditt (første stopp):**\n    Mange norske forsikringsselskaper (f.eks. IF, Gjensidige, Tryg, Fremtind) har avtaler med glassleverandører. **Steinsprutreparasjon er ofte helt gratis** (ingen egenandel) hvis du bruker deres av"
+            },
+            {
+              "prompt": "Hva er det beste alternativet for å fikse en sprukket frontrute før EU-kontroll, med mulighet for original rute og samarbeid med forsikringsselskaper?",
+              "answer": "Det beste alternativet for å fikse en sprukket frontrute før EU-kontroll avhenger av skadens størrelse, plassering og forsikringsdekning. Her er en grundig gjennomgang:\n\n## 1. Vurder skaden først\n- **Steinsprut/liten sprekk (< 3–5 cm)** – kan ofte repareres, ikke erstattes. Dette er billigst og raskest.\n- **Stor sprekk, eller sprekk i førerens synsfelt** – må byttes. EU-kontroll krever at frontruten ikke har sprekker som reduserer sikten eller er i siktfeltet til vindusviskerne.\n\n## 2. Reparasjon (hvis mulig)\n- Mange glassfirmaer tilbyr gratis reparasjon av steinsprut, og dette er ofte dekket av kaskoforsikring med egenandel på 0 kr.\n- Reparasjon er rask (30–60 min) og forhindrer at sprekken sprer seg.\n\n## 3. Bytte av frontrute\n- **Original rute vs. ettermarked**: Forsikringsselskapet dekker som regel original rute hvis bilen er under 5–8 år, eller hvis du har kasko. Eldre biler får ofte ettermarked, men dette er like godt i kvalitet (f.eks. Pilkington, Saint-Gobain) og godkjent.\n- **Kalibrering av kamera/sensorer**: Moderne biler med førerassistanse (ADAS) krever kalibrering etter rutebyttet. Dekkes av forsikring hvis du har kasko.\n\n## 4. Samarbeid med forsikringsselskapet\n- **Kasko** – dekker rutebyttet, men du betaler egenandel (typisk 3 000–6 000 kr). Noen selskaper har glassavtale med 0 i egenandel.\n- **Delkasko/glassforsikring** – dekker ofte hele byttet uten egenandel.\n- **Anbefaling**: Ring forsikringsselskapet ditt først, bekreft dekning og få henvisning til et avtaleverksted. Dette sparer deg for forhåndsbetaling og sikrer at alt blir gjort i henhold til avtalen.\n\n## 5. Konkrete anbefalinger\n- **Bruk godkjente glassfirmaer** som **Carglass**, **AutoMester** eller **Glassmester`n** – de har avtaler med alle store forsikringsselskaper og utfører både reparasjon og bytte med kalibrering.\n- **Be om original rute** hvis du har kasko og bilen er nyere – forsikringen dekker differansen hvis den ikke allerede er inkludert.\n- **Sjekk EU-kontrollkrav**: Skaden må ikke være i siktfeltet eller større enn 5 cm i førerens"
+            }
+          ],
+          "analysis": {
+            "sentiment": "nøytral",
+            "quote": "Det er et par aktører som skiller seg ut.",
+            "advice_nb": "Sørg for at bedriftens åpningstider og tjenester (gratis lånebil, døgnvakt) er tydelig og konsistent beskrevet på nettsiden og i lokale søk."
+          },
+          "measurements": [
+            {
+              "prompt": "Hvilket bilglassfirma bør jeg velge for rask og pålitelig steinsprutreparasjon i Oslo-området, med gratis lånebil og åpent alle dager fra 07:00 til 24:00?",
+              "mentioned": false,
+              "position": null,
+              "cited_domains": []
+            },
+            {
+              "prompt": "Er det verdt å reparere en steinsprutskade fremfor å bytte hele frontruten, og hvilket firma anbefaler du for kostnadsfri reparasjon og kalibrering av frontruten?",
+              "mentioned": false,
+              "position": null,
+              "cited_domains": []
+            },
+            {
+              "prompt": "Hva er det beste alternativet for å fikse en sprukket frontrute før EU-kontroll, med mulighet for original rute og samarbeid med forsikringsselskaper?",
+              "mentioned": false,
+              "position": null,
+              "cited_domains": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "automation": {
+    "leverage": 67,
+    "potential": 33,
+    "present": 4,
+    "total": 6,
+    "signals": {
+      "contact_form": true,
+      "analytics": true,
+      "cmp": false,
+      "chat": true,
+      "booking": true,
+      "newsletter": false
+    }
+  },
+  "quick_wins": [],
+  "build_opportunities": [],
+  "human_approvals": [],
+  "executive_summary": "www.bilglass.no sin offentlige nettside scorer **58%** på Arch Website Score. Den største risikoen er: **Ødelagte interne lenker**. **18 funn** bør prioriteres (0 kritisk, 18 høy ROI). Største mulighet: **33% uutnyttet automatiseringsverdi** — prosesser som kan automatiseres (lead-ruting, kundestøtte, avtalebooking, oppfølging). Forretningsmessig betyr dette: målbar gevinst i hastighet, konvertering og frigjort tid. Merk: dette er en **utenfor-inn** vurdering av kun den offentlige nettsiden — interne systemer er ikke vurdert."
+}
