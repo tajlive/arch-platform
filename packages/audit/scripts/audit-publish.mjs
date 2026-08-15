@@ -8,12 +8,13 @@ import { join } from "node:path";
 
 const ROOT = new URL("../../..", import.meta.url).pathname; // arch-platform/
 const args = process.argv.slice(2);
-const [dir, stub] = args;
-if (!dir || !stub) { console.error("Bruk: audit-publish.mjs <prospect-dir> <stub>"); process.exit(1); }
+const [dir, stub, nameArg] = args;
+if (!dir || !stub) { console.error("Bruk: audit-publish.mjs <prospect-dir> <stub> [rapportnavn]"); process.exit(1); }
+const reportName = nameArg || dir;
 
 const base = join(ROOT, "docs/audits/prospects", dir);
-const mdFile = join(base, `website-audit-v2-${dir}.md`);
-const evFile = join(base, `website-audit-v2-${dir}.evidence.json`);
+const mdFile = join(base, `website-audit-v2-${reportName}.md`);
+const evFile = join(base, `website-audit-v2-${reportName}.evidence.json`);
 if (!existsSync(mdFile)) { console.error("Mangler MD:", mdFile); process.exit(1); }
 if (!existsSync(evFile)) { console.error("Mangler evidence:", evFile); process.exit(1); }
 
