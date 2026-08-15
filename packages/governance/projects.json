@@ -223,6 +223,25 @@
    "audit_report": "docs/audits/prospects/lillelondon.no/",
    "public_report": "https://arch-platform.pages.dev/audits/lille-london",
    "consent": "none (passiv prospect-audit)"
+  },
+  {
+   "project_id": "tronder-taxi",
+   "name": "Trønder Taxi AS",
+   "type": "Prospect — Transport/Drosje",
+   "repository": null,
+   "linear_team": "ARC",
+   "linear_project": null,
+   "runtime": "external",
+   "environment": "prospect",
+   "visibility": "internal",
+   "health_profile": "audited",
+   "status": "prospect",
+   "url": "https://www.trondertaxi.no",
+   "audit_score": 63,
+   "audit_date": "2026-08-15",
+   "audit_report": "docs/audits/prospects/www.trondertaxi.no/",
+   "public_report": "https://arch-platform.pages.dev/audits/tronder-taxi",
+   "consent": "none (passiv prospect-audit)"
   }
  ]
 }

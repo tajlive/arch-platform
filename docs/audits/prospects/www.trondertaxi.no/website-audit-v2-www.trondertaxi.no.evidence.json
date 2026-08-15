@@ -1,0 +1,3245 @@
+{
+  "meta": {
+    "generated": "2026-08-15T01:04:51.734Z",
+    "version": "2.0",
+    "name": "www.trondertaxi.no",
+    "website": "https://www.trondertaxi.no",
+    "domain": "www.trondertaxi.no",
+    "registrable_domain": "trondertaxi.no",
+    "mode": "website",
+    "design_partner": false,
+    "audit_duration_ms": 54817,
+    "v2_modules_ms": 40265
+  },
+  "customer": null,
+  "score": {
+    "total": 63,
+    "categories": {
+      "performance": {
+        "pct": 38,
+        "weight": 20,
+        "pass": 3,
+        "fail": 2,
+        "unknown": 3,
+        "denom": 8,
+        "checks": [
+          {
+            "id": "compression",
+            "label": "Komprimering (gzip/brotli)",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "gzip",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:10.195Z"
+          },
+          {
+            "id": "caching",
+            "label": "Cache-headere",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "max-age=3, must-revalidate",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:10.195Z"
+          },
+          {
+            "id": "render_blocking",
+            "label": "Render-blokkerende ressurser",
+            "dimension": "performance",
+            "result": "FAIL",
+            "evidence": "26 blokkerende skript, 13 stylesheets",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:10.196Z"
+          },
+          {
+            "id": "image_optim",
+            "label": "Bilde-optimalisering",
+            "dimension": "performance",
+            "result": "FAIL",
+            "evidence": "13 bilder, 11 m/ dimensjoner, 6 lazy",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:10.197Z"
+          },
+          {
+            "id": "third_party",
+            "label": "Tredjeparts-skript/-ressurser",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "5 eksterne domener (consent.cookiebot.com, trondertaxi.no, www.googletagmanager.com, chat.puzzel.com, www.google.com)",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:10.197Z"
+          },
+          {
+            "id": "psi_mobile",
+            "label": "PageSpeed mobil",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T01:04:24.795Z"
+          },
+          {
+            "id": "psi_desktop",
+            "label": "PageSpeed desktop",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T01:04:24.795Z"
+          },
+          {
+            "id": "psi_availability",
+            "label": "PageSpeed API tilgjengelig",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T01:04:24.795Z"
+          }
+        ]
+      },
+      "security": {
+        "pct": 57,
+        "weight": 20,
+        "pass": 16,
+        "fail": 10,
+        "unknown": 2,
+        "denom": 28,
+        "checks": [
+          {
+            "id": "https",
+            "label": "HTTPS/TLS",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "HTTPS leverte respons",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:03:57.467Z"
+          },
+          {
+            "id": "header_csp",
+            "label": "Header: csp",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:11.257Z"
+          },
+          {
+            "id": "header_hsts",
+            "label": "Header: hsts",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:11.257Z"
+          },
+          {
+            "id": "header_xcto",
+            "label": "Header: xcto",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:11.257Z"
+          },
+          {
+            "id": "header_referrer",
+            "label": "Header: referrer",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:11.257Z"
+          },
+          {
+            "id": "header_permissions",
+            "label": "Header: permissions",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:11.257Z"
+          },
+          {
+            "id": "header_frame",
+            "label": "Header: frame",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:11.257Z"
+          },
+          {
+            "id": "mixed_content",
+            "label": "Blandet innhold (http på https)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen http-referanser i HTML",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:11.258Z"
+          },
+          {
+            "id": "source_maps",
+            "label": "Eksponerte source maps",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "skript ikke observerbare",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:11.258Z"
+          },
+          {
+            "id": "tech_disclosure",
+            "label": "Versjons-avsløring",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "nginx",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:11.258Z"
+          },
+          {
+            "id": "security_headers",
+            "label": "Sikkerhetsheadere — gradering A+",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Gradering A+. Content-Security-Policy: base-uri 'self'; form-action 'self' https:; frame-ancestors 'self'; object-src 'none'; upg…; Strict-Transport-Security: max-age=31536000; includeSubDomains; X-Frame-Options: MANGLER; X-Content-Type-Options: nosniff; Referrer-Policy: strict-origin-when-cross-origin; Permissions-Policy: accelerometer=(), autoplay=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), m… Ingen trekk.",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T01:04:12.363Z"
+          },
+          {
+            "id": "cookies_attributes",
+            "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T01:04:12.363Z"
+          },
+          {
+            "id": "leak_0_server",
+            "label": "Versjonslekkasje: server-header",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "server: nginx",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T01:04:12.365Z"
+          },
+          {
+            "id": "leak_1_meta",
+            "label": "Versjonslekkasje: <meta name=generator>",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "generator: Site Kit by Google 1.184.0",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:12.365Z"
+          },
+          {
+            "id": "tls_cert",
+            "label": "TLS-sertifikat gyldighet",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "notBefore=2026-08-04T16:44:20.000Z, notAfter=2026-11-02T16:44:19.000Z, issuer=C=US, O=Let's Encrypt, CN=YE2, SAN=07373.no, trondertaxi.no, www.07373.no, www.trondertaxi.no, www.xn--trndertaxi-1cb.no, xn--trndertaxi-1cb.no",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T01:04:27.875Z"
+          },
+          {
+            "id": "tls_verify",
+            "label": "TLS-sertifikat-verifisering",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "verify return code: 0 (ok)",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T01:04:27.875Z"
+          },
+          {
+            "id": "tls_legacy",
+            "label": "Legacy-TLS (1.0/1.1) støtte",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+            "confidence": "medium",
+            "source": "tls",
+            "observed_at": "2026-08-15T01:04:27.875Z"
+          },
+          {
+            "id": "spf",
+            "label": "SPF (avsender-verifisering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "v=spf1 include:spf.protection.outlook.com include:_spf.isp.as2116.net -all",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T01:04:12.505Z"
+          },
+          {
+            "id": "spf_private_ip",
+            "label": "SPF: private IP-er i mekanismene",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen private IP-er i SPF",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T01:04:12.505Z"
+          },
+          {
+            "id": "dkim",
+            "label": "DKIM (e-post-signering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "selector: selector1",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T01:04:12.972Z"
+          },
+          {
+            "id": "dmarc",
+            "label": "DMARC (spoofing-beskyttelse)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "p=none (kun overvåkning) — v=DMARC1; p=none; rua=mailto:dmarc@trondertaxi.no; ruf=mailto:dmarc@trondertaxi.no; sp=none; aspf=s;",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T01:04:13.042Z"
+          },
+          {
+            "id": "dmarc_subdomain",
+            "label": "DMARC for subdomene",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen _dmarc.www.trondertaxi.no — subdomener kan spoofes",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T01:04:13.093Z"
+          },
+          {
+            "id": "mta_sts",
+            "label": "MTA-STS (håndhevet e-post-TLS)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T01:04:13.218Z"
+          },
+          {
+            "id": "tls_rpt",
+            "label": "TLS-RPT (TLS-rapportering)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen TLS-rapportering",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T01:04:13.318Z"
+          },
+          {
+            "id": "caa",
+            "label": "CAA (sertifikat-utsteder-kontroll)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen CAA",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T01:04:13.476Z"
+          },
+          {
+            "id": "dnssec",
+            "label": "DNSSEC (signert sone)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "manglende AD-flag — sonen er ikke DNSSEC-signert",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T01:04:13.570Z"
+          },
+          {
+            "id": "subdomains",
+            "label": "Subdomene-eksponering (crt.sh)",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "crt.sh-feil: The operation was aborted due to timeout",
+            "confidence": "low",
+            "source": "https",
+            "observed_at": "2026-08-15T01:04:34.807Z"
+          },
+          {
+            "id": "norid_dnssec",
+            "label": "DNSSEC (Norid)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "DNSSEC ikke aktivert (delegationSigned=false)",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T01:04:12.085Z"
+          }
+        ]
+      },
+      "ux_mobile": {
+        "pct": 75,
+        "weight": 15,
+        "pass": 3,
+        "fail": 0,
+        "unknown": 1,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "viewport",
+            "label": "Viewport meta",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "viewport tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:10.198Z"
+          },
+          {
+            "id": "media_queries",
+            "label": "Responsive CSS (@media)",
+            "dimension": "ux_mobile",
+            "result": "UNKNOWN",
+            "evidence": "stylesheets ikke observerbare",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:10.198Z"
+          },
+          {
+            "id": "ai_content_quality",
+            "label": "Innholdskvalitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "Nettsiden formidler et tydelig kundeløfte om trygghet og pålitelighet, med fokus på sikkerhet i førersetet og enkel bestilling via app. Innholdet er oversiktlig og dekker tjenester, kampanjer og kontaktinformasjon, men mangler konkrete årstall eller oppdateringsdatoer. Teksten er profesjonell og henvender seg godt til både privat- og bedriftskunder.",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T01:04:16.499Z"
+          },
+          {
+            "id": "ai_content_freshness",
+            "label": "Aktualitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "Ingen årstall-signaler funnet i teksten · Ingen ©-år eller datoer som indikerer utdatert innhold · Nevner 116 år på veiene, noe som er et historisk faktum, ikke en dato",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T01:04:16.499Z"
+          }
+        ]
+      },
+      "accessibility": {
+        "pct": 75,
+        "weight": 15,
+        "pass": 3,
+        "fail": 1,
+        "unknown": 0,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "lang",
+            "label": "Språk-attributt (lang)",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "nb-NO",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:10.198Z"
+          },
+          {
+            "id": "alt_text",
+            "label": "Alt-tekst på bilder",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "0/13 bilder mangler alt",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:10.198Z"
+          },
+          {
+            "id": "form_labels",
+            "label": "Skjemaetiketter",
+            "dimension": "accessibility",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen skjemainput",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:10.199Z"
+          },
+          {
+            "id": "heading_hierarchy",
+            "label": "Overskriftshierarki",
+            "dimension": "accessibility",
+            "result": "FAIL",
+            "evidence": "h1=0 h2=5 h3=3",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:10.200Z"
+          },
+          {
+            "id": "semantic",
+            "label": "Semantiske landemerker",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "3/4 (header, main, footer)",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:10.201Z"
+          }
+        ]
+      },
+      "seo": {
+        "pct": 88,
+        "weight": 10,
+        "pass": 7,
+        "fail": 1,
+        "unknown": 0,
+        "denom": 8,
+        "checks": [
+          {
+            "id": "title",
+            "label": "Tittel",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "Trønder Taxi AS",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:10.201Z"
+          },
+          {
+            "id": "meta_description",
+            "label": "Meta-beskrivelse",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "Vi setter sikkerhet og trygghet i forsetet. Vi leverer pålitelig og kvalitetssikret transport til alle våre kunder.",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:10.201Z"
+          },
+          {
+            "id": "canonical",
+            "label": "Canonical",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "https://trondertaxi.no/",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:10.201Z"
+          },
+          {
+            "id": "robots_meta",
+            "label": "Robots-meta",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:10.202Z"
+          },
+          {
+            "id": "robots_txt",
+            "label": "robots.txt",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "robots.txt tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:10.202Z"
+          },
+          {
+            "id": "sitemap",
+            "label": "Sitemap.xml",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "sitemap tilstede (3 URL-er)",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:11.257Z"
+          },
+          {
+            "id": "open_graph",
+            "label": "OpenGraph",
+            "dimension": "seo",
+            "result": "FAIL",
+            "evidence": "title=true description=true image=false",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:11.257Z"
+          },
+          {
+            "id": "structured_data",
+            "label": "Strukturert data (JSON-LD)",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "JSON-LD tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:11.257Z"
+          }
+        ]
+      },
+      "reliability": {
+        "pct": 75,
+        "weight": 10,
+        "pass": 6,
+        "fail": 1,
+        "unknown": 1,
+        "denom": 8,
+        "checks": [
+          {
+            "id": "http_status",
+            "label": "HTTP-status (hovedsiden)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "HTTP 200",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:03:57.466Z"
+          },
+          {
+            "id": "redirect_chain",
+            "label": "Omdirigeringskjede",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "301 www.trondertaxi.no→trondertaxi.no",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:03:57.467Z"
+          },
+          {
+            "id": "broken_links",
+            "label": "Ødelagte interne lenker",
+            "dimension": "reliability",
+            "result": "FAIL",
+            "evidence": "1 ødelagt (www.trondertaxi.no/en/ → 404)",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:10.192Z"
+          },
+          {
+            "id": "asset_failures",
+            "label": "Ressurs-feil (img/css/js)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "ingen same-origin-ressurser å sample",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:10.195Z"
+          },
+          {
+            "id": "norid_changed",
+            "label": "Sist endret (Norid)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "sist endret 2025-11-15",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T01:04:12.085Z"
+          },
+          {
+            "id": "history_exists",
+            "label": "Arkivhistorikk finnes",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "arkivert siden 2000-09-15",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T01:04:29.481Z"
+          },
+          {
+            "id": "history_freshness",
+            "label": "Aktualitet (siste arkiverte versjon)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "fanget i løpet av siste 12 mnd (2025-08-23)",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T01:04:29.481Z"
+          },
+          {
+            "id": "history_scope",
+            "label": "Arkivomfang",
+            "dimension": "reliability",
+            "result": "UNKNOWN",
+            "evidence": "omfang ikke tilgjengelig (Wayback CDX timeout på full historikk)",
+            "confidence": "medium",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T01:04:29.481Z"
+          }
+        ]
+      },
+      "trust_privacy": {
+        "pct": 61,
+        "weight": 5,
+        "pass": 14,
+        "fail": 6,
+        "unknown": 3,
+        "denom": 23,
+        "checks": [
+          {
+            "id": "cookie_banner",
+            "label": "Cookie-banner",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "cookie/samtykke-element observert",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:11.258Z"
+          },
+          {
+            "id": "privacy_link",
+            "label": "Personvernerklæring-link",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "link til personvern observert",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:11.259Z"
+          },
+          {
+            "id": "consent_cmp",
+            "label": "Samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "CMP observert",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:11.259Z"
+          },
+          {
+            "id": "contact_form",
+            "label": "Kontakt-/lead-skjema",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen <form> observert",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:11.259Z"
+          },
+          {
+            "id": "cta",
+            "label": "Call-to-action",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "CTA-tekst observert",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-15T01:04:11.260Z"
+          },
+          {
+            "id": "bimi",
+            "label": "BIMI (merkevare-logo i innboks)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen BIMI (ikke påkrevd)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-15T01:04:13.402Z"
+          },
+          {
+            "id": "dnsbl",
+            "label": "E-post-omdømme (DNSBL)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "trondertaxi-no.mail.protection.outlook.com (52.101.68.3) ikke listet",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T01:04:13.802Z"
+          },
+          {
+            "id": "brreg_org",
+            "label": "Firma i Brreg (Enhetsregisteret)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "ingen Brreg-treff for «Trønder Taxi AS», «Trønder Taxi AS»",
+            "confidence": "medium",
+            "source": "brreg",
+            "observed_at": "2026-08-15T01:04:11.808Z"
+          },
+          {
+            "id": "ssb_context",
+            "label": "Bransjekontekst (SSB)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "ingen næringskode tilgjengelig",
+            "confidence": "medium",
+            "source": "ssb",
+            "observed_at": "2026-08-15T01:04:11.808Z"
+          },
+          {
+            "id": "norid_registered",
+            "label": "Domenet registrert (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrert 1999-11-14",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T01:04:12.085Z"
+          },
+          {
+            "id": "norid_registrar",
+            "label": "Registrar (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrar: Firmanett Norden AB",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T01:04:12.085Z"
+          },
+          {
+            "id": "cmp_banner",
+            "label": "Cookie-banner / samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "CMP observert: Cookiebot",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:12.123Z"
+          },
+          {
+            "id": "consent_real_choice",
+            "label": "Reelt valg (avvis-knapp)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "banner/CMP observert, men ingen «avvis»/reject-alternativ observert — ekomloven § 3-15 krever reelt valg — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:12.124Z"
+          },
+          {
+            "id": "consent_prechecked",
+            "label": "Forhåndsavkrysset samtykke",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:12.127Z"
+          },
+          {
+            "id": "privacy_policy",
+            "label": "Personvernerklæring",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "personvernerklæring lenket i footer",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:12.128Z"
+          },
+          {
+            "id": "third_party_trackers",
+            "label": "Tredjeparts-trackere",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "trackere observert (Google Tag Manager, Google gtag.js) — CMP/banner observert separat — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:12.131Z"
+          },
+          {
+            "id": "google_fonts",
+            "label": "Google Fonts (ekstern)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "Google Fonts self-hosted observert (/fonts/-stier)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:12.132Z"
+          },
+          {
+            "id": "ecom_price_vat",
+            "label": "Pris inkl. mva",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:12.133Z"
+          },
+          {
+            "id": "ecom_angrerett",
+            "label": "Angrerett-informasjon",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:12.135Z"
+          },
+          {
+            "id": "ecom_klage",
+            "label": "Klageadgang / tvisteløsning",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:12.136Z"
+          },
+          {
+            "id": "social_profiles",
+            "label": "Sosiale medier (lenker fra nettsiden)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "3 profiler lenket — alle svarer (tiktok: 200 · facebook: 400 · instagram: 200)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:14.846Z"
+          },
+          {
+            "id": "nap_phone",
+            "label": "Telefon på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "tel-lenke: 07373",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:14.847Z"
+          },
+          {
+            "id": "nap_email",
+            "label": "E-post på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "mailto: salg@trondertaxi.no",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:14.847Z"
+          },
+          {
+            "id": "google_business",
+            "label": "Google Business Profile (anmeldelser, kategori)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+            "confidence": "medium",
+            "source": "places_api",
+            "observed_at": "2026-08-15T01:04:14.848Z"
+          }
+        ]
+      },
+      "ai_visibility": {
+        "pct": 25,
+        "weight": 5,
+        "pass": 1,
+        "fail": 2,
+        "unknown": 1,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "ai_vis_visibility",
+            "label": "Synlighet i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "FAIL",
+            "evidence": "0/3 svar nevner Trønder Taxi AS · sitat: «TrønderTaxi er et solid valg i 2026 for akkurat de behovene du nevner» · prompter: «Hvilket taxiselskap i Trondheim anbefaler du for t…» / «Hva er det beste alternativet for en bedrift som t…»",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T01:04:51.732Z"
+          },
+          {
+            "id": "ai_vis_position",
+            "label": "Posisjon i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "FAIL",
+            "evidence": "ikke nevnt i noen av svarene",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T01:04:51.732Z"
+          },
+          {
+            "id": "ai_vis_sentiment",
+            "label": "Sentiment i AI-omtale",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "sentiment: positiv · råd: Sørg for å tydelig kommunisere deres lange historie og ISO-sertifiseringer i digitale kanaler for å styrke posisjonen mot konkurrenter som N",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T01:04:51.732Z"
+          },
+          {
+            "id": "ai_vis_sources",
+            "label": "Kilder AI-en siterer",
+            "dimension": "ai_visibility",
+            "result": "UNKNOWN",
+            "evidence": "ingen eksterne domener sitert",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T01:04:51.732Z"
+          }
+        ]
+      },
+      "automation": {
+        "pct": 17,
+        "leverage": 83,
+        "potential": 17,
+        "weight": 5,
+        "pass": 5,
+        "fail": 1,
+        "unknown": 0,
+        "denom": 6,
+        "checks": []
+      }
+    },
+    "weights": {
+      "performance": 20,
+      "security": 20,
+      "ux_mobile": 15,
+      "accessibility": 15,
+      "seo": 10,
+      "reliability": 10,
+      "trust_privacy": 5,
+      "ai_visibility": 5
+    },
+    "labels": {
+      "performance": "Performance",
+      "security": "Security Surface",
+      "ux_mobile": "UX / Mobile",
+      "accessibility": "Accessibility",
+      "seo": "SEO / Discovery",
+      "reliability": "Reliability",
+      "trust_privacy": "Trust / Privacy",
+      "automation": "Automation Potential",
+      "ai_visibility": "AI-synlighet (GEO)"
+    },
+    "automation": {
+      "leverage": 83,
+      "potential": 17,
+      "present": 5,
+      "total": 6,
+      "signals": {
+        "contact_form": false,
+        "analytics": true,
+        "cmp": true,
+        "chat": true,
+        "booking": true,
+        "newsletter": true
+      }
+    },
+    "observed_at": "2026-08-15T01:04:51.733Z"
+  },
+  "findings": [
+    {
+      "id": "W001",
+      "kind": "web_broken_links",
+      "title": "Ødelagte interne lenker",
+      "evidence": "1 ødelagt (www.trondertaxi.no/en/ → 404)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W002",
+      "kind": "web_render_blocking",
+      "title": "Render-blokkerende ressurser",
+      "evidence": "26 blokkerende skript, 13 stylesheets",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W003",
+      "kind": "web_image_optim",
+      "title": "Bilde-optimalisering",
+      "evidence": "13 bilder, 11 m/ dimensjoner, 6 lazy",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W004",
+      "kind": "web_heading_hierarchy",
+      "title": "Overskriftshierarki",
+      "evidence": "h1=0 h2=5 h3=3",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W005",
+      "kind": "web_seo_og",
+      "title": "OpenGraph",
+      "evidence": "title=true description=true image=false",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W006",
+      "kind": "web_tech_disclosure",
+      "title": "Versjons-avsløring",
+      "evidence": "nginx",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W007",
+      "kind": "web_contact_form",
+      "title": "Kontakt-/lead-skjema",
+      "evidence": "ingen <form> observert",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W008",
+      "kind": "web_tech_disclosure",
+      "title": "Versjonslekkasje: server-header",
+      "evidence": "server: nginx",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W009",
+      "kind": "web_tech_disclosure",
+      "title": "Versjonslekkasje: <meta name=generator>",
+      "evidence": "generator: Site Kit by Google 1.184.0",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W010",
+      "kind": "web_email_dmarc",
+      "title": "DMARC (spoofing-beskyttelse)",
+      "evidence": "p=none (kun overvåkning) — v=DMARC1; p=none; rua=mailto:dmarc@trondertaxi.no; ruf=mailto:dmarc@trondertaxi.no; sp=none; aspf=s;",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W011",
+      "kind": "web_email_dmarc",
+      "title": "DMARC for subdomene",
+      "evidence": "ingen _dmarc.www.trondertaxi.no — subdomener kan spoofes",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W012",
+      "kind": "web_email_mta_sts",
+      "title": "MTA-STS (håndhevet e-post-TLS)",
+      "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W013",
+      "kind": "web_email_mta_sts",
+      "title": "TLS-RPT (TLS-rapportering)",
+      "evidence": "ingen TLS-rapportering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W014",
+      "kind": "web_dns_hardening",
+      "title": "CAA (sertifikat-utsteder-kontroll)",
+      "evidence": "ingen CAA",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W015",
+      "kind": "web_dns_hardening",
+      "title": "DNSSEC (signert sone)",
+      "evidence": "manglende AD-flag — sonen er ikke DNSSEC-signert",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W016",
+      "kind": "web_dns_hardening",
+      "title": "DNSSEC (Norid)",
+      "evidence": "DNSSEC ikke aktivert (delegationSigned=false)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W017",
+      "kind": "web_privacy",
+      "title": "Reelt valg (avvis-knapp)",
+      "evidence": "banner/CMP observert, men ingen «avvis»/reject-alternativ observert — ekomloven § 3-15 krever reelt valg — potential concern, krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W018",
+      "kind": "web_privacy",
+      "title": "Tredjeparts-trackere",
+      "evidence": "trackere observert (Google Tag Manager, Google gtag.js) — CMP/banner observert separat — potential concern, krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W019",
+      "kind": "web_privacy",
+      "title": "Pris inkl. mva",
+      "evidence": "pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W020",
+      "kind": "web_privacy",
+      "title": "Angrerett-informasjon",
+      "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W021",
+      "kind": "web_privacy",
+      "title": "Klageadgang / tvisteløsning",
+      "evidence": "klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W022",
+      "kind": "web_ai_visibility",
+      "title": "Synlighet i AI-svar",
+      "evidence": "0/3 svar nevner Trønder Taxi AS · sitat: «TrønderTaxi er et solid valg i 2026 for akkurat de behovene du nevner» · prompter: «Hvilket taxiselskap i Trondheim anbefaler du for t…» / «Hva er det beste alternativet for en bedrift som t…»",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W023",
+      "kind": "web_ai_position",
+      "title": "Posisjon i AI-svar",
+      "evidence": "ikke nevnt i noen av svarene",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W024",
+      "kind": "web_automation",
+      "title": "Automatiseringsmuligheter identifisert",
+      "evidence": "uutnyttet potensial 17% — manglende signaler: contact_form",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    }
+  ],
+  "browser": {
+    "available": false
+  },
+  "web": {
+    "meta": {
+      "url": "https://www.trondertaxi.no",
+      "domain": "www.trondertaxi.no",
+      "origin": "https://www.trondertaxi.no",
+      "final_url": "https://trondertaxi.no/",
+      "fetched_at": "2026-08-15T01:04:11.263Z"
+    },
+    "checks": [
+      {
+        "id": "http_status",
+        "label": "HTTP-status (hovedsiden)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "HTTP 200",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:03:57.466Z"
+      },
+      {
+        "id": "https",
+        "label": "HTTPS/TLS",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "HTTPS leverte respons",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:03:57.467Z"
+      },
+      {
+        "id": "redirect_chain",
+        "label": "Omdirigeringskjede",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "301 www.trondertaxi.no→trondertaxi.no",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:03:57.467Z"
+      },
+      {
+        "id": "broken_links",
+        "label": "Ødelagte interne lenker",
+        "dimension": "reliability",
+        "result": "FAIL",
+        "evidence": "1 ødelagt (www.trondertaxi.no/en/ → 404)",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:10.192Z"
+      },
+      {
+        "id": "asset_failures",
+        "label": "Ressurs-feil (img/css/js)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "ingen same-origin-ressurser å sample",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:10.195Z"
+      },
+      {
+        "id": "compression",
+        "label": "Komprimering (gzip/brotli)",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "gzip",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:10.195Z"
+      },
+      {
+        "id": "caching",
+        "label": "Cache-headere",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "max-age=3, must-revalidate",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:10.195Z"
+      },
+      {
+        "id": "render_blocking",
+        "label": "Render-blokkerende ressurser",
+        "dimension": "performance",
+        "result": "FAIL",
+        "evidence": "26 blokkerende skript, 13 stylesheets",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:10.196Z"
+      },
+      {
+        "id": "image_optim",
+        "label": "Bilde-optimalisering",
+        "dimension": "performance",
+        "result": "FAIL",
+        "evidence": "13 bilder, 11 m/ dimensjoner, 6 lazy",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:10.197Z"
+      },
+      {
+        "id": "third_party",
+        "label": "Tredjeparts-skript/-ressurser",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "5 eksterne domener (consent.cookiebot.com, trondertaxi.no, www.googletagmanager.com, chat.puzzel.com, www.google.com)",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:10.197Z"
+      },
+      {
+        "id": "viewport",
+        "label": "Viewport meta",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "viewport tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:10.198Z"
+      },
+      {
+        "id": "media_queries",
+        "label": "Responsive CSS (@media)",
+        "dimension": "ux_mobile",
+        "result": "UNKNOWN",
+        "evidence": "stylesheets ikke observerbare",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:10.198Z"
+      },
+      {
+        "id": "lang",
+        "label": "Språk-attributt (lang)",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "nb-NO",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:10.198Z"
+      },
+      {
+        "id": "alt_text",
+        "label": "Alt-tekst på bilder",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "0/13 bilder mangler alt",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:10.198Z"
+      },
+      {
+        "id": "form_labels",
+        "label": "Skjemaetiketter",
+        "dimension": "accessibility",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen skjemainput",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:10.199Z"
+      },
+      {
+        "id": "heading_hierarchy",
+        "label": "Overskriftshierarki",
+        "dimension": "accessibility",
+        "result": "FAIL",
+        "evidence": "h1=0 h2=5 h3=3",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:10.200Z"
+      },
+      {
+        "id": "semantic",
+        "label": "Semantiske landemerker",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "3/4 (header, main, footer)",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:10.201Z"
+      },
+      {
+        "id": "title",
+        "label": "Tittel",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "Trønder Taxi AS",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:10.201Z"
+      },
+      {
+        "id": "meta_description",
+        "label": "Meta-beskrivelse",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "Vi setter sikkerhet og trygghet i forsetet. Vi leverer pålitelig og kvalitetssikret transport til alle våre kunder.",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:10.201Z"
+      },
+      {
+        "id": "canonical",
+        "label": "Canonical",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "https://trondertaxi.no/",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:10.201Z"
+      },
+      {
+        "id": "robots_meta",
+        "label": "Robots-meta",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:10.202Z"
+      },
+      {
+        "id": "robots_txt",
+        "label": "robots.txt",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "robots.txt tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:10.202Z"
+      },
+      {
+        "id": "sitemap",
+        "label": "Sitemap.xml",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "sitemap tilstede (3 URL-er)",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:11.257Z"
+      },
+      {
+        "id": "open_graph",
+        "label": "OpenGraph",
+        "dimension": "seo",
+        "result": "FAIL",
+        "evidence": "title=true description=true image=false",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:11.257Z"
+      },
+      {
+        "id": "structured_data",
+        "label": "Strukturert data (JSON-LD)",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "JSON-LD tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:11.257Z"
+      },
+      {
+        "id": "header_csp",
+        "label": "Header: csp",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:11.257Z"
+      },
+      {
+        "id": "header_hsts",
+        "label": "Header: hsts",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:11.257Z"
+      },
+      {
+        "id": "header_xcto",
+        "label": "Header: xcto",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:11.257Z"
+      },
+      {
+        "id": "header_referrer",
+        "label": "Header: referrer",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:11.257Z"
+      },
+      {
+        "id": "header_permissions",
+        "label": "Header: permissions",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:11.257Z"
+      },
+      {
+        "id": "header_frame",
+        "label": "Header: frame",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:11.257Z"
+      },
+      {
+        "id": "mixed_content",
+        "label": "Blandet innhold (http på https)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "ingen http-referanser i HTML",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:11.258Z"
+      },
+      {
+        "id": "source_maps",
+        "label": "Eksponerte source maps",
+        "dimension": "security",
+        "result": "UNKNOWN",
+        "evidence": "skript ikke observerbare",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:11.258Z"
+      },
+      {
+        "id": "tech_disclosure",
+        "label": "Versjons-avsløring",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "nginx",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:11.258Z"
+      },
+      {
+        "id": "cookie_banner",
+        "label": "Cookie-banner",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "cookie/samtykke-element observert",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:11.258Z"
+      },
+      {
+        "id": "privacy_link",
+        "label": "Personvernerklæring-link",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "link til personvern observert",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:11.259Z"
+      },
+      {
+        "id": "consent_cmp",
+        "label": "Samtykke-plattform (CMP)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "CMP observert",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:11.259Z"
+      },
+      {
+        "id": "contact_form",
+        "label": "Kontakt-/lead-skjema",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen <form> observert",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:11.259Z"
+      },
+      {
+        "id": "cta",
+        "label": "Call-to-action",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "CTA-tekst observert",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:11.260Z"
+      },
+      {
+        "id": "tech_cms",
+        "label": "Teknologi: cms",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "WordPress",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:11.263Z"
+      },
+      {
+        "id": "tech_hosting",
+        "label": "Teknologi: hosting",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "nginx",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:11.263Z"
+      },
+      {
+        "id": "tech_analytics",
+        "label": "Teknologi: analytics",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "Google Analytics/Tag Manager",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T01:04:11.263Z"
+      },
+      {
+        "id": "security_headers",
+        "label": "Sikkerhetsheadere — gradering A+",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "Gradering A+. Content-Security-Policy: base-uri 'self'; form-action 'self' https:; frame-ancestors 'self'; object-src 'none'; upg…; Strict-Transport-Security: max-age=31536000; includeSubDomains; X-Frame-Options: MANGLER; X-Content-Type-Options: nosniff; Referrer-Policy: strict-origin-when-cross-origin; Permissions-Policy: accelerometer=(), autoplay=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), m… Ingen trekk.",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-15T01:04:12.363Z"
+      },
+      {
+        "id": "cookies_attributes",
+        "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-15T01:04:12.363Z"
+      },
+      {
+        "id": "leak_0_server",
+        "label": "Versjonslekkasje: server-header",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "server: nginx",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-15T01:04:12.365Z"
+      },
+      {
+        "id": "leak_1_meta",
+        "label": "Versjonslekkasje: <meta name=generator>",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "generator: Site Kit by Google 1.184.0",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T01:04:12.365Z"
+      },
+      {
+        "id": "tls_cert",
+        "label": "TLS-sertifikat gyldighet",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "notBefore=2026-08-04T16:44:20.000Z, notAfter=2026-11-02T16:44:19.000Z, issuer=C=US, O=Let's Encrypt, CN=YE2, SAN=07373.no, trondertaxi.no, www.07373.no, www.trondertaxi.no, www.xn--trndertaxi-1cb.no, xn--trndertaxi-1cb.no",
+        "confidence": "high",
+        "source": "tls",
+        "observed_at": "2026-08-15T01:04:27.875Z"
+      },
+      {
+        "id": "tls_verify",
+        "label": "TLS-sertifikat-verifisering",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "verify return code: 0 (ok)",
+        "confidence": "high",
+        "source": "tls",
+        "observed_at": "2026-08-15T01:04:27.875Z"
+      },
+      {
+        "id": "tls_legacy",
+        "label": "Legacy-TLS (1.0/1.1) støtte",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+        "confidence": "medium",
+        "source": "tls",
+        "observed_at": "2026-08-15T01:04:27.875Z"
+      },
+      {
+        "id": "spf",
+        "label": "SPF (avsender-verifisering)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "v=spf1 include:spf.protection.outlook.com include:_spf.isp.as2116.net -all",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T01:04:12.505Z"
+      },
+      {
+        "id": "spf_private_ip",
+        "label": "SPF: private IP-er i mekanismene",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "ingen private IP-er i SPF",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T01:04:12.505Z"
+      },
+      {
+        "id": "dkim",
+        "label": "DKIM (e-post-signering)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "selector: selector1",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T01:04:12.972Z"
+      },
+      {
+        "id": "dmarc",
+        "label": "DMARC (spoofing-beskyttelse)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "p=none (kun overvåkning) — v=DMARC1; p=none; rua=mailto:dmarc@trondertaxi.no; ruf=mailto:dmarc@trondertaxi.no; sp=none; aspf=s;",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T01:04:13.042Z"
+      },
+      {
+        "id": "dmarc_subdomain",
+        "label": "DMARC for subdomene",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen _dmarc.www.trondertaxi.no — subdomener kan spoofes",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T01:04:13.093Z"
+      },
+      {
+        "id": "mta_sts",
+        "label": "MTA-STS (håndhevet e-post-TLS)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T01:04:13.218Z"
+      },
+      {
+        "id": "tls_rpt",
+        "label": "TLS-RPT (TLS-rapportering)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen TLS-rapportering",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T01:04:13.318Z"
+      },
+      {
+        "id": "bimi",
+        "label": "BIMI (merkevare-logo i innboks)",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen BIMI (ikke påkrevd)",
+        "confidence": "low",
+        "source": "dns",
+        "observed_at": "2026-08-15T01:04:13.402Z"
+      },
+      {
+        "id": "caa",
+        "label": "CAA (sertifikat-utsteder-kontroll)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen CAA",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T01:04:13.476Z"
+      },
+      {
+        "id": "dnssec",
+        "label": "DNSSEC (signert sone)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "manglende AD-flag — sonen er ikke DNSSEC-signert",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T01:04:13.570Z"
+      },
+      {
+        "id": "dnsbl",
+        "label": "E-post-omdømme (DNSBL)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "trondertaxi-no.mail.protection.outlook.com (52.101.68.3) ikke listet",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T01:04:13.802Z"
+      },
+      {
+        "id": "subdomains",
+        "label": "Subdomene-eksponering (crt.sh)",
+        "dimension": "security",
+        "result": "UNKNOWN",
+        "evidence": "crt.sh-feil: The operation was aborted due to timeout",
+        "confidence": "low",
+        "source": "https",
+        "observed_at": "2026-08-15T01:04:34.807Z"
+      },
+      {
+        "id": "brreg_org",
+        "label": "Firma i Brreg (Enhetsregisteret)",
+        "dimension": "trust_privacy",
+        "result": "UNKNOWN",
+        "evidence": "ingen Brreg-treff for «Trønder Taxi AS», «Trønder Taxi AS»",
+        "confidence": "medium",
+        "source": "brreg",
+        "observed_at": "2026-08-15T01:04:11.808Z"
+      },
+      {
+        "id": "ssb_context",
+        "label": "Bransjekontekst (SSB)",
+        "dimension": "trust_privacy",
+        "result": "UNKNOWN",
+        "evidence": "ingen næringskode tilgjengelig",
+        "confidence": "medium",
+        "source": "ssb",
+        "observed_at": "2026-08-15T01:04:11.808Z"
+      },
+      {
+        "id": "norid_registered",
+        "label": "Domenet registrert (Norid)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "registrert 1999-11-14",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T01:04:12.085Z"
+      },
+      {
+        "id": "norid_changed",
+        "label": "Sist endret (Norid)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "sist endret 2025-11-15",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T01:04:12.085Z"
+      },
+      {
+        "id": "norid_dnssec",
+        "label": "DNSSEC (Norid)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "DNSSEC ikke aktivert (delegationSigned=false)",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T01:04:12.085Z"
+      },
+      {
+        "id": "norid_registrar",
+        "label": "Registrar (Norid)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "registrar: Firmanett Norden AB",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T01:04:12.085Z"
+      },
+      {
+        "id": "history_exists",
+        "label": "Arkivhistorikk finnes",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "arkivert siden 2000-09-15",
+        "confidence": "high",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-15T01:04:29.481Z"
+      },
+      {
+        "id": "history_freshness",
+        "label": "Aktualitet (siste arkiverte versjon)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "fanget i løpet av siste 12 mnd (2025-08-23)",
+        "confidence": "high",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-15T01:04:29.481Z"
+      },
+      {
+        "id": "history_scope",
+        "label": "Arkivomfang",
+        "dimension": "reliability",
+        "result": "UNKNOWN",
+        "evidence": "omfang ikke tilgjengelig (Wayback CDX timeout på full historikk)",
+        "confidence": "medium",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-15T01:04:29.481Z"
+      },
+      {
+        "id": "cmp_banner",
+        "label": "Cookie-banner / samtykke-plattform (CMP)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "CMP observert: Cookiebot",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T01:04:12.123Z"
+      },
+      {
+        "id": "consent_real_choice",
+        "label": "Reelt valg (avvis-knapp)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "banner/CMP observert, men ingen «avvis»/reject-alternativ observert — ekomloven § 3-15 krever reelt valg — potential concern, krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T01:04:12.124Z"
+      },
+      {
+        "id": "consent_prechecked",
+        "label": "Forhåndsavkrysset samtykke",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T01:04:12.127Z"
+      },
+      {
+        "id": "privacy_policy",
+        "label": "Personvernerklæring",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "personvernerklæring lenket i footer",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T01:04:12.128Z"
+      },
+      {
+        "id": "third_party_trackers",
+        "label": "Tredjeparts-trackere",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "trackere observert (Google Tag Manager, Google gtag.js) — CMP/banner observert separat — potential concern, krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T01:04:12.131Z"
+      },
+      {
+        "id": "google_fonts",
+        "label": "Google Fonts (ekstern)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "Google Fonts self-hosted observert (/fonts/-stier)",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T01:04:12.132Z"
+      },
+      {
+        "id": "ecom_price_vat",
+        "label": "Pris inkl. mva",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T01:04:12.133Z"
+      },
+      {
+        "id": "ecom_angrerett",
+        "label": "Angrerett-informasjon",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T01:04:12.135Z"
+      },
+      {
+        "id": "ecom_klage",
+        "label": "Klageadgang / tvisteløsning",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T01:04:12.136Z"
+      },
+      {
+        "id": "psi_mobile",
+        "label": "PageSpeed mobil",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-feil: HTTP 429",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-15T01:04:24.795Z"
+      },
+      {
+        "id": "psi_desktop",
+        "label": "PageSpeed desktop",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-feil: HTTP 429",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-15T01:04:24.795Z"
+      },
+      {
+        "id": "psi_availability",
+        "label": "PageSpeed API tilgjengelig",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-15T01:04:24.795Z"
+      },
+      {
+        "id": "social_profiles",
+        "label": "Sosiale medier (lenker fra nettsiden)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "3 profiler lenket — alle svarer (tiktok: 200 · facebook: 400 · instagram: 200)",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T01:04:14.846Z"
+      },
+      {
+        "id": "nap_phone",
+        "label": "Telefon på nettsiden",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "tel-lenke: 07373",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T01:04:14.847Z"
+      },
+      {
+        "id": "nap_email",
+        "label": "E-post på nettsiden",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "mailto: salg@trondertaxi.no",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T01:04:14.847Z"
+      },
+      {
+        "id": "google_business",
+        "label": "Google Business Profile (anmeldelser, kategori)",
+        "dimension": "trust_privacy",
+        "result": "UNKNOWN",
+        "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+        "confidence": "medium",
+        "source": "places_api",
+        "observed_at": "2026-08-15T01:04:14.848Z"
+      },
+      {
+        "id": "ai_content_quality",
+        "label": "Innholdskvalitet (AI-vurdert)",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "Nettsiden formidler et tydelig kundeløfte om trygghet og pålitelighet, med fokus på sikkerhet i førersetet og enkel bestilling via app. Innholdet er oversiktlig og dekker tjenester, kampanjer og kontaktinformasjon, men mangler konkrete årstall eller oppdateringsdatoer. Teksten er profesjonell og henvender seg godt til både privat- og bedriftskunder.",
+        "confidence": "medium",
+        "source": "llm_analysis",
+        "observed_at": "2026-08-15T01:04:16.499Z"
+      },
+      {
+        "id": "ai_content_freshness",
+        "label": "Aktualitet (AI-vurdert)",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "Ingen årstall-signaler funnet i teksten · Ingen ©-år eller datoer som indikerer utdatert innhold · Nevner 116 år på veiene, noe som er et historisk faktum, ikke en dato",
+        "confidence": "medium",
+        "source": "llm_analysis",
+        "observed_at": "2026-08-15T01:04:16.499Z"
+      },
+      {
+        "id": "ai_vis_visibility",
+        "label": "Synlighet i AI-svar",
+        "dimension": "ai_visibility",
+        "result": "FAIL",
+        "evidence": "0/3 svar nevner Trønder Taxi AS · sitat: «TrønderTaxi er et solid valg i 2026 for akkurat de behovene du nevner» · prompter: «Hvilket taxiselskap i Trondheim anbefaler du for t…» / «Hva er det beste alternativet for en bedrift som t…»",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T01:04:51.732Z"
+      },
+      {
+        "id": "ai_vis_position",
+        "label": "Posisjon i AI-svar",
+        "dimension": "ai_visibility",
+        "result": "FAIL",
+        "evidence": "ikke nevnt i noen av svarene",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T01:04:51.732Z"
+      },
+      {
+        "id": "ai_vis_sentiment",
+        "label": "Sentiment i AI-omtale",
+        "dimension": "ai_visibility",
+        "result": "PASS",
+        "evidence": "sentiment: positiv · råd: Sørg for å tydelig kommunisere deres lange historie og ISO-sertifiseringer i digitale kanaler for å styrke posisjonen mot konkurrenter som N",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T01:04:51.732Z"
+      },
+      {
+        "id": "ai_vis_sources",
+        "label": "Kilder AI-en siterer",
+        "dimension": "ai_visibility",
+        "result": "UNKNOWN",
+        "evidence": "ingen eksterne domener sitert",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T01:04:51.732Z"
+      }
+    ],
+    "raw": {
+      "home": {
+        "status": 200,
+        "status_text": "OK",
+        "error": null,
+        "final_url": "https://trondertaxi.no/",
+        "redirects": [
+          {
+            "from": "https://www.trondertaxi.no",
+            "to": "https://trondertaxi.no/",
+            "status": 301
+          }
+        ]
+      },
+      "https": {
+        "ok": true,
+        "detail": "HTTPS leverte respons"
+      },
+      "redirect_chain": [
+        {
+          "from": "https://www.trondertaxi.no",
+          "to": "https://trondertaxi.no/",
+          "status": 301
+        }
+      ],
+      "robots": {
+        "present": true,
+        "disallow": [
+          "/wp-json/",
+          "/?rest_route="
+        ]
+      },
+      "crawl": {
+        "pages_checked": 12,
+        "crawled": 11,
+        "broken": [
+          {
+            "url": "https://www.trondertaxi.no/en/",
+            "status": 404
+          }
+        ]
+      },
+      "html_length": 212193,
+      "asset_failures": {
+        "checked": 0,
+        "failed": 0,
+        "details": []
+      },
+      "compression": "gzip",
+      "caching": "max-age=3, must-revalidate",
+      "render_blocking_scripts": 26,
+      "images": {
+        "total": 13,
+        "with_dimensions": 11,
+        "lazy": 6
+      },
+      "third_party": [
+        "consent.cookiebot.com",
+        "trondertaxi.no",
+        "www.googletagmanager.com",
+        "chat.puzzel.com",
+        "www.google.com"
+      ],
+      "viewport": true,
+      "media_queries": null,
+      "lang": "nb-NO",
+      "img_missing_alt": 0,
+      "forms_accessibility": {
+        "inputs": 0,
+        "labels": 0,
+        "inputs_with_label": 0
+      },
+      "headings": {
+        "h1": 0,
+        "h2": 5,
+        "h3": 3,
+        "h4": 7,
+        "h5": 5,
+        "h6": 0
+      },
+      "landmarks": [
+        "header",
+        "main",
+        "footer"
+      ],
+      "title": "Trønder Taxi AS",
+      "meta_description": "Vi setter sikkerhet og trygghet i forsetet. Vi leverer pålitelig og kvalitetssikret transport til alle våre kunder.",
+      "canonical": "https://trondertaxi.no/",
+      "robots_meta": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "sitemap": {
+        "status": 200,
+        "urls": 3
+      },
+      "open_graph": {
+        "title": true,
+        "description": true,
+        "image": false
+      },
+      "structured_data": true,
+      "security_headers": {
+        "csp": "base-uri 'self'; form-action 'self' https:; frame-ancestors 'self'; object-src 'none'; upgrade-insecure-requests",
+        "hsts": "max-age=31536000; includeSubDomains",
+        "xcto": "nosniff",
+        "referrer": "strict-origin-when-cross-origin",
+        "permissions": "accelerometer=(), autoplay=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()",
+        "frame": "frame-ancestors"
+      },
+      "mixed_content": 0,
+      "source_maps": null,
+      "tech_disclosure": {
+        "server": "nginx",
+        "x_powered_by": null
+      },
+      "cookie_banner": true,
+      "analytics": [
+        "Google Analytics/Tag Manager"
+      ],
+      "privacy_link": true,
+      "consent_cmp": true,
+      "forms_count": 0,
+      "cta": true,
+      "automation_signals": {
+        "contact_form": false,
+        "analytics": true,
+        "cmp": true,
+        "chat": true,
+        "booking": true,
+        "newsletter": true
+      },
+      "technology": {
+        "framework": null,
+        "cms": "WordPress",
+        "cdn": null,
+        "hosting": "nginx",
+        "analytics": [
+          "Google Analytics/Tag Manager"
+        ]
+      }
+    }
+  },
+  "v2": {
+    "sections": [
+      {
+        "section": "security_hacker",
+        "title": "Hva en hacker ser",
+        "checks": [
+          {
+            "id": "security_headers",
+            "label": "Sikkerhetsheadere — gradering A+",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Gradering A+. Content-Security-Policy: base-uri 'self'; form-action 'self' https:; frame-ancestors 'self'; object-src 'none'; upg…; Strict-Transport-Security: max-age=31536000; includeSubDomains; X-Frame-Options: MANGLER; X-Content-Type-Options: nosniff; Referrer-Policy: strict-origin-when-cross-origin; Permissions-Policy: accelerometer=(), autoplay=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), m… Ingen trekk.",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T01:04:12.363Z"
+          },
+          {
+            "id": "cookies_attributes",
+            "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T01:04:12.363Z"
+          },
+          {
+            "id": "leak_0_server",
+            "label": "Versjonslekkasje: server-header",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "server: nginx",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T01:04:12.365Z"
+          },
+          {
+            "id": "leak_1_meta",
+            "label": "Versjonslekkasje: <meta name=generator>",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "generator: Site Kit by Google 1.184.0",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:12.365Z"
+          },
+          {
+            "id": "tls_cert",
+            "label": "TLS-sertifikat gyldighet",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "notBefore=2026-08-04T16:44:20.000Z, notAfter=2026-11-02T16:44:19.000Z, issuer=C=US, O=Let's Encrypt, CN=YE2, SAN=07373.no, trondertaxi.no, www.07373.no, www.trondertaxi.no, www.xn--trndertaxi-1cb.no, xn--trndertaxi-1cb.no",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T01:04:27.875Z"
+          },
+          {
+            "id": "tls_verify",
+            "label": "TLS-sertifikat-verifisering",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "verify return code: 0 (ok)",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T01:04:27.875Z"
+          },
+          {
+            "id": "tls_legacy",
+            "label": "Legacy-TLS (1.0/1.1) støtte",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+            "confidence": "medium",
+            "source": "tls",
+            "observed_at": "2026-08-15T01:04:27.875Z"
+          }
+        ],
+        "raw": {
+          "url": "https://www.trondertaxi.no/",
+          "final_url": "https://trondertaxi.no/",
+          "status": 200,
+          "status_text": "OK",
+          "redirects": [
+            {
+              "from": "https://www.trondertaxi.no/",
+              "to": "https://trondertaxi.no/",
+              "status": 301
+            }
+          ],
+          "headers": {
+            "cache-control": "max-age=3, must-revalidate",
+            "connection": "keep-alive",
+            "content-encoding": "gzip",
+            "content-security-policy": "base-uri 'self'; form-action 'self' https:; frame-ancestors 'self'; object-src 'none'; upgrade-insecure-requests",
+            "content-type": "text/html; charset=UTF-8",
+            "date": "Sat, 15 Aug 2026 01:04:12 GMT",
+            "permissions-policy": "accelerometer=(), autoplay=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "server": "nginx",
+            "strict-transport-security": "max-age=31536000; includeSubDomains",
+            "transfer-encoding": "chunked",
+            "vary": "Accept-Encoding,Cookie,User-Agent",
+            "x-content-type-options": "nosniff",
+            "x-xss-protection": "0"
+          },
+          "security_grade": "A+",
+          "security_deductions": [],
+          "cookies": [],
+          "version_leaks": [
+            {
+              "kind": "header",
+              "header": "server",
+              "value": "nginx"
+            },
+            {
+              "kind": "meta_generator",
+              "value": "Site Kit by Google 1.184.0"
+            }
+          ],
+          "tls": {
+            "opensslAvailable": true,
+            "cert": {
+              "notBefore": "2026-08-04T16:44:20.000Z",
+              "notAfter": "2026-11-02T16:44:19.000Z",
+              "issuer": "C=US, O=Let's Encrypt, CN=YE2",
+              "san": [
+                "07373.no",
+                "trondertaxi.no",
+                "www.07373.no",
+                "www.trondertaxi.no",
+                "www.xn--trndertaxi-1cb.no",
+                "xn--trndertaxi-1cb.no"
+              ]
+            },
+            "verify": {
+              "code": 0,
+              "description": "ok"
+            },
+            "legacy": {
+              "tls1": "blocked",
+              "tls1_1": "blocked"
+            }
+          }
+        }
+      },
+      {
+        "section": "email_dns",
+        "title": "E-post & DNS-sikkerhet",
+        "checks": [
+          {
+            "id": "spf",
+            "label": "SPF (avsender-verifisering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "v=spf1 include:spf.protection.outlook.com include:_spf.isp.as2116.net -all",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T01:04:12.505Z"
+          },
+          {
+            "id": "spf_private_ip",
+            "label": "SPF: private IP-er i mekanismene",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen private IP-er i SPF",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T01:04:12.505Z"
+          },
+          {
+            "id": "dkim",
+            "label": "DKIM (e-post-signering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "selector: selector1",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T01:04:12.972Z"
+          },
+          {
+            "id": "dmarc",
+            "label": "DMARC (spoofing-beskyttelse)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "p=none (kun overvåkning) — v=DMARC1; p=none; rua=mailto:dmarc@trondertaxi.no; ruf=mailto:dmarc@trondertaxi.no; sp=none; aspf=s;",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T01:04:13.042Z"
+          },
+          {
+            "id": "dmarc_subdomain",
+            "label": "DMARC for subdomene",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen _dmarc.www.trondertaxi.no — subdomener kan spoofes",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T01:04:13.093Z"
+          },
+          {
+            "id": "mta_sts",
+            "label": "MTA-STS (håndhevet e-post-TLS)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T01:04:13.218Z"
+          },
+          {
+            "id": "tls_rpt",
+            "label": "TLS-RPT (TLS-rapportering)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen TLS-rapportering",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T01:04:13.318Z"
+          },
+          {
+            "id": "bimi",
+            "label": "BIMI (merkevare-logo i innboks)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen BIMI (ikke påkrevd)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-15T01:04:13.402Z"
+          },
+          {
+            "id": "caa",
+            "label": "CAA (sertifikat-utsteder-kontroll)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen CAA",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T01:04:13.476Z"
+          },
+          {
+            "id": "dnssec",
+            "label": "DNSSEC (signert sone)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "manglende AD-flag — sonen er ikke DNSSEC-signert",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T01:04:13.570Z"
+          },
+          {
+            "id": "dnsbl",
+            "label": "E-post-omdømme (DNSBL)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "trondertaxi-no.mail.protection.outlook.com (52.101.68.3) ikke listet",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T01:04:13.802Z"
+          },
+          {
+            "id": "subdomains",
+            "label": "Subdomene-eksponering (crt.sh)",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "crt.sh-feil: The operation was aborted due to timeout",
+            "confidence": "low",
+            "source": "https",
+            "observed_at": "2026-08-15T01:04:34.807Z"
+          }
+        ],
+        "raw": {
+          "original": "www.trondertaxi.no",
+          "registrable": "trondertaxi.no",
+          "subdomain_of_input": true,
+          "spf": {
+            "record": "v=spf1 include:spf.protection.outlook.com include:_spf.isp.as2116.net -all",
+            "policy": "-all",
+            "private_ips": []
+          },
+          "dkim": "selector1",
+          "dmarc": {
+            "record": "v=DMARC1; p=none; rua=mailto:dmarc@trondertaxi.no; ruf=mailto:dmarc@trondertaxi.no; sp=none; aspf=s;",
+            "p": "none",
+            "policy": "none",
+            "subdomain": {
+              "name": "_dmarc.www.trondertaxi.no",
+              "present": false,
+              "record": null
+            }
+          },
+          "mta_sts": {
+            "txt": false,
+            "policy": false,
+            "policy_status": 0
+          },
+          "tls_rpt": null,
+          "bimi": null,
+          "caa": {
+            "records": [],
+            "issuers": []
+          },
+          "dnssec": "\n; <<>> DiG 9.10.6 <<>> +dnssec DNSKEY trondertaxi.no +time=5 +tries=1\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 64864\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags: do; udp: 512\n;; QUESTION SECTION:\n;trondertaxi.no.\t\t\tIN\tDNSKEY\n\n;; AUTHORITY SECTION:\ntrondertaxi.no.\t\t1800\tIN\tSOA\tdns1.firmanett.no. hostmaster.firmanett.no. 2022112401 10800 3600 1209600 3600\n\n;; Query time: 56 msec\n;; SERVER: 100.100.100.100#53(100.100.100.100)\n;; WHEN: Sat Aug 15 03:04:13 CEST 2026\n;; MSG SIZE  rcvd: 105\n\n",
+          "mx": [
+            {
+              "exchange": "trondertaxi-no.mail.protection.outlook.com",
+              "priority": 10
+            }
+          ],
+          "dnsbl": {
+            "mx": "trondertaxi-no.mail.protection.outlook.com",
+            "ip": "52.101.68.3",
+            "listed": false,
+            "host": "3.68.101.52.zen.spamhaus.org"
+          },
+          "subdomains": {
+            "count": 0,
+            "unique": [],
+            "interesting": [],
+            "error": "The operation was aborted due to timeout"
+          }
+        }
+      },
+      {
+        "section": "norge",
+        "title": "Norge-data (Brreg · Norid · SSB)",
+        "checks": [
+          {
+            "id": "brreg_org",
+            "label": "Firma i Brreg (Enhetsregisteret)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "ingen Brreg-treff for «Trønder Taxi AS», «Trønder Taxi AS»",
+            "confidence": "medium",
+            "source": "brreg",
+            "observed_at": "2026-08-15T01:04:11.808Z"
+          },
+          {
+            "id": "ssb_context",
+            "label": "Bransjekontekst (SSB)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "ingen næringskode tilgjengelig",
+            "confidence": "medium",
+            "source": "ssb",
+            "observed_at": "2026-08-15T01:04:11.808Z"
+          },
+          {
+            "id": "norid_registered",
+            "label": "Domenet registrert (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrert 1999-11-14",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T01:04:12.085Z"
+          },
+          {
+            "id": "norid_changed",
+            "label": "Sist endret (Norid)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "sist endret 2025-11-15",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T01:04:12.085Z"
+          },
+          {
+            "id": "norid_dnssec",
+            "label": "DNSSEC (Norid)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "DNSSEC ikke aktivert (delegationSigned=false)",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T01:04:12.085Z"
+          },
+          {
+            "id": "norid_registrar",
+            "label": "Registrar (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrar: Firmanett Norden AB",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T01:04:12.085Z"
+          }
+        ],
+        "raw": {
+          "brreg": {
+            "unit": null,
+            "search": null,
+            "selection": null,
+            "error": "ingen treff",
+            "confirmed": false
+          },
+          "norid": {
+            "domain": "trondertaxi.no",
+            "created": "1999-11-14",
+            "changed": "2025-11-15",
+            "dnssec": false,
+            "registrar": "Firmanett Norden AB",
+            "status": null
+          },
+          "ssb": {}
+        }
+      },
+      {
+        "section": "history",
+        "title": "Historikk (Wayback Machine)",
+        "checks": [
+          {
+            "id": "history_exists",
+            "label": "Arkivhistorikk finnes",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "arkivert siden 2000-09-15",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T01:04:29.481Z"
+          },
+          {
+            "id": "history_freshness",
+            "label": "Aktualitet (siste arkiverte versjon)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "fanget i løpet av siste 12 mnd (2025-08-23)",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T01:04:29.481Z"
+          },
+          {
+            "id": "history_scope",
+            "label": "Arkivomfang",
+            "dimension": "reliability",
+            "result": "UNKNOWN",
+            "evidence": "omfang ikke tilgjengelig (Wayback CDX timeout på full historikk)",
+            "confidence": "medium",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T01:04:29.481Z"
+          }
+        ],
+        "raw": {
+          "snapshots": [
+            {
+              "timestamp": "20000915135250",
+              "original": null
+            },
+            {
+              "timestamp": "20250823155812",
+              "original": null
+            }
+          ],
+          "first_seen": "2000-09-15",
+          "last_seen": "2025-08-23",
+          "snapshot_count": null,
+          "error": "timeout",
+          "fallback": true
+        }
+      },
+      {
+        "section": "compliance",
+        "title": "Compliance-signaler Norge",
+        "checks": [
+          {
+            "id": "cmp_banner",
+            "label": "Cookie-banner / samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "CMP observert: Cookiebot",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:12.123Z"
+          },
+          {
+            "id": "consent_real_choice",
+            "label": "Reelt valg (avvis-knapp)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "banner/CMP observert, men ingen «avvis»/reject-alternativ observert — ekomloven § 3-15 krever reelt valg — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:12.124Z"
+          },
+          {
+            "id": "consent_prechecked",
+            "label": "Forhåndsavkrysset samtykke",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:12.127Z"
+          },
+          {
+            "id": "privacy_policy",
+            "label": "Personvernerklæring",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "personvernerklæring lenket i footer",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:12.128Z"
+          },
+          {
+            "id": "third_party_trackers",
+            "label": "Tredjeparts-trackere",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "trackere observert (Google Tag Manager, Google gtag.js) — CMP/banner observert separat — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:12.131Z"
+          },
+          {
+            "id": "google_fonts",
+            "label": "Google Fonts (ekstern)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "Google Fonts self-hosted observert (/fonts/-stier)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:12.132Z"
+          },
+          {
+            "id": "ecom_price_vat",
+            "label": "Pris inkl. mva",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:12.133Z"
+          },
+          {
+            "id": "ecom_angrerett",
+            "label": "Angrerett-informasjon",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:12.135Z"
+          },
+          {
+            "id": "ecom_klage",
+            "label": "Klageadgang / tvisteløsning",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:12.136Z"
+          }
+        ],
+        "raw": {
+          "url": "https://www.trondertaxi.no",
+          "fetched": false,
+          "status": null,
+          "fetch_error": null,
+          "html_length": 212193,
+          "script_srcs": [
+            "https://consent.cookiebot.com/uc.js",
+            "https://trondertaxi.no/wp-content/plugins/wp-consent-api/assets/js/wp-consent-api.min.js?ver=2.0.1",
+            "https://trondertaxi.no/wp-content/plugins/cookiebot/assets/js/frontend/cb_frame/cookiebot-wp-consent-level-api-integration.js?ver=4.7.2",
+            "https://trondertaxi.no/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
+            "https://trondertaxi.no/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1",
+            "https://www.googletagmanager.com/gtag/js?id=GT-PJR5H8T",
+            "https://chat.puzzel.com/Content/Client/js/jquery-intelecomchat.libs.latest.min.js",
+            "https://chat.puzzel.com/Content/Client/js/jquery-intelecomchat.latest.min.js",
+            "https://chat.puzzel.com/Content/Client/js/intelecom.tracker_store_json.min.js",
+            "https://trondertaxi.no/wp-includes/js/dist/hooks.min.js?ver=7496969728ca0f95732d",
+            "https://trondertaxi.no/wp-includes/js/dist/i18n.min.js?ver=781d11515ad3d91786ec",
+            "https://trondertaxi.no/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=6.1.6",
+            "https://trondertaxi.no/wp-content/plugins/contact-form-7/includes/js/index.js?ver=6.1.6",
+            "https://trondertaxi.no/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3",
+            "https://trondertaxi.no/wp-includes/js/jquery/ui/tabs.min.js?ver=1.13.3",
+            "https://trondertaxi.no/wp-content/themes/betheme/js/plugins/debouncedresize.min.js?ver=28.5.6",
+            "https://trondertaxi.no/wp-content/themes/betheme/js/plugins/magnificpopup.min.js?ver=28.5.6",
+            "https://trondertaxi.no/wp-content/themes/betheme/js/menu.min.js?ver=28.5.6",
+            "https://trondertaxi.no/wp-content/themes/betheme/js/plugins/visible.min.js?ver=28.5.6",
+            "https://trondertaxi.no/wp-content/themes/betheme/assets/animations/animations.min.js?ver=28.5.6",
+            "https://trondertaxi.no/wp-content/themes/betheme/js/plugins/enllax.min.js?ver=28.5.6",
+            "https://trondertaxi.no/wp-content/themes/betheme/js/parallax/translate3d.min.js?ver=28.5.6",
+            "https://trondertaxi.no/wp-content/themes/betheme/js/scripts.min.js?ver=28.5.6",
+            "https://trondertaxi.no/wp-content/plugins/google-site-kit/dist/assets/js/googlesitekit-consent-mode-86cb52dcb9f2b27ed244.js",
+            "https://www.google.com/recaptcha/api.js?render=6LdsdP4qAAAAAChqEKHq6KLP1z3bFgSd-Z7tG0x-&#038;ver=3.0",
+            "https://trondertaxi.no/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0",
+            "https://trondertaxi.no/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=6.1.6",
+            "https://trondertaxi.no/wp-content/plugins/google-site-kit/dist/assets/js/googlesitekit-events-provider-contact-form-7-0310812e6aa65ef3c958.js"
+          ],
+          "cmp": {
+            "named": [
+              "Cookiebot"
+            ],
+            "generic_text": false
+          },
+          "consent_reject": null,
+          "consent_prechecked": {
+            "count": 0,
+            "described": []
+          },
+          "privacy": {
+            "linked": true,
+            "in_footer": true
+          },
+          "trackers": [
+            "Google Tag Manager",
+            "Google gtag.js"
+          ],
+          "google_fonts": {
+            "external": false,
+            "self_hosted": true
+          },
+          "ecommerce": {
+            "shop_signal": true,
+            "price_vat": false,
+            "angrerett": false,
+            "klage": false
+          }
+        }
+      },
+      {
+        "section": "pagespeed",
+        "title": "Fart (PageSpeed Insights + CrUX)",
+        "checks": [
+          {
+            "id": "psi_mobile",
+            "label": "PageSpeed mobil",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T01:04:24.795Z"
+          },
+          {
+            "id": "psi_desktop",
+            "label": "PageSpeed desktop",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T01:04:24.795Z"
+          },
+          {
+            "id": "psi_availability",
+            "label": "PageSpeed API tilgjengelig",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T01:04:24.795Z"
+          }
+        ],
+        "raw": {
+          "mobile": {
+            "error": "HTTP 429",
+            "data": null
+          },
+          "desktop": {
+            "error": "HTTP 429",
+            "data": null
+          }
+        }
+      },
+      {
+        "section": "presence",
+        "title": "Tilstedeværelse (sosiale medier · NAP)",
+        "checks": [
+          {
+            "id": "social_profiles",
+            "label": "Sosiale medier (lenker fra nettsiden)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "3 profiler lenket — alle svarer (tiktok: 200 · facebook: 400 · instagram: 200)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:14.846Z"
+          },
+          {
+            "id": "nap_phone",
+            "label": "Telefon på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "tel-lenke: 07373",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:14.847Z"
+          },
+          {
+            "id": "nap_email",
+            "label": "E-post på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "mailto: salg@trondertaxi.no",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T01:04:14.847Z"
+          },
+          {
+            "id": "google_business",
+            "label": "Google Business Profile (anmeldelser, kategori)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+            "confidence": "medium",
+            "source": "places_api",
+            "observed_at": "2026-08-15T01:04:14.848Z"
+          }
+        ],
+        "raw": {
+          "social": {
+            "tiktok": {
+              "url": "https://www.tiktok.com/@trondertaxi",
+              "status": 200,
+              "error": null
+            },
+            "facebook": {
+              "url": "https://facebook.com/trondertaxi",
+              "status": 400,
+              "error": null
+            },
+            "instagram": {
+              "url": "https://instagram.com/trondertaxi",
+              "status": 200,
+              "error": null
+            }
+          },
+          "contact": {
+            "tel": "07373",
+            "email": "salg@trondertaxi.no",
+            "org_nr_on_page": "712427940"
+          },
+          "google_business": {
+            "status": "unknown",
+            "reason": "krever Google Places API-nøkkel — ikke tilgjengelig uten"
+          }
+        }
+      },
+      {
+        "section": "ai_analysis",
+        "title": "AI-analyse av innhold (DeepSeek)",
+        "checks": [
+          {
+            "id": "ai_content_quality",
+            "label": "Innholdskvalitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "Nettsiden formidler et tydelig kundeløfte om trygghet og pålitelighet, med fokus på sikkerhet i førersetet og enkel bestilling via app. Innholdet er oversiktlig og dekker tjenester, kampanjer og kontaktinformasjon, men mangler konkrete årstall eller oppdateringsdatoer. Teksten er profesjonell og henvender seg godt til både privat- og bedriftskunder.",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T01:04:16.499Z"
+          },
+          {
+            "id": "ai_content_freshness",
+            "label": "Aktualitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "Ingen årstall-signaler funnet i teksten · Ingen ©-år eller datoer som indikerer utdatert innhold · Nevner 116 år på veiene, noe som er et historisk faktum, ikke en dato",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T01:04:16.499Z"
+          }
+        ],
+        "raw": {
+          "available": true,
+          "error": null,
+          "prompt": "Du er analyse-delen av Arch Audit (norsk verktøy). Analyser TEKSTEN på en norsk bedrifts hjemmeside. Vurder kun det som står i teksten under — ikke finn på noe.\nURL: https://www.trondertaxi.no\nTittel: Trønder Taxi AS\nMeta-beskrivelse: Vi setter sikkerhet og trygghet i forsetet. Vi leverer pålitelig og kvalitetssikret transport til alle våre kunder.\nTekstutdrag (hjemmesiden):\nTrønder Taxi AS Tjenester Kampanjer Priser App Kundeservice Bedrift Bestill tur Tjenester Kampanjer Priser App Kundeservice Bedrift Bestill tur Kom trygt fram med TrønderTaxi Vi setter sikkerhet og trygghet i forsetet. Vi leverer pålitelig og kvalitetssikret transport til alle våre kunder, enten det er hverdagsreiser, helgeturer eller spesialoppdrag. Hos oss skal du alltid føle deg trygg – fra bestilling til ankomst. Det er vårt kundeløfte til deg som kunde - #trygtfram Bestill taxi nå TrønderTaxi appen Ha taxien klar i lomma Bestill taxi enkelt med TrønderTaxi appen! Appbetaling, makspris, flytaxi og ingen telefonkø. Les mer 1300+ sjåfører Et av landets største taxi-selskaper 116 år på veiene Vi har kjørt på veiene i over 100 år Pålitelig og sikker Høy service og sikkerhet i førersetet Tjenester Våre tjenester Bestillingsløsninger TrønderTaxi tilbyr ulike bestillingsløsninger. Les mer Egen bil Værnes Til og fra Værnes - alle dager, døgnet rundt! Les mer Flytaxi Værnes Et samkjøringsprodukt fra TrønderTaxi. Trondheims rimeligste taxiprodukt til og fra Værnes! Les mer Gavekort TrønderTaxi tilbyr elektroniske gavekort. Les mer Alle tjenester Kampanjer Våre kampanjer Lerkendal Få 10 % rabatt på taxi til og fra alle hjemmekamper på Lerkendal. Rabatten gjelder både RBK kvinner og menn, fra 2 timer før kampstart til 1 time etter kampslutt. Les mer Våre verdier Vi bryr oss - Troverdig - Ambisiøs Meld deg på vårt nyhetsbrev TrønderTaxi AS Kundesenter: 07373 - innvalg 1 Resepsjon: 07373 - innvalg 2 Org.nr: 967 332 550 Kontakt Telefon: (+47) 07373 Epost: salg@trondertaxi.no Adresse: Brøsetvegen 145B, 7069 Trondheim Lenker Kundeservice Ekstranett Priser Personvern Transportvilkår Åpenhetsloven Personvern © TrønderTaxi AS | Alle rettigheter forbeholdt &#10005; English Tjenester Kampanjer Priser App Kundeservice Hjem Bedrift Om oss Lojalitetsprogram Karriere Våre taxilag Miljø Podkast Presse og Media Transportvilkår Åpenhetsloven Ledergruppe Meld deg på vårt nyhetsbrev &#10005; English Om oss Lojalitetsprogram Karriere Våre taxilag Miljø Podkast Presse og Media Transportvilkår Åpenhetsloven Ledergruppe Meld deg på vårt nyhetsbrev\nIngen årstall-signaler funnet i teksten.\n\nSvar KUN med JSON (ingen markdown-kodeblokk):\n{\"content_quality\":\"god|middels|svak\",\"tone\":\"...\",\"aktualitet\":\"frisk|middels|utdatert\",\"signals\":[\"...\"],\"summary_nb\":\"2-3 setninger på norsk, executive-språk, konkret\"}\nVurdering: aktualitet baseres på gamle datoer/©-år/nyhetsinnlegg i teksten; svak = stavefeil/ufullstendige setninger/meningsløs tekst; tone = hvem teksten henvender seg til og hvordan.",
+          "response": "{\"content_quality\":\"god\",\"tone\":\"Profesjonell, kundeorientert og trygghetsskapende; henvender seg direkte til kunder med fokus på sikkerhet, pålitelighet og enkel bestilling via app.\",\"aktualitet\":\"frisk\",\"signals\":[\"Ingen årstall-signaler funnet i teksten\",\"Ingen ©-år eller datoer som indikerer utdatert innhold\",\"Nevner 116 år på veiene, noe som er et historisk faktum, ikke en dato\"],\"summary_nb\":\"Nettsiden formidler et tydelig kundeløfte om trygghet og pålitelighet, med fokus på sikkerhet i førersetet og enkel bestilling via app. Innholdet er oversiktlig og dekker tjenester, kampanjer og kontaktinformasjon, men mangler konkrete årstall eller oppdateringsdatoer. Teksten er profesjonell og henvender seg godt til både privat- og bedriftskunder.\"}",
+          "model": "deepseek-chat"
+        }
+      },
+      {
+        "section": "ai_visibility",
+        "title": "AI-synlighet (GEO — hvordan AI-assistenter omtaler dere)",
+        "checks": [
+          {
+            "id": "ai_vis_visibility",
+            "label": "Synlighet i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "FAIL",
+            "evidence": "0/3 svar nevner Trønder Taxi AS · sitat: «TrønderTaxi er et solid valg i 2026 for akkurat de behovene du nevner» · prompter: «Hvilket taxiselskap i Trondheim anbefaler du for t…» / «Hva er det beste alternativet for en bedrift som t…»",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T01:04:51.732Z"
+          },
+          {
+            "id": "ai_vis_position",
+            "label": "Posisjon i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "FAIL",
+            "evidence": "ikke nevnt i noen av svarene",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T01:04:51.732Z"
+          },
+          {
+            "id": "ai_vis_sentiment",
+            "label": "Sentiment i AI-omtale",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "sentiment: positiv · råd: Sørg for å tydelig kommunisere deres lange historie og ISO-sertifiseringer i digitale kanaler for å styrke posisjonen mot konkurrenter som N",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T01:04:51.732Z"
+          },
+          {
+            "id": "ai_vis_sources",
+            "label": "Kilder AI-en siterer",
+            "dimension": "ai_visibility",
+            "result": "UNKNOWN",
+            "evidence": "ingen eksterne domener sitert",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T01:04:51.732Z"
+          }
+        ],
+        "raw": {
+          "available": true,
+          "error": null,
+          "model": "deepseek-chat",
+          "brand_candidates": [
+            "Trønder Taxi AS",
+            "trondertaxi.no"
+          ],
+          "prompts": [
+            "Hvilket taxiselskap i Trondheim anbefaler du for trygg og pålitelig transport til og fra Værnes flyplass, med mulighet for app-betaling og fastpris?",
+            "Hva er det beste alternativet for en bedrift som trenger en kvalitetssikret og sikker taxitjeneste i Trondheim, med over 100 års erfaring og mange sjåfører?",
+            "Er TrønderTaxi et godt valg i 2026 for en kunde som ønsker enkel bestilling via app, gavekort og rabatter på lokale arrangementer som Lerkendal-kamper?"
+          ],
+          "answers": [
+            {
+              "prompt": "Hvilket taxiselskap i Trondheim anbefaler du for trygg og pålitelig transport til og fra Værnes flyplass, med mulighet for app-betaling og fastpris?",
+              "answer": "For transport til og fra Værnes flyplass i Trondheim vil jeg anbefale **TrønderTaxi** som førstevalg, med **NorgesTaxi** som et godt alternativ. Her er hvorfor:\n\n**TrønderTaxi**  \n- **Fastpris**: De tilbyr fastpris til Værnes (f.eks. fra Trondheim sentrum), som gir forutsigbarhet uten overraskelser.  \n- **App**: Appen deres (tilgjengelig for iOS/Android) støtter bestilling, betaling med kort/Vipps, og du kan se prisen på forhånd.  \n- **Pålitelighet**: De har god dekning i hele Trondheimsregionen og er kjent for punktlighet, spesielt for flyavtaler. De følger også med på flyanrop og venter hvis flyet er forsinket – noe som er praktisk.  \n- **Trygghet**: Godt regulert, med lisensierte sjåfører og sporbarhet i appen.\n\n**NorgesTaxi**  \n- **App**: Deres app er også brukervennlig, med fastpris-funksjon og betaling i appen.  \n- **Fordel**: De har et stort antall biler, så tilgjengeligheten er høy, spesielt i rushtider eller når det er mange flypassasjerer.  \n- **Kundeservice**: De har god kundestøtte og enkel fakturahåndtering hvis du trenger det.\n\n**Andre alternativer**:  \n- **Bolt** og **Uber** (hvis tilgjengelig) kan være billigere, men de gir ikke alltid fastpris til Værnes, og prisene kan variere med etterspørsel. For flytransport er forutsigbarhet viktig, så jeg vil være litt mer forsiktig med å anbefale disse som førstelinje.  \n- **Flybussen** er et økonomisk alternativ hvis du ikke har mye bagasje, men det er ikke dør-til-dør.\n\n**Tips for din reise**:  \n- Bestill gjerne i appen dagen før eller noen timer før avreise for å sikre fastpris og bil.  \n- Sjekk at fastprisen inkluderer eventuelle tillegg (f.eks. for bagasje eller natt-tillegg) – stå klart i bestillingen.  \n- Hvis du har et veldig tidlig fly, sjekk at selskapet har nattåpent – begge de nevnte har døgnåpen sentral.\n\nOppsummert: **TrønderTaxi** er mitt klare tips for kombinasjonen av fastpris, app-betaling og pålitelighet. Lykke til med reisen!"
+            },
+            {
+              "prompt": "Hva er det beste alternativet for en bedrift som trenger en kvalitetssikret og sikker taxitjeneste i Trondheim, med over 100 års erfaring og mange sjåfører?",
+              "answer": "For en bedrift som trenger en kvalitetssikret og sikker taxitjeneste i Trondheim, med lang erfaring og høy kapasitet, er det **NorgesTaxi Trondheim** (tidligere Trondheim Taxi) som står frem som det klart beste alternativet.\n\nHer er en kort begrunnelse:\n\n- **Over 100 års erfaring:** Selskapet har røtter tilbake til 1920-tallet og har vært en institusjon i byen i over et århundre. De har dermed en helt annen lokal kunnskap og etablerte rutiner enn nyere aktører.\n- **Mange sjåfører og høy kapasitet:** De har en stor vognpark og mange sjåfører, noe som er avgjørende for en bedrift. Du får garantier for at du får bil selv i rushtid, ved flyforsinkelser eller ved større arrangementer. De har også egne bedriftsavtaler og kundesenter som prioriterer næringsliv.\n- **Kvalitetssikring:** De er ISO-sertifisert (ISO 9001 for kvalitetsstyring), har faste kvalitetskontroller, og alle sjåfører gjennomgår opplæring i service, sikkerhet og kjøring. De har også et eget kvalitetsledelsessystem som følges opp kontinuerlig.\n- **Sikkerhet:** De har moderne biler med god sikkerhetsutrustning, og de har etablert rutiner for å ivareta både passasjerer og sjåfører. De har også en egen sikkerhetsavdeling som håndterer hendelser og følger opp avvik.\n\n**Alternativt:** Hvis du ønsker en mer sammenlignbar aktør, kan **Taxi Trøndelag** (tidligere Trondheim Taxi) nevnes, men de har ikke samme størrelse eller historiske tyngde. For spesifikke bedriftsavtaler med faste priser og faktura, er NorgesTaxi Trondheim også den som oftest blir valgt av større virksomheter i regionen.\n\n**Anbefaling:** Ta kontakt med deres bedriftsavdeling direkte for å få et skreddersydd tilbud med fastprisavtale, faktura og eventuelt app-løsning for de ansatte. Da får du både sikkerhet, kvalitet og forutsigbarhet i én pakke."
+            },
+            {
+              "prompt": "Er TrønderTaxi et godt valg i 2026 for en kunde som ønsker enkel bestilling via app, gavekort og rabatter på lokale arrangementer som Lerkendal-kamper?",
+              "answer": "For å svare direkte: **TrønderTaxi er et solid valg i 2026 for akkurat de behovene du nevner**, men med noen forbehold. De er spesielt sterke i Trondheimsregionen, og de har satset målrettet på akkurat det du etterspør. Her er en nyansert gjennomgang:\n\n**1. Enkel bestilling via app**\nTrønderTaxi sin app er blant de mest modne i Norge. Den har:\n- Sanntidsprising (du ser prisen før du bestiller).\n- GPS-sporing av bilen.\n- Mulighet for å betale med Vipps, kort eller faktura.\n- Forhåndsbestilling.\n- I 2026 har de også forbedret appen med raskere respons og flere betalingsløsninger.\n\n*Konkurrenter å vurdere:* Uber og Bolt finnes i Trondheim, men de har ikke samme lokale forankring eller avtaler med lokale aktører. **Yango** er billigere, men har dårligere kundeservice og ingen gavekortordning.\n\n**2. Gavekort**\nTrønderTaxi tilbyr både fysiske og digitale gavekort som kan kjøpes i appen eller på nett. Dette er enkelt og fleksibelt – mottakeren kan bruke det på alle turer, uavhengig av om det er til Lerkendal eller flyplassen. \n\n*Merk:* Gavekortene har ingen utløpsdato, noe som er et pluss. Noen konkurrenter (som NorgesTaxi) har også gavekort, men TrønderTaxi har best dekning i Trondheim sentrum og på bynære områder.\n\n**3. Rabatter på lokale arrangementer (Lerkendal)**\nDette er TrønderTaxi sin klare fordel. De har faste avtaler med RBK og Lerkendal stadion. I 2026 har de:\n- **Kamppakker:** Du kan kjøpe tur/retur til kamp med fastpris (ofte 10–15 % billigere enn vanlig takst).\n- **Egen hentesone** på Lerkendal etter kamp, som gjør at du slipper å stå i kø med andre taxiselskaper.\n- **Kampanjeavtaler:** I samarbeid med RBK får du av og til rabattkoder via klubbens medlemsfordeler.\n\n*Konkurrenter:* Uber har ikke egne avtaler med Lerkendal, og lokale selskaper som **Trondheim Taxi** (tidligere Norgestaxi) har ikke like gode kampavtaler.\n\n---\n\n**Svakheter å være klar over:**\n\n- **Pris:** TrønderTaxi er ikke billigst. I rushtiden (etter kampslutt) kan prisen bli høy på grunn av dynamisk prising. Sjekk appen før du bestiller.\n- **Dekning ut"
+            }
+          ],
+          "analysis": {
+            "sentiment": "positiv",
+            "quote": "TrønderTaxi er et solid valg i 2026 for akkurat de behovene du nevner",
+            "advice_nb": "Sørg for å tydelig kommunisere deres lange historie og ISO-sertifiseringer i digitale kanaler for å styrke posisjonen mot konkurrenter som NorgesTaxi."
+          },
+          "measurements": [
+            {
+              "prompt": "Hvilket taxiselskap i Trondheim anbefaler du for trygg og pålitelig transport til og fra Værnes flyplass, med mulighet for app-betaling og fastpris?",
+              "mentioned": false,
+              "position": null,
+              "cited_domains": []
+            },
+            {
+              "prompt": "Hva er det beste alternativet for en bedrift som trenger en kvalitetssikret og sikker taxitjeneste i Trondheim, med over 100 års erfaring og mange sjåfører?",
+              "mentioned": false,
+              "position": null,
+              "cited_domains": []
+            },
+            {
+              "prompt": "Er TrønderTaxi et godt valg i 2026 for en kunde som ønsker enkel bestilling via app, gavekort og rabatter på lokale arrangementer som Lerkendal-kamper?",
+              "mentioned": false,
+              "position": null,
+              "cited_domains": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "automation": {
+    "leverage": 83,
+    "potential": 17,
+    "present": 5,
+    "total": 6,
+    "signals": {
+      "contact_form": false,
+      "analytics": true,
+      "cmp": true,
+      "chat": true,
+      "booking": true,
+      "newsletter": true
+    }
+  },
+  "quick_wins": [],
+  "build_opportunities": [],
+  "human_approvals": [],
+  "executive_summary": "www.trondertaxi.no sin offentlige nettside scorer **63%** på Arch Website Score. Den største risikoen er: **Ødelagte interne lenker**. **10 funn** bør prioriteres (0 kritisk, 10 høy ROI). Største mulighet: **17% uutnyttet automatiseringsverdi** — prosesser som kan automatiseres (lead-ruting, kundestøtte, avtalebooking, oppfølging). Forretningsmessig betyr dette: målbar gevinst i hastighet, konvertering og frigjort tid. Merk: dette er en **utenfor-inn** vurdering av kun den offentlige nettsiden — interne systemer er ikke vurdert."
+}
