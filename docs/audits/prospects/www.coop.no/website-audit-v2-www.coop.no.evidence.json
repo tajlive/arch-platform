@@ -1,0 +1,3174 @@
+{
+  "meta": {
+    "generated": "2026-08-15T00:38:55.334Z",
+    "version": "2.0",
+    "name": "www.coop.no",
+    "website": "https://www.coop.no",
+    "domain": "www.coop.no",
+    "registrable_domain": "coop.no",
+    "mode": "website",
+    "design_partner": false,
+    "audit_duration_ms": 60029,
+    "v2_modules_ms": 35475
+  },
+  "customer": null,
+  "score": {
+    "total": 62,
+    "categories": {
+      "performance": {
+        "pct": 63,
+        "weight": 20,
+        "pass": 5,
+        "fail": 0,
+        "unknown": 3,
+        "denom": 8,
+        "checks": [
+          {
+            "id": "compression",
+            "label": "Komprimering (gzip/brotli)",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "br",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.317Z"
+          },
+          {
+            "id": "caching",
+            "label": "Cache-headere",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "no-store",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.317Z"
+          },
+          {
+            "id": "render_blocking",
+            "label": "Render-blokkerende ressurser",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "0 blokkerende skript, 1 stylesheets",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.322Z"
+          },
+          {
+            "id": "image_optim",
+            "label": "Bilde-optimalisering",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "22 bilder, 22 m/ dimensjoner, 22 lazy",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.322Z"
+          },
+          {
+            "id": "third_party",
+            "label": "Tredjeparts-skript/-ressurser",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "0 eksterne domener",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.323Z"
+          },
+          {
+            "id": "psi_mobile",
+            "label": "PageSpeed mobil",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:38:33.274Z"
+          },
+          {
+            "id": "psi_desktop",
+            "label": "PageSpeed desktop",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:38:33.274Z"
+          },
+          {
+            "id": "psi_availability",
+            "label": "PageSpeed API tilgjengelig",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:38:33.274Z"
+          }
+        ]
+      },
+      "security": {
+        "pct": 59,
+        "weight": 20,
+        "pass": 16,
+        "fail": 9,
+        "unknown": 2,
+        "denom": 27,
+        "checks": [
+          {
+            "id": "https",
+            "label": "HTTPS/TLS",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "HTTPS leverte respons",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:37:55.618Z"
+          },
+          {
+            "id": "header_csp",
+            "label": "Header: csp",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.793Z"
+          },
+          {
+            "id": "header_hsts",
+            "label": "Header: hsts",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.793Z"
+          },
+          {
+            "id": "header_xcto",
+            "label": "Header: xcto",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.793Z"
+          },
+          {
+            "id": "header_referrer",
+            "label": "Header: referrer",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.793Z"
+          },
+          {
+            "id": "header_permissions",
+            "label": "Header: permissions",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.793Z"
+          },
+          {
+            "id": "header_frame",
+            "label": "Header: frame",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.793Z"
+          },
+          {
+            "id": "mixed_content",
+            "label": "Blandet innhold (http på https)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen http-referanser i HTML",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.793Z"
+          },
+          {
+            "id": "source_maps",
+            "label": "Eksponerte source maps",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "skript ikke observerbare",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.793Z"
+          },
+          {
+            "id": "tech_disclosure",
+            "label": "Versjons-avsløring",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "cloudflare",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.793Z"
+          },
+          {
+            "id": "security_headers",
+            "label": "Sikkerhetsheadere — gradering B",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "Gradering B. Content-Security-Policy: MANGLER; Strict-Transport-Security: max-age=31536000; includeSubDomains; X-Frame-Options: MANGLER; X-Content-Type-Options: nosniff; Referrer-Policy: strict-origin-when-cross-origin; Permissions-Policy: camera=(),microphone=(),usb=() Trekk: CSP mangler · X-Frame-Options mangler (og ingen frame-ancestors i CSP)",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:38:20.592Z"
+          },
+          {
+            "id": "cookies_attributes",
+            "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:38:20.592Z"
+          },
+          {
+            "id": "version_leaks",
+            "label": "Ingen versjonslekkasjer",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen server/x-powered-by/x-aspnet-version-header, <meta generator>, gammel jQuery eller WordPress-signatur observert.",
+            "confidence": "medium",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:38:20.592Z"
+          },
+          {
+            "id": "tls_cert",
+            "label": "TLS-sertifikat gyldighet",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "notBefore=2026-06-25T15:02:07.000Z, notAfter=2026-09-23T15:02:06.000Z, issuer=C=US, O=Let's Encrypt, CN=YE1, SAN=www.coop.no",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:38:35.962Z"
+          },
+          {
+            "id": "tls_verify",
+            "label": "TLS-sertifikat-verifisering",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "verify return code: 0 (ok)",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:38:35.962Z"
+          },
+          {
+            "id": "tls_legacy",
+            "label": "Legacy-TLS (1.0/1.1) støtte",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+            "confidence": "medium",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:38:35.962Z"
+          },
+          {
+            "id": "spf",
+            "label": "SPF (avsender-verifisering)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "v=spf1 include:_spf1.coop.no include:_spf2.coop.no include:_spf3.coop.no include:_spf4.coop.no include:spf.protection.outlook.com include:sendgrid.net include:spf.mandrillapp.com include:de._netblocks.mimecast.com ~all — ~all er svakt, spoofing mulig",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:38:20.921Z"
+          },
+          {
+            "id": "spf_private_ip",
+            "label": "SPF: private IP-er i mekanismene",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen private IP-er i SPF",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:38:20.921Z"
+          },
+          {
+            "id": "dkim",
+            "label": "DKIM (e-post-signering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "selectorer: selector1, selector2",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:38:22.125Z"
+          },
+          {
+            "id": "dmarc",
+            "label": "DMARC (spoofing-beskyttelse)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "p=reject (blokk) — v=DMARC1;p=reject;sp=reject;pct=100;rua=mailto:636be9c98d@rua.easydmarc.eu,mailto:dmarc.postmaster@coop.no;ruf=mailto:636be9c98d@ruf.easydmarc.eu;ri=86400;fo=1",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:38:22.223Z"
+          },
+          {
+            "id": "dmarc_subdomain",
+            "label": "DMARC for subdomene",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen _dmarc.www.coop.no — subdomener kan spoofes",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:38:22.360Z"
+          },
+          {
+            "id": "mta_sts",
+            "label": "MTA-STS (håndhevet e-post-TLS)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:38:22.536Z"
+          },
+          {
+            "id": "tls_rpt",
+            "label": "TLS-RPT (TLS-rapportering)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen TLS-rapportering",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:38:22.590Z"
+          },
+          {
+            "id": "caa",
+            "label": "CAA (sertifikat-utsteder-kontroll)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen CAA",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:38:22.737Z"
+          },
+          {
+            "id": "dnssec",
+            "label": "DNSSEC (signert sone)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "AD-flag — signert sone validert",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:38:22.815Z"
+          },
+          {
+            "id": "subdomains",
+            "label": "Subdomene-eksponering (crt.sh)",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "crt.sh-feil: The operation was aborted due to timeout",
+            "confidence": "low",
+            "source": "https",
+            "observed_at": "2026-08-15T00:38:46.416Z"
+          },
+          {
+            "id": "norid_dnssec",
+            "label": "DNSSEC (Norid)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "DNSSEC aktivert (delegationSigned=true)",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:38:20.497Z"
+          }
+        ]
+      },
+      "ux_mobile": {
+        "pct": 50,
+        "weight": 15,
+        "pass": 2,
+        "fail": 1,
+        "unknown": 1,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "viewport",
+            "label": "Viewport meta",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "viewport tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.323Z"
+          },
+          {
+            "id": "media_queries",
+            "label": "Responsive CSS (@media)",
+            "dimension": "ux_mobile",
+            "result": "FAIL",
+            "evidence": "ingen @media i stylesheets",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.478Z"
+          },
+          {
+            "id": "ai_content_quality",
+            "label": "Innholdskvalitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "UNKNOWN",
+            "evidence": "Coop sin hjemmeside presenterer et bredt spekter av innhold, fra dagligvare- og byggevaretilbud til medlemsfordeler og inspirasjon. Teksten er godt strukturert og henvender seg tydelig til både nye og eksisterende medlemmer, med fokus på økonomiske fordeler og praktiske tips. Selv om teksten er informativ og relevant, er den preget av mange gjentakende visuelle elementer (representert med blokker) som ikke bidrar med tekstlig verdi.",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T00:38:24.652Z"
+          },
+          {
+            "id": "ai_content_freshness",
+            "label": "Aktualitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "Ingen årstall-signaler funnet i teksten · Nevner 'ukens kundeavis' og 'denne uken' som indikerer ferskt innhold · Refererer til grillsesongen og matpakkesesongen som årstidsaktuelle temaer",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T00:38:24.652Z"
+          }
+        ]
+      },
+      "accessibility": {
+        "pct": 80,
+        "weight": 15,
+        "pass": 4,
+        "fail": 1,
+        "unknown": 0,
+        "denom": 5,
+        "checks": [
+          {
+            "id": "lang",
+            "label": "Språk-attributt (lang)",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "nb-NO",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.478Z"
+          },
+          {
+            "id": "alt_text",
+            "label": "Alt-tekst på bilder",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "0/22 bilder mangler alt",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.478Z"
+          },
+          {
+            "id": "form_labels",
+            "label": "Skjemaetiketter",
+            "dimension": "accessibility",
+            "result": "FAIL",
+            "evidence": "4 input, 2 label",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.480Z"
+          },
+          {
+            "id": "heading_hierarchy",
+            "label": "Overskriftshierarki",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "h1=1 h2=12 h3=17",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.481Z"
+          },
+          {
+            "id": "semantic",
+            "label": "Semantiske landemerker",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "4/4 (header, nav, main, footer)",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.481Z"
+          }
+        ]
+      },
+      "seo": {
+        "pct": 63,
+        "weight": 10,
+        "pass": 5,
+        "fail": 3,
+        "unknown": 0,
+        "denom": 8,
+        "checks": [
+          {
+            "id": "title",
+            "label": "Tittel",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "Coop litt ditt - Dagligvarebutikker og byggevarehus - Coop",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.482Z"
+          },
+          {
+            "id": "meta_description",
+            "label": "Meta-beskrivelse",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "Gode tilbud på dagligvarer og byggevarer. Coop-medlemmer får kjøpeutbytte på alt de handler og medlemskupp!",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.482Z"
+          },
+          {
+            "id": "canonical",
+            "label": "Canonical",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "https://www.coop.no/",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.482Z"
+          },
+          {
+            "id": "robots_meta",
+            "label": "Robots-meta",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "index,follow",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.482Z"
+          },
+          {
+            "id": "robots_txt",
+            "label": "robots.txt",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "robots.txt tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.482Z"
+          },
+          {
+            "id": "sitemap",
+            "label": "Sitemap.xml",
+            "dimension": "seo",
+            "result": "FAIL",
+            "evidence": "mangler sitemap.xml",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.792Z"
+          },
+          {
+            "id": "open_graph",
+            "label": "OpenGraph",
+            "dimension": "seo",
+            "result": "FAIL",
+            "evidence": "title=true description=true image=false",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.792Z"
+          },
+          {
+            "id": "structured_data",
+            "label": "Strukturert data (JSON-LD)",
+            "dimension": "seo",
+            "result": "FAIL",
+            "evidence": "ingen JSON-LD",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.793Z"
+          }
+        ]
+      },
+      "reliability": {
+        "pct": 71,
+        "weight": 10,
+        "pass": 5,
+        "fail": 1,
+        "unknown": 1,
+        "denom": 7,
+        "checks": [
+          {
+            "id": "http_status",
+            "label": "HTTP-status (hovedsiden)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "HTTP 200",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:37:55.618Z"
+          },
+          {
+            "id": "redirect_chain",
+            "label": "Omdirigeringskjede",
+            "dimension": "reliability",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen redirects",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:37:55.618Z"
+          },
+          {
+            "id": "broken_links",
+            "label": "Ødelagte interne lenker",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "22 sider sjekket, 0 ødelagt",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:14.239Z"
+          },
+          {
+            "id": "asset_failures",
+            "label": "Ressurs-feil (img/css/js)",
+            "dimension": "reliability",
+            "result": "FAIL",
+            "evidence": "10 av 10 ressurser feiler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.314Z"
+          },
+          {
+            "id": "norid_changed",
+            "label": "Sist endret (Norid)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "sist endret 2026-03-03",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:38:20.497Z"
+          },
+          {
+            "id": "history_exists",
+            "label": "Arkivhistorikk finnes",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "arkivert siden 1999-01-25",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:38:29.075Z"
+          },
+          {
+            "id": "history_freshness",
+            "label": "Aktualitet (siste arkiverte versjon)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "fanget i løpet av siste 12 mnd (2025-08-22)",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:38:29.075Z"
+          },
+          {
+            "id": "history_scope",
+            "label": "Arkivomfang",
+            "dimension": "reliability",
+            "result": "UNKNOWN",
+            "evidence": "omfang ikke tilgjengelig (Wayback CDX timeout på full historikk)",
+            "confidence": "medium",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:38:29.075Z"
+          }
+        ]
+      },
+      "trust_privacy": {
+        "pct": 50,
+        "weight": 5,
+        "pass": 11,
+        "fail": 8,
+        "unknown": 3,
+        "denom": 22,
+        "checks": [
+          {
+            "id": "cookie_banner",
+            "label": "Cookie-banner",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "cookie/samtykke-element observert",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.793Z"
+          },
+          {
+            "id": "privacy_link",
+            "label": "Personvernerklæring-link",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "link til personvern observert",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.793Z"
+          },
+          {
+            "id": "consent_cmp",
+            "label": "Samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "trackere observert uten CMP",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.794Z"
+          },
+          {
+            "id": "contact_form",
+            "label": "Kontakt-/lead-skjema",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "1 <form> observert",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.794Z"
+          },
+          {
+            "id": "cta",
+            "label": "Call-to-action",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "CTA-tekst observert",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-15T00:38:19.795Z"
+          },
+          {
+            "id": "bimi",
+            "label": "BIMI (merkevare-logo i innboks)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen BIMI (ikke påkrevd)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:38:22.649Z"
+          },
+          {
+            "id": "dnsbl",
+            "label": "E-post-omdømme (DNSBL)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "coop-no.mail.protection.outlook.com (52.101.68.36) ikke listet",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:38:22.977Z"
+          },
+          {
+            "id": "brreg_org",
+            "label": "Firma i Brreg (Enhetsregisteret)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "ingen Brreg-treff for «Coop litt ditt»",
+            "confidence": "medium",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:38:20.201Z"
+          },
+          {
+            "id": "ssb_context",
+            "label": "Bransjekontekst (SSB)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "ingen næringskode tilgjengelig",
+            "confidence": "medium",
+            "source": "ssb",
+            "observed_at": "2026-08-15T00:38:20.201Z"
+          },
+          {
+            "id": "norid_registered",
+            "label": "Domenet registrert (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrert 2017-11-20",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:38:20.497Z"
+          },
+          {
+            "id": "norid_registrar",
+            "label": "Registrar (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrar: Corporation Service Company",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:38:20.497Z"
+          },
+          {
+            "id": "cmp_banner",
+            "label": "Cookie-banner / samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.507Z"
+          },
+          {
+            "id": "consent_real_choice",
+            "label": "Reelt valg (avvis-knapp)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen banner/CMP observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.508Z"
+          },
+          {
+            "id": "consent_prechecked",
+            "label": "Forhåndsavkrysset samtykke",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.509Z"
+          },
+          {
+            "id": "privacy_policy",
+            "label": "Personvernerklæring",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "personvernerklæring lenket i footer",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.510Z"
+          },
+          {
+            "id": "third_party_trackers",
+            "label": "Tredjeparts-trackere",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen kjente tredjeparts-trackere observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.510Z"
+          },
+          {
+            "id": "google_fonts",
+            "label": "Google Fonts (ekstern)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen ekstern Google Fonts observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.510Z"
+          },
+          {
+            "id": "ecom_price_vat",
+            "label": "Pris inkl. mva",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.511Z"
+          },
+          {
+            "id": "ecom_angrerett",
+            "label": "Angrerett-informasjon",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.511Z"
+          },
+          {
+            "id": "ecom_klage",
+            "label": "Klageadgang / tvisteløsning",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.511Z"
+          },
+          {
+            "id": "social_profiles",
+            "label": "Sosiale medier (lenker fra nettsiden)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.518Z"
+          },
+          {
+            "id": "nap_phone",
+            "label": "Telefon på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.519Z"
+          },
+          {
+            "id": "nap_email",
+            "label": "E-post på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.519Z"
+          },
+          {
+            "id": "google_business",
+            "label": "Google Business Profile (anmeldelser, kategori)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+            "confidence": "medium",
+            "source": "places_api",
+            "observed_at": "2026-08-15T00:38:20.520Z"
+          }
+        ]
+      },
+      "ai_visibility": {
+        "pct": 25,
+        "weight": 5,
+        "pass": 1,
+        "fail": 2,
+        "unknown": 1,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "ai_vis_visibility",
+            "label": "Synlighet i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "FAIL",
+            "evidence": "0/3 svar nevner Coop litt ditt · sitat: «Coop har Norges største medlemsprogram (Coop Medlem). Du får bonus på alle dagligvarer (opptil 3 % på egenproduserte varer, og jevnlige medl» · prompter: «Hvilken dagligvarekjede i Norge gir best medlemsfo…» / «Hva er det beste stedet å handle både dagligvarer …»",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:38:55.324Z"
+          },
+          {
+            "id": "ai_vis_position",
+            "label": "Posisjon i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "FAIL",
+            "evidence": "ikke nevnt i noen av svarene",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:38:55.326Z"
+          },
+          {
+            "id": "ai_vis_sentiment",
+            "label": "Sentiment i AI-omtale",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "sentiment: positiv · råd: Fremhev Coop ByggMix og det samlede medlemsprogrammet tydeligere i AI-synlige kanaler for å styrke assosiasjonen mellom dagligvarer og bygge",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:38:55.326Z"
+          },
+          {
+            "id": "ai_vis_sources",
+            "label": "Kilder AI-en siterer",
+            "dimension": "ai_visibility",
+            "result": "UNKNOWN",
+            "evidence": "ingen eksterne domener sitert",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:38:55.326Z"
+          }
+        ]
+      },
+      "automation": {
+        "pct": 17,
+        "leverage": 83,
+        "potential": 17,
+        "weight": 5,
+        "pass": 5,
+        "fail": 1,
+        "unknown": 0,
+        "denom": 6,
+        "checks": []
+      }
+    },
+    "weights": {
+      "performance": 20,
+      "security": 20,
+      "ux_mobile": 15,
+      "accessibility": 15,
+      "seo": 10,
+      "reliability": 10,
+      "trust_privacy": 5,
+      "ai_visibility": 5
+    },
+    "labels": {
+      "performance": "Performance",
+      "security": "Security Surface",
+      "ux_mobile": "UX / Mobile",
+      "accessibility": "Accessibility",
+      "seo": "SEO / Discovery",
+      "reliability": "Reliability",
+      "trust_privacy": "Trust / Privacy",
+      "automation": "Automation Potential",
+      "ai_visibility": "AI-synlighet (GEO)"
+    },
+    "automation": {
+      "leverage": 83,
+      "potential": 17,
+      "present": 5,
+      "total": 6,
+      "signals": {
+        "contact_form": true,
+        "analytics": true,
+        "cmp": false,
+        "chat": true,
+        "booking": true,
+        "newsletter": true
+      }
+    },
+    "observed_at": "2026-08-15T00:38:55.331Z"
+  },
+  "findings": [
+    {
+      "id": "W001",
+      "kind": "web_asset_failures",
+      "title": "Ressurs-feil (img/css/js)",
+      "evidence": "10 av 10 ressurser feiler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W002",
+      "kind": "web_form_labels",
+      "title": "Skjemaetiketter",
+      "evidence": "4 input, 2 label",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W003",
+      "kind": "web_seo_sitemap",
+      "title": "Sitemap.xml",
+      "evidence": "mangler sitemap.xml",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W004",
+      "kind": "web_seo_og",
+      "title": "OpenGraph",
+      "evidence": "title=true description=true image=false",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W005",
+      "kind": "web_seo_structured",
+      "title": "Strukturert data (JSON-LD)",
+      "evidence": "ingen JSON-LD",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W006",
+      "kind": "web_security_headers",
+      "title": "Header: csp",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W007",
+      "kind": "web_security_headers",
+      "title": "Header: frame",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W008",
+      "kind": "web_tech_disclosure",
+      "title": "Versjons-avsløring",
+      "evidence": "cloudflare",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W009",
+      "kind": "web_security_headers",
+      "title": "Sikkerhetsheadere — gradering B",
+      "evidence": "Gradering B. Content-Security-Policy: MANGLER; Strict-Transport-Security: max-age=31536000; includeSubDomains; X-Frame-Options: MANGLER; X-Content-Type-Options: nosniff; Referrer-Policy: strict-origin-when-cross-origin; Permissions-Policy: camera=(),microphone=(),usb=() Trekk: CSP mangler · X-Frame-Options mangler (og ingen frame-ancestors i CSP)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W010",
+      "kind": "web_email_spf",
+      "title": "SPF (avsender-verifisering)",
+      "evidence": "v=spf1 include:_spf1.coop.no include:_spf2.coop.no include:_spf3.coop.no include:_spf4.coop.no include:spf.protection.outlook.com include:sendgrid.net include:spf.mandrillapp.com include:de._netblocks.mimecast.com ~all — ~all er svakt, spoofing mulig",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W011",
+      "kind": "web_email_dmarc",
+      "title": "DMARC for subdomene",
+      "evidence": "ingen _dmarc.www.coop.no — subdomener kan spoofes",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W012",
+      "kind": "web_email_mta_sts",
+      "title": "MTA-STS (håndhevet e-post-TLS)",
+      "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W013",
+      "kind": "web_email_mta_sts",
+      "title": "TLS-RPT (TLS-rapportering)",
+      "evidence": "ingen TLS-rapportering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W014",
+      "kind": "web_dns_hardening",
+      "title": "CAA (sertifikat-utsteder-kontroll)",
+      "evidence": "ingen CAA",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W015",
+      "kind": "web_privacy",
+      "title": "Cookie-banner / samtykke-plattform (CMP)",
+      "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W016",
+      "kind": "web_privacy",
+      "title": "Pris inkl. mva",
+      "evidence": "pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W017",
+      "kind": "web_privacy",
+      "title": "Angrerett-informasjon",
+      "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W018",
+      "kind": "web_privacy",
+      "title": "Klageadgang / tvisteløsning",
+      "evidence": "klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W019",
+      "kind": "web_social",
+      "title": "Sosiale medier (lenker fra nettsiden)",
+      "evidence": "ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W020",
+      "kind": "web_nap",
+      "title": "Telefon på nettsiden",
+      "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W021",
+      "kind": "web_nap",
+      "title": "E-post på nettsiden",
+      "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W022",
+      "kind": "web_ai_visibility",
+      "title": "Synlighet i AI-svar",
+      "evidence": "0/3 svar nevner Coop litt ditt · sitat: «Coop har Norges største medlemsprogram (Coop Medlem). Du får bonus på alle dagligvarer (opptil 3 % på egenproduserte varer, og jevnlige medl» · prompter: «Hvilken dagligvarekjede i Norge gir best medlemsfo…» / «Hva er det beste stedet å handle både dagligvarer …»",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W023",
+      "kind": "web_ai_position",
+      "title": "Posisjon i AI-svar",
+      "evidence": "ikke nevnt i noen av svarene",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W024",
+      "kind": "web_automation",
+      "title": "Automatiseringsmuligheter identifisert",
+      "evidence": "uutnyttet potensial 17% — manglende signaler: cmp",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    }
+  ],
+  "browser": {
+    "available": false
+  },
+  "web": {
+    "meta": {
+      "url": "https://www.coop.no",
+      "domain": "www.coop.no",
+      "origin": "https://www.coop.no",
+      "final_url": "https://www.coop.no",
+      "fetched_at": "2026-08-15T00:38:19.797Z"
+    },
+    "checks": [
+      {
+        "id": "http_status",
+        "label": "HTTP-status (hovedsiden)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "HTTP 200",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:37:55.618Z"
+      },
+      {
+        "id": "https",
+        "label": "HTTPS/TLS",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "HTTPS leverte respons",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:37:55.618Z"
+      },
+      {
+        "id": "redirect_chain",
+        "label": "Omdirigeringskjede",
+        "dimension": "reliability",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen redirects",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:37:55.618Z"
+      },
+      {
+        "id": "broken_links",
+        "label": "Ødelagte interne lenker",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "22 sider sjekket, 0 ødelagt",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:14.239Z"
+      },
+      {
+        "id": "asset_failures",
+        "label": "Ressurs-feil (img/css/js)",
+        "dimension": "reliability",
+        "result": "FAIL",
+        "evidence": "10 av 10 ressurser feiler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.314Z"
+      },
+      {
+        "id": "compression",
+        "label": "Komprimering (gzip/brotli)",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "br",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.317Z"
+      },
+      {
+        "id": "caching",
+        "label": "Cache-headere",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "no-store",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.317Z"
+      },
+      {
+        "id": "render_blocking",
+        "label": "Render-blokkerende ressurser",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "0 blokkerende skript, 1 stylesheets",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.322Z"
+      },
+      {
+        "id": "image_optim",
+        "label": "Bilde-optimalisering",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "22 bilder, 22 m/ dimensjoner, 22 lazy",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.322Z"
+      },
+      {
+        "id": "third_party",
+        "label": "Tredjeparts-skript/-ressurser",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "0 eksterne domener",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.323Z"
+      },
+      {
+        "id": "viewport",
+        "label": "Viewport meta",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "viewport tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.323Z"
+      },
+      {
+        "id": "media_queries",
+        "label": "Responsive CSS (@media)",
+        "dimension": "ux_mobile",
+        "result": "FAIL",
+        "evidence": "ingen @media i stylesheets",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.478Z"
+      },
+      {
+        "id": "lang",
+        "label": "Språk-attributt (lang)",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "nb-NO",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.478Z"
+      },
+      {
+        "id": "alt_text",
+        "label": "Alt-tekst på bilder",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "0/22 bilder mangler alt",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.478Z"
+      },
+      {
+        "id": "form_labels",
+        "label": "Skjemaetiketter",
+        "dimension": "accessibility",
+        "result": "FAIL",
+        "evidence": "4 input, 2 label",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.480Z"
+      },
+      {
+        "id": "heading_hierarchy",
+        "label": "Overskriftshierarki",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "h1=1 h2=12 h3=17",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.481Z"
+      },
+      {
+        "id": "semantic",
+        "label": "Semantiske landemerker",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "4/4 (header, nav, main, footer)",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.481Z"
+      },
+      {
+        "id": "title",
+        "label": "Tittel",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "Coop litt ditt - Dagligvarebutikker og byggevarehus - Coop",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.482Z"
+      },
+      {
+        "id": "meta_description",
+        "label": "Meta-beskrivelse",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "Gode tilbud på dagligvarer og byggevarer. Coop-medlemmer får kjøpeutbytte på alt de handler og medlemskupp!",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.482Z"
+      },
+      {
+        "id": "canonical",
+        "label": "Canonical",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "https://www.coop.no/",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.482Z"
+      },
+      {
+        "id": "robots_meta",
+        "label": "Robots-meta",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "index,follow",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.482Z"
+      },
+      {
+        "id": "robots_txt",
+        "label": "robots.txt",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "robots.txt tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.482Z"
+      },
+      {
+        "id": "sitemap",
+        "label": "Sitemap.xml",
+        "dimension": "seo",
+        "result": "FAIL",
+        "evidence": "mangler sitemap.xml",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.792Z"
+      },
+      {
+        "id": "open_graph",
+        "label": "OpenGraph",
+        "dimension": "seo",
+        "result": "FAIL",
+        "evidence": "title=true description=true image=false",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.792Z"
+      },
+      {
+        "id": "structured_data",
+        "label": "Strukturert data (JSON-LD)",
+        "dimension": "seo",
+        "result": "FAIL",
+        "evidence": "ingen JSON-LD",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.793Z"
+      },
+      {
+        "id": "header_csp",
+        "label": "Header: csp",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.793Z"
+      },
+      {
+        "id": "header_hsts",
+        "label": "Header: hsts",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.793Z"
+      },
+      {
+        "id": "header_xcto",
+        "label": "Header: xcto",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.793Z"
+      },
+      {
+        "id": "header_referrer",
+        "label": "Header: referrer",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.793Z"
+      },
+      {
+        "id": "header_permissions",
+        "label": "Header: permissions",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.793Z"
+      },
+      {
+        "id": "header_frame",
+        "label": "Header: frame",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.793Z"
+      },
+      {
+        "id": "mixed_content",
+        "label": "Blandet innhold (http på https)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "ingen http-referanser i HTML",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.793Z"
+      },
+      {
+        "id": "source_maps",
+        "label": "Eksponerte source maps",
+        "dimension": "security",
+        "result": "UNKNOWN",
+        "evidence": "skript ikke observerbare",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.793Z"
+      },
+      {
+        "id": "tech_disclosure",
+        "label": "Versjons-avsløring",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "cloudflare",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.793Z"
+      },
+      {
+        "id": "cookie_banner",
+        "label": "Cookie-banner",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "cookie/samtykke-element observert",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.793Z"
+      },
+      {
+        "id": "privacy_link",
+        "label": "Personvernerklæring-link",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "link til personvern observert",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.793Z"
+      },
+      {
+        "id": "consent_cmp",
+        "label": "Samtykke-plattform (CMP)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "trackere observert uten CMP",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.794Z"
+      },
+      {
+        "id": "contact_form",
+        "label": "Kontakt-/lead-skjema",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "1 <form> observert",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.794Z"
+      },
+      {
+        "id": "cta",
+        "label": "Call-to-action",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "CTA-tekst observert",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.795Z"
+      },
+      {
+        "id": "tech_cdn",
+        "label": "Teknologi: cdn",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "Cloudflare",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.797Z"
+      },
+      {
+        "id": "tech_hosting",
+        "label": "Teknologi: hosting",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "cloudflare",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.797Z"
+      },
+      {
+        "id": "tech_analytics",
+        "label": "Teknologi: analytics",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "Google Analytics/Tag Manager",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:38:19.797Z"
+      },
+      {
+        "id": "security_headers",
+        "label": "Sikkerhetsheadere — gradering B",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "Gradering B. Content-Security-Policy: MANGLER; Strict-Transport-Security: max-age=31536000; includeSubDomains; X-Frame-Options: MANGLER; X-Content-Type-Options: nosniff; Referrer-Policy: strict-origin-when-cross-origin; Permissions-Policy: camera=(),microphone=(),usb=() Trekk: CSP mangler · X-Frame-Options mangler (og ingen frame-ancestors i CSP)",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-15T00:38:20.592Z"
+      },
+      {
+        "id": "cookies_attributes",
+        "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-15T00:38:20.592Z"
+      },
+      {
+        "id": "version_leaks",
+        "label": "Ingen versjonslekkasjer",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "Ingen server/x-powered-by/x-aspnet-version-header, <meta generator>, gammel jQuery eller WordPress-signatur observert.",
+        "confidence": "medium",
+        "source": "http_headers",
+        "observed_at": "2026-08-15T00:38:20.592Z"
+      },
+      {
+        "id": "tls_cert",
+        "label": "TLS-sertifikat gyldighet",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "notBefore=2026-06-25T15:02:07.000Z, notAfter=2026-09-23T15:02:06.000Z, issuer=C=US, O=Let's Encrypt, CN=YE1, SAN=www.coop.no",
+        "confidence": "high",
+        "source": "tls",
+        "observed_at": "2026-08-15T00:38:35.962Z"
+      },
+      {
+        "id": "tls_verify",
+        "label": "TLS-sertifikat-verifisering",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "verify return code: 0 (ok)",
+        "confidence": "high",
+        "source": "tls",
+        "observed_at": "2026-08-15T00:38:35.962Z"
+      },
+      {
+        "id": "tls_legacy",
+        "label": "Legacy-TLS (1.0/1.1) støtte",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+        "confidence": "medium",
+        "source": "tls",
+        "observed_at": "2026-08-15T00:38:35.962Z"
+      },
+      {
+        "id": "spf",
+        "label": "SPF (avsender-verifisering)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "v=spf1 include:_spf1.coop.no include:_spf2.coop.no include:_spf3.coop.no include:_spf4.coop.no include:spf.protection.outlook.com include:sendgrid.net include:spf.mandrillapp.com include:de._netblocks.mimecast.com ~all — ~all er svakt, spoofing mulig",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:38:20.921Z"
+      },
+      {
+        "id": "spf_private_ip",
+        "label": "SPF: private IP-er i mekanismene",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "ingen private IP-er i SPF",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:38:20.921Z"
+      },
+      {
+        "id": "dkim",
+        "label": "DKIM (e-post-signering)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "selectorer: selector1, selector2",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:38:22.125Z"
+      },
+      {
+        "id": "dmarc",
+        "label": "DMARC (spoofing-beskyttelse)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "p=reject (blokk) — v=DMARC1;p=reject;sp=reject;pct=100;rua=mailto:636be9c98d@rua.easydmarc.eu,mailto:dmarc.postmaster@coop.no;ruf=mailto:636be9c98d@ruf.easydmarc.eu;ri=86400;fo=1",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:38:22.223Z"
+      },
+      {
+        "id": "dmarc_subdomain",
+        "label": "DMARC for subdomene",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen _dmarc.www.coop.no — subdomener kan spoofes",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:38:22.360Z"
+      },
+      {
+        "id": "mta_sts",
+        "label": "MTA-STS (håndhevet e-post-TLS)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:38:22.536Z"
+      },
+      {
+        "id": "tls_rpt",
+        "label": "TLS-RPT (TLS-rapportering)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen TLS-rapportering",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:38:22.590Z"
+      },
+      {
+        "id": "bimi",
+        "label": "BIMI (merkevare-logo i innboks)",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen BIMI (ikke påkrevd)",
+        "confidence": "low",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:38:22.649Z"
+      },
+      {
+        "id": "caa",
+        "label": "CAA (sertifikat-utsteder-kontroll)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen CAA",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:38:22.737Z"
+      },
+      {
+        "id": "dnssec",
+        "label": "DNSSEC (signert sone)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "AD-flag — signert sone validert",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:38:22.815Z"
+      },
+      {
+        "id": "dnsbl",
+        "label": "E-post-omdømme (DNSBL)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "coop-no.mail.protection.outlook.com (52.101.68.36) ikke listet",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:38:22.977Z"
+      },
+      {
+        "id": "subdomains",
+        "label": "Subdomene-eksponering (crt.sh)",
+        "dimension": "security",
+        "result": "UNKNOWN",
+        "evidence": "crt.sh-feil: The operation was aborted due to timeout",
+        "confidence": "low",
+        "source": "https",
+        "observed_at": "2026-08-15T00:38:46.416Z"
+      },
+      {
+        "id": "brreg_org",
+        "label": "Firma i Brreg (Enhetsregisteret)",
+        "dimension": "trust_privacy",
+        "result": "UNKNOWN",
+        "evidence": "ingen Brreg-treff for «Coop litt ditt»",
+        "confidence": "medium",
+        "source": "brreg",
+        "observed_at": "2026-08-15T00:38:20.201Z"
+      },
+      {
+        "id": "ssb_context",
+        "label": "Bransjekontekst (SSB)",
+        "dimension": "trust_privacy",
+        "result": "UNKNOWN",
+        "evidence": "ingen næringskode tilgjengelig",
+        "confidence": "medium",
+        "source": "ssb",
+        "observed_at": "2026-08-15T00:38:20.201Z"
+      },
+      {
+        "id": "norid_registered",
+        "label": "Domenet registrert (Norid)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "registrert 2017-11-20",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T00:38:20.497Z"
+      },
+      {
+        "id": "norid_changed",
+        "label": "Sist endret (Norid)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "sist endret 2026-03-03",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T00:38:20.497Z"
+      },
+      {
+        "id": "norid_dnssec",
+        "label": "DNSSEC (Norid)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "DNSSEC aktivert (delegationSigned=true)",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T00:38:20.497Z"
+      },
+      {
+        "id": "norid_registrar",
+        "label": "Registrar (Norid)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "registrar: Corporation Service Company",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T00:38:20.497Z"
+      },
+      {
+        "id": "history_exists",
+        "label": "Arkivhistorikk finnes",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "arkivert siden 1999-01-25",
+        "confidence": "high",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-15T00:38:29.075Z"
+      },
+      {
+        "id": "history_freshness",
+        "label": "Aktualitet (siste arkiverte versjon)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "fanget i løpet av siste 12 mnd (2025-08-22)",
+        "confidence": "high",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-15T00:38:29.075Z"
+      },
+      {
+        "id": "history_scope",
+        "label": "Arkivomfang",
+        "dimension": "reliability",
+        "result": "UNKNOWN",
+        "evidence": "omfang ikke tilgjengelig (Wayback CDX timeout på full historikk)",
+        "confidence": "medium",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-15T00:38:29.075Z"
+      },
+      {
+        "id": "cmp_banner",
+        "label": "Cookie-banner / samtykke-plattform (CMP)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T00:38:20.507Z"
+      },
+      {
+        "id": "consent_real_choice",
+        "label": "Reelt valg (avvis-knapp)",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen banner/CMP observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:38:20.508Z"
+      },
+      {
+        "id": "consent_prechecked",
+        "label": "Forhåndsavkrysset samtykke",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:38:20.509Z"
+      },
+      {
+        "id": "privacy_policy",
+        "label": "Personvernerklæring",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "personvernerklæring lenket i footer",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:38:20.510Z"
+      },
+      {
+        "id": "third_party_trackers",
+        "label": "Tredjeparts-trackere",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "ingen kjente tredjeparts-trackere observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:38:20.510Z"
+      },
+      {
+        "id": "google_fonts",
+        "label": "Google Fonts (ekstern)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "ingen ekstern Google Fonts observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:38:20.510Z"
+      },
+      {
+        "id": "ecom_price_vat",
+        "label": "Pris inkl. mva",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:38:20.511Z"
+      },
+      {
+        "id": "ecom_angrerett",
+        "label": "Angrerett-informasjon",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:38:20.511Z"
+      },
+      {
+        "id": "ecom_klage",
+        "label": "Klageadgang / tvisteløsning",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:38:20.511Z"
+      },
+      {
+        "id": "psi_mobile",
+        "label": "PageSpeed mobil",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-feil: HTTP 429",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-15T00:38:33.274Z"
+      },
+      {
+        "id": "psi_desktop",
+        "label": "PageSpeed desktop",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-feil: HTTP 429",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-15T00:38:33.274Z"
+      },
+      {
+        "id": "psi_availability",
+        "label": "PageSpeed API tilgjengelig",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-15T00:38:33.274Z"
+      },
+      {
+        "id": "social_profiles",
+        "label": "Sosiale medier (lenker fra nettsiden)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:38:20.518Z"
+      },
+      {
+        "id": "nap_phone",
+        "label": "Telefon på nettsiden",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T00:38:20.519Z"
+      },
+      {
+        "id": "nap_email",
+        "label": "E-post på nettsiden",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T00:38:20.519Z"
+      },
+      {
+        "id": "google_business",
+        "label": "Google Business Profile (anmeldelser, kategori)",
+        "dimension": "trust_privacy",
+        "result": "UNKNOWN",
+        "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+        "confidence": "medium",
+        "source": "places_api",
+        "observed_at": "2026-08-15T00:38:20.520Z"
+      },
+      {
+        "id": "ai_content_quality",
+        "label": "Innholdskvalitet (AI-vurdert)",
+        "dimension": "ux_mobile",
+        "result": "UNKNOWN",
+        "evidence": "Coop sin hjemmeside presenterer et bredt spekter av innhold, fra dagligvare- og byggevaretilbud til medlemsfordeler og inspirasjon. Teksten er godt strukturert og henvender seg tydelig til både nye og eksisterende medlemmer, med fokus på økonomiske fordeler og praktiske tips. Selv om teksten er informativ og relevant, er den preget av mange gjentakende visuelle elementer (representert med blokker) som ikke bidrar med tekstlig verdi.",
+        "confidence": "medium",
+        "source": "llm_analysis",
+        "observed_at": "2026-08-15T00:38:24.652Z"
+      },
+      {
+        "id": "ai_content_freshness",
+        "label": "Aktualitet (AI-vurdert)",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "Ingen årstall-signaler funnet i teksten · Nevner 'ukens kundeavis' og 'denne uken' som indikerer ferskt innhold · Refererer til grillsesongen og matpakkesesongen som årstidsaktuelle temaer",
+        "confidence": "medium",
+        "source": "llm_analysis",
+        "observed_at": "2026-08-15T00:38:24.652Z"
+      },
+      {
+        "id": "ai_vis_visibility",
+        "label": "Synlighet i AI-svar",
+        "dimension": "ai_visibility",
+        "result": "FAIL",
+        "evidence": "0/3 svar nevner Coop litt ditt · sitat: «Coop har Norges største medlemsprogram (Coop Medlem). Du får bonus på alle dagligvarer (opptil 3 % på egenproduserte varer, og jevnlige medl» · prompter: «Hvilken dagligvarekjede i Norge gir best medlemsfo…» / «Hva er det beste stedet å handle både dagligvarer …»",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:38:55.324Z"
+      },
+      {
+        "id": "ai_vis_position",
+        "label": "Posisjon i AI-svar",
+        "dimension": "ai_visibility",
+        "result": "FAIL",
+        "evidence": "ikke nevnt i noen av svarene",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:38:55.326Z"
+      },
+      {
+        "id": "ai_vis_sentiment",
+        "label": "Sentiment i AI-omtale",
+        "dimension": "ai_visibility",
+        "result": "PASS",
+        "evidence": "sentiment: positiv · råd: Fremhev Coop ByggMix og det samlede medlemsprogrammet tydeligere i AI-synlige kanaler for å styrke assosiasjonen mellom dagligvarer og bygge",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:38:55.326Z"
+      },
+      {
+        "id": "ai_vis_sources",
+        "label": "Kilder AI-en siterer",
+        "dimension": "ai_visibility",
+        "result": "UNKNOWN",
+        "evidence": "ingen eksterne domener sitert",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:38:55.326Z"
+      }
+    ],
+    "raw": {
+      "home": {
+        "status": 200,
+        "status_text": "OK",
+        "error": null,
+        "final_url": "https://www.coop.no",
+        "redirects": []
+      },
+      "https": {
+        "ok": true,
+        "detail": "HTTPS leverte respons"
+      },
+      "redirect_chain": [],
+      "robots": {
+        "present": true,
+        "disallow": [
+          "/om-coop/virksomheten/coop-norge-sa/datterselskaper/coop-norge-eiendom/kurs"
+        ]
+      },
+      "crawl": {
+        "pages_checked": 22,
+        "crawled": 22,
+        "broken": []
+      },
+      "html_length": 102698,
+      "asset_failures": {
+        "checked": 10,
+        "failed": 10,
+        "details": [
+          {
+            "url": "https://www.coop.no/assets/contentful/69zmfo9ko3qk/4C07sgRDplpqi9oWeiO3im/cd7423ef47665a462da8e32d5feb270a/Coopliga_desktop_16x9_2.png?preset=medium&amp;dpr=2&amp;q=75",
+            "status": 400
+          },
+          {
+            "url": "https://www.coop.no/assets/contentful/69zmfo9ko3qk/32HHYUcpWWSiMHJrSti56w/123b1da6d125ca28a9e8a4d03dd8f165/matpakker-og-matpakketips-du-trenger.jpg?preset=medium&amp;dpr=2&amp;q=75",
+            "status": 400
+          },
+          {
+            "url": "https://www.coop.no/assets/contentful/69zmfo9ko3qk/3lX3mUXGL1S0lKRo5LbamU/b042b788a01cc1941cde2363ae633c74/GP_Main_hero_resized_for_web.jpg?preset=medium&amp;dpr=2&amp;q=75",
+            "status": 400
+          },
+          {
+            "url": "https://www.coop.no/assets/contentful/69zmfo9ko3qk/lvkcFjd7CnkSAHFvZzXVb/a7a99a1ff77b96ed10f533ccb925c460/kundeavis-master-uke-33-.jpg?preset=medium&amp;dpr=2&amp;q=75",
+            "status": 400
+          },
+          {
+            "url": "https://www.coop.no/assets/contentful/69zmfo9ko3qk/6eauncFCoRBqWxdEILQH9j/aadd110a80c467e71b962459e3083d48/260423_medlem_ny_Web-12.jpg?preset=medium&amp;dpr=2&amp;q=75",
+            "status": 400
+          },
+          {
+            "url": "https://www.coop.no/assets/contentful/69zmfo9ko3qk/4w7I9Ej0bE0wgRWfyaTrV2/ab6429ed2b2af4d0972a0e2c3f2ada36/Coop_bedriftskort_16-9.jpg?preset=medium&amp;dpr=2&amp;q=75",
+            "status": 400
+          },
+          {
+            "url": "https://www.coop.no/assets/contentful/69zmfo9ko3qk/1mR7GI4zntFQp1uL8YCfZD/118b350a13987f542ad808828700d95c/Extra_logo_hvit_bakgr_st%C3%A5ende_cmyk.png?preset=thumb&amp;dpr=2&amp;q=75",
+            "status": 400
+          },
+          {
+            "url": "https://www.coop.no/assets/contentful/69zmfo9ko3qk/26cGjsW8Le8cMahLZn95iI/bc57c29a6310e5e00253e1a94d147d2f/Obs_logo_pms_ai.png?preset=thumb&amp;dpr=2&amp;q=75",
+            "status": 400
+          },
+          {
+            "url": "https://www.coop.no/assets/contentful/69zmfo9ko3qk/7J4Gn0l92dOtBkbzIRma2S/962dc610c1b57d2eb10a05aab06e52e7/Coop_Mega_logo_pms_ai.png?preset=thumb&amp;dpr=2&amp;q=75",
+            "status": 400
+          },
+          {
+            "url": "https://www.coop.no/assets/contentful/69zmfo9ko3qk/30AZjawSKqb8MLoS9uf03g/c8383ad1a07b0285ee349c82a5eaf6c5/Coop_Prix_logo_pms.png?preset=thumb&amp;dpr=2&amp;q=75",
+            "status": 400
+          }
+        ]
+      },
+      "compression": "br",
+      "caching": "no-store",
+      "render_blocking_scripts": 0,
+      "images": {
+        "total": 22,
+        "with_dimensions": 22,
+        "lazy": 22
+      },
+      "third_party": [],
+      "viewport": true,
+      "media_queries": false,
+      "lang": "nb-NO",
+      "img_missing_alt": 0,
+      "forms_accessibility": {
+        "inputs": 4,
+        "labels": 2,
+        "inputs_with_label": 0
+      },
+      "headings": {
+        "h1": 1,
+        "h2": 12,
+        "h3": 17,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "landmarks": [
+        "header",
+        "nav",
+        "main",
+        "footer"
+      ],
+      "title": "Coop litt ditt - Dagligvarebutikker og byggevarehus - Coop",
+      "meta_description": "Gode tilbud på dagligvarer og byggevarer. Coop-medlemmer får kjøpeutbytte på alt de handler og medlemskupp!",
+      "canonical": "https://www.coop.no/",
+      "robots_meta": "index,follow",
+      "sitemap": null,
+      "open_graph": {
+        "title": true,
+        "description": true,
+        "image": false
+      },
+      "structured_data": false,
+      "security_headers": {
+        "csp": null,
+        "hsts": "max-age=31536000; includeSubDomains",
+        "xcto": "nosniff",
+        "referrer": "strict-origin-when-cross-origin",
+        "permissions": "camera=(),microphone=(),usb=()",
+        "frame": null
+      },
+      "mixed_content": 0,
+      "source_maps": null,
+      "tech_disclosure": {
+        "server": "cloudflare",
+        "x_powered_by": null
+      },
+      "cookie_banner": true,
+      "analytics": [
+        "Google Analytics/Tag Manager"
+      ],
+      "privacy_link": true,
+      "consent_cmp": false,
+      "forms_count": 1,
+      "cta": true,
+      "automation_signals": {
+        "contact_form": true,
+        "analytics": true,
+        "cmp": false,
+        "chat": true,
+        "booking": true,
+        "newsletter": true
+      },
+      "technology": {
+        "framework": null,
+        "cms": null,
+        "cdn": "Cloudflare",
+        "hosting": "cloudflare",
+        "analytics": [
+          "Google Analytics/Tag Manager"
+        ]
+      }
+    }
+  },
+  "v2": {
+    "sections": [
+      {
+        "section": "security_hacker",
+        "title": "Hva en hacker ser",
+        "checks": [
+          {
+            "id": "security_headers",
+            "label": "Sikkerhetsheadere — gradering B",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "Gradering B. Content-Security-Policy: MANGLER; Strict-Transport-Security: max-age=31536000; includeSubDomains; X-Frame-Options: MANGLER; X-Content-Type-Options: nosniff; Referrer-Policy: strict-origin-when-cross-origin; Permissions-Policy: camera=(),microphone=(),usb=() Trekk: CSP mangler · X-Frame-Options mangler (og ingen frame-ancestors i CSP)",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:38:20.592Z"
+          },
+          {
+            "id": "cookies_attributes",
+            "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:38:20.592Z"
+          },
+          {
+            "id": "version_leaks",
+            "label": "Ingen versjonslekkasjer",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen server/x-powered-by/x-aspnet-version-header, <meta generator>, gammel jQuery eller WordPress-signatur observert.",
+            "confidence": "medium",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:38:20.592Z"
+          },
+          {
+            "id": "tls_cert",
+            "label": "TLS-sertifikat gyldighet",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "notBefore=2026-06-25T15:02:07.000Z, notAfter=2026-09-23T15:02:06.000Z, issuer=C=US, O=Let's Encrypt, CN=YE1, SAN=www.coop.no",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:38:35.962Z"
+          },
+          {
+            "id": "tls_verify",
+            "label": "TLS-sertifikat-verifisering",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "verify return code: 0 (ok)",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:38:35.962Z"
+          },
+          {
+            "id": "tls_legacy",
+            "label": "Legacy-TLS (1.0/1.1) støtte",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+            "confidence": "medium",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:38:35.962Z"
+          }
+        ],
+        "raw": {
+          "url": "https://www.coop.no/",
+          "final_url": "https://www.coop.no/",
+          "status": 200,
+          "status_text": "OK",
+          "redirects": [],
+          "headers": {
+            "age": "24",
+            "cache-control": "no-store",
+            "cf-cache-status": "HIT",
+            "cf-ray": "a2b422cb491756af-OSL",
+            "connection": "keep-alive",
+            "content-encoding": "br",
+            "content-type": "text/html; charset=utf-8",
+            "date": "Sat, 15 Aug 2026 00:38:20 GMT",
+            "last-modified": "Sat, 15 Aug 2026 00:37:55 GMT",
+            "link": "</static/runtime.533d41ad06edf9266551.102497818.nb-NO.js>; rel=\"modulepreload\"; as=\"script\"; crossorigin=\"anonymous\", </static/main.bb012739a1f1ba08ffac.102497818.nb-NO.js>; rel=\"modulepreload\"; as=\"script\"; crossorigin=\"anonymous\", </static/vendors~main.c97091f14e01b9ba71dd.102497818.nb-NO.js>; rel=\"modulepreload\"; as=\"script\"; crossorigin=\"anonymous\", </static/globals.7ad86e003b68fe23b74e.css>; rel=\"preload\"; as=\"style\", </static/305a52b803501295a1631fa7c3639d6f.woff2>; rel=\"preload\"; as=\"font\"; crossorigin=\"anonymous\", </static/5b2b982bccbe9991e501cf33021d4cd5.woff2>; rel=\"preload\"; as=\"font\"; crossorigin=\"anonymous\", </static/c560b0f1286018997d6fe5c485eead3f.woff2>; rel=\"preload\"; as=\"font\"; crossorigin=\"anonymous\"",
+            "permissions-policy": "camera=(),microphone=(),usb=()",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "server": "cloudflare",
+            "strict-transport-security": "max-age=31536000; includeSubDomains",
+            "transfer-encoding": "chunked",
+            "vary": "accept-encoding",
+            "x-cache-load-time": "5ms",
+            "x-cache-status": "HIT",
+            "x-content-type-options": "nosniff",
+            "x-original-cache-control": "public, s-maxage=30, stale-while-revalidate=900, stale-if-error=1800",
+            "x-original-date": "Sat, 15 Aug 2026 00:37:55 GMT",
+            "x-worker-time": "5ms"
+          },
+          "security_grade": "B",
+          "security_deductions": [
+            "CSP mangler",
+            "X-Frame-Options mangler (og ingen frame-ancestors i CSP)"
+          ],
+          "cookies": [],
+          "version_leaks": [],
+          "tls": {
+            "opensslAvailable": true,
+            "cert": {
+              "notBefore": "2026-06-25T15:02:07.000Z",
+              "notAfter": "2026-09-23T15:02:06.000Z",
+              "issuer": "C=US, O=Let's Encrypt, CN=YE1",
+              "san": [
+                "www.coop.no"
+              ]
+            },
+            "verify": {
+              "code": 0,
+              "description": "ok"
+            },
+            "legacy": {
+              "tls1": "blocked",
+              "tls1_1": "blocked"
+            }
+          }
+        }
+      },
+      {
+        "section": "email_dns",
+        "title": "E-post & DNS-sikkerhet",
+        "checks": [
+          {
+            "id": "spf",
+            "label": "SPF (avsender-verifisering)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "v=spf1 include:_spf1.coop.no include:_spf2.coop.no include:_spf3.coop.no include:_spf4.coop.no include:spf.protection.outlook.com include:sendgrid.net include:spf.mandrillapp.com include:de._netblocks.mimecast.com ~all — ~all er svakt, spoofing mulig",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:38:20.921Z"
+          },
+          {
+            "id": "spf_private_ip",
+            "label": "SPF: private IP-er i mekanismene",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen private IP-er i SPF",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:38:20.921Z"
+          },
+          {
+            "id": "dkim",
+            "label": "DKIM (e-post-signering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "selectorer: selector1, selector2",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:38:22.125Z"
+          },
+          {
+            "id": "dmarc",
+            "label": "DMARC (spoofing-beskyttelse)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "p=reject (blokk) — v=DMARC1;p=reject;sp=reject;pct=100;rua=mailto:636be9c98d@rua.easydmarc.eu,mailto:dmarc.postmaster@coop.no;ruf=mailto:636be9c98d@ruf.easydmarc.eu;ri=86400;fo=1",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:38:22.223Z"
+          },
+          {
+            "id": "dmarc_subdomain",
+            "label": "DMARC for subdomene",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen _dmarc.www.coop.no — subdomener kan spoofes",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:38:22.360Z"
+          },
+          {
+            "id": "mta_sts",
+            "label": "MTA-STS (håndhevet e-post-TLS)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:38:22.536Z"
+          },
+          {
+            "id": "tls_rpt",
+            "label": "TLS-RPT (TLS-rapportering)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen TLS-rapportering",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:38:22.590Z"
+          },
+          {
+            "id": "bimi",
+            "label": "BIMI (merkevare-logo i innboks)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen BIMI (ikke påkrevd)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:38:22.649Z"
+          },
+          {
+            "id": "caa",
+            "label": "CAA (sertifikat-utsteder-kontroll)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen CAA",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:38:22.737Z"
+          },
+          {
+            "id": "dnssec",
+            "label": "DNSSEC (signert sone)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "AD-flag — signert sone validert",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:38:22.815Z"
+          },
+          {
+            "id": "dnsbl",
+            "label": "E-post-omdømme (DNSBL)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "coop-no.mail.protection.outlook.com (52.101.68.36) ikke listet",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:38:22.977Z"
+          },
+          {
+            "id": "subdomains",
+            "label": "Subdomene-eksponering (crt.sh)",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "crt.sh-feil: The operation was aborted due to timeout",
+            "confidence": "low",
+            "source": "https",
+            "observed_at": "2026-08-15T00:38:46.416Z"
+          }
+        ],
+        "raw": {
+          "original": "www.coop.no",
+          "registrable": "coop.no",
+          "subdomain_of_input": true,
+          "spf": {
+            "record": "v=spf1 include:_spf1.coop.no include:_spf2.coop.no include:_spf3.coop.no include:_spf4.coop.no include:spf.protection.outlook.com include:sendgrid.net include:spf.mandrillapp.com include:de._netblocks.mimecast.com ~all",
+            "policy": "~all",
+            "private_ips": []
+          },
+          "dkim": "selector1, selector2",
+          "dmarc": {
+            "record": "v=DMARC1;p=reject;sp=reject;pct=100;rua=mailto:636be9c98d@rua.easydmarc.eu,mailto:dmarc.postmaster@coop.no;ruf=mailto:636be9c98d@ruf.easydmarc.eu;ri=86400;fo=1",
+            "p": "reject",
+            "policy": "reject",
+            "subdomain": {
+              "name": "_dmarc.www.coop.no",
+              "present": false,
+              "record": null
+            }
+          },
+          "mta_sts": {
+            "txt": false,
+            "policy": false,
+            "policy_status": 0
+          },
+          "tls_rpt": null,
+          "bimi": null,
+          "caa": {
+            "records": [],
+            "issuers": []
+          },
+          "dnssec": "\n; <<>> DiG 9.10.6 <<>> +dnssec DNSKEY coop.no +time=5 +tries=1\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 52061\n;; flags: qr rd ra ad; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags: do; udp: 512\n;; QUESTION SECTION:\n;coop.no.\t\t\tIN\tDNSKEY\n\n;; ANSWER SECTION:\ncoop.no.\t\t299\tIN\tDNSKEY\t257 3 8 AwEAAdgfb69/oHEFA/eGyG1cSAr8OD6pXB/jjAn+OQSlZqefoaZ2dXZu mTpFRHxZS0Bhx+Zo7U1p8LGRa8rBacapk2btCWRURZw8x0Hkke1Rka5R zM1x8rdj9BflT6sXhWpFHVKuNgHLRVjD/U2R8nEJXZDVS+XRcVDY150L 7UmRbOVtjgNWhWIQeFFmQ4clOMuMHGxXOxy+tfM/lOjMjjBi9LoQU2MH SPjwPSw1VNnT2TJ6UzUH9U17OJrJ5eLlMg/60+ZSEBVR4E/KbnjV6Tft PmUMaUDjnaBV0XU6VNhLwmucr9tP7Y8o1UfvOUyJlsE+mtHMwG9irQpm lY1TR6wQl30=\ncoop.no.\t\t299\tIN\tDNSKEY\t256 3 8 AwEAAa+57JMU42ym5y1oFnQWXvyj+xF6oGNEh5noF++wtM5XHBDryrin Hy/0cVVmROQrgbHRtbIBnPN0N2iqVnwPsmd8vPR2gIemwHJzlazb4vzQ g6YG1HFRRodsCfdvnCzNa6Hqypu5F24orRsyluPL2F0T+P3Y7ZcsPmuE PgDFMjVd\ncoop.no.\t\t299\tIN\tRRSIG\tDNSKEY 8 2 300 20260903110545 20260812110545 35566 coop.no. LjhZWb0iu8ET8fv+N5n2wHvVfweco4+iebAluShea7HsGNOWvrqE2EMd GCSHX+3N5bR4d+j9BUf8q7WiisIbGZYBvqarCzYF2HVTWDhwEq0KtXzz mVxIsZbdhBvP/7TzsDTvGrqRXFCvLbsOwlbsLufh8TmbMdho9a8kNlEL 55voxcEPkXIxIwnksvDK4DjQUZhZfS9XaAXpylT5d3s9DMxYWeSt6KGd fAAos/N7oA2rM7zbxnZNehWkDR4QPWjWhtnCHd1J0fIxNbGny7tpBovi 7Rsct84xmYo2fp712vqi0nbWzTLRcxxf/RjtllG9kZDKPfNOw4sLtWc9 YeGs/w==\n\n;; Query time: 49 msec\n;; SERVER: 100.100.100.100#53(100.100.100.100)\n;; WHEN: Sat Aug 15 02:38:22 CEST 2026\n;; MSG SIZE  rcvd: 755\n\n",
+          "mx": [
+            {
+              "exchange": "coop-no.mail.protection.outlook.com",
+              "priority": 10
+            }
+          ],
+          "dnsbl": {
+            "mx": "coop-no.mail.protection.outlook.com",
+            "ip": "52.101.68.36",
+            "listed": false,
+            "host": "36.68.101.52.zen.spamhaus.org"
+          },
+          "subdomains": {
+            "count": 0,
+            "unique": [],
+            "interesting": [],
+            "error": "The operation was aborted due to timeout"
+          }
+        }
+      },
+      {
+        "section": "norge",
+        "title": "Norge-data (Brreg · Norid · SSB)",
+        "checks": [
+          {
+            "id": "brreg_org",
+            "label": "Firma i Brreg (Enhetsregisteret)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "ingen Brreg-treff for «Coop litt ditt»",
+            "confidence": "medium",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:38:20.201Z"
+          },
+          {
+            "id": "ssb_context",
+            "label": "Bransjekontekst (SSB)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "ingen næringskode tilgjengelig",
+            "confidence": "medium",
+            "source": "ssb",
+            "observed_at": "2026-08-15T00:38:20.201Z"
+          },
+          {
+            "id": "norid_registered",
+            "label": "Domenet registrert (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrert 2017-11-20",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:38:20.497Z"
+          },
+          {
+            "id": "norid_changed",
+            "label": "Sist endret (Norid)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "sist endret 2026-03-03",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:38:20.497Z"
+          },
+          {
+            "id": "norid_dnssec",
+            "label": "DNSSEC (Norid)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "DNSSEC aktivert (delegationSigned=true)",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:38:20.497Z"
+          },
+          {
+            "id": "norid_registrar",
+            "label": "Registrar (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrar: Corporation Service Company",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:38:20.497Z"
+          }
+        ],
+        "raw": {
+          "brreg": {
+            "unit": null,
+            "search": null,
+            "selection": null,
+            "error": "ingen treff",
+            "confirmed": false
+          },
+          "norid": {
+            "domain": "coop.no",
+            "created": "2017-11-20",
+            "changed": "2026-03-03",
+            "dnssec": true,
+            "registrar": "Corporation Service Company",
+            "status": null
+          },
+          "ssb": {}
+        }
+      },
+      {
+        "section": "history",
+        "title": "Historikk (Wayback Machine)",
+        "checks": [
+          {
+            "id": "history_exists",
+            "label": "Arkivhistorikk finnes",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "arkivert siden 1999-01-25",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:38:29.075Z"
+          },
+          {
+            "id": "history_freshness",
+            "label": "Aktualitet (siste arkiverte versjon)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "fanget i løpet av siste 12 mnd (2025-08-22)",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:38:29.075Z"
+          },
+          {
+            "id": "history_scope",
+            "label": "Arkivomfang",
+            "dimension": "reliability",
+            "result": "UNKNOWN",
+            "evidence": "omfang ikke tilgjengelig (Wayback CDX timeout på full historikk)",
+            "confidence": "medium",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:38:29.075Z"
+          }
+        ],
+        "raw": {
+          "snapshots": [
+            {
+              "timestamp": "19990125094413",
+              "original": null
+            },
+            {
+              "timestamp": "20250822194739",
+              "original": null
+            }
+          ],
+          "first_seen": "1999-01-25",
+          "last_seen": "2025-08-22",
+          "snapshot_count": null,
+          "error": "HTTP 503",
+          "fallback": true
+        }
+      },
+      {
+        "section": "compliance",
+        "title": "Compliance-signaler Norge",
+        "checks": [
+          {
+            "id": "cmp_banner",
+            "label": "Cookie-banner / samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.507Z"
+          },
+          {
+            "id": "consent_real_choice",
+            "label": "Reelt valg (avvis-knapp)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen banner/CMP observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.508Z"
+          },
+          {
+            "id": "consent_prechecked",
+            "label": "Forhåndsavkrysset samtykke",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.509Z"
+          },
+          {
+            "id": "privacy_policy",
+            "label": "Personvernerklæring",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "personvernerklæring lenket i footer",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.510Z"
+          },
+          {
+            "id": "third_party_trackers",
+            "label": "Tredjeparts-trackere",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen kjente tredjeparts-trackere observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.510Z"
+          },
+          {
+            "id": "google_fonts",
+            "label": "Google Fonts (ekstern)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen ekstern Google Fonts observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.510Z"
+          },
+          {
+            "id": "ecom_price_vat",
+            "label": "Pris inkl. mva",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.511Z"
+          },
+          {
+            "id": "ecom_angrerett",
+            "label": "Angrerett-informasjon",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.511Z"
+          },
+          {
+            "id": "ecom_klage",
+            "label": "Klageadgang / tvisteløsning",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.511Z"
+          }
+        ],
+        "raw": {
+          "url": "https://www.coop.no",
+          "fetched": false,
+          "status": null,
+          "fetch_error": null,
+          "html_length": 102698,
+          "script_srcs": [
+            "/static/runtime.533d41ad06edf9266551.102497818.nb-NO.js",
+            "/static/main.bb012739a1f1ba08ffac.102497818.nb-NO.js",
+            "/static/vendors~main.c97091f14e01b9ba71dd.102497818.nb-NO.js"
+          ],
+          "cmp": {
+            "named": [],
+            "generic_text": false
+          },
+          "consent_reject": null,
+          "consent_prechecked": {
+            "count": 0,
+            "described": []
+          },
+          "privacy": {
+            "linked": true,
+            "in_footer": true
+          },
+          "trackers": [],
+          "google_fonts": {
+            "external": false,
+            "self_hosted": false
+          },
+          "ecommerce": {
+            "shop_signal": true,
+            "price_vat": false,
+            "angrerett": false,
+            "klage": false
+          }
+        }
+      },
+      {
+        "section": "pagespeed",
+        "title": "Fart (PageSpeed Insights + CrUX)",
+        "checks": [
+          {
+            "id": "psi_mobile",
+            "label": "PageSpeed mobil",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:38:33.274Z"
+          },
+          {
+            "id": "psi_desktop",
+            "label": "PageSpeed desktop",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:38:33.274Z"
+          },
+          {
+            "id": "psi_availability",
+            "label": "PageSpeed API tilgjengelig",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:38:33.274Z"
+          }
+        ],
+        "raw": {
+          "mobile": {
+            "error": "HTTP 429",
+            "data": null
+          },
+          "desktop": {
+            "error": "HTTP 429",
+            "data": null
+          }
+        }
+      },
+      {
+        "section": "presence",
+        "title": "Tilstedeværelse (sosiale medier · NAP)",
+        "checks": [
+          {
+            "id": "social_profiles",
+            "label": "Sosiale medier (lenker fra nettsiden)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.518Z"
+          },
+          {
+            "id": "nap_phone",
+            "label": "Telefon på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.519Z"
+          },
+          {
+            "id": "nap_email",
+            "label": "E-post på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:38:20.519Z"
+          },
+          {
+            "id": "google_business",
+            "label": "Google Business Profile (anmeldelser, kategori)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+            "confidence": "medium",
+            "source": "places_api",
+            "observed_at": "2026-08-15T00:38:20.520Z"
+          }
+        ],
+        "raw": {
+          "social": {},
+          "contact": {
+            "tel": null,
+            "email": null,
+            "org_nr_on_page": "102497818"
+          },
+          "google_business": {
+            "status": "unknown",
+            "reason": "krever Google Places API-nøkkel — ikke tilgjengelig uten"
+          }
+        }
+      },
+      {
+        "section": "ai_analysis",
+        "title": "AI-analyse av innhold (DeepSeek)",
+        "checks": [
+          {
+            "id": "ai_content_quality",
+            "label": "Innholdskvalitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "UNKNOWN",
+            "evidence": "Coop sin hjemmeside presenterer et bredt spekter av innhold, fra dagligvare- og byggevaretilbud til medlemsfordeler og inspirasjon. Teksten er godt strukturert og henvender seg tydelig til både nye og eksisterende medlemmer, med fokus på økonomiske fordeler og praktiske tips. Selv om teksten er informativ og relevant, er den preget av mange gjentakende visuelle elementer (representert med blokker) som ikke bidrar med tekstlig verdi.",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T00:38:24.652Z"
+          },
+          {
+            "id": "ai_content_freshness",
+            "label": "Aktualitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "Ingen årstall-signaler funnet i teksten · Nevner 'ukens kundeavis' og 'denne uken' som indikerer ferskt innhold · Refererer til grillsesongen og matpakkesesongen som årstidsaktuelle temaer",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T00:38:24.652Z"
+          }
+        ],
+        "raw": {
+          "available": true,
+          "error": null,
+          "prompt": "Du er analyse-delen av Arch Audit (norsk verktøy). Analyser TEKSTEN på en norsk bedrifts hjemmeside. Vurder kun det som står i teksten under — ikke finn på noe.\nURL: https://www.coop.no\nTittel: Coop litt ditt - Dagligvarebutikker og byggevarehus - Coop\nMeta-beskrivelse: Gode tilbud på dagligvarer og byggevarer. Coop-medlemmer får kjøpeutbytte på alt de handler og medlemskupp!\nTekstutdrag (hjemmesiden):\nCoop litt ditt - Dagligvarebutikker og byggevarehus - Coop Til hovedinnhold Søk Coop.no Våre butikker Medlem Min side Coop Kjeder UKENS KUNDEAVIS OPPSKRIFTER NYHETER OM COOP INSPIRASJON OBS.NO OBSBYGG.NO Masterbrand Utvalgte tilbud denne uken ▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆\u0000▆▆ ▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ Ukens beste medlemsfordeler ▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ Coop-ligaen Inngår avtale med 1. divisjon kvinner i fotball COOP-ligaen er en utviklingsliga som representerer et avgjørende steg på veien mot toppen av norsk kvinnefotball.​ Les mer Tilbake til hverdagen! Matpakketips Hverdagen er tilbake, og det er også matpakkesesongen! Utforsk våre oppskrifter og tips for smakfulle og næringsrike matpakker. Se våre beste matpakketips Grill Perfekt Grillsesongen er i gang! La deg inspirere til grillsesongen med Norges mestvinnende grillserie og oppskrifter som løfter smaken. Se oppskriftene Bli bedre kjent med våre leverandører ▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆ ▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆ Butikkoversikt Les ukens kundeavis her! Velg kjede... Coop Medlem Spar penger som Coop-medlem! Som Coop-medlem får du bonus på det du handler, eksklusive tilbud – og flere fordeler som gjør hverdagen litt billigere. Les mer Coop Bedriftskort Handle smartere og enklere! ✨ Med Coop Bedriftskort får du blant annet samlet faktura rett i regnskapet, ingen kvitteringer! Les mer og bestill Motta kundeavis fra Coop på E-post! Hold deg oppdatert på våre beste kampanjer og medlemstilbud! Send Se kjøpeutbyttet ditt her Min medlemskonto Last ned medlemsappen! Medlemskortet, fordelene og kupongene lett tilgjengelig Bli medlem Som medlem i Coop får du unike medlemsfordeler som kan spare deg for tusenvis av kroner. Bli medlem for å få penger tilbake hver gang du handler! Meld deg inn Kontakt oss Hjelp og kontakt Presse og pressekontakter Se opp for useriøse aktører Om Coop Ledige stillinger Karrieremuligheter i Coop Bærekraft Personvern Cookies Egne merkevarer Samvirkelag Virksomheten Sikkerhetsdatablad Sponsorvirksomheten Min medlemskonto Våre kjeder Coop Mega Coop Prix Coop Marked / Matkroken Extra Obs Obs BYGG Coop Byggmix Garantert Fornøyd Coop Bedriftskort Coop Mastercard Retur av elektronisk avfall Til toppen\nIngen årstall-signaler funnet i teksten.\n\nSvar KUN med JSON (ingen markdown-kodeblokk):\n{\"content_quality\":\"god|middels|svak\",\"tone\":\"...\",\"aktualitet\":\"frisk|middels|utdatert\",\"signals\":[\"...\"],\"summary_nb\":\"2-3 setninger på norsk, executive-språk, konkret\"}\nVurdering: aktualitet baseres på gamle datoer/©-år/nyhetsinnlegg i teksten; svak = stavefeil/ufullstendige setninger/meningsløs tekst; tone = hvem teksten henvender seg til og hvordan.",
+          "response": "{\"content_quality\":\"middels\",\"tone\":\"Henviser seg til både eksisterende og potensielle Coop-medlemmer med et vennlig og oppfordrende språk, med fokus på medlemsfordeler, tilbud og inspirasjon.\",\"aktualitet\":\"frisk\",\"signals\":[\"Ingen årstall-signaler funnet i teksten\",\"Nevner 'ukens kundeavis' og 'denne uken' som indikerer ferskt innhold\",\"Refererer til grillsesongen og matpakkesesongen som årstidsaktuelle temaer\"],\"summary_nb\":\"Coop sin hjemmeside presenterer et bredt spekter av innhold, fra dagligvare- og byggevaretilbud til medlemsfordeler og inspirasjon. Teksten er godt strukturert og henvender seg tydelig til både nye og eksisterende medlemmer, med fokus på økonomiske fordeler og praktiske tips. Selv om teksten er informativ og relevant, er den preget av mange gjentakende visuelle elementer (representert med blokker) som ikke bidrar med tekstlig verdi.\"}",
+          "model": "deepseek-chat"
+        }
+      },
+      {
+        "section": "ai_visibility",
+        "title": "AI-synlighet (GEO — hvordan AI-assistenter omtaler dere)",
+        "checks": [
+          {
+            "id": "ai_vis_visibility",
+            "label": "Synlighet i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "FAIL",
+            "evidence": "0/3 svar nevner Coop litt ditt · sitat: «Coop har Norges største medlemsprogram (Coop Medlem). Du får bonus på alle dagligvarer (opptil 3 % på egenproduserte varer, og jevnlige medl» · prompter: «Hvilken dagligvarekjede i Norge gir best medlemsfo…» / «Hva er det beste stedet å handle både dagligvarer …»",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:38:55.324Z"
+          },
+          {
+            "id": "ai_vis_position",
+            "label": "Posisjon i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "FAIL",
+            "evidence": "ikke nevnt i noen av svarene",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:38:55.326Z"
+          },
+          {
+            "id": "ai_vis_sentiment",
+            "label": "Sentiment i AI-omtale",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "sentiment: positiv · råd: Fremhev Coop ByggMix og det samlede medlemsprogrammet tydeligere i AI-synlige kanaler for å styrke assosiasjonen mellom dagligvarer og bygge",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:38:55.326Z"
+          },
+          {
+            "id": "ai_vis_sources",
+            "label": "Kilder AI-en siterer",
+            "dimension": "ai_visibility",
+            "result": "UNKNOWN",
+            "evidence": "ingen eksterne domener sitert",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:38:55.326Z"
+          }
+        ],
+        "raw": {
+          "available": true,
+          "error": null,
+          "model": "deepseek-chat",
+          "brand_candidates": [
+            "Coop litt ditt",
+            "coop.no"
+          ],
+          "prompts": [
+            "Hvilken dagligvarekjede i Norge gir best medlemsfordeler og kjøpeutbytte på dagligvarer i 2026?",
+            "Hva er det beste stedet å handle både dagligvarer og byggevarer med gode medlemstilbud i Norge?",
+            "Kan du anbefale en norsk butikkjede som har både ukentlige kundeaviser, oppskrifter og medlemsbonus for hverdagslige innkjøp?"
+          ],
+          "answers": [
+            {
+              "prompt": "Hvilken dagligvarekjede i Norge gir best medlemsfordeler og kjøpeutbytte på dagligvarer i 2026?",
+              "answer": "For å gi deg et godt svar på dette, må jeg først være ærlig: **Ingen av de store dagligvarekjedene i Norge gir direkte «utbytte» på dagligvarer i tradisjonell forstand (som aksjeutbytte).** Det de kaller «medlemsfordeler» er i praksis bonuspoeng, kuponger, og medlemspriser. \n\nMen når vi snakker om **best totalpakke for deg som forbruker i 2026**, er det særlig to kjeder som skiller seg ut, og ett nytt konsept som har kommet for å bli. Her er en nyansert oversikt:\n\n---\n\n### 1. **REMA 1000 – «Ærlighet» og enkelhet (Ofte best for de fleste)**\n- **Fordeler:** REMA 1000 kjører en modell som heter **Ærlig Priser** (tidligere «Ærlighet»). Dette er en fast, lav pris på et utvalgt sortiment – ofte 10–15 % lavere enn vanlig medlemspris hos konkurrenter. Du får også **Ærlig Kuponger** i appen hver uke, som gir deg penger av på varer du faktisk kjøper ofte.\n- **Utbytte:** De gir **ikke** bonuser i form av penger tilbake, men forskjellen ligger i at prisene allerede er lave uten at du må «jage» tilbud. \n- **Hvem passer for:** Deg som vil ha lavest mulig pris på hele handlekurven, uten å bruke tid på å planlegge kuponger. \n\n---\n\n### 2. **Coop – Medlemsbonus og utbytte (Best for deg som handler mye)**\n- **Fordeler:** Coop er den eneste kjeden som faktisk gir **årlig utbytte** (bonus) på alt du handler, uavhengig av om det er på tilbud eller ikke. Du får **1 % bonus på dagligvarer** (og mer på non-food / elektronikk hos Coop Obs). I tillegg har de **Medlemspriser** på tusenvis av varer hver uke – ofte 20–50 % rabatt.\n- **Utbytte:** Bonusen utbetales i januar året etter, og du kan velge å få den utbetalt som penger, eller som gavekort (da får du ofte 10 % ekstra i verdi). \n- **Hvem passer for:** Deg som handler jevnlig og mye, og som ønsker å få «noe igjen» på alle kjøp – ikke bare på tilbud. Coop Obs (hypermarked) gir også best utbytte på store kjøp som elektronikk og møbler.\n\n---\n\n### 3. **Meny / Kiwi (NorgesGruppen) – Trumf (Best for deg som vil ha fleksibilitet)**\n- **Fordeler:** NorgesGruppens **Trum"
+            },
+            {
+              "prompt": "Hva er det beste stedet å handle både dagligvarer og byggevarer med gode medlemstilbud i Norge?",
+              "answer": "I Norge finnes det ingen enkeltkjede som dekker **både** dagligvarer og byggevarer med gode medlemstilbud under samme tak – det er to svært ulike bransjer. Men det finnes noen strategiske kombinasjoner og aktører som kan gi deg det beste av begge verdener, avhengig av hva du prioriterer.\n\nHer er en oversikt over de beste alternativene, delt inn etter behov:\n\n---\n\n### 1. Best på **kombinasjon av pris og medlemsbonus** (hvis du handler mye)\n**Coop** (dagligvarer) + **Coop ByggMix** (byggevarer)  \n– *Hvorfor:* Coop har Norges største medlemsprogram (Coop Medlem). Du får **bonus på alle dagligvarer** (opptil 3 % på egenproduserte varer, og jevnlige medlemstilbud).  \n– Coop ByggMix er en del av samme konsern, og du kan bruke **samme medlemskort** der. Du får medlemspriser på byggevarer, og bonusen teller samlet.  \n– *Ulempe:* Coop ByggMix har færre varehus enn f.eks. Byggmakker, og utvalget er mer begrenset på spesialvarer.\n\n**NorgesGruppen** (Kiwi, Meny, Joker) + **Byggmakker**  \n– *Hvorfor:* NorgesGruppen eier Byggmakker. Selv om de ikke har ett felles kort, er det en fordel å handle på Kiwi/Meny (lave priser) og bruke **Byggmakker-kundeklubben** separat. Byggmakker har ofte gode kampanjer for medlemmer, og du kan få rabatt på alt fra trelast til verktøy.  \n– *Tips:* Meld deg inn i **Æ** (NorgesGruppens lojalitetsprogram) for Kiwi/Meny, og i tillegg Byggmakker sitt eget program. Ingen samlet bonus, men du får de beste prisene i hver kategori.\n\n---\n\n### 2. Best for **profesjonelle og storhandlere**\n**Obs! Bygg** (Coop) + **Obs! Hypermarked**  \n– Obs! er Coops hypermarkedkjede som selger **både dagligvarer og byggevarer under samme tak** (i de store varehusene).  \n– *Hvorfor:* Du får ett sted for alt, og med Coop Medlem får du bonus på både mat og byggevarer. Obs! har også egne \"Obs! Bygg\"-avdelinger med godt utvalg av trelast, maling og verktøy.  \n– *Ulempe:* Obs! finnes kun på større steder, og byggevareutvalget er ikke like dypt som hos spesialiserte aktører som Montér eller Byggmax"
+            },
+            {
+              "prompt": "Kan du anbefale en norsk butikkjede som har både ukentlige kundeaviser, oppskrifter og medlemsbonus for hverdagslige innkjøp?",
+              "answer": "Ja, flere norske dagligvarekjeder passer godt på alle de tre punktene. Her er de mest relevante anbefalingene, med litt nyanser:\n\n**1. Meny (anbefales sterkest hvis du vil ha mest ut av oppskrifter og bonus)**\n\n- **Kundeavis:** Har ukentlig «Meny-avisen» med tilbud, både i papir og digitalt i appen.\n- **Oppskrifter:** Har et stort, godt oppdatert oppskriftsarkiv på nettsiden og i appen, ofte knyttet direkte til ukens tilbudsvarer. De fokuserer mye på ferske råvarer og middagstips.\n- **Medlemsbonus:** «Meny Pluss» gir deg bonuspoeng på kjøp, og du får personlige tilbud og ekstra bonuser på utvalgte varer hver uke. Bonusen kan du bruke som avslag på neste handel.\n- **Passer for:** Deg som vil ha inspirasjon til middag, setter pris på ferskvare og ønsker en kjede med litt bredere utvalg.\n\n**2. Kiwi (best på enkelhet og hverdagsbonus)**\n\n- **Kundeavis:** Ukentlig avis med tydelige tilbud, digitalt og i papir.\n- **Oppskrifter:** Har et godt utvalg oppskrifter på nettsiden, men ikke like dypt integrert med tilbudene som hos Meny.\n- **Medlemsbonus:** «Kiwi Pluss» gir deg **automatisk bonus** på utvalgte varer hver uke (ofte 10–20 % på basisvarer), i tillegg til personlige tilbud. Du får også bonus på frukt og grønt. Det er svært lite friksjon – du slår på tilbudene i appen, og rabatten trekkes direkte i kassen.\n- **Passer for:** Deg som vil ha lav pris og enkel bonus uten å måtte tenke mye på det, og som likevel vil ha oppskrifter tilgjengelig.\n\n**3. Rema 1000 (best på pris og enkel bonus, men svakere på oppskrifter)**\n\n- **Kundeavis:** Ukentlig «Rema 1000-avisen» med tilbud.\n- **Oppskrifter:** Har oppskrifter på nettsiden, men utvalget er mer begrenset enn Meny, og de er mindre knyttet til ukens tilbud.\n- **Medlemsbonus:** «Æ»-medlemskapet gir deg direkte prisavslag på et stort antall varer hver uke (ofte 10–30 % på utvalgte produkter). Bonusen er automatisk og veldig enkel – du betaler lavere pris i kassen, ingen poeng å holde styr på.\n- **Passer for:** Deg som prioriterer lavest mulig pris og enkelhet, og som ikke trenger så mye"
+            }
+          ],
+          "analysis": {
+            "sentiment": "positiv",
+            "quote": "Coop har Norges største medlemsprogram (Coop Medlem). Du får bonus på alle dagligvarer (opptil 3 % på egenproduserte varer, og jevnlige medlemstilbud).",
+            "advice_nb": "Fremhev Coop ByggMix og det samlede medlemsprogrammet tydeligere i AI-synlige kanaler for å styrke assosiasjonen mellom dagligvarer og byggevarer."
+          },
+          "measurements": [
+            {
+              "prompt": "Hvilken dagligvarekjede i Norge gir best medlemsfordeler og kjøpeutbytte på dagligvarer i 2026?",
+              "mentioned": false,
+              "position": null,
+              "cited_domains": []
+            },
+            {
+              "prompt": "Hva er det beste stedet å handle både dagligvarer og byggevarer med gode medlemstilbud i Norge?",
+              "mentioned": false,
+              "position": null,
+              "cited_domains": []
+            },
+            {
+              "prompt": "Kan du anbefale en norsk butikkjede som har både ukentlige kundeaviser, oppskrifter og medlemsbonus for hverdagslige innkjøp?",
+              "mentioned": false,
+              "position": null,
+              "cited_domains": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "automation": {
+    "leverage": 83,
+    "potential": 17,
+    "present": 5,
+    "total": 6,
+    "signals": {
+      "contact_form": true,
+      "analytics": true,
+      "cmp": false,
+      "chat": true,
+      "booking": true,
+      "newsletter": true
+    }
+  },
+  "quick_wins": [],
+  "build_opportunities": [],
+  "human_approvals": [],
+  "executive_summary": "www.coop.no sin offentlige nettside scorer **62%** på Arch Website Score. Den største risikoen er: **Ressurs-feil (img/css/js)**. **12 funn** bør prioriteres (0 kritisk, 12 høy ROI). Største mulighet: **17% uutnyttet automatiseringsverdi** — prosesser som kan automatiseres (lead-ruting, kundestøtte, avtalebooking, oppfølging). Forretningsmessig betyr dette: målbar gevinst i hastighet, konvertering og frigjort tid. Merk: dette er en **utenfor-inn** vurdering av kun den offentlige nettsiden — interne systemer er ikke vurdert."
+}

@@ -147,6 +147,25 @@
    "audit_report": "docs/audits/prospects/www.bilglass.no/",
    "public_report": "https://arch-platform.pages.dev/audits/riis-bilglass",
    "consent": "none (passiv prospect-audit)"
+  },
+  {
+   "project_id": "coop",
+   "name": "Coop Norge SA — dagligvare/detaljhandel",
+   "type": "Prospect — Retail",
+   "repository": null,
+   "linear_team": "ARC",
+   "linear_project": null,
+   "runtime": "external",
+   "environment": "prospect",
+   "visibility": "internal",
+   "health_profile": "audited",
+   "status": "prospect",
+   "url": "https://www.coop.no",
+   "audit_score": 62,
+   "audit_date": "2026-08-15",
+   "audit_report": "docs/audits/prospects/www.coop.no/",
+   "public_report": "https://arch-platform.pages.dev/audits/coop",
+   "consent": "none (passiv prospect-audit)"
   }
  ]
 }
