@@ -166,6 +166,25 @@
    "audit_report": "docs/audits/prospects/www.coop.no/",
    "public_report": "https://arch-platform.pages.dev/audits/coop",
    "consent": "none (passiv prospect-audit)"
+  },
+  {
+   "project_id": "revolut",
+   "name": "Revolut (fintech)",
+   "type": "Prospect — Fintech",
+   "repository": null,
+   "linear_team": "ARC",
+   "linear_project": null,
+   "runtime": "external",
+   "environment": "prospect",
+   "visibility": "internal",
+   "health_profile": "audited",
+   "status": "prospect",
+   "url": "https://www.revolut.com",
+   "audit_score": 42,
+   "audit_date": "2026-08-15",
+   "audit_report": "docs/audits/prospects/www.revolut.com/",
+   "public_report": "https://arch-platform.pages.dev/audits/revolut",
+   "consent": "none (passiv prospect-audit)"
   }
  ]
 }

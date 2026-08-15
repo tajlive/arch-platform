@@ -1,0 +1,3629 @@
+{
+  "meta": {
+    "generated": "2026-08-15T00:57:31.833Z",
+    "version": "2.0",
+    "name": "lillelondon.no",
+    "website": "https://lillelondon.no",
+    "domain": "lillelondon.no",
+    "registrable_domain": "lillelondon.no",
+    "mode": "website",
+    "design_partner": false,
+    "audit_duration_ms": 72899,
+    "v2_modules_ms": 39559
+  },
+  "customer": null,
+  "score": {
+    "total": 51,
+    "categories": {
+      "performance": {
+        "pct": 25,
+        "weight": 20,
+        "pass": 2,
+        "fail": 3,
+        "unknown": 3,
+        "denom": 8,
+        "checks": [
+          {
+            "id": "compression",
+            "label": "Komprimering (gzip/brotli)",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "gzip",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:48.587Z"
+          },
+          {
+            "id": "caching",
+            "label": "Cache-headere",
+            "dimension": "performance",
+            "result": "FAIL",
+            "evidence": "ingen cache-control",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:48.587Z"
+          },
+          {
+            "id": "render_blocking",
+            "label": "Render-blokkerende ressurser",
+            "dimension": "performance",
+            "result": "FAIL",
+            "evidence": "22 blokkerende skript, 39 stylesheets",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:48.588Z"
+          },
+          {
+            "id": "image_optim",
+            "label": "Bilde-optimalisering",
+            "dimension": "performance",
+            "result": "FAIL",
+            "evidence": "9 bilder, 7 m/ dimensjoner, 3 lazy",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:48.588Z"
+          },
+          {
+            "id": "third_party",
+            "label": "Tredjeparts-skript/-ressurser",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "2 eksterne domener (fonts.googleapis.com, awards.infcdn.net)",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:48.589Z"
+          },
+          {
+            "id": "psi_mobile",
+            "label": "PageSpeed mobil",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:57:06.406Z"
+          },
+          {
+            "id": "psi_desktop",
+            "label": "PageSpeed desktop",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:57:06.406Z"
+          },
+          {
+            "id": "psi_availability",
+            "label": "PageSpeed API tilgjengelig",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:57:06.406Z"
+          }
+        ]
+      },
+      "security": {
+        "pct": 30,
+        "weight": 20,
+        "pass": 9,
+        "fail": 20,
+        "unknown": 1,
+        "denom": 30,
+        "checks": [
+          {
+            "id": "https",
+            "label": "HTTPS/TLS",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "HTTPS leverte respons",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:22.168Z"
+          },
+          {
+            "id": "header_csp",
+            "label": "Header: csp",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:50.296Z"
+          },
+          {
+            "id": "header_hsts",
+            "label": "Header: hsts",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:50.296Z"
+          },
+          {
+            "id": "header_xcto",
+            "label": "Header: xcto",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:50.296Z"
+          },
+          {
+            "id": "header_referrer",
+            "label": "Header: referrer",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:50.296Z"
+          },
+          {
+            "id": "header_permissions",
+            "label": "Header: permissions",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:50.296Z"
+          },
+          {
+            "id": "header_frame",
+            "label": "Header: frame",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:50.296Z"
+          },
+          {
+            "id": "mixed_content",
+            "label": "Blandet innhold (http på https)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "1 http-referanser",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:50.296Z"
+          },
+          {
+            "id": "source_maps",
+            "label": "Eksponerte source maps",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen sourceMappingURL i sjekkede skript",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:50.412Z"
+          },
+          {
+            "id": "tech_disclosure",
+            "label": "Versjons-avsløring",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "Apache, PHP/8.2.33",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:50.413Z"
+          },
+          {
+            "id": "security_headers",
+            "label": "Sikkerhetsheadere — gradering F",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "Gradering F. Content-Security-Policy: MANGLER; Strict-Transport-Security: MANGLER; X-Frame-Options: MANGLER; X-Content-Type-Options: MANGLER; Referrer-Policy: MANGLER; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS mangler · X-Frame-Options mangler (og ingen frame-ancestors i CSP) · X-Content-Type-Options mangler nosniff · Referrer-Policy mangler · Permissions-Policy mangler",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:56:55.138Z"
+          },
+          {
+            "id": "cookies_attributes",
+            "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:56:55.138Z"
+          },
+          {
+            "id": "leak_0_server",
+            "label": "Versjonslekkasje: server-header",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "server: Apache",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:56:55.140Z"
+          },
+          {
+            "id": "leak_1_x-powered-by",
+            "label": "Versjonslekkasje: x-powered-by-header",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "x-powered-by: PHP/8.2.33",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:56:55.140Z"
+          },
+          {
+            "id": "leak_2_meta",
+            "label": "Versjonslekkasje: <meta name=generator>",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "generator: All in One SEO (AIOSEO) 5.0.0.1",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:55.140Z"
+          },
+          {
+            "id": "leak_3_wordpress",
+            "label": "WordPress-signatur i generator",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "generator: WordPress 7.0.4",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:55.140Z"
+          },
+          {
+            "id": "leak_4_meta",
+            "label": "Versjonslekkasje: <meta name=generator>",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "generator: Elementor 4.2.2; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:55.140Z"
+          },
+          {
+            "id": "leak_5_wordpress",
+            "label": "WordPress-signatur i generator",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "generator: Powered by Slider Revolution 6.5.19 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface.",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:55.140Z"
+          },
+          {
+            "id": "tls_cert",
+            "label": "TLS-sertifikat gyldighet",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "notBefore=2026-06-25T04:37:41.000Z, notAfter=2026-09-23T04:37:40.000Z, issuer=C=US, O=Let's Encrypt, CN=YE2, SAN=lillelondon.no",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:57:10.529Z"
+          },
+          {
+            "id": "tls_verify",
+            "label": "TLS-sertifikat-verifisering",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "verify return code: 0 (ok)",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:57:10.529Z"
+          },
+          {
+            "id": "tls_legacy",
+            "label": "Legacy-TLS (1.0/1.1) støtte",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+            "confidence": "medium",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:57:10.529Z"
+          },
+          {
+            "id": "spf",
+            "label": "SPF (avsender-verifisering)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen SPF",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:56:53.740Z"
+          },
+          {
+            "id": "dkim",
+            "label": "DKIM (e-post-signering)",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "ingen av probede selektorer funnet (kan ikke konkludere fravær)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:56:54.216Z"
+          },
+          {
+            "id": "dmarc",
+            "label": "DMARC (spoofing-beskyttelse)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen DMARC",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:56:54.290Z"
+          },
+          {
+            "id": "mta_sts",
+            "label": "MTA-STS (håndhevet e-post-TLS)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:56:54.444Z"
+          },
+          {
+            "id": "tls_rpt",
+            "label": "TLS-RPT (TLS-rapportering)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen TLS-rapportering",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:56:54.489Z"
+          },
+          {
+            "id": "caa",
+            "label": "CAA (sertifikat-utsteder-kontroll)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen CAA",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:56:54.609Z"
+          },
+          {
+            "id": "dnssec",
+            "label": "DNSSEC (signert sone)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "AD-flag — signert sone validert",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:56:54.726Z"
+          },
+          {
+            "id": "subdomains",
+            "label": "Subdomene-eksponering (crt.sh)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "0 unike subdomener utover apex/www (sertifikatregistret crt.sh har kun hoveddomenet)",
+            "confidence": "medium",
+            "source": "https",
+            "observed_at": "2026-08-15T00:56:57.743Z"
+          },
+          {
+            "id": "norid_dnssec",
+            "label": "DNSSEC (Norid)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "DNSSEC aktivert (delegationSigned=true)",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:56:53.668Z"
+          }
+        ]
+      },
+      "ux_mobile": {
+        "pct": 50,
+        "weight": 15,
+        "pass": 2,
+        "fail": 1,
+        "unknown": 1,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "viewport",
+            "label": "Viewport meta",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "viewport tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:48.589Z"
+          },
+          {
+            "id": "media_queries",
+            "label": "Responsive CSS (@media)",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "@media funnet",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:48.687Z"
+          },
+          {
+            "id": "ai_content_quality",
+            "label": "Innholdskvalitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "UNKNOWN",
+            "evidence": "Siden presenterer pubens tilbud med sportssendinger, live musikk og utleielokaler, men har tydelige tegn på manglende oppdatering, som copyright fra 2022 og gjentatt tekst. Språket er uformelt og henvendt til et bredt publikum, men inneholder flere skrivefeil og ufullstendige setninger som svekker helhetsinntrykket.",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T00:56:57.562Z"
+          },
+          {
+            "id": "ai_content_freshness",
+            "label": "Aktualitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "FAIL",
+            "evidence": "© Copyright Lille London 2022 · Ingen årstall-signaler funnet i teksten · Gjentakelse av setninger om Facebook-oppdateringer · Manglende mellomrom i 'Sportman’s club' og 'lokalet ha'",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T00:56:57.563Z"
+          }
+        ]
+      },
+      "accessibility": {
+        "pct": 75,
+        "weight": 15,
+        "pass": 3,
+        "fail": 1,
+        "unknown": 0,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "lang",
+            "label": "Språk-attributt (lang)",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "en-GB",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:48.688Z"
+          },
+          {
+            "id": "alt_text",
+            "label": "Alt-tekst på bilder",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "0/9 bilder mangler alt",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:48.688Z"
+          },
+          {
+            "id": "form_labels",
+            "label": "Skjemaetiketter",
+            "dimension": "accessibility",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen skjemainput",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:48.689Z"
+          },
+          {
+            "id": "heading_hierarchy",
+            "label": "Overskriftshierarki",
+            "dimension": "accessibility",
+            "result": "FAIL",
+            "evidence": "h1=0 h2=1 h3=0",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:48.690Z"
+          },
+          {
+            "id": "semantic",
+            "label": "Semantiske landemerker",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "3/4 (header, nav, footer)",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:48.691Z"
+          }
+        ]
+      },
+      "seo": {
+        "pct": 100,
+        "weight": 10,
+        "pass": 8,
+        "fail": 0,
+        "unknown": 0,
+        "denom": 8,
+        "checks": [
+          {
+            "id": "title",
+            "label": "Tittel",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "Lille London - Engelsk Pub i Trondheim",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:48.691Z"
+          },
+          {
+            "id": "meta_description",
+            "label": "Meta-beskrivelse",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "Vi viser alt av premier league, champions league og eliteserien/rbk på 10 storskjermer. Vi har live musikk fre og lørdag! Ikke glem vårt gode kjøkken som serverer engelske retter.",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:48.691Z"
+          },
+          {
+            "id": "canonical",
+            "label": "Canonical",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "https://lillelondon.no/",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:48.691Z"
+          },
+          {
+            "id": "robots_meta",
+            "label": "Robots-meta",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "max-image-preview:large",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:48.691Z"
+          },
+          {
+            "id": "robots_txt",
+            "label": "robots.txt",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "robots.txt tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:48.691Z"
+          },
+          {
+            "id": "sitemap",
+            "label": "Sitemap.xml",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "sitemap tilstede (4 URL-er)",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:50.295Z"
+          },
+          {
+            "id": "open_graph",
+            "label": "OpenGraph",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "title=true description=true image=true",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:50.296Z"
+          },
+          {
+            "id": "structured_data",
+            "label": "Strukturert data (JSON-LD)",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "JSON-LD tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:50.296Z"
+          }
+        ]
+      },
+      "reliability": {
+        "pct": 86,
+        "weight": 10,
+        "pass": 6,
+        "fail": 0,
+        "unknown": 1,
+        "denom": 7,
+        "checks": [
+          {
+            "id": "http_status",
+            "label": "HTTP-status (hovedsiden)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "HTTP 200",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:22.165Z"
+          },
+          {
+            "id": "redirect_chain",
+            "label": "Omdirigeringskjede",
+            "dimension": "reliability",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen redirects",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:22.168Z"
+          },
+          {
+            "id": "broken_links",
+            "label": "Ødelagte interne lenker",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "6 sider sjekket, 0 ødelagt",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:44.303Z"
+          },
+          {
+            "id": "asset_failures",
+            "label": "Ressurs-feil (img/css/js)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "0 av 10 ressurser feilet",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:48.587Z"
+          },
+          {
+            "id": "norid_changed",
+            "label": "Sist endret (Norid)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "sist endret 2026-07-12",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:56:53.668Z"
+          },
+          {
+            "id": "history_exists",
+            "label": "Arkivhistorikk finnes",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "arkivert siden 2004-04-21",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:57:01.940Z"
+          },
+          {
+            "id": "history_freshness",
+            "label": "Aktualitet (siste arkiverte versjon)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "fanget i løpet av siste 12 mnd (2025-09-10)",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:57:01.946Z"
+          },
+          {
+            "id": "history_scope",
+            "label": "Arkivomfang",
+            "dimension": "reliability",
+            "result": "UNKNOWN",
+            "evidence": "omfang ikke tilgjengelig (Wayback CDX timeout på full historikk)",
+            "confidence": "medium",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:57:01.946Z"
+          }
+        ]
+      },
+      "trust_privacy": {
+        "pct": 39,
+        "weight": 5,
+        "pass": 9,
+        "fail": 12,
+        "unknown": 2,
+        "denom": 23,
+        "checks": [
+          {
+            "id": "cookie_banner",
+            "label": "Cookie-banner",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "cookie/samtykke-element observert",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:50.413Z"
+          },
+          {
+            "id": "privacy_link",
+            "label": "Personvernerklæring-link",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen personvern-link observert",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:50.415Z"
+          },
+          {
+            "id": "consent_cmp",
+            "label": "Samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "trackere observert uten CMP",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:50.416Z"
+          },
+          {
+            "id": "contact_form",
+            "label": "Kontakt-/lead-skjema",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen <form> observert",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:50.416Z"
+          },
+          {
+            "id": "cta",
+            "label": "Call-to-action",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "CTA-tekst observert",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-15T00:56:50.416Z"
+          },
+          {
+            "id": "bimi",
+            "label": "BIMI (merkevare-logo i innboks)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen BIMI (ikke påkrevd)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:56:54.557Z"
+          },
+          {
+            "id": "dnsbl",
+            "label": "E-post-omdømme (DNSBL)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "mx2.mailpod1-osl1.g1i.uniweb.no (104.37.38.151) ikke listet",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:56:54.895Z"
+          },
+          {
+            "id": "brreg_org",
+            "label": "Firma i Brreg (Enhetsregisteret)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "N kandidater for «Lille London - Engelsk Pub i Trondheim», ingen med Brreg-hjemmeside som matcher lillelondon.no — kan ikke entydig knytte firma til domene. Kandidater: LILLE LONDON AS (967852546) · KONRAD LONDON (927105470) · LONDON MARKETING (936702376)",
+            "confidence": "medium",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:56:52.548Z"
+          },
+          {
+            "id": "ssb_context",
+            "label": "Bransjekontekst (SSB, næring 56)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "SSB tabell 12817: Serveringsvirksomhet — 10 209 foretak (2024)",
+            "confidence": "high",
+            "source": "ssb",
+            "observed_at": "2026-08-15T00:56:53.542Z"
+          },
+          {
+            "id": "norid_registered",
+            "label": "Domenet registrert (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrert 2000-07-12",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:56:53.668Z"
+          },
+          {
+            "id": "norid_registrar",
+            "label": "Registrar (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrar: GROUP.ONE NORWAY AS",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:56:53.668Z"
+          },
+          {
+            "id": "cmp_banner",
+            "label": "Cookie-banner / samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:53.679Z"
+          },
+          {
+            "id": "consent_real_choice",
+            "label": "Reelt valg (avvis-knapp)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen banner/CMP observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:53.679Z"
+          },
+          {
+            "id": "consent_prechecked",
+            "label": "Forhåndsavkrysset samtykke",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:53.681Z"
+          },
+          {
+            "id": "privacy_policy",
+            "label": "Personvernerklæring",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen personvernerklæring-link observert — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:53.683Z"
+          },
+          {
+            "id": "third_party_trackers",
+            "label": "Tredjeparts-trackere",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen kjente tredjeparts-trackere observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:53.685Z"
+          },
+          {
+            "id": "google_fonts",
+            "label": "Google Fonts (ekstern)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ekstern Google Fonts observert (IP-data til Google) — signal, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:53.685Z"
+          },
+          {
+            "id": "ecom_price_vat",
+            "label": "Pris inkl. mva",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:53.688Z"
+          },
+          {
+            "id": "ecom_angrerett",
+            "label": "Angrerett-informasjon",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:53.688Z"
+          },
+          {
+            "id": "ecom_klage",
+            "label": "Klageadgang / tvisteløsning",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:53.689Z"
+          },
+          {
+            "id": "social_profiles",
+            "label": "Sosiale medier (lenker fra nettsiden)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "1 profiler lenket — alle svarer (facebook: 400)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:54.409Z"
+          },
+          {
+            "id": "nap_phone",
+            "label": "Telefon på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:54.410Z"
+          },
+          {
+            "id": "nap_email",
+            "label": "E-post på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:54.410Z"
+          },
+          {
+            "id": "nap_name_consistency",
+            "label": "Navn-konsistens (nettside ↔ Brreg)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "nettsidenavn «Lille London - Engelsk Pub i Trondheim» avviker fra Brreg-navn «LILLE LONDON AS» — signal",
+            "confidence": "high",
+            "source": "html+brreg",
+            "observed_at": "2026-08-15T00:56:54.410Z"
+          },
+          {
+            "id": "google_business",
+            "label": "Google Business Profile (anmeldelser, kategori)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+            "confidence": "medium",
+            "source": "places_api",
+            "observed_at": "2026-08-15T00:56:54.410Z"
+          }
+        ]
+      },
+      "ai_visibility": {
+        "pct": 25,
+        "weight": 5,
+        "pass": 1,
+        "fail": 2,
+        "unknown": 1,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "ai_vis_visibility",
+            "label": "Synlighet i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "FAIL",
+            "evidence": "0/3 svar nevner Lille London - Engelsk Pub i Trondheim · sitat: «Lille London nevnes ikke i noen av svarene.» · prompter: «Hva er den beste puben i Trondheim for å se Premie…» / «Kan du anbefale et sted i Trondheim som har både l…»",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:57:31.830Z"
+          },
+          {
+            "id": "ai_vis_position",
+            "label": "Posisjon i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "FAIL",
+            "evidence": "ikke nevnt i noen av svarene",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:57:31.830Z"
+          },
+          {
+            "id": "ai_vis_sentiment",
+            "label": "Sentiment i AI-omtale",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "sentiment: nøytral · råd: Sørg for at Lille London blir nevnt i relevante AI-svar ved å optimalisere nettsiden og lokale lister med søkeord som 'pub', 'sport', 'live ",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:57:31.830Z"
+          },
+          {
+            "id": "ai_vis_sources",
+            "label": "Kilder AI-en siterer",
+            "dimension": "ai_visibility",
+            "result": "UNKNOWN",
+            "evidence": "ingen eksterne domener sitert",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:57:31.830Z"
+          }
+        ]
+      },
+      "automation": {
+        "pct": 50,
+        "leverage": 50,
+        "potential": 50,
+        "weight": 5,
+        "pass": 3,
+        "fail": 3,
+        "unknown": 0,
+        "denom": 6,
+        "checks": []
+      }
+    },
+    "weights": {
+      "performance": 20,
+      "security": 20,
+      "ux_mobile": 15,
+      "accessibility": 15,
+      "seo": 10,
+      "reliability": 10,
+      "trust_privacy": 5,
+      "ai_visibility": 5
+    },
+    "labels": {
+      "performance": "Performance",
+      "security": "Security Surface",
+      "ux_mobile": "UX / Mobile",
+      "accessibility": "Accessibility",
+      "seo": "SEO / Discovery",
+      "reliability": "Reliability",
+      "trust_privacy": "Trust / Privacy",
+      "automation": "Automation Potential",
+      "ai_visibility": "AI-synlighet (GEO)"
+    },
+    "automation": {
+      "leverage": 50,
+      "potential": 50,
+      "present": 3,
+      "total": 6,
+      "signals": {
+        "contact_form": false,
+        "analytics": true,
+        "cmp": false,
+        "chat": true,
+        "booking": true,
+        "newsletter": false
+      }
+    },
+    "observed_at": "2026-08-15T00:57:31.832Z"
+  },
+  "findings": [
+    {
+      "id": "W001",
+      "kind": "web_caching",
+      "title": "Cache-headere",
+      "evidence": "ingen cache-control",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W002",
+      "kind": "web_render_blocking",
+      "title": "Render-blokkerende ressurser",
+      "evidence": "22 blokkerende skript, 39 stylesheets",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W003",
+      "kind": "web_image_optim",
+      "title": "Bilde-optimalisering",
+      "evidence": "9 bilder, 7 m/ dimensjoner, 3 lazy",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W004",
+      "kind": "web_heading_hierarchy",
+      "title": "Overskriftshierarki",
+      "evidence": "h1=0 h2=1 h3=0",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W005",
+      "kind": "web_security_headers",
+      "title": "Header: csp",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W006",
+      "kind": "web_security_headers",
+      "title": "Header: hsts",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W007",
+      "kind": "web_security_headers",
+      "title": "Header: xcto",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W008",
+      "kind": "web_security_headers",
+      "title": "Header: referrer",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W009",
+      "kind": "web_security_headers",
+      "title": "Header: permissions",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W010",
+      "kind": "web_security_headers",
+      "title": "Header: frame",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W011",
+      "kind": "web_mixed_content",
+      "title": "Blandet innhold (http på https)",
+      "evidence": "1 http-referanser",
+      "class": "inferred",
+      "section": "web",
+      "severity": "critical",
+      "priority": 5
+    },
+    {
+      "id": "W012",
+      "kind": "web_tech_disclosure",
+      "title": "Versjons-avsløring",
+      "evidence": "Apache, PHP/8.2.33",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W013",
+      "kind": "web_privacy",
+      "title": "Personvernerklæring-link",
+      "evidence": "ingen personvern-link observert",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W014",
+      "kind": "web_contact_form",
+      "title": "Kontakt-/lead-skjema",
+      "evidence": "ingen <form> observert",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W015",
+      "kind": "web_security_headers",
+      "title": "Sikkerhetsheadere — gradering F",
+      "evidence": "Gradering F. Content-Security-Policy: MANGLER; Strict-Transport-Security: MANGLER; X-Frame-Options: MANGLER; X-Content-Type-Options: MANGLER; Referrer-Policy: MANGLER; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS mangler · X-Frame-Options mangler (og ingen frame-ancestors i CSP) · X-Content-Type-Options mangler nosniff · Referrer-Policy mangler · Permissions-Policy mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W016",
+      "kind": "web_tech_disclosure",
+      "title": "Versjonslekkasje: server-header",
+      "evidence": "server: Apache",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W017",
+      "kind": "web_tech_disclosure",
+      "title": "Versjonslekkasje: x-powered-by-header",
+      "evidence": "x-powered-by: PHP/8.2.33",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W018",
+      "kind": "web_tech_disclosure",
+      "title": "Versjonslekkasje: <meta name=generator>",
+      "evidence": "generator: All in One SEO (AIOSEO) 5.0.0.1",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W019",
+      "kind": "web_tech_disclosure",
+      "title": "WordPress-signatur i generator",
+      "evidence": "generator: WordPress 7.0.4",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W020",
+      "kind": "web_tech_disclosure",
+      "title": "Versjonslekkasje: <meta name=generator>",
+      "evidence": "generator: Elementor 4.2.2; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W021",
+      "kind": "web_tech_disclosure",
+      "title": "WordPress-signatur i generator",
+      "evidence": "generator: Powered by Slider Revolution 6.5.19 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface.",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W022",
+      "kind": "web_email_spf",
+      "title": "SPF (avsender-verifisering)",
+      "evidence": "ingen SPF",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W023",
+      "kind": "web_email_dmarc",
+      "title": "DMARC (spoofing-beskyttelse)",
+      "evidence": "ingen DMARC",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W024",
+      "kind": "web_email_mta_sts",
+      "title": "MTA-STS (håndhevet e-post-TLS)",
+      "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W025",
+      "kind": "web_email_mta_sts",
+      "title": "TLS-RPT (TLS-rapportering)",
+      "evidence": "ingen TLS-rapportering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W026",
+      "kind": "web_dns_hardening",
+      "title": "CAA (sertifikat-utsteder-kontroll)",
+      "evidence": "ingen CAA",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W027",
+      "kind": "web_privacy",
+      "title": "Cookie-banner / samtykke-plattform (CMP)",
+      "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W028",
+      "kind": "web_privacy",
+      "title": "Personvernerklæring",
+      "evidence": "ingen personvernerklæring-link observert — potential concern, krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W029",
+      "kind": "web_privacy",
+      "title": "Google Fonts (ekstern)",
+      "evidence": "ekstern Google Fonts observert (IP-data til Google) — signal, krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W030",
+      "kind": "web_privacy",
+      "title": "Pris inkl. mva",
+      "evidence": "pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W031",
+      "kind": "web_privacy",
+      "title": "Angrerett-informasjon",
+      "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W032",
+      "kind": "web_privacy",
+      "title": "Klageadgang / tvisteløsning",
+      "evidence": "klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W033",
+      "kind": "web_nap",
+      "title": "Telefon på nettsiden",
+      "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W034",
+      "kind": "web_nap",
+      "title": "E-post på nettsiden",
+      "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W035",
+      "kind": "web_company_consistency",
+      "title": "Navn-konsistens (nettside ↔ Brreg)",
+      "evidence": "nettsidenavn «Lille London - Engelsk Pub i Trondheim» avviker fra Brreg-navn «LILLE LONDON AS» — signal",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W036",
+      "kind": "web_content",
+      "title": "Aktualitet (AI-vurdert)",
+      "evidence": "© Copyright Lille London 2022 · Ingen årstall-signaler funnet i teksten · Gjentakelse av setninger om Facebook-oppdateringer · Manglende mellomrom i 'Sportman’s club' og 'lokalet ha'",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W037",
+      "kind": "web_ai_visibility",
+      "title": "Synlighet i AI-svar",
+      "evidence": "0/3 svar nevner Lille London - Engelsk Pub i Trondheim · sitat: «Lille London nevnes ikke i noen av svarene.» · prompter: «Hva er den beste puben i Trondheim for å se Premie…» / «Kan du anbefale et sted i Trondheim som har både l…»",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W038",
+      "kind": "web_ai_position",
+      "title": "Posisjon i AI-svar",
+      "evidence": "ikke nevnt i noen av svarene",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W039",
+      "kind": "web_automation",
+      "title": "Automatiseringsmuligheter identifisert",
+      "evidence": "uutnyttet potensial 50% — manglende signaler: contact_form, cmp, newsletter",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    }
+  ],
+  "browser": {
+    "available": false
+  },
+  "web": {
+    "meta": {
+      "url": "https://lillelondon.no",
+      "domain": "lillelondon.no",
+      "origin": "https://lillelondon.no",
+      "final_url": "https://lillelondon.no",
+      "fetched_at": "2026-08-15T00:56:50.419Z"
+    },
+    "checks": [
+      {
+        "id": "http_status",
+        "label": "HTTP-status (hovedsiden)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "HTTP 200",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:22.165Z"
+      },
+      {
+        "id": "https",
+        "label": "HTTPS/TLS",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "HTTPS leverte respons",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:22.168Z"
+      },
+      {
+        "id": "redirect_chain",
+        "label": "Omdirigeringskjede",
+        "dimension": "reliability",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen redirects",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:22.168Z"
+      },
+      {
+        "id": "broken_links",
+        "label": "Ødelagte interne lenker",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "6 sider sjekket, 0 ødelagt",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:44.303Z"
+      },
+      {
+        "id": "asset_failures",
+        "label": "Ressurs-feil (img/css/js)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "0 av 10 ressurser feilet",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:48.587Z"
+      },
+      {
+        "id": "compression",
+        "label": "Komprimering (gzip/brotli)",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "gzip",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:48.587Z"
+      },
+      {
+        "id": "caching",
+        "label": "Cache-headere",
+        "dimension": "performance",
+        "result": "FAIL",
+        "evidence": "ingen cache-control",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:48.587Z"
+      },
+      {
+        "id": "render_blocking",
+        "label": "Render-blokkerende ressurser",
+        "dimension": "performance",
+        "result": "FAIL",
+        "evidence": "22 blokkerende skript, 39 stylesheets",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:48.588Z"
+      },
+      {
+        "id": "image_optim",
+        "label": "Bilde-optimalisering",
+        "dimension": "performance",
+        "result": "FAIL",
+        "evidence": "9 bilder, 7 m/ dimensjoner, 3 lazy",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:48.588Z"
+      },
+      {
+        "id": "third_party",
+        "label": "Tredjeparts-skript/-ressurser",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "2 eksterne domener (fonts.googleapis.com, awards.infcdn.net)",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:48.589Z"
+      },
+      {
+        "id": "viewport",
+        "label": "Viewport meta",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "viewport tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:48.589Z"
+      },
+      {
+        "id": "media_queries",
+        "label": "Responsive CSS (@media)",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "@media funnet",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:48.687Z"
+      },
+      {
+        "id": "lang",
+        "label": "Språk-attributt (lang)",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "en-GB",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:48.688Z"
+      },
+      {
+        "id": "alt_text",
+        "label": "Alt-tekst på bilder",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "0/9 bilder mangler alt",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:48.688Z"
+      },
+      {
+        "id": "form_labels",
+        "label": "Skjemaetiketter",
+        "dimension": "accessibility",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen skjemainput",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:48.689Z"
+      },
+      {
+        "id": "heading_hierarchy",
+        "label": "Overskriftshierarki",
+        "dimension": "accessibility",
+        "result": "FAIL",
+        "evidence": "h1=0 h2=1 h3=0",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:48.690Z"
+      },
+      {
+        "id": "semantic",
+        "label": "Semantiske landemerker",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "3/4 (header, nav, footer)",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:48.691Z"
+      },
+      {
+        "id": "title",
+        "label": "Tittel",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "Lille London - Engelsk Pub i Trondheim",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:48.691Z"
+      },
+      {
+        "id": "meta_description",
+        "label": "Meta-beskrivelse",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "Vi viser alt av premier league, champions league og eliteserien/rbk på 10 storskjermer. Vi har live musikk fre og lørdag! Ikke glem vårt gode kjøkken som serverer engelske retter.",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:48.691Z"
+      },
+      {
+        "id": "canonical",
+        "label": "Canonical",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "https://lillelondon.no/",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:48.691Z"
+      },
+      {
+        "id": "robots_meta",
+        "label": "Robots-meta",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "max-image-preview:large",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:48.691Z"
+      },
+      {
+        "id": "robots_txt",
+        "label": "robots.txt",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "robots.txt tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:48.691Z"
+      },
+      {
+        "id": "sitemap",
+        "label": "Sitemap.xml",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "sitemap tilstede (4 URL-er)",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:50.295Z"
+      },
+      {
+        "id": "open_graph",
+        "label": "OpenGraph",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "title=true description=true image=true",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:50.296Z"
+      },
+      {
+        "id": "structured_data",
+        "label": "Strukturert data (JSON-LD)",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "JSON-LD tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:50.296Z"
+      },
+      {
+        "id": "header_csp",
+        "label": "Header: csp",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:50.296Z"
+      },
+      {
+        "id": "header_hsts",
+        "label": "Header: hsts",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:50.296Z"
+      },
+      {
+        "id": "header_xcto",
+        "label": "Header: xcto",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:50.296Z"
+      },
+      {
+        "id": "header_referrer",
+        "label": "Header: referrer",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:50.296Z"
+      },
+      {
+        "id": "header_permissions",
+        "label": "Header: permissions",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:50.296Z"
+      },
+      {
+        "id": "header_frame",
+        "label": "Header: frame",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:50.296Z"
+      },
+      {
+        "id": "mixed_content",
+        "label": "Blandet innhold (http på https)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "1 http-referanser",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:50.296Z"
+      },
+      {
+        "id": "source_maps",
+        "label": "Eksponerte source maps",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "ingen sourceMappingURL i sjekkede skript",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:50.412Z"
+      },
+      {
+        "id": "tech_disclosure",
+        "label": "Versjons-avsløring",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "Apache, PHP/8.2.33",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:50.413Z"
+      },
+      {
+        "id": "cookie_banner",
+        "label": "Cookie-banner",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "cookie/samtykke-element observert",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:50.413Z"
+      },
+      {
+        "id": "privacy_link",
+        "label": "Personvernerklæring-link",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen personvern-link observert",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:50.415Z"
+      },
+      {
+        "id": "consent_cmp",
+        "label": "Samtykke-plattform (CMP)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "trackere observert uten CMP",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:50.416Z"
+      },
+      {
+        "id": "contact_form",
+        "label": "Kontakt-/lead-skjema",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen <form> observert",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:50.416Z"
+      },
+      {
+        "id": "cta",
+        "label": "Call-to-action",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "CTA-tekst observert",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:50.416Z"
+      },
+      {
+        "id": "tech_cms",
+        "label": "Teknologi: cms",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "WordPress",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:50.419Z"
+      },
+      {
+        "id": "tech_hosting",
+        "label": "Teknologi: hosting",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "Apache",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:50.419Z"
+      },
+      {
+        "id": "tech_analytics",
+        "label": "Teknologi: analytics",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "Google Analytics/Tag Manager",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:56:50.419Z"
+      },
+      {
+        "id": "security_headers",
+        "label": "Sikkerhetsheadere — gradering F",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "Gradering F. Content-Security-Policy: MANGLER; Strict-Transport-Security: MANGLER; X-Frame-Options: MANGLER; X-Content-Type-Options: MANGLER; Referrer-Policy: MANGLER; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS mangler · X-Frame-Options mangler (og ingen frame-ancestors i CSP) · X-Content-Type-Options mangler nosniff · Referrer-Policy mangler · Permissions-Policy mangler",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-15T00:56:55.138Z"
+      },
+      {
+        "id": "cookies_attributes",
+        "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-15T00:56:55.138Z"
+      },
+      {
+        "id": "leak_0_server",
+        "label": "Versjonslekkasje: server-header",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "server: Apache",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-15T00:56:55.140Z"
+      },
+      {
+        "id": "leak_1_x-powered-by",
+        "label": "Versjonslekkasje: x-powered-by-header",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "x-powered-by: PHP/8.2.33",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-15T00:56:55.140Z"
+      },
+      {
+        "id": "leak_2_meta",
+        "label": "Versjonslekkasje: <meta name=generator>",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "generator: All in One SEO (AIOSEO) 5.0.0.1",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T00:56:55.140Z"
+      },
+      {
+        "id": "leak_3_wordpress",
+        "label": "WordPress-signatur i generator",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "generator: WordPress 7.0.4",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T00:56:55.140Z"
+      },
+      {
+        "id": "leak_4_meta",
+        "label": "Versjonslekkasje: <meta name=generator>",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "generator: Elementor 4.2.2; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T00:56:55.140Z"
+      },
+      {
+        "id": "leak_5_wordpress",
+        "label": "WordPress-signatur i generator",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "generator: Powered by Slider Revolution 6.5.19 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface.",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T00:56:55.140Z"
+      },
+      {
+        "id": "tls_cert",
+        "label": "TLS-sertifikat gyldighet",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "notBefore=2026-06-25T04:37:41.000Z, notAfter=2026-09-23T04:37:40.000Z, issuer=C=US, O=Let's Encrypt, CN=YE2, SAN=lillelondon.no",
+        "confidence": "high",
+        "source": "tls",
+        "observed_at": "2026-08-15T00:57:10.529Z"
+      },
+      {
+        "id": "tls_verify",
+        "label": "TLS-sertifikat-verifisering",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "verify return code: 0 (ok)",
+        "confidence": "high",
+        "source": "tls",
+        "observed_at": "2026-08-15T00:57:10.529Z"
+      },
+      {
+        "id": "tls_legacy",
+        "label": "Legacy-TLS (1.0/1.1) støtte",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+        "confidence": "medium",
+        "source": "tls",
+        "observed_at": "2026-08-15T00:57:10.529Z"
+      },
+      {
+        "id": "spf",
+        "label": "SPF (avsender-verifisering)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen SPF",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:56:53.740Z"
+      },
+      {
+        "id": "dkim",
+        "label": "DKIM (e-post-signering)",
+        "dimension": "security",
+        "result": "UNKNOWN",
+        "evidence": "ingen av probede selektorer funnet (kan ikke konkludere fravær)",
+        "confidence": "low",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:56:54.216Z"
+      },
+      {
+        "id": "dmarc",
+        "label": "DMARC (spoofing-beskyttelse)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen DMARC",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:56:54.290Z"
+      },
+      {
+        "id": "mta_sts",
+        "label": "MTA-STS (håndhevet e-post-TLS)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:56:54.444Z"
+      },
+      {
+        "id": "tls_rpt",
+        "label": "TLS-RPT (TLS-rapportering)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen TLS-rapportering",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:56:54.489Z"
+      },
+      {
+        "id": "bimi",
+        "label": "BIMI (merkevare-logo i innboks)",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen BIMI (ikke påkrevd)",
+        "confidence": "low",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:56:54.557Z"
+      },
+      {
+        "id": "caa",
+        "label": "CAA (sertifikat-utsteder-kontroll)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen CAA",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:56:54.609Z"
+      },
+      {
+        "id": "dnssec",
+        "label": "DNSSEC (signert sone)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "AD-flag — signert sone validert",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:56:54.726Z"
+      },
+      {
+        "id": "dnsbl",
+        "label": "E-post-omdømme (DNSBL)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "mx2.mailpod1-osl1.g1i.uniweb.no (104.37.38.151) ikke listet",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:56:54.895Z"
+      },
+      {
+        "id": "subdomains",
+        "label": "Subdomene-eksponering (crt.sh)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "0 unike subdomener utover apex/www (sertifikatregistret crt.sh har kun hoveddomenet)",
+        "confidence": "medium",
+        "source": "https",
+        "observed_at": "2026-08-15T00:56:57.743Z"
+      },
+      {
+        "id": "brreg_org",
+        "label": "Firma i Brreg (Enhetsregisteret)",
+        "dimension": "trust_privacy",
+        "result": "UNKNOWN",
+        "evidence": "N kandidater for «Lille London - Engelsk Pub i Trondheim», ingen med Brreg-hjemmeside som matcher lillelondon.no — kan ikke entydig knytte firma til domene. Kandidater: LILLE LONDON AS (967852546) · KONRAD LONDON (927105470) · LONDON MARKETING (936702376)",
+        "confidence": "medium",
+        "source": "brreg",
+        "observed_at": "2026-08-15T00:56:52.548Z"
+      },
+      {
+        "id": "ssb_context",
+        "label": "Bransjekontekst (SSB, næring 56)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "SSB tabell 12817: Serveringsvirksomhet — 10 209 foretak (2024)",
+        "confidence": "high",
+        "source": "ssb",
+        "observed_at": "2026-08-15T00:56:53.542Z"
+      },
+      {
+        "id": "norid_registered",
+        "label": "Domenet registrert (Norid)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "registrert 2000-07-12",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T00:56:53.668Z"
+      },
+      {
+        "id": "norid_changed",
+        "label": "Sist endret (Norid)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "sist endret 2026-07-12",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T00:56:53.668Z"
+      },
+      {
+        "id": "norid_dnssec",
+        "label": "DNSSEC (Norid)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "DNSSEC aktivert (delegationSigned=true)",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T00:56:53.668Z"
+      },
+      {
+        "id": "norid_registrar",
+        "label": "Registrar (Norid)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "registrar: GROUP.ONE NORWAY AS",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T00:56:53.668Z"
+      },
+      {
+        "id": "history_exists",
+        "label": "Arkivhistorikk finnes",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "arkivert siden 2004-04-21",
+        "confidence": "high",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-15T00:57:01.940Z"
+      },
+      {
+        "id": "history_freshness",
+        "label": "Aktualitet (siste arkiverte versjon)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "fanget i løpet av siste 12 mnd (2025-09-10)",
+        "confidence": "high",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-15T00:57:01.946Z"
+      },
+      {
+        "id": "history_scope",
+        "label": "Arkivomfang",
+        "dimension": "reliability",
+        "result": "UNKNOWN",
+        "evidence": "omfang ikke tilgjengelig (Wayback CDX timeout på full historikk)",
+        "confidence": "medium",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-15T00:57:01.946Z"
+      },
+      {
+        "id": "cmp_banner",
+        "label": "Cookie-banner / samtykke-plattform (CMP)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T00:56:53.679Z"
+      },
+      {
+        "id": "consent_real_choice",
+        "label": "Reelt valg (avvis-knapp)",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen banner/CMP observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:56:53.679Z"
+      },
+      {
+        "id": "consent_prechecked",
+        "label": "Forhåndsavkrysset samtykke",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:56:53.681Z"
+      },
+      {
+        "id": "privacy_policy",
+        "label": "Personvernerklæring",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen personvernerklæring-link observert — potential concern, krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:56:53.683Z"
+      },
+      {
+        "id": "third_party_trackers",
+        "label": "Tredjeparts-trackere",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "ingen kjente tredjeparts-trackere observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:56:53.685Z"
+      },
+      {
+        "id": "google_fonts",
+        "label": "Google Fonts (ekstern)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ekstern Google Fonts observert (IP-data til Google) — signal, krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:56:53.685Z"
+      },
+      {
+        "id": "ecom_price_vat",
+        "label": "Pris inkl. mva",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:56:53.688Z"
+      },
+      {
+        "id": "ecom_angrerett",
+        "label": "Angrerett-informasjon",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:56:53.688Z"
+      },
+      {
+        "id": "ecom_klage",
+        "label": "Klageadgang / tvisteløsning",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:56:53.689Z"
+      },
+      {
+        "id": "psi_mobile",
+        "label": "PageSpeed mobil",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-feil: HTTP 429",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-15T00:57:06.406Z"
+      },
+      {
+        "id": "psi_desktop",
+        "label": "PageSpeed desktop",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-feil: HTTP 429",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-15T00:57:06.406Z"
+      },
+      {
+        "id": "psi_availability",
+        "label": "PageSpeed API tilgjengelig",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-15T00:57:06.406Z"
+      },
+      {
+        "id": "social_profiles",
+        "label": "Sosiale medier (lenker fra nettsiden)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "1 profiler lenket — alle svarer (facebook: 400)",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:56:54.409Z"
+      },
+      {
+        "id": "nap_phone",
+        "label": "Telefon på nettsiden",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T00:56:54.410Z"
+      },
+      {
+        "id": "nap_email",
+        "label": "E-post på nettsiden",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T00:56:54.410Z"
+      },
+      {
+        "id": "nap_name_consistency",
+        "label": "Navn-konsistens (nettside ↔ Brreg)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "nettsidenavn «Lille London - Engelsk Pub i Trondheim» avviker fra Brreg-navn «LILLE LONDON AS» — signal",
+        "confidence": "high",
+        "source": "html+brreg",
+        "observed_at": "2026-08-15T00:56:54.410Z"
+      },
+      {
+        "id": "google_business",
+        "label": "Google Business Profile (anmeldelser, kategori)",
+        "dimension": "trust_privacy",
+        "result": "UNKNOWN",
+        "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+        "confidence": "medium",
+        "source": "places_api",
+        "observed_at": "2026-08-15T00:56:54.410Z"
+      },
+      {
+        "id": "ai_content_quality",
+        "label": "Innholdskvalitet (AI-vurdert)",
+        "dimension": "ux_mobile",
+        "result": "UNKNOWN",
+        "evidence": "Siden presenterer pubens tilbud med sportssendinger, live musikk og utleielokaler, men har tydelige tegn på manglende oppdatering, som copyright fra 2022 og gjentatt tekst. Språket er uformelt og henvendt til et bredt publikum, men inneholder flere skrivefeil og ufullstendige setninger som svekker helhetsinntrykket.",
+        "confidence": "medium",
+        "source": "llm_analysis",
+        "observed_at": "2026-08-15T00:56:57.562Z"
+      },
+      {
+        "id": "ai_content_freshness",
+        "label": "Aktualitet (AI-vurdert)",
+        "dimension": "ux_mobile",
+        "result": "FAIL",
+        "evidence": "© Copyright Lille London 2022 · Ingen årstall-signaler funnet i teksten · Gjentakelse av setninger om Facebook-oppdateringer · Manglende mellomrom i 'Sportman’s club' og 'lokalet ha'",
+        "confidence": "medium",
+        "source": "llm_analysis",
+        "observed_at": "2026-08-15T00:56:57.563Z"
+      },
+      {
+        "id": "ai_vis_visibility",
+        "label": "Synlighet i AI-svar",
+        "dimension": "ai_visibility",
+        "result": "FAIL",
+        "evidence": "0/3 svar nevner Lille London - Engelsk Pub i Trondheim · sitat: «Lille London nevnes ikke i noen av svarene.» · prompter: «Hva er den beste puben i Trondheim for å se Premie…» / «Kan du anbefale et sted i Trondheim som har både l…»",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:57:31.830Z"
+      },
+      {
+        "id": "ai_vis_position",
+        "label": "Posisjon i AI-svar",
+        "dimension": "ai_visibility",
+        "result": "FAIL",
+        "evidence": "ikke nevnt i noen av svarene",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:57:31.830Z"
+      },
+      {
+        "id": "ai_vis_sentiment",
+        "label": "Sentiment i AI-omtale",
+        "dimension": "ai_visibility",
+        "result": "PASS",
+        "evidence": "sentiment: nøytral · råd: Sørg for at Lille London blir nevnt i relevante AI-svar ved å optimalisere nettsiden og lokale lister med søkeord som 'pub', 'sport', 'live ",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:57:31.830Z"
+      },
+      {
+        "id": "ai_vis_sources",
+        "label": "Kilder AI-en siterer",
+        "dimension": "ai_visibility",
+        "result": "UNKNOWN",
+        "evidence": "ingen eksterne domener sitert",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:57:31.830Z"
+      }
+    ],
+    "raw": {
+      "home": {
+        "status": 200,
+        "status_text": "OK",
+        "error": null,
+        "final_url": "https://lillelondon.no",
+        "redirects": []
+      },
+      "https": {
+        "ok": true,
+        "detail": "HTTPS leverte respons"
+      },
+      "redirect_chain": [],
+      "robots": {
+        "present": true,
+        "disallow": [
+          "/wp-admin/"
+        ]
+      },
+      "crawl": {
+        "pages_checked": 6,
+        "crawled": 6,
+        "broken": []
+      },
+      "html_length": 128370,
+      "asset_failures": {
+        "checked": 10,
+        "failed": 0,
+        "details": []
+      },
+      "compression": "gzip",
+      "caching": null,
+      "render_blocking_scripts": 22,
+      "images": {
+        "total": 9,
+        "with_dimensions": 7,
+        "lazy": 3
+      },
+      "third_party": [
+        "fonts.googleapis.com",
+        "awards.infcdn.net"
+      ],
+      "viewport": true,
+      "media_queries": true,
+      "lang": "en-GB",
+      "img_missing_alt": 0,
+      "forms_accessibility": {
+        "inputs": 0,
+        "labels": 0,
+        "inputs_with_label": 0
+      },
+      "headings": {
+        "h1": 0,
+        "h2": 1,
+        "h3": 0,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "landmarks": [
+        "header",
+        "nav",
+        "footer"
+      ],
+      "title": "Lille London - Engelsk Pub i Trondheim",
+      "meta_description": "Vi viser alt av premier league, champions league og eliteserien/rbk på 10 storskjermer. Vi har live musikk fre og lørdag! Ikke glem vårt gode kjøkken som serverer engelske retter.",
+      "canonical": "https://lillelondon.no/",
+      "robots_meta": "max-image-preview:large",
+      "sitemap": {
+        "status": 200,
+        "urls": 4
+      },
+      "open_graph": {
+        "title": true,
+        "description": true,
+        "image": true
+      },
+      "structured_data": true,
+      "security_headers": {
+        "csp": null,
+        "hsts": null,
+        "xcto": null,
+        "referrer": null,
+        "permissions": null,
+        "frame": null
+      },
+      "mixed_content": 1,
+      "source_maps": false,
+      "tech_disclosure": {
+        "server": "Apache",
+        "x_powered_by": "PHP/8.2.33"
+      },
+      "cookie_banner": true,
+      "analytics": [
+        "Google Analytics/Tag Manager"
+      ],
+      "privacy_link": false,
+      "consent_cmp": false,
+      "forms_count": 0,
+      "cta": true,
+      "automation_signals": {
+        "contact_form": false,
+        "analytics": true,
+        "cmp": false,
+        "chat": true,
+        "booking": true,
+        "newsletter": false
+      },
+      "technology": {
+        "framework": null,
+        "cms": "WordPress",
+        "cdn": null,
+        "hosting": "Apache",
+        "analytics": [
+          "Google Analytics/Tag Manager"
+        ]
+      }
+    }
+  },
+  "v2": {
+    "sections": [
+      {
+        "section": "security_hacker",
+        "title": "Hva en hacker ser",
+        "checks": [
+          {
+            "id": "security_headers",
+            "label": "Sikkerhetsheadere — gradering F",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "Gradering F. Content-Security-Policy: MANGLER; Strict-Transport-Security: MANGLER; X-Frame-Options: MANGLER; X-Content-Type-Options: MANGLER; Referrer-Policy: MANGLER; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS mangler · X-Frame-Options mangler (og ingen frame-ancestors i CSP) · X-Content-Type-Options mangler nosniff · Referrer-Policy mangler · Permissions-Policy mangler",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:56:55.138Z"
+          },
+          {
+            "id": "cookies_attributes",
+            "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:56:55.138Z"
+          },
+          {
+            "id": "leak_0_server",
+            "label": "Versjonslekkasje: server-header",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "server: Apache",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:56:55.140Z"
+          },
+          {
+            "id": "leak_1_x-powered-by",
+            "label": "Versjonslekkasje: x-powered-by-header",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "x-powered-by: PHP/8.2.33",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:56:55.140Z"
+          },
+          {
+            "id": "leak_2_meta",
+            "label": "Versjonslekkasje: <meta name=generator>",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "generator: All in One SEO (AIOSEO) 5.0.0.1",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:55.140Z"
+          },
+          {
+            "id": "leak_3_wordpress",
+            "label": "WordPress-signatur i generator",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "generator: WordPress 7.0.4",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:55.140Z"
+          },
+          {
+            "id": "leak_4_meta",
+            "label": "Versjonslekkasje: <meta name=generator>",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "generator: Elementor 4.2.2; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:55.140Z"
+          },
+          {
+            "id": "leak_5_wordpress",
+            "label": "WordPress-signatur i generator",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "generator: Powered by Slider Revolution 6.5.19 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface.",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:55.140Z"
+          },
+          {
+            "id": "tls_cert",
+            "label": "TLS-sertifikat gyldighet",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "notBefore=2026-06-25T04:37:41.000Z, notAfter=2026-09-23T04:37:40.000Z, issuer=C=US, O=Let's Encrypt, CN=YE2, SAN=lillelondon.no",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:57:10.529Z"
+          },
+          {
+            "id": "tls_verify",
+            "label": "TLS-sertifikat-verifisering",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "verify return code: 0 (ok)",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:57:10.529Z"
+          },
+          {
+            "id": "tls_legacy",
+            "label": "Legacy-TLS (1.0/1.1) støtte",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+            "confidence": "medium",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:57:10.529Z"
+          }
+        ],
+        "raw": {
+          "url": "https://lillelondon.no/",
+          "final_url": "https://lillelondon.no/",
+          "status": 200,
+          "status_text": "OK",
+          "redirects": [],
+          "headers": {
+            "accept-ranges": "bytes",
+            "age": "0",
+            "connection": "keep-alive",
+            "content-encoding": "gzip",
+            "content-type": "text/html; charset=UTF-8",
+            "date": "Sat, 15 Aug 2026 00:56:53 GMT",
+            "link": "<https://lillelondon.no/wp-json/>; rel=\"https://api.w.org/\", <https://lillelondon.no/wp-json/wp/v2/pages/15>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://lillelondon.no/>; rel=shortlink",
+            "server": "Apache",
+            "transfer-encoding": "chunked",
+            "vary": "Accept-Encoding",
+            "via": "1.1 webcache2 (Varnish/trunk)",
+            "x-pingback": "https://lillelondon.no/xmlrpc.php",
+            "x-powered-by": "PHP/8.2.33",
+            "x-varnish": "3278152264"
+          },
+          "security_grade": "F",
+          "security_deductions": [
+            "CSP mangler",
+            "HSTS mangler",
+            "X-Frame-Options mangler (og ingen frame-ancestors i CSP)",
+            "X-Content-Type-Options mangler nosniff",
+            "Referrer-Policy mangler",
+            "Permissions-Policy mangler"
+          ],
+          "cookies": [],
+          "version_leaks": [
+            {
+              "kind": "header",
+              "header": "server",
+              "value": "Apache"
+            },
+            {
+              "kind": "header",
+              "header": "x-powered-by",
+              "value": "PHP/8.2.33"
+            },
+            {
+              "kind": "meta_generator",
+              "value": "All in One SEO (AIOSEO) 5.0.0.1"
+            },
+            {
+              "kind": "wordpress",
+              "value": "WordPress 7.0.4"
+            },
+            {
+              "kind": "meta_generator",
+              "value": "Elementor 4.2.2; features: additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto"
+            },
+            {
+              "kind": "wordpress",
+              "value": "Powered by Slider Revolution 6.5.19 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface."
+            }
+          ],
+          "tls": {
+            "opensslAvailable": true,
+            "cert": {
+              "notBefore": "2026-06-25T04:37:41.000Z",
+              "notAfter": "2026-09-23T04:37:40.000Z",
+              "issuer": "C=US, O=Let's Encrypt, CN=YE2",
+              "san": [
+                "lillelondon.no"
+              ]
+            },
+            "verify": {
+              "code": 0,
+              "description": "ok"
+            },
+            "legacy": {
+              "tls1": "blocked",
+              "tls1_1": "blocked"
+            }
+          }
+        }
+      },
+      {
+        "section": "email_dns",
+        "title": "E-post & DNS-sikkerhet",
+        "checks": [
+          {
+            "id": "spf",
+            "label": "SPF (avsender-verifisering)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen SPF",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:56:53.740Z"
+          },
+          {
+            "id": "dkim",
+            "label": "DKIM (e-post-signering)",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "ingen av probede selektorer funnet (kan ikke konkludere fravær)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:56:54.216Z"
+          },
+          {
+            "id": "dmarc",
+            "label": "DMARC (spoofing-beskyttelse)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen DMARC",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:56:54.290Z"
+          },
+          {
+            "id": "mta_sts",
+            "label": "MTA-STS (håndhevet e-post-TLS)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:56:54.444Z"
+          },
+          {
+            "id": "tls_rpt",
+            "label": "TLS-RPT (TLS-rapportering)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen TLS-rapportering",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:56:54.489Z"
+          },
+          {
+            "id": "bimi",
+            "label": "BIMI (merkevare-logo i innboks)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen BIMI (ikke påkrevd)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:56:54.557Z"
+          },
+          {
+            "id": "caa",
+            "label": "CAA (sertifikat-utsteder-kontroll)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen CAA",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:56:54.609Z"
+          },
+          {
+            "id": "dnssec",
+            "label": "DNSSEC (signert sone)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "AD-flag — signert sone validert",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:56:54.726Z"
+          },
+          {
+            "id": "dnsbl",
+            "label": "E-post-omdømme (DNSBL)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "mx2.mailpod1-osl1.g1i.uniweb.no (104.37.38.151) ikke listet",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:56:54.895Z"
+          },
+          {
+            "id": "subdomains",
+            "label": "Subdomene-eksponering (crt.sh)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "0 unike subdomener utover apex/www (sertifikatregistret crt.sh har kun hoveddomenet)",
+            "confidence": "medium",
+            "source": "https",
+            "observed_at": "2026-08-15T00:56:57.743Z"
+          }
+        ],
+        "raw": {
+          "original": "lillelondon.no",
+          "registrable": "lillelondon.no",
+          "subdomain_of_input": false,
+          "spf": {
+            "record": null,
+            "policy": null,
+            "private_ips": []
+          },
+          "dkim": null,
+          "dmarc": {
+            "record": null,
+            "p": null,
+            "policy": null
+          },
+          "mta_sts": {
+            "txt": false,
+            "policy": false,
+            "policy_status": 0
+          },
+          "tls_rpt": null,
+          "bimi": null,
+          "caa": {
+            "records": [],
+            "issuers": []
+          },
+          "dnssec": "\n; <<>> DiG 9.10.6 <<>> +dnssec DNSKEY lillelondon.no +time=5 +tries=1\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 48398\n;; flags: qr rd ra ad; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags: do; udp: 512\n;; QUESTION SECTION:\n;lillelondon.no.\t\t\tIN\tDNSKEY\n\n;; ANSWER SECTION:\nlillelondon.no.\t\t600\tIN\tRRSIG\tDNSKEY 8 2 600 20260827000000 20260806000000 33791 lillelondon.no. CosaXMiiXBtwrV4np9iVIMSmBzUEHfB8XjOnvUDHS09/Uu2zvinSMJSt oKcUxPcbdA9eY4c7fVuyOqnOr92BOunWboHoSNN5fmbUsIBsOn/DLCqm oYPJP1TNCNp/fiEJFYKHJQFsyOSpDXVmH4m5K4aYAMjrjOv+MxbPzJ8K VrV4o7n3z3XFTFQiibgf47BSjmKtH+6Ar1suYjt2NsPeKrJWMioh1TnO /f1Hdv2ESp24Dkc9ezrXXvvxAep+z0V8VmRloo+s2lpAqVx7h89KNgwh YFeWM3qlgpjNvOFzSDxELN4VeHIBAwKl4NhyYJO6fPg4nQPqGgBYSduq meX8tA==\nlillelondon.no.\t\t600\tIN\tDNSKEY\t257 3 8 AwEAAcP+hSbhfTCYHgigvCd0IcQOUuiMumAIlz+FodsOB1kEZ9V8ukiy EOmlWagHMtIehrr0lM7h88vwXCH1YbrDIsEYsB1cXgXFaaCHjYufIlYJ U7y4zcvxMUu5VHHSEHcIyS6HFKrV3I+ft3MEKmbYguQ+lk/jj1eeRFPp jVriOKjzYZDhv6AND+Hw+sC/uLElNgrJdSMaWi4D8kJxYlWq6RHykHON MWEnh8zcZmRD4V4miFDA3D0j9ta1f4wxczPimFl9bD2M/P+cJwHp20LC jNzoe18opMiPJOnoE7OYizOxYp8DFMT3tjEmuo4p+7aEoHqEfv8X5hkB AehXLAeeHHs=\nlillelondon.no.\t\t600\tIN\tDNSKEY\t256 3 8 AwEAAb1coFRaFtS74mP+Ef5ekVIEM+vpD+isMYkasAGkSD+bKpopZUml RDnWCEwPRGX4giy+7u1J8FejIEVZFeid2hakA79xxemC01gMmDy7N2V+ P2ZCpjasDehjRd6a+xPJf4T2f6JmmWWBfQ9oM/BNUtDTrTz3mzhldLva FJVGspap\n\n;; Query time: 73 msec\n;; SERVER: 100.100.100.100#53(100.100.100.100)\n;; WHEN: Sat Aug 15 02:56:54 CEST 2026\n;; MSG SIZE  rcvd: 769\n\n",
+          "mx": [
+            {
+              "exchange": "mx2.mailpod1-osl1.g1i.uniweb.no",
+              "priority": 10
+            },
+            {
+              "exchange": "mx3.mailpod1-osl1.g1i.uniweb.no",
+              "priority": 10
+            },
+            {
+              "exchange": "mx1.mailpod1-osl1.g1i.uniweb.no",
+              "priority": 10
+            }
+          ],
+          "dnsbl": {
+            "mx": "mx2.mailpod1-osl1.g1i.uniweb.no",
+            "ip": "104.37.38.151",
+            "listed": false,
+            "host": "151.38.37.104.zen.spamhaus.org"
+          },
+          "subdomains": {
+            "count": 0,
+            "unique": [],
+            "interesting": [],
+            "queried": true
+          }
+        }
+      },
+      {
+        "section": "norge",
+        "title": "Norge-data (Brreg · Norid · SSB)",
+        "checks": [
+          {
+            "id": "brreg_org",
+            "label": "Firma i Brreg (Enhetsregisteret)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "N kandidater for «Lille London - Engelsk Pub i Trondheim», ingen med Brreg-hjemmeside som matcher lillelondon.no — kan ikke entydig knytte firma til domene. Kandidater: LILLE LONDON AS (967852546) · KONRAD LONDON (927105470) · LONDON MARKETING (936702376)",
+            "confidence": "medium",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:56:52.548Z"
+          },
+          {
+            "id": "ssb_context",
+            "label": "Bransjekontekst (SSB, næring 56)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "SSB tabell 12817: Serveringsvirksomhet — 10 209 foretak (2024)",
+            "confidence": "high",
+            "source": "ssb",
+            "observed_at": "2026-08-15T00:56:53.542Z"
+          },
+          {
+            "id": "norid_registered",
+            "label": "Domenet registrert (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrert 2000-07-12",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:56:53.668Z"
+          },
+          {
+            "id": "norid_changed",
+            "label": "Sist endret (Norid)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "sist endret 2026-07-12",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:56:53.668Z"
+          },
+          {
+            "id": "norid_dnssec",
+            "label": "DNSSEC (Norid)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "DNSSEC aktivert (delegationSigned=true)",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:56:53.668Z"
+          },
+          {
+            "id": "norid_registrar",
+            "label": "Registrar (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrar: GROUP.ONE NORWAY AS",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:56:53.668Z"
+          }
+        ],
+        "raw": {
+          "brreg": {
+            "unit": {
+              "organisasjonsnummer": "967852546",
+              "navn": "LILLE LONDON AS",
+              "organisasjonsform": {
+                "kode": "AS",
+                "beskrivelse": "Aksjeselskap",
+                "_links": {
+                  "self": {
+                    "href": "https://data.brreg.no/enhetsregisteret/api/organisasjonsformer/AS"
+                  }
+                }
+              },
+              "historiskeNavn": [
+                {
+                  "navn": "NO 10 PUB OG BILJARD AS",
+                  "fraDato": "1995-02-20 02:42:00",
+                  "tilDato": "1996-08-21 18:26:14"
+                }
+              ],
+              "postadresse": {
+                "land": "Norge",
+                "landkode": "NO",
+                "postnummer": "7410",
+                "poststed": "TRONDHEIM",
+                "adresse": [
+                  "Postboks 968"
+                ],
+                "kommune": "TRONDHEIM",
+                "kommunenummer": "5001"
+              },
+              "registreringsdatoEnhetsregisteret": "1995-02-20",
+              "registrertIMvaregisteret": true,
+              "naeringskode1": {
+                "kode": "56.110",
+                "beskrivelse": "Drift av restauranter"
+              },
+              "antallAnsatte": 29,
+              "harRegistrertAntallAnsatte": true,
+              "registreringsdatoMerverdiavgiftsregisteret": "1993-11-01",
+              "registreringsdatoMerverdiavgiftsregisteretEnhetsregisteret": "1995-02-20",
+              "registreringsdatoAntallAnsatteEnhetsregisteret": "2026-08-12",
+              "registreringsdatoAntallAnsatteNAVAaregisteret": "2026-08-10",
+              "telefon": "73 51 80 95",
+              "forretningsadresse": {
+                "land": "Norge",
+                "landkode": "NO",
+                "postnummer": "7010",
+                "poststed": "TRONDHEIM",
+                "adresse": [
+                  "Carl Johans gate 10"
+                ],
+                "kommune": "TRONDHEIM",
+                "kommunenummer": "5001"
+              },
+              "stiftelsesdato": "1993-11-01",
+              "institusjonellSektorkode": {
+                "kode": "2100",
+                "beskrivelse": "Private aksjeselskaper mv."
+              },
+              "registrertIForetaksregisteret": true,
+              "registrertIStiftelsesregisteret": false,
+              "registrertIFrivillighetsregisteret": false,
+              "sisteInnsendteAarsregnskap": "2025",
+              "konkurs": false,
+              "underAvvikling": false,
+              "underTvangsavviklingEllerTvangsopplosning": false,
+              "maalform": "Bokmål",
+              "vedtektsdato": "2004-03-02",
+              "vedtektsfestetFormaal": [
+                "Restaurantvirksomhet og øvrige tiltak som naturlig",
+                "står i forbindelse med dette. Herunder delta i",
+                "andre selskap med lignende virksomhet."
+              ],
+              "aktivitet": [
+                "Restaurantvirksomhet."
+              ],
+              "registreringsdatoForetaksregisteret": "1993-11-17",
+              "registrertIPartiregisteret": false,
+              "paategninger": [],
+              "erIKonsern": false,
+              "kapital": {
+                "belop": 600000,
+                "antallAksjer": 600,
+                "type": "Aksjekapital",
+                "valuta": "NOK",
+                "innfortDato": "2004-01-07"
+              },
+              "_links": {
+                "self": {
+                  "href": "https://data.brreg.no/enhetsregisteret/api/enheter/967852546"
+                }
+              },
+              "respons_klasse": "Enhet"
+            },
+            "search": {
+              "method": "navn",
+              "query": "Lille London - Engelsk Pub i Trondheim",
+              "nameCandidate": "Lille London - Engelsk Pub i Trondheim",
+              "totalHits": 5,
+              "matchedHjemmeside": false,
+              "matchedExactName": false,
+              "hits": [
+                {
+                  "organisasjonsnummer": "967852546",
+                  "navn": "LILLE LONDON AS",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "927105470",
+                  "navn": "KONRAD LONDON",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "936702376",
+                  "navn": "LONDON MARKETING",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "985266522",
+                  "navn": "BARNEFILMKLUBBEN I TRONDHEIM",
+                  "hjemmeside": "www.barnefilmklubben.no"
+                },
+                {
+                  "organisasjonsnummer": "962133002",
+                  "navn": "BOLIGSTIFTELSEN I TRONDHEIM",
+                  "hjemmeside": "www.boligstiftelsenitrondheim.no"
+                }
+              ]
+            },
+            "selection": {
+              "method": "navn",
+              "query": "Lille London - Engelsk Pub i Trondheim",
+              "nameCandidate": "Lille London - Engelsk Pub i Trondheim",
+              "totalHits": 5,
+              "matchedHjemmeside": false,
+              "matchedExactName": false,
+              "hits": [
+                {
+                  "organisasjonsnummer": "967852546",
+                  "navn": "LILLE LONDON AS",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "927105470",
+                  "navn": "KONRAD LONDON",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "936702376",
+                  "navn": "LONDON MARKETING",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "985266522",
+                  "navn": "BARNEFILMKLUBBEN I TRONDHEIM",
+                  "hjemmeside": "www.barnefilmklubben.no"
+                },
+                {
+                  "organisasjonsnummer": "962133002",
+                  "navn": "BOLIGSTIFTELSEN I TRONDHEIM",
+                  "hjemmeside": "www.boligstiftelsenitrondheim.no"
+                }
+              ]
+            },
+            "confirmed": false
+          },
+          "norid": {
+            "domain": "lillelondon.no",
+            "created": "2000-07-12",
+            "changed": "2026-07-12",
+            "dnssec": true,
+            "registrar": "GROUP.ONE NORWAY AS",
+            "status": null
+          },
+          "ssb": {
+            "table": "12817",
+            "nace": "56",
+            "value": 10209,
+            "year": "2024",
+            "label": "Serveringsvirksomhet",
+            "evidence": "SSB tabell 12817: Serveringsvirksomhet — 10 209 foretak (2024)"
+          }
+        }
+      },
+      {
+        "section": "history",
+        "title": "Historikk (Wayback Machine)",
+        "checks": [
+          {
+            "id": "history_exists",
+            "label": "Arkivhistorikk finnes",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "arkivert siden 2004-04-21",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:57:01.940Z"
+          },
+          {
+            "id": "history_freshness",
+            "label": "Aktualitet (siste arkiverte versjon)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "fanget i løpet av siste 12 mnd (2025-09-10)",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:57:01.946Z"
+          },
+          {
+            "id": "history_scope",
+            "label": "Arkivomfang",
+            "dimension": "reliability",
+            "result": "UNKNOWN",
+            "evidence": "omfang ikke tilgjengelig (Wayback CDX timeout på full historikk)",
+            "confidence": "medium",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:57:01.946Z"
+          }
+        ],
+        "raw": {
+          "snapshots": [
+            {
+              "timestamp": "20040421182419",
+              "original": null
+            },
+            {
+              "timestamp": "20250910113339",
+              "original": null
+            }
+          ],
+          "first_seen": "2004-04-21",
+          "last_seen": "2025-09-10",
+          "snapshot_count": null,
+          "error": "HTTP 503",
+          "fallback": true
+        }
+      },
+      {
+        "section": "compliance",
+        "title": "Compliance-signaler Norge",
+        "checks": [
+          {
+            "id": "cmp_banner",
+            "label": "Cookie-banner / samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:53.679Z"
+          },
+          {
+            "id": "consent_real_choice",
+            "label": "Reelt valg (avvis-knapp)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen banner/CMP observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:53.679Z"
+          },
+          {
+            "id": "consent_prechecked",
+            "label": "Forhåndsavkrysset samtykke",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:53.681Z"
+          },
+          {
+            "id": "privacy_policy",
+            "label": "Personvernerklæring",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen personvernerklæring-link observert — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:53.683Z"
+          },
+          {
+            "id": "third_party_trackers",
+            "label": "Tredjeparts-trackere",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen kjente tredjeparts-trackere observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:53.685Z"
+          },
+          {
+            "id": "google_fonts",
+            "label": "Google Fonts (ekstern)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ekstern Google Fonts observert (IP-data til Google) — signal, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:53.685Z"
+          },
+          {
+            "id": "ecom_price_vat",
+            "label": "Pris inkl. mva",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:53.688Z"
+          },
+          {
+            "id": "ecom_angrerett",
+            "label": "Angrerett-informasjon",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:53.688Z"
+          },
+          {
+            "id": "ecom_klage",
+            "label": "Klageadgang / tvisteløsning",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:53.689Z"
+          }
+        ],
+        "raw": {
+          "url": "https://lillelondon.no",
+          "fetched": false,
+          "status": null,
+          "fetch_error": null,
+          "html_length": 128370,
+          "script_srcs": [
+            "https://lillelondon.no/wp-includes/js/jquery/jquery.min.js?ver=3.7.1",
+            "https://lillelondon.no/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1",
+            "https://lillelondon.no/wp-content/themes/theratio/js/myloadmore.js?ver=1786755411",
+            "https://lillelondon.no/wp-content/plugins/wp-gdpr-compliance/Assets/js/front.min.js?ver=1706540528",
+            "https://lillelondon.no/wp-includes/js/dist/hooks.min.js?ver=7496969728ca0f95732d",
+            "https://lillelondon.no/wp-includes/js/dist/i18n.min.js?ver=781d11515ad3d91786ec",
+            "https://lillelondon.no/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=6.1.6",
+            "https://lillelondon.no/wp-content/plugins/contact-form-7/includes/js/index.js?ver=6.1.6",
+            "https://lillelondon.no/wp-content/plugins/revslider/public/assets/js/rbtools.min.js?ver=6.5.18",
+            "https://lillelondon.no/wp-content/plugins/revslider/public/assets/js/rs6.min.js?ver=6.5.19",
+            "https://lillelondon.no/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=4.2.2",
+            "https://lillelondon.no/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=4.2.2",
+            "https://lillelondon.no/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3",
+            "https://lillelondon.no/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=4.2.2",
+            "https://lillelondon.no/wp-content/themes/theratio/js/mousewheel.min.js?ver=20180910",
+            "https://lillelondon.no/wp-content/themes/theratio/js/lightgallery-all.min.js?ver=20180910",
+            "https://lillelondon.no/wp-content/themes/theratio/js/jquery.isotope.min.js?ver=20190829",
+            "https://lillelondon.no/wp-content/themes/theratio/js/easypiechart.min.js?ver=20190829",
+            "https://lillelondon.no/wp-content/themes/theratio/js/jquery.countdown.min.js?ver=20180910",
+            "https://lillelondon.no/wp-content/themes/theratio/js/before-after.js?ver=20180910",
+            "https://lillelondon.no/wp-content/themes/theratio/js/elementor.js?ver=20180910",
+            "https://lillelondon.no/wp-content/themes/theratio/js/elementor-header.js?ver=20200317",
+            "https://lillelondon.no/wp-content/themes/theratio/js/scripts.js?ver=20200317",
+            "https://lillelondon.no/wp-content/plugins/header-footer-elementor/inc/js/frontend.js?ver=2.9.3"
+          ],
+          "cmp": {
+            "named": [],
+            "generic_text": false
+          },
+          "consent_reject": null,
+          "consent_prechecked": {
+            "count": 0,
+            "described": []
+          },
+          "privacy": {
+            "linked": false,
+            "in_footer": false
+          },
+          "trackers": [],
+          "google_fonts": {
+            "external": true,
+            "self_hosted": false
+          },
+          "ecommerce": {
+            "shop_signal": true,
+            "price_vat": false,
+            "angrerett": false,
+            "klage": false
+          }
+        }
+      },
+      {
+        "section": "pagespeed",
+        "title": "Fart (PageSpeed Insights + CrUX)",
+        "checks": [
+          {
+            "id": "psi_mobile",
+            "label": "PageSpeed mobil",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:57:06.406Z"
+          },
+          {
+            "id": "psi_desktop",
+            "label": "PageSpeed desktop",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:57:06.406Z"
+          },
+          {
+            "id": "psi_availability",
+            "label": "PageSpeed API tilgjengelig",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:57:06.406Z"
+          }
+        ],
+        "raw": {
+          "mobile": {
+            "error": "HTTP 429",
+            "data": null
+          },
+          "desktop": {
+            "error": "HTTP 429",
+            "data": null
+          }
+        }
+      },
+      {
+        "section": "presence",
+        "title": "Tilstedeværelse (sosiale medier · NAP)",
+        "checks": [
+          {
+            "id": "social_profiles",
+            "label": "Sosiale medier (lenker fra nettsiden)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "1 profiler lenket — alle svarer (facebook: 400)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:54.409Z"
+          },
+          {
+            "id": "nap_phone",
+            "label": "Telefon på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:54.410Z"
+          },
+          {
+            "id": "nap_email",
+            "label": "E-post på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:56:54.410Z"
+          },
+          {
+            "id": "nap_name_consistency",
+            "label": "Navn-konsistens (nettside ↔ Brreg)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "nettsidenavn «Lille London - Engelsk Pub i Trondheim» avviker fra Brreg-navn «LILLE LONDON AS» — signal",
+            "confidence": "high",
+            "source": "html+brreg",
+            "observed_at": "2026-08-15T00:56:54.410Z"
+          },
+          {
+            "id": "google_business",
+            "label": "Google Business Profile (anmeldelser, kategori)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+            "confidence": "medium",
+            "source": "places_api",
+            "observed_at": "2026-08-15T00:56:54.410Z"
+          }
+        ],
+        "raw": {
+          "social": {
+            "facebook": {
+              "url": "https://www.facebook.com/profile.php?id=100063592810035",
+              "status": 400,
+              "error": null
+            }
+          },
+          "contact": {
+            "tel": null,
+            "email": null,
+            "org_nr_on_page": null
+          },
+          "google_business": {
+            "status": "unknown",
+            "reason": "krever Google Places API-nøkkel — ikke tilgjengelig uten"
+          }
+        }
+      },
+      {
+        "section": "ai_analysis",
+        "title": "AI-analyse av innhold (DeepSeek)",
+        "checks": [
+          {
+            "id": "ai_content_quality",
+            "label": "Innholdskvalitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "UNKNOWN",
+            "evidence": "Siden presenterer pubens tilbud med sportssendinger, live musikk og utleielokaler, men har tydelige tegn på manglende oppdatering, som copyright fra 2022 og gjentatt tekst. Språket er uformelt og henvendt til et bredt publikum, men inneholder flere skrivefeil og ufullstendige setninger som svekker helhetsinntrykket.",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T00:56:57.562Z"
+          },
+          {
+            "id": "ai_content_freshness",
+            "label": "Aktualitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "FAIL",
+            "evidence": "© Copyright Lille London 2022 · Ingen årstall-signaler funnet i teksten · Gjentakelse av setninger om Facebook-oppdateringer · Manglende mellomrom i 'Sportman’s club' og 'lokalet ha'",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T00:56:57.563Z"
+          }
+        ],
+        "raw": {
+          "available": true,
+          "error": null,
+          "prompt": "Du er analyse-delen av Arch Audit (norsk verktøy). Analyser TEKSTEN på en norsk bedrifts hjemmeside. Vurder kun det som står i teksten under — ikke finn på noe.\nURL: https://lillelondon.no\nTittel: Lille London - Engelsk Pub i Trondheim\nMeta-beskrivelse: Vi viser alt av premier league, champions league og eliteserien/rbk på 10 storskjermer. Vi har live musikk fre og lørdag! Ikke glem vårt gode kjøkken som serverer engelske retter.\nTekstutdrag (hjemmesiden):\nLille London - Engelsk Pub i Trondheim Skip to main content Lille London Forside Live musikk Studenter Menu Kontakt oss Menu Forside Live musikk Studenter Menu Kontakt oss BORD BESTILLING Lille London Lille London A top 100 best sport bar in Norway Restaurant Guru 2023 Vi viser alt av premier league, champions league og eliteserien/rbk på 10 storskjermer. Vi har live musikk fre og lørdag! Ikke glem vårt gode kjøkken som serverer engelske retter. Sportman’s club er et romslig lokalet som ligger i 2.etasje, lokalet ha egen bar og er åpent hver fredag og lørdag med live musikk fra 23.00. Vi leier lokalet ut til små og store selskaper, fra 20-80stk. Her har vi et eget lydanlegg der man kan spille egen musikk etter ønske. Churchill Room har en intim og koselig stemning. Her er det en egen bar som er åpen hver fredag og lørdag. I Churchill Room er det en storskjerm for fotball og annen sport, plasser kan reserveres. Her kan det også reserveres for små selskaper. På vår facebook side vil vi ha jevnlige oppdateringer for fotball og annen sport. Er det noe annet du vil se er det bare å spørre, har vi mulighet for å vise det så setter vi på det. Sjekk Lille London på På vår facebook side vil vi ha jevnlige oppdateringer for fotball og annen sport. Er det noe annet du vil se er det bare å spørre, har vi mulighet for å vise det så setter vi på det. Vi har live musikk hver uke med de beste trubadorene Trondheim har å by på. BORD BESTILLING Menu Forside Live musikk Studenter Menu Kontakt oss Lille London Carl Johans gate 10, 7010 Trondheim Phone: 73 51 80 95 Sunday- Thursday: 16:00 &#8211; 02:00 Friday- Saturday: 12:00 &#8211; 03:00 Lille London A top 100 best sport bar in Norway Restaurant Guru 2023 Facebook Forside Live musikk Studenter Menu Kontakt oss © Copyright Lille London 2022 &#8211; Additional design by Alan Pirie Design\nIngen årstall-signaler funnet i teksten.\n\nSvar KUN med JSON (ingen markdown-kodeblokk):\n{\"content_quality\":\"god|middels|svak\",\"tone\":\"...\",\"aktualitet\":\"frisk|middels|utdatert\",\"signals\":[\"...\"],\"summary_nb\":\"2-3 setninger på norsk, executive-språk, konkret\"}\nVurdering: aktualitet baseres på gamle datoer/©-år/nyhetsinnlegg i teksten; svak = stavefeil/ufullstendige setninger/meningsløs tekst; tone = hvem teksten henvender seg til og hvordan.",
+          "response": "{\"content_quality\":\"middels\",\"tone\":\"uformell og direkte, henvender seg til potensielle gjester med fokus på sport, musikk og selskapslokaler\",\"aktualitet\":\"utdatert\",\"signals\":[\"© Copyright Lille London 2022\",\"Ingen årstall-signaler funnet i teksten\",\"Gjentakelse av setninger om Facebook-oppdateringer\",\"Manglende mellomrom i 'Sportman’s club' og 'lokalet ha'\"],\"summary_nb\":\"Siden presenterer pubens tilbud med sportssendinger, live musikk og utleielokaler, men har tydelige tegn på manglende oppdatering, som copyright fra 2022 og gjentatt tekst. Språket er uformelt og henvendt til et bredt publikum, men inneholder flere skrivefeil og ufullstendige setninger som svekker helhetsinntrykket.\"}",
+          "model": "deepseek-chat"
+        }
+      },
+      {
+        "section": "ai_visibility",
+        "title": "AI-synlighet (GEO — hvordan AI-assistenter omtaler dere)",
+        "checks": [
+          {
+            "id": "ai_vis_visibility",
+            "label": "Synlighet i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "FAIL",
+            "evidence": "0/3 svar nevner Lille London - Engelsk Pub i Trondheim · sitat: «Lille London nevnes ikke i noen av svarene.» · prompter: «Hva er den beste puben i Trondheim for å se Premie…» / «Kan du anbefale et sted i Trondheim som har både l…»",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:57:31.830Z"
+          },
+          {
+            "id": "ai_vis_position",
+            "label": "Posisjon i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "FAIL",
+            "evidence": "ikke nevnt i noen av svarene",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:57:31.830Z"
+          },
+          {
+            "id": "ai_vis_sentiment",
+            "label": "Sentiment i AI-omtale",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "sentiment: nøytral · råd: Sørg for at Lille London blir nevnt i relevante AI-svar ved å optimalisere nettsiden og lokale lister med søkeord som 'pub', 'sport', 'live ",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:57:31.830Z"
+          },
+          {
+            "id": "ai_vis_sources",
+            "label": "Kilder AI-en siterer",
+            "dimension": "ai_visibility",
+            "result": "UNKNOWN",
+            "evidence": "ingen eksterne domener sitert",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:57:31.830Z"
+          }
+        ],
+        "raw": {
+          "available": true,
+          "error": null,
+          "model": "deepseek-chat",
+          "brand_candidates": [
+            "Lille London - Engelsk Pub i Trondheim",
+            "Lille London",
+            "lillelondon.no"
+          ],
+          "prompts": [
+            "Hva er den beste puben i Trondheim for å se Premier League og Champions League med mange storskjermer?",
+            "Kan du anbefale et sted i Trondheim som har både live musikk i helgene og et godt utvalg av engelske retter på menyen?",
+            "Hvilket lokale i Trondheim egner seg best for å leie til et privat selskap på 20-80 personer, med egen bar og mulighet for å spille egen musikk?"
+          ],
+          "answers": [
+            {
+              "prompt": "Hva er den beste puben i Trondheim for å se Premier League og Champions League med mange storskjermer?",
+              "answer": "For å se Premier League og Champions League i Trondheim med mange storskjermer, er det et par steder som skiller seg spesielt ut. Det er verdt å merke seg at «best» kan avhenge av om du vil ha mye liv og røre, eller en mer komfortabel stol med god mat.\n\nHer er de klart beste alternativene, rangert etter hvor godt de passer til akkurat ditt behov:\n\n**1. The Druid (Søndre gate) – Best totalpakke for sport**\n- **Hvorfor:** Dette er den mest dedikerte sportspuben i byen. De har et stort antall skjermer fordelt på flere etasjer, inkludert storskjermer i kinostørrelse i kjelleren. De viser nesten alle Premier League- og Champions League-kamper, ofte med lyd på de største kampene.\n- **Fordeler:** God atmosfære med mye publikum, mange øltyper på fat, og de har egne «supporterpulter» hvor du kan booke plass på forhånd for store kamper. Maten er pub-grublos, men solid.\n- **Ulemper:** Kan bli svært fullt på store kampdager (spesielt Liverpool, Man United, Arsenal), så møt opp tidlig eller book bord.\n\n**2. Tappetårnet (Kjøpmannsgata) – Best for mange skjermer og god utsikt**\n- **Hvorfor:** Dette er et stort, moderne sports- og ølhus med et imponerende antall skjermer, inkludert en gigantisk LED-vegg i hovedetasjen. De viser alt fra store ligaer til mindre kamper, og har svært god lyd og bildekvalitet.\n- **Fordeler:** Mye sitteplasser, god mat (inkludert burgere og biff), og et stort utvalg av øl. De har også flere soner, så du kan finne et roligere hjørne hvis du vil.\n- **Ulemper:** Kan føles litt mer «restaurant» enn «pub» på kvelden, men for sport er det topp.\n\n**3. Forrige Pub (Fjordgata) – Best for ekte supporterstemning**\n- **Hvorfor:** Hvis du vil ha den råeste stemningen med høylytte supportere, er dette stedet. De har mange skjermer, men det er ikke like mange som hos The Druid. Til gjengjeld er de veldig flinke til å sette på lyd og skape et «hjemmebanepreg» for store kamper.\n- **Fordeler:** Billigere øl, mer uformell og «skitten» pub-stemning. Ofte lettere å få plass enn på The Druid.\n- **Ulemper:** Færre skjermer, og bildekvaliteten er ikke alltid like god.\n\n**4. Trondheim Sportsbar (Søndre"
+            },
+            {
+              "prompt": "Kan du anbefale et sted i Trondheim som har både live musikk i helgene og et godt utvalg av engelske retter på menyen?",
+              "answer": "I Trondheim er det et par steder som treffer godt på både live musikk i helgene og et britisk/engelsk preg på menyen. Her er mine klare anbefalinger:\n\n**1. The Three Lions (Kjøpmannsgata)**  \nDette er den mest åpenbare kandidaten. Det er en engelsk pub med dedikert fotball- og musikkprofil. I helgene er det ofte liveband eller DJ, og menyen har klassikere som fish & chips, bangers & mash, shepherd's pie og full english breakfast (servert hele dagen). Atmosfæren er rå og ekte pub-stemning, med mørkt tre og mye historie.\n\n**2. Bar 3 (Kjøpmannsgata 9)**  \nSelv om de ikke kaller seg \"engelsk\", har de et bredt utvalg av britiske retter som steak & ale pie og fish & chips, og de har jevnlig live musikk i helgene – ofte akustisk eller jazzinspirert. Det er litt mer skandinavisk i stilen, men menyen har klare britiske innslag. Godt utvalg av øl, inkludert engelske ales.\n\n**3. Den Gode Nabo (Fjordgata)**  \nDette er en klassisk pub med et stort utvalg av engelske øl og en meny med blant annet haggis, fish & chips og ulike paier. De har live musikk i helgene, men det er litt mer variert – noen ganger rockeband, andre ganger singer-songwriter. Stemningen er lun og folkelig.\n\n---\n\n**Mitt beste tips:** Hvis du vil være sikret begge deler samme kveld, sjekk programmet til **The Three Lions** på forhånd – de har oftest faste band i helgene og er mest dedikert til den engelske profilen. Hvis du vil ha en roligere variant med god mat, er **Bar 3** et solid valg.\n\nVil du ha tips til en spesifikk helg, eller er det noe av maten du er spesielt ute etter?"
+            },
+            {
+              "prompt": "Hvilket lokale i Trondheim egner seg best for å leie til et privat selskap på 20-80 personer, med egen bar og mulighet for å spille egen musikk?",
+              "answer": "For et privat selskap på 20–80 personer i Trondheim, med krav om **egen bar** og **mulighet for å spille egen musikk** (f.eks. via Spotify, DJ-utstyr eller lignende), er det flere gode alternativer. Jeg vil trekke frem noen som skiller seg ut, basert på størrelse, fleksibilitet og atmosfære.\n\n### 1. **Logen Teater & Konserthus** (spesielt \"Lillesalen\" eller \"Store Sal\")\n- **Hvorfor:** Logen har flere rom, og **Lillesalen** er svært egnet for 50–100 personer. Den har en intim, men industriell sjarm med høyt under taket, og du får ofte mulighet til å bruke deres egen bar. De er vant til private arrangementer og tillater som regel egen musikk/mikser hvis dere tar med eget utstyr.\n- **Fordeler:** Sentralt (Olav Tryggvasons gate), proff lyd og lys, og mulighet for å kombinere med andre rom hvis dere blir flere.\n- **Merk:** Prisnivået er litt høyere, men dere får \"helhetsfølelsen\" av et kulturhus.\n\n### 2. **Døgnvill** (på Solsiden)\n- **Hvorfor:** Døgnvill er en bar/restaurant med et eget bakrom (\"Selskapssalen\") som tar opptil 80 personer. De har egen bar i lokalet, og de er veldig fleksible med tanke på egen musikk – mange leier der for å kjøre egen spilleliste eller ta med DJ.\n- **Fordeler:** Uformell og moderne stil, god mat hvis dere vil ha noe å spise, og enkel tilgang til uteservering om sommeren. De har ofte gode pakkepriser for selskaper.\n- **Merk:** Kan bli støyende hvis dere er mange, men det er som regel et pluss for denne typen arrangementer.\n\n### 3. **Kjelleren på Samfundet** (Studentersamfundet)\n- **Hvorfor:** Hvis dere ikke er redd for litt \"studentaktig\" stemning, er Kjelleren et klassisk lokale med egen bar og en scene. Kapasiteten er rundt 100, men for 60–80 er det perfekt. Dere kan koble til egen musikk, og de har godt lydanlegg.\n- **Fordeler:** Rimelig pris, sentralt og veldig fleksibelt (de er vant til alt fra fester til konserter). Dere kan også leie hele underetasjen for mer privatliv.\n- **Merk:** Utenomsesong (sommer) kan være begrenset, og det kan være en del bookingkonkurranse.\n\n### 4. **Baklandet Skydsstation** (Bakkeområdet)\n- **Hvorfor:** Dette er en sjarmerende restaurant/pub med et"
+            }
+          ],
+          "analysis": {
+            "sentiment": "nøytral",
+            "quote": "Lille London nevnes ikke i noen av svarene.",
+            "advice_nb": "Sørg for at Lille London blir nevnt i relevante AI-svar ved å optimalisere nettsiden og lokale lister med søkeord som 'pub', 'sport', 'live musikk' og 'privat selskap' i Trondheim."
+          },
+          "measurements": [
+            {
+              "prompt": "Hva er den beste puben i Trondheim for å se Premier League og Champions League med mange storskjermer?",
+              "mentioned": false,
+              "position": null,
+              "cited_domains": []
+            },
+            {
+              "prompt": "Kan du anbefale et sted i Trondheim som har både live musikk i helgene og et godt utvalg av engelske retter på menyen?",
+              "mentioned": false,
+              "position": null,
+              "cited_domains": []
+            },
+            {
+              "prompt": "Hvilket lokale i Trondheim egner seg best for å leie til et privat selskap på 20-80 personer, med egen bar og mulighet for å spille egen musikk?",
+              "mentioned": false,
+              "position": null,
+              "cited_domains": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "automation": {
+    "leverage": 50,
+    "potential": 50,
+    "present": 3,
+    "total": 6,
+    "signals": {
+      "contact_form": false,
+      "analytics": true,
+      "cmp": false,
+      "chat": true,
+      "booking": true,
+      "newsletter": false
+    }
+  },
+  "quick_wins": [],
+  "build_opportunities": [],
+  "human_approvals": [],
+  "executive_summary": "lillelondon.no sin offentlige nettside scorer **51%** på Arch Website Score. Den største risikoen er: **Blandet innhold (http på https)**. **21 funn** bør prioriteres (1 kritisk, 20 høy ROI). Største mulighet: **50% uutnyttet automatiseringsverdi** — prosesser som kan automatiseres (lead-ruting, kundestøtte, avtalebooking, oppfølging). Forretningsmessig betyr dette: konkret risiko som bør lukkes raskt, og målbar gevinst i hastighet, konvertering og frigjort tid. Merk: dette er en **utenfor-inn** vurdering av kun den offentlige nettsiden — interne systemer er ikke vurdert."
+}

@@ -1,0 +1,3084 @@
+{
+  "meta": {
+    "generated": "2026-08-15T00:55:39.555Z",
+    "version": "2.0",
+    "name": "www.nbim.no",
+    "website": "https://www.nbim.no",
+    "domain": "www.nbim.no",
+    "registrable_domain": "nbim.no",
+    "mode": "website",
+    "design_partner": false,
+    "audit_duration_ms": 76194,
+    "v2_modules_ms": 40731
+  },
+  "customer": null,
+  "score": {
+    "total": 66,
+    "categories": {
+      "performance": {
+        "pct": 50,
+        "weight": 20,
+        "pass": 4,
+        "fail": 1,
+        "unknown": 3,
+        "denom": 8,
+        "checks": [
+          {
+            "id": "compression",
+            "label": "Komprimering (gzip/brotli)",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "gzip",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.127Z"
+          },
+          {
+            "id": "caching",
+            "label": "Cache-headere",
+            "dimension": "performance",
+            "result": "FAIL",
+            "evidence": "ingen cache-control",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.127Z"
+          },
+          {
+            "id": "render_blocking",
+            "label": "Render-blokkerende ressurser",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "0 blokkerende skript, 1 stylesheets",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.128Z"
+          },
+          {
+            "id": "image_optim",
+            "label": "Bilde-optimalisering",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "18 bilder, 18 m/ dimensjoner, 16 lazy",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.128Z"
+          },
+          {
+            "id": "third_party",
+            "label": "Tredjeparts-skript/-ressurser",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "0 eksterne domener",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.128Z"
+          },
+          {
+            "id": "psi_mobile",
+            "label": "PageSpeed mobil",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:55:12.899Z"
+          },
+          {
+            "id": "psi_desktop",
+            "label": "PageSpeed desktop",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:55:12.899Z"
+          },
+          {
+            "id": "psi_availability",
+            "label": "PageSpeed API tilgjengelig",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:55:12.899Z"
+          }
+        ]
+      },
+      "security": {
+        "pct": 74,
+        "weight": 20,
+        "pass": 20,
+        "fail": 5,
+        "unknown": 2,
+        "denom": 27,
+        "checks": [
+          {
+            "id": "https",
+            "label": "HTTPS/TLS",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "HTTPS leverte respons",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:26.033Z"
+          },
+          {
+            "id": "header_csp",
+            "label": "Header: csp",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.538Z"
+          },
+          {
+            "id": "header_hsts",
+            "label": "Header: hsts",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.538Z"
+          },
+          {
+            "id": "header_xcto",
+            "label": "Header: xcto",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.538Z"
+          },
+          {
+            "id": "header_referrer",
+            "label": "Header: referrer",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.538Z"
+          },
+          {
+            "id": "header_permissions",
+            "label": "Header: permissions",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.538Z"
+          },
+          {
+            "id": "header_frame",
+            "label": "Header: frame",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.538Z"
+          },
+          {
+            "id": "mixed_content",
+            "label": "Blandet innhold (http på https)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen http-referanser i HTML",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.538Z"
+          },
+          {
+            "id": "source_maps",
+            "label": "Eksponerte source maps",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "skript ikke observerbare",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.538Z"
+          },
+          {
+            "id": "tech_disclosure",
+            "label": "Versjons-avsløring",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "cloudflare",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.538Z"
+          },
+          {
+            "id": "security_headers",
+            "label": "Sikkerhetsheadere — gradering B",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "Gradering B. Content-Security-Policy: frame-ancestors 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'  cdnjs.cloudflare.…; Strict-Transport-Security: max-age=31536000; X-Frame-Options: SAMEORIGIN; X-Content-Type-Options: nosniff; Referrer-Policy: no-referrer-when-downgrade; Permissions-Policy: MANGLER Trekk: CSP svak (unsafe-inline/unsafe-eval) · HSTS uten includeSubDomains · Permissions-Policy mangler",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:54:59.578Z"
+          },
+          {
+            "id": "cookies_attributes",
+            "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:54:59.578Z"
+          },
+          {
+            "id": "version_leaks",
+            "label": "Ingen versjonslekkasjer",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen server/x-powered-by/x-aspnet-version-header, <meta generator>, gammel jQuery eller WordPress-signatur observert.",
+            "confidence": "medium",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:54:59.590Z"
+          },
+          {
+            "id": "tls_cert",
+            "label": "TLS-sertifikat gyldighet",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "notBefore=2026-07-24T03:40:30.000Z, notAfter=2026-10-22T04:40:27.000Z, issuer=C=US, O=Google Trust Services, CN=WE1, SAN=www.nbim.no",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:55:19.963Z"
+          },
+          {
+            "id": "tls_verify",
+            "label": "TLS-sertifikat-verifisering",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "verify return code: 0 (ok)",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:55:19.963Z"
+          },
+          {
+            "id": "tls_legacy",
+            "label": "Legacy-TLS (1.0/1.1) støtte",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+            "confidence": "medium",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:55:19.963Z"
+          },
+          {
+            "id": "spf",
+            "label": "SPF (avsender-verifisering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "v=spf1 include:spf.protection.outlook.com -all",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:54:59.719Z"
+          },
+          {
+            "id": "spf_private_ip",
+            "label": "SPF: private IP-er i mekanismene",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen private IP-er i SPF",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:54:59.720Z"
+          },
+          {
+            "id": "dkim",
+            "label": "DKIM (e-post-signering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "selector: selector2",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:55:00.621Z"
+          },
+          {
+            "id": "dmarc",
+            "label": "DMARC (spoofing-beskyttelse)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "p=reject (blokk) — v=DMARC1;p=reject;sp=reject;pct=100;rua=mailto:exchange-rua@nbim.no",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:55:00.705Z"
+          },
+          {
+            "id": "dmarc_subdomain",
+            "label": "DMARC for subdomene",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen _dmarc.www.nbim.no — subdomener kan spoofes",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:55:00.750Z"
+          },
+          {
+            "id": "mta_sts",
+            "label": "MTA-STS (håndhevet e-post-TLS)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "TXT + gyldig policy-fil på plass",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:55:01.246Z"
+          },
+          {
+            "id": "tls_rpt",
+            "label": "TLS-RPT (TLS-rapportering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "v=TLSRPTv1;rua=mailto:tls-rpt-reports@nbim.no",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:55:01.327Z"
+          },
+          {
+            "id": "caa",
+            "label": "CAA (sertifikat-utsteder-kontroll)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen CAA",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:55:01.483Z"
+          },
+          {
+            "id": "dnssec",
+            "label": "DNSSEC (signert sone)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "AD-flag — signert sone validert",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:55:01.764Z"
+          },
+          {
+            "id": "subdomains",
+            "label": "Subdomene-eksponering (crt.sh)",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "crt.sh-feil: HTTP 404",
+            "confidence": "low",
+            "source": "https",
+            "observed_at": "2026-08-15T00:55:03.306Z"
+          },
+          {
+            "id": "norid_dnssec",
+            "label": "DNSSEC (Norid)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "DNSSEC aktivert (delegationSigned=true)",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:54:59.334Z"
+          }
+        ]
+      },
+      "ux_mobile": {
+        "pct": 75,
+        "weight": 15,
+        "pass": 3,
+        "fail": 0,
+        "unknown": 1,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "viewport",
+            "label": "Viewport meta",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "viewport tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.128Z"
+          },
+          {
+            "id": "media_queries",
+            "label": "Responsive CSS (@media)",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "@media funnet",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.268Z"
+          },
+          {
+            "id": "ai_content_quality",
+            "label": "Innholdskvalitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "Siden gir en grundig og oversiktlig presentasjon av Oljefondets formål, investeringsområder og ansvarlig forvaltning. Innholdet er faglig solid og godt strukturert, men mangler tydelige oppdateringsdatoer for å bekrefte at all informasjon er helt fersk. Teksten henvender seg til et bredt publikum med et profesjonelt og informativt språk.",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T00:55:03.694Z"
+          },
+          {
+            "id": "ai_content_freshness",
+            "label": "Aktualitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "UNKNOWN",
+            "evidence": "Halvårsrapport 2026 nevnt, men ingen konkret dato for publisering · Ingen tydelige ©-år eller oppdaterte nyhetsdatoer i teksten · Referanser til historiske hendelser (1969, 1996, 2019, 2024) indikerer at siden har vært oppdatert nylig",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T00:55:03.694Z"
+          }
+        ]
+      },
+      "accessibility": {
+        "pct": 80,
+        "weight": 15,
+        "pass": 4,
+        "fail": 1,
+        "unknown": 0,
+        "denom": 5,
+        "checks": [
+          {
+            "id": "lang",
+            "label": "Språk-attributt (lang)",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "no",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.268Z"
+          },
+          {
+            "id": "alt_text",
+            "label": "Alt-tekst på bilder",
+            "dimension": "accessibility",
+            "result": "FAIL",
+            "evidence": "1/18 bilder mangler alt",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.268Z"
+          },
+          {
+            "id": "form_labels",
+            "label": "Skjemaetiketter",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "3 input, 3 label",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.269Z"
+          },
+          {
+            "id": "heading_hierarchy",
+            "label": "Overskriftshierarki",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "h1=1 h2=14 h3=4",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.270Z"
+          },
+          {
+            "id": "semantic",
+            "label": "Semantiske landemerker",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "4/4 (header, nav, main, footer)",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.270Z"
+          }
+        ]
+      },
+      "seo": {
+        "pct": 75,
+        "weight": 10,
+        "pass": 6,
+        "fail": 2,
+        "unknown": 0,
+        "denom": 8,
+        "checks": [
+          {
+            "id": "title",
+            "label": "Tittel",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "Oljefondet | Norges Bank Investment Management",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.270Z"
+          },
+          {
+            "id": "meta_description",
+            "label": "Meta-beskrivelse",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "Form&#xE5;let med Oljefondet er &#xE5; sikre finansielle verdier for n&#xE5;v&#xE6;rende og fremtidige generasjoner basert p&#xE5; inntektene fra Norges olje- og gassressurser. ",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.270Z"
+          },
+          {
+            "id": "canonical",
+            "label": "Canonical",
+            "dimension": "seo",
+            "result": "FAIL",
+            "evidence": "mangler canonical",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.270Z"
+          },
+          {
+            "id": "robots_meta",
+            "label": "Robots-meta",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "index, follow",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.270Z"
+          },
+          {
+            "id": "robots_txt",
+            "label": "robots.txt",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "robots.txt tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.270Z"
+          },
+          {
+            "id": "sitemap",
+            "label": "Sitemap.xml",
+            "dimension": "seo",
+            "result": "FAIL",
+            "evidence": "mangler sitemap.xml",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.537Z"
+          },
+          {
+            "id": "open_graph",
+            "label": "OpenGraph",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "title=true description=true image=true",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.538Z"
+          },
+          {
+            "id": "structured_data",
+            "label": "Strukturert data (JSON-LD)",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "JSON-LD tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.538Z"
+          }
+        ]
+      },
+      "reliability": {
+        "pct": 75,
+        "weight": 10,
+        "pass": 6,
+        "fail": 1,
+        "unknown": 1,
+        "denom": 8,
+        "checks": [
+          {
+            "id": "http_status",
+            "label": "HTTP-status (hovedsiden)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "HTTP 200",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:25.822Z"
+          },
+          {
+            "id": "redirect_chain",
+            "label": "Omdirigeringskjede",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "302 www.nbim.no→www.nbim.no",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:26.245Z"
+          },
+          {
+            "id": "broken_links",
+            "label": "Ødelagte interne lenker",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "25 sider sjekket, 0 ødelagt",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:53.122Z"
+          },
+          {
+            "id": "asset_failures",
+            "label": "Ressurs-feil (img/css/js)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "0 av 10 ressurser feilet",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.127Z"
+          },
+          {
+            "id": "norid_changed",
+            "label": "Sist endret (Norid)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "sist endret 2026-07-31",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:54:59.334Z"
+          },
+          {
+            "id": "history_exists",
+            "label": "Arkivhistorikk finnes",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "arkivert siden 2004-06-23",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:55:19.343Z"
+          },
+          {
+            "id": "history_freshness",
+            "label": "Aktualitet (siste arkiverte versjon)",
+            "dimension": "reliability",
+            "result": "FAIL",
+            "evidence": "fanget i løpet av siste 12 mnd (2025-08-14)",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:55:19.343Z"
+          },
+          {
+            "id": "history_scope",
+            "label": "Arkivomfang",
+            "dimension": "reliability",
+            "result": "UNKNOWN",
+            "evidence": "omfang ikke tilgjengelig (Wayback CDX timeout på full historikk)",
+            "confidence": "medium",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:55:19.343Z"
+          }
+        ]
+      },
+      "trust_privacy": {
+        "pct": 60,
+        "weight": 5,
+        "pass": 12,
+        "fail": 5,
+        "unknown": 3,
+        "denom": 20,
+        "checks": [
+          {
+            "id": "cookie_banner",
+            "label": "Cookie-banner",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "cookie/samtykke-element observert",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.539Z"
+          },
+          {
+            "id": "privacy_link",
+            "label": "Personvernerklæring-link",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "link til personvern observert",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.540Z"
+          },
+          {
+            "id": "consent_cmp",
+            "label": "Samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "trackere observert uten CMP",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.540Z"
+          },
+          {
+            "id": "contact_form",
+            "label": "Kontakt-/lead-skjema",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen <form> observert",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.540Z"
+          },
+          {
+            "id": "cta",
+            "label": "Call-to-action",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "CTA-tekst observert",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-15T00:54:58.541Z"
+          },
+          {
+            "id": "bimi",
+            "label": "BIMI (merkevare-logo i innboks)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "v=BIMI1;l=https://bimi.nbim.no/image.svg;a=",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:55:01.423Z"
+          },
+          {
+            "id": "dnsbl",
+            "label": "E-post-omdømme (DNSBL)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "nbim-no.mail.protection.outlook.com (52.101.73.153) ikke listet",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:55:02.019Z"
+          },
+          {
+            "id": "brreg_org",
+            "label": "Firma i Brreg (Enhetsregisteret)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "ingen Brreg-treff for «Norges Bank Investment Management», «Oljefondet»",
+            "confidence": "medium",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:54:59.152Z"
+          },
+          {
+            "id": "ssb_context",
+            "label": "Bransjekontekst (SSB)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "ingen næringskode tilgjengelig",
+            "confidence": "medium",
+            "source": "ssb",
+            "observed_at": "2026-08-15T00:54:59.152Z"
+          },
+          {
+            "id": "norid_registered",
+            "label": "Domenet registrert (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrert 2001-08-28",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:54:59.334Z"
+          },
+          {
+            "id": "norid_registrar",
+            "label": "Registrar (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrar: Domeneshop AS",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:54:59.334Z"
+          },
+          {
+            "id": "cmp_banner",
+            "label": "Cookie-banner / samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:54:59.352Z"
+          },
+          {
+            "id": "consent_real_choice",
+            "label": "Reelt valg (avvis-knapp)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen banner/CMP observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:54:59.353Z"
+          },
+          {
+            "id": "consent_prechecked",
+            "label": "Forhåndsavkrysset samtykke",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:54:59.354Z"
+          },
+          {
+            "id": "privacy_policy",
+            "label": "Personvernerklæring",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "personvernerklæring lenket i footer",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:54:59.354Z"
+          },
+          {
+            "id": "third_party_trackers",
+            "label": "Tredjeparts-trackere",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen kjente tredjeparts-trackere observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:54:59.355Z"
+          },
+          {
+            "id": "google_fonts",
+            "label": "Google Fonts (ekstern)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen ekstern Google Fonts observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:54:59.355Z"
+          },
+          {
+            "id": "ecom_price_vat",
+            "label": "Pris inkl. mva",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:54:59.356Z"
+          },
+          {
+            "id": "ecom_angrerett",
+            "label": "Angrerett-informasjon",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:54:59.356Z"
+          },
+          {
+            "id": "ecom_klage",
+            "label": "Klageadgang / tvisteløsning",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:54:59.356Z"
+          },
+          {
+            "id": "social_profiles",
+            "label": "Sosiale medier (lenker fra nettsiden)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "3 profiler lenket — alle svarer (linkedin: 200 · youtube: 200 · instagram: 200)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:55:02.673Z"
+          },
+          {
+            "id": "nap_phone",
+            "label": "Telefon på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:55:02.674Z"
+          },
+          {
+            "id": "nap_email",
+            "label": "E-post på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:55:02.674Z"
+          },
+          {
+            "id": "google_business",
+            "label": "Google Business Profile (anmeldelser, kategori)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+            "confidence": "medium",
+            "source": "places_api",
+            "observed_at": "2026-08-15T00:55:02.674Z"
+          }
+        ]
+      },
+      "ai_visibility": {
+        "pct": 50,
+        "weight": 5,
+        "pass": 2,
+        "fail": 1,
+        "unknown": 1,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "ai_vis_visibility",
+            "label": "Synlighet i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "1/3 svar nevner Norges Bank Investment Management · sitat: «Oljefondet er definitivt verdt å følge med på i 2026, spesielt for investorer som er opptatt av bærekraft og klimahåndtering.» · prompter: «Hvilket fond anbefaler du for langsiktig sparing s…» / «Hva er det beste alternativet for å investere i gl…»",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:55:39.551Z"
+          },
+          {
+            "id": "ai_vis_position",
+            "label": "Posisjon i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "FAIL",
+            "evidence": "beste posisjon: nevnt i løpende tekst (ikke topp-liste) av 3 svar",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:55:39.551Z"
+          },
+          {
+            "id": "ai_vis_sentiment",
+            "label": "Sentiment i AI-omtale",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "sentiment: positiv · råd: Sørg for at offisielle nettsider og rapporter er lett tilgjengelige og oppdaterte, slik at AI-søk kan sitere dem direkte.",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:55:39.551Z"
+          },
+          {
+            "id": "ai_vis_sources",
+            "label": "Kilder AI-en siterer",
+            "dimension": "ai_visibility",
+            "result": "UNKNOWN",
+            "evidence": "ingen eksterne domener sitert",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:55:39.551Z"
+          }
+        ]
+      },
+      "automation": {
+        "pct": 83,
+        "leverage": 17,
+        "potential": 83,
+        "weight": 5,
+        "pass": 1,
+        "fail": 5,
+        "unknown": 0,
+        "denom": 6,
+        "checks": []
+      }
+    },
+    "weights": {
+      "performance": 20,
+      "security": 20,
+      "ux_mobile": 15,
+      "accessibility": 15,
+      "seo": 10,
+      "reliability": 10,
+      "trust_privacy": 5,
+      "ai_visibility": 5
+    },
+    "labels": {
+      "performance": "Performance",
+      "security": "Security Surface",
+      "ux_mobile": "UX / Mobile",
+      "accessibility": "Accessibility",
+      "seo": "SEO / Discovery",
+      "reliability": "Reliability",
+      "trust_privacy": "Trust / Privacy",
+      "automation": "Automation Potential",
+      "ai_visibility": "AI-synlighet (GEO)"
+    },
+    "automation": {
+      "leverage": 17,
+      "potential": 83,
+      "present": 1,
+      "total": 6,
+      "signals": {
+        "contact_form": false,
+        "analytics": true,
+        "cmp": false,
+        "chat": false,
+        "booking": false,
+        "newsletter": false
+      }
+    },
+    "observed_at": "2026-08-15T00:55:39.554Z"
+  },
+  "findings": [
+    {
+      "id": "W001",
+      "kind": "web_caching",
+      "title": "Cache-headere",
+      "evidence": "ingen cache-control",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W002",
+      "kind": "web_alt_text",
+      "title": "Alt-tekst på bilder",
+      "evidence": "1/18 bilder mangler alt",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W003",
+      "kind": "web_seo_canonical",
+      "title": "Canonical",
+      "evidence": "mangler canonical",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W004",
+      "kind": "web_seo_sitemap",
+      "title": "Sitemap.xml",
+      "evidence": "mangler sitemap.xml",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W005",
+      "kind": "web_security_headers",
+      "title": "Header: permissions",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W006",
+      "kind": "web_tech_disclosure",
+      "title": "Versjons-avsløring",
+      "evidence": "cloudflare",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W007",
+      "kind": "web_contact_form",
+      "title": "Kontakt-/lead-skjema",
+      "evidence": "ingen <form> observert",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W008",
+      "kind": "web_security_headers",
+      "title": "Sikkerhetsheadere — gradering B",
+      "evidence": "Gradering B. Content-Security-Policy: frame-ancestors 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'  cdnjs.cloudflare.…; Strict-Transport-Security: max-age=31536000; X-Frame-Options: SAMEORIGIN; X-Content-Type-Options: nosniff; Referrer-Policy: no-referrer-when-downgrade; Permissions-Policy: MANGLER Trekk: CSP svak (unsafe-inline/unsafe-eval) · HSTS uten includeSubDomains · Permissions-Policy mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W009",
+      "kind": "web_email_dmarc",
+      "title": "DMARC for subdomene",
+      "evidence": "ingen _dmarc.www.nbim.no — subdomener kan spoofes",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W010",
+      "kind": "web_dns_hardening",
+      "title": "CAA (sertifikat-utsteder-kontroll)",
+      "evidence": "ingen CAA",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W011",
+      "kind": "web_freshness",
+      "title": "Aktualitet (siste arkiverte versjon)",
+      "evidence": "fanget i løpet av siste 12 mnd (2025-08-14)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W012",
+      "kind": "web_privacy",
+      "title": "Cookie-banner / samtykke-plattform (CMP)",
+      "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W013",
+      "kind": "web_nap",
+      "title": "Telefon på nettsiden",
+      "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W014",
+      "kind": "web_nap",
+      "title": "E-post på nettsiden",
+      "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W015",
+      "kind": "web_ai_position",
+      "title": "Posisjon i AI-svar",
+      "evidence": "beste posisjon: nevnt i løpende tekst (ikke topp-liste) av 3 svar",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W016",
+      "kind": "web_automation",
+      "title": "Automatiseringsmuligheter identifisert",
+      "evidence": "uutnyttet potensial 83% — manglende signaler: contact_form, cmp, chat, booking, newsletter",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    }
+  ],
+  "browser": {
+    "available": false
+  },
+  "web": {
+    "meta": {
+      "url": "https://www.nbim.no",
+      "domain": "www.nbim.no",
+      "origin": "https://www.nbim.no",
+      "final_url": "https://www.nbim.no/no/",
+      "fetched_at": "2026-08-15T00:54:58.545Z"
+    },
+    "checks": [
+      {
+        "id": "http_status",
+        "label": "HTTP-status (hovedsiden)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "HTTP 200",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:25.822Z"
+      },
+      {
+        "id": "https",
+        "label": "HTTPS/TLS",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "HTTPS leverte respons",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:26.033Z"
+      },
+      {
+        "id": "redirect_chain",
+        "label": "Omdirigeringskjede",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "302 www.nbim.no→www.nbim.no",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:26.245Z"
+      },
+      {
+        "id": "broken_links",
+        "label": "Ødelagte interne lenker",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "25 sider sjekket, 0 ødelagt",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:53.122Z"
+      },
+      {
+        "id": "asset_failures",
+        "label": "Ressurs-feil (img/css/js)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "0 av 10 ressurser feilet",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.127Z"
+      },
+      {
+        "id": "compression",
+        "label": "Komprimering (gzip/brotli)",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "gzip",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.127Z"
+      },
+      {
+        "id": "caching",
+        "label": "Cache-headere",
+        "dimension": "performance",
+        "result": "FAIL",
+        "evidence": "ingen cache-control",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.127Z"
+      },
+      {
+        "id": "render_blocking",
+        "label": "Render-blokkerende ressurser",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "0 blokkerende skript, 1 stylesheets",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.128Z"
+      },
+      {
+        "id": "image_optim",
+        "label": "Bilde-optimalisering",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "18 bilder, 18 m/ dimensjoner, 16 lazy",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.128Z"
+      },
+      {
+        "id": "third_party",
+        "label": "Tredjeparts-skript/-ressurser",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "0 eksterne domener",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.128Z"
+      },
+      {
+        "id": "viewport",
+        "label": "Viewport meta",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "viewport tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.128Z"
+      },
+      {
+        "id": "media_queries",
+        "label": "Responsive CSS (@media)",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "@media funnet",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.268Z"
+      },
+      {
+        "id": "lang",
+        "label": "Språk-attributt (lang)",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "no",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.268Z"
+      },
+      {
+        "id": "alt_text",
+        "label": "Alt-tekst på bilder",
+        "dimension": "accessibility",
+        "result": "FAIL",
+        "evidence": "1/18 bilder mangler alt",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.268Z"
+      },
+      {
+        "id": "form_labels",
+        "label": "Skjemaetiketter",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "3 input, 3 label",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.269Z"
+      },
+      {
+        "id": "heading_hierarchy",
+        "label": "Overskriftshierarki",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "h1=1 h2=14 h3=4",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.270Z"
+      },
+      {
+        "id": "semantic",
+        "label": "Semantiske landemerker",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "4/4 (header, nav, main, footer)",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.270Z"
+      },
+      {
+        "id": "title",
+        "label": "Tittel",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "Oljefondet | Norges Bank Investment Management",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.270Z"
+      },
+      {
+        "id": "meta_description",
+        "label": "Meta-beskrivelse",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "Form&#xE5;let med Oljefondet er &#xE5; sikre finansielle verdier for n&#xE5;v&#xE6;rende og fremtidige generasjoner basert p&#xE5; inntektene fra Norges olje- og gassressurser. ",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.270Z"
+      },
+      {
+        "id": "canonical",
+        "label": "Canonical",
+        "dimension": "seo",
+        "result": "FAIL",
+        "evidence": "mangler canonical",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.270Z"
+      },
+      {
+        "id": "robots_meta",
+        "label": "Robots-meta",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "index, follow",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.270Z"
+      },
+      {
+        "id": "robots_txt",
+        "label": "robots.txt",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "robots.txt tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.270Z"
+      },
+      {
+        "id": "sitemap",
+        "label": "Sitemap.xml",
+        "dimension": "seo",
+        "result": "FAIL",
+        "evidence": "mangler sitemap.xml",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.537Z"
+      },
+      {
+        "id": "open_graph",
+        "label": "OpenGraph",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "title=true description=true image=true",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.538Z"
+      },
+      {
+        "id": "structured_data",
+        "label": "Strukturert data (JSON-LD)",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "JSON-LD tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.538Z"
+      },
+      {
+        "id": "header_csp",
+        "label": "Header: csp",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.538Z"
+      },
+      {
+        "id": "header_hsts",
+        "label": "Header: hsts",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.538Z"
+      },
+      {
+        "id": "header_xcto",
+        "label": "Header: xcto",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.538Z"
+      },
+      {
+        "id": "header_referrer",
+        "label": "Header: referrer",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.538Z"
+      },
+      {
+        "id": "header_permissions",
+        "label": "Header: permissions",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.538Z"
+      },
+      {
+        "id": "header_frame",
+        "label": "Header: frame",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.538Z"
+      },
+      {
+        "id": "mixed_content",
+        "label": "Blandet innhold (http på https)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "ingen http-referanser i HTML",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.538Z"
+      },
+      {
+        "id": "source_maps",
+        "label": "Eksponerte source maps",
+        "dimension": "security",
+        "result": "UNKNOWN",
+        "evidence": "skript ikke observerbare",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.538Z"
+      },
+      {
+        "id": "tech_disclosure",
+        "label": "Versjons-avsløring",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "cloudflare",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.538Z"
+      },
+      {
+        "id": "cookie_banner",
+        "label": "Cookie-banner",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "cookie/samtykke-element observert",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.539Z"
+      },
+      {
+        "id": "privacy_link",
+        "label": "Personvernerklæring-link",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "link til personvern observert",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.540Z"
+      },
+      {
+        "id": "consent_cmp",
+        "label": "Samtykke-plattform (CMP)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "trackere observert uten CMP",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.540Z"
+      },
+      {
+        "id": "contact_form",
+        "label": "Kontakt-/lead-skjema",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen <form> observert",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.540Z"
+      },
+      {
+        "id": "cta",
+        "label": "Call-to-action",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "CTA-tekst observert",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.541Z"
+      },
+      {
+        "id": "tech_cdn",
+        "label": "Teknologi: cdn",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "Cloudflare",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.545Z"
+      },
+      {
+        "id": "tech_hosting",
+        "label": "Teknologi: hosting",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "cloudflare",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.545Z"
+      },
+      {
+        "id": "tech_analytics",
+        "label": "Teknologi: analytics",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "Google Analytics/Tag Manager",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:54:58.545Z"
+      },
+      {
+        "id": "security_headers",
+        "label": "Sikkerhetsheadere — gradering B",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "Gradering B. Content-Security-Policy: frame-ancestors 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'  cdnjs.cloudflare.…; Strict-Transport-Security: max-age=31536000; X-Frame-Options: SAMEORIGIN; X-Content-Type-Options: nosniff; Referrer-Policy: no-referrer-when-downgrade; Permissions-Policy: MANGLER Trekk: CSP svak (unsafe-inline/unsafe-eval) · HSTS uten includeSubDomains · Permissions-Policy mangler",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-15T00:54:59.578Z"
+      },
+      {
+        "id": "cookies_attributes",
+        "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-15T00:54:59.578Z"
+      },
+      {
+        "id": "version_leaks",
+        "label": "Ingen versjonslekkasjer",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "Ingen server/x-powered-by/x-aspnet-version-header, <meta generator>, gammel jQuery eller WordPress-signatur observert.",
+        "confidence": "medium",
+        "source": "http_headers",
+        "observed_at": "2026-08-15T00:54:59.590Z"
+      },
+      {
+        "id": "tls_cert",
+        "label": "TLS-sertifikat gyldighet",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "notBefore=2026-07-24T03:40:30.000Z, notAfter=2026-10-22T04:40:27.000Z, issuer=C=US, O=Google Trust Services, CN=WE1, SAN=www.nbim.no",
+        "confidence": "high",
+        "source": "tls",
+        "observed_at": "2026-08-15T00:55:19.963Z"
+      },
+      {
+        "id": "tls_verify",
+        "label": "TLS-sertifikat-verifisering",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "verify return code: 0 (ok)",
+        "confidence": "high",
+        "source": "tls",
+        "observed_at": "2026-08-15T00:55:19.963Z"
+      },
+      {
+        "id": "tls_legacy",
+        "label": "Legacy-TLS (1.0/1.1) støtte",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+        "confidence": "medium",
+        "source": "tls",
+        "observed_at": "2026-08-15T00:55:19.963Z"
+      },
+      {
+        "id": "spf",
+        "label": "SPF (avsender-verifisering)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "v=spf1 include:spf.protection.outlook.com -all",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:54:59.719Z"
+      },
+      {
+        "id": "spf_private_ip",
+        "label": "SPF: private IP-er i mekanismene",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "ingen private IP-er i SPF",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:54:59.720Z"
+      },
+      {
+        "id": "dkim",
+        "label": "DKIM (e-post-signering)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "selector: selector2",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:55:00.621Z"
+      },
+      {
+        "id": "dmarc",
+        "label": "DMARC (spoofing-beskyttelse)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "p=reject (blokk) — v=DMARC1;p=reject;sp=reject;pct=100;rua=mailto:exchange-rua@nbim.no",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:55:00.705Z"
+      },
+      {
+        "id": "dmarc_subdomain",
+        "label": "DMARC for subdomene",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen _dmarc.www.nbim.no — subdomener kan spoofes",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:55:00.750Z"
+      },
+      {
+        "id": "mta_sts",
+        "label": "MTA-STS (håndhevet e-post-TLS)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "TXT + gyldig policy-fil på plass",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:55:01.246Z"
+      },
+      {
+        "id": "tls_rpt",
+        "label": "TLS-RPT (TLS-rapportering)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "v=TLSRPTv1;rua=mailto:tls-rpt-reports@nbim.no",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:55:01.327Z"
+      },
+      {
+        "id": "bimi",
+        "label": "BIMI (merkevare-logo i innboks)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "v=BIMI1;l=https://bimi.nbim.no/image.svg;a=",
+        "confidence": "low",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:55:01.423Z"
+      },
+      {
+        "id": "caa",
+        "label": "CAA (sertifikat-utsteder-kontroll)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen CAA",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:55:01.483Z"
+      },
+      {
+        "id": "dnssec",
+        "label": "DNSSEC (signert sone)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "AD-flag — signert sone validert",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:55:01.764Z"
+      },
+      {
+        "id": "dnsbl",
+        "label": "E-post-omdømme (DNSBL)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "nbim-no.mail.protection.outlook.com (52.101.73.153) ikke listet",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:55:02.019Z"
+      },
+      {
+        "id": "subdomains",
+        "label": "Subdomene-eksponering (crt.sh)",
+        "dimension": "security",
+        "result": "UNKNOWN",
+        "evidence": "crt.sh-feil: HTTP 404",
+        "confidence": "low",
+        "source": "https",
+        "observed_at": "2026-08-15T00:55:03.306Z"
+      },
+      {
+        "id": "brreg_org",
+        "label": "Firma i Brreg (Enhetsregisteret)",
+        "dimension": "trust_privacy",
+        "result": "UNKNOWN",
+        "evidence": "ingen Brreg-treff for «Norges Bank Investment Management», «Oljefondet»",
+        "confidence": "medium",
+        "source": "brreg",
+        "observed_at": "2026-08-15T00:54:59.152Z"
+      },
+      {
+        "id": "ssb_context",
+        "label": "Bransjekontekst (SSB)",
+        "dimension": "trust_privacy",
+        "result": "UNKNOWN",
+        "evidence": "ingen næringskode tilgjengelig",
+        "confidence": "medium",
+        "source": "ssb",
+        "observed_at": "2026-08-15T00:54:59.152Z"
+      },
+      {
+        "id": "norid_registered",
+        "label": "Domenet registrert (Norid)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "registrert 2001-08-28",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T00:54:59.334Z"
+      },
+      {
+        "id": "norid_changed",
+        "label": "Sist endret (Norid)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "sist endret 2026-07-31",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T00:54:59.334Z"
+      },
+      {
+        "id": "norid_dnssec",
+        "label": "DNSSEC (Norid)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "DNSSEC aktivert (delegationSigned=true)",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T00:54:59.334Z"
+      },
+      {
+        "id": "norid_registrar",
+        "label": "Registrar (Norid)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "registrar: Domeneshop AS",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T00:54:59.334Z"
+      },
+      {
+        "id": "history_exists",
+        "label": "Arkivhistorikk finnes",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "arkivert siden 2004-06-23",
+        "confidence": "high",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-15T00:55:19.343Z"
+      },
+      {
+        "id": "history_freshness",
+        "label": "Aktualitet (siste arkiverte versjon)",
+        "dimension": "reliability",
+        "result": "FAIL",
+        "evidence": "fanget i løpet av siste 12 mnd (2025-08-14)",
+        "confidence": "high",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-15T00:55:19.343Z"
+      },
+      {
+        "id": "history_scope",
+        "label": "Arkivomfang",
+        "dimension": "reliability",
+        "result": "UNKNOWN",
+        "evidence": "omfang ikke tilgjengelig (Wayback CDX timeout på full historikk)",
+        "confidence": "medium",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-15T00:55:19.343Z"
+      },
+      {
+        "id": "cmp_banner",
+        "label": "Cookie-banner / samtykke-plattform (CMP)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T00:54:59.352Z"
+      },
+      {
+        "id": "consent_real_choice",
+        "label": "Reelt valg (avvis-knapp)",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen banner/CMP observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:54:59.353Z"
+      },
+      {
+        "id": "consent_prechecked",
+        "label": "Forhåndsavkrysset samtykke",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:54:59.354Z"
+      },
+      {
+        "id": "privacy_policy",
+        "label": "Personvernerklæring",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "personvernerklæring lenket i footer",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:54:59.354Z"
+      },
+      {
+        "id": "third_party_trackers",
+        "label": "Tredjeparts-trackere",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "ingen kjente tredjeparts-trackere observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:54:59.355Z"
+      },
+      {
+        "id": "google_fonts",
+        "label": "Google Fonts (ekstern)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "ingen ekstern Google Fonts observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:54:59.355Z"
+      },
+      {
+        "id": "ecom_price_vat",
+        "label": "Pris inkl. mva",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:54:59.356Z"
+      },
+      {
+        "id": "ecom_angrerett",
+        "label": "Angrerett-informasjon",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:54:59.356Z"
+      },
+      {
+        "id": "ecom_klage",
+        "label": "Klageadgang / tvisteløsning",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:54:59.356Z"
+      },
+      {
+        "id": "psi_mobile",
+        "label": "PageSpeed mobil",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-feil: HTTP 429",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-15T00:55:12.899Z"
+      },
+      {
+        "id": "psi_desktop",
+        "label": "PageSpeed desktop",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-feil: HTTP 429",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-15T00:55:12.899Z"
+      },
+      {
+        "id": "psi_availability",
+        "label": "PageSpeed API tilgjengelig",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-15T00:55:12.899Z"
+      },
+      {
+        "id": "social_profiles",
+        "label": "Sosiale medier (lenker fra nettsiden)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "3 profiler lenket — alle svarer (linkedin: 200 · youtube: 200 · instagram: 200)",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:55:02.673Z"
+      },
+      {
+        "id": "nap_phone",
+        "label": "Telefon på nettsiden",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T00:55:02.674Z"
+      },
+      {
+        "id": "nap_email",
+        "label": "E-post på nettsiden",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T00:55:02.674Z"
+      },
+      {
+        "id": "google_business",
+        "label": "Google Business Profile (anmeldelser, kategori)",
+        "dimension": "trust_privacy",
+        "result": "UNKNOWN",
+        "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+        "confidence": "medium",
+        "source": "places_api",
+        "observed_at": "2026-08-15T00:55:02.674Z"
+      },
+      {
+        "id": "ai_content_quality",
+        "label": "Innholdskvalitet (AI-vurdert)",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "Siden gir en grundig og oversiktlig presentasjon av Oljefondets formål, investeringsområder og ansvarlig forvaltning. Innholdet er faglig solid og godt strukturert, men mangler tydelige oppdateringsdatoer for å bekrefte at all informasjon er helt fersk. Teksten henvender seg til et bredt publikum med et profesjonelt og informativt språk.",
+        "confidence": "medium",
+        "source": "llm_analysis",
+        "observed_at": "2026-08-15T00:55:03.694Z"
+      },
+      {
+        "id": "ai_content_freshness",
+        "label": "Aktualitet (AI-vurdert)",
+        "dimension": "ux_mobile",
+        "result": "UNKNOWN",
+        "evidence": "Halvårsrapport 2026 nevnt, men ingen konkret dato for publisering · Ingen tydelige ©-år eller oppdaterte nyhetsdatoer i teksten · Referanser til historiske hendelser (1969, 1996, 2019, 2024) indikerer at siden har vært oppdatert nylig",
+        "confidence": "medium",
+        "source": "llm_analysis",
+        "observed_at": "2026-08-15T00:55:03.694Z"
+      },
+      {
+        "id": "ai_vis_visibility",
+        "label": "Synlighet i AI-svar",
+        "dimension": "ai_visibility",
+        "result": "PASS",
+        "evidence": "1/3 svar nevner Norges Bank Investment Management · sitat: «Oljefondet er definitivt verdt å følge med på i 2026, spesielt for investorer som er opptatt av bærekraft og klimahåndtering.» · prompter: «Hvilket fond anbefaler du for langsiktig sparing s…» / «Hva er det beste alternativet for å investere i gl…»",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:55:39.551Z"
+      },
+      {
+        "id": "ai_vis_position",
+        "label": "Posisjon i AI-svar",
+        "dimension": "ai_visibility",
+        "result": "FAIL",
+        "evidence": "beste posisjon: nevnt i løpende tekst (ikke topp-liste) av 3 svar",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:55:39.551Z"
+      },
+      {
+        "id": "ai_vis_sentiment",
+        "label": "Sentiment i AI-omtale",
+        "dimension": "ai_visibility",
+        "result": "PASS",
+        "evidence": "sentiment: positiv · råd: Sørg for at offisielle nettsider og rapporter er lett tilgjengelige og oppdaterte, slik at AI-søk kan sitere dem direkte.",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:55:39.551Z"
+      },
+      {
+        "id": "ai_vis_sources",
+        "label": "Kilder AI-en siterer",
+        "dimension": "ai_visibility",
+        "result": "UNKNOWN",
+        "evidence": "ingen eksterne domener sitert",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:55:39.551Z"
+      }
+    ],
+    "raw": {
+      "home": {
+        "status": 200,
+        "status_text": "OK",
+        "error": null,
+        "final_url": "https://www.nbim.no/no/",
+        "redirects": [
+          {
+            "from": "https://www.nbim.no",
+            "to": "https://www.nbim.no/no/",
+            "status": 302
+          }
+        ]
+      },
+      "https": {
+        "ok": true,
+        "detail": "HTTPS leverte respons"
+      },
+      "redirect_chain": [
+        {
+          "from": "https://www.nbim.no",
+          "to": "https://www.nbim.no/no/",
+          "status": 302
+        }
+      ],
+      "robots": {
+        "present": true,
+        "disallow": [
+          "/en/search/",
+          "/no/sok/",
+          "/LiveNavHandler/Current.ashx"
+        ]
+      },
+      "crawl": {
+        "pages_checked": 25,
+        "crawled": 25,
+        "broken": []
+      },
+      "html_length": 70151,
+      "asset_failures": {
+        "checked": 10,
+        "failed": 0,
+        "details": []
+      },
+      "compression": "gzip",
+      "caching": null,
+      "render_blocking_scripts": 0,
+      "images": {
+        "total": 18,
+        "with_dimensions": 18,
+        "lazy": 16
+      },
+      "third_party": [],
+      "viewport": true,
+      "media_queries": true,
+      "lang": "no",
+      "img_missing_alt": 1,
+      "forms_accessibility": {
+        "inputs": 3,
+        "labels": 3,
+        "inputs_with_label": 3
+      },
+      "headings": {
+        "h1": 1,
+        "h2": 14,
+        "h3": 4,
+        "h4": 0,
+        "h5": 0,
+        "h6": 0
+      },
+      "landmarks": [
+        "header",
+        "nav",
+        "main",
+        "footer"
+      ],
+      "title": "Oljefondet | Norges Bank Investment Management",
+      "meta_description": "Form&#xE5;let med Oljefondet er &#xE5; sikre finansielle verdier for n&#xE5;v&#xE6;rende og fremtidige generasjoner basert p&#xE5; inntektene fra Norges olje- og gassressurser. ",
+      "canonical": null,
+      "robots_meta": "index, follow",
+      "sitemap": null,
+      "open_graph": {
+        "title": true,
+        "description": true,
+        "image": true
+      },
+      "structured_data": true,
+      "security_headers": {
+        "csp": "frame-ancestors 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'  cdnjs.cloudflare.com nbim.piwik.pro nbim.containers.piwik.pro cdn.jsdelivr.net *.episerver.net *.azure.com *.msecnd.net *.brightcove.net *.brightcove.com vjs.zencdn.net in.taskanalytics.com z.moatads.com *.akamaihd.net code.jquery.com maxcdn.bootstrapcdn.com www.google.com www.gstatic.com *.hotjar.com web-sdk-eu.aptrinsic.com *.vimeo.com *.plaii.no plaii.no; img-src 'self' data: *.brightcove.com *.brightcove.net *.brightcovecdn.com cf-images.eu-west-1.prod.boltdns.net *.akamaihd.net *.hotjar.com *.episerver.net *.aventia.no *.vimeocdn.com *.plaii.no plaii.no; worker-src blob:  *.akamaihd.net;  frame-src 'self' *.videomarketingplatform.co embed.acast.com *.vimeocdn.com *.vimeo.com vimeo.com norgesbank.aventia.no biovisjon.aventia.no players.brightcove.net maps.google.com www.google.com *.hotjar.com dashboard.find.episerver.net share.esgaia.com *.plaii.no plaii.no",
+        "hsts": "max-age=31536000",
+        "xcto": "nosniff",
+        "referrer": "no-referrer-when-downgrade",
+        "permissions": null,
+        "frame": "SAMEORIGIN"
+      },
+      "mixed_content": 0,
+      "source_maps": null,
+      "tech_disclosure": {
+        "server": "cloudflare",
+        "x_powered_by": null
+      },
+      "cookie_banner": true,
+      "analytics": [
+        "Google Analytics/Tag Manager"
+      ],
+      "privacy_link": true,
+      "consent_cmp": false,
+      "forms_count": 0,
+      "cta": true,
+      "automation_signals": {
+        "contact_form": false,
+        "analytics": true,
+        "cmp": false,
+        "chat": false,
+        "booking": false,
+        "newsletter": false
+      },
+      "technology": {
+        "framework": null,
+        "cms": null,
+        "cdn": "Cloudflare",
+        "hosting": "cloudflare",
+        "analytics": [
+          "Google Analytics/Tag Manager"
+        ]
+      }
+    }
+  },
+  "v2": {
+    "sections": [
+      {
+        "section": "security_hacker",
+        "title": "Hva en hacker ser",
+        "checks": [
+          {
+            "id": "security_headers",
+            "label": "Sikkerhetsheadere — gradering B",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "Gradering B. Content-Security-Policy: frame-ancestors 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'  cdnjs.cloudflare.…; Strict-Transport-Security: max-age=31536000; X-Frame-Options: SAMEORIGIN; X-Content-Type-Options: nosniff; Referrer-Policy: no-referrer-when-downgrade; Permissions-Policy: MANGLER Trekk: CSP svak (unsafe-inline/unsafe-eval) · HSTS uten includeSubDomains · Permissions-Policy mangler",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:54:59.578Z"
+          },
+          {
+            "id": "cookies_attributes",
+            "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:54:59.578Z"
+          },
+          {
+            "id": "version_leaks",
+            "label": "Ingen versjonslekkasjer",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen server/x-powered-by/x-aspnet-version-header, <meta generator>, gammel jQuery eller WordPress-signatur observert.",
+            "confidence": "medium",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:54:59.590Z"
+          },
+          {
+            "id": "tls_cert",
+            "label": "TLS-sertifikat gyldighet",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "notBefore=2026-07-24T03:40:30.000Z, notAfter=2026-10-22T04:40:27.000Z, issuer=C=US, O=Google Trust Services, CN=WE1, SAN=www.nbim.no",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:55:19.963Z"
+          },
+          {
+            "id": "tls_verify",
+            "label": "TLS-sertifikat-verifisering",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "verify return code: 0 (ok)",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:55:19.963Z"
+          },
+          {
+            "id": "tls_legacy",
+            "label": "Legacy-TLS (1.0/1.1) støtte",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+            "confidence": "medium",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:55:19.963Z"
+          }
+        ],
+        "raw": {
+          "url": "https://www.nbim.no/",
+          "final_url": "https://www.nbim.no/no/",
+          "status": 200,
+          "status_text": "OK",
+          "redirects": [
+            {
+              "from": "https://www.nbim.no/",
+              "to": "https://www.nbim.no/no/",
+              "status": 302
+            }
+          ],
+          "headers": {
+            "access-control-allow-headers": "content-type",
+            "access-control-allow-origin": "*",
+            "age": "49",
+            "alt-svc": "h3=\":443\"; ma=86400",
+            "arr-disable-session-affinity": "true",
+            "cf-cache-status": "DYNAMIC",
+            "cf-ray": "a2b43b2e7a89120a-OSL",
+            "connection": "keep-alive",
+            "content-encoding": "gzip",
+            "content-security-policy": "frame-ancestors 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'  cdnjs.cloudflare.com nbim.piwik.pro nbim.containers.piwik.pro cdn.jsdelivr.net *.episerver.net *.azure.com *.msecnd.net *.brightcove.net *.brightcove.com vjs.zencdn.net in.taskanalytics.com z.moatads.com *.akamaihd.net code.jquery.com maxcdn.bootstrapcdn.com www.google.com www.gstatic.com *.hotjar.com web-sdk-eu.aptrinsic.com *.vimeo.com *.plaii.no plaii.no; img-src 'self' data: *.brightcove.com *.brightcove.net *.brightcovecdn.com cf-images.eu-west-1.prod.boltdns.net *.akamaihd.net *.hotjar.com *.episerver.net *.aventia.no *.vimeocdn.com *.plaii.no plaii.no; worker-src blob:  *.akamaihd.net;  frame-src 'self' *.videomarketingplatform.co embed.acast.com *.vimeocdn.com *.vimeo.com vimeo.com norgesbank.aventia.no biovisjon.aventia.no players.brightcove.net maps.google.com www.google.com *.hotjar.com dashboard.find.episerver.net share.esgaia.com *.plaii.no plaii.no",
+            "content-type": "text/html; charset=utf-8",
+            "date": "Sat, 15 Aug 2026 00:54:59 GMT",
+            "referrer-policy": "no-referrer-when-downgrade",
+            "request-context": "appId=cid-v1:96b5cdb9-4c5d-4713-b552-89c1f0bbb4d0",
+            "server": "cloudflare",
+            "strict-transport-security": "max-age=31536000",
+            "transfer-encoding": "chunked",
+            "x-content-type-options": "nosniff",
+            "x-frame-options": "SAMEORIGIN",
+            "x-xss-protection": "1; mode=block"
+          },
+          "security_grade": "B",
+          "security_deductions": [
+            "CSP svak (unsafe-inline/unsafe-eval)",
+            "HSTS uten includeSubDomains",
+            "Permissions-Policy mangler"
+          ],
+          "cookies": [],
+          "version_leaks": [],
+          "tls": {
+            "opensslAvailable": true,
+            "cert": {
+              "notBefore": "2026-07-24T03:40:30.000Z",
+              "notAfter": "2026-10-22T04:40:27.000Z",
+              "issuer": "C=US, O=Google Trust Services, CN=WE1",
+              "san": [
+                "www.nbim.no"
+              ]
+            },
+            "verify": {
+              "code": 0,
+              "description": "ok"
+            },
+            "legacy": {
+              "tls1": "blocked",
+              "tls1_1": "blocked"
+            }
+          }
+        }
+      },
+      {
+        "section": "email_dns",
+        "title": "E-post & DNS-sikkerhet",
+        "checks": [
+          {
+            "id": "spf",
+            "label": "SPF (avsender-verifisering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "v=spf1 include:spf.protection.outlook.com -all",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:54:59.719Z"
+          },
+          {
+            "id": "spf_private_ip",
+            "label": "SPF: private IP-er i mekanismene",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen private IP-er i SPF",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:54:59.720Z"
+          },
+          {
+            "id": "dkim",
+            "label": "DKIM (e-post-signering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "selector: selector2",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:55:00.621Z"
+          },
+          {
+            "id": "dmarc",
+            "label": "DMARC (spoofing-beskyttelse)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "p=reject (blokk) — v=DMARC1;p=reject;sp=reject;pct=100;rua=mailto:exchange-rua@nbim.no",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:55:00.705Z"
+          },
+          {
+            "id": "dmarc_subdomain",
+            "label": "DMARC for subdomene",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen _dmarc.www.nbim.no — subdomener kan spoofes",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:55:00.750Z"
+          },
+          {
+            "id": "mta_sts",
+            "label": "MTA-STS (håndhevet e-post-TLS)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "TXT + gyldig policy-fil på plass",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:55:01.246Z"
+          },
+          {
+            "id": "tls_rpt",
+            "label": "TLS-RPT (TLS-rapportering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "v=TLSRPTv1;rua=mailto:tls-rpt-reports@nbim.no",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:55:01.327Z"
+          },
+          {
+            "id": "bimi",
+            "label": "BIMI (merkevare-logo i innboks)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "v=BIMI1;l=https://bimi.nbim.no/image.svg;a=",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:55:01.423Z"
+          },
+          {
+            "id": "caa",
+            "label": "CAA (sertifikat-utsteder-kontroll)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen CAA",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:55:01.483Z"
+          },
+          {
+            "id": "dnssec",
+            "label": "DNSSEC (signert sone)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "AD-flag — signert sone validert",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:55:01.764Z"
+          },
+          {
+            "id": "dnsbl",
+            "label": "E-post-omdømme (DNSBL)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "nbim-no.mail.protection.outlook.com (52.101.73.153) ikke listet",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:55:02.019Z"
+          },
+          {
+            "id": "subdomains",
+            "label": "Subdomene-eksponering (crt.sh)",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "crt.sh-feil: HTTP 404",
+            "confidence": "low",
+            "source": "https",
+            "observed_at": "2026-08-15T00:55:03.306Z"
+          }
+        ],
+        "raw": {
+          "original": "www.nbim.no",
+          "registrable": "nbim.no",
+          "subdomain_of_input": true,
+          "spf": {
+            "record": "v=spf1 include:spf.protection.outlook.com -all",
+            "policy": "-all",
+            "private_ips": []
+          },
+          "dkim": "selector2",
+          "dmarc": {
+            "record": "v=DMARC1;p=reject;sp=reject;pct=100;rua=mailto:exchange-rua@nbim.no",
+            "p": "reject",
+            "policy": "reject",
+            "subdomain": {
+              "name": "_dmarc.www.nbim.no",
+              "present": false,
+              "record": null
+            }
+          },
+          "mta_sts": {
+            "txt": true,
+            "policy": true,
+            "policy_status": 200
+          },
+          "tls_rpt": "v=TLSRPTv1;rua=mailto:tls-rpt-reports@nbim.no",
+          "bimi": "v=BIMI1;l=https://bimi.nbim.no/image.svg;a=",
+          "caa": {
+            "records": [],
+            "issuers": []
+          },
+          "dnssec": "\n; <<>> DiG 9.10.6 <<>> +dnssec DNSKEY nbim.no +time=5 +tries=1\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 36136\n;; flags: qr rd ra ad; QUERY: 1, ANSWER: 4, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags: do; udp: 512\n;; QUESTION SECTION:\n;nbim.no.\t\t\tIN\tDNSKEY\n\n;; ANSWER SECTION:\nnbim.no.\t\t3600\tIN\tDNSKEY\t256 3 13 pSX4ytdRH5r1o6R58+kjXXevmzsMALoeLOA4xbcc1q0q3MS6w+ptc9v6 eKykbUJfysYoLd+lY5PYJtBdSxhsgQ==\nnbim.no.\t\t3600\tIN\tDNSKEY\t257 3 13 b211nBL4QGwRcKU8cr5yxRKo0LMyYkj40YFyJWot2wBKV2qIUHtZ1A0i DqBB/cAYyAYIZopksi2NPMl8KQXaNw==\nnbim.no.\t\t3600\tIN\tDNSKEY\t256 3 13 QAYBnoe6LSZIzn9a5x0nAaCqpV6xVgBaMLwWogdrI1I/CHvmUck191fF OCN9MCCAl40spBa0t+RcyXkifXNRgw==\nnbim.no.\t\t3600\tIN\tRRSIG\tDNSKEY 13 2 3600 20260815100000 20260814230000 42037 nbim.no. Aoy2577J5gBPDe/smDYCoF+6Wd2vvWdBPxW30ALumXwBlMCLbSvfEj6t K4cytBypnCnINV6Il7WReCDmRO1cBw==\n\n;; Query time: 84 msec\n;; SERVER: 100.100.100.100#53(100.100.100.100)\n;; WHEN: Sat Aug 15 02:55:01 CEST 2026\n;; MSG SIZE  rcvd: 379\n\n",
+          "mx": [
+            {
+              "exchange": "nbim-no.mail.protection.outlook.com",
+              "priority": 0
+            }
+          ],
+          "dnsbl": {
+            "mx": "nbim-no.mail.protection.outlook.com",
+            "ip": "52.101.73.153",
+            "listed": false,
+            "host": "153.73.101.52.zen.spamhaus.org"
+          },
+          "subdomains": {
+            "count": 0,
+            "unique": [],
+            "interesting": [],
+            "error": "HTTP 404"
+          }
+        }
+      },
+      {
+        "section": "norge",
+        "title": "Norge-data (Brreg · Norid · SSB)",
+        "checks": [
+          {
+            "id": "brreg_org",
+            "label": "Firma i Brreg (Enhetsregisteret)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "ingen Brreg-treff for «Norges Bank Investment Management», «Oljefondet»",
+            "confidence": "medium",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:54:59.152Z"
+          },
+          {
+            "id": "ssb_context",
+            "label": "Bransjekontekst (SSB)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "ingen næringskode tilgjengelig",
+            "confidence": "medium",
+            "source": "ssb",
+            "observed_at": "2026-08-15T00:54:59.152Z"
+          },
+          {
+            "id": "norid_registered",
+            "label": "Domenet registrert (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrert 2001-08-28",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:54:59.334Z"
+          },
+          {
+            "id": "norid_changed",
+            "label": "Sist endret (Norid)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "sist endret 2026-07-31",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:54:59.334Z"
+          },
+          {
+            "id": "norid_dnssec",
+            "label": "DNSSEC (Norid)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "DNSSEC aktivert (delegationSigned=true)",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:54:59.334Z"
+          },
+          {
+            "id": "norid_registrar",
+            "label": "Registrar (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrar: Domeneshop AS",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:54:59.334Z"
+          }
+        ],
+        "raw": {
+          "brreg": {
+            "unit": null,
+            "search": null,
+            "selection": null,
+            "error": "ingen treff",
+            "confirmed": false
+          },
+          "norid": {
+            "domain": "nbim.no",
+            "created": "2001-08-28",
+            "changed": "2026-07-31",
+            "dnssec": true,
+            "registrar": "Domeneshop AS",
+            "status": null
+          },
+          "ssb": {}
+        }
+      },
+      {
+        "section": "history",
+        "title": "Historikk (Wayback Machine)",
+        "checks": [
+          {
+            "id": "history_exists",
+            "label": "Arkivhistorikk finnes",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "arkivert siden 2004-06-23",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:55:19.343Z"
+          },
+          {
+            "id": "history_freshness",
+            "label": "Aktualitet (siste arkiverte versjon)",
+            "dimension": "reliability",
+            "result": "FAIL",
+            "evidence": "fanget i løpet av siste 12 mnd (2025-08-14)",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:55:19.343Z"
+          },
+          {
+            "id": "history_scope",
+            "label": "Arkivomfang",
+            "dimension": "reliability",
+            "result": "UNKNOWN",
+            "evidence": "omfang ikke tilgjengelig (Wayback CDX timeout på full historikk)",
+            "confidence": "medium",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:55:19.343Z"
+          }
+        ],
+        "raw": {
+          "snapshots": [
+            {
+              "timestamp": "20040623190139",
+              "original": null
+            },
+            {
+              "timestamp": "20250814011109",
+              "original": null
+            }
+          ],
+          "first_seen": "2004-06-23",
+          "last_seen": "2025-08-14",
+          "snapshot_count": null,
+          "error": "timeout",
+          "fallback": true
+        }
+      },
+      {
+        "section": "compliance",
+        "title": "Compliance-signaler Norge",
+        "checks": [
+          {
+            "id": "cmp_banner",
+            "label": "Cookie-banner / samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:54:59.352Z"
+          },
+          {
+            "id": "consent_real_choice",
+            "label": "Reelt valg (avvis-knapp)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen banner/CMP observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:54:59.353Z"
+          },
+          {
+            "id": "consent_prechecked",
+            "label": "Forhåndsavkrysset samtykke",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:54:59.354Z"
+          },
+          {
+            "id": "privacy_policy",
+            "label": "Personvernerklæring",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "personvernerklæring lenket i footer",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:54:59.354Z"
+          },
+          {
+            "id": "third_party_trackers",
+            "label": "Tredjeparts-trackere",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen kjente tredjeparts-trackere observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:54:59.355Z"
+          },
+          {
+            "id": "google_fonts",
+            "label": "Google Fonts (ekstern)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen ekstern Google Fonts observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:54:59.355Z"
+          },
+          {
+            "id": "ecom_price_vat",
+            "label": "Pris inkl. mva",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:54:59.356Z"
+          },
+          {
+            "id": "ecom_angrerett",
+            "label": "Angrerett-informasjon",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:54:59.356Z"
+          },
+          {
+            "id": "ecom_klage",
+            "label": "Klageadgang / tvisteløsning",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen e-handels-signaler observert (handlekurv/kjøp/pris)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:54:59.356Z"
+          }
+        ],
+        "raw": {
+          "url": "https://www.nbim.no",
+          "fetched": false,
+          "status": null,
+          "fetch_error": null,
+          "html_length": 70151,
+          "script_srcs": [
+            "/static/js/proto-main.js?v=PXRv4VZBOr9KfvHLzpqB6N7n5QSLmc0UwHShgOzOUWE"
+          ],
+          "cmp": {
+            "named": [],
+            "generic_text": false
+          },
+          "consent_reject": null,
+          "consent_prechecked": {
+            "count": 0,
+            "described": []
+          },
+          "privacy": {
+            "linked": true,
+            "in_footer": true
+          },
+          "trackers": [],
+          "google_fonts": {
+            "external": false,
+            "self_hosted": false
+          },
+          "ecommerce": {
+            "shop_signal": false
+          }
+        }
+      },
+      {
+        "section": "pagespeed",
+        "title": "Fart (PageSpeed Insights + CrUX)",
+        "checks": [
+          {
+            "id": "psi_mobile",
+            "label": "PageSpeed mobil",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:55:12.899Z"
+          },
+          {
+            "id": "psi_desktop",
+            "label": "PageSpeed desktop",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:55:12.899Z"
+          },
+          {
+            "id": "psi_availability",
+            "label": "PageSpeed API tilgjengelig",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:55:12.899Z"
+          }
+        ],
+        "raw": {
+          "mobile": {
+            "error": "HTTP 429",
+            "data": null
+          },
+          "desktop": {
+            "error": "HTTP 429",
+            "data": null
+          }
+        }
+      },
+      {
+        "section": "presence",
+        "title": "Tilstedeværelse (sosiale medier · NAP)",
+        "checks": [
+          {
+            "id": "social_profiles",
+            "label": "Sosiale medier (lenker fra nettsiden)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "3 profiler lenket — alle svarer (linkedin: 200 · youtube: 200 · instagram: 200)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:55:02.673Z"
+          },
+          {
+            "id": "nap_phone",
+            "label": "Telefon på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:55:02.674Z"
+          },
+          {
+            "id": "nap_email",
+            "label": "E-post på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:55:02.674Z"
+          },
+          {
+            "id": "google_business",
+            "label": "Google Business Profile (anmeldelser, kategori)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+            "confidence": "medium",
+            "source": "places_api",
+            "observed_at": "2026-08-15T00:55:02.674Z"
+          }
+        ],
+        "raw": {
+          "social": {
+            "linkedin": {
+              "url": "https://www.linkedin.com/company/norges-bank-investment-management/",
+              "status": 200,
+              "error": null
+            },
+            "youtube": {
+              "url": "https://www.youtube.com/channel/UCRhQsN8AVIfZuBNeRV1A37w",
+              "status": 200,
+              "error": null
+            },
+            "instagram": {
+              "url": "https://www.instagram.com/norgesbankinvestmentmanagement/",
+              "status": 200,
+              "error": null
+            }
+          },
+          "contact": {
+            "tel": null,
+            "email": null,
+            "org_nr_on_page": "948754297"
+          },
+          "google_business": {
+            "status": "unknown",
+            "reason": "krever Google Places API-nøkkel — ikke tilgjengelig uten"
+          }
+        }
+      },
+      {
+        "section": "ai_analysis",
+        "title": "AI-analyse av innhold (DeepSeek)",
+        "checks": [
+          {
+            "id": "ai_content_quality",
+            "label": "Innholdskvalitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "Siden gir en grundig og oversiktlig presentasjon av Oljefondets formål, investeringsområder og ansvarlig forvaltning. Innholdet er faglig solid og godt strukturert, men mangler tydelige oppdateringsdatoer for å bekrefte at all informasjon er helt fersk. Teksten henvender seg til et bredt publikum med et profesjonelt og informativt språk.",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T00:55:03.694Z"
+          },
+          {
+            "id": "ai_content_freshness",
+            "label": "Aktualitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "UNKNOWN",
+            "evidence": "Halvårsrapport 2026 nevnt, men ingen konkret dato for publisering · Ingen tydelige ©-år eller oppdaterte nyhetsdatoer i teksten · Referanser til historiske hendelser (1969, 1996, 2019, 2024) indikerer at siden har vært oppdatert nylig",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T00:55:03.694Z"
+          }
+        ],
+        "raw": {
+          "available": true,
+          "error": null,
+          "prompt": "Du er analyse-delen av Arch Audit (norsk verktøy). Analyser TEKSTEN på en norsk bedrifts hjemmeside. Vurder kun det som står i teksten under — ikke finn på noe.\nURL: https://www.nbim.no\nTittel: Oljefondet | Norges Bank Investment Management\nMeta-beskrivelse: Form&#xE5;let med Oljefondet er &#xE5; sikre finansielle verdier for n&#xE5;v&#xE6;rende og fremtidige generasjoner basert p&#xE5; inntektene fra Norges olje- og gassressurser.\nTekstutdrag (hjemmesiden):\nOljefondet | Norges Bank Investment Management Til hovedinnhold Søk close Søk search Søk language English menu close Meny Hjem Investeringene expand Alle investeringene Investeringsomr&#xE5;dene Fondets verdi Avkastningen Risikostyring Investeringsstrategien Referanseindeksen Eksterne mandater Investment Conference Ansvarlig forvaltning expand V&#xE5;re forventninger Nedsalg av selskaper Stemmegivning V&#xE5;r dialog med selskaper Slik p&#xE5;virker vi markeder og bransjer Klimahandlingsplan 2030 R&#xE5;dgivende utvalg for klimarisiko V&#xE5;re aktsomhetsvurderinger Observasjon og utelukkelse av selskaper Posisjonsnotater Nyheter og innsikt expand Presserom Rapporter Podkast: In Good Company Strategi 28 V&#xE5;re synspunkt H&#xF8;ringsuttalelser Publikasjoner Brev til Finansdepartementet Kalender Om oss expand Dette er Oljefondet Norges Bank Investment Management Ledergruppen Jobb og karriere Kvinner i finans Kontakt oss language English Ofte bes&#xF8;kt Siste rapport Dette er Oljefondet Alle investeringene Jobb og karriere Podkast: In Good Company Investment Conference Halv&#xE5;rsrapport 2026 12. august: Offentliggj&#xF8;ring av fondets rapport for f&#xF8;rste halv&#xE5;r 2026 og full investeringsoversikt. Resultatene ble presentert p&#xE5; en pressekonferanse under Arendalsuka kl. 10:00. Oljefondet Oljefondets verdi nok For deg og fremtidige generasjoner Verdiutviklingen Hva er Oljefondet? Formålet med Oljefondet er å sikre en langsiktig forvaltning av inntektene fra Norges olje- og gassressurser, slik at formuen kommer både dagens og fremtidige generasjoner til gode. Fondets formelle navn er Statens pensjonsfond utland. Oljefondet kort fortalt Slik er fondet investert Oljefondet er et av verdens st&oslash;rste fond. Investeringene er fordelt p&aring; de fleste markeder, land og valutaer for &aring; ta del i global vekst og verdiskaping og sikre god risikospredning. For &aring; skjerme norsk fastlands&oslash;konomi er fondet kun investert utenfor Norge. Mer om hvordan fondet investeres This is fallback content to display for user agents that do not support the video tag. Aksjer Den st&#xF8;rste delen av fondet er investert i aksjer, som er eierandeler i rundt 7 100 selskaper. This is fallback content to display for user agents that do not support the video tag. Rentepapirer En stor del av fondet er investert i obligasjoner, som er utl&#xE5;n til stater, statlige institusjoner og selskaper. This is fallback content to display for user agents that do not support the video tag. Eiendom En mindre del investeres i unotert eiendom i attraktive beliggenheter innen kontor, handel og logistikk. This is fallback content to display for user agents that do not support the video tag. Infrastruktur En liten del er investert i infrastruktur for fornybar energi, innen vind- og solkraftproduksjon. Vi eier en andel av verdens st&#xF8;rste selskaper Fondet eier en andel i rundt 7 100 selskaper i de fleste land og industrier. I snitt eier fondet 1,5 prosent av alle b&#xF8;rsnoterte selskaper. Dette gj&#xF8;r fondet til verdens st&#xF8;rste enkeltinvestor. 1 NVIDIA Corp 612 milliarder kroner 2 Apple Inc 522 milliarder kroner 3 Alphabet Inc 499 milliarder kroner 4 Microsoft Corp 347 milliarder kroner 5 Taiwan Semiconductor Manufacturing Co Ltd 332 milliarder kroner 6 Amazon.com Inc 315 milliarder kroner 7 Broadcom Inc 232 milliarder kroner 8 Samsung Electronics Co Ltd 223 milliarder kroner 9 ASML Holding NV 175 milliarder kroner 10 SK hynix Inc 174 milliarder kroner 11 Meta Platforms Inc 169 milliarder kroner 12 Micron Technology Inc 161 milliarder kroner 13 Tesla Inc 156 milliarder kroner 14 Eli Lilly & Co 130 milliarder kroner 15 Advanced Micro Devices Inc 122 milliarder kroner Se alle investeringene S&oslash;k i alle fondets investeringer sortert p&aring; land, investeringstype og bransje. Informasjonen oppdateres hvert halv&aring;r og er tilgjengelig hvert &aring;r fra f&oslash;rste investering i 1998. Alle investeringene Høyeste andel av fondet Laveste Ansvarlig forvaltning av investeringene Oljefondet skal bidra til &#xE5; finansiere velferdsstaten over generasjoner. Fondets fremtidige verdi er avhengig av b&#xE6;rekraftig vekst, velfungerende markeder og verdiskapning i selskapene vi eier. Vi eier en liten del av verdens st&#xF8;rste selskaper. Som investor har vi rett til &#xE5; p&#xE5;virke disse selskapene. Vi &#xF8;nsker &#xE5; fremme langsiktig verdiskapning i selskapene og at de begrenser negative ringvirkninger p&#xE5; milj&#xF8;et og samfunnet rundt seg. Ansvarlig forvaltning Oljefondets historie Ideen om et norsk oljefond oppstod p&aring; 60-tallet da regjeringen erkl&aelig;rte suverenitet over den norske kontinentalsokkelen. Dette ga grunnlaget for oljepolitikken, basert p&aring; en sterk statlig styring der Stortinget trakk opp retningslinjene for &aring; sikre en ansvarlig og langsiktig forvaltning av olje- og gassressursene v&aring;re. Se hele historien 1969 Vi oppdager olje i Nordsj&#xF8;en 1996 De f&#xF8;rste pengene blir overf&#xF8;rt til fondet 2019 Verdien p&#xE5; Oljefondet passerer 10 000 milliarder kroner 2024 Verdien p&#xE5; Oljefondet passerer 20 000 milliarder kroner Verdiutviklingen siden f&#xF8;rste investering&#xA; Valuta Kroner Dollar Per 30. juni 2026 Per 30. juni 2026 Fondets verdi Fondets verdi best&#xE5;r av avkastningen p&#xE5; fondets investeringer. Verdien p&#xE5;virkes ogs&#xE5; av tilf&#xF8;rsler og uttak fra staten. Siden fondet kun er investert i utlandet p&#xE5;virkes verdien ogs&#xE5; av endringer i valutakurser. Fondets verdi Fondets avkastning Den st&#xF8;rste delen av fondets verdi er avkastning p&#xE5; fondets investeringer i selskaper, rentepapirer, eiendom og infrastruktur for fornybar energi. Fra 1998 har fondet hatt en &#xE5;rlig gjennomsnittlig avkastning p&#xE5; 6,86 prosent. Det tilsvarer 15 210 milliarder kroner. Avkastningen Bli kjent med toppsjefene i verdens st&#xF8;rste selskaper I podkasten \"In Good Company\" intervjuer fondets leder, Nicolai \nÅrstall/©-signaler funnet: 1998, 1969, 1996, 2019\n\nSvar KUN med JSON (ingen markdown-kodeblokk):\n{\"content_quality\":\"god|middels|svak\",\"tone\":\"...\",\"aktualitet\":\"frisk|middels|utdatert\",\"signals\":[\"...\"],\"summary_nb\":\"2-3 setninger på norsk, executive-språk, konkret\"}\nVurdering: aktualitet baseres på gamle datoer/©-år/nyhetsinnlegg i teksten; svak = stavefeil/ufullstendige setninger/meningsløs tekst; tone = hvem teksten henvender seg til og hvordan.",
+          "response": "{\n  \"content_quality\": \"god\",\n  \"tone\": \"Informativ og profesjonell, henvender seg til allmennheten og investorer med fokus på å forklare fondets formål, investeringer og ansvarlig forvaltning.\",\n  \"aktualitet\": \"middels\",\n  \"signals\": [\n    \"Halvårsrapport 2026 nevnt, men ingen konkret dato for publisering\",\n    \"Ingen tydelige ©-år eller oppdaterte nyhetsdatoer i teksten\",\n    \"Referanser til historiske hendelser (1969, 1996, 2019, 2024) indikerer at siden har vært oppdatert nylig\"\n  ],\n  \"summary_nb\": \"Siden gir en grundig og oversiktlig presentasjon av Oljefondets formål, investeringsområder og ansvarlig forvaltning. Innholdet er faglig solid og godt strukturert, men mangler tydelige oppdateringsdatoer for å bekrefte at all informasjon er helt fersk. Teksten henvender seg til et bredt publikum med et profesjonelt og informativt språk.\"\n}",
+          "model": "deepseek-chat"
+        }
+      },
+      {
+        "section": "ai_visibility",
+        "title": "AI-synlighet (GEO — hvordan AI-assistenter omtaler dere)",
+        "checks": [
+          {
+            "id": "ai_vis_visibility",
+            "label": "Synlighet i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "1/3 svar nevner Norges Bank Investment Management · sitat: «Oljefondet er definitivt verdt å følge med på i 2026, spesielt for investorer som er opptatt av bærekraft og klimahåndtering.» · prompter: «Hvilket fond anbefaler du for langsiktig sparing s…» / «Hva er det beste alternativet for å investere i gl…»",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:55:39.551Z"
+          },
+          {
+            "id": "ai_vis_position",
+            "label": "Posisjon i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "FAIL",
+            "evidence": "beste posisjon: nevnt i løpende tekst (ikke topp-liste) av 3 svar",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:55:39.551Z"
+          },
+          {
+            "id": "ai_vis_sentiment",
+            "label": "Sentiment i AI-omtale",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "sentiment: positiv · råd: Sørg for at offisielle nettsider og rapporter er lett tilgjengelige og oppdaterte, slik at AI-søk kan sitere dem direkte.",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:55:39.551Z"
+          },
+          {
+            "id": "ai_vis_sources",
+            "label": "Kilder AI-en siterer",
+            "dimension": "ai_visibility",
+            "result": "UNKNOWN",
+            "evidence": "ingen eksterne domener sitert",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:55:39.551Z"
+          }
+        ],
+        "raw": {
+          "available": true,
+          "error": null,
+          "model": "deepseek-chat",
+          "brand_candidates": [
+            "Norges Bank Investment Management",
+            "Oljefondet",
+            "nbim.no"
+          ],
+          "prompts": [
+            "Hvilket fond anbefaler du for langsiktig sparing som skal sikre verdier for fremtidige generasjoner?",
+            "Hva er det beste alternativet for å investere i globale aksjer og obligasjoner med høy risikospredning og ansvarlig forvaltning?",
+            "Er Oljefondet verdt å følge med på i 2026 for investorer som ønsker innsikt i bærekraftige investeringer og klimahåndtering?"
+          ],
+          "answers": [
+            {
+              "prompt": "Hvilket fond anbefaler du for langsiktig sparing som skal sikre verdier for fremtidige generasjoner?",
+              "answer": "Takk for tilliten! Det er et klokt og langsiktig mål å sikre verdier for kommende generasjoner. Når man snakker om «sikre verdier» over flere tiår, er det viktig å skille mellom **kjøpekraft** (at pengene følger prisveksten) og **nominell verdi** (at beløpet står urørt). For å bevare kjøpekraft over generasjoner, må man typisk ha en viss aksjeandel, men med en risikoprofil som tåler svingninger uten at man må selge på feil tidspunkt.\n\nHer er mine anbefalinger, delt inn etter strategi og risikonivå:\n\n---\n\n### 1. **Indeksfond med global spredning (anbefalt kjerne)**\nDette er det mest kostnadseffektive og forutsigbare valget for svært langsiktig sparing. Du får eierskap i tusenvis av selskaper over hele verden, og historisk har globale aksjemarkeder gitt god avkastning over 20–30 år, selv med store mellomperioder med nedgang.\n\n**Konkrete fond:**\n- **KLP AksjeGlobal Indeks** (forvaltningskostnad ~0,15 % årlig) – bredt globalt, følger MSCI World-indeksen.\n- **DNB Global Indeks** (kostnad ~0,2 %) – lignende, men noe høyere kostnad.\n- **Nordnet Global Indeks** – hvis du bruker Nordnet, er dette et godt alternativ.\n\n**Hvorfor:** Lav kostnad er kritisk over 30+ år – forskjellen mellom 0,2 % og 1 % i årlig kostnad kan utgjøre titusenvis av kroner i tapt avkastning. Global spredning reduserer risikoen for at ett enkelt land eller én sektor ødelegger avkastningen.\n\n---\n\n### 2. **Kombinasjonsfond med aksjer og obligasjoner (for lavere svingninger)**\nHvis du ønsker mindre volatilitet og er villig til å gi avkall på litt avkastning for å «sove godt om natten», kan et balansert fond være bedre. Dette er spesielt aktuelt hvis du planlegger å ta ut penger jevnlig til arv eller utdelinger.\n\n**Eksempler:**\n- **KLP Kombinasjon 80/20** (80 % aksjer, 20 % obligasjoner) – god balanse mellom vekst og stabilitet.\n- **DNB Balansert** – lignende konsept, men kostnaden er noe høyere.\n\n**Hvorfor:** Obligasjonsdelen demper fall i aksjemarkedet, men over 20+ år vil aksjene fortsatt drive avkastningen. Passer hvis du ikke tåler å se porteføljen halveres uten å få panikk.\n\n---\n\n### "
+            },
+            {
+              "prompt": "Hva er det beste alternativet for å investere i globale aksjer og obligasjoner med høy risikospredning og ansvarlig forvaltning?",
+              "answer": "For å investere i globale aksjer og obligasjoner med høy risikospredning og ansvarlig forvaltning, er det flere gode alternativer. Det «beste» valget avhenger av din tidshorisont, risikotoleranse og om du ønsker aktiv eller passiv forvaltning. Her er en oversikt over de mest anbefalte løsningene, med fokus på kostnadseffektivitet, bredde og bærekraft:\n\n### 1. Globale indeksfond (passiv forvaltning) – best for de fleste\nDette er ofte det mest kostnadseffektive og transparente valget. Du får eksponering mot tusenvis av selskaper i både utviklede og fremvoksende markeder, og obligasjoner kan kombineres i samme portefølje.\n\n**Anbefalte fond:**\n- **KLP AksjeGlobal Indeks** (eller **KLP AksjeGlobal Indeks P**): Følger MSCI World-indeksen, men med et eksplisitt bærekraftsmandat som ekskluderer selskaper innen fossile brensler, våpen og andre kontroversielle sektorer. Dette er et av de billigste globale aksjefondene i Norge (forvaltningskostnad rundt 0,2 %).\n- **DNB Global Indeks**: Følger også MSCI World, med noe lavere kostnad enn mange andre, og har et bærekraftsfilter.\n- **KLP Global Fremvoksende Markeder Indeks** (for å supplere med vekstmarkeder, siden MSCI World kun dekker utviklede land).\n\n**For obligasjoner:**\n- **KLP Global Obligasjon Indeks** (eller tilsvarende fra DNB) – gir bred eksponering mot globale investment grade-obligasjoner, ofte med et bærekraftsfilter.\n\n**Hvordan kombinere:** Mange velger en «kjerneporterfølje» med f.eks. 80 % globale aksjer og 20 % globale obligasjoner, og justerer andelen etter alder og risiko. Du kan kjøpe disse fondene direkte i et aksjesparekonto (ASK) eller pensjonskonto.\n\n### 2. Globale ETF-er (børshandlede fond) – for fleksibilitet og lave kostnader\nETF-er handles som aksjer og gir ofte enda lavere kostnader enn vanlige indeksfond, spesielt for internasjonale markeder.\n\n**Anbefalte ETF-er:**\n- **Vanguard FTSE All-World UCITS ETF (VWCE)** eller **iShares Core MSCI World UCITS ETF (EUNL)**: Gir bred global aksjeeksponering. Velg varianten med «ESG»-filtrering hvis du vil ha ansvarlig forvaltning (f.eks. **iShares MSCI World SRI**).\n- **iShares Global Aggregate Bond UCITS ETF (AGGG"
+            },
+            {
+              "prompt": "Er Oljefondet verdt å følge med på i 2026 for investorer som ønsker innsikt i bærekraftige investeringer og klimahåndtering?",
+              "answer": "Ja, Oljefondet (Statens pensjonsfond utland) er definitivt verdt å følge med på i 2026, spesielt for investorer som er opptatt av bærekraft og klimahåndtering. Her er hvorfor, med noen nyanser:\n\n**1. Fondet er en global «klimapådriver» – ikke bare en investor**  \nOljefondet forvalter over 20 000 milliarder kroner (per 2025) og eier rundt 1,5 % av alle børsnoterte selskaper i verden. Når fondet endrer sine forventninger til selskaper – for eksempel rundt utslippskutt eller naturmangfold – får det ringvirkninger utover sin egen portefølje. I 2026 vil fondets oppdaterte «forventningsdokumenter» om klima og natur være en temperaturmåler for hva institusjonelle investorer globalt kommer til å kreve.\n\n**2. Klimarisiko er blitt en konkret investeringsstrategi**  \nFondet har de siste årene beveget seg fra generelle «ansvarlige investeringer» til mer operative strategier:\n- **Eierskapsutøvelse:** De stemmer aktivt på generalforsamlinger mot selskaper som ikke har troverdige klimamål, og de har uttalt at de vil vurdere å selge seg ut av selskaper med uakseptabel klimarisiko.\n- **Tematiske investeringer:** Fornybar energi og grønn infrastruktur er egne mandater, men fondet har også vært tydelige på at «grønn» ikke er et mål i seg selv – det er risikojustert avkastning som styrer. Dette er en viktig lærdom for investorer som vil unngå «greenwashing».\n\n**3. 2026 – et viktig år for klimapolitikk og rapportering**  \nI 2026 trer EUs nye rapporteringsdirektiv (CSRD) og taksonomi for alvor inn for mange selskaper, og Oljefondet vil være en av de første som tester selskapenes etterlevelse. Fondets årlige «risikorapport» og «ansvarlighetsrapport» (publisert våren 2026) vil gi et unikt datagrunnlag for hvilke sektorer og selskaper som faktisk leverer på klimamål – og hvilke som bare snakker.\n\n**4. Nyanser og fallgruver**  \n- **Ikke en «ren» klimafond:** Fondet eier fortsatt store posisjoner i olje, gass og industri. Det betyr at det ikke er et etisk rent fond, men et fond som prøver å påvirke innenfra og prissette overgangsrisiko. For investorer som vil ha 100 % fossilfritt, er ikke Oljefondet en modell, men en referanse.\n- **Politisk"
+            }
+          ],
+          "analysis": {
+            "sentiment": "positiv",
+            "quote": "Oljefondet er definitivt verdt å følge med på i 2026, spesielt for investorer som er opptatt av bærekraft og klimahåndtering.",
+            "advice_nb": "Sørg for at offisielle nettsider og rapporter er lett tilgjengelige og oppdaterte, slik at AI-søk kan sitere dem direkte."
+          },
+          "measurements": [
+            {
+              "prompt": "Hvilket fond anbefaler du for langsiktig sparing som skal sikre verdier for fremtidige generasjoner?",
+              "mentioned": false,
+              "position": null,
+              "cited_domains": []
+            },
+            {
+              "prompt": "Hva er det beste alternativet for å investere i globale aksjer og obligasjoner med høy risikospredning og ansvarlig forvaltning?",
+              "mentioned": false,
+              "position": null,
+              "cited_domains": []
+            },
+            {
+              "prompt": "Er Oljefondet verdt å følge med på i 2026 for investorer som ønsker innsikt i bærekraftige investeringer og klimahåndtering?",
+              "mentioned": true,
+              "position": null,
+              "cited_domains": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "automation": {
+    "leverage": 17,
+    "potential": 83,
+    "present": 1,
+    "total": 6,
+    "signals": {
+      "contact_form": false,
+      "analytics": true,
+      "cmp": false,
+      "chat": false,
+      "booking": false,
+      "newsletter": false
+    }
+  },
+  "quick_wins": [],
+  "build_opportunities": [],
+  "human_approvals": [],
+  "executive_summary": "www.nbim.no sin offentlige nettside scorer **66%** på Arch Website Score. Den største risikoen er: **Cache-headere**. **7 funn** bør prioriteres (0 kritisk, 7 høy ROI). Største mulighet: **83% uutnyttet automatiseringsverdi** — prosesser som kan automatiseres (lead-ruting, kundestøtte, avtalebooking, oppfølging). Forretningsmessig betyr dette: målbar gevinst i hastighet, konvertering og frigjort tid. Merk: dette er en **utenfor-inn** vurdering av kun den offentlige nettsiden — interne systemer er ikke vurdert."
+}

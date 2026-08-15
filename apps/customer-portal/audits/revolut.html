@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arch Website Audit — www.revolut.com</title>
+<style>
+  :root { --bg:#0f1220; --panel:#171b2e; --ink:#e8eaf2; --mut:#9aa3b8; --acc:#4f8cff; --ok:#3ddc84; --warn:#ffb454; --bad:#ff6b6b; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--ink); font-family:-apple-system,"Segoe UI",Roboto,sans-serif; line-height:1.6; padding:24px; }
+  .wrap { max-width:860px; margin:0 auto; }
+  .card { background:var(--panel); border-radius:14px; padding:24px; margin-bottom:18px; }
+  h1 { font-size:1.5rem; margin-bottom:6px; }
+  h2 { font-size:1.1rem; margin:0 0 10px; color:var(--acc); }
+  h3 { font-size:1rem; margin:14px 0 8px; color:var(--ink); }
+  .score { font-size:3rem; font-weight:800; color:var(--warn); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px; }
+  .dim { background:#1d2238; border-radius:10px; padding:12px; }
+  .dim b { display:block; }
+  .bar { height:8px; background:#2a3050; border-radius:6px; margin-top:8px; overflow:hidden; }
+  .bar i { display:block; height:100%; border-radius:6px; }
+  table { width:100%; border-collapse:collapse; margin:10px 0; }
+  th,td { text-align:left; padding:8px 10px; border-bottom:1px solid #2a3050; font-size:.92rem; }
+  th { color:var(--mut); font-weight:600; }
+  .tag { display:inline-block; padding:2px 10px; border-radius:20px; font-size:.78rem; font-weight:700; }
+  .t-ok { background:rgba(61,220,132,.15); color:var(--ok); }
+  .t-warn { background:rgba(255,180,84,.15); color:var(--warn); }
+  .t-bad { background:rgba(255,107,107,.15); color:var(--bad); }
+  .mut { color:var(--mut); font-size:.88rem; }
+  ul,ol { padding-left:20px; margin:8px 0; }
+  code { background:#232a45; padding:1px 6px; border-radius:5px; font-size:.85em; }
+  blockquote { border-left:3px solid var(--acc); padding-left:12px; margin:10px 0; color:var(--mut); }
+  a { color:var(--acc); }
+  .foot { color:var(--mut); font-size:.8rem; margin-top:20px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="card">
+    <h1>Arch Website Audit</h1>
+    <p class="mut">www.revolut.com · utført 15. august 2026 · passiv, utenfor-inn · ingen endringer gjort</p>
+    <p style="margin-top:14px">Total score</p>
+    <div class="score">42 %</div>
+    <p class="mut">0 kritiske funn · 4 høye · 18 medium · 4 lave</p>
+  </div>
+
+  <div class="card">
+    <h2>Dimensjoner</h2>
+    <div class="grid"><div class="dim"><b>performance <span class="tag t-bad">38 %</span></b><div class="bar"><i style="width:38%;background:var(--bad)"></i></div></div>
+<div class="dim"><b>security <span class="tag t-warn">58 %</span></b><div class="bar"><i style="width:58%;background:var(--warn)"></i></div></div>
+<div class="dim"><b>ux_mobile <span class="tag t-bad">33 %</span></b><div class="bar"><i style="width:33%;background:var(--bad)"></i></div></div>
+<div class="dim"><b>accessibility <span class="tag t-warn">50 %</span></b><div class="bar"><i style="width:50%;background:var(--warn)"></i></div></div>
+<div class="dim"><b>seo <span class="tag t-bad">38 %</span></b><div class="bar"><i style="width:38%;background:var(--bad)"></i></div></div>
+<div class="dim"><b>reliability <span class="tag t-warn">50 %</span></b><div class="bar"><i style="width:50%;background:var(--warn)"></i></div></div>
+<div class="dim"><b>trust_privacy <span class="tag t-bad">39 %</span></b><div class="bar"><i style="width:39%;background:var(--bad)"></i></div></div>
+<div class="dim"><b>ai_visibility <span class="tag t-bad">0 %</span></b><div class="bar"><i style="width:0%;background:var(--bad)"></i></div></div>
+<div class="dim"><b>automation <span class="tag t-warn">67 %</span></b><div class="bar"><i style="width:67%;background:var(--warn)"></i></div></div></div>
+  </div>
+
+  <div class="card">
+    <h2>Funn (prioritert)</h2>
+    <p><span class="tag t-bad">HØY</span> <b>Ødelagte interne lenker</b><br><span class="mut">1 ødelagt (www.revolut.com/ → 403)</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Cache-headere</b><br><span class="mut">ingen cache-control</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Bilde-optimalisering</b><br><span class="mut">1 bilder, 0 m/ dimensjoner, 0 lazy</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Overskriftshierarki</b><br><span class="mut">h1=1 h2=0 h3=0</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Semantiske landemerker</b><br><span class="mut">2/4 (header, main)</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Meta-beskrivelse</b><br><span class="mut">mangler meta description</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Canonical</b><br><span class="mut">mangler canonical</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Sitemap.xml</b><br><span class="mut">mangler sitemap.xml</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>OpenGraph</b><br><span class="mut">title=true description=false image=false</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Strukturert data (JSON-LD)</b><br><span class="mut">ingen JSON-LD</span></p>
+<p><span class="tag t-bad">HØY</span> <b>Header: csp</b><br><span class="mut">mangler</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Versjons-avsløring</b><br><span class="mut">cloudflare</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Personvernerklæring-link</b><br><span class="mut">ingen personvern-link observert</span></p>
+<p><span class="tag t-bad">HØY</span> <b>Kontakt-/lead-skjema</b><br><span class="mut">ingen <form> observert</span></p>
+<p><span class="tag t-bad">HØY</span> <b>Sikkerhetsheadere — gradering B</b><br><span class="mut">Gradering B. Content-Security-Policy: MANGLER; Strict-Transport-Security: max-age=2592000; includeSubDomains; preload; X-Frame-Options: SAMEORIGIN; X-Content-Type-Options: nosniff; Referrer-Policy: same-origin; Permissions-Policy: accelerometer=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(… Trekk: CSP mangler · HSTS max-age < 6 mnd (2592000)</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>SPF (avsender-verifisering)</b><br><span class="mut">v=spf1 include:_spf.google.com include:mail.zendesk.com include:_spf.atlassian.net include:_spf.salesforce.com include:_spf.sparkpostmail.com ~all — ~all er svakt, spoofing mulig</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>DMARC for subdomene</b><br><span class="mut">ingen _dmarc.www.revolut.com — subdomener kan spoofes</span></p>
+<p><span class="tag t-ok">LAV</span> <b>MTA-STS (håndhevet e-post-TLS)</b><br><span class="mut">ingen MTA-STS (TXT + policy-fil mangler)</span></p>
+<p><span class="tag t-ok">LAV</span> <b>TLS-RPT (TLS-rapportering)</b><br><span class="mut">ingen TLS-rapportering</span></p>
+<p><span class="tag t-ok">LAV</span> <b>DNSSEC (signert sone)</b><br><span class="mut">manglende AD-flag — sonen er ikke DNSSEC-signert</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Cookie-banner / samtykke-plattform (CMP)</b><br><span class="mut">ingen CMP/banner observert — potential concern, krever juridisk vurdering</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Personvernerklæring</b><br><span class="mut">ingen personvernerklæring-link observert — potential concern, krever juridisk vurdering</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Pris inkl. mva</b><br><span class="mut">pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Angrerett-informasjon</b><br><span class="mut">angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Klageadgang / tvisteløsning</b><br><span class="mut">klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering</span></p>
+<p><span class="tag t-ok">LAV</span> <b>Automatiseringsmuligheter identifisert</b><br><span class="mut">uutnyttet potensial 67% — manglende signaler: contact_form, cmp, chat, newsletter</span></p>
+  </div>
+
+<div class="card"><h2>## Arch Audit v2 — utvidede undersøkelser</h2></div>
+<div class="card"><h2>Hva en hacker ser</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>❌ Funn</td><td>Sikkerhetsheadere — gradering B</td><td>Gradering B. Content-Security-Policy: MANGLER; Strict-Transport-Security: max-age=2592000; includeSubDomains; preload; X-Frame-Options: SAMEORIGIN; X-Content-Type-Options: nosniff; Referrer-Policy: same-origin; Permissions-Policy: accelerometer=(),camera=(),clipboard-read=(),clipboard-write=(),geolocation=(),gyroscope=(… Trekk: CSP mangler · HSTS max-age < 6 mnd (2592000)</td></tr><tr><td>✅ OK</td><td>Cookie-sikkerhet (HttpOnly/Secure/SameSite)</td><td>1 cookies — alle har HttpOnly, Secure og SameSite.</td></tr><tr><td>✅ OK</td><td>Ingen versjonslekkasjer</td><td>Ingen server/x-powered-by/x-aspnet-version-header, <meta generator>, gammel jQuery eller WordPress-signatur observert.</td></tr><tr><td>⚠️ Ikke verifisert</td><td>TLS-sertifikat gyldighet</td><td>Kunne ikke hente sertifikatinfo (ingen PEM i s_client-output).</td></tr><tr><td>✅ OK</td><td>TLS-sertifikat-verifisering</td><td>verify return code: 0 (ok)</td></tr><tr><td>✅ OK</td><td>Legacy-TLS (1.0/1.1) støtte</td><td>TLS 1.0: blocked · TLS 1.1: blocked</td></tr></tbody></table></div>
+<div class="card"><h2>E-post & DNS-sikkerhet</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>❌ Funn</td><td>SPF (avsender-verifisering)</td><td>v=spf1 include:_spf.google.com include:mail.zendesk.com include:_spf.atlassian.net include:_spf.salesforce.com include:_spf.sparkpostmail.com ~all — ~all er svakt, spoofing mulig</td></tr><tr><td>✅ OK</td><td>SPF: private IP-er i mekanismene</td><td>ingen private IP-er i SPF</td></tr><tr><td>✅ OK</td><td>DKIM (e-post-signering)</td><td>selector: google</td></tr><tr><td>✅ OK</td><td>DMARC (spoofing-beskyttelse)</td><td>p=quarantine (delvis) — v=DMARC1; p=quarantine; pct=100; sp=quarantine; rua=mailto:revolut@rua.netcraft.com,mailto:dmarc@revolut.com; ruf=mailto:revolut@ruf.netcraft.com,mailto:dmarc@revolut.com;</td></tr><tr><td>❌ Funn</td><td>DMARC for subdomene</td><td>ingen _dmarc.www.revolut.com — subdomener kan spoofes</td></tr><tr><td>❌ Funn</td><td>MTA-STS (håndhevet e-post-TLS)</td><td>ingen MTA-STS (TXT + policy-fil mangler)</td></tr><tr><td>❌ Funn</td><td>TLS-RPT (TLS-rapportering)</td><td>ingen TLS-rapportering</td></tr><tr><td>✅ OK</td><td>BIMI (merkevare-logo i innboks)</td><td>v=BIMI1;l=https://vmc.digicert.com/d769f6ee-8fe8-480e-8186-627e2dd908d9.svg;a=https://vmc.digicert.com/d769f6ee-8fe8-480e-8186-627e2dd908d9.pem</td></tr><tr><td>✅ OK</td><td>CAA (sertifikat-utsteder-kontroll)</td><td>issuer: amazon.com, fnmt.es, digicert.com, visa.com, mastercard.com, pki.goog, sectigo.com, letsencrypt.org, e-szigno.hu, ssl.com, buypass.com</td></tr><tr><td>❌ Funn</td><td>DNSSEC (signert sone)</td><td>manglende AD-flag — sonen er ikke DNSSEC-signert</td></tr><tr><td>✅ OK</td><td>E-post-omdømme (DNSBL)</td><td>aspmx.l.google.com (172.253.148.27) ikke listet</td></tr><tr><td>⚠️ Ikke verifisert</td><td>Subdomene-eksponering (crt.sh)</td><td>crt.sh-feil: The operation was aborted due to timeout</td></tr></tbody></table><table><thead><tr><th>Protokoll</th><th>Observert</th></tr></thead><tbody><tr><td>SPF</td><td>v=spf1 include:_spf.google.com include:mail.zendesk.com include:_spf.atlassian.net include:_spf.salesforce.com include:_spf.sparkpostmail.com ~all</td></tr><tr><td>DMARC</td><td>quarantine (p=quarantine)</td></tr><tr><td>DKIM</td><td>google</td></tr><tr><td>MTA-STS</td><td>TXT: nei · policy-fil: nei</td></tr><tr><td>BIMI</td><td>v=BIMI1;l=https://vmc.digicert.com/d769f6ee-8fe8-480e-8186-627e2dd908d9.svg;a=https://vmc.digicert.com/d769f6ee-8fe8-480e-8186-627e2dd908d9.pem</td></tr><tr><td>CAA</td><td>amazon.com, fnmt.es, digicert.com, visa.com, mastercard.com, pki.goog, sectigo.com, letsencrypt.org, e-szigno.hu, ssl.com, buypass.com</td></tr><tr><td>DNSSEC</td><td>ikke signert</td></tr><tr><td>DNSBL</td><td>aspmx.l.google.com ikke listet</td></tr><tr><td>Subdomener (crt.sh)</td><td>0 observert</td></tr></tbody></table><p><b>Derfor betyr dette noe:</b> SPF/DKIM/DMARC avgjør om «hvem som helst» kan sende e-post som om de er dere. Kun ~15 % av domener har full SPF+DKIM+DMARC.</p></div>
+<div class="card"><h2>Norge-data (Brreg · Norid · SSB)</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>⚠️ Ikke verifisert</td><td>Firma i Brreg (Enhetsregisteret)</td><td>ingen Brreg-treff</td></tr><tr><td>⚠️ Ikke verifisert</td><td>Bransjekontekst (SSB)</td><td>ingen næringskode tilgjengelig</td></tr><tr><td>➖ N/A</td><td>Domenet registrert (Norid)</td><td>utenlandsk domene — Norid ikke autoritativ</td></tr></tbody></table><p><b>Norid (revolut.com):</b> .</p></div>
+<div class="card"><h2>Historikk (Wayback Machine)</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>✅ OK</td><td>Arkivhistorikk finnes</td><td>arkivert siden 2004-04-07</td></tr><tr><td>✅ OK</td><td>Aktualitet (siste arkiverte versjon)</td><td>fanget i løpet av siste 12 mnd (2025-08-15)</td></tr><tr><td>⚠️ Ikke verifisert</td><td>Arkivomfang</td><td>omfang ikke tilgjengelig (Wayback CDX timeout på full historikk)</td></tr></tbody></table><p><b>Arkivomfang:</b> første arkiverte versjon 2004-04-07, siste 2025-08-15.</p></div>
+<div class="card"><h2>Compliance-signaler Norge</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>❌ Funn</td><td>Cookie-banner / samtykke-plattform (CMP)</td><td>ingen CMP/banner observert — potential concern, krever juridisk vurdering</td></tr><tr><td>➖ N/A</td><td>Reelt valg (avvis-knapp)</td><td>ingen banner/CMP observert</td></tr><tr><td>✅ OK</td><td>Forhåndsavkrysset samtykke</td><td>ingen forhåndsavkryssede samtykke-inputs observert</td></tr><tr><td>❌ Funn</td><td>Personvernerklæring</td><td>ingen personvernerklæring-link observert — potential concern, krever juridisk vurdering</td></tr><tr><td>✅ OK</td><td>Tredjeparts-trackere</td><td>ingen kjente tredjeparts-trackere observert</td></tr><tr><td>✅ OK</td><td>Google Fonts (ekstern)</td><td>ingen ekstern Google Fonts observert</td></tr><tr><td>❌ Funn</td><td>Pris inkl. mva</td><td>pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering</td></tr><tr><td>❌ Funn</td><td>Angrerett-informasjon</td><td>angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering</td></tr><tr><td>❌ Funn</td><td>Klageadgang / tvisteløsning</td><td>klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering</td></tr></tbody></table><p><b>Viktig:</b> Disse punktene er maskinlesbare SIGNALER, ikke en juridisk vurdering. «Funn» betyr at noe mangler eller er observert — om det faktisk utgjør et problem krever juridisk vurdering.</p></div>
+<div class="card"><h2>Fart (PageSpeed Insights + CrUX)</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>⚠️ Ikke verifisert</td><td>PageSpeed mobil</td><td>API-feil: HTTP 429</td></tr><tr><td>⚠️ Ikke verifisert</td><td>PageSpeed desktop</td><td>API-feil: HTTP 429</td></tr><tr><td>⚠️ Ikke verifisert</td><td>PageSpeed API tilgjengelig</td><td>API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig</td></tr></tbody></table></div>
+<div class="card"><h2>Tilstedeværelse (sosiale medier · NAP)</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>⚠️ Ikke verifisert</td><td>Hjemmeside lesbar for tilstedeværelse-sjekk</td><td>kunne ikke hente HTML</td></tr></tbody></table></div>
+<div class="card"><h2>AI-analyse av innhold (DeepSeek)</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>⚠️ Ikke verifisert</td><td>AI-innholdsanalyse</td><td>kunne ikke hente hjemmeside-HTML</td></tr></tbody></table></div>
+<div class="card"><h2>AI-synlighet (GEO — hvordan AI-assistenter omtaler dere)</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>⚠️ Ikke verifisert</td><td>Synlighet i AI-svar</td><td>kunne ikke hente hjemmeside-HTML</td></tr></tbody></table><hr><p>_Alle sjekker er passive og utenfor-inn (kun offentlig observerbar informasjon). Kilde og rådata ligger i evidence-filen._</p></div>
+
+  <div class="card">
+    <h2>Hva Arch kan gjøre for deg</h2>
+    <p>Arch leverer Build-fix (rettelser), Compliance (Norge-spesifikke krav) og Managed (løpende overvåking og drift) basert på funnene over.</p>
+  </div>
+
+  <p class="foot">Generert av Arch Platform · website-audit v2 · 2026-08-15</p>
+</div>
+</body>
+</html>
