@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arch Website Audit — klarpakke.no</title>
+<style>
+  :root { --bg:#0f1220; --panel:#171b2e; --ink:#e8eaf2; --mut:#9aa3b8; --acc:#4f8cff; --ok:#3ddc84; --warn:#ffb454; --bad:#ff6b6b; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--ink); font-family:-apple-system,"Segoe UI",Roboto,sans-serif; line-height:1.6; padding:24px; }
+  .wrap { max-width:860px; margin:0 auto; }
+  .card { background:var(--panel); border-radius:14px; padding:24px; margin-bottom:18px; }
+  h1 { font-size:1.5rem; margin-bottom:6px; }
+  h2 { font-size:1.1rem; margin:0 0 10px; color:var(--acc); }
+  h3 { font-size:1rem; margin:14px 0 8px; color:var(--ink); }
+  .score { font-size:3rem; font-weight:800; color:var(--warn); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px; }
+  .dim { background:#1d2238; border-radius:10px; padding:12px; }
+  .dim b { display:block; }
+  .bar { height:8px; background:#2a3050; border-radius:6px; margin-top:8px; overflow:hidden; }
+  .bar i { display:block; height:100%; border-radius:6px; }
+  table { width:100%; border-collapse:collapse; margin:10px 0; }
+  th,td { text-align:left; padding:8px 10px; border-bottom:1px solid #2a3050; font-size:.92rem; }
+  th { color:var(--mut); font-weight:600; }
+  .tag { display:inline-block; padding:2px 10px; border-radius:20px; font-size:.78rem; font-weight:700; }
+  .t-ok { background:rgba(61,220,132,.15); color:var(--ok); }
+  .t-warn { background:rgba(255,180,84,.15); color:var(--warn); }
+  .t-bad { background:rgba(255,107,107,.15); color:var(--bad); }
+  .mut { color:var(--mut); font-size:.88rem; }
+  ul,ol { padding-left:20px; margin:8px 0; }
+  code { background:#232a45; padding:1px 6px; border-radius:5px; font-size:.85em; }
+  blockquote { border-left:3px solid var(--acc); padding-left:12px; margin:10px 0; color:var(--mut); }
+  a { color:var(--acc); }
+  .foot { color:var(--mut); font-size:.8rem; margin-top:20px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="card">
+    <h1>Arch Website Audit</h1>
+    <p class="mut">klarpakke.no · utført 14. august 2026 · passiv, utenfor-inn · ingen endringer gjort</p>
+    <p style="margin-top:14px">Total score</p>
+    <div class="score">66 %</div>
+    <p class="mut">0 kritiske funn · 2 høye · 7 medium · 9 lave</p>
+  </div>
+
+  <div class="card">
+    <h2>Dimensjoner</h2>
+    <div class="grid"><div class="dim"><b>performance <span class="tag t-bad">38 %</span></b><div class="bar"><i style="width:38%;background:var(--bad)"></i></div></div>
+<div class="dim"><b>security <span class="tag t-warn">54 %</span></b><div class="bar"><i style="width:54%;background:var(--warn)"></i></div></div>
+<div class="dim"><b>ux_mobile <span class="tag t-warn">75 %</span></b><div class="bar"><i style="width:75%;background:var(--warn)"></i></div></div>
+<div class="dim"><b>accessibility <span class="tag t-warn">75 %</span></b><div class="bar"><i style="width:75%;background:var(--warn)"></i></div></div>
+<div class="dim"><b>seo <span class="tag t-ok">100 %</span></b><div class="bar"><i style="width:100%;background:var(--ok)"></i></div></div>
+<div class="dim"><b>reliability <span class="tag t-ok">83 %</span></b><div class="bar"><i style="width:83%;background:var(--ok)"></i></div></div>
+<div class="dim"><b>trust_privacy <span class="tag t-warn">61 %</span></b><div class="bar"><i style="width:61%;background:var(--warn)"></i></div></div>
+<div class="dim"><b>automation <span class="tag t-bad">33 %</span></b><div class="bar"><i style="width:33%;background:var(--bad)"></i></div></div></div>
+  </div>
+
+  <div class="card">
+    <h2>Funn (prioritert)</h2>
+    <p><span class="tag t-warn">MEDIUM</span> <b>Render-blokkerende ressurser</b><br><span class="mut">1 blokkerende skript, 2 stylesheets</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Bilde-optimalisering</b><br><span class="mut">2 bilder, 2 m/ dimensjoner, 0 lazy</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Overskriftshierarki</b><br><span class="mut">h1=2 h2=10 h3=10</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Versjons-avsløring</b><br><span class="mut">cloudflare</span></p>
+<p><span class="tag t-bad">HØY</span> <b>Kontakt-/lead-skjema</b><br><span class="mut">ingen <form> observert</span></p>
+<p><span class="tag t-bad">HØY</span> <b>Cookie-sikkerhet (HttpOnly/Secure/SameSite)</b><br><span class="mut">1 cookies observert. Mangler HttpOnly: NEXT_LOCALE. Mangler Secure: NEXT_LOCALE. Mangler SameSite: alle har SameSite. (Cookie-navn + flagg kun — verdier aldri lagret/vist.)</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>SPF (avsender-verifisering)</b><br><span class="mut">v=spf1 include:_spf.domeneshop.no include:_spf.google.com include:spf.resend.com ~all — ~all er svakt, spoofing mulig</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>DMARC (spoofing-beskyttelse)</b><br><span class="mut">p=none (kun overvåkning) — v=DMARC1; p=none; rua=mailto:dmarc@klarpakke.no; ruf=mailto:dmarc@klarpakke.no; fo=1; adkim=s; aspf=s</span></p>
+<p><span class="tag t-ok">LAV</span> <b>MTA-STS (håndhevet e-post-TLS)</b><br><span class="mut">ingen MTA-STS (TXT + policy-fil mangler)</span></p>
+<p><span class="tag t-ok">LAV</span> <b>TLS-RPT (TLS-rapportering)</b><br><span class="mut">ingen TLS-rapportering</span></p>
+<p><span class="tag t-ok">LAV</span> <b>CAA (sertifikat-utsteder-kontroll)</b><br><span class="mut">ingen CAA</span></p>
+<p><span class="tag t-ok">LAV</span> <b>DNSSEC (signert sone)</b><br><span class="mut">manglende AD-flag — sonen er ikke DNSSEC-signert</span></p>
+<p><span class="tag t-ok">LAV</span> <b>DNSSEC (Norid)</b><br><span class="mut">DNSSEC ikke aktivert (delegationSigned=false)</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Angrerett-informasjon</b><br><span class="mut">angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering</span></p>
+<p><span class="tag t-ok">LAV</span> <b>Sosiale medier (lenker fra nettsiden)</b><br><span class="mut">ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)</span></p>
+<p><span class="tag t-ok">LAV</span> <b>Telefon på nettsiden</b><br><span class="mut">ingen tel:-lenke observert — potential concern (kontaktbarhet)</span></p>
+<p><span class="tag t-ok">LAV</span> <b>E-post på nettsiden</b><br><span class="mut">ingen mailto:-lenke observert — potential concern (kontaktbarhet)</span></p>
+<p><span class="tag t-ok">LAV</span> <b>Automatiseringsmuligheter identifisert</b><br><span class="mut">uutnyttet potensial 33% — manglende signaler: contact_form, cmp</span></p>
+  </div>
+
+<div class="card"><h2>## Arch Audit v2 — utvidede undersøkelser</h2></div>
+<div class="card"><h2>Hva en hacker ser</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>✅ OK</td><td>Sikkerhetsheadere — gradering A</td><td>Gradering A. Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://pskhryjzkobytnfwucrb.supabas…; Strict-Transport-Security: max-age=63072000; includeSubDomains; preload; X-Frame-Options: DENY; X-Content-Type-Options: nosniff; Referrer-Policy: strict-origin-when-cross-origin; Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(… Trekk: CSP svak (unsafe-inline/unsafe-eval)</td></tr><tr><td>❌ Funn</td><td>Cookie-sikkerhet (HttpOnly/Secure/SameSite)</td><td>1 cookies observert. Mangler HttpOnly: NEXT_LOCALE. Mangler Secure: NEXT_LOCALE. Mangler SameSite: alle har SameSite. (Cookie-navn + flagg kun — verdier aldri lagret/vist.)</td></tr><tr><td>✅ OK</td><td>Ingen versjonslekkasjer</td><td>Ingen server/x-powered-by/x-aspnet-version-header, <meta generator>, gammel jQuery eller WordPress-signatur observert.</td></tr><tr><td>✅ OK</td><td>TLS-sertifikat gyldighet</td><td>notBefore=2026-07-28T08:21:14.000Z, notAfter=2026-10-26T09:20:56.000Z, issuer=C=US, O=Google Trust Services, CN=WE1, SAN=klarpakke.no, *.klarpakke.no</td></tr><tr><td>✅ OK</td><td>TLS-sertifikat-verifisering</td><td>verify return code: 0 (ok)</td></tr><tr><td>✅ OK</td><td>Legacy-TLS (1.0/1.1) støtte</td><td>TLS 1.0: blocked · TLS 1.1: blocked</td></tr></tbody></table></div>
+<div class="card"><h2>E-post & DNS-sikkerhet</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>❌ Funn</td><td>SPF (avsender-verifisering)</td><td>v=spf1 include:_spf.domeneshop.no include:_spf.google.com include:spf.resend.com ~all — ~all er svakt, spoofing mulig</td></tr><tr><td>✅ OK</td><td>SPF: private IP-er i mekanismene</td><td>ingen private IP-er i SPF</td></tr><tr><td>⚠️ Ikke verifisert</td><td>DKIM (e-post-signering)</td><td>ingen av probede selektorer funnet (kan ikke konkludere fravær)</td></tr><tr><td>❌ Funn</td><td>DMARC (spoofing-beskyttelse)</td><td>p=none (kun overvåkning) — v=DMARC1; p=none; rua=mailto:dmarc@klarpakke.no; ruf=mailto:dmarc@klarpakke.no; fo=1; adkim=s; aspf=s</td></tr><tr><td>❌ Funn</td><td>MTA-STS (håndhevet e-post-TLS)</td><td>ingen MTA-STS (TXT + policy-fil mangler)</td></tr><tr><td>❌ Funn</td><td>TLS-RPT (TLS-rapportering)</td><td>ingen TLS-rapportering</td></tr><tr><td>➖ N/A</td><td>BIMI (merkevare-logo i innboks)</td><td>ingen BIMI (ikke påkrevd)</td></tr><tr><td>❌ Funn</td><td>CAA (sertifikat-utsteder-kontroll)</td><td>ingen CAA</td></tr><tr><td>❌ Funn</td><td>DNSSEC (signert sone)</td><td>manglende AD-flag — sonen er ikke DNSSEC-signert</td></tr><tr><td>✅ OK</td><td>E-post-omdømme (DNSBL)</td><td>mx.domeneshop.no (194.63.252.29) ikke listet</td></tr><tr><td>⚠️ Ikke verifisert</td><td>Subdomene-eksponering (crt.sh)</td><td>ingen data i crt.sh</td></tr></tbody></table><table><thead><tr><th>Protokoll</th><th>Observert</th></tr></thead><tbody><tr><td>SPF</td><td>v=spf1 include:_spf.domeneshop.no include:_spf.google.com include:spf.resend.com ~all</td></tr><tr><td>DMARC</td><td>none (p=none)</td></tr><tr><td>MTA-STS</td><td>TXT: nei · policy-fil: nei</td></tr><tr><td>CAA</td><td>ingen CAA</td></tr><tr><td>DNSSEC</td><td>signert (AD-flag)</td></tr><tr><td>DNSBL</td><td>mx.domeneshop.no ikke listet</td></tr><tr><td>Subdomener (crt.sh)</td><td>0 observert</td></tr></tbody></table><p><b>Derfor betyr dette noe:</b> SPF/DKIM/DMARC avgjør om «hvem som helst» kan sende e-post som om de er dere. Kun ~15 % av domener har full SPF+DKIM+DMARC.</p></div>
+<div class="card"><h2>Norge-data (Brreg · Norid · SSB)</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>⚠️ Ikke verifisert</td><td>Firma i Brreg (Enhetsregisteret)</td><td>ingen Brreg-treff for «Klarpakke»</td></tr><tr><td>⚠️ Ikke verifisert</td><td>Bransjekontekst (SSB)</td><td>ingen næringskode tilgjengelig</td></tr><tr><td>✅ OK</td><td>Domenet registrert (Norid)</td><td>registrert 2025-08-30</td></tr><tr><td>✅ OK</td><td>Sist endret (Norid)</td><td>sist endret 2026-02-01</td></tr><tr><td>❌ Funn</td><td>DNSSEC (Norid)</td><td>DNSSEC ikke aktivert (delegationSigned=false)</td></tr><tr><td>✅ OK</td><td>Registrar (Norid)</td><td>registrar: Domeneshop AS</td></tr></tbody></table><p><b>Norid (klarpakke.no):</b> registrert 2025-08-30 · sist endret 2026-02-01 · registrar: Domeneshop AS · DNSSEC: nei.</p></div>
+<div class="card"><h2>Historikk (Wayback Machine)</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>⚠️ Ikke verifisert</td><td>Arkivhistorikk finnes</td><td>ingen arkiverte versjoner funnet i Wayback for klarpakke.no</td></tr></tbody></table></div>
+<div class="card"><h2>Compliance-signaler Norge</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>✅ OK</td><td>Cookie-banner / samtykke-plattform (CMP)</td><td>generisk cookie/samtykke-banner observert (norsk tekst: cookie/informasjonskapsler + samtykke/godta/aksepter)</td></tr><tr><td>✅ OK</td><td>Reelt valg (avvis-knapp)</td><td>avvis/avslå/reject-alternativ observert («avvis»)</td></tr><tr><td>✅ OK</td><td>Forhåndsavkrysset samtykke</td><td>ingen forhåndsavkryssede samtykke-inputs observert</td></tr><tr><td>✅ OK</td><td>Personvernerklæring</td><td>personvernerklæring lenket i footer</td></tr><tr><td>✅ OK</td><td>Tredjeparts-trackere</td><td>ingen kjente tredjeparts-trackere observert</td></tr><tr><td>✅ OK</td><td>Google Fonts (ekstern)</td><td>ingen ekstern Google Fonts observert</td></tr><tr><td>✅ OK</td><td>Pris inkl. mva</td><td>pris inkl. mva-tekst observert</td></tr><tr><td>❌ Funn</td><td>Angrerett-informasjon</td><td>angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering</td></tr><tr><td>✅ OK</td><td>Klageadgang / tvisteløsning</td><td>klageadgang/tvisteløsning observert</td></tr></tbody></table><p><b>Viktig:</b> Disse punktene er maskinlesbare SIGNALER, ikke en juridisk vurdering. «Funn» betyr at noe mangler eller er observert — om det faktisk utgjør et problem krever juridisk vurdering.</p></div>
+<div class="card"><h2>Fart (PageSpeed Insights + CrUX)</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>⚠️ Ikke verifisert</td><td>PageSpeed mobil</td><td>API-feil: HTTP 403</td></tr><tr><td>⚠️ Ikke verifisert</td><td>PageSpeed desktop</td><td>API-feil: HTTP 403</td></tr><tr><td>⚠️ Ikke verifisert</td><td>PageSpeed API tilgjengelig</td><td>API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig</td></tr></tbody></table></div>
+<div class="card"><h2>Tilstedeværelse (sosiale medier · NAP)</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>❌ Funn</td><td>Sosiale medier (lenker fra nettsiden)</td><td>ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)</td></tr><tr><td>❌ Funn</td><td>Telefon på nettsiden</td><td>ingen tel:-lenke observert — potential concern (kontaktbarhet)</td></tr><tr><td>❌ Funn</td><td>E-post på nettsiden</td><td>ingen mailto:-lenke observert — potential concern (kontaktbarhet)</td></tr><tr><td>⚠️ Ikke verifisert</td><td>Google Business Profile (anmeldelser, kategori)</td><td>krever Google Places API-nøkkel — støttes når nøkkel er konfigurert</td></tr></tbody></table></div>
+<div class="card"><h2>AI-analyse av innhold (DeepSeek)</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>✅ OK</td><td>Innholdskvalitet (AI-vurdert)</td><td>Klarpakke posisjonerer seg som en transparent og risikofri inngang til kryptotrading for det norske markedet, med vekt på dokumentasjon og ærlighet om risiko. Siden tilbyr en gratis beta med lekepenger, AI-veiledning på norsk og backtest-resultater som viser både tap og gevinster, noe som bygger tillit. Budskapet er klart og pedagogisk, med tydelige løfter om hva de aldri vil gjøre, og en konkret oppfordring til handling for de første 100 registrerte.</td></tr><tr><td>✅ OK</td><td>Aktualitet (AI-vurdert)</td><td>Gratis beta kun i Norge · 100 000 kr i lekepenger · AI-pilot som forklarer på norsk · Backtest-bevis med gebyr inkludert · Ingen kredittkort, KYC eller binding · Norsk plattform · 5000 KLT-tokens til de 100 første · 90 dager med ekte data · Historisk avkastning er ingen garanti for fremtidig avkastning · De 100 første får gratis tilgang for alltid</td></tr></tbody></table><p><b>AI-vurdering (DeepSeek, deepseek-chat):</b> analysen er reproduserbar — prompt og rå-svar ligger i evidence-filen.</p><hr><p>_Alle sjekker er passive og utenfor-inn (kun offentlig observerbar informasjon). Kilde og rådata ligger i evidence-filen._</p></div>
+
+  <div class="card">
+    <h2>Hva Arch kan gjøre for deg</h2>
+    <p>Arch leverer Build-fix (rettelser), Compliance (Norge-spesifikke krav) og Managed (løpende overvåking og drift) basert på funnene over.</p>
+  </div>
+
+  <p class="foot">Generert av Arch Platform · website-audit v2 · 2026-08-15</p>
+</div>
+</body>
+</html>
