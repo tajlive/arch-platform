@@ -204,6 +204,25 @@
    "audit_report": "docs/audits/prospects/www.nbim.no/",
    "public_report": "https://arch-platform.pages.dev/audits/oljefondet-nbim",
    "consent": "none (passiv prospect-audit)"
+  },
+  {
+   "project_id": "lille-london",
+   "name": "Lille London AS (pub, Trondheim) — eier Geir Lima / Lijo Service AS",
+   "type": "Prospect — Servering/Uteliv",
+   "repository": null,
+   "linear_team": "ARC",
+   "linear_project": null,
+   "runtime": "external",
+   "environment": "prospect",
+   "visibility": "internal",
+   "health_profile": "audited",
+   "status": "prospect",
+   "url": "https://lillelondon.no",
+   "audit_score": 51,
+   "audit_date": "2026-08-15",
+   "audit_report": "docs/audits/prospects/lillelondon.no/",
+   "public_report": "https://arch-platform.pages.dev/audits/lille-london",
+   "consent": "none (passiv prospect-audit)"
   }
  ]
 }
