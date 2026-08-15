@@ -1,0 +1,3737 @@
+{
+  "meta": {
+    "generated": "2026-08-15T00:45:35.058Z",
+    "version": "2.0",
+    "name": "auto-glass.no",
+    "website": "https://auto-glass.no",
+    "domain": "auto-glass.no",
+    "registrable_domain": "auto-glass.no",
+    "mode": "website",
+    "design_partner": false,
+    "audit_duration_ms": 74910,
+    "v2_modules_ms": 42647
+  },
+  "customer": null,
+  "score": {
+    "total": 55,
+    "categories": {
+      "performance": {
+        "pct": 38,
+        "weight": 20,
+        "pass": 3,
+        "fail": 2,
+        "unknown": 3,
+        "denom": 8,
+        "checks": [
+          {
+            "id": "compression",
+            "label": "Komprimering (gzip/brotli)",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "gzip",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:41.314Z"
+          },
+          {
+            "id": "caching",
+            "label": "Cache-headere",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "public, no-cache",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:41.314Z"
+          },
+          {
+            "id": "render_blocking",
+            "label": "Render-blokkerende ressurser",
+            "dimension": "performance",
+            "result": "FAIL",
+            "evidence": "14 blokkerende skript, 7 stylesheets",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:41.315Z"
+          },
+          {
+            "id": "image_optim",
+            "label": "Bilde-optimalisering",
+            "dimension": "performance",
+            "result": "FAIL",
+            "evidence": "4 bilder, 1 m/ dimensjoner, 0 lazy",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:41.315Z"
+          },
+          {
+            "id": "third_party",
+            "label": "Tredjeparts-skript/-ressurser",
+            "dimension": "performance",
+            "result": "PASS",
+            "evidence": "1 eksterne domener (use.typekit.net)",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:41.316Z"
+          },
+          {
+            "id": "psi_mobile",
+            "label": "PageSpeed mobil",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:45:05.981Z"
+          },
+          {
+            "id": "psi_desktop",
+            "label": "PageSpeed desktop",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:45:05.981Z"
+          },
+          {
+            "id": "psi_availability",
+            "label": "PageSpeed API tilgjengelig",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:45:05.981Z"
+          }
+        ]
+      },
+      "security": {
+        "pct": 48,
+        "weight": 20,
+        "pass": 14,
+        "fail": 12,
+        "unknown": 3,
+        "denom": 29,
+        "checks": [
+          {
+            "id": "https",
+            "label": "HTTPS/TLS",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "HTTPS leverte respons",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:21.098Z"
+          },
+          {
+            "id": "header_csp",
+            "label": "Header: csp",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:51.961Z"
+          },
+          {
+            "id": "header_hsts",
+            "label": "Header: hsts",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:51.961Z"
+          },
+          {
+            "id": "header_xcto",
+            "label": "Header: xcto",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:51.961Z"
+          },
+          {
+            "id": "header_referrer",
+            "label": "Header: referrer",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:51.961Z"
+          },
+          {
+            "id": "header_permissions",
+            "label": "Header: permissions",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "mangler",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:51.961Z"
+          },
+          {
+            "id": "header_frame",
+            "label": "Header: frame",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:51.961Z"
+          },
+          {
+            "id": "mixed_content",
+            "label": "Blandet innhold (http på https)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "2 http-referanser",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:51.962Z"
+          },
+          {
+            "id": "source_maps",
+            "label": "Eksponerte source maps",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "skript ikke observerbare",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:51.963Z"
+          },
+          {
+            "id": "tech_disclosure",
+            "label": "Versjons-avsløring",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "Prometheus",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:51.964Z"
+          },
+          {
+            "id": "security_headers",
+            "label": "Sikkerhetsheadere — gradering C",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "Gradering C. Content-Security-Policy: MANGLER; Strict-Transport-Security: max-age=31536000; X-Frame-Options: SAMEORIGIN; X-Content-Type-Options: nosniff; Referrer-Policy: strict-origin-when-cross-origin; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS uten includeSubDomains · Permissions-Policy mangler",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:44:53.710Z"
+          },
+          {
+            "id": "cookies_attributes",
+            "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:44:53.710Z"
+          },
+          {
+            "id": "leak_0_server",
+            "label": "Versjonslekkasje: server-header",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "server: Prometheus",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:44:53.712Z"
+          },
+          {
+            "id": "leak_1_wordpress",
+            "label": "WordPress-signatur i generator",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "generator: WordPress 4.9.31",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.712Z"
+          },
+          {
+            "id": "leak_2_meta",
+            "label": "Versjonslekkasje: <meta name=generator>",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "generator: WooCommerce 3.4.8",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.712Z"
+          },
+          {
+            "id": "tls_cert",
+            "label": "TLS-sertifikat gyldighet",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "notBefore=2026-07-25T05:32:34.000Z, notAfter=2026-10-23T05:32:33.000Z, issuer=C=US, O=Let's Encrypt, CN=YR2, SAN=auto-glass.no, www.auto-glass.no",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:45:09.895Z"
+          },
+          {
+            "id": "tls_verify",
+            "label": "TLS-sertifikat-verifisering",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "verify return code: 0 (ok)",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:45:09.895Z"
+          },
+          {
+            "id": "tls_legacy",
+            "label": "Legacy-TLS (1.0/1.1) støtte",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+            "confidence": "medium",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:45:09.895Z"
+          },
+          {
+            "id": "spf",
+            "label": "SPF (avsender-verifisering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "v=spf1 include:spf.protection.outlook.com -all",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:44:53.347Z"
+          },
+          {
+            "id": "spf_private_ip",
+            "label": "SPF: private IP-er i mekanismene",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen private IP-er i SPF",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:44:53.347Z"
+          },
+          {
+            "id": "dkim",
+            "label": "DKIM (e-post-signering)",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "ingen av probede selektorer funnet (kan ikke konkludere fravær)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:44:54.259Z"
+          },
+          {
+            "id": "dmarc",
+            "label": "DMARC (spoofing-beskyttelse)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "p=none (kun overvåkning) — v=DMARC1; p=none",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:44:54.359Z"
+          },
+          {
+            "id": "mta_sts",
+            "label": "MTA-STS (håndhevet e-post-TLS)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:44:54.533Z"
+          },
+          {
+            "id": "tls_rpt",
+            "label": "TLS-RPT (TLS-rapportering)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen TLS-rapportering",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:44:54.616Z"
+          },
+          {
+            "id": "caa",
+            "label": "CAA (sertifikat-utsteder-kontroll)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen CAA",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:44:54.822Z"
+          },
+          {
+            "id": "dnssec",
+            "label": "DNSSEC (signert sone)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "AD-flag — signert sone validert",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:44:54.966Z"
+          },
+          {
+            "id": "subdomains",
+            "label": "Subdomene-eksponering (crt.sh)",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "crt.sh-feil: The operation was aborted due to timeout",
+            "confidence": "low",
+            "source": "https",
+            "observed_at": "2026-08-15T00:45:16.156Z"
+          },
+          {
+            "id": "brreg_konkurs",
+            "label": "Konkurs / under avvikling",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ikke konkurs og ikke under avvikling",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:44:52.674Z"
+          },
+          {
+            "id": "norid_dnssec",
+            "label": "DNSSEC (Norid)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "DNSSEC aktivert (delegationSigned=true)",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:44:53.276Z"
+          }
+        ]
+      },
+      "ux_mobile": {
+        "pct": 50,
+        "weight": 15,
+        "pass": 2,
+        "fail": 0,
+        "unknown": 2,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "viewport",
+            "label": "Viewport meta",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "viewport tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:41.316Z"
+          },
+          {
+            "id": "media_queries",
+            "label": "Responsive CSS (@media)",
+            "dimension": "ux_mobile",
+            "result": "PASS",
+            "evidence": "@media funnet",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:41.752Z"
+          },
+          {
+            "id": "ai_content_quality",
+            "label": "Innholdskvalitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "UNKNOWN",
+            "evidence": "Nettsiden til Autoglass AS presenterer selskapet som en leverandør av bilglass med stort lager og eksport til Skandinavia og Europa. Innholdet er faglig og informativt, men mangler oppdaterte årstall og meta-beskrivelse. Teksten er godt strukturert med tydelig fokus på kvalitet og sikkerhet, men kunne vært mer brukervennlig for potensielle kunder.",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T00:44:57.238Z"
+          },
+          {
+            "id": "ai_content_freshness",
+            "label": "Aktualitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "UNKNOWN",
+            "evidence": "Ingen årstall eller datoer funnet i teksten · Manglende meta-beskrivelse · Teksten inneholder mye teknisk informasjon om frontrute-benevninger · Tilstedeværelse av cookie- og personverninformasjon tyder på oppdatert nettside",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T00:44:57.238Z"
+          }
+        ]
+      },
+      "accessibility": {
+        "pct": 60,
+        "weight": 15,
+        "pass": 3,
+        "fail": 2,
+        "unknown": 0,
+        "denom": 5,
+        "checks": [
+          {
+            "id": "lang",
+            "label": "Språk-attributt (lang)",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "nb-NO",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:41.753Z"
+          },
+          {
+            "id": "alt_text",
+            "label": "Alt-tekst på bilder",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "0/4 bilder mangler alt",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:41.753Z"
+          },
+          {
+            "id": "form_labels",
+            "label": "Skjemaetiketter",
+            "dimension": "accessibility",
+            "result": "FAIL",
+            "evidence": "3 input, 3 label",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:41.754Z"
+          },
+          {
+            "id": "heading_hierarchy",
+            "label": "Overskriftshierarki",
+            "dimension": "accessibility",
+            "result": "FAIL",
+            "evidence": "h1=2 h2=1 h3=4",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:41.755Z"
+          },
+          {
+            "id": "semantic",
+            "label": "Semantiske landemerker",
+            "dimension": "accessibility",
+            "result": "PASS",
+            "evidence": "3/4 (header, nav, footer)",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:41.755Z"
+          }
+        ]
+      },
+      "seo": {
+        "pct": 63,
+        "weight": 10,
+        "pass": 5,
+        "fail": 3,
+        "unknown": 0,
+        "denom": 8,
+        "checks": [
+          {
+            "id": "title",
+            "label": "Tittel",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "Autoglass AS - Vi kan bilglass - Autoglass",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:41.755Z"
+          },
+          {
+            "id": "meta_description",
+            "label": "Meta-beskrivelse",
+            "dimension": "seo",
+            "result": "FAIL",
+            "evidence": "mangler meta description",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:41.755Z"
+          },
+          {
+            "id": "canonical",
+            "label": "Canonical",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "https://auto-glass.no/",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:41.755Z"
+          },
+          {
+            "id": "robots_meta",
+            "label": "Robots-meta",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "ingen robots-meta (standard: indekserbart)",
+            "confidence": "medium",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:41.755Z"
+          },
+          {
+            "id": "robots_txt",
+            "label": "robots.txt",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "robots.txt tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:41.755Z"
+          },
+          {
+            "id": "sitemap",
+            "label": "Sitemap.xml",
+            "dimension": "seo",
+            "result": "FAIL",
+            "evidence": "mangler sitemap.xml",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:51.960Z"
+          },
+          {
+            "id": "open_graph",
+            "label": "OpenGraph",
+            "dimension": "seo",
+            "result": "FAIL",
+            "evidence": "title=true description=true image=false",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:51.961Z"
+          },
+          {
+            "id": "structured_data",
+            "label": "Strukturert data (JSON-LD)",
+            "dimension": "seo",
+            "result": "PASS",
+            "evidence": "JSON-LD tilstede",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:51.961Z"
+          }
+        ]
+      },
+      "reliability": {
+        "pct": 86,
+        "weight": 10,
+        "pass": 6,
+        "fail": 0,
+        "unknown": 1,
+        "denom": 7,
+        "checks": [
+          {
+            "id": "http_status",
+            "label": "HTTP-status (hovedsiden)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "HTTP 200",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:21.089Z"
+          },
+          {
+            "id": "redirect_chain",
+            "label": "Omdirigeringskjede",
+            "dimension": "reliability",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen redirects",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:21.098Z"
+          },
+          {
+            "id": "broken_links",
+            "label": "Ødelagte interne lenker",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "13 sider sjekket, 0 ødelagt",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:36.122Z"
+          },
+          {
+            "id": "asset_failures",
+            "label": "Ressurs-feil (img/css/js)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "0 av 10 ressurser feilet",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:41.314Z"
+          },
+          {
+            "id": "norid_changed",
+            "label": "Sist endret (Norid)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "sist endret 2025-11-16",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:44:53.276Z"
+          },
+          {
+            "id": "history_exists",
+            "label": "Arkivhistorikk finnes",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "arkivert siden 2004-12-07",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:45:10.395Z"
+          },
+          {
+            "id": "history_freshness",
+            "label": "Aktualitet (siste arkiverte versjon)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "fanget i løpet av siste 12 mnd (2025-09-15)",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:45:10.396Z"
+          },
+          {
+            "id": "history_scope",
+            "label": "Arkivomfang",
+            "dimension": "reliability",
+            "result": "UNKNOWN",
+            "evidence": "omfang ikke tilgjengelig (Wayback CDX timeout på full historikk)",
+            "confidence": "medium",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:45:10.396Z"
+          }
+        ]
+      },
+      "trust_privacy": {
+        "pct": 66,
+        "weight": 5,
+        "pass": 21,
+        "fail": 9,
+        "unknown": 2,
+        "denom": 32,
+        "checks": [
+          {
+            "id": "cookie_banner",
+            "label": "Cookie-banner",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "cookie/samtykke-element observert",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:51.964Z"
+          },
+          {
+            "id": "privacy_link",
+            "label": "Personvernerklæring-link",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "link til personvern observert",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:51.965Z"
+          },
+          {
+            "id": "consent_cmp",
+            "label": "Samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "trackere observert uten CMP",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:51.966Z"
+          },
+          {
+            "id": "contact_form",
+            "label": "Kontakt-/lead-skjema",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "3 <form> observert",
+            "confidence": "high",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:51.966Z"
+          },
+          {
+            "id": "cta",
+            "label": "Call-to-action",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "CTA-tekst observert",
+            "confidence": "low",
+            "source": "http",
+            "observed_at": "2026-08-15T00:44:51.966Z"
+          },
+          {
+            "id": "bimi",
+            "label": "BIMI (merkevare-logo i innboks)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen BIMI (ikke påkrevd)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:44:54.713Z"
+          },
+          {
+            "id": "dnsbl",
+            "label": "E-post-omdømme (DNSBL)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "autoglass-no01b.mail.protection.outlook.com (52.101.73.12) ikke listet",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:44:55.141Z"
+          },
+          {
+            "id": "brreg_org",
+            "label": "Organisasjonsnummer og navn",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "org 968552732 — AUTOGLASS AS",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:44:52.674Z"
+          },
+          {
+            "id": "brreg_orgform",
+            "label": "Organisasjonsform",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "Aksjeselskap (AS)",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:44:52.674Z"
+          },
+          {
+            "id": "brreg_mva",
+            "label": "Registrert i Merverdiavgiftsregisteret",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrert i MVA",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:44:52.674Z"
+          },
+          {
+            "id": "brreg_dates",
+            "label": "Stiftelses- og registreringsdato",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "stiftet 1994-01-17 · registrert i Enhetsregisteret 1995-02-20",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:44:52.674Z"
+          },
+          {
+            "id": "brreg_ansatte",
+            "label": "Antall ansatte",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "7 ansatte",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:44:52.674Z"
+          },
+          {
+            "id": "brreg_naering",
+            "label": "Næringskode og beskrivelse",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "46.720 — Engroshandel med deler og utstyr for motorvogner",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:44:52.674Z"
+          },
+          {
+            "id": "brreg_hjemmeside",
+            "label": "Hjemmeside-konsistens (Brreg vs domene)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "Brreg-hjemmeside «www.auto-glass.no» samsvarer med auditert domene auto-glass.no",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:44:52.674Z"
+          },
+          {
+            "id": "brreg_navn_consistency",
+            "label": "Navn-konsistens (nettside vs Brreg)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "«Autoglass» samsvarer med Brreg-navn «AUTOGLASS AS»",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:44:52.674Z"
+          },
+          {
+            "id": "brreg_regnskap",
+            "label": "Siste årsregnskap",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "regnskap 2025: driftsinntekter 22 450 842 kr, resultat −1 164 896 kr",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:44:53.090Z"
+          },
+          {
+            "id": "brreg_roller",
+            "label": "Daglig leder / styreleder (Brreg)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "daglig leder: Truls Opdal · styreleder: Eduard Eikeland",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:44:53.150Z"
+          },
+          {
+            "id": "ssb_context",
+            "label": "Bransjekontekst (SSB)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "SSB-tabell ikke kartlagt for næring 46",
+            "confidence": "medium",
+            "source": "ssb",
+            "observed_at": "2026-08-15T00:44:53.150Z"
+          },
+          {
+            "id": "norid_registered",
+            "label": "Domenet registrert (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrert 1999-11-14",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:44:53.276Z"
+          },
+          {
+            "id": "norid_registrar",
+            "label": "Registrar (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrar: Domeneshop AS",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:44:53.276Z"
+          },
+          {
+            "id": "cmp_banner",
+            "label": "Cookie-banner / samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.286Z"
+          },
+          {
+            "id": "consent_real_choice",
+            "label": "Reelt valg (avvis-knapp)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen banner/CMP observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.286Z"
+          },
+          {
+            "id": "consent_prechecked",
+            "label": "Forhåndsavkrysset samtykke",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "forhåndsavkrysset samtykke-input observert (type=checkbox) — potential concern, krever juridisk vurdering",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.287Z"
+          },
+          {
+            "id": "privacy_policy",
+            "label": "Personvernerklæring",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "personvernerklæring lenket i footer",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.288Z"
+          },
+          {
+            "id": "third_party_trackers",
+            "label": "Tredjeparts-trackere",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "trackere observert (Google Tag Manager, Facebook Pixel) — ingen synlig samtykke-gating observert — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.288Z"
+          },
+          {
+            "id": "google_fonts",
+            "label": "Google Fonts (ekstern)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen ekstern Google Fonts observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.289Z"
+          },
+          {
+            "id": "ecom_price_vat",
+            "label": "Pris inkl. mva",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.289Z"
+          },
+          {
+            "id": "ecom_angrerett",
+            "label": "Angrerett-informasjon",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.290Z"
+          },
+          {
+            "id": "ecom_klage",
+            "label": "Klageadgang / tvisteløsning",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.290Z"
+          },
+          {
+            "id": "social_profiles",
+            "label": "Sosiale medier (lenker fra nettsiden)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.296Z"
+          },
+          {
+            "id": "nap_phone",
+            "label": "Telefon på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.296Z"
+          },
+          {
+            "id": "nap_email",
+            "label": "E-post på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "mailto: post@auto-glass.no",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.296Z"
+          },
+          {
+            "id": "nap_name_consistency",
+            "label": "Navn-konsistens (nettside ↔ Brreg)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "«AUTOGLASS AS» (Brreg) samsvarer med nettsidenavn",
+            "confidence": "high",
+            "source": "html+brreg",
+            "observed_at": "2026-08-15T00:44:53.297Z"
+          },
+          {
+            "id": "google_business",
+            "label": "Google Business Profile (anmeldelser, kategori)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+            "confidence": "medium",
+            "source": "places_api",
+            "observed_at": "2026-08-15T00:44:53.297Z"
+          }
+        ]
+      },
+      "ai_visibility": {
+        "pct": 75,
+        "weight": 5,
+        "pass": 3,
+        "fail": 1,
+        "unknown": 0,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "ai_vis_visibility",
+            "label": "Synlighet i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "1/3 svar nevner Autoglass · sitat: «Autoglass / Autoglass AS / auto-glass.no nevnes ikke i noen av svarene.» · prompter: «Hvilket firma bør jeg velge for å skifte frontrute…» / «Hvor kan jeg få tak i et sjeldent bilglass til en …»",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:45:35.055Z"
+          },
+          {
+            "id": "ai_vis_position",
+            "label": "Posisjon i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "FAIL",
+            "evidence": "beste posisjon: nevnt i løpende tekst (ikke topp-liste) av 3 svar",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:45:35.056Z"
+          },
+          {
+            "id": "ai_vis_sentiment",
+            "label": "Sentiment i AI-omtale",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "sentiment: nøytral · råd: Sørg for å bli nevnt i AI-svar ved å styrke tilstedeværelsen i relevante kataloger og innhold som dekker bilglassbytte og ADAS-kalibrering.",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:45:35.056Z"
+          },
+          {
+            "id": "ai_vis_sources",
+            "label": "Kilder AI-en siterer",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "eksterne domener i AI-svar: ebay.co",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:45:35.056Z"
+          }
+        ]
+      },
+      "automation": {
+        "pct": 50,
+        "leverage": 50,
+        "potential": 50,
+        "weight": 5,
+        "pass": 3,
+        "fail": 3,
+        "unknown": 0,
+        "denom": 6,
+        "checks": []
+      }
+    },
+    "weights": {
+      "performance": 20,
+      "security": 20,
+      "ux_mobile": 15,
+      "accessibility": 15,
+      "seo": 10,
+      "reliability": 10,
+      "trust_privacy": 5,
+      "ai_visibility": 5
+    },
+    "labels": {
+      "performance": "Performance",
+      "security": "Security Surface",
+      "ux_mobile": "UX / Mobile",
+      "accessibility": "Accessibility",
+      "seo": "SEO / Discovery",
+      "reliability": "Reliability",
+      "trust_privacy": "Trust / Privacy",
+      "automation": "Automation Potential",
+      "ai_visibility": "AI-synlighet (GEO)"
+    },
+    "automation": {
+      "leverage": 50,
+      "potential": 50,
+      "present": 3,
+      "total": 6,
+      "signals": {
+        "contact_form": true,
+        "analytics": true,
+        "cmp": false,
+        "chat": false,
+        "booking": true,
+        "newsletter": false
+      }
+    },
+    "observed_at": "2026-08-15T00:45:35.057Z"
+  },
+  "findings": [
+    {
+      "id": "W001",
+      "kind": "web_render_blocking",
+      "title": "Render-blokkerende ressurser",
+      "evidence": "14 blokkerende skript, 7 stylesheets",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W002",
+      "kind": "web_image_optim",
+      "title": "Bilde-optimalisering",
+      "evidence": "4 bilder, 1 m/ dimensjoner, 0 lazy",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W003",
+      "kind": "web_form_labels",
+      "title": "Skjemaetiketter",
+      "evidence": "3 input, 3 label",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W004",
+      "kind": "web_heading_hierarchy",
+      "title": "Overskriftshierarki",
+      "evidence": "h1=2 h2=1 h3=4",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W005",
+      "kind": "web_seo_meta",
+      "title": "Meta-beskrivelse",
+      "evidence": "mangler meta description",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W006",
+      "kind": "web_seo_sitemap",
+      "title": "Sitemap.xml",
+      "evidence": "mangler sitemap.xml",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W007",
+      "kind": "web_seo_og",
+      "title": "OpenGraph",
+      "evidence": "title=true description=true image=false",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W008",
+      "kind": "web_security_headers",
+      "title": "Header: csp",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W009",
+      "kind": "web_security_headers",
+      "title": "Header: permissions",
+      "evidence": "mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W010",
+      "kind": "web_mixed_content",
+      "title": "Blandet innhold (http på https)",
+      "evidence": "2 http-referanser",
+      "class": "inferred",
+      "section": "web",
+      "severity": "critical",
+      "priority": 5
+    },
+    {
+      "id": "W011",
+      "kind": "web_tech_disclosure",
+      "title": "Versjons-avsløring",
+      "evidence": "Prometheus",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W012",
+      "kind": "web_security_headers",
+      "title": "Sikkerhetsheadere — gradering C",
+      "evidence": "Gradering C. Content-Security-Policy: MANGLER; Strict-Transport-Security: max-age=31536000; X-Frame-Options: SAMEORIGIN; X-Content-Type-Options: nosniff; Referrer-Policy: strict-origin-when-cross-origin; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS uten includeSubDomains · Permissions-Policy mangler",
+      "class": "inferred",
+      "section": "web",
+      "severity": "high",
+      "priority": 5
+    },
+    {
+      "id": "W013",
+      "kind": "web_tech_disclosure",
+      "title": "Versjonslekkasje: server-header",
+      "evidence": "server: Prometheus",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W014",
+      "kind": "web_tech_disclosure",
+      "title": "WordPress-signatur i generator",
+      "evidence": "generator: WordPress 4.9.31",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W015",
+      "kind": "web_tech_disclosure",
+      "title": "Versjonslekkasje: <meta name=generator>",
+      "evidence": "generator: WooCommerce 3.4.8",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W016",
+      "kind": "web_email_dmarc",
+      "title": "DMARC (spoofing-beskyttelse)",
+      "evidence": "p=none (kun overvåkning) — v=DMARC1; p=none",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W017",
+      "kind": "web_email_mta_sts",
+      "title": "MTA-STS (håndhevet e-post-TLS)",
+      "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W018",
+      "kind": "web_email_mta_sts",
+      "title": "TLS-RPT (TLS-rapportering)",
+      "evidence": "ingen TLS-rapportering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W019",
+      "kind": "web_dns_hardening",
+      "title": "CAA (sertifikat-utsteder-kontroll)",
+      "evidence": "ingen CAA",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W020",
+      "kind": "web_privacy",
+      "title": "Cookie-banner / samtykke-plattform (CMP)",
+      "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W021",
+      "kind": "web_privacy",
+      "title": "Forhåndsavkrysset samtykke",
+      "evidence": "forhåndsavkrysset samtykke-input observert (type=checkbox) — potential concern, krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W022",
+      "kind": "web_privacy",
+      "title": "Tredjeparts-trackere",
+      "evidence": "trackere observert (Google Tag Manager, Facebook Pixel) — ingen synlig samtykke-gating observert — potential concern, krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W023",
+      "kind": "web_privacy",
+      "title": "Pris inkl. mva",
+      "evidence": "pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W024",
+      "kind": "web_privacy",
+      "title": "Angrerett-informasjon",
+      "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W025",
+      "kind": "web_privacy",
+      "title": "Klageadgang / tvisteløsning",
+      "evidence": "klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W026",
+      "kind": "web_social",
+      "title": "Sosiale medier (lenker fra nettsiden)",
+      "evidence": "ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W027",
+      "kind": "web_nap",
+      "title": "Telefon på nettsiden",
+      "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    },
+    {
+      "id": "W028",
+      "kind": "web_ai_position",
+      "title": "Posisjon i AI-svar",
+      "evidence": "beste posisjon: nevnt i løpende tekst (ikke topp-liste) av 3 svar",
+      "class": "inferred",
+      "section": "web",
+      "severity": "medium",
+      "priority": 5
+    },
+    {
+      "id": "W029",
+      "kind": "web_automation",
+      "title": "Automatiseringsmuligheter identifisert",
+      "evidence": "uutnyttet potensial 50% — manglende signaler: cmp, chat, newsletter",
+      "class": "inferred",
+      "section": "web",
+      "severity": "low",
+      "priority": 5
+    }
+  ],
+  "browser": {
+    "available": false
+  },
+  "web": {
+    "meta": {
+      "url": "https://auto-glass.no",
+      "domain": "auto-glass.no",
+      "origin": "https://auto-glass.no",
+      "final_url": "https://auto-glass.no",
+      "fetched_at": "2026-08-15T00:44:51.968Z"
+    },
+    "checks": [
+      {
+        "id": "http_status",
+        "label": "HTTP-status (hovedsiden)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "HTTP 200",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:21.089Z"
+      },
+      {
+        "id": "https",
+        "label": "HTTPS/TLS",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "HTTPS leverte respons",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:21.098Z"
+      },
+      {
+        "id": "redirect_chain",
+        "label": "Omdirigeringskjede",
+        "dimension": "reliability",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen redirects",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:21.098Z"
+      },
+      {
+        "id": "broken_links",
+        "label": "Ødelagte interne lenker",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "13 sider sjekket, 0 ødelagt",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:36.122Z"
+      },
+      {
+        "id": "asset_failures",
+        "label": "Ressurs-feil (img/css/js)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "0 av 10 ressurser feilet",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:41.314Z"
+      },
+      {
+        "id": "compression",
+        "label": "Komprimering (gzip/brotli)",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "gzip",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:41.314Z"
+      },
+      {
+        "id": "caching",
+        "label": "Cache-headere",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "public, no-cache",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:41.314Z"
+      },
+      {
+        "id": "render_blocking",
+        "label": "Render-blokkerende ressurser",
+        "dimension": "performance",
+        "result": "FAIL",
+        "evidence": "14 blokkerende skript, 7 stylesheets",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:41.315Z"
+      },
+      {
+        "id": "image_optim",
+        "label": "Bilde-optimalisering",
+        "dimension": "performance",
+        "result": "FAIL",
+        "evidence": "4 bilder, 1 m/ dimensjoner, 0 lazy",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:41.315Z"
+      },
+      {
+        "id": "third_party",
+        "label": "Tredjeparts-skript/-ressurser",
+        "dimension": "performance",
+        "result": "PASS",
+        "evidence": "1 eksterne domener (use.typekit.net)",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:41.316Z"
+      },
+      {
+        "id": "viewport",
+        "label": "Viewport meta",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "viewport tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:41.316Z"
+      },
+      {
+        "id": "media_queries",
+        "label": "Responsive CSS (@media)",
+        "dimension": "ux_mobile",
+        "result": "PASS",
+        "evidence": "@media funnet",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:41.752Z"
+      },
+      {
+        "id": "lang",
+        "label": "Språk-attributt (lang)",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "nb-NO",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:41.753Z"
+      },
+      {
+        "id": "alt_text",
+        "label": "Alt-tekst på bilder",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "0/4 bilder mangler alt",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:41.753Z"
+      },
+      {
+        "id": "form_labels",
+        "label": "Skjemaetiketter",
+        "dimension": "accessibility",
+        "result": "FAIL",
+        "evidence": "3 input, 3 label",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:41.754Z"
+      },
+      {
+        "id": "heading_hierarchy",
+        "label": "Overskriftshierarki",
+        "dimension": "accessibility",
+        "result": "FAIL",
+        "evidence": "h1=2 h2=1 h3=4",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:41.755Z"
+      },
+      {
+        "id": "semantic",
+        "label": "Semantiske landemerker",
+        "dimension": "accessibility",
+        "result": "PASS",
+        "evidence": "3/4 (header, nav, footer)",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:41.755Z"
+      },
+      {
+        "id": "title",
+        "label": "Tittel",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "Autoglass AS - Vi kan bilglass - Autoglass",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:41.755Z"
+      },
+      {
+        "id": "meta_description",
+        "label": "Meta-beskrivelse",
+        "dimension": "seo",
+        "result": "FAIL",
+        "evidence": "mangler meta description",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:41.755Z"
+      },
+      {
+        "id": "canonical",
+        "label": "Canonical",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "https://auto-glass.no/",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:41.755Z"
+      },
+      {
+        "id": "robots_meta",
+        "label": "Robots-meta",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "ingen robots-meta (standard: indekserbart)",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:41.755Z"
+      },
+      {
+        "id": "robots_txt",
+        "label": "robots.txt",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "robots.txt tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:41.755Z"
+      },
+      {
+        "id": "sitemap",
+        "label": "Sitemap.xml",
+        "dimension": "seo",
+        "result": "FAIL",
+        "evidence": "mangler sitemap.xml",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:51.960Z"
+      },
+      {
+        "id": "open_graph",
+        "label": "OpenGraph",
+        "dimension": "seo",
+        "result": "FAIL",
+        "evidence": "title=true description=true image=false",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:51.961Z"
+      },
+      {
+        "id": "structured_data",
+        "label": "Strukturert data (JSON-LD)",
+        "dimension": "seo",
+        "result": "PASS",
+        "evidence": "JSON-LD tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:51.961Z"
+      },
+      {
+        "id": "header_csp",
+        "label": "Header: csp",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:51.961Z"
+      },
+      {
+        "id": "header_hsts",
+        "label": "Header: hsts",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:51.961Z"
+      },
+      {
+        "id": "header_xcto",
+        "label": "Header: xcto",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:51.961Z"
+      },
+      {
+        "id": "header_referrer",
+        "label": "Header: referrer",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:51.961Z"
+      },
+      {
+        "id": "header_permissions",
+        "label": "Header: permissions",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "mangler",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:51.961Z"
+      },
+      {
+        "id": "header_frame",
+        "label": "Header: frame",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "tilstede",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:51.961Z"
+      },
+      {
+        "id": "mixed_content",
+        "label": "Blandet innhold (http på https)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "2 http-referanser",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:51.962Z"
+      },
+      {
+        "id": "source_maps",
+        "label": "Eksponerte source maps",
+        "dimension": "security",
+        "result": "UNKNOWN",
+        "evidence": "skript ikke observerbare",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:51.963Z"
+      },
+      {
+        "id": "tech_disclosure",
+        "label": "Versjons-avsløring",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "Prometheus",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:51.964Z"
+      },
+      {
+        "id": "cookie_banner",
+        "label": "Cookie-banner",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "cookie/samtykke-element observert",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:51.964Z"
+      },
+      {
+        "id": "privacy_link",
+        "label": "Personvernerklæring-link",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "link til personvern observert",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:51.965Z"
+      },
+      {
+        "id": "consent_cmp",
+        "label": "Samtykke-plattform (CMP)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "trackere observert uten CMP",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:51.966Z"
+      },
+      {
+        "id": "contact_form",
+        "label": "Kontakt-/lead-skjema",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "3 <form> observert",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:51.966Z"
+      },
+      {
+        "id": "cta",
+        "label": "Call-to-action",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "CTA-tekst observert",
+        "confidence": "low",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:51.966Z"
+      },
+      {
+        "id": "tech_cms",
+        "label": "Teknologi: cms",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "WordPress",
+        "confidence": "medium",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:51.968Z"
+      },
+      {
+        "id": "tech_hosting",
+        "label": "Teknologi: hosting",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "Prometheus",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:51.968Z"
+      },
+      {
+        "id": "tech_analytics",
+        "label": "Teknologi: analytics",
+        "dimension": "tech",
+        "result": "PASS",
+        "evidence": "Google Analytics/Tag Manager, Facebook Pixel",
+        "confidence": "high",
+        "source": "http",
+        "observed_at": "2026-08-15T00:44:51.968Z"
+      },
+      {
+        "id": "security_headers",
+        "label": "Sikkerhetsheadere — gradering C",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "Gradering C. Content-Security-Policy: MANGLER; Strict-Transport-Security: max-age=31536000; X-Frame-Options: SAMEORIGIN; X-Content-Type-Options: nosniff; Referrer-Policy: strict-origin-when-cross-origin; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS uten includeSubDomains · Permissions-Policy mangler",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-15T00:44:53.710Z"
+      },
+      {
+        "id": "cookies_attributes",
+        "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-15T00:44:53.710Z"
+      },
+      {
+        "id": "leak_0_server",
+        "label": "Versjonslekkasje: server-header",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "server: Prometheus",
+        "confidence": "high",
+        "source": "http_headers",
+        "observed_at": "2026-08-15T00:44:53.712Z"
+      },
+      {
+        "id": "leak_1_wordpress",
+        "label": "WordPress-signatur i generator",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "generator: WordPress 4.9.31",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T00:44:53.712Z"
+      },
+      {
+        "id": "leak_2_meta",
+        "label": "Versjonslekkasje: <meta name=generator>",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "generator: WooCommerce 3.4.8",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T00:44:53.712Z"
+      },
+      {
+        "id": "tls_cert",
+        "label": "TLS-sertifikat gyldighet",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "notBefore=2026-07-25T05:32:34.000Z, notAfter=2026-10-23T05:32:33.000Z, issuer=C=US, O=Let's Encrypt, CN=YR2, SAN=auto-glass.no, www.auto-glass.no",
+        "confidence": "high",
+        "source": "tls",
+        "observed_at": "2026-08-15T00:45:09.895Z"
+      },
+      {
+        "id": "tls_verify",
+        "label": "TLS-sertifikat-verifisering",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "verify return code: 0 (ok)",
+        "confidence": "high",
+        "source": "tls",
+        "observed_at": "2026-08-15T00:45:09.895Z"
+      },
+      {
+        "id": "tls_legacy",
+        "label": "Legacy-TLS (1.0/1.1) støtte",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+        "confidence": "medium",
+        "source": "tls",
+        "observed_at": "2026-08-15T00:45:09.895Z"
+      },
+      {
+        "id": "spf",
+        "label": "SPF (avsender-verifisering)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "v=spf1 include:spf.protection.outlook.com -all",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:44:53.347Z"
+      },
+      {
+        "id": "spf_private_ip",
+        "label": "SPF: private IP-er i mekanismene",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "ingen private IP-er i SPF",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:44:53.347Z"
+      },
+      {
+        "id": "dkim",
+        "label": "DKIM (e-post-signering)",
+        "dimension": "security",
+        "result": "UNKNOWN",
+        "evidence": "ingen av probede selektorer funnet (kan ikke konkludere fravær)",
+        "confidence": "low",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:44:54.259Z"
+      },
+      {
+        "id": "dmarc",
+        "label": "DMARC (spoofing-beskyttelse)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "p=none (kun overvåkning) — v=DMARC1; p=none",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:44:54.359Z"
+      },
+      {
+        "id": "mta_sts",
+        "label": "MTA-STS (håndhevet e-post-TLS)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:44:54.533Z"
+      },
+      {
+        "id": "tls_rpt",
+        "label": "TLS-RPT (TLS-rapportering)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen TLS-rapportering",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:44:54.616Z"
+      },
+      {
+        "id": "bimi",
+        "label": "BIMI (merkevare-logo i innboks)",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen BIMI (ikke påkrevd)",
+        "confidence": "low",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:44:54.713Z"
+      },
+      {
+        "id": "caa",
+        "label": "CAA (sertifikat-utsteder-kontroll)",
+        "dimension": "security",
+        "result": "FAIL",
+        "evidence": "ingen CAA",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:44:54.822Z"
+      },
+      {
+        "id": "dnssec",
+        "label": "DNSSEC (signert sone)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "AD-flag — signert sone validert",
+        "confidence": "high",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:44:54.966Z"
+      },
+      {
+        "id": "dnsbl",
+        "label": "E-post-omdømme (DNSBL)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "autoglass-no01b.mail.protection.outlook.com (52.101.73.12) ikke listet",
+        "confidence": "medium",
+        "source": "dns",
+        "observed_at": "2026-08-15T00:44:55.141Z"
+      },
+      {
+        "id": "subdomains",
+        "label": "Subdomene-eksponering (crt.sh)",
+        "dimension": "security",
+        "result": "UNKNOWN",
+        "evidence": "crt.sh-feil: The operation was aborted due to timeout",
+        "confidence": "low",
+        "source": "https",
+        "observed_at": "2026-08-15T00:45:16.156Z"
+      },
+      {
+        "id": "brreg_org",
+        "label": "Organisasjonsnummer og navn",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "org 968552732 — AUTOGLASS AS",
+        "confidence": "high",
+        "source": "brreg",
+        "observed_at": "2026-08-15T00:44:52.674Z"
+      },
+      {
+        "id": "brreg_orgform",
+        "label": "Organisasjonsform",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "Aksjeselskap (AS)",
+        "confidence": "high",
+        "source": "brreg",
+        "observed_at": "2026-08-15T00:44:52.674Z"
+      },
+      {
+        "id": "brreg_konkurs",
+        "label": "Konkurs / under avvikling",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "ikke konkurs og ikke under avvikling",
+        "confidence": "high",
+        "source": "brreg",
+        "observed_at": "2026-08-15T00:44:52.674Z"
+      },
+      {
+        "id": "brreg_mva",
+        "label": "Registrert i Merverdiavgiftsregisteret",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "registrert i MVA",
+        "confidence": "high",
+        "source": "brreg",
+        "observed_at": "2026-08-15T00:44:52.674Z"
+      },
+      {
+        "id": "brreg_dates",
+        "label": "Stiftelses- og registreringsdato",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "stiftet 1994-01-17 · registrert i Enhetsregisteret 1995-02-20",
+        "confidence": "high",
+        "source": "brreg",
+        "observed_at": "2026-08-15T00:44:52.674Z"
+      },
+      {
+        "id": "brreg_ansatte",
+        "label": "Antall ansatte",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "7 ansatte",
+        "confidence": "high",
+        "source": "brreg",
+        "observed_at": "2026-08-15T00:44:52.674Z"
+      },
+      {
+        "id": "brreg_naering",
+        "label": "Næringskode og beskrivelse",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "46.720 — Engroshandel med deler og utstyr for motorvogner",
+        "confidence": "high",
+        "source": "brreg",
+        "observed_at": "2026-08-15T00:44:52.674Z"
+      },
+      {
+        "id": "brreg_hjemmeside",
+        "label": "Hjemmeside-konsistens (Brreg vs domene)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "Brreg-hjemmeside «www.auto-glass.no» samsvarer med auditert domene auto-glass.no",
+        "confidence": "high",
+        "source": "brreg",
+        "observed_at": "2026-08-15T00:44:52.674Z"
+      },
+      {
+        "id": "brreg_navn_consistency",
+        "label": "Navn-konsistens (nettside vs Brreg)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "«Autoglass» samsvarer med Brreg-navn «AUTOGLASS AS»",
+        "confidence": "high",
+        "source": "brreg",
+        "observed_at": "2026-08-15T00:44:52.674Z"
+      },
+      {
+        "id": "brreg_regnskap",
+        "label": "Siste årsregnskap",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "regnskap 2025: driftsinntekter 22 450 842 kr, resultat −1 164 896 kr",
+        "confidence": "high",
+        "source": "brreg",
+        "observed_at": "2026-08-15T00:44:53.090Z"
+      },
+      {
+        "id": "brreg_roller",
+        "label": "Daglig leder / styreleder (Brreg)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "daglig leder: Truls Opdal · styreleder: Eduard Eikeland",
+        "confidence": "high",
+        "source": "brreg",
+        "observed_at": "2026-08-15T00:44:53.150Z"
+      },
+      {
+        "id": "ssb_context",
+        "label": "Bransjekontekst (SSB)",
+        "dimension": "trust_privacy",
+        "result": "UNKNOWN",
+        "evidence": "SSB-tabell ikke kartlagt for næring 46",
+        "confidence": "medium",
+        "source": "ssb",
+        "observed_at": "2026-08-15T00:44:53.150Z"
+      },
+      {
+        "id": "norid_registered",
+        "label": "Domenet registrert (Norid)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "registrert 1999-11-14",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T00:44:53.276Z"
+      },
+      {
+        "id": "norid_changed",
+        "label": "Sist endret (Norid)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "sist endret 2025-11-16",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T00:44:53.276Z"
+      },
+      {
+        "id": "norid_dnssec",
+        "label": "DNSSEC (Norid)",
+        "dimension": "security",
+        "result": "PASS",
+        "evidence": "DNSSEC aktivert (delegationSigned=true)",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T00:44:53.276Z"
+      },
+      {
+        "id": "norid_registrar",
+        "label": "Registrar (Norid)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "registrar: Domeneshop AS",
+        "confidence": "high",
+        "source": "norid",
+        "observed_at": "2026-08-15T00:44:53.276Z"
+      },
+      {
+        "id": "history_exists",
+        "label": "Arkivhistorikk finnes",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "arkivert siden 2004-12-07",
+        "confidence": "high",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-15T00:45:10.395Z"
+      },
+      {
+        "id": "history_freshness",
+        "label": "Aktualitet (siste arkiverte versjon)",
+        "dimension": "reliability",
+        "result": "PASS",
+        "evidence": "fanget i løpet av siste 12 mnd (2025-09-15)",
+        "confidence": "high",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-15T00:45:10.396Z"
+      },
+      {
+        "id": "history_scope",
+        "label": "Arkivomfang",
+        "dimension": "reliability",
+        "result": "UNKNOWN",
+        "evidence": "omfang ikke tilgjengelig (Wayback CDX timeout på full historikk)",
+        "confidence": "medium",
+        "source": "wayback_cdx",
+        "observed_at": "2026-08-15T00:45:10.396Z"
+      },
+      {
+        "id": "cmp_banner",
+        "label": "Cookie-banner / samtykke-plattform (CMP)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T00:44:53.286Z"
+      },
+      {
+        "id": "consent_real_choice",
+        "label": "Reelt valg (avvis-knapp)",
+        "dimension": "trust_privacy",
+        "result": "NOT_APPLICABLE",
+        "evidence": "ingen banner/CMP observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:44:53.286Z"
+      },
+      {
+        "id": "consent_prechecked",
+        "label": "Forhåndsavkrysset samtykke",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "forhåndsavkrysset samtykke-input observert (type=checkbox) — potential concern, krever juridisk vurdering",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T00:44:53.287Z"
+      },
+      {
+        "id": "privacy_policy",
+        "label": "Personvernerklæring",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "personvernerklæring lenket i footer",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:44:53.288Z"
+      },
+      {
+        "id": "third_party_trackers",
+        "label": "Tredjeparts-trackere",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "trackere observert (Google Tag Manager, Facebook Pixel) — ingen synlig samtykke-gating observert — potential concern, krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:44:53.288Z"
+      },
+      {
+        "id": "google_fonts",
+        "label": "Google Fonts (ekstern)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "ingen ekstern Google Fonts observert",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:44:53.289Z"
+      },
+      {
+        "id": "ecom_price_vat",
+        "label": "Pris inkl. mva",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:44:53.289Z"
+      },
+      {
+        "id": "ecom_angrerett",
+        "label": "Angrerett-informasjon",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:44:53.290Z"
+      },
+      {
+        "id": "ecom_klage",
+        "label": "Klageadgang / tvisteløsning",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:44:53.290Z"
+      },
+      {
+        "id": "psi_mobile",
+        "label": "PageSpeed mobil",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-feil: HTTP 429",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-15T00:45:05.981Z"
+      },
+      {
+        "id": "psi_desktop",
+        "label": "PageSpeed desktop",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-feil: HTTP 429",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-15T00:45:05.981Z"
+      },
+      {
+        "id": "psi_availability",
+        "label": "PageSpeed API tilgjengelig",
+        "dimension": "performance",
+        "result": "UNKNOWN",
+        "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+        "confidence": "medium",
+        "source": "pagespeed_api",
+        "observed_at": "2026-08-15T00:45:05.981Z"
+      },
+      {
+        "id": "social_profiles",
+        "label": "Sosiale medier (lenker fra nettsiden)",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)",
+        "confidence": "high",
+        "source": "html",
+        "observed_at": "2026-08-15T00:44:53.296Z"
+      },
+      {
+        "id": "nap_phone",
+        "label": "Telefon på nettsiden",
+        "dimension": "trust_privacy",
+        "result": "FAIL",
+        "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T00:44:53.296Z"
+      },
+      {
+        "id": "nap_email",
+        "label": "E-post på nettsiden",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "mailto: post@auto-glass.no",
+        "confidence": "medium",
+        "source": "html",
+        "observed_at": "2026-08-15T00:44:53.296Z"
+      },
+      {
+        "id": "nap_name_consistency",
+        "label": "Navn-konsistens (nettside ↔ Brreg)",
+        "dimension": "trust_privacy",
+        "result": "PASS",
+        "evidence": "«AUTOGLASS AS» (Brreg) samsvarer med nettsidenavn",
+        "confidence": "high",
+        "source": "html+brreg",
+        "observed_at": "2026-08-15T00:44:53.297Z"
+      },
+      {
+        "id": "google_business",
+        "label": "Google Business Profile (anmeldelser, kategori)",
+        "dimension": "trust_privacy",
+        "result": "UNKNOWN",
+        "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+        "confidence": "medium",
+        "source": "places_api",
+        "observed_at": "2026-08-15T00:44:53.297Z"
+      },
+      {
+        "id": "ai_content_quality",
+        "label": "Innholdskvalitet (AI-vurdert)",
+        "dimension": "ux_mobile",
+        "result": "UNKNOWN",
+        "evidence": "Nettsiden til Autoglass AS presenterer selskapet som en leverandør av bilglass med stort lager og eksport til Skandinavia og Europa. Innholdet er faglig og informativt, men mangler oppdaterte årstall og meta-beskrivelse. Teksten er godt strukturert med tydelig fokus på kvalitet og sikkerhet, men kunne vært mer brukervennlig for potensielle kunder.",
+        "confidence": "medium",
+        "source": "llm_analysis",
+        "observed_at": "2026-08-15T00:44:57.238Z"
+      },
+      {
+        "id": "ai_content_freshness",
+        "label": "Aktualitet (AI-vurdert)",
+        "dimension": "ux_mobile",
+        "result": "UNKNOWN",
+        "evidence": "Ingen årstall eller datoer funnet i teksten · Manglende meta-beskrivelse · Teksten inneholder mye teknisk informasjon om frontrute-benevninger · Tilstedeværelse av cookie- og personverninformasjon tyder på oppdatert nettside",
+        "confidence": "medium",
+        "source": "llm_analysis",
+        "observed_at": "2026-08-15T00:44:57.238Z"
+      },
+      {
+        "id": "ai_vis_visibility",
+        "label": "Synlighet i AI-svar",
+        "dimension": "ai_visibility",
+        "result": "PASS",
+        "evidence": "1/3 svar nevner Autoglass · sitat: «Autoglass / Autoglass AS / auto-glass.no nevnes ikke i noen av svarene.» · prompter: «Hvilket firma bør jeg velge for å skifte frontrute…» / «Hvor kan jeg få tak i et sjeldent bilglass til en …»",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:45:35.055Z"
+      },
+      {
+        "id": "ai_vis_position",
+        "label": "Posisjon i AI-svar",
+        "dimension": "ai_visibility",
+        "result": "FAIL",
+        "evidence": "beste posisjon: nevnt i løpende tekst (ikke topp-liste) av 3 svar",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:45:35.056Z"
+      },
+      {
+        "id": "ai_vis_sentiment",
+        "label": "Sentiment i AI-omtale",
+        "dimension": "ai_visibility",
+        "result": "PASS",
+        "evidence": "sentiment: nøytral · råd: Sørg for å bli nevnt i AI-svar ved å styrke tilstedeværelsen i relevante kataloger og innhold som dekker bilglassbytte og ADAS-kalibrering.",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:45:35.056Z"
+      },
+      {
+        "id": "ai_vis_sources",
+        "label": "Kilder AI-en siterer",
+        "dimension": "ai_visibility",
+        "result": "PASS",
+        "evidence": "eksterne domener i AI-svar: ebay.co",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:45:35.056Z"
+      }
+    ],
+    "raw": {
+      "home": {
+        "status": 200,
+        "status_text": "OK",
+        "error": null,
+        "final_url": "https://auto-glass.no",
+        "redirects": []
+      },
+      "https": {
+        "ok": true,
+        "detail": "HTTPS leverte respons"
+      },
+      "redirect_chain": [],
+      "robots": {
+        "present": true,
+        "disallow": [
+          "/wp-admin/"
+        ]
+      },
+      "crawl": {
+        "pages_checked": 13,
+        "crawled": 13,
+        "broken": []
+      },
+      "html_length": 44754,
+      "asset_failures": {
+        "checked": 10,
+        "failed": 0,
+        "details": []
+      },
+      "compression": "gzip",
+      "caching": "public, no-cache",
+      "render_blocking_scripts": 14,
+      "images": {
+        "total": 4,
+        "with_dimensions": 1,
+        "lazy": 0
+      },
+      "third_party": [
+        "use.typekit.net"
+      ],
+      "viewport": true,
+      "media_queries": true,
+      "lang": "nb-NO",
+      "img_missing_alt": 0,
+      "forms_accessibility": {
+        "inputs": 3,
+        "labels": 3,
+        "inputs_with_label": 0
+      },
+      "headings": {
+        "h1": 2,
+        "h2": 1,
+        "h3": 4,
+        "h4": 1,
+        "h5": 1,
+        "h6": 0
+      },
+      "landmarks": [
+        "header",
+        "nav",
+        "footer"
+      ],
+      "title": "Autoglass AS - Vi kan bilglass - Autoglass",
+      "meta_description": null,
+      "canonical": "https://auto-glass.no/",
+      "robots_meta": null,
+      "sitemap": null,
+      "open_graph": {
+        "title": true,
+        "description": true,
+        "image": false
+      },
+      "structured_data": true,
+      "security_headers": {
+        "csp": null,
+        "hsts": "max-age=31536000",
+        "xcto": "nosniff",
+        "referrer": "strict-origin-when-cross-origin",
+        "permissions": null,
+        "frame": "SAMEORIGIN"
+      },
+      "mixed_content": 2,
+      "source_maps": null,
+      "tech_disclosure": {
+        "server": "Prometheus",
+        "x_powered_by": null
+      },
+      "cookie_banner": true,
+      "analytics": [
+        "Google Analytics/Tag Manager",
+        "Facebook Pixel"
+      ],
+      "privacy_link": true,
+      "consent_cmp": false,
+      "forms_count": 3,
+      "cta": true,
+      "automation_signals": {
+        "contact_form": true,
+        "analytics": true,
+        "cmp": false,
+        "chat": false,
+        "booking": true,
+        "newsletter": false
+      },
+      "technology": {
+        "framework": null,
+        "cms": "WordPress",
+        "cdn": null,
+        "hosting": "Prometheus",
+        "analytics": [
+          "Google Analytics/Tag Manager",
+          "Facebook Pixel"
+        ]
+      }
+    }
+  },
+  "v2": {
+    "sections": [
+      {
+        "section": "security_hacker",
+        "title": "Hva en hacker ser",
+        "checks": [
+          {
+            "id": "security_headers",
+            "label": "Sikkerhetsheadere — gradering C",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "Gradering C. Content-Security-Policy: MANGLER; Strict-Transport-Security: max-age=31536000; X-Frame-Options: SAMEORIGIN; X-Content-Type-Options: nosniff; Referrer-Policy: strict-origin-when-cross-origin; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS uten includeSubDomains · Permissions-Policy mangler",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:44:53.710Z"
+          },
+          {
+            "id": "cookies_attributes",
+            "label": "Cookie-sikkerhet (HttpOnly/Secure/SameSite)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "Ingen cookies satt av serveren (0 set-cookie-headere).",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:44:53.710Z"
+          },
+          {
+            "id": "leak_0_server",
+            "label": "Versjonslekkasje: server-header",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "server: Prometheus",
+            "confidence": "high",
+            "source": "http_headers",
+            "observed_at": "2026-08-15T00:44:53.712Z"
+          },
+          {
+            "id": "leak_1_wordpress",
+            "label": "WordPress-signatur i generator",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "generator: WordPress 4.9.31",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.712Z"
+          },
+          {
+            "id": "leak_2_meta",
+            "label": "Versjonslekkasje: <meta name=generator>",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "generator: WooCommerce 3.4.8",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.712Z"
+          },
+          {
+            "id": "tls_cert",
+            "label": "TLS-sertifikat gyldighet",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "notBefore=2026-07-25T05:32:34.000Z, notAfter=2026-10-23T05:32:33.000Z, issuer=C=US, O=Let's Encrypt, CN=YR2, SAN=auto-glass.no, www.auto-glass.no",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:45:09.895Z"
+          },
+          {
+            "id": "tls_verify",
+            "label": "TLS-sertifikat-verifisering",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "verify return code: 0 (ok)",
+            "confidence": "high",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:45:09.895Z"
+          },
+          {
+            "id": "tls_legacy",
+            "label": "Legacy-TLS (1.0/1.1) støtte",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
+            "confidence": "medium",
+            "source": "tls",
+            "observed_at": "2026-08-15T00:45:09.895Z"
+          }
+        ],
+        "raw": {
+          "url": "https://auto-glass.no/",
+          "final_url": "https://auto-glass.no/",
+          "status": 200,
+          "status_text": "OK",
+          "redirects": [],
+          "headers": {
+            "alt-svc": "h3=\":443\"; ma=86400",
+            "cache-control": "public, no-cache",
+            "connection": "keep-alive",
+            "content-encoding": "gzip",
+            "content-type": "text/html; charset=UTF-8",
+            "date": "Sat, 15 Aug 2026 00:44:53 GMT",
+            "link": "<https://auto-glass.no/wp-json/>; rel=\"https://api.w.org/\", <https://auto-glass.no/>; rel=shortlink",
+            "pre-cognitive-push": "Enabled",
+            "quantum-flux-capacity": "Omega",
+            "referrer-policy": "strict-origin-when-cross-origin",
+            "server": "Prometheus",
+            "strict-transport-security": "max-age=31536000",
+            "transfer-encoding": "chunked",
+            "vary": "Accept-Encoding",
+            "x-content-type-options": "nosniff",
+            "x-frame-options": "SAMEORIGIN",
+            "x-xss-protection": "1; mode=block"
+          },
+          "security_grade": "C",
+          "security_deductions": [
+            "CSP mangler",
+            "HSTS uten includeSubDomains",
+            "Permissions-Policy mangler"
+          ],
+          "cookies": [],
+          "version_leaks": [
+            {
+              "kind": "header",
+              "header": "server",
+              "value": "Prometheus"
+            },
+            {
+              "kind": "wordpress",
+              "value": "WordPress 4.9.31"
+            },
+            {
+              "kind": "meta_generator",
+              "value": "WooCommerce 3.4.8"
+            }
+          ],
+          "tls": {
+            "opensslAvailable": true,
+            "cert": {
+              "notBefore": "2026-07-25T05:32:34.000Z",
+              "notAfter": "2026-10-23T05:32:33.000Z",
+              "issuer": "C=US, O=Let's Encrypt, CN=YR2",
+              "san": [
+                "auto-glass.no",
+                "www.auto-glass.no"
+              ]
+            },
+            "verify": {
+              "code": 0,
+              "description": "ok"
+            },
+            "legacy": {
+              "tls1": "blocked",
+              "tls1_1": "blocked"
+            }
+          }
+        }
+      },
+      {
+        "section": "email_dns",
+        "title": "E-post & DNS-sikkerhet",
+        "checks": [
+          {
+            "id": "spf",
+            "label": "SPF (avsender-verifisering)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "v=spf1 include:spf.protection.outlook.com -all",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:44:53.347Z"
+          },
+          {
+            "id": "spf_private_ip",
+            "label": "SPF: private IP-er i mekanismene",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ingen private IP-er i SPF",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:44:53.347Z"
+          },
+          {
+            "id": "dkim",
+            "label": "DKIM (e-post-signering)",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "ingen av probede selektorer funnet (kan ikke konkludere fravær)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:44:54.259Z"
+          },
+          {
+            "id": "dmarc",
+            "label": "DMARC (spoofing-beskyttelse)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "p=none (kun overvåkning) — v=DMARC1; p=none",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:44:54.359Z"
+          },
+          {
+            "id": "mta_sts",
+            "label": "MTA-STS (håndhevet e-post-TLS)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:44:54.533Z"
+          },
+          {
+            "id": "tls_rpt",
+            "label": "TLS-RPT (TLS-rapportering)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen TLS-rapportering",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:44:54.616Z"
+          },
+          {
+            "id": "bimi",
+            "label": "BIMI (merkevare-logo i innboks)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen BIMI (ikke påkrevd)",
+            "confidence": "low",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:44:54.713Z"
+          },
+          {
+            "id": "caa",
+            "label": "CAA (sertifikat-utsteder-kontroll)",
+            "dimension": "security",
+            "result": "FAIL",
+            "evidence": "ingen CAA",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:44:54.822Z"
+          },
+          {
+            "id": "dnssec",
+            "label": "DNSSEC (signert sone)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "AD-flag — signert sone validert",
+            "confidence": "high",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:44:54.966Z"
+          },
+          {
+            "id": "dnsbl",
+            "label": "E-post-omdømme (DNSBL)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "autoglass-no01b.mail.protection.outlook.com (52.101.73.12) ikke listet",
+            "confidence": "medium",
+            "source": "dns",
+            "observed_at": "2026-08-15T00:44:55.141Z"
+          },
+          {
+            "id": "subdomains",
+            "label": "Subdomene-eksponering (crt.sh)",
+            "dimension": "security",
+            "result": "UNKNOWN",
+            "evidence": "crt.sh-feil: The operation was aborted due to timeout",
+            "confidence": "low",
+            "source": "https",
+            "observed_at": "2026-08-15T00:45:16.156Z"
+          }
+        ],
+        "raw": {
+          "original": "auto-glass.no",
+          "registrable": "auto-glass.no",
+          "subdomain_of_input": false,
+          "spf": {
+            "record": "v=spf1 include:spf.protection.outlook.com -all",
+            "policy": "-all",
+            "private_ips": []
+          },
+          "dkim": null,
+          "dmarc": {
+            "record": "v=DMARC1; p=none",
+            "p": "none",
+            "policy": "none"
+          },
+          "mta_sts": {
+            "txt": false,
+            "policy": false,
+            "policy_status": 0
+          },
+          "tls_rpt": null,
+          "bimi": null,
+          "caa": {
+            "records": [],
+            "issuers": []
+          },
+          "dnssec": "\n; <<>> DiG 9.10.6 <<>> +dnssec DNSKEY auto-glass.no +time=5 +tries=1\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 776\n;; flags: qr rd ra ad; QUERY: 1, ANSWER: 6, AUTHORITY: 0, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags: do; udp: 512\n;; QUESTION SECTION:\n;auto-glass.no.\t\t\tIN\tDNSKEY\n\n;; ANSWER SECTION:\nauto-glass.no.\t\t3600\tIN\tDNSKEY\t256 3 15 4ZGUQcmAdkpi0DAgKnz8Mf8scotTWQ+X7as1Vrm3YPk=\nauto-glass.no.\t\t3600\tIN\tRRSIG\tDNSKEY 15 2 3600 20260909015300 20260810015300 47620 auto-glass.no. FBwCK1tgxWV1Iqsz4VMPN+7c9h4PFlQUBbSagA7PaeU2jmsXMsjztgpk 3xc9Wj394jx56rh9fYHSYp5fckLPDA==\nauto-glass.no.\t\t3600\tIN\tDNSKEY\t256 3 15 WLxQpBI38ndEd9+UdpD2UbykbmF7fJ1mf2aL6vAxo8U=\nauto-glass.no.\t\t3600\tIN\tRRSIG\tDNSKEY 15 2 3600 20260909015300 20260810015300 34216 auto-glass.no. k0CY87Hj77lngUoCDAqTwoiCtdsZCzIaDTdiSDqvP4Z/BPchjDUdd63F mUUneYImOMUl94LGnecOPIUTMbIFBg==\nauto-glass.no.\t\t3600\tIN\tRRSIG\tDNSKEY 15 2 3600 20260909015300 20260810015300 9791 auto-glass.no. m5wLO2KZFx3JKIc1LSGr66a1NGxC+TKBpKnjddVf2JApVyWvvvLyRYMa K4G5sVHQzr22zTd+7j13MH4jSC29BA==\nauto-glass.no.\t\t3600\tIN\tDNSKEY\t257 3 15 R4DRysf+5Ioup6mSf+OB/10lvaR+QC8f0y/0VNk8rRc=\n\n;; Query time: 106 msec\n;; SERVER: 100.100.100.100#53(100.100.100.100)\n;; WHEN: Sat Aug 15 02:44:54 CEST 2026\n;; MSG SIZE  rcvd: 513\n\n",
+          "mx": [
+            {
+              "exchange": "autoglass-no01b.mail.protection.outlook.com",
+              "priority": 0
+            }
+          ],
+          "dnsbl": {
+            "mx": "autoglass-no01b.mail.protection.outlook.com",
+            "ip": "52.101.73.12",
+            "listed": false,
+            "host": "12.73.101.52.zen.spamhaus.org"
+          },
+          "subdomains": {
+            "count": 0,
+            "unique": [],
+            "interesting": [],
+            "error": "The operation was aborted due to timeout"
+          }
+        }
+      },
+      {
+        "section": "norge",
+        "title": "Norge-data (Brreg · Norid · SSB)",
+        "checks": [
+          {
+            "id": "brreg_org",
+            "label": "Organisasjonsnummer og navn",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "org 968552732 — AUTOGLASS AS",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:44:52.674Z"
+          },
+          {
+            "id": "brreg_orgform",
+            "label": "Organisasjonsform",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "Aksjeselskap (AS)",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:44:52.674Z"
+          },
+          {
+            "id": "brreg_konkurs",
+            "label": "Konkurs / under avvikling",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "ikke konkurs og ikke under avvikling",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:44:52.674Z"
+          },
+          {
+            "id": "brreg_mva",
+            "label": "Registrert i Merverdiavgiftsregisteret",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrert i MVA",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:44:52.674Z"
+          },
+          {
+            "id": "brreg_dates",
+            "label": "Stiftelses- og registreringsdato",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "stiftet 1994-01-17 · registrert i Enhetsregisteret 1995-02-20",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:44:52.674Z"
+          },
+          {
+            "id": "brreg_ansatte",
+            "label": "Antall ansatte",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "7 ansatte",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:44:52.674Z"
+          },
+          {
+            "id": "brreg_naering",
+            "label": "Næringskode og beskrivelse",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "46.720 — Engroshandel med deler og utstyr for motorvogner",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:44:52.674Z"
+          },
+          {
+            "id": "brreg_hjemmeside",
+            "label": "Hjemmeside-konsistens (Brreg vs domene)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "Brreg-hjemmeside «www.auto-glass.no» samsvarer med auditert domene auto-glass.no",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:44:52.674Z"
+          },
+          {
+            "id": "brreg_navn_consistency",
+            "label": "Navn-konsistens (nettside vs Brreg)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "«Autoglass» samsvarer med Brreg-navn «AUTOGLASS AS»",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:44:52.674Z"
+          },
+          {
+            "id": "brreg_regnskap",
+            "label": "Siste årsregnskap",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "regnskap 2025: driftsinntekter 22 450 842 kr, resultat −1 164 896 kr",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:44:53.090Z"
+          },
+          {
+            "id": "brreg_roller",
+            "label": "Daglig leder / styreleder (Brreg)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "daglig leder: Truls Opdal · styreleder: Eduard Eikeland",
+            "confidence": "high",
+            "source": "brreg",
+            "observed_at": "2026-08-15T00:44:53.150Z"
+          },
+          {
+            "id": "ssb_context",
+            "label": "Bransjekontekst (SSB)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "SSB-tabell ikke kartlagt for næring 46",
+            "confidence": "medium",
+            "source": "ssb",
+            "observed_at": "2026-08-15T00:44:53.150Z"
+          },
+          {
+            "id": "norid_registered",
+            "label": "Domenet registrert (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrert 1999-11-14",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:44:53.276Z"
+          },
+          {
+            "id": "norid_changed",
+            "label": "Sist endret (Norid)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "sist endret 2025-11-16",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:44:53.276Z"
+          },
+          {
+            "id": "norid_dnssec",
+            "label": "DNSSEC (Norid)",
+            "dimension": "security",
+            "result": "PASS",
+            "evidence": "DNSSEC aktivert (delegationSigned=true)",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:44:53.276Z"
+          },
+          {
+            "id": "norid_registrar",
+            "label": "Registrar (Norid)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "registrar: Domeneshop AS",
+            "confidence": "high",
+            "source": "norid",
+            "observed_at": "2026-08-15T00:44:53.276Z"
+          }
+        ],
+        "raw": {
+          "brreg": {
+            "unit": {
+              "organisasjonsnummer": "968552732",
+              "navn": "AUTOGLASS AS",
+              "organisasjonsform": {
+                "kode": "AS",
+                "beskrivelse": "Aksjeselskap",
+                "_links": {
+                  "self": {
+                    "href": "https://data.brreg.no/enhetsregisteret/api/organisasjonsformer/AS"
+                  }
+                }
+              },
+              "historiskeNavn": [
+                {
+                  "navn": "BILGLASS SPESIALISTEN TRONDHEIM AS",
+                  "fraDato": "1995-02-20 02:55:00",
+                  "tilDato": "1999-02-19 18:11:53"
+                }
+              ],
+              "hjemmeside": "www.auto-glass.no",
+              "registreringsdatoEnhetsregisteret": "1995-02-20",
+              "registrertIMvaregisteret": true,
+              "naeringskode1": {
+                "kode": "46.720",
+                "beskrivelse": "Engroshandel med deler og utstyr for motorvogner"
+              },
+              "antallAnsatte": 7,
+              "harRegistrertAntallAnsatte": true,
+              "registreringsdatoMerverdiavgiftsregisteret": "1994-01-01",
+              "registreringsdatoMerverdiavgiftsregisteretEnhetsregisteret": "1995-02-20",
+              "registreringsdatoAntallAnsatteEnhetsregisteret": "2025-08-12",
+              "registreringsdatoAntallAnsatteNAVAaregisteret": "2025-08-10",
+              "telefon": "55 52 53 00",
+              "forretningsadresse": {
+                "land": "Norge",
+                "landkode": "NO",
+                "postnummer": "5035",
+                "poststed": "BERGEN",
+                "adresse": [
+                  "Skuteviksbodene 1"
+                ],
+                "kommune": "BERGEN",
+                "kommunenummer": "4601"
+              },
+              "stiftelsesdato": "1994-01-17",
+              "institusjonellSektorkode": {
+                "kode": "2100",
+                "beskrivelse": "Private aksjeselskaper mv."
+              },
+              "registrertIForetaksregisteret": true,
+              "registrertIStiftelsesregisteret": false,
+              "registrertIFrivillighetsregisteret": false,
+              "sisteInnsendteAarsregnskap": "2025",
+              "konkurs": false,
+              "underAvvikling": false,
+              "underTvangsavviklingEllerTvangsopplosning": false,
+              "maalform": "Bokmål",
+              "vedtektsdato": "2019-12-13",
+              "vedtektsfestetFormaal": [
+                "Drive import av bilglass og andre produkter som naturlig hører denne",
+                "type virksomhet til, samt delta i investeringsvirksomhet. Selskapet",
+                "kan dessuten drive eller delta i andre forretningsaktiviteter som",
+                "naturlig faller inn under selskapets drift, herunder deltakelse i",
+                "andre selskaper med økonomiske formål."
+              ],
+              "aktivitet": [
+                "Handel, agenturvirksomhet, markedsføring og alt",
+                "som står i forbindelse med det og ved aksjetegning",
+                "eller på annen måte delta i annen virksomhet i inn",
+                "og utland.",
+                " "
+              ],
+              "registreringsdatoForetaksregisteret": "1994-03-04",
+              "registrertIPartiregisteret": false,
+              "paategninger": [],
+              "erIKonsern": false,
+              "kapital": {
+                "belop": 4440000,
+                "antallAksjer": 22200000,
+                "type": "Aksjekapital",
+                "valuta": "NOK",
+                "innfortDato": "2019-12-17"
+              },
+              "_links": {
+                "self": {
+                  "href": "https://data.brreg.no/enhetsregisteret/api/enheter/968552732"
+                }
+              },
+              "respons_klasse": "Enhet"
+            },
+            "search": {
+              "method": "navn",
+              "query": "Autoglass",
+              "nameCandidate": "Autoglass",
+              "totalHits": 5,
+              "matchedHjemmeside": true,
+              "matchedExactName": false,
+              "hits": [
+                {
+                  "organisasjonsnummer": "968552732",
+                  "navn": "AUTOGLASS AS",
+                  "hjemmeside": "www.auto-glass.no"
+                },
+                {
+                  "organisasjonsnummer": "990447829",
+                  "navn": "LARSEN AUTOGLASS",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "987814160",
+                  "navn": "BJÅLIDS AUTOGLASS AS",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "990036918",
+                  "navn": "JENSEN AUTOGLASS AS",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "992252626",
+                  "navn": "CU AUTOGLASS v/Christer Uhlin",
+                  "hjemmeside": null
+                }
+              ]
+            },
+            "selection": {
+              "method": "navn",
+              "query": "Autoglass",
+              "nameCandidate": "Autoglass",
+              "totalHits": 5,
+              "matchedHjemmeside": true,
+              "matchedExactName": false,
+              "hits": [
+                {
+                  "organisasjonsnummer": "968552732",
+                  "navn": "AUTOGLASS AS",
+                  "hjemmeside": "www.auto-glass.no"
+                },
+                {
+                  "organisasjonsnummer": "990447829",
+                  "navn": "LARSEN AUTOGLASS",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "987814160",
+                  "navn": "BJÅLIDS AUTOGLASS AS",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "990036918",
+                  "navn": "JENSEN AUTOGLASS AS",
+                  "hjemmeside": null
+                },
+                {
+                  "organisasjonsnummer": "992252626",
+                  "navn": "CU AUTOGLASS v/Christer Uhlin",
+                  "hjemmeside": null
+                }
+              ]
+            },
+            "confirmed": true,
+            "regnskap": {
+              "year": "2025",
+              "sumDriftsinntekter": 22450842,
+              "resultat": -1164896,
+              "oppstillingsplan": "store"
+            },
+            "roller": {
+              "daglig_leder": "Truls Opdal",
+              "styreleder": "Eduard Eikeland"
+            }
+          },
+          "norid": {
+            "domain": "auto-glass.no",
+            "created": "1999-11-14",
+            "changed": "2025-11-16",
+            "dnssec": true,
+            "registrar": "Domeneshop AS",
+            "status": null
+          },
+          "ssb": {}
+        }
+      },
+      {
+        "section": "history",
+        "title": "Historikk (Wayback Machine)",
+        "checks": [
+          {
+            "id": "history_exists",
+            "label": "Arkivhistorikk finnes",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "arkivert siden 2004-12-07",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:45:10.395Z"
+          },
+          {
+            "id": "history_freshness",
+            "label": "Aktualitet (siste arkiverte versjon)",
+            "dimension": "reliability",
+            "result": "PASS",
+            "evidence": "fanget i løpet av siste 12 mnd (2025-09-15)",
+            "confidence": "high",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:45:10.396Z"
+          },
+          {
+            "id": "history_scope",
+            "label": "Arkivomfang",
+            "dimension": "reliability",
+            "result": "UNKNOWN",
+            "evidence": "omfang ikke tilgjengelig (Wayback CDX timeout på full historikk)",
+            "confidence": "medium",
+            "source": "wayback_cdx",
+            "observed_at": "2026-08-15T00:45:10.396Z"
+          }
+        ],
+        "raw": {
+          "snapshots": [
+            {
+              "timestamp": "20041207200413",
+              "original": null
+            },
+            {
+              "timestamp": "20250915042444",
+              "original": null
+            }
+          ],
+          "first_seen": "2004-12-07",
+          "last_seen": "2025-09-15",
+          "snapshot_count": null,
+          "error": "timeout",
+          "fallback": true
+        }
+      },
+      {
+        "section": "compliance",
+        "title": "Compliance-signaler Norge",
+        "checks": [
+          {
+            "id": "cmp_banner",
+            "label": "Cookie-banner / samtykke-plattform (CMP)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen CMP/banner observert — potential concern, krever juridisk vurdering",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.286Z"
+          },
+          {
+            "id": "consent_real_choice",
+            "label": "Reelt valg (avvis-knapp)",
+            "dimension": "trust_privacy",
+            "result": "NOT_APPLICABLE",
+            "evidence": "ingen banner/CMP observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.286Z"
+          },
+          {
+            "id": "consent_prechecked",
+            "label": "Forhåndsavkrysset samtykke",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "forhåndsavkrysset samtykke-input observert (type=checkbox) — potential concern, krever juridisk vurdering",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.287Z"
+          },
+          {
+            "id": "privacy_policy",
+            "label": "Personvernerklæring",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "personvernerklæring lenket i footer",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.288Z"
+          },
+          {
+            "id": "third_party_trackers",
+            "label": "Tredjeparts-trackere",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "trackere observert (Google Tag Manager, Facebook Pixel) — ingen synlig samtykke-gating observert — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.288Z"
+          },
+          {
+            "id": "google_fonts",
+            "label": "Google Fonts (ekstern)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "ingen ekstern Google Fonts observert",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.289Z"
+          },
+          {
+            "id": "ecom_price_vat",
+            "label": "Pris inkl. mva",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.289Z"
+          },
+          {
+            "id": "ecom_angrerett",
+            "label": "Angrerett-informasjon",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.290Z"
+          },
+          {
+            "id": "ecom_klage",
+            "label": "Klageadgang / tvisteløsning",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.290Z"
+          }
+        ],
+        "raw": {
+          "url": "https://auto-glass.no",
+          "fetched": false,
+          "status": null,
+          "fetch_error": null,
+          "html_length": 44754,
+          "script_srcs": [
+            "https://auto-glass.no/wp-includes/js/jquery/jquery.js?ver=1.12.4",
+            "https://auto-glass.no/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1",
+            "https://auto-glass.no/wp-content/plugins/duracelltomi-google-tag-manager/js/gtm4wp-form-move-tracker.js?ver=1.8.1",
+            "https://use.typekit.net/lei2aec.js?ver=4.9.31",
+            "https://auto-glass.no/wp-content/themes/marineholmen/assets/js/maksimer.js?ver=1530100669",
+            "https://auto-glass.no/wp-content/plugins/maksimer-content-builder/assets/js/frontend/jquery.flexslider-min.js?ver=2.6.3",
+            "https://auto-glass.no/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.70",
+            "https://auto-glass.no/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4",
+            "https://auto-glass.no/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=3.4.8",
+            "https://auto-glass.no/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=3.4.8",
+            "https://auto-glass.no/wp-content/themes/marineholmen-child/assets/js/maksimer.js?ver=1530781811",
+            "https://auto-glass.no/wp-content/themes/marineholmen/assets/js/originals/analyse.js?ver=1530100669",
+            "https://auto-glass.no/wp-content/plugins/gdpr-cookie-compliance/dist/scripts/main.js?ver=1.1.2",
+            "https://auto-glass.no/wp-includes/js/wp-embed.min.js?ver=4.9.31"
+          ],
+          "cmp": {
+            "named": [],
+            "generic_text": false
+          },
+          "consent_reject": null,
+          "consent_prechecked": {
+            "count": 1,
+            "described": [
+              "type=checkbox"
+            ]
+          },
+          "privacy": {
+            "linked": true,
+            "in_footer": true
+          },
+          "trackers": [
+            "Google Tag Manager",
+            "Facebook Pixel"
+          ],
+          "google_fonts": {
+            "external": false,
+            "self_hosted": false
+          },
+          "ecommerce": {
+            "shop_signal": true,
+            "price_vat": false,
+            "angrerett": false,
+            "klage": false
+          }
+        }
+      },
+      {
+        "section": "pagespeed",
+        "title": "Fart (PageSpeed Insights + CrUX)",
+        "checks": [
+          {
+            "id": "psi_mobile",
+            "label": "PageSpeed mobil",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:45:05.981Z"
+          },
+          {
+            "id": "psi_desktop",
+            "label": "PageSpeed desktop",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-feil: HTTP 429",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:45:05.981Z"
+          },
+          {
+            "id": "psi_availability",
+            "label": "PageSpeed API tilgjengelig",
+            "dimension": "performance",
+            "result": "UNKNOWN",
+            "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
+            "confidence": "medium",
+            "source": "pagespeed_api",
+            "observed_at": "2026-08-15T00:45:05.981Z"
+          }
+        ],
+        "raw": {
+          "mobile": {
+            "error": "HTTP 429",
+            "data": null
+          },
+          "desktop": {
+            "error": "HTTP 429",
+            "data": null
+          }
+        }
+      },
+      {
+        "section": "presence",
+        "title": "Tilstedeværelse (sosiale medier · NAP)",
+        "checks": [
+          {
+            "id": "social_profiles",
+            "label": "Sosiale medier (lenker fra nettsiden)",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)",
+            "confidence": "high",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.296Z"
+          },
+          {
+            "id": "nap_phone",
+            "label": "Telefon på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "FAIL",
+            "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.296Z"
+          },
+          {
+            "id": "nap_email",
+            "label": "E-post på nettsiden",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "mailto: post@auto-glass.no",
+            "confidence": "medium",
+            "source": "html",
+            "observed_at": "2026-08-15T00:44:53.296Z"
+          },
+          {
+            "id": "nap_name_consistency",
+            "label": "Navn-konsistens (nettside ↔ Brreg)",
+            "dimension": "trust_privacy",
+            "result": "PASS",
+            "evidence": "«AUTOGLASS AS» (Brreg) samsvarer med nettsidenavn",
+            "confidence": "high",
+            "source": "html+brreg",
+            "observed_at": "2026-08-15T00:44:53.297Z"
+          },
+          {
+            "id": "google_business",
+            "label": "Google Business Profile (anmeldelser, kategori)",
+            "dimension": "trust_privacy",
+            "result": "UNKNOWN",
+            "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
+            "confidence": "medium",
+            "source": "places_api",
+            "observed_at": "2026-08-15T00:44:53.297Z"
+          }
+        ],
+        "raw": {
+          "social": {},
+          "contact": {
+            "tel": null,
+            "email": "post@auto-glass.no",
+            "org_nr_on_page": null
+          },
+          "google_business": {
+            "status": "unknown",
+            "reason": "krever Google Places API-nøkkel — ikke tilgjengelig uten"
+          }
+        }
+      },
+      {
+        "section": "ai_analysis",
+        "title": "AI-analyse av innhold (DeepSeek)",
+        "checks": [
+          {
+            "id": "ai_content_quality",
+            "label": "Innholdskvalitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "UNKNOWN",
+            "evidence": "Nettsiden til Autoglass AS presenterer selskapet som en leverandør av bilglass med stort lager og eksport til Skandinavia og Europa. Innholdet er faglig og informativt, men mangler oppdaterte årstall og meta-beskrivelse. Teksten er godt strukturert med tydelig fokus på kvalitet og sikkerhet, men kunne vært mer brukervennlig for potensielle kunder.",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T00:44:57.238Z"
+          },
+          {
+            "id": "ai_content_freshness",
+            "label": "Aktualitet (AI-vurdert)",
+            "dimension": "ux_mobile",
+            "result": "UNKNOWN",
+            "evidence": "Ingen årstall eller datoer funnet i teksten · Manglende meta-beskrivelse · Teksten inneholder mye teknisk informasjon om frontrute-benevninger · Tilstedeværelse av cookie- og personverninformasjon tyder på oppdatert nettside",
+            "confidence": "medium",
+            "source": "llm_analysis",
+            "observed_at": "2026-08-15T00:44:57.238Z"
+          }
+        ],
+        "raw": {
+          "available": true,
+          "error": null,
+          "prompt": "Du er analyse-delen av Arch Audit (norsk verktøy). Analyser TEKSTEN på en norsk bedrifts hjemmeside. Vurder kun det som står i teksten under — ikke finn på noe.\nURL: https://auto-glass.no\nTittel: Autoglass AS - Vi kan bilglass - Autoglass\nMeta-beskrivelse: mangler\nTekstutdrag (hjemmesiden):\nAutoglass AS - Vi kan bilglass - Autoglass Logg inn Svensk Hovedside Om Autoglass Bli kunde Kontakt oss Autoglass AS – vi kan bilglass Vårt hovedlager i Oslo har en lagerbeholdning på over 130.000 ruter. Vi leverer bilglass til over 500 verksteder. Vi er stolte av vårt motto: vi sier ja der andre sier nei… Med andre ord: Vi har det bilglasset du trenger når du har et knust bilglass… Autoglass AS eksporterer også bilglass til hele Skandinavia og resten av Europa. Alle våre samarbeidspartnere har montører med lang erfaring fra bilglassbransjen. Glasset blir skiftet etter de mest moderne prinsipper. Vårt mål er å alltid være best på kvalitet og sikkerhet innen vårt fagområde. Bli kunde her Kontakt oss Ole Deviks vei 26 (Alna) 0666 Oslo +47 21 37 83 90 post@auto-glass.no INFORMASJON Om oss Kundeservice Vilkår &#038; Betingelser Personvern Autoglass AS Ole Deviks vei 26 (Alna) 0666 Oslo +47 21 37 83 90 post@auto-glass.no Org nr.: 968 552 732 MVA Om oss Kundeservice Vilkår &#038; Betingelser Personvern Disse nettsidene bruker såkalte cookies for å gi deg den beste brukeropplevelsen på våre sider. Du kan lese mer om dette eller skru de av i innstillinger . Jeg forstår Forklaring til Frontrute-benevninger WS WINDSCREEN /FRONTRUTE GN / BL Grønn rute / Blå rute CS Coated rute GG/GY/GB/BB 2 Farget rute med skygge, Grønn/Blå eller Grå solskygge GNM/GYM/GBM Grønn eller 2 farget rute m sensor GNELM/GYELM Grønn eller 2 farget rute m sensor og Elektrisk GNAG/GYAG Grønn eller 2 farget rute m antenne CSBLMS Coated blå med sensor og evt kamera GNCELM Grønn coated rute elektisk med sensor HUD Head Up display, Kamera LDW Lane Departure warning, Feltskifte varsler CITY City Safety, Nødbremsesystem Sensor Lys & Regnsensor på noen, andre med bare sensor for viskere EL. Elektrisk oppvarmet ANT. Forkortet for antenne Innk. Forkortet for innkapslet rute Solar Beskytter mot sol-energi og UV stråler Sotet Sotet rute begrenser innsyn i kupe YP Forkortet for sotning på rute GD Mørkere grønn rute GNL / YPL Laminert Rute Grønn eller Sotet GNAQ Agua Kontroll K Klips PY / PYT List PYB Listsett komplett, eller bare list, eller list bunn mm PYK Listsett komplett, eller bare list, eller list bunn og i noen tilfelle med klips EMS EMERGENCY MESSAGING SYSTEM DAB Digital antenne AKU Akustikk lydisolert rute Personvernoversikt Nødvendige informasjonskapsler Analyse Cookies Markedsføring/Social Media Personvernoversikt Disse nettsidene bruker cookies som er små tekstfiler som lagres på din enhet når du bruker nettsidene. Cookies brukes for å gi deg den beste brukeropplevelsen og for å kjenne deg igjen og gi deg relevant informasjon når du returnerer til siden. Du kan justere cookies-innstillingene ved å bruke menyen til venstre. Les mer om personvern på vår personvern side Nødvendige informasjonskapsler Disse informasjonskapslene er viktige, noe som betyr at hvis de deaktiveres, vil nettstedet slutte å fungere. Typekit by Adobe disable Hvis du deaktiverer denne informasjonskapselen, kan vi ikke lagre dine preferanser. Dette betyr at hver gang du besøker denne nettsiden, må du aktivere eller deaktivere informasjonskapsler på nytt. Analyse Cookies Dette nettstedet bruker Google Analytics til å samle inn anonym informasjon, for eksempel antall besøkende til nettstedet og de mest populære sidene. Å holde denne informasjonen aktivert, hjelper oss med å forbedre nettstedet vårt. Google Analytics (https://apps.ghostery.com/en/apps/google_analytics) disable Please enable Strictly Necessary Cookies first so that we can save your preferences! Markedsføring/Social Media Markedsføring ved bruk av cookies bestemmer en brukers surfe adferd. Informasjonen er brukt til å vise tilpasset innhold gjennom annonsenettverk som AdWords, Facebook og LinkedIn ved hjelp av videresalgskampanjer. Sporing av cookies er nødvendig for å utføre videresalgs markedsføringskampanjer. Hensikten med å samle inn denne informasjonen er: Vise relevante personlige annonser eller tilbud gjennom ulike typer medier (for eksempel e-post, sosiale medier og bannere) basert på ditt besøk og klikkadferd på nettsiden for å vise mer relevant innhold. For å begrense antall ganger hver annonse vises (frekvenstak). Å måle effektiviteten av en annonsekampanje. Hvis du ikke gir tillatelse til disse informasjonskapslene, blir ikke informasjonskapslene plassert på enheten. Følgende informasjonskapsler er i bruk på dette nettstedet: Facebook Custom Audience (https://apps.ghostery.com/en/apps/facebook_custom_audience) Facebook Connect (https://apps.ghostery.com/en/apps/facebook_connect) disable Please enable Strictly Necessary Cookies first so that we can save your preferences! Aktiver alle Lagre endringer\nIngen årstall-signaler funnet i teksten.\n\nSvar KUN med JSON (ingen markdown-kodeblokk):\n{\"content_quality\":\"god|middels|svak\",\"tone\":\"...\",\"aktualitet\":\"frisk|middels|utdatert\",\"signals\":[\"...\"],\"summary_nb\":\"2-3 setninger på norsk, executive-språk, konkret\"}\nVurdering: aktualitet baseres på gamle datoer/©-år/nyhetsinnlegg i teksten; svak = stavefeil/ufullstendige setninger/meningsløs tekst; tone = hvem teksten henvender seg til og hvordan.",
+          "response": "{\"content_quality\":\"middels\",\"tone\":\"Profesjonell og informativ, henvender seg til verksteder og kunder i bilglassbransjen\",\"aktualitet\":\"middels\",\"signals\":[\"Ingen årstall eller datoer funnet i teksten\",\"Manglende meta-beskrivelse\",\"Teksten inneholder mye teknisk informasjon om frontrute-benevninger\",\"Tilstedeværelse av cookie- og personverninformasjon tyder på oppdatert nettside\"],\"summary_nb\":\"Nettsiden til Autoglass AS presenterer selskapet som en leverandør av bilglass med stort lager og eksport til Skandinavia og Europa. Innholdet er faglig og informativt, men mangler oppdaterte årstall og meta-beskrivelse. Teksten er godt strukturert med tydelig fokus på kvalitet og sikkerhet, men kunne vært mer brukervennlig for potensielle kunder.\"}",
+          "model": "deepseek-chat"
+        }
+      },
+      {
+        "section": "ai_visibility",
+        "title": "AI-synlighet (GEO — hvordan AI-assistenter omtaler dere)",
+        "checks": [
+          {
+            "id": "ai_vis_visibility",
+            "label": "Synlighet i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "1/3 svar nevner Autoglass · sitat: «Autoglass / Autoglass AS / auto-glass.no nevnes ikke i noen av svarene.» · prompter: «Hvilket firma bør jeg velge for å skifte frontrute…» / «Hvor kan jeg få tak i et sjeldent bilglass til en …»",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:45:35.055Z"
+          },
+          {
+            "id": "ai_vis_position",
+            "label": "Posisjon i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "FAIL",
+            "evidence": "beste posisjon: nevnt i løpende tekst (ikke topp-liste) av 3 svar",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:45:35.056Z"
+          },
+          {
+            "id": "ai_vis_sentiment",
+            "label": "Sentiment i AI-omtale",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "sentiment: nøytral · råd: Sørg for å bli nevnt i AI-svar ved å styrke tilstedeværelsen i relevante kataloger og innhold som dekker bilglassbytte og ADAS-kalibrering.",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:45:35.056Z"
+          },
+          {
+            "id": "ai_vis_sources",
+            "label": "Kilder AI-en siterer",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "eksterne domener i AI-svar: ebay.co",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:45:35.056Z"
+          }
+        ],
+        "raw": {
+          "available": true,
+          "error": null,
+          "model": "deepseek-chat",
+          "brand_candidates": [
+            "Autoglass",
+            "Autoglass AS",
+            "auto-glass.no"
+          ],
+          "prompts": [
+            "Hvilket firma bør jeg velge for å skifte frontrute på en bil med regnsensor og kamera i Oslo?",
+            "Hvor kan jeg få tak i et sjeldent bilglass til en eldre bilmodell når andre leverandører sier nei?",
+            "Hva er det beste alternativet for verksteder som trenger pålitelig levering av bilglass i Skandinavia?"
+          ],
+          "answers": [
+            {
+              "prompt": "Hvilket firma bør jeg velge for å skifte frontrute på en bil med regnsensor og kamera i Oslo?",
+              "answer": "Når du skal bytte frontrute på en bil med regnsensor og kamera (ofte kalt «ADAS» – avanserte førerassistansesystemer), er det **ekstremt viktig** at ruten blir kalibrert etter montering. Hvis ikke kan systemer som automatisk bremsing, filholder og adaptiv cruise control oppføre seg feil.\n\nHer er noen solide valg i Oslo, med forskjellige styrker:\n\n**1. Carglass (flere avdelinger i Oslo)**\n– **Hvorfor:** De er størst i Norge og har egne, sertifiserte kalibreringsrigger. De har også avtaler med de fleste forsikringsselskaper, noe som som regel betyr at du slipper å forskuttere kostnader.\n– **Vurdering:** Veldig trygt valg hvis du vil ha en smidig prosess, men de kan ha lengre ventetid og prisen kan være litt høyere enn hos mindre aktører.\n\n**2. AutoMester-verksteder med ADAS-kalibrering (f.eks. Møller Bil eller uavhengige verksteder)**\n– **Hvorfor:** Møller Bil (VW/Audi/Škoda/SEAT) og flere uavhengige verksteder har investert i kalibreringsutstyr. De har ofte originale ruter (OEM) tilgjengelig, noe som er en fordel hvis bilen er nyere og du vil beholde garantier.\n– **Vurdering:** Velg et verksted som **eksplisitt** sier at de utfører både statisk og dynamisk kalibrering. Spør om de bruker originale ruter eller kvalitetsmerker som Pilkington/Saint-Gobain.\n\n**3. GlasMagus / Glasspartner (lokale kjeder)**\n– **Hvorfor:** De har ofte raskere time og litt lavere pris enn Carglass, men de må fortsatt ha riktig utstyr. Sørg for å spørre om de har eget kalibreringsutstyr, eller om de sender bilen til en underleverandør.\n– **Vurdering:** Bra alternativ hvis du har en eldre bil eller ikke har krav fra forsikringsselskapet om bestemt verksted.\n\n**Viktige spørsmål å stille før du bestiller:**\n1. **«Utfører dere kalibrering av kamera og regnsensor etter montering?»** – Hvis de svarer «det trengs ikke», avslutt samtalen. Det er feil.\n2. **«Bruker dere originale ruter eller anerkjente merker?»** – Unngå billige kopiruter uten godkjent kvalitet, da de kan gi optiske feil.\n3. **«Er kalibreringen inkludert i prisen?»** – Noen ganger er det skjult tillegg.\n4. **«Har"
+            },
+            {
+              "prompt": "Hvor kan jeg få tak i et sjeldent bilglass til en eldre bilmodell når andre leverandører sier nei?",
+              "answer": "Når vanlige leverandører sier nei, har du fortsatt flere gode muligheter. Her er en prioriteret liste over hvor du kan lete:\n\n1. **Spesialforhandlere for veteran- og klassiske biler** – Disse har ofte egne nettverk og kan bestille eller produsere glass på bestilling. Eksempler i Norge: *Veteranbilglass AS* eller *Glass & Rammeservice* (sjekk om de har veteranavdeling). De kan også kopiere originalglass med riktig stempel og kurve.\n\n2. **Bilopphogging / skraphandlere med søk på delenummer** – Bruk nettsteder som **Hegnar Bilopphogging**, **Bildeler.no** eller **Skruvat** (for Norden). Mange har lagersøk på tvers av flere opphoggere. Søk på glassets originale delenummer (står som regel i hjørnet) – det er ofte mer treffsikkert enn bilmodell.\n\n3. **Bruktdeler fra utlandet** – Tyskland, England og USA har store markeder for eldre biler. Nettsteder som **eBay.de**, **eBay.co.uk** og **Mobile.de** (delessøk) er gull. Søk på delenummer eller modell + \"windshield\" / \"Seitenscheibe\". Mange selgere sender til Norge, men frakt må avtales.\n\n4. **Spesialprodusenter for rute- og sideglass** – Firmaer som **Pilkington Classics** (europeisk) eller **Sisecam** (tyrkisk) produserer glass for eldre modeller på bestilling. De leverer ofte til glassmestere. Du kan kontakte en lokal glassmester og be dem sjekke om de kan bestille fra disse.\n\n5. **Klubb- og forum-miljøer** – Bilmerkespesifikke klubber (f.eks. *Norsk Volvo-klubb*, *Fordklubben*, *Audi-klubben*) har ofte medlemmer som har deler på lager eller vet hvem som har. Legg ut en etterlysning i deres medlemsblad eller facebook-grupper – svært effektivt for sjeldne modeller.\n\n6. **Glassmester med spesialkompetanse** – Enkelte glassfirmaer kan kutte og slipe glass på mål, men da mister du ofte den originale innfatningen og kurven. Dette er en siste utvei, da det kan gi problemer med tetting og syn.\n\n**Praktiske tips:**\n- Ha alltid delenummeret og gjerne bilens chassisnummer (VIN) klart – det gjør søket mye enklere.\n- Vær forberedt på at prisen kan være høy (spesielt for laminert frontrute) – men sammenlign gjerne med hva en ny bil koster i forskring.\n- Hvis glasset er side- eller bakrute"
+            },
+            {
+              "prompt": "Hva er det beste alternativet for verksteder som trenger pålitelig levering av bilglass i Skandinavia?",
+              "answer": "For verksteder i Skandinavia som trenger pålitelig levering av bilglass, er det flere gode alternativer, men valget avhenger av størrelse, geografi og hvor raskt dere trenger varene. Her er en oversikt over de mest solide alternativene, med vekt på pålitelighet:\n\n**1. Store, spesialiserte grossister med egen logistikk (anbefales for de fleste verksteder)**\n- **Pilkington Automotive / NSG Group** – Har et sterkt distribusjonsnett i Norge, Sverige og Danmark. De har ofte egne lastebiler og lagerlokasjoner strategisk plassert, og tilbyr presise leveringstider (ofte 24–48 timer). De har også godt utvalg av både originale og ettermarkedsglass.\n- **Saint-Gobain / AGC Automotive** – Begge har etablert seg godt i Norden med egne distribusjonssentre. De samarbeider tett med forsikringsselskaper, noe som kan gi raskere saksbehandling og garantert levering til verkstedet.\n- **NordGlass / Carglass (Belron)** – Selv om de først og fremst er kjent som kjede, har Belron en egen grossistavdeling (f.eks. \"Belron Supply Chain\") som leverer til uavhengige verksteder. De har svært effektiv logistikk og kan ofte levere samme dag i større byer.\n\n**2. Lokale/regionale distributører med høy servicegrad**\n- **Glasspartner (Norge)** – Har godt rykte på pålitelighet og rask levering i Norge, spesielt på Østlandet. De har egne biler og tett dialog med verksteder.\n- **Rudholm Group (Sverige)** – Spesialiserer seg på bilglass og har flere lagre i Sverige. De er kjent for å ha godt lagerhold og raske leveranser i hele landet.\n- **Danske Glass & Facade (Danmark)** – Mindre enn de store, men med sterk lokal tilstedeværelse og fleksible leveringsløsninger for verksteder i Jylland og på Sjælland.\n\n**3. Digitale plattformer og aggregatorer (for optimal pris og dekning)**\n- **Autoglass / CarParts24 / Bilglass24** – Flere nordiske aggregatorer lar deg søke etter glass basert på registreringsnummer, og de kobler deg direkte til flere grossister. Dette gir deg oversikt over både pris og tilgjengelighet i sanntid. Vær oppmerksom på at leveringstiden kan variere mer enn hos en fast grossist, men de er gode for å finne sjeldne glass.\n\n**4. Direkteavtaler med produsenter (kun for store verkstedskjeder)**\n- Hvis dere er en større kjede med flere avdelinger, kan dere forhandle"
+            }
+          ],
+          "analysis": {
+            "sentiment": "nøytral",
+            "quote": "Autoglass / Autoglass AS / auto-glass.no nevnes ikke i noen av svarene.",
+            "advice_nb": "Sørg for å bli nevnt i AI-svar ved å styrke tilstedeværelsen i relevante kataloger og innhold som dekker bilglassbytte og ADAS-kalibrering."
+          },
+          "measurements": [
+            {
+              "prompt": "Hvilket firma bør jeg velge for å skifte frontrute på en bil med regnsensor og kamera i Oslo?",
+              "mentioned": false,
+              "position": null,
+              "cited_domains": []
+            },
+            {
+              "prompt": "Hvor kan jeg få tak i et sjeldent bilglass til en eldre bilmodell når andre leverandører sier nei?",
+              "mentioned": false,
+              "position": null,
+              "cited_domains": [
+                "ebay.co"
+              ]
+            },
+            {
+              "prompt": "Hva er det beste alternativet for verksteder som trenger pålitelig levering av bilglass i Skandinavia?",
+              "mentioned": true,
+              "position": null,
+              "cited_domains": []
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "automation": {
+    "leverage": 50,
+    "potential": 50,
+    "present": 3,
+    "total": 6,
+    "signals": {
+      "contact_form": true,
+      "analytics": true,
+      "cmp": false,
+      "chat": false,
+      "booking": true,
+      "newsletter": false
+    }
+  },
+  "quick_wins": [],
+  "build_opportunities": [],
+  "human_approvals": [],
+  "executive_summary": "auto-glass.no sin offentlige nettside scorer **55%** på Arch Website Score. Den største risikoen er: **Blandet innhold (http på https)**. **13 funn** bør prioriteres (1 kritisk, 12 høy ROI). Største mulighet: **50% uutnyttet automatiseringsverdi** — prosesser som kan automatiseres (lead-ruting, kundestøtte, avtalebooking, oppfølging). Forretningsmessig betyr dette: konkret risiko som bør lukkes raskt, og målbar gevinst i hastighet, konvertering og frigjort tid. Merk: dette er en **utenfor-inn** vurdering av kun den offentlige nettsiden — interne systemer er ikke vurdert."
+}

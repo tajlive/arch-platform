@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arch Website Audit — www.auto-glass.no</title>
+<style>
+  :root { --bg:#0f1220; --panel:#171b2e; --ink:#e8eaf2; --mut:#9aa3b8; --acc:#4f8cff; --ok:#3ddc84; --warn:#ffb454; --bad:#ff6b6b; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--ink); font-family:-apple-system,"Segoe UI",Roboto,sans-serif; line-height:1.6; padding:24px; }
+  .wrap { max-width:860px; margin:0 auto; }
+  .card { background:var(--panel); border-radius:14px; padding:24px; margin-bottom:18px; }
+  h1 { font-size:1.5rem; margin-bottom:6px; }
+  h2 { font-size:1.1rem; margin:0 0 10px; color:var(--acc); }
+  h3 { font-size:1rem; margin:14px 0 8px; color:var(--ink); }
+  .score { font-size:3rem; font-weight:800; color:var(--warn); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px; }
+  .dim { background:#1d2238; border-radius:10px; padding:12px; }
+  .dim b { display:block; }
+  .bar { height:8px; background:#2a3050; border-radius:6px; margin-top:8px; overflow:hidden; }
+  .bar i { display:block; height:100%; border-radius:6px; }
+  table { width:100%; border-collapse:collapse; margin:10px 0; }
+  th,td { text-align:left; padding:8px 10px; border-bottom:1px solid #2a3050; font-size:.92rem; }
+  th { color:var(--mut); font-weight:600; }
+  .tag { display:inline-block; padding:2px 10px; border-radius:20px; font-size:.78rem; font-weight:700; }
+  .t-ok { background:rgba(61,220,132,.15); color:var(--ok); }
+  .t-warn { background:rgba(255,180,84,.15); color:var(--warn); }
+  .t-bad { background:rgba(255,107,107,.15); color:var(--bad); }
+  .mut { color:var(--mut); font-size:.88rem; }
+  ul,ol { padding-left:20px; margin:8px 0; }
+  code { background:#232a45; padding:1px 6px; border-radius:5px; font-size:.85em; }
+  blockquote { border-left:3px solid var(--acc); padding-left:12px; margin:10px 0; color:var(--mut); }
+  a { color:var(--acc); }
+  .foot { color:var(--mut); font-size:.8rem; margin-top:20px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="card">
+    <h1>Arch Website Audit</h1>
+    <p class="mut">www.auto-glass.no · utført 15. august 2026 · passiv, utenfor-inn · ingen endringer gjort</p>
+    <p style="margin-top:14px">Total score</p>
+    <div class="score">55 %</div>
+    <p class="mut">1 kritiske funn · 4 høye · 18 medium · 6 lave</p>
+  </div>
+
+  <div class="card">
+    <h2>Dimensjoner</h2>
+    <div class="grid"><div class="dim"><b>performance <span class="tag t-bad">38 %</span></b><div class="bar"><i style="width:38%;background:var(--bad)"></i></div></div>
+<div class="dim"><b>security <span class="tag t-bad">48 %</span></b><div class="bar"><i style="width:48%;background:var(--bad)"></i></div></div>
+<div class="dim"><b>ux_mobile <span class="tag t-warn">50 %</span></b><div class="bar"><i style="width:50%;background:var(--warn)"></i></div></div>
+<div class="dim"><b>accessibility <span class="tag t-warn">60 %</span></b><div class="bar"><i style="width:60%;background:var(--warn)"></i></div></div>
+<div class="dim"><b>seo <span class="tag t-warn">63 %</span></b><div class="bar"><i style="width:63%;background:var(--warn)"></i></div></div>
+<div class="dim"><b>reliability <span class="tag t-ok">86 %</span></b><div class="bar"><i style="width:86%;background:var(--ok)"></i></div></div>
+<div class="dim"><b>trust_privacy <span class="tag t-warn">66 %</span></b><div class="bar"><i style="width:66%;background:var(--warn)"></i></div></div>
+<div class="dim"><b>ai_visibility <span class="tag t-warn">75 %</span></b><div class="bar"><i style="width:75%;background:var(--warn)"></i></div></div>
+<div class="dim"><b>automation <span class="tag t-warn">50 %</span></b><div class="bar"><i style="width:50%;background:var(--warn)"></i></div></div></div>
+  </div>
+
+  <div class="card">
+    <h2>Funn (prioritert)</h2>
+    <p><span class="tag t-warn">MEDIUM</span> <b>Render-blokkerende ressurser</b><br><span class="mut">14 blokkerende skript, 7 stylesheets</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Bilde-optimalisering</b><br><span class="mut">4 bilder, 1 m/ dimensjoner, 0 lazy</span></p>
+<p><span class="tag t-bad">HØY</span> <b>Skjemaetiketter</b><br><span class="mut">3 input, 3 label</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Overskriftshierarki</b><br><span class="mut">h1=2 h2=1 h3=4</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Meta-beskrivelse</b><br><span class="mut">mangler meta description</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Sitemap.xml</b><br><span class="mut">mangler sitemap.xml</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>OpenGraph</b><br><span class="mut">title=true description=true image=false</span></p>
+<p><span class="tag t-bad">HØY</span> <b>Header: csp</b><br><span class="mut">mangler</span></p>
+<p><span class="tag t-bad">HØY</span> <b>Header: permissions</b><br><span class="mut">mangler</span></p>
+<p><span class="tag t-bad">KRITISK</span> <b>Blandet innhold (http på https)</b><br><span class="mut">2 http-referanser</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Versjons-avsløring</b><br><span class="mut">Prometheus</span></p>
+<p><span class="tag t-bad">HØY</span> <b>Sikkerhetsheadere — gradering C</b><br><span class="mut">Gradering C. Content-Security-Policy: MANGLER; Strict-Transport-Security: max-age=31536000; X-Frame-Options: SAMEORIGIN; X-Content-Type-Options: nosniff; Referrer-Policy: strict-origin-when-cross-origin; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS uten includeSubDomains · Permissions-Policy mangler</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Versjonslekkasje: server-header</b><br><span class="mut">server: Prometheus</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>WordPress-signatur i generator</b><br><span class="mut">generator: WordPress 4.9.31</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Versjonslekkasje: <meta name=generator></b><br><span class="mut">generator: WooCommerce 3.4.8</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>DMARC (spoofing-beskyttelse)</b><br><span class="mut">p=none (kun overvåkning) — v=DMARC1; p=none</span></p>
+<p><span class="tag t-ok">LAV</span> <b>MTA-STS (håndhevet e-post-TLS)</b><br><span class="mut">ingen MTA-STS (TXT + policy-fil mangler)</span></p>
+<p><span class="tag t-ok">LAV</span> <b>TLS-RPT (TLS-rapportering)</b><br><span class="mut">ingen TLS-rapportering</span></p>
+<p><span class="tag t-ok">LAV</span> <b>CAA (sertifikat-utsteder-kontroll)</b><br><span class="mut">ingen CAA</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Cookie-banner / samtykke-plattform (CMP)</b><br><span class="mut">ingen CMP/banner observert — potential concern, krever juridisk vurdering</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Forhåndsavkrysset samtykke</b><br><span class="mut">forhåndsavkrysset samtykke-input observert (type=checkbox) — potential concern, krever juridisk vurdering</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Tredjeparts-trackere</b><br><span class="mut">trackere observert (Google Tag Manager, Facebook Pixel) — ingen synlig samtykke-gating observert — potential concern, krever juridisk vurdering</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Pris inkl. mva</b><br><span class="mut">pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Angrerett-informasjon</b><br><span class="mut">angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Klageadgang / tvisteløsning</b><br><span class="mut">klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering</span></p>
+<p><span class="tag t-ok">LAV</span> <b>Sosiale medier (lenker fra nettsiden)</b><br><span class="mut">ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)</span></p>
+<p><span class="tag t-ok">LAV</span> <b>Telefon på nettsiden</b><br><span class="mut">ingen tel:-lenke observert — potential concern (kontaktbarhet)</span></p>
+<p><span class="tag t-warn">MEDIUM</span> <b>Posisjon i AI-svar</b><br><span class="mut">beste posisjon: nevnt i løpende tekst (ikke topp-liste) av 3 svar</span></p>
+<p><span class="tag t-ok">LAV</span> <b>Automatiseringsmuligheter identifisert</b><br><span class="mut">uutnyttet potensial 50% — manglende signaler: cmp, chat, newsletter</span></p>
+  </div>
+
+<div class="card"><h2>## Arch Audit v2 — utvidede undersøkelser</h2></div>
+<div class="card"><h2>Hva en hacker ser</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>❌ Funn</td><td>Sikkerhetsheadere — gradering C</td><td>Gradering C. Content-Security-Policy: MANGLER; Strict-Transport-Security: max-age=31536000; X-Frame-Options: SAMEORIGIN; X-Content-Type-Options: nosniff; Referrer-Policy: strict-origin-when-cross-origin; Permissions-Policy: MANGLER Trekk: CSP mangler · HSTS uten includeSubDomains · Permissions-Policy mangler</td></tr><tr><td>✅ OK</td><td>Cookie-sikkerhet (HttpOnly/Secure/SameSite)</td><td>Ingen cookies satt av serveren (0 set-cookie-headere).</td></tr><tr><td>❌ Funn</td><td>Versjonslekkasje: server-header</td><td>server: Prometheus</td></tr><tr><td>❌ Funn</td><td>WordPress-signatur i generator</td><td>generator: WordPress 4.9.31</td></tr><tr><td>❌ Funn</td><td>Versjonslekkasje: <meta name=generator></td><td>generator: WooCommerce 3.4.8</td></tr><tr><td>✅ OK</td><td>TLS-sertifikat gyldighet</td><td>notBefore=2026-07-25T05:32:34.000Z, notAfter=2026-10-23T05:32:33.000Z, issuer=C=US, O=Let's Encrypt, CN=YR2, SAN=auto-glass.no, www.auto-glass.no</td></tr><tr><td>✅ OK</td><td>TLS-sertifikat-verifisering</td><td>verify return code: 0 (ok)</td></tr><tr><td>✅ OK</td><td>Legacy-TLS (1.0/1.1) støtte</td><td>TLS 1.0: blocked · TLS 1.1: blocked</td></tr></tbody></table></div>
+<div class="card"><h2>E-post & DNS-sikkerhet</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>✅ OK</td><td>SPF (avsender-verifisering)</td><td>v=spf1 include:spf.protection.outlook.com -all</td></tr><tr><td>✅ OK</td><td>SPF: private IP-er i mekanismene</td><td>ingen private IP-er i SPF</td></tr><tr><td>⚠️ Ikke verifisert</td><td>DKIM (e-post-signering)</td><td>ingen av probede selektorer funnet (kan ikke konkludere fravær)</td></tr><tr><td>❌ Funn</td><td>DMARC (spoofing-beskyttelse)</td><td>p=none (kun overvåkning) — v=DMARC1; p=none</td></tr><tr><td>❌ Funn</td><td>MTA-STS (håndhevet e-post-TLS)</td><td>ingen MTA-STS (TXT + policy-fil mangler)</td></tr><tr><td>❌ Funn</td><td>TLS-RPT (TLS-rapportering)</td><td>ingen TLS-rapportering</td></tr><tr><td>➖ N/A</td><td>BIMI (merkevare-logo i innboks)</td><td>ingen BIMI (ikke påkrevd)</td></tr><tr><td>❌ Funn</td><td>CAA (sertifikat-utsteder-kontroll)</td><td>ingen CAA</td></tr><tr><td>✅ OK</td><td>DNSSEC (signert sone)</td><td>AD-flag — signert sone validert</td></tr><tr><td>✅ OK</td><td>E-post-omdømme (DNSBL)</td><td>autoglass-no01b.mail.protection.outlook.com (52.101.73.12) ikke listet</td></tr><tr><td>⚠️ Ikke verifisert</td><td>Subdomene-eksponering (crt.sh)</td><td>crt.sh-feil: The operation was aborted due to timeout</td></tr></tbody></table><table><thead><tr><th>Protokoll</th><th>Observert</th></tr></thead><tbody><tr><td>SPF</td><td>v=spf1 include:spf.protection.outlook.com -all</td></tr><tr><td>DMARC</td><td>none (p=none)</td></tr><tr><td>MTA-STS</td><td>TXT: nei · policy-fil: nei</td></tr><tr><td>CAA</td><td>ingen CAA</td></tr><tr><td>DNSSEC</td><td>signert (AD-flag)</td></tr><tr><td>DNSBL</td><td>autoglass-no01b.mail.protection.outlook.com ikke listet</td></tr><tr><td>Subdomener (crt.sh)</td><td>0 observert</td></tr></tbody></table><p><b>Derfor betyr dette noe:</b> SPF/DKIM/DMARC avgjør om «hvem som helst» kan sende e-post som om de er dere. Kun ~15 % av domener har full SPF+DKIM+DMARC.</p></div>
+<div class="card"><h2>Norge-data (Brreg · Norid · SSB)</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>✅ OK</td><td>Organisasjonsnummer og navn</td><td>org 968552732 — AUTOGLASS AS</td></tr><tr><td>✅ OK</td><td>Organisasjonsform</td><td>Aksjeselskap (AS)</td></tr><tr><td>✅ OK</td><td>Konkurs / under avvikling</td><td>ikke konkurs og ikke under avvikling</td></tr><tr><td>✅ OK</td><td>Registrert i Merverdiavgiftsregisteret</td><td>registrert i MVA</td></tr><tr><td>✅ OK</td><td>Stiftelses- og registreringsdato</td><td>stiftet 1994-01-17 · registrert i Enhetsregisteret 1995-02-20</td></tr><tr><td>✅ OK</td><td>Antall ansatte</td><td>7 ansatte</td></tr><tr><td>✅ OK</td><td>Næringskode og beskrivelse</td><td>46.720 — Engroshandel med deler og utstyr for motorvogner</td></tr><tr><td>✅ OK</td><td>Hjemmeside-konsistens (Brreg vs domene)</td><td>Brreg-hjemmeside «www.auto-glass.no» samsvarer med auditert domene auto-glass.no</td></tr><tr><td>✅ OK</td><td>Navn-konsistens (nettside vs Brreg)</td><td>«Autoglass» samsvarer med Brreg-navn «AUTOGLASS AS»</td></tr><tr><td>✅ OK</td><td>Siste årsregnskap</td><td>regnskap 2025: driftsinntekter 22 450 842 kr, resultat −1 164 896 kr</td></tr><tr><td>✅ OK</td><td>Daglig leder / styreleder (Brreg)</td><td>daglig leder: Truls Opdal · styreleder: Eduard Eikeland</td></tr><tr><td>⚠️ Ikke verifisert</td><td>Bransjekontekst (SSB)</td><td>SSB-tabell ikke kartlagt for næring 46</td></tr><tr><td>✅ OK</td><td>Domenet registrert (Norid)</td><td>registrert 1999-11-14</td></tr><tr><td>✅ OK</td><td>Sist endret (Norid)</td><td>sist endret 2025-11-16</td></tr><tr><td>✅ OK</td><td>DNSSEC (Norid)</td><td>DNSSEC aktivert (delegationSigned=true)</td></tr><tr><td>✅ OK</td><td>Registrar (Norid)</td><td>registrar: Domeneshop AS</td></tr></tbody></table><p><b>Brreg-enhet:</b> AUTOGLASS AS — org.nr 968552732 · Aksjeselskap · stiftet 1994-01-17 · næring: Engroshandel med deler og utstyr for motorvogner · 7 ansatte.</p><p><b>Norid (auto-glass.no):</b> registrert 1999-11-14 · sist endret 2025-11-16 · registrar: Domeneshop AS · DNSSEC: ja.</p></div>
+<div class="card"><h2>Historikk (Wayback Machine)</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>✅ OK</td><td>Arkivhistorikk finnes</td><td>arkivert siden 2004-12-07</td></tr><tr><td>✅ OK</td><td>Aktualitet (siste arkiverte versjon)</td><td>fanget i løpet av siste 12 mnd (2025-09-15)</td></tr><tr><td>⚠️ Ikke verifisert</td><td>Arkivomfang</td><td>omfang ikke tilgjengelig (Wayback CDX timeout på full historikk)</td></tr></tbody></table><p><b>Arkivomfang:</b> første arkiverte versjon 2004-12-07, siste 2025-09-15.</p></div>
+<div class="card"><h2>Compliance-signaler Norge</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>❌ Funn</td><td>Cookie-banner / samtykke-plattform (CMP)</td><td>ingen CMP/banner observert — potential concern, krever juridisk vurdering</td></tr><tr><td>➖ N/A</td><td>Reelt valg (avvis-knapp)</td><td>ingen banner/CMP observert</td></tr><tr><td>❌ Funn</td><td>Forhåndsavkrysset samtykke</td><td>forhåndsavkrysset samtykke-input observert (type=checkbox) — potential concern, krever juridisk vurdering</td></tr><tr><td>✅ OK</td><td>Personvernerklæring</td><td>personvernerklæring lenket i footer</td></tr><tr><td>❌ Funn</td><td>Tredjeparts-trackere</td><td>trackere observert (Google Tag Manager, Facebook Pixel) — ingen synlig samtykke-gating observert — potential concern, krever juridisk vurdering</td></tr><tr><td>✅ OK</td><td>Google Fonts (ekstern)</td><td>ingen ekstern Google Fonts observert</td></tr><tr><td>❌ Funn</td><td>Pris inkl. mva</td><td>pris inkl. mva ikke observert — potential concern (prisopplysningsforskriften), krever juridisk vurdering</td></tr><tr><td>❌ Funn</td><td>Angrerett-informasjon</td><td>angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering</td></tr><tr><td>❌ Funn</td><td>Klageadgang / tvisteløsning</td><td>klageadgang/tvisteløsning ikke observert — potential concern, krever juridisk vurdering</td></tr></tbody></table><p><b>Viktig:</b> Disse punktene er maskinlesbare SIGNALER, ikke en juridisk vurdering. «Funn» betyr at noe mangler eller er observert — om det faktisk utgjør et problem krever juridisk vurdering.</p></div>
+<div class="card"><h2>Fart (PageSpeed Insights + CrUX)</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>⚠️ Ikke verifisert</td><td>PageSpeed mobil</td><td>API-feil: HTTP 429</td></tr><tr><td>⚠️ Ikke verifisert</td><td>PageSpeed desktop</td><td>API-feil: HTTP 429</td></tr><tr><td>⚠️ Ikke verifisert</td><td>PageSpeed API tilgjengelig</td><td>API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig</td></tr></tbody></table></div>
+<div class="card"><h2>Tilstedeværelse (sosiale medier · NAP)</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>❌ Funn</td><td>Sosiale medier (lenker fra nettsiden)</td><td>ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)</td></tr><tr><td>❌ Funn</td><td>Telefon på nettsiden</td><td>ingen tel:-lenke observert — potential concern (kontaktbarhet)</td></tr><tr><td>✅ OK</td><td>E-post på nettsiden</td><td>mailto: post@auto-glass.no</td></tr><tr><td>✅ OK</td><td>Navn-konsistens (nettside ↔ Brreg)</td><td>«AUTOGLASS AS» (Brreg) samsvarer med nettsidenavn</td></tr><tr><td>⚠️ Ikke verifisert</td><td>Google Business Profile (anmeldelser, kategori)</td><td>krever Google Places API-nøkkel — støttes når nøkkel er konfigurert</td></tr></tbody></table><p><b>Kontakt på nettsiden:</b> e-post post@auto-glass.no.</p></div>
+<div class="card"><h2>AI-analyse av innhold (DeepSeek)</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>⚠️ Ikke verifisert</td><td>Innholdskvalitet (AI-vurdert)</td><td>Nettsiden til Autoglass AS presenterer selskapet som en leverandør av bilglass med stort lager og eksport til Skandinavia og Europa. Innholdet er faglig og informativt, men mangler oppdaterte årstall og meta-beskrivelse. Teksten er godt strukturert med tydelig fokus på kvalitet og sikkerhet, men kunne vært mer brukervennlig for potensielle kunder.</td></tr><tr><td>⚠️ Ikke verifisert</td><td>Aktualitet (AI-vurdert)</td><td>Ingen årstall eller datoer funnet i teksten · Manglende meta-beskrivelse · Teksten inneholder mye teknisk informasjon om frontrute-benevninger · Tilstedeværelse av cookie- og personverninformasjon tyder på oppdatert nettside</td></tr></tbody></table><p><b>AI-vurdering (DeepSeek, deepseek-chat):</b> analysen er reproduserbar — prompt og rå-svar ligger i evidence-filen.</p></div>
+<div class="card"><h2>AI-synlighet (GEO — hvordan AI-assistenter omtaler dere)</h2><table><thead><tr><th>Status</th><th>Sjekk</th><th>Observert</th></tr></thead><tbody><tr><td>✅ OK</td><td>Synlighet i AI-svar</td><td>1/3 svar nevner Autoglass · sitat: «Autoglass / Autoglass AS / auto-glass.no nevnes ikke i noen av svarene.» · prompter: «Hvilket firma bør jeg velge for å skifte frontrute…» / «Hvor kan jeg få tak i et sjeldent bilglass til en …»</td></tr><tr><td>❌ Funn</td><td>Posisjon i AI-svar</td><td>beste posisjon: nevnt i løpende tekst (ikke topp-liste) av 3 svar</td></tr><tr><td>✅ OK</td><td>Sentiment i AI-omtale</td><td>sentiment: nøytral · råd: Sørg for å bli nevnt i AI-svar ved å styrke tilstedeværelsen i relevante kataloger og innhold som dekker bilglassbytte og ADAS-kalibrering.</td></tr><tr><td>✅ OK</td><td>Kilder AI-en siterer</td><td>eksterne domener i AI-svar: ebay.co</td></tr></tbody></table><p><b>Målemetode (Peec.ai-modellen):</b> 3 kunderelevante spørsmål ble stilt til en AI-assistent (deepseek-chat). Spørsmålene er generert fra nettsidens eget innhold og ligger i evidence-filen.</p><p><b>Stilte spørsmål:</b></p><ul><li>Hvilket firma bør jeg velge for å skifte frontrute på en bil med regnsensor og kamera i Oslo?</li><li>Hvor kan jeg få tak i et sjeldent bilglass til en eldre bilmodell når andre leverandører sier nei?</li><li>Hva er det beste alternativet for verksteder som trenger pålitelig levering av bilglass i Skandinavia?</li></ul><p><b>Målinger per spørsmål:</b></p><ul><li>«Hvilket firma bør jeg velge for å skifte frontrute på en bil med regns…» → ikke nevnt</li><li>«Hvor kan jeg få tak i et sjeldent bilglass til en eldre bilmodell når …» → ikke nevnt · kilder: ebay.co</li><li>«Hva er det beste alternativet for verksteder som trenger pålitelig lev…» → nevnt i tekst</li></ul><p><b>Anbefaling (AI-vurdert):</b> Sørg for å bli nevnt i AI-svar ved å styrke tilstedeværelsen i relevante kataloger og innhold som dekker bilglassbytte og ADAS-kalibrering.</p><hr><p>_Alle sjekker er passive og utenfor-inn (kun offentlig observerbar informasjon). Kilde og rådata ligger i evidence-filen._</p></div>
+
+  <div class="card">
+    <h2>Hva Arch kan gjøre for deg</h2>
+    <p>Arch leverer Build-fix (rettelser), Compliance (Norge-spesifikke krav) og Managed (løpende overvåking og drift) basert på funnene over.</p>
+  </div>
+
+  <p class="foot">Generert av Arch Platform · website-audit v2 · 2026-08-15</p>
+</div>
+</body>
+</html>
