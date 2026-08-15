@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2026-08-14T21:37:41.237Z",
+    "generated": "2026-08-15T00:21:57.754Z",
     "version": "2.0",
     "name": "klarpakke.no",
     "website": "https://klarpakke.no",
@@ -8,18 +8,10 @@
     "registrable_domain": "klarpakke.no",
     "mode": "website",
     "design_partner": false,
-    "audit_duration_ms": 35929,
-    "v2_modules_ms": 18263
+    "audit_duration_ms": 53414,
+    "v2_modules_ms": 36200
   },
-  "customer": {
-    "id": "klarpakke.no",
-    "name": "klarpakke.no",
-    "mode": "prospect_preview",
-    "modeLabel": "Intern prospect-vurdering",
-    "website": "https://klarpakke.no",
-    "consent_granted": false,
-    "consent_date": null
-  },
+  "customer": null,
   "score": {
     "total": 66,
     "categories": {
@@ -39,7 +31,7 @@
             "evidence": "br",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:21.832Z"
+            "observed_at": "2026-08-15T00:21:20.401Z"
           },
           {
             "id": "caching",
@@ -49,7 +41,7 @@
             "evidence": "public, max-age=60, s-maxage=300, stale-while-revalidate=86400, stale-if-error=3600",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:21.832Z"
+            "observed_at": "2026-08-15T00:21:20.401Z"
           },
           {
             "id": "render_blocking",
@@ -59,7 +51,7 @@
             "evidence": "1 blokkerende skript, 2 stylesheets",
             "confidence": "medium",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:21.856Z"
+            "observed_at": "2026-08-15T00:21:20.401Z"
           },
           {
             "id": "image_optim",
@@ -69,7 +61,7 @@
             "evidence": "2 bilder, 2 m/ dimensjoner, 0 lazy",
             "confidence": "medium",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:21.920Z"
+            "observed_at": "2026-08-15T00:21:20.402Z"
           },
           {
             "id": "third_party",
@@ -79,27 +71,27 @@
             "evidence": "1 eksterne domener (www.klarpakke.no)",
             "confidence": "medium",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:21.921Z"
+            "observed_at": "2026-08-15T00:21:20.402Z"
           },
           {
             "id": "psi_mobile",
             "label": "PageSpeed mobil",
             "dimension": "performance",
             "result": "UNKNOWN",
-            "evidence": "API-feil: HTTP 403",
+            "evidence": "API-feil: HTTP 429",
             "confidence": "medium",
             "source": "pagespeed_api",
-            "observed_at": "2026-08-14T21:37:26.895Z"
+            "observed_at": "2026-08-15T00:21:35.359Z"
           },
           {
             "id": "psi_desktop",
             "label": "PageSpeed desktop",
             "dimension": "performance",
             "result": "UNKNOWN",
-            "evidence": "API-feil: HTTP 403",
+            "evidence": "API-feil: HTTP 429",
             "confidence": "medium",
             "source": "pagespeed_api",
-            "observed_at": "2026-08-14T21:37:26.895Z"
+            "observed_at": "2026-08-15T00:21:35.359Z"
           },
           {
             "id": "psi_availability",
@@ -109,7 +101,7 @@
             "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
             "confidence": "medium",
             "source": "pagespeed_api",
-            "observed_at": "2026-08-14T21:37:26.895Z"
+            "observed_at": "2026-08-15T00:21:35.359Z"
           }
         ]
       },
@@ -129,7 +121,7 @@
             "evidence": "HTTPS leverte respons",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:07.658Z"
+            "observed_at": "2026-08-15T00:21:08.787Z"
           },
           {
             "id": "header_csp",
@@ -139,7 +131,7 @@
             "evidence": "tilstede",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:22.438Z"
+            "observed_at": "2026-08-15T00:21:21.086Z"
           },
           {
             "id": "header_hsts",
@@ -149,7 +141,7 @@
             "evidence": "tilstede",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:22.438Z"
+            "observed_at": "2026-08-15T00:21:21.086Z"
           },
           {
             "id": "header_xcto",
@@ -159,7 +151,7 @@
             "evidence": "tilstede",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:22.438Z"
+            "observed_at": "2026-08-15T00:21:21.086Z"
           },
           {
             "id": "header_referrer",
@@ -169,7 +161,7 @@
             "evidence": "tilstede",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:22.438Z"
+            "observed_at": "2026-08-15T00:21:21.086Z"
           },
           {
             "id": "header_permissions",
@@ -179,7 +171,7 @@
             "evidence": "tilstede",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:22.438Z"
+            "observed_at": "2026-08-15T00:21:21.086Z"
           },
           {
             "id": "header_frame",
@@ -189,7 +181,7 @@
             "evidence": "tilstede",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:22.438Z"
+            "observed_at": "2026-08-15T00:21:21.086Z"
           },
           {
             "id": "mixed_content",
@@ -199,7 +191,7 @@
             "evidence": "ingen http-referanser i HTML",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:22.439Z"
+            "observed_at": "2026-08-15T00:21:21.087Z"
           },
           {
             "id": "source_maps",
@@ -209,7 +201,7 @@
             "evidence": "skript ikke observerbare",
             "confidence": "low",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:22.439Z"
+            "observed_at": "2026-08-15T00:21:21.087Z"
           },
           {
             "id": "tech_disclosure",
@@ -219,7 +211,7 @@
             "evidence": "cloudflare",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:22.439Z"
+            "observed_at": "2026-08-15T00:21:21.087Z"
           },
           {
             "id": "security_headers",
@@ -229,7 +221,7 @@
             "evidence": "Gradering A. Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://pskhryjzkobytnfwucrb.supabas…; Strict-Transport-Security: max-age=63072000; includeSubDomains; preload; X-Frame-Options: DENY; X-Content-Type-Options: nosniff; Referrer-Policy: strict-origin-when-cross-origin; Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(… Trekk: CSP svak (unsafe-inline/unsafe-eval)",
             "confidence": "high",
             "source": "http_headers",
-            "observed_at": "2026-08-14T21:37:24.392Z"
+            "observed_at": "2026-08-15T00:21:22.643Z"
           },
           {
             "id": "cookies_attributes",
@@ -239,7 +231,7 @@
             "evidence": "1 cookies observert. Mangler HttpOnly: NEXT_LOCALE. Mangler Secure: NEXT_LOCALE. Mangler SameSite: alle har SameSite. (Cookie-navn + flagg kun — verdier aldri lagret/vist.)",
             "confidence": "high",
             "source": "http_headers",
-            "observed_at": "2026-08-14T21:37:24.394Z"
+            "observed_at": "2026-08-15T00:21:22.644Z"
           },
           {
             "id": "version_leaks",
@@ -249,7 +241,7 @@
             "evidence": "Ingen server/x-powered-by/x-aspnet-version-header, <meta generator>, gammel jQuery eller WordPress-signatur observert.",
             "confidence": "medium",
             "source": "http_headers",
-            "observed_at": "2026-08-14T21:37:24.399Z"
+            "observed_at": "2026-08-15T00:21:22.652Z"
           },
           {
             "id": "tls_cert",
@@ -259,7 +251,7 @@
             "evidence": "notBefore=2026-07-28T08:21:14.000Z, notAfter=2026-10-26T09:20:56.000Z, issuer=C=US, O=Google Trust Services, CN=WE1, SAN=klarpakke.no, *.klarpakke.no",
             "confidence": "high",
             "source": "tls",
-            "observed_at": "2026-08-14T21:37:41.233Z"
+            "observed_at": "2026-08-15T00:21:37.963Z"
           },
           {
             "id": "tls_verify",
@@ -269,7 +261,7 @@
             "evidence": "verify return code: 0 (ok)",
             "confidence": "high",
             "source": "tls",
-            "observed_at": "2026-08-14T21:37:41.233Z"
+            "observed_at": "2026-08-15T00:21:37.963Z"
           },
           {
             "id": "tls_legacy",
@@ -279,7 +271,7 @@
             "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
             "confidence": "medium",
             "source": "tls",
-            "observed_at": "2026-08-14T21:37:41.233Z"
+            "observed_at": "2026-08-15T00:21:37.963Z"
           },
           {
             "id": "spf",
@@ -289,7 +281,7 @@
             "evidence": "v=spf1 include:_spf.domeneshop.no include:_spf.google.com include:spf.resend.com ~all — ~all er svakt, spoofing mulig",
             "confidence": "high",
             "source": "dns",
-            "observed_at": "2026-08-14T21:37:23.937Z"
+            "observed_at": "2026-08-15T00:21:22.244Z"
           },
           {
             "id": "spf_private_ip",
@@ -299,7 +291,7 @@
             "evidence": "ingen private IP-er i SPF",
             "confidence": "medium",
             "source": "dns",
-            "observed_at": "2026-08-14T21:37:23.938Z"
+            "observed_at": "2026-08-15T00:21:22.244Z"
           },
           {
             "id": "dkim",
@@ -309,7 +301,7 @@
             "evidence": "ingen av probede selektorer funnet (kan ikke konkludere fravær)",
             "confidence": "low",
             "source": "dns",
-            "observed_at": "2026-08-14T21:37:24.762Z"
+            "observed_at": "2026-08-15T00:21:22.768Z"
           },
           {
             "id": "dmarc",
@@ -319,7 +311,7 @@
             "evidence": "p=none (kun overvåkning) — v=DMARC1; p=none; rua=mailto:dmarc@klarpakke.no; ruf=mailto:dmarc@klarpakke.no; fo=1; adkim=s; aspf=s",
             "confidence": "high",
             "source": "dns",
-            "observed_at": "2026-08-14T21:37:24.810Z"
+            "observed_at": "2026-08-15T00:21:22.857Z"
           },
           {
             "id": "mta_sts",
@@ -329,7 +321,7 @@
             "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
             "confidence": "high",
             "source": "dns",
-            "observed_at": "2026-08-14T21:37:24.895Z"
+            "observed_at": "2026-08-15T00:21:22.995Z"
           },
           {
             "id": "tls_rpt",
@@ -339,7 +331,7 @@
             "evidence": "ingen TLS-rapportering",
             "confidence": "medium",
             "source": "dns",
-            "observed_at": "2026-08-14T21:37:24.954Z"
+            "observed_at": "2026-08-15T00:21:23.120Z"
           },
           {
             "id": "caa",
@@ -349,7 +341,7 @@
             "evidence": "ingen CAA",
             "confidence": "high",
             "source": "dns",
-            "observed_at": "2026-08-14T21:37:25.214Z"
+            "observed_at": "2026-08-15T00:21:23.223Z"
           },
           {
             "id": "dnssec",
@@ -359,17 +351,17 @@
             "evidence": "manglende AD-flag — sonen er ikke DNSSEC-signert",
             "confidence": "high",
             "source": "dns",
-            "observed_at": "2026-08-14T21:37:25.371Z"
+            "observed_at": "2026-08-15T00:21:23.333Z"
           },
           {
             "id": "subdomains",
             "label": "Subdomene-eksponering (crt.sh)",
             "dimension": "security",
             "result": "UNKNOWN",
-            "evidence": "ingen data i crt.sh",
-            "confidence": "medium",
+            "evidence": "crt.sh-feil: The operation was aborted due to timeout",
+            "confidence": "low",
             "source": "https",
-            "observed_at": "2026-08-14T21:37:29.409Z"
+            "observed_at": "2026-08-15T00:21:44.512Z"
           },
           {
             "id": "norid_dnssec",
@@ -379,7 +371,7 @@
             "evidence": "DNSSEC ikke aktivert (delegationSigned=false)",
             "confidence": "high",
             "source": "norid",
-            "observed_at": "2026-08-14T21:37:23.647Z"
+            "observed_at": "2026-08-15T00:21:22.179Z"
           }
         ]
       },
@@ -399,7 +391,7 @@
             "evidence": "viewport tilstede",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:21.922Z"
+            "observed_at": "2026-08-15T00:21:20.402Z"
           },
           {
             "id": "media_queries",
@@ -409,27 +401,27 @@
             "evidence": "stylesheets ikke observerbare",
             "confidence": "low",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:21.922Z"
+            "observed_at": "2026-08-15T00:21:20.402Z"
           },
           {
             "id": "ai_content_quality",
             "label": "Innholdskvalitet (AI-vurdert)",
             "dimension": "ux_mobile",
             "result": "PASS",
-            "evidence": "Klarpakke posisjonerer seg som en transparent og risikofri inngang til kryptotrading for det norske markedet, med vekt på dokumentasjon og ærlighet om risiko. Siden tilbyr en gratis beta med lekepenger, AI-veiledning på norsk og backtest-resultater som viser både tap og gevinster, noe som bygger tillit. Budskapet er klart og pedagogisk, med tydelige løfter om hva de aldri vil gjøre, og en konkret oppfordring til handling for de første 100 registrerte.",
+            "evidence": "Klarpakke posisjonerer seg som en transparent og risikofri inngang til krypto-trading for nordmenn, med fokus på læring og dokumentasjon. De lover aldri gevinst, men viser backtest-resultater med gebyr inkludert, og tilbyr lekepenger for å bygge tillit. Siden er tydelig i sin kommunikasjon og henvender seg til nybegynnere som ønsker å lære uten risiko.",
             "confidence": "medium",
             "source": "llm_analysis",
-            "observed_at": "2026-08-14T21:37:28.787Z"
+            "observed_at": "2026-08-15T00:21:26.035Z"
           },
           {
             "id": "ai_content_freshness",
             "label": "Aktualitet (AI-vurdert)",
             "dimension": "ux_mobile",
             "result": "PASS",
-            "evidence": "Gratis beta kun i Norge · 100 000 kr i lekepenger · AI-pilot som forklarer på norsk · Backtest-bevis med gebyr inkludert · Ingen kredittkort, KYC eller binding · Norsk plattform · 5000 KLT-tokens til de 100 første · 90 dager med ekte data · Historisk avkastning er ingen garanti for fremtidig avkastning · De 100 første får gratis tilgang for alltid",
+            "evidence": "Gratis beta kun i Norge · 100 000 kr i lekepenger · AI-pilot som forklarer på norsk · Backtest med gebyr inkludert · Ingen kredittkort, KYC eller binding · 5000 KLT til de 100 første · Historisk avkastning er ingen garanti",
             "confidence": "medium",
             "source": "llm_analysis",
-            "observed_at": "2026-08-14T21:37:28.787Z"
+            "observed_at": "2026-08-15T00:21:26.038Z"
           }
         ]
       },
@@ -449,7 +441,7 @@
             "evidence": "no",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:21.922Z"
+            "observed_at": "2026-08-15T00:21:20.402Z"
           },
           {
             "id": "alt_text",
@@ -459,7 +451,7 @@
             "evidence": "0/2 bilder mangler alt",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:21.922Z"
+            "observed_at": "2026-08-15T00:21:20.402Z"
           },
           {
             "id": "form_labels",
@@ -469,7 +461,7 @@
             "evidence": "ingen skjemainput",
             "confidence": "medium",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:21.923Z"
+            "observed_at": "2026-08-15T00:21:20.403Z"
           },
           {
             "id": "heading_hierarchy",
@@ -479,7 +471,7 @@
             "evidence": "h1=2 h2=10 h3=10",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:21.944Z"
+            "observed_at": "2026-08-15T00:21:20.403Z"
           },
           {
             "id": "semantic",
@@ -489,7 +481,7 @@
             "evidence": "3/4 (nav, main, footer)",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:21.959Z"
+            "observed_at": "2026-08-15T00:21:20.404Z"
           }
         ]
       },
@@ -509,7 +501,7 @@
             "evidence": "Klarpakke — Se regnestykket før du stoler på oss | Klarpakke",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:21.959Z"
+            "observed_at": "2026-08-15T00:21:20.404Z"
           },
           {
             "id": "meta_description",
@@ -519,7 +511,7 @@
             "evidence": "Gratis beta: 100 000 kr i lekepenger, en AI-pilot som forklarer alt på norsk, og backtest-bevis med gebyr inkludert. Kun i Norge.",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:21.960Z"
+            "observed_at": "2026-08-15T00:21:20.404Z"
           },
           {
             "id": "canonical",
@@ -529,7 +521,7 @@
             "evidence": "https://www.klarpakke.no",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:21.960Z"
+            "observed_at": "2026-08-15T00:21:20.404Z"
           },
           {
             "id": "robots_meta",
@@ -539,7 +531,7 @@
             "evidence": "index, follow",
             "confidence": "medium",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:21.961Z"
+            "observed_at": "2026-08-15T00:21:20.404Z"
           },
           {
             "id": "robots_txt",
@@ -549,7 +541,7 @@
             "evidence": "robots.txt tilstede",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:21.961Z"
+            "observed_at": "2026-08-15T00:21:20.404Z"
           },
           {
             "id": "sitemap",
@@ -559,7 +551,7 @@
             "evidence": "sitemap tilstede (16 URL-er)",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:22.437Z"
+            "observed_at": "2026-08-15T00:21:21.086Z"
           },
           {
             "id": "open_graph",
@@ -569,7 +561,7 @@
             "evidence": "title=true description=true image=true",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:22.438Z"
+            "observed_at": "2026-08-15T00:21:21.086Z"
           },
           {
             "id": "structured_data",
@@ -579,7 +571,7 @@
             "evidence": "JSON-LD tilstede",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:22.438Z"
+            "observed_at": "2026-08-15T00:21:21.086Z"
           }
         ]
       },
@@ -599,7 +591,7 @@
             "evidence": "HTTP 200",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:07.643Z"
+            "observed_at": "2026-08-15T00:21:08.786Z"
           },
           {
             "id": "redirect_chain",
@@ -609,7 +601,7 @@
             "evidence": "301 klarpakke.no→www.klarpakke.no, 307 www.klarpakke.no→www.klarpakke.no",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:07.672Z"
+            "observed_at": "2026-08-15T00:21:08.787Z"
           },
           {
             "id": "broken_links",
@@ -619,7 +611,7 @@
             "evidence": "10 sider sjekket, 0 ødelagt",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:21.804Z"
+            "observed_at": "2026-08-15T00:21:20.392Z"
           },
           {
             "id": "asset_failures",
@@ -629,7 +621,7 @@
             "evidence": "ingen same-origin-ressurser å sample",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:21.832Z"
+            "observed_at": "2026-08-15T00:21:20.401Z"
           },
           {
             "id": "norid_changed",
@@ -639,7 +631,7 @@
             "evidence": "sist endret 2026-02-01",
             "confidence": "high",
             "source": "norid",
-            "observed_at": "2026-08-14T21:37:23.647Z"
+            "observed_at": "2026-08-15T00:21:22.179Z"
           },
           {
             "id": "history_exists",
@@ -649,7 +641,7 @@
             "evidence": "ingen arkiverte versjoner funnet i Wayback for klarpakke.no",
             "confidence": "medium",
             "source": "wayback_cdx",
-            "observed_at": "2026-08-14T21:37:37.361Z"
+            "observed_at": "2026-08-15T00:21:33.354Z"
           }
         ]
       },
@@ -669,7 +661,7 @@
             "evidence": "cookie/samtykke-element observert",
             "confidence": "low",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:22.441Z"
+            "observed_at": "2026-08-15T00:21:21.088Z"
           },
           {
             "id": "privacy_link",
@@ -679,7 +671,7 @@
             "evidence": "link til personvern observert",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:22.444Z"
+            "observed_at": "2026-08-15T00:21:21.089Z"
           },
           {
             "id": "consent_cmp",
@@ -689,7 +681,7 @@
             "evidence": "trackere observert uten CMP",
             "confidence": "low",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:22.446Z"
+            "observed_at": "2026-08-15T00:21:21.090Z"
           },
           {
             "id": "contact_form",
@@ -699,7 +691,7 @@
             "evidence": "ingen <form> observert",
             "confidence": "high",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:22.446Z"
+            "observed_at": "2026-08-15T00:21:21.090Z"
           },
           {
             "id": "cta",
@@ -709,7 +701,7 @@
             "evidence": "CTA-tekst observert",
             "confidence": "low",
             "source": "http",
-            "observed_at": "2026-08-14T21:37:22.447Z"
+            "observed_at": "2026-08-15T00:21:21.091Z"
           },
           {
             "id": "bimi",
@@ -719,17 +711,17 @@
             "evidence": "ingen BIMI (ikke påkrevd)",
             "confidence": "low",
             "source": "dns",
-            "observed_at": "2026-08-14T21:37:25.100Z"
+            "observed_at": "2026-08-15T00:21:23.178Z"
           },
           {
             "id": "dnsbl",
             "label": "E-post-omdømme (DNSBL)",
             "dimension": "trust_privacy",
             "result": "PASS",
-            "evidence": "mx.domeneshop.no (194.63.252.29) ikke listet",
+            "evidence": "mx.domeneshop.no (194.63.252.28) ikke listet",
             "confidence": "medium",
             "source": "dns",
-            "observed_at": "2026-08-14T21:37:25.555Z"
+            "observed_at": "2026-08-15T00:21:23.501Z"
           },
           {
             "id": "brreg_org",
@@ -739,7 +731,7 @@
             "evidence": "ingen Brreg-treff for «Klarpakke»",
             "confidence": "medium",
             "source": "brreg",
-            "observed_at": "2026-08-14T21:37:23.362Z"
+            "observed_at": "2026-08-15T00:21:21.861Z"
           },
           {
             "id": "ssb_context",
@@ -749,7 +741,7 @@
             "evidence": "ingen næringskode tilgjengelig",
             "confidence": "medium",
             "source": "ssb",
-            "observed_at": "2026-08-14T21:37:23.362Z"
+            "observed_at": "2026-08-15T00:21:21.861Z"
           },
           {
             "id": "norid_registered",
@@ -759,7 +751,7 @@
             "evidence": "registrert 2025-08-30",
             "confidence": "high",
             "source": "norid",
-            "observed_at": "2026-08-14T21:37:23.647Z"
+            "observed_at": "2026-08-15T00:21:22.179Z"
           },
           {
             "id": "norid_registrar",
@@ -769,7 +761,7 @@
             "evidence": "registrar: Domeneshop AS",
             "confidence": "high",
             "source": "norid",
-            "observed_at": "2026-08-14T21:37:23.647Z"
+            "observed_at": "2026-08-15T00:21:22.179Z"
           },
           {
             "id": "cmp_banner",
@@ -779,7 +771,7 @@
             "evidence": "generisk cookie/samtykke-banner observert (norsk tekst: cookie/informasjonskapsler + samtykke/godta/aksepter)",
             "confidence": "medium",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.746Z"
+            "observed_at": "2026-08-15T00:21:22.188Z"
           },
           {
             "id": "consent_real_choice",
@@ -789,7 +781,7 @@
             "evidence": "avvis/avslå/reject-alternativ observert («avvis»)",
             "confidence": "high",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.751Z"
+            "observed_at": "2026-08-15T00:21:22.188Z"
           },
           {
             "id": "consent_prechecked",
@@ -799,7 +791,7 @@
             "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
             "confidence": "high",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.773Z"
+            "observed_at": "2026-08-15T00:21:22.191Z"
           },
           {
             "id": "privacy_policy",
@@ -809,7 +801,7 @@
             "evidence": "personvernerklæring lenket i footer",
             "confidence": "high",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.804Z"
+            "observed_at": "2026-08-15T00:21:22.191Z"
           },
           {
             "id": "third_party_trackers",
@@ -819,7 +811,7 @@
             "evidence": "ingen kjente tredjeparts-trackere observert",
             "confidence": "high",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.817Z"
+            "observed_at": "2026-08-15T00:21:22.194Z"
           },
           {
             "id": "google_fonts",
@@ -829,7 +821,7 @@
             "evidence": "ingen ekstern Google Fonts observert",
             "confidence": "high",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.824Z"
+            "observed_at": "2026-08-15T00:21:22.194Z"
           },
           {
             "id": "ecom_price_vat",
@@ -839,7 +831,7 @@
             "evidence": "pris inkl. mva-tekst observert",
             "confidence": "high",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.831Z"
+            "observed_at": "2026-08-15T00:21:22.195Z"
           },
           {
             "id": "ecom_angrerett",
@@ -849,7 +841,7 @@
             "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
             "confidence": "high",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.838Z"
+            "observed_at": "2026-08-15T00:21:22.196Z"
           },
           {
             "id": "ecom_klage",
@@ -859,7 +851,7 @@
             "evidence": "klageadgang/tvisteløsning observert",
             "confidence": "high",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.845Z"
+            "observed_at": "2026-08-15T00:21:22.196Z"
           },
           {
             "id": "social_profiles",
@@ -869,7 +861,7 @@
             "evidence": "ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)",
             "confidence": "high",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.897Z"
+            "observed_at": "2026-08-15T00:21:22.200Z"
           },
           {
             "id": "nap_phone",
@@ -879,7 +871,7 @@
             "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
             "confidence": "medium",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.900Z"
+            "observed_at": "2026-08-15T00:21:22.202Z"
           },
           {
             "id": "nap_email",
@@ -889,7 +881,7 @@
             "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
             "confidence": "medium",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.900Z"
+            "observed_at": "2026-08-15T00:21:22.202Z"
           },
           {
             "id": "google_business",
@@ -899,7 +891,57 @@
             "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
             "confidence": "medium",
             "source": "places_api",
-            "observed_at": "2026-08-14T21:37:23.905Z"
+            "observed_at": "2026-08-15T00:21:22.202Z"
+          }
+        ]
+      },
+      "ai_visibility": {
+        "pct": 75,
+        "weight": 5,
+        "pass": 3,
+        "fail": 0,
+        "unknown": 1,
+        "denom": 4,
+        "checks": [
+          {
+            "id": "ai_vis_visibility",
+            "label": "Synlighet i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "1/3 svar nevner Klarpakke · sitat: «Ja, det kan være verdt det i 2026, men kun hvis du er tålmodig, liker å lære via forklaringer, og ser på det som et læringsabonnement» · prompter: «Hvilket norsk verktøy anbefaler du for å lære kryp…» / «Er Klarpakke verdt det i 2026 for nybegynnere som …»",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:21:57.752Z"
+          },
+          {
+            "id": "ai_vis_position",
+            "label": "Posisjon i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "beste posisjon: #1 av 3 svar",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:21:57.752Z"
+          },
+          {
+            "id": "ai_vis_sentiment",
+            "label": "Sentiment i AI-omtale",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "sentiment: blandet · råd: Sørg for at Klarpakke er tydelig beskrevet med konkrete funksjoner og fordeler på nettsiden, og oppmuntre til oppdaterte og detaljerte omtal",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:21:57.752Z"
+          },
+          {
+            "id": "ai_vis_sources",
+            "label": "Kilder AI-en siterer",
+            "dimension": "ai_visibility",
+            "result": "UNKNOWN",
+            "evidence": "ingen eksterne domener sitert",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:21:57.752Z"
           }
         ]
       },
@@ -922,7 +964,8 @@
       "accessibility": 15,
       "seo": 10,
       "reliability": 10,
-      "trust_privacy": 5
+      "trust_privacy": 5,
+      "ai_visibility": 5
     },
     "labels": {
       "performance": "Performance",
@@ -932,7 +975,8 @@
       "seo": "SEO / Discovery",
       "reliability": "Reliability",
       "trust_privacy": "Trust / Privacy",
-      "automation": "Automation Potential"
+      "automation": "Automation Potential",
+      "ai_visibility": "AI-synlighet (GEO)"
     },
     "automation": {
       "leverage": 67,
@@ -948,7 +992,7 @@
         "newsletter": true
       }
     },
-    "observed_at": "2026-08-14T21:37:41.236Z"
+    "observed_at": "2026-08-15T00:21:57.753Z"
   },
   "findings": [
     {
@@ -1141,7 +1185,7 @@
       "domain": "klarpakke.no",
       "origin": "https://klarpakke.no",
       "final_url": "https://www.klarpakke.no/no",
-      "fetched_at": "2026-08-14T21:37:22.457Z"
+      "fetched_at": "2026-08-15T00:21:21.094Z"
     },
     "checks": [
       {
@@ -1152,7 +1196,7 @@
         "evidence": "HTTP 200",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:07.643Z"
+        "observed_at": "2026-08-15T00:21:08.786Z"
       },
       {
         "id": "https",
@@ -1162,7 +1206,7 @@
         "evidence": "HTTPS leverte respons",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:07.658Z"
+        "observed_at": "2026-08-15T00:21:08.787Z"
       },
       {
         "id": "redirect_chain",
@@ -1172,7 +1216,7 @@
         "evidence": "301 klarpakke.no→www.klarpakke.no, 307 www.klarpakke.no→www.klarpakke.no",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:07.672Z"
+        "observed_at": "2026-08-15T00:21:08.787Z"
       },
       {
         "id": "broken_links",
@@ -1182,7 +1226,7 @@
         "evidence": "10 sider sjekket, 0 ødelagt",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:21.804Z"
+        "observed_at": "2026-08-15T00:21:20.392Z"
       },
       {
         "id": "asset_failures",
@@ -1192,7 +1236,7 @@
         "evidence": "ingen same-origin-ressurser å sample",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:21.832Z"
+        "observed_at": "2026-08-15T00:21:20.401Z"
       },
       {
         "id": "compression",
@@ -1202,7 +1246,7 @@
         "evidence": "br",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:21.832Z"
+        "observed_at": "2026-08-15T00:21:20.401Z"
       },
       {
         "id": "caching",
@@ -1212,7 +1256,7 @@
         "evidence": "public, max-age=60, s-maxage=300, stale-while-revalidate=86400, stale-if-error=3600",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:21.832Z"
+        "observed_at": "2026-08-15T00:21:20.401Z"
       },
       {
         "id": "render_blocking",
@@ -1222,7 +1266,7 @@
         "evidence": "1 blokkerende skript, 2 stylesheets",
         "confidence": "medium",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:21.856Z"
+        "observed_at": "2026-08-15T00:21:20.401Z"
       },
       {
         "id": "image_optim",
@@ -1232,7 +1276,7 @@
         "evidence": "2 bilder, 2 m/ dimensjoner, 0 lazy",
         "confidence": "medium",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:21.920Z"
+        "observed_at": "2026-08-15T00:21:20.402Z"
       },
       {
         "id": "third_party",
@@ -1242,7 +1286,7 @@
         "evidence": "1 eksterne domener (www.klarpakke.no)",
         "confidence": "medium",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:21.921Z"
+        "observed_at": "2026-08-15T00:21:20.402Z"
       },
       {
         "id": "viewport",
@@ -1252,7 +1296,7 @@
         "evidence": "viewport tilstede",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:21.922Z"
+        "observed_at": "2026-08-15T00:21:20.402Z"
       },
       {
         "id": "media_queries",
@@ -1262,7 +1306,7 @@
         "evidence": "stylesheets ikke observerbare",
         "confidence": "low",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:21.922Z"
+        "observed_at": "2026-08-15T00:21:20.402Z"
       },
       {
         "id": "lang",
@@ -1272,7 +1316,7 @@
         "evidence": "no",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:21.922Z"
+        "observed_at": "2026-08-15T00:21:20.402Z"
       },
       {
         "id": "alt_text",
@@ -1282,7 +1326,7 @@
         "evidence": "0/2 bilder mangler alt",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:21.922Z"
+        "observed_at": "2026-08-15T00:21:20.402Z"
       },
       {
         "id": "form_labels",
@@ -1292,7 +1336,7 @@
         "evidence": "ingen skjemainput",
         "confidence": "medium",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:21.923Z"
+        "observed_at": "2026-08-15T00:21:20.403Z"
       },
       {
         "id": "heading_hierarchy",
@@ -1302,7 +1346,7 @@
         "evidence": "h1=2 h2=10 h3=10",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:21.944Z"
+        "observed_at": "2026-08-15T00:21:20.403Z"
       },
       {
         "id": "semantic",
@@ -1312,7 +1356,7 @@
         "evidence": "3/4 (nav, main, footer)",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:21.959Z"
+        "observed_at": "2026-08-15T00:21:20.404Z"
       },
       {
         "id": "title",
@@ -1322,7 +1366,7 @@
         "evidence": "Klarpakke — Se regnestykket før du stoler på oss | Klarpakke",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:21.959Z"
+        "observed_at": "2026-08-15T00:21:20.404Z"
       },
       {
         "id": "meta_description",
@@ -1332,7 +1376,7 @@
         "evidence": "Gratis beta: 100 000 kr i lekepenger, en AI-pilot som forklarer alt på norsk, og backtest-bevis med gebyr inkludert. Kun i Norge.",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:21.960Z"
+        "observed_at": "2026-08-15T00:21:20.404Z"
       },
       {
         "id": "canonical",
@@ -1342,7 +1386,7 @@
         "evidence": "https://www.klarpakke.no",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:21.960Z"
+        "observed_at": "2026-08-15T00:21:20.404Z"
       },
       {
         "id": "robots_meta",
@@ -1352,7 +1396,7 @@
         "evidence": "index, follow",
         "confidence": "medium",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:21.961Z"
+        "observed_at": "2026-08-15T00:21:20.404Z"
       },
       {
         "id": "robots_txt",
@@ -1362,7 +1406,7 @@
         "evidence": "robots.txt tilstede",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:21.961Z"
+        "observed_at": "2026-08-15T00:21:20.404Z"
       },
       {
         "id": "sitemap",
@@ -1372,7 +1416,7 @@
         "evidence": "sitemap tilstede (16 URL-er)",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:22.437Z"
+        "observed_at": "2026-08-15T00:21:21.086Z"
       },
       {
         "id": "open_graph",
@@ -1382,7 +1426,7 @@
         "evidence": "title=true description=true image=true",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:22.438Z"
+        "observed_at": "2026-08-15T00:21:21.086Z"
       },
       {
         "id": "structured_data",
@@ -1392,7 +1436,7 @@
         "evidence": "JSON-LD tilstede",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:22.438Z"
+        "observed_at": "2026-08-15T00:21:21.086Z"
       },
       {
         "id": "header_csp",
@@ -1402,7 +1446,7 @@
         "evidence": "tilstede",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:22.438Z"
+        "observed_at": "2026-08-15T00:21:21.086Z"
       },
       {
         "id": "header_hsts",
@@ -1412,7 +1456,7 @@
         "evidence": "tilstede",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:22.438Z"
+        "observed_at": "2026-08-15T00:21:21.086Z"
       },
       {
         "id": "header_xcto",
@@ -1422,7 +1466,7 @@
         "evidence": "tilstede",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:22.438Z"
+        "observed_at": "2026-08-15T00:21:21.086Z"
       },
       {
         "id": "header_referrer",
@@ -1432,7 +1476,7 @@
         "evidence": "tilstede",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:22.438Z"
+        "observed_at": "2026-08-15T00:21:21.086Z"
       },
       {
         "id": "header_permissions",
@@ -1442,7 +1486,7 @@
         "evidence": "tilstede",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:22.438Z"
+        "observed_at": "2026-08-15T00:21:21.086Z"
       },
       {
         "id": "header_frame",
@@ -1452,7 +1496,7 @@
         "evidence": "tilstede",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:22.438Z"
+        "observed_at": "2026-08-15T00:21:21.086Z"
       },
       {
         "id": "mixed_content",
@@ -1462,7 +1506,7 @@
         "evidence": "ingen http-referanser i HTML",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:22.439Z"
+        "observed_at": "2026-08-15T00:21:21.087Z"
       },
       {
         "id": "source_maps",
@@ -1472,7 +1516,7 @@
         "evidence": "skript ikke observerbare",
         "confidence": "low",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:22.439Z"
+        "observed_at": "2026-08-15T00:21:21.087Z"
       },
       {
         "id": "tech_disclosure",
@@ -1482,7 +1526,7 @@
         "evidence": "cloudflare",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:22.439Z"
+        "observed_at": "2026-08-15T00:21:21.087Z"
       },
       {
         "id": "cookie_banner",
@@ -1492,7 +1536,7 @@
         "evidence": "cookie/samtykke-element observert",
         "confidence": "low",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:22.441Z"
+        "observed_at": "2026-08-15T00:21:21.088Z"
       },
       {
         "id": "privacy_link",
@@ -1502,7 +1546,7 @@
         "evidence": "link til personvern observert",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:22.444Z"
+        "observed_at": "2026-08-15T00:21:21.089Z"
       },
       {
         "id": "consent_cmp",
@@ -1512,7 +1556,7 @@
         "evidence": "trackere observert uten CMP",
         "confidence": "low",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:22.446Z"
+        "observed_at": "2026-08-15T00:21:21.090Z"
       },
       {
         "id": "contact_form",
@@ -1522,7 +1566,7 @@
         "evidence": "ingen <form> observert",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:22.446Z"
+        "observed_at": "2026-08-15T00:21:21.090Z"
       },
       {
         "id": "cta",
@@ -1532,7 +1576,7 @@
         "evidence": "CTA-tekst observert",
         "confidence": "low",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:22.447Z"
+        "observed_at": "2026-08-15T00:21:21.091Z"
       },
       {
         "id": "tech_framework",
@@ -1542,7 +1586,7 @@
         "evidence": "Next.js",
         "confidence": "medium",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:22.457Z"
+        "observed_at": "2026-08-15T00:21:21.094Z"
       },
       {
         "id": "tech_cdn",
@@ -1552,7 +1596,7 @@
         "evidence": "Cloudflare",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:22.457Z"
+        "observed_at": "2026-08-15T00:21:21.094Z"
       },
       {
         "id": "tech_hosting",
@@ -1562,7 +1606,7 @@
         "evidence": "cloudflare",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:22.457Z"
+        "observed_at": "2026-08-15T00:21:21.094Z"
       },
       {
         "id": "tech_analytics",
@@ -1572,7 +1616,7 @@
         "evidence": "Google Analytics/Tag Manager, Plausible",
         "confidence": "high",
         "source": "http",
-        "observed_at": "2026-08-14T21:37:22.457Z"
+        "observed_at": "2026-08-15T00:21:21.094Z"
       },
       {
         "id": "security_headers",
@@ -1582,7 +1626,7 @@
         "evidence": "Gradering A. Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://pskhryjzkobytnfwucrb.supabas…; Strict-Transport-Security: max-age=63072000; includeSubDomains; preload; X-Frame-Options: DENY; X-Content-Type-Options: nosniff; Referrer-Policy: strict-origin-when-cross-origin; Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(… Trekk: CSP svak (unsafe-inline/unsafe-eval)",
         "confidence": "high",
         "source": "http_headers",
-        "observed_at": "2026-08-14T21:37:24.392Z"
+        "observed_at": "2026-08-15T00:21:22.643Z"
       },
       {
         "id": "cookies_attributes",
@@ -1592,7 +1636,7 @@
         "evidence": "1 cookies observert. Mangler HttpOnly: NEXT_LOCALE. Mangler Secure: NEXT_LOCALE. Mangler SameSite: alle har SameSite. (Cookie-navn + flagg kun — verdier aldri lagret/vist.)",
         "confidence": "high",
         "source": "http_headers",
-        "observed_at": "2026-08-14T21:37:24.394Z"
+        "observed_at": "2026-08-15T00:21:22.644Z"
       },
       {
         "id": "version_leaks",
@@ -1602,7 +1646,7 @@
         "evidence": "Ingen server/x-powered-by/x-aspnet-version-header, <meta generator>, gammel jQuery eller WordPress-signatur observert.",
         "confidence": "medium",
         "source": "http_headers",
-        "observed_at": "2026-08-14T21:37:24.399Z"
+        "observed_at": "2026-08-15T00:21:22.652Z"
       },
       {
         "id": "tls_cert",
@@ -1612,7 +1656,7 @@
         "evidence": "notBefore=2026-07-28T08:21:14.000Z, notAfter=2026-10-26T09:20:56.000Z, issuer=C=US, O=Google Trust Services, CN=WE1, SAN=klarpakke.no, *.klarpakke.no",
         "confidence": "high",
         "source": "tls",
-        "observed_at": "2026-08-14T21:37:41.233Z"
+        "observed_at": "2026-08-15T00:21:37.963Z"
       },
       {
         "id": "tls_verify",
@@ -1622,7 +1666,7 @@
         "evidence": "verify return code: 0 (ok)",
         "confidence": "high",
         "source": "tls",
-        "observed_at": "2026-08-14T21:37:41.233Z"
+        "observed_at": "2026-08-15T00:21:37.963Z"
       },
       {
         "id": "tls_legacy",
@@ -1632,7 +1676,7 @@
         "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
         "confidence": "medium",
         "source": "tls",
-        "observed_at": "2026-08-14T21:37:41.233Z"
+        "observed_at": "2026-08-15T00:21:37.963Z"
       },
       {
         "id": "spf",
@@ -1642,7 +1686,7 @@
         "evidence": "v=spf1 include:_spf.domeneshop.no include:_spf.google.com include:spf.resend.com ~all — ~all er svakt, spoofing mulig",
         "confidence": "high",
         "source": "dns",
-        "observed_at": "2026-08-14T21:37:23.937Z"
+        "observed_at": "2026-08-15T00:21:22.244Z"
       },
       {
         "id": "spf_private_ip",
@@ -1652,7 +1696,7 @@
         "evidence": "ingen private IP-er i SPF",
         "confidence": "medium",
         "source": "dns",
-        "observed_at": "2026-08-14T21:37:23.938Z"
+        "observed_at": "2026-08-15T00:21:22.244Z"
       },
       {
         "id": "dkim",
@@ -1662,7 +1706,7 @@
         "evidence": "ingen av probede selektorer funnet (kan ikke konkludere fravær)",
         "confidence": "low",
         "source": "dns",
-        "observed_at": "2026-08-14T21:37:24.762Z"
+        "observed_at": "2026-08-15T00:21:22.768Z"
       },
       {
         "id": "dmarc",
@@ -1672,7 +1716,7 @@
         "evidence": "p=none (kun overvåkning) — v=DMARC1; p=none; rua=mailto:dmarc@klarpakke.no; ruf=mailto:dmarc@klarpakke.no; fo=1; adkim=s; aspf=s",
         "confidence": "high",
         "source": "dns",
-        "observed_at": "2026-08-14T21:37:24.810Z"
+        "observed_at": "2026-08-15T00:21:22.857Z"
       },
       {
         "id": "mta_sts",
@@ -1682,7 +1726,7 @@
         "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
         "confidence": "high",
         "source": "dns",
-        "observed_at": "2026-08-14T21:37:24.895Z"
+        "observed_at": "2026-08-15T00:21:22.995Z"
       },
       {
         "id": "tls_rpt",
@@ -1692,7 +1736,7 @@
         "evidence": "ingen TLS-rapportering",
         "confidence": "medium",
         "source": "dns",
-        "observed_at": "2026-08-14T21:37:24.954Z"
+        "observed_at": "2026-08-15T00:21:23.120Z"
       },
       {
         "id": "bimi",
@@ -1702,7 +1746,7 @@
         "evidence": "ingen BIMI (ikke påkrevd)",
         "confidence": "low",
         "source": "dns",
-        "observed_at": "2026-08-14T21:37:25.100Z"
+        "observed_at": "2026-08-15T00:21:23.178Z"
       },
       {
         "id": "caa",
@@ -1712,7 +1756,7 @@
         "evidence": "ingen CAA",
         "confidence": "high",
         "source": "dns",
-        "observed_at": "2026-08-14T21:37:25.214Z"
+        "observed_at": "2026-08-15T00:21:23.223Z"
       },
       {
         "id": "dnssec",
@@ -1722,27 +1766,27 @@
         "evidence": "manglende AD-flag — sonen er ikke DNSSEC-signert",
         "confidence": "high",
         "source": "dns",
-        "observed_at": "2026-08-14T21:37:25.371Z"
+        "observed_at": "2026-08-15T00:21:23.333Z"
       },
       {
         "id": "dnsbl",
         "label": "E-post-omdømme (DNSBL)",
         "dimension": "trust_privacy",
         "result": "PASS",
-        "evidence": "mx.domeneshop.no (194.63.252.29) ikke listet",
+        "evidence": "mx.domeneshop.no (194.63.252.28) ikke listet",
         "confidence": "medium",
         "source": "dns",
-        "observed_at": "2026-08-14T21:37:25.555Z"
+        "observed_at": "2026-08-15T00:21:23.501Z"
       },
       {
         "id": "subdomains",
         "label": "Subdomene-eksponering (crt.sh)",
         "dimension": "security",
         "result": "UNKNOWN",
-        "evidence": "ingen data i crt.sh",
-        "confidence": "medium",
+        "evidence": "crt.sh-feil: The operation was aborted due to timeout",
+        "confidence": "low",
         "source": "https",
-        "observed_at": "2026-08-14T21:37:29.409Z"
+        "observed_at": "2026-08-15T00:21:44.512Z"
       },
       {
         "id": "brreg_org",
@@ -1752,7 +1796,7 @@
         "evidence": "ingen Brreg-treff for «Klarpakke»",
         "confidence": "medium",
         "source": "brreg",
-        "observed_at": "2026-08-14T21:37:23.362Z"
+        "observed_at": "2026-08-15T00:21:21.861Z"
       },
       {
         "id": "ssb_context",
@@ -1762,7 +1806,7 @@
         "evidence": "ingen næringskode tilgjengelig",
         "confidence": "medium",
         "source": "ssb",
-        "observed_at": "2026-08-14T21:37:23.362Z"
+        "observed_at": "2026-08-15T00:21:21.861Z"
       },
       {
         "id": "norid_registered",
@@ -1772,7 +1816,7 @@
         "evidence": "registrert 2025-08-30",
         "confidence": "high",
         "source": "norid",
-        "observed_at": "2026-08-14T21:37:23.647Z"
+        "observed_at": "2026-08-15T00:21:22.179Z"
       },
       {
         "id": "norid_changed",
@@ -1782,7 +1826,7 @@
         "evidence": "sist endret 2026-02-01",
         "confidence": "high",
         "source": "norid",
-        "observed_at": "2026-08-14T21:37:23.647Z"
+        "observed_at": "2026-08-15T00:21:22.179Z"
       },
       {
         "id": "norid_dnssec",
@@ -1792,7 +1836,7 @@
         "evidence": "DNSSEC ikke aktivert (delegationSigned=false)",
         "confidence": "high",
         "source": "norid",
-        "observed_at": "2026-08-14T21:37:23.647Z"
+        "observed_at": "2026-08-15T00:21:22.179Z"
       },
       {
         "id": "norid_registrar",
@@ -1802,7 +1846,7 @@
         "evidence": "registrar: Domeneshop AS",
         "confidence": "high",
         "source": "norid",
-        "observed_at": "2026-08-14T21:37:23.647Z"
+        "observed_at": "2026-08-15T00:21:22.179Z"
       },
       {
         "id": "history_exists",
@@ -1812,7 +1856,7 @@
         "evidence": "ingen arkiverte versjoner funnet i Wayback for klarpakke.no",
         "confidence": "medium",
         "source": "wayback_cdx",
-        "observed_at": "2026-08-14T21:37:37.361Z"
+        "observed_at": "2026-08-15T00:21:33.354Z"
       },
       {
         "id": "cmp_banner",
@@ -1822,7 +1866,7 @@
         "evidence": "generisk cookie/samtykke-banner observert (norsk tekst: cookie/informasjonskapsler + samtykke/godta/aksepter)",
         "confidence": "medium",
         "source": "html",
-        "observed_at": "2026-08-14T21:37:23.746Z"
+        "observed_at": "2026-08-15T00:21:22.188Z"
       },
       {
         "id": "consent_real_choice",
@@ -1832,7 +1876,7 @@
         "evidence": "avvis/avslå/reject-alternativ observert («avvis»)",
         "confidence": "high",
         "source": "html",
-        "observed_at": "2026-08-14T21:37:23.751Z"
+        "observed_at": "2026-08-15T00:21:22.188Z"
       },
       {
         "id": "consent_prechecked",
@@ -1842,7 +1886,7 @@
         "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
         "confidence": "high",
         "source": "html",
-        "observed_at": "2026-08-14T21:37:23.773Z"
+        "observed_at": "2026-08-15T00:21:22.191Z"
       },
       {
         "id": "privacy_policy",
@@ -1852,7 +1896,7 @@
         "evidence": "personvernerklæring lenket i footer",
         "confidence": "high",
         "source": "html",
-        "observed_at": "2026-08-14T21:37:23.804Z"
+        "observed_at": "2026-08-15T00:21:22.191Z"
       },
       {
         "id": "third_party_trackers",
@@ -1862,7 +1906,7 @@
         "evidence": "ingen kjente tredjeparts-trackere observert",
         "confidence": "high",
         "source": "html",
-        "observed_at": "2026-08-14T21:37:23.817Z"
+        "observed_at": "2026-08-15T00:21:22.194Z"
       },
       {
         "id": "google_fonts",
@@ -1872,7 +1916,7 @@
         "evidence": "ingen ekstern Google Fonts observert",
         "confidence": "high",
         "source": "html",
-        "observed_at": "2026-08-14T21:37:23.824Z"
+        "observed_at": "2026-08-15T00:21:22.194Z"
       },
       {
         "id": "ecom_price_vat",
@@ -1882,7 +1926,7 @@
         "evidence": "pris inkl. mva-tekst observert",
         "confidence": "high",
         "source": "html",
-        "observed_at": "2026-08-14T21:37:23.831Z"
+        "observed_at": "2026-08-15T00:21:22.195Z"
       },
       {
         "id": "ecom_angrerett",
@@ -1892,7 +1936,7 @@
         "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
         "confidence": "high",
         "source": "html",
-        "observed_at": "2026-08-14T21:37:23.838Z"
+        "observed_at": "2026-08-15T00:21:22.196Z"
       },
       {
         "id": "ecom_klage",
@@ -1902,27 +1946,27 @@
         "evidence": "klageadgang/tvisteløsning observert",
         "confidence": "high",
         "source": "html",
-        "observed_at": "2026-08-14T21:37:23.845Z"
+        "observed_at": "2026-08-15T00:21:22.196Z"
       },
       {
         "id": "psi_mobile",
         "label": "PageSpeed mobil",
         "dimension": "performance",
         "result": "UNKNOWN",
-        "evidence": "API-feil: HTTP 403",
+        "evidence": "API-feil: HTTP 429",
         "confidence": "medium",
         "source": "pagespeed_api",
-        "observed_at": "2026-08-14T21:37:26.895Z"
+        "observed_at": "2026-08-15T00:21:35.359Z"
       },
       {
         "id": "psi_desktop",
         "label": "PageSpeed desktop",
         "dimension": "performance",
         "result": "UNKNOWN",
-        "evidence": "API-feil: HTTP 403",
+        "evidence": "API-feil: HTTP 429",
         "confidence": "medium",
         "source": "pagespeed_api",
-        "observed_at": "2026-08-14T21:37:26.895Z"
+        "observed_at": "2026-08-15T00:21:35.359Z"
       },
       {
         "id": "psi_availability",
@@ -1932,7 +1976,7 @@
         "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
         "confidence": "medium",
         "source": "pagespeed_api",
-        "observed_at": "2026-08-14T21:37:26.895Z"
+        "observed_at": "2026-08-15T00:21:35.359Z"
       },
       {
         "id": "social_profiles",
@@ -1942,7 +1986,7 @@
         "evidence": "ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)",
         "confidence": "high",
         "source": "html",
-        "observed_at": "2026-08-14T21:37:23.897Z"
+        "observed_at": "2026-08-15T00:21:22.200Z"
       },
       {
         "id": "nap_phone",
@@ -1952,7 +1996,7 @@
         "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
         "confidence": "medium",
         "source": "html",
-        "observed_at": "2026-08-14T21:37:23.900Z"
+        "observed_at": "2026-08-15T00:21:22.202Z"
       },
       {
         "id": "nap_email",
@@ -1962,7 +2006,7 @@
         "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
         "confidence": "medium",
         "source": "html",
-        "observed_at": "2026-08-14T21:37:23.900Z"
+        "observed_at": "2026-08-15T00:21:22.202Z"
       },
       {
         "id": "google_business",
@@ -1972,27 +2016,67 @@
         "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
         "confidence": "medium",
         "source": "places_api",
-        "observed_at": "2026-08-14T21:37:23.905Z"
+        "observed_at": "2026-08-15T00:21:22.202Z"
       },
       {
         "id": "ai_content_quality",
         "label": "Innholdskvalitet (AI-vurdert)",
         "dimension": "ux_mobile",
         "result": "PASS",
-        "evidence": "Klarpakke posisjonerer seg som en transparent og risikofri inngang til kryptotrading for det norske markedet, med vekt på dokumentasjon og ærlighet om risiko. Siden tilbyr en gratis beta med lekepenger, AI-veiledning på norsk og backtest-resultater som viser både tap og gevinster, noe som bygger tillit. Budskapet er klart og pedagogisk, med tydelige løfter om hva de aldri vil gjøre, og en konkret oppfordring til handling for de første 100 registrerte.",
+        "evidence": "Klarpakke posisjonerer seg som en transparent og risikofri inngang til krypto-trading for nordmenn, med fokus på læring og dokumentasjon. De lover aldri gevinst, men viser backtest-resultater med gebyr inkludert, og tilbyr lekepenger for å bygge tillit. Siden er tydelig i sin kommunikasjon og henvender seg til nybegynnere som ønsker å lære uten risiko.",
         "confidence": "medium",
         "source": "llm_analysis",
-        "observed_at": "2026-08-14T21:37:28.787Z"
+        "observed_at": "2026-08-15T00:21:26.035Z"
       },
       {
         "id": "ai_content_freshness",
         "label": "Aktualitet (AI-vurdert)",
         "dimension": "ux_mobile",
         "result": "PASS",
-        "evidence": "Gratis beta kun i Norge · 100 000 kr i lekepenger · AI-pilot som forklarer på norsk · Backtest-bevis med gebyr inkludert · Ingen kredittkort, KYC eller binding · Norsk plattform · 5000 KLT-tokens til de 100 første · 90 dager med ekte data · Historisk avkastning er ingen garanti for fremtidig avkastning · De 100 første får gratis tilgang for alltid",
+        "evidence": "Gratis beta kun i Norge · 100 000 kr i lekepenger · AI-pilot som forklarer på norsk · Backtest med gebyr inkludert · Ingen kredittkort, KYC eller binding · 5000 KLT til de 100 første · Historisk avkastning er ingen garanti",
         "confidence": "medium",
         "source": "llm_analysis",
-        "observed_at": "2026-08-14T21:37:28.787Z"
+        "observed_at": "2026-08-15T00:21:26.038Z"
+      },
+      {
+        "id": "ai_vis_visibility",
+        "label": "Synlighet i AI-svar",
+        "dimension": "ai_visibility",
+        "result": "PASS",
+        "evidence": "1/3 svar nevner Klarpakke · sitat: «Ja, det kan være verdt det i 2026, men kun hvis du er tålmodig, liker å lære via forklaringer, og ser på det som et læringsabonnement» · prompter: «Hvilket norsk verktøy anbefaler du for å lære kryp…» / «Er Klarpakke verdt det i 2026 for nybegynnere som …»",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:21:57.752Z"
+      },
+      {
+        "id": "ai_vis_position",
+        "label": "Posisjon i AI-svar",
+        "dimension": "ai_visibility",
+        "result": "PASS",
+        "evidence": "beste posisjon: #1 av 3 svar",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:21:57.752Z"
+      },
+      {
+        "id": "ai_vis_sentiment",
+        "label": "Sentiment i AI-omtale",
+        "dimension": "ai_visibility",
+        "result": "PASS",
+        "evidence": "sentiment: blandet · råd: Sørg for at Klarpakke er tydelig beskrevet med konkrete funksjoner og fordeler på nettsiden, og oppmuntre til oppdaterte og detaljerte omtal",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:21:57.752Z"
+      },
+      {
+        "id": "ai_vis_sources",
+        "label": "Kilder AI-en siterer",
+        "dimension": "ai_visibility",
+        "result": "UNKNOWN",
+        "evidence": "ingen eksterne domener sitert",
+        "confidence": "medium",
+        "source": "llm_visibility",
+        "observed_at": "2026-08-15T00:21:57.752Z"
       }
     ],
     "raw": {
@@ -2053,7 +2137,7 @@
         "crawled": 10,
         "broken": []
       },
-      "html_length": 335492,
+      "html_length": 335105,
       "asset_failures": {
         "checked": 0,
         "failed": 0,
@@ -2163,7 +2247,7 @@
             "evidence": "Gradering A. Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://pskhryjzkobytnfwucrb.supabas…; Strict-Transport-Security: max-age=63072000; includeSubDomains; preload; X-Frame-Options: DENY; X-Content-Type-Options: nosniff; Referrer-Policy: strict-origin-when-cross-origin; Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(… Trekk: CSP svak (unsafe-inline/unsafe-eval)",
             "confidence": "high",
             "source": "http_headers",
-            "observed_at": "2026-08-14T21:37:24.392Z"
+            "observed_at": "2026-08-15T00:21:22.643Z"
           },
           {
             "id": "cookies_attributes",
@@ -2173,7 +2257,7 @@
             "evidence": "1 cookies observert. Mangler HttpOnly: NEXT_LOCALE. Mangler Secure: NEXT_LOCALE. Mangler SameSite: alle har SameSite. (Cookie-navn + flagg kun — verdier aldri lagret/vist.)",
             "confidence": "high",
             "source": "http_headers",
-            "observed_at": "2026-08-14T21:37:24.394Z"
+            "observed_at": "2026-08-15T00:21:22.644Z"
           },
           {
             "id": "version_leaks",
@@ -2183,7 +2267,7 @@
             "evidence": "Ingen server/x-powered-by/x-aspnet-version-header, <meta generator>, gammel jQuery eller WordPress-signatur observert.",
             "confidence": "medium",
             "source": "http_headers",
-            "observed_at": "2026-08-14T21:37:24.399Z"
+            "observed_at": "2026-08-15T00:21:22.652Z"
           },
           {
             "id": "tls_cert",
@@ -2193,7 +2277,7 @@
             "evidence": "notBefore=2026-07-28T08:21:14.000Z, notAfter=2026-10-26T09:20:56.000Z, issuer=C=US, O=Google Trust Services, CN=WE1, SAN=klarpakke.no, *.klarpakke.no",
             "confidence": "high",
             "source": "tls",
-            "observed_at": "2026-08-14T21:37:41.233Z"
+            "observed_at": "2026-08-15T00:21:37.963Z"
           },
           {
             "id": "tls_verify",
@@ -2203,7 +2287,7 @@
             "evidence": "verify return code: 0 (ok)",
             "confidence": "high",
             "source": "tls",
-            "observed_at": "2026-08-14T21:37:41.233Z"
+            "observed_at": "2026-08-15T00:21:37.963Z"
           },
           {
             "id": "tls_legacy",
@@ -2213,7 +2297,7 @@
             "evidence": "TLS 1.0: blocked · TLS 1.1: blocked",
             "confidence": "medium",
             "source": "tls",
-            "observed_at": "2026-08-14T21:37:41.233Z"
+            "observed_at": "2026-08-15T00:21:37.963Z"
           }
         ],
         "raw": {
@@ -2236,7 +2320,7 @@
           "headers": {
             "alt-svc": "h3=\":443\"; ma=86400",
             "cache-control": "public, max-age=60, s-maxage=300, stale-while-revalidate=86400, stale-if-error=3600",
-            "cf-ray": "a2b319bf59f0712d-OSL",
+            "cf-ray": "a2b409ef29390daa-OSL",
             "connection": "keep-alive",
             "content-encoding": "br",
             "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline' https://pskhryjzkobytnfwucrb.supabase.co https://*.tradingview.com https://plausible.io https://utt.impactcdn.com https://www.googletagmanager.com https://www.google-analytics.com https://challenges.cloudflare.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://pskhryjzkobytnfwucrb.supabase.co https://*.tradingview.com https://*.coingecko.com https://klarpakke.no https://www.klarpakke.no; font-src 'self' data: https://r2cdn.perplexity.ai; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; connect-src 'self' https://pskhryjzkobytnfwucrb.supabase.co wss://pskhryjzkobytnfwucrb.supabase.co https://api.kraken.com https://api.coingecko.com wss://ws.kraken.com https://*.sanity.io wss://*.sanity.io https://plausible.io https://o4509555622608896.ingest.de.sentry.io https://*.ingest.de.sentry.io; frame-src 'self'; upgrade-insecure-requests",
@@ -2244,19 +2328,19 @@
             "cross-origin-embedder-policy": "credentialless",
             "cross-origin-opener-policy": "same-origin",
             "cross-origin-resource-policy": "cross-origin",
-            "date": "Fri, 14 Aug 2026 21:37:24 GMT",
+            "date": "Sat, 15 Aug 2026 00:21:22 GMT",
             "link": "<https://www.klarpakke.no/no>; rel=\"alternate\"; hreflang=\"no\", <https://www.klarpakke.no/en>; rel=\"alternate\"; hreflang=\"en\", <https://www.klarpakke.no/>; rel=\"alternate\"; hreflang=\"x-default\", <https://klarpakke.no/:path*>; rel=\"canonical\"",
             "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
             "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()",
             "referrer-policy": "strict-origin-when-cross-origin",
-            "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=X8oRrW41VObJnR8v6hoSJLGqpF9RZg6xAof5Z28MfG2o%2B7q9EJl%2BVU0KNi1iNkzxqIlQucL8lxW%2BCFcpdf7NjVePxlEb4bRAai%2BuzOVa%2B61FE6peqfTtHlT4XatcLv7dUS5G\"}]}",
+            "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=Jr1rout5%2B5yckaD%2BAnYrYC51MI8qRplRpNTwA4fSn1hMQHHpg%2F%2B40ygi1GflCI120bgQ3ApV%2B681jJxfizFki9dANHVW%2BYkBCb5gmDQCtPmthz%2FKockzmD%2B8W9J5uUF1avfi\"}]}",
             "server": "cloudflare",
             "speculation-rules": "\"/cdn-cgi/speculation\"",
             "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
             "transfer-encoding": "chunked",
             "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
             "x-content-type-options": "nosniff",
-            "x-csp-nonce": "McMgKxboFxEcQQ3Vd8LXvg",
+            "x-csp-nonce": "20pdfliCRXdzvq9eheg3WQ",
             "x-dns-prefetch-control": "on",
             "x-frame-options": "DENY"
           },
@@ -2307,7 +2391,7 @@
             "evidence": "v=spf1 include:_spf.domeneshop.no include:_spf.google.com include:spf.resend.com ~all — ~all er svakt, spoofing mulig",
             "confidence": "high",
             "source": "dns",
-            "observed_at": "2026-08-14T21:37:23.937Z"
+            "observed_at": "2026-08-15T00:21:22.244Z"
           },
           {
             "id": "spf_private_ip",
@@ -2317,7 +2401,7 @@
             "evidence": "ingen private IP-er i SPF",
             "confidence": "medium",
             "source": "dns",
-            "observed_at": "2026-08-14T21:37:23.938Z"
+            "observed_at": "2026-08-15T00:21:22.244Z"
           },
           {
             "id": "dkim",
@@ -2327,7 +2411,7 @@
             "evidence": "ingen av probede selektorer funnet (kan ikke konkludere fravær)",
             "confidence": "low",
             "source": "dns",
-            "observed_at": "2026-08-14T21:37:24.762Z"
+            "observed_at": "2026-08-15T00:21:22.768Z"
           },
           {
             "id": "dmarc",
@@ -2337,7 +2421,7 @@
             "evidence": "p=none (kun overvåkning) — v=DMARC1; p=none; rua=mailto:dmarc@klarpakke.no; ruf=mailto:dmarc@klarpakke.no; fo=1; adkim=s; aspf=s",
             "confidence": "high",
             "source": "dns",
-            "observed_at": "2026-08-14T21:37:24.810Z"
+            "observed_at": "2026-08-15T00:21:22.857Z"
           },
           {
             "id": "mta_sts",
@@ -2347,7 +2431,7 @@
             "evidence": "ingen MTA-STS (TXT + policy-fil mangler)",
             "confidence": "high",
             "source": "dns",
-            "observed_at": "2026-08-14T21:37:24.895Z"
+            "observed_at": "2026-08-15T00:21:22.995Z"
           },
           {
             "id": "tls_rpt",
@@ -2357,7 +2441,7 @@
             "evidence": "ingen TLS-rapportering",
             "confidence": "medium",
             "source": "dns",
-            "observed_at": "2026-08-14T21:37:24.954Z"
+            "observed_at": "2026-08-15T00:21:23.120Z"
           },
           {
             "id": "bimi",
@@ -2367,7 +2451,7 @@
             "evidence": "ingen BIMI (ikke påkrevd)",
             "confidence": "low",
             "source": "dns",
-            "observed_at": "2026-08-14T21:37:25.100Z"
+            "observed_at": "2026-08-15T00:21:23.178Z"
           },
           {
             "id": "caa",
@@ -2377,7 +2461,7 @@
             "evidence": "ingen CAA",
             "confidence": "high",
             "source": "dns",
-            "observed_at": "2026-08-14T21:37:25.214Z"
+            "observed_at": "2026-08-15T00:21:23.223Z"
           },
           {
             "id": "dnssec",
@@ -2387,27 +2471,27 @@
             "evidence": "manglende AD-flag — sonen er ikke DNSSEC-signert",
             "confidence": "high",
             "source": "dns",
-            "observed_at": "2026-08-14T21:37:25.371Z"
+            "observed_at": "2026-08-15T00:21:23.333Z"
           },
           {
             "id": "dnsbl",
             "label": "E-post-omdømme (DNSBL)",
             "dimension": "trust_privacy",
             "result": "PASS",
-            "evidence": "mx.domeneshop.no (194.63.252.29) ikke listet",
+            "evidence": "mx.domeneshop.no (194.63.252.28) ikke listet",
             "confidence": "medium",
             "source": "dns",
-            "observed_at": "2026-08-14T21:37:25.555Z"
+            "observed_at": "2026-08-15T00:21:23.501Z"
           },
           {
             "id": "subdomains",
             "label": "Subdomene-eksponering (crt.sh)",
             "dimension": "security",
             "result": "UNKNOWN",
-            "evidence": "ingen data i crt.sh",
-            "confidence": "medium",
+            "evidence": "crt.sh-feil: The operation was aborted due to timeout",
+            "confidence": "low",
             "source": "https",
-            "observed_at": "2026-08-14T21:37:29.409Z"
+            "observed_at": "2026-08-15T00:21:44.512Z"
           }
         ],
         "raw": {
@@ -2436,7 +2520,7 @@
             "records": [],
             "issuers": []
           },
-          "dnssec": "\n; <<>> DiG 9.10.6 <<>> +dnssec DNSKEY klarpakke.no +time=5 +tries=1\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 62704\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags: do; udp: 512\n;; QUESTION SECTION:\n;klarpakke.no.\t\t\tIN\tDNSKEY\n\n;; AUTHORITY SECTION:\nklarpakke.no.\t\t624\tIN\tSOA\thaley.ns.cloudflare.com. dns.cloudflare.com. 2412064480 10000 2400 604800 1800\n\n;; Query time: 47 msec\n;; SERVER: 100.100.100.100#53(100.100.100.100)\n;; WHEN: Fri Aug 14 23:37:25 CEST 2026\n;; MSG SIZE  rcvd: 104\n\n",
+          "dnssec": "\n; <<>> DiG 9.10.6 <<>> +dnssec DNSKEY klarpakke.no +time=5 +tries=1\n;; global options: +cmd\n;; Got answer:\n;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 42863\n;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1\n\n;; OPT PSEUDOSECTION:\n; EDNS: version: 0, flags: do; udp: 512\n;; QUESTION SECTION:\n;klarpakke.no.\t\t\tIN\tDNSKEY\n\n;; AUTHORITY SECTION:\nklarpakke.no.\t\t1800\tIN\tSOA\thaley.ns.cloudflare.com. dns.cloudflare.com. 2412064480 10000 2400 604800 1800\n\n;; Query time: 59 msec\n;; SERVER: 100.100.100.100#53(100.100.100.100)\n;; WHEN: Sat Aug 15 02:21:23 CEST 2026\n;; MSG SIZE  rcvd: 104\n\n",
           "mx": [
             {
               "exchange": "mx.domeneshop.no",
@@ -2453,14 +2537,15 @@
           ],
           "dnsbl": {
             "mx": "mx.domeneshop.no",
-            "ip": "194.63.252.29",
+            "ip": "194.63.252.28",
             "listed": false,
-            "host": "29.252.63.194.zen.spamhaus.org"
+            "host": "28.252.63.194.zen.spamhaus.org"
           },
           "subdomains": {
             "count": 0,
             "unique": [],
-            "interesting": []
+            "interesting": [],
+            "error": "The operation was aborted due to timeout"
           }
         }
       },
@@ -2476,7 +2561,7 @@
             "evidence": "ingen Brreg-treff for «Klarpakke»",
             "confidence": "medium",
             "source": "brreg",
-            "observed_at": "2026-08-14T21:37:23.362Z"
+            "observed_at": "2026-08-15T00:21:21.861Z"
           },
           {
             "id": "ssb_context",
@@ -2486,7 +2571,7 @@
             "evidence": "ingen næringskode tilgjengelig",
             "confidence": "medium",
             "source": "ssb",
-            "observed_at": "2026-08-14T21:37:23.362Z"
+            "observed_at": "2026-08-15T00:21:21.861Z"
           },
           {
             "id": "norid_registered",
@@ -2496,7 +2581,7 @@
             "evidence": "registrert 2025-08-30",
             "confidence": "high",
             "source": "norid",
-            "observed_at": "2026-08-14T21:37:23.647Z"
+            "observed_at": "2026-08-15T00:21:22.179Z"
           },
           {
             "id": "norid_changed",
@@ -2506,7 +2591,7 @@
             "evidence": "sist endret 2026-02-01",
             "confidence": "high",
             "source": "norid",
-            "observed_at": "2026-08-14T21:37:23.647Z"
+            "observed_at": "2026-08-15T00:21:22.179Z"
           },
           {
             "id": "norid_dnssec",
@@ -2516,7 +2601,7 @@
             "evidence": "DNSSEC ikke aktivert (delegationSigned=false)",
             "confidence": "high",
             "source": "norid",
-            "observed_at": "2026-08-14T21:37:23.647Z"
+            "observed_at": "2026-08-15T00:21:22.179Z"
           },
           {
             "id": "norid_registrar",
@@ -2526,7 +2611,7 @@
             "evidence": "registrar: Domeneshop AS",
             "confidence": "high",
             "source": "norid",
-            "observed_at": "2026-08-14T21:37:23.647Z"
+            "observed_at": "2026-08-15T00:21:22.179Z"
           }
         ],
         "raw": {
@@ -2541,7 +2626,8 @@
               ]
             },
             "selection": null,
-            "error": "ingen treff"
+            "error": "ingen treff",
+            "confirmed": false
           },
           "norid": {
             "domain": "klarpakke.no",
@@ -2566,14 +2652,14 @@
             "evidence": "ingen arkiverte versjoner funnet i Wayback for klarpakke.no",
             "confidence": "medium",
             "source": "wayback_cdx",
-            "observed_at": "2026-08-14T21:37:37.361Z"
+            "observed_at": "2026-08-15T00:21:33.354Z"
           }
         ],
         "raw": {
           "snapshots": [],
           "first_seen": null,
           "last_seen": null,
-          "snapshot_count": 0,
+          "snapshot_count": null,
           "error": "ingen arkiverte versjoner"
         }
       },
@@ -2589,7 +2675,7 @@
             "evidence": "generisk cookie/samtykke-banner observert (norsk tekst: cookie/informasjonskapsler + samtykke/godta/aksepter)",
             "confidence": "medium",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.746Z"
+            "observed_at": "2026-08-15T00:21:22.188Z"
           },
           {
             "id": "consent_real_choice",
@@ -2599,7 +2685,7 @@
             "evidence": "avvis/avslå/reject-alternativ observert («avvis»)",
             "confidence": "high",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.751Z"
+            "observed_at": "2026-08-15T00:21:22.188Z"
           },
           {
             "id": "consent_prechecked",
@@ -2609,7 +2695,7 @@
             "evidence": "ingen forhåndsavkryssede samtykke-inputs observert",
             "confidence": "high",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.773Z"
+            "observed_at": "2026-08-15T00:21:22.191Z"
           },
           {
             "id": "privacy_policy",
@@ -2619,7 +2705,7 @@
             "evidence": "personvernerklæring lenket i footer",
             "confidence": "high",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.804Z"
+            "observed_at": "2026-08-15T00:21:22.191Z"
           },
           {
             "id": "third_party_trackers",
@@ -2629,7 +2715,7 @@
             "evidence": "ingen kjente tredjeparts-trackere observert",
             "confidence": "high",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.817Z"
+            "observed_at": "2026-08-15T00:21:22.194Z"
           },
           {
             "id": "google_fonts",
@@ -2639,7 +2725,7 @@
             "evidence": "ingen ekstern Google Fonts observert",
             "confidence": "high",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.824Z"
+            "observed_at": "2026-08-15T00:21:22.194Z"
           },
           {
             "id": "ecom_price_vat",
@@ -2649,7 +2735,7 @@
             "evidence": "pris inkl. mva-tekst observert",
             "confidence": "high",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.831Z"
+            "observed_at": "2026-08-15T00:21:22.195Z"
           },
           {
             "id": "ecom_angrerett",
@@ -2659,7 +2745,7 @@
             "evidence": "angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering",
             "confidence": "high",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.838Z"
+            "observed_at": "2026-08-15T00:21:22.196Z"
           },
           {
             "id": "ecom_klage",
@@ -2669,7 +2755,7 @@
             "evidence": "klageadgang/tvisteløsning observert",
             "confidence": "high",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.845Z"
+            "observed_at": "2026-08-15T00:21:22.196Z"
           }
         ],
         "raw": {
@@ -2677,7 +2763,7 @@
           "fetched": false,
           "status": null,
           "fetch_error": null,
-          "html_length": 335492,
+          "html_length": 335491,
           "script_srcs": [
             "/_next/static/chunks/22beg46bl_447.js",
             "/_next/static/chunks/310g312ovqhr9.js",
@@ -2743,20 +2829,20 @@
             "label": "PageSpeed mobil",
             "dimension": "performance",
             "result": "UNKNOWN",
-            "evidence": "API-feil: HTTP 403",
+            "evidence": "API-feil: HTTP 429",
             "confidence": "medium",
             "source": "pagespeed_api",
-            "observed_at": "2026-08-14T21:37:26.895Z"
+            "observed_at": "2026-08-15T00:21:35.359Z"
           },
           {
             "id": "psi_desktop",
             "label": "PageSpeed desktop",
             "dimension": "performance",
             "result": "UNKNOWN",
-            "evidence": "API-feil: HTTP 403",
+            "evidence": "API-feil: HTTP 429",
             "confidence": "medium",
             "source": "pagespeed_api",
-            "observed_at": "2026-08-14T21:37:26.895Z"
+            "observed_at": "2026-08-15T00:21:35.359Z"
           },
           {
             "id": "psi_availability",
@@ -2766,16 +2852,16 @@
             "evidence": "API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig",
             "confidence": "medium",
             "source": "pagespeed_api",
-            "observed_at": "2026-08-14T21:37:26.895Z"
+            "observed_at": "2026-08-15T00:21:35.359Z"
           }
         ],
         "raw": {
           "mobile": {
-            "error": "HTTP 403",
+            "error": "HTTP 429",
             "data": null
           },
           "desktop": {
-            "error": "HTTP 403",
+            "error": "HTTP 429",
             "data": null
           }
         }
@@ -2792,7 +2878,7 @@
             "evidence": "ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet)",
             "confidence": "high",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.897Z"
+            "observed_at": "2026-08-15T00:21:22.200Z"
           },
           {
             "id": "nap_phone",
@@ -2802,7 +2888,7 @@
             "evidence": "ingen tel:-lenke observert — potential concern (kontaktbarhet)",
             "confidence": "medium",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.900Z"
+            "observed_at": "2026-08-15T00:21:22.202Z"
           },
           {
             "id": "nap_email",
@@ -2812,7 +2898,7 @@
             "evidence": "ingen mailto:-lenke observert — potential concern (kontaktbarhet)",
             "confidence": "medium",
             "source": "html",
-            "observed_at": "2026-08-14T21:37:23.900Z"
+            "observed_at": "2026-08-15T00:21:22.202Z"
           },
           {
             "id": "google_business",
@@ -2822,7 +2908,7 @@
             "evidence": "krever Google Places API-nøkkel — støttes når nøkkel er konfigurert",
             "confidence": "medium",
             "source": "places_api",
-            "observed_at": "2026-08-14T21:37:23.905Z"
+            "observed_at": "2026-08-15T00:21:22.202Z"
           }
         ],
         "raw": {
@@ -2847,28 +2933,127 @@
             "label": "Innholdskvalitet (AI-vurdert)",
             "dimension": "ux_mobile",
             "result": "PASS",
-            "evidence": "Klarpakke posisjonerer seg som en transparent og risikofri inngang til kryptotrading for det norske markedet, med vekt på dokumentasjon og ærlighet om risiko. Siden tilbyr en gratis beta med lekepenger, AI-veiledning på norsk og backtest-resultater som viser både tap og gevinster, noe som bygger tillit. Budskapet er klart og pedagogisk, med tydelige løfter om hva de aldri vil gjøre, og en konkret oppfordring til handling for de første 100 registrerte.",
+            "evidence": "Klarpakke posisjonerer seg som en transparent og risikofri inngang til krypto-trading for nordmenn, med fokus på læring og dokumentasjon. De lover aldri gevinst, men viser backtest-resultater med gebyr inkludert, og tilbyr lekepenger for å bygge tillit. Siden er tydelig i sin kommunikasjon og henvender seg til nybegynnere som ønsker å lære uten risiko.",
             "confidence": "medium",
             "source": "llm_analysis",
-            "observed_at": "2026-08-14T21:37:28.787Z"
+            "observed_at": "2026-08-15T00:21:26.035Z"
           },
           {
             "id": "ai_content_freshness",
             "label": "Aktualitet (AI-vurdert)",
             "dimension": "ux_mobile",
             "result": "PASS",
-            "evidence": "Gratis beta kun i Norge · 100 000 kr i lekepenger · AI-pilot som forklarer på norsk · Backtest-bevis med gebyr inkludert · Ingen kredittkort, KYC eller binding · Norsk plattform · 5000 KLT-tokens til de 100 første · 90 dager med ekte data · Historisk avkastning er ingen garanti for fremtidig avkastning · De 100 første får gratis tilgang for alltid",
+            "evidence": "Gratis beta kun i Norge · 100 000 kr i lekepenger · AI-pilot som forklarer på norsk · Backtest med gebyr inkludert · Ingen kredittkort, KYC eller binding · 5000 KLT til de 100 første · Historisk avkastning er ingen garanti",
             "confidence": "medium",
             "source": "llm_analysis",
-            "observed_at": "2026-08-14T21:37:28.787Z"
+            "observed_at": "2026-08-15T00:21:26.038Z"
           }
         ],
         "raw": {
           "available": true,
           "error": null,
           "prompt": "Du er analyse-delen av Arch Audit (norsk verktøy). Analyser TEKSTEN på en norsk bedrifts hjemmeside. Vurder kun det som står i teksten under — ikke finn på noe.\nURL: https://klarpakke.no\nTittel: Klarpakke — Se regnestykket før du stoler på oss | Klarpakke\nMeta-beskrivelse: Gratis beta: 100 000 kr i lekepenger, en AI-pilot som forklarer alt på norsk, og backtest-bevis med gebyr inkludert. Kun i Norge.\nTekstutdrag (hjemmesiden):\nKlarpakke — Se regnestykket før du stoler på oss | Klarpakke Klarpakke Klarpakke — Lær å trade krypto på den smarte måten I BETA Lær Priser Om oss Logg inn Start gratis Lær Priser Om oss Logg inn Start gratis Laster... Klarpakke | Norges enkleste krypto-trading Vilkår Personvern Kontakt © 2026 Klarpakke Project. · — Klarpakke Klarpakke — Lær å trade krypto på den smarte måten I BETA Lær Priser Om oss Logg inn Start gratis Lær Priser Om oss Logg inn Start gratis Laster... Klarpakke | Norges enkleste krypto-trading Vilkår Personvern Kontakt © 2026 Klarpakke Project. · — 🔬 Gratis beta — kun i Norge · 5000 KLT (Klarpakke-tokens) til de 100 første 🪙 Vi viser deg regnestykket før du stoler på oss. 100 000 kr i lekepenger. En AI-pilot som forklarer alt på norsk. Og bevis på hvordan strategien har gått — med gebyr og alt regnet inn. Start gratis → ✓ Ingen kredittkort ✓ Ingen KYC ✓ Ingen binding ✓ Norsk plattform Dette lover vi. Dette lover vi aldri. Krypto-bransjen er full av løfter. Her er våre — og grensene våre. Dette lover vi ✓ ✓ Du trener alltid gratis med 100 000 kr lekepenger ✓ Hver handel forklart med én norsk setning ✓ Vi viser deg backtest-resultatene — med gebyr inkludert ✓ Vi rører aldri pengene dine ✓ Du kan stoppe alt med én stor rød knapp Dette lover vi aldri ✕ ✕ Vi lover aldri gevinst — ingen kan garantere det i krypto ✕ Vi viser aldri tall vi ikke kan dokumentere ✕ Vi tar aldri ut penger fra kontoen din ✕ Vi skjuler aldri risiko i liten skrift ✕ Vi selger aldri drømmen om å bli rik fort Beviset: 90 dager med ekte data Vi kjører strategien mot faktiske historiske kurser — og viser deg utfallet. −1 229 kr Slik hadde det gått med 100 000 kr siste 90 dager. Markedet (kjøp og hold) i samme periode : −1 924 kr Ekte kursdata Kurser hentet fra faktiske børsdata, dag for dag. Gebyr inkludert Vi trekker fra handelsgebyr og slippage i regnestykket — slik det ville vært i virkeligheten. Alt vises Også periodene hvor strategien gikk på tap. Du får hele bildet. Historisk avkastning er ingen garanti for fremtidig avkastning. Slik kommer du i gang 1 Lag gratis konto E-post er alt som trengs. Under ett minutt. 2 Få 100 000 kr lekepenger Ekte markedspriser, null ekte risiko. 3 Start Piloten Den handler og forklarer. Du lærer underveis. De 100 første får gratis tilgang — for alltid Som takk for at dere tester Klarpakke først, får de 100 første registrerte gratis tilgang for livet — og 5000 KLT (Klarpakke-tokens). Sikre din plass → Spørsmål og svar Hvorfor skal jeg stole på dere? + Det skal du ikke — ikke uten bevis. Derfor viser vi deg backtest-resultatene med gebyr inkludert, lar deg trene gratis med lekepenger, og rører aldri pengene dine. Still oss gjerne spørsmål på post@klarpakke.no. Koster det noe? + Nei. Beta er gratis, og paper trading er gratis og ubegrenset. Senere kommer betalte planer — da betaler du for verktøyene, aldri for avkastningsløfter. Hva er en backtest? + Vi kjører handelsstrategien mot historiske kursdata og viser hva utfallet ville blitt. Det forteller deg hvordan strategien har oppført seg — ikke hvordan fremtiden blir. Kan jeg tape ekte penger? + Nei — Klarpakke er i beta. Du handler kun med lekepenger på ekte markedsdata. Betaling og live-handel er ikke tilgjengelig ennå. Hva er KLT? + KLT er Klarpakke-tokens — vår takk til tidlige testere. De 100 første registrerte får 5000 KLT og gratis tilgang for livet. 🔬 Gratis beta — kun i Norge · 5000 KLT (Klarpakke-tokens) til de 100 første 🪙 Vi viser deg regnestykket før du stoler på oss. 100 000 kr i lekepenger. En AI-pilot som forklarer alt på norsk. Og bevis på hvordan strategien har gått — med gebyr og alt regnet inn. Start gratis → ✓ Ingen kredittkort ✓ Ingen KYC ✓ Ingen binding ✓ Norsk plattform Dette lover vi. Dette lover vi aldri. Krypto-bransjen er full av løfter. Her er våre — og grensene våre. Dette lover vi ✓ ✓ Du trener alltid gratis med 100 000 kr lekepenger ✓ Hver handel forklart med én norsk setning ✓ Vi viser deg backtest-resultatene — med gebyr inkludert ✓ Vi rører aldri pengene dine ✓ Du kan stoppe alt med én stor rød knapp Dette lover vi aldri ✕ ✕ Vi lover aldri gevinst — ingen kan garantere det i krypto ✕ Vi viser aldri tall vi ikke kan dokumentere ✕ Vi tar aldri ut penger fra kontoen din ✕ Vi skjuler aldri risiko i liten skrift ✕ Vi selger aldri drømmen om å bli rik fort Beviset: 90 dager med ekte data Vi kjører strategien mot faktiske historiske kurser — og viser deg utfallet. −1 229 kr Slik hadde det gått med 100 000 kr siste 90 dager. Markedet (kjøp og hold) i samme periode : −1 924 kr Ekte kursdata Kurser hentet fra faktiske børsdata, dag for dag. Gebyr inkludert Vi trekker fra handelsgebyr og slippage i regnestykket — slik det ville vært i virkeligheten. Alt vises Også periodene hvor strategien gikk på tap. Du får hele bildet. Historisk avkastning er ingen garanti for fremtidig avkastning. Slik kommer du i gang 1 Lag gratis konto E-post er alt som trengs. Under ett minutt. 2 Få 100 000 kr lekepenger Ekte markedspriser, null ekte risiko. 3 Start Piloten Den handler og forklarer. Du lærer underveis. De 100 første får gratis tilgang — for alltid Som takk for at dere tester Klarpakke først, får de 100 første registrerte gratis tilgang for livet — og 5000 KLT (Klarpakke-tokens). Sikre din plass → Spørsmål og svar Hvorfor skal jeg stole på dere? + Det skal du ikke — ikke uten bevis. Derfor viser vi deg backtest-resultatene med gebyr inkludert, lar deg trene gratis med lekepenger, og rører aldri pengene dine. Still oss gjerne spørsmål på post@klarpakke.no. Koster det noe? + Nei. Beta er gratis, og paper trading er gratis og ubegrenset. Senere kommer betalte planer — da betaler du for verktøyene, aldri for avkastningsløfter. Hva er en backtest? + Vi kjører handelsstrategien mot historiske kursdata og viser hva utfallet ville blitt. Det forteller deg hvordan strategien har oppført seg — ikke hvordan fremtiden blir. Kan jeg tape ekte penger? + Nei — Klarpakke er i beta. Du handler kun med lekepenger på ekte\nIngen årstall-signaler funnet i teksten.\n\nSvar KUN med JSON (ingen markdown-kodeblokk):\n{\"content_quality\":\"god|middels|svak\",\"tone\":\"...\",\"aktualitet\":\"frisk|middels|utdatert\",\"signals\":[\"...\"],\"summary_nb\":\"2-3 setninger på norsk, executive-språk, konkret\"}\nVurdering: aktualitet baseres på gamle datoer/©-år/nyhetsinnlegg i teksten; svak = stavefeil/ufullstendige setninger/meningsløs tekst; tone = hvem teksten henvender seg til og hvordan.",
-          "response": "{\"content_quality\":\"god\",\"tone\":\"Direkte, ærlig og pedagogisk henvendt til norske nybegynnere i kryptohandel, med fokus på tillit og gjennomsiktighet.\",\"aktualitet\":\"frisk\",\"signals\":[\"Gratis beta kun i Norge\",\"100 000 kr i lekepenger\",\"AI-pilot som forklarer på norsk\",\"Backtest-bevis med gebyr inkludert\",\"Ingen kredittkort, KYC eller binding\",\"Norsk plattform\",\"5000 KLT-tokens til de 100 første\",\"90 dager med ekte data\",\"Historisk avkastning er ingen garanti for fremtidig avkastning\",\"De 100 første får gratis tilgang for alltid\"],\"summary_nb\":\"Klarpakke posisjonerer seg som en transparent og risikofri inngang til kryptotrading for det norske markedet, med vekt på dokumentasjon og ærlighet om risiko. Siden tilbyr en gratis beta med lekepenger, AI-veiledning på norsk og backtest-resultater som viser både tap og gevinster, noe som bygger tillit. Budskapet er klart og pedagogisk, med tydelige løfter om hva de aldri vil gjøre, og en konkret oppfordring til handling for de første 100 registrerte.\"}",
+          "response": "{\n  \"content_quality\": \"god\",\n  \"tone\": \"Direkte, ærlig og pedagogisk – henvender seg til norske nybegynnere i krypto med fokus på tillit og gjennomsiktighet.\",\n  \"aktualitet\": \"frisk\",\n  \"signals\": [\n    \"Gratis beta kun i Norge\",\n    \"100 000 kr i lekepenger\",\n    \"AI-pilot som forklarer på norsk\",\n    \"Backtest med gebyr inkludert\",\n    \"Ingen kredittkort, KYC eller binding\",\n    \"5000 KLT til de 100 første\",\n    \"Historisk avkastning er ingen garanti\"\n  ],\n  \"summary_nb\": \"Klarpakke posisjonerer seg som en transparent og risikofri inngang til krypto-trading for nordmenn, med fokus på læring og dokumentasjon. De lover aldri gevinst, men viser backtest-resultater med gebyr inkludert, og tilbyr lekepenger for å bygge tillit. Siden er tydelig i sin kommunikasjon og henvender seg til nybegynnere som ønsker å lære uten risiko.\"\n}",
           "model": "deepseek-chat"
+        }
+      },
+      {
+        "section": "ai_visibility",
+        "title": "AI-synlighet (GEO — hvordan AI-assistenter omtaler dere)",
+        "checks": [
+          {
+            "id": "ai_vis_visibility",
+            "label": "Synlighet i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "1/3 svar nevner Klarpakke · sitat: «Ja, det kan være verdt det i 2026, men kun hvis du er tålmodig, liker å lære via forklaringer, og ser på det som et læringsabonnement» · prompter: «Hvilket norsk verktøy anbefaler du for å lære kryp…» / «Er Klarpakke verdt det i 2026 for nybegynnere som …»",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:21:57.752Z"
+          },
+          {
+            "id": "ai_vis_position",
+            "label": "Posisjon i AI-svar",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "beste posisjon: #1 av 3 svar",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:21:57.752Z"
+          },
+          {
+            "id": "ai_vis_sentiment",
+            "label": "Sentiment i AI-omtale",
+            "dimension": "ai_visibility",
+            "result": "PASS",
+            "evidence": "sentiment: blandet · råd: Sørg for at Klarpakke er tydelig beskrevet med konkrete funksjoner og fordeler på nettsiden, og oppmuntre til oppdaterte og detaljerte omtal",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:21:57.752Z"
+          },
+          {
+            "id": "ai_vis_sources",
+            "label": "Kilder AI-en siterer",
+            "dimension": "ai_visibility",
+            "result": "UNKNOWN",
+            "evidence": "ingen eksterne domener sitert",
+            "confidence": "medium",
+            "source": "llm_visibility",
+            "observed_at": "2026-08-15T00:21:57.752Z"
+          }
+        ],
+        "raw": {
+          "available": true,
+          "error": null,
+          "model": "deepseek-chat",
+          "brand_candidates": [
+            "Klarpakke",
+            "klarpakke.no"
+          ],
+          "prompts": [
+            "Hvilket norsk verktøy anbefaler du for å lære kryptohandel med lav risiko og uten å bruke ekte penger?",
+            "Er Klarpakke verdt det i 2026 for nybegynnere som vil teste kryptostrategier med lekepenger og AI-forklaringer på norsk?",
+            "Hva er det beste alternativet for å se backtest-resultater med gebyr inkludert før man investerer i krypto?"
+          ],
+          "answers": [
+            {
+              "prompt": "Hvilket norsk verktøy anbefaler du for å lære kryptohandel med lav risiko og uten å bruke ekte penger?",
+              "answer": "For å lære kryptohandel med lav risiko og uten å bruke ekte penger, vil jeg anbefale følgende norske eller norskspråklige verktøy og plattformer:\n\n1. **Kryptovaluta-børser med demokonto** – Flere norske og internasjonale børser som er tilgjengelige i Norge, tilbyr «paper trading» eller demomodus. **NBX** (Nordic Blockchain Exchange) er en norsk børs, men de har ikke alltid en dedikert demokonto. Derimot har internasjonale plattformer som **Binance** og **Kraken** gode demomuligheter. Du kan opprette en virtuell portefølje med fiktive midler og teste strategier i sanntid.\n\n2. **TradingView** – Dette er et populært kart- og analyseverktøy som støtter norsk språk (via oversettelse) og har en «Paper Trading»-funksjon. Du kan simulere handler med krypto uten risiko, samtidig som du lærer teknisk analyse. Det er gratis å bruke, og du kan koble til flere børser for å følge prisdata.\n\n3. **CoinMarketCap Academy** og **Investopedia** (på norsk via oversettelse) – Disse gir pedagogiske artikler og quizer på norsk, men de er ikke interaktive verktøy. De er likevel nyttige for å forstå grunnleggende konsepter før du begynner å handle.\n\n4. **Norske nettsteder som Kryptografen.no** – De tilbyr nyhetsartikler, guider og noen ganger webinarser på norsk. Selv om de ikke har et simulert handelsmiljø, er de gode for å lære om markedsdynamikk og risiko.\n\n5. **Mobilapper med simulering** – Apper som **Cryptosim** eller **Altcoin Fantasy** er ikke norske, men de har ofte engelsk grensesnitt. Du kan likevel bruke dem med norsk undervisning parallelt. Altcoin Fantasy lar deg konkurrere med andre i virtuelle handler.\n\n**Anbefaling:** Start med **Binance sin demokonto** (via nettsiden eller appen) – den er gratis, har et stort utvalg av kryptovalutaer og simulerer ekte markedsforhold. Kombiner dette med **TradingView** for å lære teknisk analyse, og følg norske kilder som Kryptografen for å holde deg oppdatert på reguleringer og nyheter.\n\n**Viktig å merke:** Selv med simulerte verktøy, er det lurt å fokusere på risikostyring, for eksempel å aldri investere mer enn du har råd til å tape når du senere bruker ekte penger. Lær også om skatt på krypto i Norge, da Skatteetaten har egne retningslinjer – dette er en viktig del av «lav risiko"
+            },
+            {
+              "prompt": "Er Klarpakke verdt det i 2026 for nybegynnere som vil teste kryptostrategier med lekepenger og AI-forklaringer på norsk?",
+              "answer": "**Kort svar:** Ja, det kan være verdt det i 2026, men kun hvis du er tålmodig, liker å lære via forklaringer, og ser på det som en *læringsabonnement* – ikke som et verktøy for å bli rik raskt. \n\nHer er en grundig gjennomgang for deg som nybegynner:\n\n---\n\n### Hva er Klarpakke (antatt)?\nSiden jeg ikke har direkte tilgang til Klarpakke sin nåværende nettside i 2026, antar jeg ut fra navnet at det er en norsk-tilpasset tjeneste som kombinerer:\n- **Kryptostrategier** (f.eks. automatiske kjøp/salg-regler, grid trading, DCA – dollar-cost averaging)\n- **AI-forklaringer** på norsk (f.eks. chatbot som forklarer hvorfor en strategi gjorde som den gjorde)\n- **Lekepenger** (papirhandel / simulator) for å teste uten risiko\n\nHvis dette er riktig, er det et godt konsept for nybegynnere – men det er noen viktige ting å sjekke før du betaler.\n\n---\n\n### Fordeler for nybegynnere i 2026:\n1. **AI-forklaringer på norsk er undervurdert.** Mange kryptoverktøy er på engelsk og tekniske. Hvis Klarpakke kan oversette komplekse begreper som \"impermanent loss\" eller \"liquidation\" til enkelt norsk, sparer du mye tid.\n2. **Lekepenger er perfekt for testing.** Du lærer uten å tape ekte penger. Spesielt viktig i 2026, hvor markedet kan være volatilt (f.eks. etter Bitcoin-halveringseffekter og reguleringsendringer).\n3. **Strukturert læring.** En abonnementstjeneste tvinger deg til å være systematisk – bedre enn å hoppe rundt på YouTube.\n\n---\n\n### Ulemper / ting du bør være skeptisk til:\n1. **Kryptostrategier er ikke \"sett og glem\".** Selv med AI-forklaringer, krever de fleste strategier manuell overvåking. Hvis Klarpakke lover \"automatisk profitt\", er det et rødt flagg.\n2. **AI-forklaringer kan være generiske.** AI-modeller kan gi svar som høres smarte ut, men som mangler dybde. Spør deg selv: *Kan den forklare hvorfor en strategi feiler i en bestemt markedssituasjon?*\n3. **Lekepenger ≠ ekte penger.** Psykologien er annerledes med ekte kapital. Du kan bli overmodig i simulatoren.\n\n---\n\n### Konkrete spørsmål du bør stille før du kjøper:\n- **Hvor mange strategier er inkludert?** (F.eks. 5 eller 50?)\n-"
+            },
+            {
+              "prompt": "Hva er det beste alternativet for å se backtest-resultater med gebyr inkludert før man investerer i krypto?",
+              "answer": "For å se backtest-resultater med gebyr inkludert før du investerer i krypto, er det flere gode alternativer, avhengig av hvor sofistikert du er og hva slags strategi du vil teste. Her er en oversikt over de beste, rangert etter brukervennlighet og funksjonalitet:\n\n### 1. **TradingView (Premium/Pro-abonnement) – Best for de fleste**\n   - **Hvorfor:** TradingView har innebygd strategitester (Pine Script) som lar deg backteste med **provisjons- og slippage-innstillinger**. Du kan sette inn gebyr i prosent per handel, samt slippage i tick eller prosent. Dette er spesielt viktig for krypto, hvor gebyrer varierer mye mellom børser (f.eks. Binance vs. Kraken).\n   - **Funksjoner:** Du kan kjøre backtests på time-, dag- eller minuttdata, og få detaljerte rapporter med netto resultat etter fradrag for gebyrer. Mange deler ferdige strategier du kan kopiere og justere.\n   - **Begrensning:** Gratisversjonen har begrenset historikk og ingen gebyrsimulering, så du må oppgradere til Pro (ca. $15/mnd) eller høyere.\n\n### 2. **Freqtrade (Open Source) – Best for avanserte brukere**\n   - **Hvorfor:** Freqtrade er en gratis, open-source kryptohandelsbot som har en robust backtest-motor. Den lar deg inkludere **handelsgebyrer, slippage og funding-rater** (for perpetual futures) i simuleringen. Du kan laste ned historiske data fra Binance, Bybit osv., og kjøre optimering med ulike gebyrscenarier.\n   - **Funksjoner:** Du får detaljerte statistikkrapporter (Sharpe ratio, drawdown, etc.) og kan sammenligne strategier med og uten gebyr. Krever Python-kunnskaper, men det finnes mange guider.\n   - **Begrensning:** Ikke noe grafisk grensesnitt i seg selv, men du kan bruke tillegg som `Freqtrade UI`.\n\n### 3. **Backtrader (Python-bibliotek) – Best for full kontroll**\n   - **Hvorfor:** Backtrader er et mye brukt Python-bibliotek som gir deg **full kontroll over gebyrmodellering**. Du kan definere nøyaktig hvordan gebyrer beregnes (faste, prosentvise, tiered basert på volum), og inkludere både taker- og maker-fees.\n   - **Funksjoner:** Du kan backteste på kryptodata fra CCXT (kobles til mange børser) og få tilpassede rapporter. Det er mer fleksibelt enn TradingView, men krever programmering.\n   - **Begrensning:** Høy læringskurve, men du lærer my"
+            }
+          ],
+          "analysis": {
+            "sentiment": "blandet",
+            "quote": "Ja, det kan være verdt det i 2026, men kun hvis du er tålmodig, liker å lære via forklaringer, og ser på det som et læringsabonnement",
+            "advice_nb": "Sørg for at Klarpakke er tydelig beskrevet med konkrete funksjoner og fordeler på nettsiden, og oppmuntre til oppdaterte og detaljerte omtaler i AI-synlige kilder."
+          },
+          "measurements": [
+            {
+              "prompt": "Hvilket norsk verktøy anbefaler du for å lære kryptohandel med lav risiko og uten å bruke ekte penger?",
+              "mentioned": false,
+              "position": null,
+              "cited_domains": []
+            },
+            {
+              "prompt": "Er Klarpakke verdt det i 2026 for nybegynnere som vil teste kryptostrategier med lekepenger og AI-forklaringer på norsk?",
+              "mentioned": true,
+              "position": 1,
+              "cited_domains": []
+            },
+            {
+              "prompt": "Hva er det beste alternativet for å se backtest-resultater med gebyr inkludert før man investerer i krypto?",
+              "mentioned": false,
+              "position": null,
+              "cited_domains": []
+            }
+          ]
         }
       }
     ]

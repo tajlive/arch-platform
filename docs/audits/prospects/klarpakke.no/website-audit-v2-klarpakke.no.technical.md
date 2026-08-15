@@ -1,6 +1,6 @@
 # Teknisk appendix — Arch Website Audit klarpakke.no
 
-> **Generert:** 2026-08-14T21:37:41.237Z · **Nettsted:** https://klarpakke.no · **Endelig URL:** https://klarpakke.no
+> **Generert:** 2026-08-15T00:21:57.754Z · **Nettsted:** https://klarpakke.no · **Endelig URL:** https://klarpakke.no
 
 > For utvikler/byrå/IT-leverandør. Executive-rapporten er website-audit-klarpakke.no.md.
 
@@ -66,8 +66,8 @@
 | trust_privacy | BIMI (merkevare-logo i innboks) | NOT_APPLICABLE | ingen BIMI (ikke påkrevd) | low |
 | security | CAA (sertifikat-utsteder-kontroll) | FAIL | ingen CAA | high |
 | security | DNSSEC (signert sone) | FAIL | manglende AD-flag — sonen er ikke DNSSEC-signert | high |
-| trust_privacy | E-post-omdømme (DNSBL) | PASS | mx.domeneshop.no (194.63.252.29) ikke listet | medium |
-| security | Subdomene-eksponering (crt.sh) | UNKNOWN | ingen data i crt.sh | medium |
+| trust_privacy | E-post-omdømme (DNSBL) | PASS | mx.domeneshop.no (194.63.252.28) ikke listet | medium |
+| security | Subdomene-eksponering (crt.sh) | UNKNOWN | crt.sh-feil: The operation was aborted due to timeout | low |
 | trust_privacy | Firma i Brreg (Enhetsregisteret) | UNKNOWN | ingen Brreg-treff for «Klarpakke» | medium |
 | trust_privacy | Bransjekontekst (SSB) | UNKNOWN | ingen næringskode tilgjengelig | medium |
 | trust_privacy | Domenet registrert (Norid) | PASS | registrert 2025-08-30 | high |
@@ -84,15 +84,19 @@
 | trust_privacy | Pris inkl. mva | PASS | pris inkl. mva-tekst observert | high |
 | trust_privacy | Angrerett-informasjon | FAIL | angrerett-informasjon ikke observert — potential concern (angrerettloven), krever juridisk vurdering | high |
 | trust_privacy | Klageadgang / tvisteløsning | PASS | klageadgang/tvisteløsning observert | high |
-| performance | PageSpeed mobil | UNKNOWN | API-feil: HTTP 403 | medium |
-| performance | PageSpeed desktop | UNKNOWN | API-feil: HTTP 403 | medium |
+| performance | PageSpeed mobil | UNKNOWN | API-feil: HTTP 429 | medium |
+| performance | PageSpeed desktop | UNKNOWN | API-feil: HTTP 429 | medium |
 | performance | PageSpeed API tilgjengelig | UNKNOWN | API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig | medium |
 | trust_privacy | Sosiale medier (lenker fra nettsiden) | FAIL | ingen profillenker til sosiale medier funnet på nettsiden — potential concern (bedriftens synlighet) | high |
 | trust_privacy | Telefon på nettsiden | FAIL | ingen tel:-lenke observert — potential concern (kontaktbarhet) | medium |
 | trust_privacy | E-post på nettsiden | FAIL | ingen mailto:-lenke observert — potential concern (kontaktbarhet) | medium |
 | trust_privacy | Google Business Profile (anmeldelser, kategori) | UNKNOWN | krever Google Places API-nøkkel — støttes når nøkkel er konfigurert | medium |
-| ux_mobile | Innholdskvalitet (AI-vurdert) | PASS | Klarpakke posisjonerer seg som en transparent og risikofri inngang til kryptotrading for det norske markedet, med vekt på dokumentasjon og ærlighet om risiko. Siden tilbyr en gratis beta med lekepenger, AI-veiledning på norsk og backtest-resultater som viser både tap og gevinster, noe som bygger tillit. Budskapet er klart og pedagogisk, med tydelige løfter om hva de aldri vil gjøre, og en konkret oppfordring til handling for de første 100 registrerte. | medium |
-| ux_mobile | Aktualitet (AI-vurdert) | PASS | Gratis beta kun i Norge · 100 000 kr i lekepenger · AI-pilot som forklarer på norsk · Backtest-bevis med gebyr inkludert · Ingen kredittkort, KYC eller binding · Norsk plattform · 5000 KLT-tokens til de 100 første · 90 dager med ekte data · Historisk avkastning er ingen garanti for fremtidig avkastning · De 100 første får gratis tilgang for alltid | medium |
+| ux_mobile | Innholdskvalitet (AI-vurdert) | PASS | Klarpakke posisjonerer seg som en transparent og risikofri inngang til krypto-trading for nordmenn, med fokus på læring og dokumentasjon. De lover aldri gevinst, men viser backtest-resultater med gebyr inkludert, og tilbyr lekepenger for å bygge tillit. Siden er tydelig i sin kommunikasjon og henvender seg til nybegynnere som ønsker å lære uten risiko. | medium |
+| ux_mobile | Aktualitet (AI-vurdert) | PASS | Gratis beta kun i Norge · 100 000 kr i lekepenger · AI-pilot som forklarer på norsk · Backtest med gebyr inkludert · Ingen kredittkort, KYC eller binding · 5000 KLT til de 100 første · Historisk avkastning er ingen garanti | medium |
+| ai_visibility | Synlighet i AI-svar | PASS | 1/3 svar nevner Klarpakke · sitat: «Ja, det kan være verdt det i 2026, men kun hvis du er tålmodig, liker å lære via forklaringer, og ser på det som et læringsabonnement» · prompter: «Hvilket norsk verktøy anbefaler du for å lære kryp…» / «Er Klarpakke verdt det i 2026 for nybegynnere som …» | medium |
+| ai_visibility | Posisjon i AI-svar | PASS | beste posisjon: #1 av 3 svar | medium |
+| ai_visibility | Sentiment i AI-omtale | PASS | sentiment: blandet · råd: Sørg for at Klarpakke er tydelig beskrevet med konkrete funksjoner og fordeler på nettsiden, og oppmuntre til oppdaterte og detaljerte omtal | medium |
+| ai_visibility | Kilder AI-en siterer | UNKNOWN | ingen eksterne domener sitert | medium |
 
 ## 2. HTTP & redirect-kjede
 
@@ -171,8 +175,8 @@ Rådata-nøkler: url, final_url, status, status_text, redirects, headers, securi
 - [NOT_APPLICABLE] bimi: ingen BIMI (ikke påkrevd)
 - [FAIL] caa: ingen CAA
 - [FAIL] dnssec: manglende AD-flag — sonen er ikke DNSSEC-signert
-- [PASS] dnsbl: mx.domeneshop.no (194.63.252.29) ikke listet
-- [UNKNOWN] subdomains: ingen data i crt.sh
+- [PASS] dnsbl: mx.domeneshop.no (194.63.252.28) ikke listet
+- [UNKNOWN] subdomains: crt.sh-feil: The operation was aborted due to timeout
 
 Rådata-nøkler: original, registrable, subdomain_of_input, spf, dkim, dmarc, mta_sts, tls_rpt, bimi, caa, dnssec, mx, dnsbl, subdomains
 
@@ -209,8 +213,8 @@ Rådata-nøkler: url, fetched, status, fetch_error, html_length, script_srcs, cm
 
 ## Fart (PageSpeed Insights + CrUX) (pagespeed)
 
-- [UNKNOWN] psi_mobile: API-feil: HTTP 403
-- [UNKNOWN] psi_desktop: API-feil: HTTP 403
+- [UNKNOWN] psi_mobile: API-feil: HTTP 429
+- [UNKNOWN] psi_desktop: API-feil: HTTP 429
 - [UNKNOWN] psi_availability: API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig
 
 Rådata-nøkler: mobile, desktop
@@ -226,9 +230,18 @@ Rådata-nøkler: social, contact, google_business
 
 ## AI-analyse av innhold (DeepSeek) (ai_analysis)
 
-- [PASS] ai_content_quality: Klarpakke posisjonerer seg som en transparent og risikofri inngang til kryptotrading for det norske markedet, med vekt på dokumentasjon og ærlighet om risiko. Siden tilbyr en gratis beta med lekepenger, AI-veiledning på norsk og backtest-resultater som viser både tap og gevinster, noe som bygger tillit. Budskapet er klart og pedagogisk, med tydelige løfter om hva de aldri vil gjøre, og en konkret oppfordring til handling for de første 100 registrerte.
-- [PASS] ai_content_freshness: Gratis beta kun i Norge · 100 000 kr i lekepenger · AI-pilot som forklarer på norsk · Backtest-bevis med gebyr inkludert · Ingen kredittkort, KYC eller binding · Norsk plattform · 5000 KLT-tokens til de 100 første · 90 dager med ekte data · Historisk avkastning er ingen garanti for fremtidig avkastning · De 100 første får gratis tilgang for alltid
+- [PASS] ai_content_quality: Klarpakke posisjonerer seg som en transparent og risikofri inngang til krypto-trading for nordmenn, med fokus på læring og dokumentasjon. De lover aldri gevinst, men viser backtest-resultater med gebyr inkludert, og tilbyr lekepenger for å bygge tillit. Siden er tydelig i sin kommunikasjon og henvender seg til nybegynnere som ønsker å lære uten risiko.
+- [PASS] ai_content_freshness: Gratis beta kun i Norge · 100 000 kr i lekepenger · AI-pilot som forklarer på norsk · Backtest med gebyr inkludert · Ingen kredittkort, KYC eller binding · 5000 KLT til de 100 første · Historisk avkastning er ingen garanti
 
 Rådata-nøkler: available, error, prompt, response, model
 
-# V2-kjøretid: 18263 ms (moduler parallelt)
+## AI-synlighet (GEO — hvordan AI-assistenter omtaler dere) (ai_visibility)
+
+- [PASS] ai_vis_visibility: 1/3 svar nevner Klarpakke · sitat: «Ja, det kan være verdt det i 2026, men kun hvis du er tålmodig, liker å lære via forklaringer, og ser på det som et læringsabonnement» · prompter: «Hvilket norsk verktøy anbefaler du for å lære kryp…» / «Er Klarpakke verdt det i 2026 for nybegynnere som …»
+- [PASS] ai_vis_position: beste posisjon: #1 av 3 svar
+- [PASS] ai_vis_sentiment: sentiment: blandet · råd: Sørg for at Klarpakke er tydelig beskrevet med konkrete funksjoner og fordeler på nettsiden, og oppmuntre til oppdaterte og detaljerte omtal
+- [UNKNOWN] ai_vis_sources: ingen eksterne domener sitert
+
+Rådata-nøkler: available, error, model, brand_candidates, prompts, answers, analysis, measurements
+
+# V2-kjøretid: 36200 ms (moduler parallelt)

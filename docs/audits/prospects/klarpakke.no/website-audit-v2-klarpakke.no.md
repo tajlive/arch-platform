@@ -4,28 +4,11 @@
 |---|---|
 | Kunde | klarpakke.no |
 | Nettsted | https://klarpakke.no |
-| Audit-dato | 2026-08-14T21:37:41.237Z |
+| Audit-dato | 2026-08-15T00:21:57.754Z |
 | Scope | Offentlig nettside (kun) |
 | Tilgang | Read-only / uautentisert |
 | Repository-tilgang | Ikke gitt |
 | Endringer utført | Ingen |
-
-### Kunde & samtykke
-
-| Felt | Verdi |
-|---|---|
-| Kunde | klarpakke.no |
-| Nettsted | https://klarpakke.no |
-| Modus | Intern prospect-vurdering |
-| Scope | Offentlig nettside (kun) |
-| Tilgang | Read-only / uautentisert (ingen endringer) |
-| Repository-tilgang | Ikke gitt |
-| Endringer utført | Ingen |
-| Consent | Ikke innhentet (intern prospect-vurdering) |
-
-> **Read-only / utenfor-inn:** Arch analyserer kun offentlig observerbar informasjon.
-> Ingen login-bypass, ingen aggressive tester, ingen mutasjoner, ingen skjemainnsending.
-> Interne systemer som ikke er observerbare, rapporteres som **UNKNOWN** — aldri som feil.
 
 ## Executive Summary
 
@@ -282,8 +265,8 @@ Juridiske/regulatoriske påstander er ikke vurdert — kun signaler, som krever 
 | ➖ N/A | BIMI (merkevare-logo i innboks) | ingen BIMI (ikke påkrevd) |
 | ❌ Funn | CAA (sertifikat-utsteder-kontroll) | ingen CAA |
 | ❌ Funn | DNSSEC (signert sone) | manglende AD-flag — sonen er ikke DNSSEC-signert |
-| ✅ OK | E-post-omdømme (DNSBL) | mx.domeneshop.no (194.63.252.29) ikke listet |
-| ⚠️ Ikke verifisert | Subdomene-eksponering (crt.sh) | ingen data i crt.sh |
+| ✅ OK | E-post-omdømme (DNSBL) | mx.domeneshop.no (194.63.252.28) ikke listet |
+| ⚠️ Ikke verifisert | Subdomene-eksponering (crt.sh) | crt.sh-feil: The operation was aborted due to timeout |
 
 | Protokoll | Observert |
 |---|---|
@@ -291,7 +274,7 @@ Juridiske/regulatoriske påstander er ikke vurdert — kun signaler, som krever 
 | DMARC | none (p=none) |
 | MTA-STS | TXT: nei · policy-fil: nei |
 | CAA | ingen CAA |
-| DNSSEC | signert (AD-flag) |
+| DNSSEC | ikke signert |
 | DNSBL | mx.domeneshop.no ikke listet |
 | Subdomener (crt.sh) | 0 observert |
 
@@ -336,8 +319,8 @@ Juridiske/regulatoriske påstander er ikke vurdert — kun signaler, som krever 
 
 | Status | Sjekk | Observert |
 |---|---|---|
-| ⚠️ Ikke verifisert | PageSpeed mobil | API-feil: HTTP 403 |
-| ⚠️ Ikke verifisert | PageSpeed desktop | API-feil: HTTP 403 |
+| ⚠️ Ikke verifisert | PageSpeed mobil | API-feil: HTTP 429 |
+| ⚠️ Ikke verifisert | PageSpeed desktop | API-feil: HTTP 429 |
 | ⚠️ Ikke verifisert | PageSpeed API tilgjengelig | API-et svarte ikke for noen strategi — fartstall ikke tilgjengelig |
 
 ### Tilstedeværelse (sosiale medier · NAP)
@@ -353,10 +336,34 @@ Juridiske/regulatoriske påstander er ikke vurdert — kun signaler, som krever 
 
 | Status | Sjekk | Observert |
 |---|---|---|
-| ✅ OK | Innholdskvalitet (AI-vurdert) | Klarpakke posisjonerer seg som en transparent og risikofri inngang til kryptotrading for det norske markedet, med vekt på dokumentasjon og ærlighet om risiko. Siden tilbyr en gratis beta med lekepenger, AI-veiledning på norsk og backtest-resultater som viser både tap og gevinster, noe som bygger tillit. Budskapet er klart og pedagogisk, med tydelige løfter om hva de aldri vil gjøre, og en konkret oppfordring til handling for de første 100 registrerte. |
-| ✅ OK | Aktualitet (AI-vurdert) | Gratis beta kun i Norge · 100 000 kr i lekepenger · AI-pilot som forklarer på norsk · Backtest-bevis med gebyr inkludert · Ingen kredittkort, KYC eller binding · Norsk plattform · 5000 KLT-tokens til de 100 første · 90 dager med ekte data · Historisk avkastning er ingen garanti for fremtidig avkastning · De 100 første får gratis tilgang for alltid |
+| ✅ OK | Innholdskvalitet (AI-vurdert) | Klarpakke posisjonerer seg som en transparent og risikofri inngang til krypto-trading for nordmenn, med fokus på læring og dokumentasjon. De lover aldri gevinst, men viser backtest-resultater med gebyr inkludert, og tilbyr lekepenger for å bygge tillit. Siden er tydelig i sin kommunikasjon og henvender seg til nybegynnere som ønsker å lære uten risiko. |
+| ✅ OK | Aktualitet (AI-vurdert) | Gratis beta kun i Norge · 100 000 kr i lekepenger · AI-pilot som forklarer på norsk · Backtest med gebyr inkludert · Ingen kredittkort, KYC eller binding · 5000 KLT til de 100 første · Historisk avkastning er ingen garanti |
 
 **AI-vurdering (DeepSeek, deepseek-chat):** analysen er reproduserbar — prompt og rå-svar ligger i evidence-filen.
+
+### AI-synlighet (GEO — hvordan AI-assistenter omtaler dere)
+
+| Status | Sjekk | Observert |
+|---|---|---|
+| ✅ OK | Synlighet i AI-svar | 1/3 svar nevner Klarpakke · sitat: «Ja, det kan være verdt det i 2026, men kun hvis du er tålmodig, liker å lære via forklaringer, og ser på det som et læringsabonnement» · prompter: «Hvilket norsk verktøy anbefaler du for å lære kryp…» / «Er Klarpakke verdt det i 2026 for nybegynnere som …» |
+| ✅ OK | Posisjon i AI-svar | beste posisjon: #1 av 3 svar |
+| ✅ OK | Sentiment i AI-omtale | sentiment: blandet · råd: Sørg for at Klarpakke er tydelig beskrevet med konkrete funksjoner og fordeler på nettsiden, og oppmuntre til oppdaterte og detaljerte omtal |
+| ⚠️ Ikke verifisert | Kilder AI-en siterer | ingen eksterne domener sitert |
+
+**Målemetode (Peec.ai-modellen):** 3 kunderelevante spørsmål ble stilt til en AI-assistent (deepseek-chat). Spørsmålene er generert fra nettsidens eget innhold og ligger i evidence-filen.
+
+**Stilte spørsmål:**
+- Hvilket norsk verktøy anbefaler du for å lære kryptohandel med lav risiko og uten å bruke ekte penger?
+- Er Klarpakke verdt det i 2026 for nybegynnere som vil teste kryptostrategier med lekepenger og AI-forklaringer på norsk?
+- Hva er det beste alternativet for å se backtest-resultater med gebyr inkludert før man investerer i krypto?
+
+**Målinger per spørsmål:**
+- «Hvilket norsk verktøy anbefaler du for å lære kryptohandel med lav ris…» → ikke nevnt
+- «Er Klarpakke verdt det i 2026 for nybegynnere som vil teste kryptostra…» → posisjon #1
+- «Hva er det beste alternativet for å se backtest-resultater med gebyr i…» → ikke nevnt
+
+
+**Anbefaling (AI-vurdert):** Sørg for at Klarpakke er tydelig beskrevet med konkrete funksjoner og fordeler på nettsiden, og oppmuntre til oppdaterte og detaljerte omtaler i AI-synlige kilder.
 
 ---
 
