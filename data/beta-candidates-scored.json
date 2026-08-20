@@ -1,0 +1,2278 @@
+[
+  {
+    "orgnr": "928103277",
+    "navn": "SOLBERG BIL AS",
+    "ansatte": 80,
+    "kommune": "SKIEN",
+    "hjemmeside": "www.solbergbil.no",
+    "daglig_leder": "Ole Bernhard Solberg",
+    "bransje": "bilverksted",
+    "nace": "95.310",
+    "fit_total": 96,
+    "bransje_navn": "Bilverksted/automotive"
+  },
+  {
+    "orgnr": "985538220",
+    "navn": "TIDE VERKSTED AS",
+    "ansatte": 77,
+    "kommune": "BERGEN",
+    "hjemmeside": "www.tide.no",
+    "daglig_leder": "Jan-Tore Nilsen",
+    "bransje": "bilverksted",
+    "nace": "95.310",
+    "fit_total": 96,
+    "bransje_navn": "Bilverksted/automotive"
+  },
+  {
+    "orgnr": "982779529",
+    "navn": "AUTO 8-8 ÅLESUND AS",
+    "ansatte": 75,
+    "kommune": "ÅLESUND",
+    "hjemmeside": "www.vestlandske-auto.no",
+    "daglig_leder": "Roar Måseide",
+    "bransje": "bilverksted",
+    "nace": "95.310",
+    "fit_total": 96,
+    "bransje_navn": "Bilverksted/automotive"
+  },
+  {
+    "orgnr": "944638741",
+    "navn": "MELHUS BIL TRONDHEIM AS",
+    "ansatte": 74,
+    "kommune": "TRONDHEIM",
+    "hjemmeside": "www.melhusbil.no",
+    "daglig_leder": "Rune Hagen",
+    "bransje": "bilverksted",
+    "nace": "95.310",
+    "fit_total": 96,
+    "bransje_navn": "Bilverksted/automotive"
+  },
+  {
+    "orgnr": "946171700",
+    "navn": "AUTOIN BILSKADE AS",
+    "ansatte": 70,
+    "kommune": "OSLO",
+    "hjemmeside": "www.autoin.no",
+    "daglig_leder": "Harald Erik Rømcke",
+    "bransje": "bilverksted",
+    "nace": "95.310",
+    "fit_total": 96,
+    "bransje_navn": "Bilverksted/automotive"
+  },
+  {
+    "orgnr": "978684335",
+    "navn": "ÅLGÅRD'S AUTO AS",
+    "ansatte": 64,
+    "kommune": "SANDNES",
+    "hjemmeside": "www.aalgaards-auto.no",
+    "daglig_leder": "Ulf Karlsen",
+    "bransje": "bilverksted",
+    "nace": "95.310",
+    "fit_total": 96,
+    "bransje_navn": "Bilverksted/automotive"
+  },
+  {
+    "orgnr": "970964932",
+    "navn": "VÅLER VEKST AS",
+    "ansatte": 63,
+    "kommune": "VÅLER",
+    "hjemmeside": "valervekst.no",
+    "daglig_leder": "Thor Arnstein Berg",
+    "bransje": "bilverksted",
+    "nace": "95.310",
+    "fit_total": 96,
+    "bransje_navn": "Bilverksted/automotive"
+  },
+  {
+    "orgnr": "911749963",
+    "navn": "ANDRESEN BIL AS",
+    "ansatte": 63,
+    "kommune": "NORDRE FOLLO",
+    "hjemmeside": "andresenbil.no",
+    "daglig_leder": "Rune Johannes Andresen",
+    "bransje": "bilverksted",
+    "nace": "95.310",
+    "fit_total": 96,
+    "bransje_navn": "Bilverksted/automotive"
+  },
+  {
+    "orgnr": "929619803",
+    "navn": "ATLANTIC MOBILITY AS",
+    "ansatte": 62,
+    "kommune": "MOLDE",
+    "hjemmeside": "www.atlanticmobility.no",
+    "daglig_leder": "Marius Heidang-Olsen",
+    "bransje": "bilverksted",
+    "nace": "95.310",
+    "fit_total": 96,
+    "bransje_navn": "Bilverksted/automotive"
+  },
+  {
+    "orgnr": "987739231",
+    "navn": "HØYLANDET AUTO AS",
+    "ansatte": 58,
+    "kommune": "HØYLANDET",
+    "hjemmeside": "www.hoylandet-auto.no",
+    "daglig_leder": "Olav Weglo",
+    "bransje": "bilverksted",
+    "nace": "95.310",
+    "fit_total": 96,
+    "bransje_navn": "Bilverksted/automotive"
+  },
+  {
+    "orgnr": "914060370",
+    "navn": "LYNGDAL KAROSSERI & AUTO AS",
+    "ansatte": 57,
+    "kommune": "LYNGDAL",
+    "hjemmeside": "www.lka.no",
+    "daglig_leder": "Lars Magne Støle",
+    "bransje": "bilverksted",
+    "nace": "95.310",
+    "fit_total": 96,
+    "bransje_navn": "Bilverksted/automotive"
+  },
+  {
+    "orgnr": "967407593",
+    "navn": "LEIRA BIL AS",
+    "ansatte": 52,
+    "kommune": "INDRE FOSEN",
+    "hjemmeside": "leirabil.no",
+    "daglig_leder": "Kristian Solem",
+    "bransje": "bilverksted",
+    "nace": "95.310",
+    "fit_total": 96,
+    "bransje_navn": "Bilverksted/automotive"
+  },
+  {
+    "bransje": "regnskap",
+    "orgnr": "939725709",
+    "navn": "SAGA REGNSKAP OG RÅDGIVNING AS",
+    "ansatte": 77,
+    "kommune": "LARVIK",
+    "kommunenr": "3909",
+    "nace": "69.202",
+    "hjemmeside": "www.sagarr.no",
+    "orgform_kode": "AS",
+    "stiftet": "1986-06-20",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "roller": [
+      {
+        "type": "Daglig leder",
+        "navn": "Steinar Jacobsen"
+      },
+      {
+        "type": "Styrets leder",
+        "navn": "Steinar Jacobsen"
+      },
+      {
+        "type": "Varamedlem",
+        "navn": "Trond Atle Anvik"
+      }
+    ],
+    "har_daglig_leder_navn": true,
+    "fit": {
+      "total": 92,
+      "produktlæring": 25,
+      "kontaktbarhet": 20,
+      "case": 18,
+      "ai": 19,
+      "teknisk": 10
+    },
+    "fit_total": 92
+  },
+  {
+    "bransje": "regnskap",
+    "orgnr": "991606823",
+    "navn": "FRISIKT VEST AS",
+    "ansatte": 75,
+    "kommune": "GJØVIK",
+    "kommunenr": "3407",
+    "nace": "69.202",
+    "hjemmeside": "www.frisikt.no",
+    "orgform_kode": "AS",
+    "stiftet": "2007-07-02",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "roller": [
+      {
+        "type": "Daglig leder",
+        "navn": "Kjell Vegard Opheim"
+      },
+      {
+        "type": "Styrets leder",
+        "navn": "Øystein Snuggerud"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Inger Lise Sivesind"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Christian Børresen"
+      }
+    ],
+    "har_daglig_leder_navn": true,
+    "fit": {
+      "total": 92,
+      "produktlæring": 25,
+      "kontaktbarhet": 20,
+      "case": 18,
+      "ai": 19,
+      "teknisk": 10
+    },
+    "fit_total": 92
+  },
+  {
+    "bransje": "regnskap",
+    "orgnr": "988954691",
+    "navn": "PBL REGNSKAP AS",
+    "ansatte": 90,
+    "kommune": "BODØ",
+    "kommunenr": "1804",
+    "nace": "69.202",
+    "hjemmeside": "www.pbl.no",
+    "orgform_kode": "AS",
+    "stiftet": "2005-11-10",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "roller": [
+      {
+        "type": "Daglig leder",
+        "navn": "Jens Einar Johansen"
+      },
+      {
+        "type": "Styrets leder",
+        "navn": "Jørn-Tommy Schjelderup"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Tone Lyng"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Elisabeth Karlsen"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Bjørn Helge Stien"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Maria Hustad"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Eirik Forsmo"
+      },
+      {
+        "type": "Varamedlem",
+        "navn": "Jan Gunnar Jenssen"
+      }
+    ],
+    "har_daglig_leder_navn": true,
+    "fit": {
+      "total": 89,
+      "produktlæring": 22,
+      "kontaktbarhet": 20,
+      "case": 18,
+      "ai": 19,
+      "teknisk": 10
+    },
+    "fit_total": 89
+  },
+  {
+    "bransje": "elektro",
+    "orgnr": "996446972",
+    "navn": "BOLIGELEKTRIKEREN AS",
+    "ansatte": 100,
+    "kommune": "OSLO",
+    "kommunenr": "0301",
+    "nace": "43.210",
+    "hjemmeside": "www.elektris.no",
+    "orgform_kode": "AS",
+    "stiftet": "2011-01-12",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "roller": [
+      {
+        "type": "Daglig leder",
+        "navn": "Chia Meradi"
+      },
+      {
+        "type": "Styrets leder",
+        "navn": "Joakim Høydal"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Samba Ndiaye"
+      }
+    ],
+    "har_daglig_leder_navn": true,
+    "fit": {
+      "total": 88,
+      "produktlæring": 24,
+      "kontaktbarhet": 20,
+      "case": 17,
+      "ai": 17,
+      "teknisk": 10
+    },
+    "fit_total": 88
+  },
+  {
+    "bransje": "elektro",
+    "orgnr": "916519338",
+    "navn": "ENERGIPARTNER AS",
+    "ansatte": 98,
+    "kommune": "TRONDHEIM",
+    "kommunenr": "5001",
+    "nace": "43.210",
+    "hjemmeside": "energipartner.no",
+    "orgform_kode": "AS",
+    "stiftet": "2015-12-17",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "roller": [
+      {
+        "type": "Daglig leder",
+        "navn": "Thale Susanne Solberg"
+      },
+      {
+        "type": "Styrets leder",
+        "navn": "Alf Egil Husby"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Helga Loholt-Wiig"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Maria Johansen"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Rune Otterstad"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Fartein Kjørsvik"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Marit Kjellmark"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Arne Eilert Fjeldseth"
+      }
+    ],
+    "har_daglig_leder_navn": true,
+    "fit": {
+      "total": 88,
+      "produktlæring": 24,
+      "kontaktbarhet": 20,
+      "case": 17,
+      "ai": 17,
+      "teknisk": 10
+    },
+    "fit_total": 88
+  },
+  {
+    "bransje": "elektro",
+    "orgnr": "983389317",
+    "navn": "EL-TEAM AS",
+    "ansatte": 96,
+    "kommune": "SORTLAND",
+    "kommunenr": "1870",
+    "nace": "43.210",
+    "hjemmeside": "www.elteam.no",
+    "orgform_kode": "AS",
+    "stiftet": "2001-05-09",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "roller": [
+      {
+        "type": "Daglig leder",
+        "navn": "Mads Håkon Røkenes"
+      },
+      {
+        "type": "Styrets leder",
+        "navn": "Olaf Erling Prestløkken"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Mads Håkon Røkenes"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Ken Terje Øie"
+      }
+    ],
+    "har_daglig_leder_navn": true,
+    "fit": {
+      "total": 88,
+      "produktlæring": 24,
+      "kontaktbarhet": 20,
+      "case": 17,
+      "ai": 17,
+      "teknisk": 10
+    },
+    "fit_total": 88
+  },
+  {
+    "bransje": "rørlegger",
+    "orgnr": "812481312",
+    "navn": "VEAS RØR AS",
+    "ansatte": 95,
+    "kommune": "DRAMMEN",
+    "kommunenr": "3301",
+    "nace": "43.221",
+    "hjemmeside": "www.veasror.no",
+    "orgform_kode": "AS",
+    "stiftet": "2013-08-22",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "roller": [
+      {
+        "type": "Daglig leder",
+        "navn": "Joakim Johannessen"
+      },
+      {
+        "type": "Styrets leder",
+        "navn": "Anders Ettre"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Joakim Johannessen"
+      }
+    ],
+    "har_daglig_leder_navn": true,
+    "fit": {
+      "total": 88,
+      "produktlæring": 24,
+      "kontaktbarhet": 20,
+      "case": 17,
+      "ai": 17,
+      "teknisk": 10
+    },
+    "fit_total": 88
+  },
+  {
+    "bransje": "elektro",
+    "orgnr": "929512952",
+    "navn": "EDA ELEKTRO DATA OSLO AS",
+    "ansatte": 91,
+    "kommune": "OSLO",
+    "kommunenr": "0301",
+    "nace": "43.210",
+    "hjemmeside": "www.eda.no",
+    "orgform_kode": "AS",
+    "stiftet": "1981-02-18",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "roller": [
+      {
+        "type": "Daglig leder",
+        "navn": "Henrik Hjelm"
+      },
+      {
+        "type": "Styrets leder",
+        "navn": "Marit Ringstad"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Kjetil Pedersen"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Helge Løkken"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Jan Erik Skogstad"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Frank Taaje"
+      },
+      {
+        "type": "Varamedlem",
+        "navn": "Simen Johansen"
+      }
+    ],
+    "har_daglig_leder_navn": true,
+    "fit": {
+      "total": 88,
+      "produktlæring": 24,
+      "kontaktbarhet": 20,
+      "case": 17,
+      "ai": 17,
+      "teknisk": 10
+    },
+    "fit_total": 88
+  },
+  {
+    "bransje": "elektro",
+    "orgnr": "994639919",
+    "navn": "BRATSETH ENERGY AS",
+    "ansatte": 90,
+    "kommune": "SANDEFJORD",
+    "kommunenr": "3907",
+    "nace": "43.210",
+    "hjemmeside": "www.bratseth.as",
+    "orgform_kode": "AS",
+    "stiftet": "2009-10-09",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "roller": [
+      {
+        "type": "Daglig leder",
+        "navn": "Vidar Grini"
+      },
+      {
+        "type": "Styrets leder",
+        "navn": "Rune Midthaug"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Ole Erik Midthaug"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Anita Midthaug"
+      }
+    ],
+    "har_daglig_leder_navn": true,
+    "fit": {
+      "total": 88,
+      "produktlæring": 24,
+      "kontaktbarhet": 20,
+      "case": 17,
+      "ai": 17,
+      "teknisk": 10
+    },
+    "fit_total": 88
+  },
+  {
+    "bransje": "elektro",
+    "orgnr": "879899222",
+    "navn": "ELEKTRIKER GRUPPEN AS",
+    "ansatte": 89,
+    "kommune": "OSLO",
+    "kommunenr": "0301",
+    "nace": "43.210",
+    "hjemmeside": "www.elektrikergruppen.no",
+    "orgform_kode": "AS",
+    "stiftet": "1998-05-02",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "roller": [
+      {
+        "type": "Daglig leder",
+        "navn": "Anders Eriksen"
+      },
+      {
+        "type": "Styrets leder",
+        "navn": "Anders Eriksen"
+      }
+    ],
+    "har_daglig_leder_navn": true,
+    "fit": {
+      "total": 88,
+      "produktlæring": 24,
+      "kontaktbarhet": 20,
+      "case": 17,
+      "ai": 17,
+      "teknisk": 10
+    },
+    "fit_total": 88
+  },
+  {
+    "bransje": "rørlegger",
+    "orgnr": "922531897",
+    "navn": "VVS KONTAKTEN AS",
+    "ansatte": 89,
+    "kommune": "OSLO",
+    "kommunenr": "0301",
+    "nace": "43.221",
+    "hjemmeside": "www.vvskontakten.no",
+    "orgform_kode": "AS",
+    "stiftet": "2019-03-05",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "roller": [
+      {
+        "type": "Daglig leder",
+        "navn": "Niklas Persson"
+      },
+      {
+        "type": "Styrets leder",
+        "navn": "Lars Riise"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Niklas Persson"
+      }
+    ],
+    "har_daglig_leder_navn": true,
+    "fit": {
+      "total": 88,
+      "produktlæring": 24,
+      "kontaktbarhet": 20,
+      "case": 17,
+      "ai": 17,
+      "teknisk": 10
+    },
+    "fit_total": 88
+  },
+  {
+    "bransje": "rørlegger",
+    "orgnr": "951838756",
+    "navn": "MIDBØE AS",
+    "ansatte": 87,
+    "kommune": "STAVANGER",
+    "kommunenr": "1103",
+    "nace": "43.221",
+    "hjemmeside": "www.midboe.no",
+    "orgform_kode": "AS",
+    "stiftet": "1989-04-12",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "roller": [
+      {
+        "type": "Daglig leder",
+        "navn": "Rolf Arne Lorentzen"
+      },
+      {
+        "type": "Styrets leder",
+        "navn": "Iselin Nybø"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Finn Christian Midbøe"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Christine Midbøe"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Kjetil Fjeld"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Runar Ullenes"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Frøy Helle"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Tom Ove Lunde"
+      },
+      {
+        "type": "Varamedlem",
+        "navn": "Svein Midbøe"
+      },
+      {
+        "type": "Varamedlem",
+        "navn": "Espen Stokkeland"
+      },
+      {
+        "type": "Varamedlem",
+        "navn": "Jon Kristian Sande"
+      }
+    ],
+    "har_daglig_leder_navn": true,
+    "fit": {
+      "total": 88,
+      "produktlæring": 24,
+      "kontaktbarhet": 20,
+      "case": 17,
+      "ai": 17,
+      "teknisk": 10
+    },
+    "fit_total": 88
+  },
+  {
+    "bransje": "rørlegger",
+    "orgnr": "980334511",
+    "navn": "BRATTÅS AS",
+    "ansatte": 86,
+    "kommune": "OSLO",
+    "kommunenr": "0301",
+    "nace": "43.221",
+    "hjemmeside": "www.brattaas.no",
+    "orgform_kode": "AS",
+    "stiftet": "1998-11-25",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "roller": [
+      {
+        "type": "Daglig leder",
+        "navn": "Ketil Cato Brattås"
+      },
+      {
+        "type": "Styrets leder",
+        "navn": "Ketil Cato Brattås"
+      },
+      {
+        "type": "Varamedlem",
+        "navn": "May Torunn Brattås"
+      }
+    ],
+    "har_daglig_leder_navn": true,
+    "fit": {
+      "total": 88,
+      "produktlæring": 24,
+      "kontaktbarhet": 20,
+      "case": 17,
+      "ai": 17,
+      "teknisk": 10
+    },
+    "fit_total": 88
+  },
+  {
+    "bransje": "rørlegger",
+    "orgnr": "912069370",
+    "navn": "CHRISTIANIA RØRLEGGERBEDRIFT AS",
+    "ansatte": 85,
+    "kommune": "OSLO",
+    "kommunenr": "0301",
+    "nace": "43.221",
+    "hjemmeside": "www.crb.no",
+    "orgform_kode": "AS",
+    "stiftet": "2013-04-22",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "roller": [
+      {
+        "type": "Daglig leder",
+        "navn": "Rune Johannesen"
+      },
+      {
+        "type": "Styrets leder",
+        "navn": "Kjetil Bjerkland"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Lars Marienborg"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Hanne Løvlien"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Mia Beathe Ringkilen"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Gunnar Christian Jensen"
+      }
+    ],
+    "har_daglig_leder_navn": true,
+    "fit": {
+      "total": 88,
+      "produktlæring": 24,
+      "kontaktbarhet": 20,
+      "case": 17,
+      "ai": 17,
+      "teknisk": 10
+    },
+    "fit_total": 88
+  },
+  {
+    "bransje": "rørlegger",
+    "orgnr": "830154582",
+    "navn": "TEKNISKBUREAU AS",
+    "ansatte": 85,
+    "kommune": "SOLA",
+    "kommunenr": "1124",
+    "nace": "43.210",
+    "hjemmeside": "www.tekb.no",
+    "orgform_kode": "AS",
+    "stiftet": "2022-10-01",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "roller": [
+      {
+        "type": "Daglig leder",
+        "navn": "Jone Vold"
+      },
+      {
+        "type": "Styrets leder",
+        "navn": "Terje Myhre"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Inger Lise Skarpenes"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Anders Myklebust"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Marcus Virik"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Wenche Johnsen"
+      },
+      {
+        "type": "Varamedlem",
+        "navn": "Frode Andresen"
+      },
+      {
+        "type": "Varamedlem",
+        "navn": "Espen Nødland"
+      },
+      {
+        "type": "Varamedlem",
+        "navn": "Trym Bakken"
+      }
+    ],
+    "har_daglig_leder_navn": true,
+    "fit": {
+      "total": 88,
+      "produktlæring": 24,
+      "kontaktbarhet": 20,
+      "case": 17,
+      "ai": 17,
+      "teknisk": 10
+    },
+    "fit_total": 88
+  },
+  {
+    "bransje": "bilverksted",
+    "orgnr": "845933162",
+    "navn": "SVEN KVIA AS",
+    "ansatte": 91,
+    "kommune": "SOLA",
+    "kommunenr": "1124",
+    "nace": "95.310",
+    "hjemmeside": "www.kvia.no",
+    "orgform_kode": "AS",
+    "stiftet": "1987-09-01",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "roller": [
+      {
+        "type": "Styrets leder",
+        "navn": "Ådne Egil Berge"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Roald Almås"
+      },
+      {
+        "type": "Varamedlem",
+        "navn": "Gudmund Jonny Knutsen"
+      }
+    ],
+    "har_daglig_leder_navn": false,
+    "fit": {
+      "total": 85,
+      "produktlæring": 25,
+      "kontaktbarhet": 12,
+      "case": 20,
+      "ai": 18,
+      "teknisk": 10
+    },
+    "fit_total": 85
+  },
+  {
+    "bransje": "ventilasjon",
+    "orgnr": "988222704",
+    "navn": "AGDER VENTILASJON AS",
+    "ansatte": 98,
+    "kommune": "KRISTIANSAND",
+    "kommunenr": "4204",
+    "nace": "43.223",
+    "hjemmeside": "www.agdervent.no",
+    "orgform_kode": "AS",
+    "stiftet": "2005-04-30",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "roller": [
+      {
+        "type": "Daglig leder",
+        "navn": "Eirik Skaara"
+      },
+      {
+        "type": "Styrets leder",
+        "navn": "Kåre Ravndal"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Espen Ose"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Geir Aamodt"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Eli Norheim"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Unni Mesel"
+      }
+    ],
+    "har_daglig_leder_navn": true,
+    "fit": {
+      "total": 85,
+      "produktlæring": 23,
+      "kontaktbarhet": 20,
+      "case": 16,
+      "ai": 16,
+      "teknisk": 10
+    },
+    "fit_total": 85
+  },
+  {
+    "bransje": "ventilasjon",
+    "orgnr": "984070640",
+    "navn": "NORDVEST MILJØ AS",
+    "ansatte": 85,
+    "kommune": "ÅLESUND",
+    "kommunenr": "1508",
+    "nace": "43.223",
+    "hjemmeside": "www.nvm.no",
+    "orgform_kode": "AS",
+    "stiftet": "2002-01-02",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "roller": [
+      {
+        "type": "Daglig leder",
+        "navn": "Ole Jonny Rogne"
+      },
+      {
+        "type": "Styrets leder",
+        "navn": "Tarjei Rødset"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Ole Jonny Rogne"
+      }
+    ],
+    "har_daglig_leder_navn": true,
+    "fit": {
+      "total": 85,
+      "produktlæring": 23,
+      "kontaktbarhet": 20,
+      "case": 16,
+      "ai": 16,
+      "teknisk": 10
+    },
+    "fit_total": 85
+  },
+  {
+    "bransje": "glass",
+    "orgnr": "834356252",
+    "navn": "DRAG INDUSTRIER AS",
+    "ansatte": 11,
+    "kommune": "BODØ",
+    "kommunenr": "1804",
+    "nace": "23.120",
+    "hjemmeside": "www.drag.no",
+    "orgform_kode": "AS",
+    "stiftet": "1983-12-06",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "fit": {
+      "total": 84,
+      "produktlæring": 28,
+      "kontaktbarhet": 12,
+      "case": 19,
+      "ai": 15,
+      "teknisk": 10
+    },
+    "fit_total": 84
+  },
+  {
+    "bransje": "regnskap",
+    "orgnr": "912976904",
+    "navn": "AMESTO ACCOUNTHOUSE SØR AS",
+    "ansatte": 61,
+    "kommune": "DRAMMEN",
+    "kommunenr": "3301",
+    "nace": "69.202",
+    "hjemmeside": "www.amestoaccounthouse.no/regnskapsforer/sor",
+    "orgform_kode": "AS",
+    "stiftet": "2013-12-03",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "fit": {
+      "total": 84,
+      "produktlæring": 25,
+      "kontaktbarhet": 12,
+      "case": 18,
+      "ai": 19,
+      "teknisk": 10
+    },
+    "fit_total": 84
+  },
+  {
+    "bransje": "regnskap",
+    "orgnr": "981585429",
+    "navn": "KJELDSBERG EIENDOMSFORVALTNING AS",
+    "ansatte": 59,
+    "kommune": "TRONDHEIM",
+    "kommunenr": "5001",
+    "nace": "68.320",
+    "hjemmeside": "www.kjeldsberg-ef.no",
+    "orgform_kode": "AS",
+    "stiftet": "1999-12-13",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "fit": {
+      "total": 84,
+      "produktlæring": 25,
+      "kontaktbarhet": 12,
+      "case": 18,
+      "ai": 19,
+      "teknisk": 10
+    },
+    "fit_total": 84
+  },
+  {
+    "bransje": "regnskap",
+    "orgnr": "889380802",
+    "navn": "PROGRESSUM AS",
+    "ansatte": 59,
+    "kommune": "LØRENSKOG",
+    "kommunenr": "3222",
+    "nace": "69.202",
+    "hjemmeside": "www.progressum.no",
+    "orgform_kode": "AS",
+    "stiftet": "2005-12-27",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "fit": {
+      "total": 84,
+      "produktlæring": 25,
+      "kontaktbarhet": 12,
+      "case": 18,
+      "ai": 19,
+      "teknisk": 10
+    },
+    "fit_total": 84
+  },
+  {
+    "bransje": "regnskap",
+    "orgnr": "984734387",
+    "navn": "FRISIKT ØST AS",
+    "ansatte": 59,
+    "kommune": "RINGSAKER",
+    "kommunenr": "3411",
+    "nace": "69.202",
+    "hjemmeside": "www.okonomi.as",
+    "orgform_kode": "AS",
+    "stiftet": "2002-08-01",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "fit": {
+      "total": 84,
+      "produktlæring": 25,
+      "kontaktbarhet": 12,
+      "case": 18,
+      "ai": 19,
+      "teknisk": 10
+    },
+    "fit_total": 84
+  },
+  {
+    "bransje": "regnskap",
+    "orgnr": "967830038",
+    "navn": "SOLIDITET AS",
+    "ansatte": 54,
+    "kommune": "OSLO",
+    "kommunenr": "0301",
+    "nace": "69.202",
+    "hjemmeside": "www.soliditet.as",
+    "orgform_kode": "AS",
+    "stiftet": "1993-08-20",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "fit": {
+      "total": 84,
+      "produktlæring": 25,
+      "kontaktbarhet": 12,
+      "case": 18,
+      "ai": 19,
+      "teknisk": 10
+    },
+    "fit_total": 84
+  },
+  {
+    "bransje": "regnskap",
+    "orgnr": "989987429",
+    "navn": "TMF NORWAY AS",
+    "ansatte": 52,
+    "kommune": "ASKER",
+    "kommunenr": "3203",
+    "nace": "69.202",
+    "hjemmeside": "www.tmf-group.com",
+    "orgform_kode": "AS",
+    "stiftet": "2006-04-10",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "fit": {
+      "total": 84,
+      "produktlæring": 25,
+      "kontaktbarhet": 12,
+      "case": 18,
+      "ai": 19,
+      "teknisk": 10
+    },
+    "fit_total": 84
+  },
+  {
+    "bransje": "glass",
+    "orgnr": "967067105",
+    "navn": "GLASSFABRIKKEN AS",
+    "ansatte": 58,
+    "kommune": "LARVIK",
+    "kommunenr": "3909",
+    "nace": "23.120",
+    "hjemmeside": "www.glassfabrikken.no",
+    "orgform_kode": "AS",
+    "stiftet": "1993-07-20",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "fit": {
+      "total": 82,
+      "produktlæring": 26,
+      "kontaktbarhet": 12,
+      "case": 19,
+      "ai": 15,
+      "teknisk": 10
+    },
+    "fit_total": 82
+  },
+  {
+    "bransje": "ventilasjon",
+    "orgnr": "999317391",
+    "navn": "SOLHEIM OG LARSEN KLIMA AS",
+    "ansatte": 49,
+    "kommune": "NORDRE FOLLO",
+    "kommunenr": "3207",
+    "nace": "43.223",
+    "hjemmeside": "www.slk.no",
+    "orgform_kode": "AS",
+    "stiftet": "2012-12-13",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "fit": {
+      "total": 82,
+      "produktlæring": 28,
+      "kontaktbarhet": 12,
+      "case": 16,
+      "ai": 16,
+      "teknisk": 10
+    },
+    "fit_total": 82
+  },
+  {
+    "bransje": "ventilasjon",
+    "orgnr": "912695573",
+    "navn": "SPRINKLER NORGE AS",
+    "ansatte": 45,
+    "kommune": "KRISTIANSAND",
+    "kommunenr": "4204",
+    "nace": "43.223",
+    "hjemmeside": "www.sprinklernorge.no",
+    "orgform_kode": "AS",
+    "stiftet": "2013-10-31",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "fit": {
+      "total": 82,
+      "produktlæring": 28,
+      "kontaktbarhet": 12,
+      "case": 16,
+      "ai": 16,
+      "teknisk": 10
+    },
+    "fit_total": 82
+  },
+  {
+    "bransje": "eiendomsforvaltning",
+    "orgnr": "979171943",
+    "navn": "SCALA DRIFT AS",
+    "ansatte": 92,
+    "kommune": "OSLO",
+    "kommunenr": "0301",
+    "nace": "68.320",
+    "hjemmeside": "www.scalaeiendom.no",
+    "orgform_kode": "AS",
+    "stiftet": "1997-07-30",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "roller": [
+      {
+        "type": "Daglig leder",
+        "navn": "Stian Tørres"
+      },
+      {
+        "type": "Styrets leder",
+        "navn": "Hans Jørgen Mørland"
+      },
+      {
+        "type": "Styremedlem",
+        "navn": "Sigmund Sletvold"
+      }
+    ],
+    "har_daglig_leder_navn": true,
+    "fit": {
+      "total": 82,
+      "produktlæring": 21,
+      "kontaktbarhet": 20,
+      "case": 15,
+      "ai": 16,
+      "teknisk": 10
+    },
+    "fit_total": 82
+  },
+  {
+    "bransje": "eiendomsforvaltning",
+    "orgnr": "988963828",
+    "navn": "UTLEIEMEGLEREN FORVALTNING AS",
+    "ansatte": 46,
+    "kommune": "OSLO",
+    "kommunenr": "0301",
+    "nace": "68.320",
+    "hjemmeside": "www.utleiemegleren.no",
+    "orgform_kode": "AS",
+    "stiftet": "2005-11-15",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "fit": {
+      "total": 79,
+      "produktlæring": 26,
+      "kontaktbarhet": 12,
+      "case": 15,
+      "ai": 16,
+      "teknisk": 10
+    },
+    "fit_total": 79
+  },
+  {
+    "bransje": "eiendomsforvaltning",
+    "orgnr": "926367366",
+    "navn": "WPG AS",
+    "ansatte": 74,
+    "kommune": "OSLO",
+    "kommunenr": "0301",
+    "nace": "68.320",
+    "hjemmeside": "www.wpg.no",
+    "orgform_kode": "AS",
+    "stiftet": "2020-12-28",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "fit": {
+      "total": 77,
+      "produktlæring": 24,
+      "kontaktbarhet": 12,
+      "case": 15,
+      "ai": 16,
+      "teknisk": 10
+    },
+    "fit_total": 77
+  },
+  {
+    "bransje": "eiendomsforvaltning",
+    "orgnr": "920800572",
+    "navn": "SOLIBO AS",
+    "ansatte": 54,
+    "kommune": "OSLO",
+    "kommunenr": "0301",
+    "nace": "68.320",
+    "hjemmeside": "www.solibo.no",
+    "orgform_kode": "AS",
+    "stiftet": "2018-04-18",
+    "mva": true,
+    "konkurs": false,
+    "avvikling": null,
+    "fit": {
+      "total": 77,
+      "produktlæring": 24,
+      "kontaktbarhet": 12,
+      "case": 15,
+      "ai": 16,
+      "teknisk": 10
+    },
+    "fit_total": 77
+  },
+  {
+    "orgnr": "984699980",
+    "navn": "KIONA AS",
+    "ansatte": 92,
+    "kommune": "TRONDHEIM",
+    "hjemmeside": null,
+    "daglig_leder": "Trond-Øystein Bjørnnes",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "984596820",
+    "navn": "DEVINCO AS",
+    "ansatte": 72,
+    "kommune": "TRONDHEIM",
+    "hjemmeside": null,
+    "daglig_leder": "Ruben Edna",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "983953271",
+    "navn": "GINTEL AS",
+    "ansatte": 58,
+    "kommune": "TRONDHEIM",
+    "hjemmeside": null,
+    "daglig_leder": "Frode Magnar Thulien",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "817472842",
+    "navn": "JAKOB HATTELAND COMPUTER AS",
+    "ansatte": 100,
+    "kommune": "VINDAFJORD",
+    "hjemmeside": null,
+    "daglig_leder": "Erik Andreas Hellström",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "917616159",
+    "navn": "AUTODESK NORWAY OPERATIONS AS",
+    "ansatte": 100,
+    "kommune": "OSLO",
+    "hjemmeside": null,
+    "daglig_leder": "Arif Mirza",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "993098736",
+    "navn": "ABAX AS",
+    "ansatte": 100,
+    "kommune": "LARVIK",
+    "hjemmeside": "www.abax.no",
+    "daglig_leder": "Emma Sofia Dyga",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "980500101",
+    "navn": "SAP NORGE AS",
+    "ansatte": 100,
+    "kommune": "OSLO",
+    "hjemmeside": "www.sap.com/norway",
+    "daglig_leder": "Helle Dochedahl",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "930798290",
+    "navn": "TRATEC NORCON AS",
+    "ansatte": 99,
+    "kommune": "VENNESLA",
+    "hjemmeside": "www.tratecnorcon.no",
+    "daglig_leder": "Nils Kjetil Sande",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "957597076",
+    "navn": "MOVE AS",
+    "ansatte": 98,
+    "kommune": "OSLO",
+    "hjemmeside": "www.move.no",
+    "daglig_leder": "Roald Sannæs",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "932971917",
+    "navn": "DUETT AS",
+    "ansatte": 98,
+    "kommune": "OSLO",
+    "hjemmeside": "www.duett.no",
+    "daglig_leder": "Erik Carson Harrell",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "871579792",
+    "navn": "BANQSOFT AS",
+    "ansatte": 97,
+    "kommune": "OSLO",
+    "hjemmeside": "www.banqsoft.no",
+    "daglig_leder": "Terje Kjøs",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "987290986",
+    "navn": "XLEDGER AS",
+    "ansatte": 97,
+    "kommune": "OSLO",
+    "hjemmeside": "www.xledger.no",
+    "daglig_leder": "Ove Jørgen Carlsen",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "976886240",
+    "navn": "FORSTA AS",
+    "ansatte": 97,
+    "kommune": "OSLO",
+    "hjemmeside": "www.confirmit.no",
+    "daglig_leder": "Kyle Ferguson",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "917362394",
+    "navn": "BOOST AI AS",
+    "ansatte": 95,
+    "kommune": "SANDNES",
+    "hjemmeside": "boost.ai",
+    "daglig_leder": "Jerry Haywood",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "925880140",
+    "navn": "DEFENDABLE AS",
+    "ansatte": 95,
+    "kommune": "OSLO",
+    "hjemmeside": null,
+    "daglig_leder": "Trond Solberg",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "913187512",
+    "navn": "FRAMSIKT AS",
+    "ansatte": 94,
+    "kommune": "BØ",
+    "hjemmeside": "www.framsikt.no",
+    "daglig_leder": "Anders Johnsen",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "990796378",
+    "navn": "ZALARIS HR SERVICES NORWAY AS",
+    "ansatte": 94,
+    "kommune": "LØDINGEN",
+    "hjemmeside": "www.zalaris.com",
+    "daglig_leder": "Hans Petter Mellerud",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "995215160",
+    "navn": "GRØNN JOBB AS",
+    "ansatte": 94,
+    "kommune": "FREDRIKSTAD",
+    "hjemmeside": "www.gronnjobb.no",
+    "daglig_leder": "Terje Kjenstad",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "971106514",
+    "navn": "LANDMARK GRAPHICS AS",
+    "ansatte": 93,
+    "kommune": "SOLA",
+    "hjemmeside": null,
+    "daglig_leder": "Rune Hobberstad",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "997929217",
+    "navn": "MARITECH AS",
+    "ansatte": 92,
+    "kommune": "MOLDE",
+    "hjemmeside": "www.maritech.no",
+    "daglig_leder": "Thomas Brevik",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "987100648",
+    "navn": "UNIFON AS",
+    "ansatte": 92,
+    "kommune": "KRISTIANSAND",
+    "hjemmeside": "www.unifon.no",
+    "daglig_leder": "Thore Berthelsen",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "925095435",
+    "navn": "MUNU AS",
+    "ansatte": 92,
+    "kommune": "STAVANGER",
+    "hjemmeside": null,
+    "daglig_leder": "David Gregory Ingram",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "963310439",
+    "navn": "DNV IMATIS AS",
+    "ansatte": 92,
+    "kommune": "PORSGRUNN",
+    "hjemmeside": "www.dnvimatis.com",
+    "daglig_leder": "Bjørn Erik Martinsen",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "987992883",
+    "navn": "ADMINCONTROL AS",
+    "ansatte": 92,
+    "kommune": "OSLO",
+    "hjemmeside": null,
+    "daglig_leder": "Møyfrid Øygard",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "988097039",
+    "navn": "CAPRA CONSULTING AS",
+    "ansatte": 91,
+    "kommune": "OSLO",
+    "hjemmeside": "www.capraconsulting.no",
+    "daglig_leder": "Ørjan Thygesen",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "915713769",
+    "navn": "ZIVID AS",
+    "ansatte": 91,
+    "kommune": "OSLO",
+    "hjemmeside": "www.zivid.com",
+    "daglig_leder": "Thomas Bonnerud",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "995215748",
+    "navn": "EPINOVA AS",
+    "ansatte": 90,
+    "kommune": "OSLO",
+    "hjemmeside": null,
+    "daglig_leder": "Inge Emil Halvorsen",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "932975424",
+    "navn": "TELENOR CYBERDEFENCE AS",
+    "ansatte": 89,
+    "kommune": "BÆRUM",
+    "hjemmeside": "www.telenorcyberdefence.com",
+    "daglig_leder": "Thomas Kronen",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "979729022",
+    "navn": "GENUS AS",
+    "ansatte": 89,
+    "kommune": "BÆRUM",
+    "hjemmeside": "genus.co",
+    "daglig_leder": "Erik Hannisdal",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "821045312",
+    "navn": "NEATFRAME AS",
+    "ansatte": 89,
+    "kommune": "BÆRUM",
+    "hjemmeside": null,
+    "daglig_leder": null,
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "984842252",
+    "navn": "AMILI COLLECTION AS",
+    "ansatte": 87,
+    "kommune": "OSLO",
+    "hjemmeside": null,
+    "daglig_leder": "Lene Myklebust",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "964825726",
+    "navn": "HANSEN TECHNOLOGIES NORWAY AS",
+    "ansatte": 86,
+    "kommune": "OSLO",
+    "hjemmeside": "www.hansencx.com",
+    "daglig_leder": "Ville Samuli Kemppinen",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "968788434",
+    "navn": "TRADESOLUTION AS",
+    "ansatte": 86,
+    "kommune": "OSLO",
+    "hjemmeside": "www.tradesolution.no",
+    "daglig_leder": "Sigmund Jensen",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "816269792",
+    "navn": "BULK DATA CENTERS AS",
+    "ansatte": 86,
+    "kommune": "OSLO",
+    "hjemmeside": "www.bulk.no",
+    "daglig_leder": null,
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "981125592",
+    "navn": "CRAYON GROUP AS",
+    "ansatte": 85,
+    "kommune": "OSLO",
+    "hjemmeside": "www.crayon.com",
+    "daglig_leder": "Bente Liberg",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "913312465",
+    "navn": "FIKEN AS",
+    "ansatte": 84,
+    "kommune": "OSLO",
+    "hjemmeside": "www.fiken.no",
+    "daglig_leder": "Bendik Bakken",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "915925529",
+    "navn": "ELHUB AS",
+    "ansatte": 83,
+    "kommune": "OSLO",
+    "hjemmeside": null,
+    "daglig_leder": "Sigbjørn Høgne",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "916368127",
+    "navn": "OPERA NORWAY AS",
+    "ansatte": 82,
+    "kommune": "OSLO",
+    "hjemmeside": null,
+    "daglig_leder": null,
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "922084831",
+    "navn": "ALWAYS CONNECTING AS",
+    "ansatte": 82,
+    "kommune": "OSLO",
+    "hjemmeside": "alwaysconnecting.no",
+    "daglig_leder": "Arbab Muhammad Chaudhry",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "868857072",
+    "navn": "MALTHE WINJE AUTOMASJON AS",
+    "ansatte": 82,
+    "kommune": "NORDRE FOLLO",
+    "hjemmeside": "www.mwg.no",
+    "daglig_leder": "Terje Bratlie",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "977189888",
+    "navn": "TECHSTEP NORWAY AS",
+    "ansatte": 81,
+    "kommune": "OSLO",
+    "hjemmeside": "www.techstep.no",
+    "daglig_leder": "Morten Meier",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "956753104",
+    "navn": "SUPEROFFICE AS",
+    "ansatte": 79,
+    "kommune": "OSLO",
+    "hjemmeside": null,
+    "daglig_leder": "Bjørn Røsten",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "939319891",
+    "navn": "ORACLE NORGE AS",
+    "ansatte": 78,
+    "kommune": "BÆRUM",
+    "hjemmeside": "www.oracle.com",
+    "daglig_leder": "Tore Bjelland",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "982831962",
+    "navn": "GIANT LEAP TECHNOLOGIES AS",
+    "ansatte": 75,
+    "kommune": "OSLO",
+    "hjemmeside": "www.giantleap.no",
+    "daglig_leder": "Therese Sletten",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "961073995",
+    "navn": "IFS NORGE AS",
+    "ansatte": 75,
+    "kommune": "ASKER",
+    "hjemmeside": null,
+    "daglig_leder": "Per Arne Flatebø",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "927150182",
+    "navn": "SMARTCRAFT NORWAY AS",
+    "ansatte": 74,
+    "kommune": "RINGERIKE",
+    "hjemmeside": "Www.smartcraft.com/no",
+    "daglig_leder": "Line Dalen",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "980557707",
+    "navn": "BBL DATAKOMPETANSE AS",
+    "ansatte": 74,
+    "kommune": "OSLO",
+    "hjemmeside": "datakompetanse.bbl.no",
+    "daglig_leder": "Trond Ove Breivik",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "984587406",
+    "navn": "CORETREK AS",
+    "ansatte": 72,
+    "kommune": "SANDEFJORD",
+    "hjemmeside": "www.coretrek.no",
+    "daglig_leder": "Kristian Susnic",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "915343716",
+    "navn": "BROKER AS",
+    "ansatte": 71,
+    "kommune": "OSLO",
+    "hjemmeside": null,
+    "daglig_leder": "Hans Erik Eriksen",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "997104854",
+    "navn": "NETTBUREAU AS",
+    "ansatte": 71,
+    "kommune": "OSLO",
+    "hjemmeside": "nettbureau.com",
+    "daglig_leder": null,
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "994989391",
+    "navn": "GREEN MOUNTAIN AS",
+    "ansatte": 66,
+    "kommune": "STAVANGER",
+    "hjemmeside": "greenmountain.no",
+    "daglig_leder": "Truls Dishington",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "922973318",
+    "navn": "ARITMA AS",
+    "ansatte": 66,
+    "kommune": "BERGEN",
+    "hjemmeside": null,
+    "daglig_leder": "Thor Kristian Seth",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "990637423",
+    "navn": "HOUSE OF CONTROL AS",
+    "ansatte": 65,
+    "kommune": "OSLO",
+    "hjemmeside": "www.houseofcontrol.no",
+    "daglig_leder": "Julie Katrine Grønlund",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "982263700",
+    "navn": "ECOONLINE AS",
+    "ansatte": 64,
+    "kommune": "OSLO",
+    "hjemmeside": "www.ecoonline.com",
+    "daglig_leder": null,
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "981970160",
+    "navn": "CORPORATER AS",
+    "ansatte": 63,
+    "kommune": "STAVANGER",
+    "hjemmeside": "www.corporater.com",
+    "daglig_leder": "Tor Inge Vasshus",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "998138833",
+    "navn": "OMDA AS",
+    "ansatte": 62,
+    "kommune": "OSLO",
+    "hjemmeside": null,
+    "daglig_leder": "Sverre Flatby",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "916531710",
+    "navn": "HEIMDALL POWER AS",
+    "ansatte": 60,
+    "kommune": "OSLO",
+    "hjemmeside": null,
+    "daglig_leder": "Jørgen Festervoll",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "978715753",
+    "navn": "FOTOWARE AS",
+    "ansatte": 60,
+    "kommune": "OSLO",
+    "hjemmeside": "www.fotoware.com",
+    "daglig_leder": "Anne Catherine Gretland",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "881420902",
+    "navn": "TRIMBLE NORWAY AS",
+    "ansatte": 59,
+    "kommune": "BÆRUM",
+    "hjemmeside": null,
+    "daglig_leder": null,
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "980682765",
+    "navn": "ITSLEARNING AS",
+    "ansatte": 59,
+    "kommune": "BERGEN",
+    "hjemmeside": "www.itslearning.no",
+    "daglig_leder": "Kirsi Kristiina Harra-Vauhkonen",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "992603615",
+    "navn": "JOTTA GROUP AS",
+    "ansatte": 58,
+    "kommune": "OSLO",
+    "hjemmeside": "www.jotta.no",
+    "daglig_leder": "Ina Seim",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "979793049",
+    "navn": "ITEAM 10 AS",
+    "ansatte": 57,
+    "kommune": "SUNNFJORD",
+    "hjemmeside": null,
+    "daglig_leder": "Eirik Berg",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "983163327",
+    "navn": "BUYPASS AS",
+    "ansatte": 57,
+    "kommune": "OSLO",
+    "hjemmeside": "www.buypass.no",
+    "daglig_leder": "Eigil Tapio Skorve",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "827385972",
+    "navn": "STACC FLOW AS",
+    "ansatte": 57,
+    "kommune": "BERGEN",
+    "hjemmeside": null,
+    "daglig_leder": "Christian Aanstad",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "911599252",
+    "navn": "LEFDAL MINE DATACENTER AS",
+    "ansatte": 55,
+    "kommune": "STAD",
+    "hjemmeside": null,
+    "daglig_leder": "Jørn Skaane",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "921816561",
+    "navn": "MICROSOFT DATACENTER NORWAY AS",
+    "ansatte": 52,
+    "kommune": "OSLO",
+    "hjemmeside": null,
+    "daglig_leder": null,
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "914083095",
+    "navn": "MYSTORE.NO AS",
+    "ansatte": 52,
+    "kommune": "TROMSØ",
+    "hjemmeside": null,
+    "daglig_leder": "Bengt Marius Hilstad",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "881971682",
+    "navn": "EIENDOMSVERDI AS",
+    "ansatte": 51,
+    "kommune": "OSLO",
+    "hjemmeside": null,
+    "daglig_leder": "Mette Elise Ahlquist",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "984106211",
+    "navn": "GROUP.ONE NORWAY AS",
+    "ansatte": 47,
+    "kommune": "TØNSBERG",
+    "hjemmeside": "www.uniweb.no",
+    "daglig_leder": "Øyvind Frøland",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "921658702",
+    "navn": "WS COMPUTING AS",
+    "ansatte": 43,
+    "kommune": "OSLO",
+    "hjemmeside": null,
+    "daglig_leder": null,
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "915273947",
+    "navn": "INSELO LOGISTIKK AS",
+    "ansatte": 42,
+    "kommune": "LILLESTRØM",
+    "hjemmeside": null,
+    "daglig_leder": "Jan Ole Skubberud",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "966000066",
+    "navn": "SHARECAT SOLUTIONS AS",
+    "ansatte": 41,
+    "kommune": "BERGEN",
+    "hjemmeside": "www.sharecat.com",
+    "daglig_leder": "Eivind Norebø",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "921416873",
+    "navn": "AMAZON WEB SERVICES EMEA SARL, NORWEGIAN BRANCH NUF",
+    "ansatte": 40,
+    "kommune": "OSLO",
+    "hjemmeside": null,
+    "daglig_leder": "Gustaf Kristoffer Johannes Brandt",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "983474594",
+    "navn": "SODVIN AS",
+    "ansatte": 40,
+    "kommune": "HEIM",
+    "hjemmeside": "www.sodvin.no",
+    "daglig_leder": "Fartein Kjørsvik",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "927050188",
+    "navn": "TYDAL DATA CENTER AS",
+    "ansatte": 38,
+    "kommune": "TYDAL",
+    "hjemmeside": null,
+    "daglig_leder": "Markus Andersen",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "920229859",
+    "navn": "Skog-Data AS",
+    "ansatte": 37,
+    "kommune": "OSLO",
+    "hjemmeside": "www.skogdata.no",
+    "daglig_leder": "Stig Valhovd",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "917999929",
+    "navn": "GLOBETECH AS",
+    "ansatte": 35,
+    "kommune": "KRISTIANSAND",
+    "hjemmeside": null,
+    "daglig_leder": "Hans Eirik Onarheim",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "985360421",
+    "navn": "TALENTECH AS",
+    "ansatte": 34,
+    "kommune": "OSLO",
+    "hjemmeside": null,
+    "daglig_leder": "Thomas Hellstrøm",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "936879101",
+    "navn": "IRON MOUNTAIN NORGE AS",
+    "ansatte": 33,
+    "kommune": "SOLA",
+    "hjemmeside": "www.ironmountain.no",
+    "daglig_leder": "Lorant-Csaba Stenberg",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "829227932",
+    "navn": "MERCELL HOLDING AS",
+    "ansatte": 33,
+    "kommune": "OSLO",
+    "hjemmeside": null,
+    "daglig_leder": "Kjetil Haukås",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "993741345",
+    "navn": "TIDAL MUSIC AS",
+    "ansatte": 33,
+    "kommune": "OSLO",
+    "hjemmeside": "www.wimpmusic.com",
+    "daglig_leder": null,
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "946158070",
+    "navn": "HUBEXO NORWAY AS",
+    "ansatte": 33,
+    "kommune": "MOSS",
+    "hjemmeside": "www.byggfakta.no",
+    "daglig_leder": null,
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "985163286",
+    "navn": "MILLUM AS",
+    "ansatte": 32,
+    "kommune": "BÆRUM",
+    "hjemmeside": "www.millum.no",
+    "daglig_leder": "Bjørn Anskau",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "917985316",
+    "navn": "BRUSE AS",
+    "ansatte": 30,
+    "kommune": "GOL",
+    "hjemmeside": null,
+    "daglig_leder": "Svein Solhjell",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  },
+  {
+    "orgnr": "930086339",
+    "navn": "SKYGARD AS",
+    "ansatte": 29,
+    "kommune": "OSLO",
+    "hjemmeside": null,
+    "daglig_leder": "Trond-Roger Johannessen",
+    "bransje": "teknologi",
+    "bransje_navn": "Teknologi",
+    "fit_total": 70
+  }
+]
