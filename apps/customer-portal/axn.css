@@ -186,7 +186,7 @@ section { padding: 96px 0; }
 .product-card p { font-size: 15px; color: var(--slate); flex: 1; }
 .product-metric {
   display: inline-block; margin-top: 18px; font-size: 13px; font-weight: 600;
-  color: var(--blue); background: var(--blue-faint); padding: 6px 14px; border-radius: 999px;
+  color: #0047B3; background: var(--blue-faint); padding: 6px 14px; border-radius: 999px;
   align-self: flex-start;
 }
 
@@ -212,6 +212,12 @@ section { padding: 96px 0; }
 .mockup-dots span:nth-child(2) { background: #FBBF24; }
 .mockup-dots span:nth-child(3) { background: #34D399; }
 .mockup-title { font-size: 13px; font-weight: 600; color: var(--slate-dark); }
+.mockup-tag {
+  display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.03em;
+  text-transform: uppercase; color: #475569;
+  background: #EDF2F7; border: 1px solid var(--border); border-radius: 6px;
+  padding: 2px 8px; margin-left: 6px; vertical-align: middle;
+}
 .mockup-content { padding: 20px; }
 .mockup-row {
   display: flex; align-items: flex-start; gap: 12px;
@@ -222,10 +228,10 @@ section { padding: 96px 0; }
 .mockup-value { font-size: 14px; font-weight: 500; color: var(--ink); }
 .signal-badge {
   display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 10px;
-  border-radius: 999px; background: var(--blue-faint); color: var(--blue); margin-right: 6px;
+  border-radius: 999px; background: var(--blue-faint); color: #0047B3; margin-right: 6px;
 }
-.signal-badge.warn { background: #FEF3C7; color: #B45309; }
-.signal-badge.critical { background: #FEE2E2; color: #B91C1C; }
+.signal-badge.warn { background: #FEF3C7; color: #92400E; }
+.signal-badge.critical { background: #FEE2E2; color: #991B1B; }
 
 /* Evidence map mockup */
 .evidence-map-mockup {
@@ -253,9 +259,9 @@ section { padding: 96px 0; }
   flex: none; font-size: 10px; font-weight: 700; letter-spacing: 0.04em;
   padding: 4px 10px; border-radius: 6px; margin-top: 2px;
 }
-.finding-badge.high { background: #FEE2E2; color: #B91C1C; }
-.finding-badge.medium { background: #FEF3C7; color: #B45309; }
-.finding-badge.low { background: var(--blue-faint); color: var(--blue); }
+.finding-badge.high { background: #FEE2E2; color: #991B1B; }
+.finding-badge.medium { background: #FEF3C7; color: #92400E; }
+.finding-badge.low { background: var(--blue-faint); color: #0047B3; }
 .finding-text { font-size: 13px; color: var(--slate-dark); line-height: 1.5; }
 .report-footer {
   display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
@@ -484,7 +490,7 @@ section { padding: 96px 0; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
 .footer-brand { color: #fff; font-size: 18px; font-weight: 700; margin-bottom: 12px; }
 .footer-brand span { color: var(--blue-light); }
-.footer-col h4 { color: #fff; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px; }
+.footer-col h4, .footer-col .footer-col-head { color: #fff; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px; font-weight: 600; line-height: 1.4; }
 .footer-col a { display: block; color: rgba(255,255,255,0.6); font-size: 14px; margin-bottom: 10px; }
 .footer-col a:hover { color: #fff; }
 .footer-bottom {
