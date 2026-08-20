@@ -76,7 +76,7 @@ export class CompanyService {
    * I P1B er dette deterministisk (ikke LLM). Når ekte model-integration kommer,
    * erstattes dette med LLM + QuestionDecision-trace + evals.
    */
-  async firstQuestion(company: BrregCompany): Promise<{
+  async firstQuestion(company: BrregCompany, focusArea?: string): Promise<{
     question: string;
     reason: string;
     target_unknown: string;
@@ -85,10 +85,34 @@ export class CompanyService {
   }> {
     // Deterministisk første spørsmål — bruker det vi VET fra Brønnøysund.
     // Vi spør om noe offentlige data IKKE kan fortelle oss: hvor arbeidet faktisk oppstår.
+    const questions = {
+      Kundekommunikasjon: {
+        question: "Hvor kommer flest nye kundehenvendelser inn i dag?",
+        target_unknown: "primary_customer_inbound_channel"
+      },
+      Administrasjon: {
+        question: "Hvilken administrativ oppgave tar mest tid i en vanlig uke?",
+        target_unknown: "highest_effort_administrative_task"
+      },
+      Dokumentasjon: {
+        question: "Hvilken dokumentasjon må dere bruke mest tid på å samle eller følge opp?",
+        target_unknown: "highest_effort_documentation_task"
+      },
+      Drift: {
+        question: "Hvor oppstår de største forsinkelsene i den daglige driften?",
+        target_unknown: "primary_operational_bottleneck"
+      },
+      Salg: {
+        question: "Hvilket steg i salgsarbeidet tar mest tid i dag?",
+        target_unknown: "highest_effort_sales_step"
+      }
+    } as const;
+    const selected = questions[focusArea as keyof typeof questions] ?? questions.Kundekommunikasjon;
+
     return {
-      question: `Jeg har funnet ${company.company_name} (${company.industry_name ?? "næring ukjent"}). Før jeg vurderer automatisering: Hvor kommer flest nye kundehenvendelser inn i dag?`,
+      question: `For ${company.company_name}: ${selected.question}`,
       reason: "Offentlige data viser bransje og størrelse, men ikke hvor arbeidsintensive prosesser faktisk er. Dette er første skillende usikkerhet.",
-      target_unknown: "primary_customer_inbound_channel",
+      target_unknown: selected.target_unknown,
       expected_information_gain: 60,
       required_for: "IDENTIFY_PROCESS",
     };
