@@ -12,6 +12,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Installer testavhengigheter
+        run: npm ci
+      - name: Installer Chromium for portaltester
+        run: npx playwright install --with-deps chromium
       - name: Syntaks-sjekk (alle .mjs)
         run: |
           for f in $(find packages -name '*.mjs'); do node --check "$f" || exit 1; done
@@ -23,3 +27,14 @@ jobs:
         run: node packages/data-adapters/audit-leak.mjs
       - name: Deploy Ready Gate (12 bevis)
         run: node packages/governance/deploy-ready-check.mjs
+      - name: Portal E2E (norsk tekst og responsivt oppsett)
+        run: npm run test:portal
+      - name: Last opp portaltest-artefakter
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: portal-test-artefakter
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore

@@ -8,6 +8,8 @@ apps/control-center/data.js
 apps/customer-portal/data.js
 apps/control-center/screenshot.png
 apps/customer-portal/screenshot.png
+playwright-report/
+test-results/
 .wrangler/
 data/cost/
 backups/
