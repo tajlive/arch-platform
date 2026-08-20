@@ -12,9 +12,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Git-synk-guard (ingen u-pushet commits i deploy)
+        run: |
+          LOCAL=$(git rev-parse HEAD)
+          REMOTE=$(git ls-remote origin refs/heads/main | awk '{print $1}')
+          if [ "$LOCAL" != "$REMOTE" ]; then
+            echo "🔴 Deploy avbrutt: lokal ${LOCAL:0:8} ≠ origin/main ${REMOTE:0:8}"
+            echo "   Pusher aldri deploy fra en u-synkronisert gren. Push main først, så deploy."
+            exit 1
+          fi
+          echo "✅ Git-synk bekreftet: ${LOCAL:0:8}"
       - name: Syntaks-sjekk (alle .mjs)
         run: |
           for f in $(find packages -name '*.mjs'); do node --check "$f" || exit 1; done
