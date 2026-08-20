@@ -24,6 +24,8 @@ function node(overrides: Partial<EvidenceNode>): EvidenceNode {
     observed_at: "2026-08-20T12:00:00Z",
     metadata_json: null,
     tenant_id: null,
+    is_synthetic: false,
+    environment: "production",
     ...overrides,
   };
 }

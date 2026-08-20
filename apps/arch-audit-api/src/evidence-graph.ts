@@ -37,6 +37,9 @@ export interface Company {
   industry_code: string | null;
   industry_name: string | null;
   tenant_id: string | null;
+  is_synthetic: boolean;       // Synthetic Data Policy
+  environment: string;          // 'production' | 'test' | 'staging'
+  created_by: string | null;
   created_at: string;
 }
 
@@ -53,6 +56,8 @@ export interface EvidenceNode {
   observed_at: string;
   metadata_json: string | null;
   tenant_id: string | null;
+  is_synthetic: boolean;      // Synthetic Data Policy
+  environment: string;        // 'production' | 'test' | 'staging'
 }
 
 export interface EvidenceEdge {
