@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proof Center — Arch</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <header class="masthead">
+      <div class="brand">
+        <div class="logo">▲</div>
+        <div>
+          <h1>ARCH</h1>
+          <p class="tagline">Autonomous Engineering Platform</p>
+        </div>
+      </div>
+      <span class="version">Arch Health Score v<span id="ver">—</span></span>
+    </header>
+
+    <nav class="topnav">
+      <a href="index.html">Forside</a>
+      <a href="case-arch-platform.html">Case: Arch Platform</a>
+      <a href="case-autoglass.html">Case: Autoglassgrossisten</a>
+      <a href="systems.html">Systems I Run</a>
+      <a href="explore.html">Explore the Engineering</a>
+      <a href="proof.html" class="active">Proof Center</a>
+      <a href="trace.html">Agent Trace Explorer</a>
+      <a href="architecture.html">Architecture Explorer</a>
+      <a href="adrs.html">ADR Log</a>
+      <a href="evals.html">Eval Lab</a>
+      <a href="cost.html">AI Cost Metrics</a>
+      <a href="case-study.html">FinnBilGlass Case Study</a>
+      <a href="decisions.html">What AI Did / What I Decided</a>
+    </nav>
+
+    <main class="content">
+      <section class="hero">
+        <h2>Proof Center — Levende bevis fra CI og produksjon</h2>
+        <p class="sub">Ingen hardkodete badges. Alle tall hentes live fra CI artifacts, Cloudflare AI Gateway, og produksjonsmålinger. Sist oppdatert: <span id="last-updated">—</span></p>
+      </section>
+
+      <div class="grid">
+        <section class="card proof-section">
+          <h3>🏭 Production Status</h3>
+          <div class="proof-metric">
+            <span class="metric-label">Siste deploy</span>
+            <span class="metric-value" id="prod-deploy">—</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">Commit</span>
+            <span class="metric-value" id="prod-commit">—</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">Health check</span>
+            <span class="metric-value" id="prod-health">—</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">Uptime (30d)</span>
+            <span class="metric-value" id="prod-uptime">—</span>
+          </div>
+        </section>
+
+        <section class="card proof-section">
+          <h3>🧪 Test Status</h3>
+          <div class="proof-metric">
+            <span class="metric-label">Unit tests</span>
+            <span class="metric-value" id="test-unit">—</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">Integration tests</span>
+            <span class="metric-value" id="test-integration">—</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">Security tests</span>
+            <span class="metric-value" id="test-security">—</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">Cross-tenant tests</span>
+            <span class="metric-value" id="test-cross-tenant">—</span>
+          </div>
+        </section>
+
+        <section class="card proof-section">
+          <h3>🤖 AI Evals</h3>
+          <div class="proof-metric">
+            <span class="metric-label">Extraction F1</span>
+            <span class="metric-value" id="eval-extraction">—</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">Classification accuracy</span>
+            <span class="metric-value" id="eval-classification">—</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">Evidence grounding</span>
+            <span class="metric-value" id="eval-grounding">—</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">Hallucination rate</span>
+            <span class="metric-value" id="eval-hallucination">—</span>
+          </div>
+        </section>
+
+        <section class="card proof-section">
+          <h3>♿ Accessibility & Performance</h3>
+          <div class="proof-metric">
+            <span class="metric-label">WCAG 2.2 AA</span>
+            <span class="metric-value" id="perf-a11y">—</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">Core Web Vitals (LCP)</span>
+            <span class="metric-value" id="perf-lcp">—</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">API p50 / p95</span>
+            <span class="metric-value" id="perf-api">—</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">Security (gitleaks, npm audit, ZAP)</span>
+            <span class="metric-value" id="perf-security">—</span>
+          </div>
+        </section>
+
+        <section class="card proof-section">
+          <h3>🤖 Agent Runtime Metrics</h3>
+          <div class="proof-metric">
+            <span class="metric-label">Successful tasks</span>
+            <span class="metric-value" id="agent-success">—</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">Human escalation rate</span>
+            <span class="metric-value" id="agent-escalation">—</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">Cost per audit</span>
+            <span class="metric-value" id="agent-cost">—</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">Avg latency</span>
+            <span class="metric-value" id="agent-latency">—</span>
+          </div>
+        </section>
+
+        <section class="card proof-section">
+          <h3>🚀 Current Build</h3>
+          <div class="proof-metric">
+            <span class="metric-label">Git commit</span>
+            <span class="metric-value" id="build-commit">—</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">Production verified</span>
+            <span class="metric-value" id="build-verified">—</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">Deploy gates</span>
+            <span class="metric-value" id="build-gates">—</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">Branch</span>
+            <span class="metric-value" id="build-branch">—</span>
+          </div>
+        </section>
+      </div>
+
+      <div class="cta-row">
+        <a href="trace.html" class="btn btn-primary">Se Agent Trace Explorer →</a>
+        <a href="architecture.html" class="btn btn-secondary">Se Architecture Explorer →</a>
+        <a href="evals.html" class="btn btn-secondary">Se Eval Lab →</a>
+      </div>
+
+      <footer class="footer">
+        <a href="index.html">← Tilbake til Arch</a>
+        <span>«Arch lærer av systemet, men endrer aldri sikkerhetsgrenser automatisk.»</span>
+      </footer>
+    </main>
+  </div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ADR Log — Arch</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <header class="masthead">
+      <div class="brand">
+        <div class="logo">▲</div>
+        <div>
+          <h1>ARCH</h1>
+          <p class="tagline">Autonomous Engineering Platform</p>
+        </div>
+      </div>
+      <span class="version">Arch Health Score v<span id="ver">—</span></span>
+    </header>
+
+    <nav class="topnav">
+      <a href="index.html">Forside</a>
+      <a href="case-arch-platform.html">Case: Arch Platform</a>
+      <a href="case-autoglass.html">Case: Autoglassgrossisten</a>
+      <a href="systems.html">Systems I Run</a>
+      <a href="explore.html">Explore the Engineering</a>
+      <a href="proof.html">Proof Center</a>
+      <a href="trace.html">Agent Trace Explorer</a>
+      <a href="architecture.html">Architecture Explorer</a>
+      <a href="adrs.html" class="active">ADR Log</a>
+      <a href="evals.html">Eval Lab</a>
+      <a href="cost.html">AI Cost Metrics</a>
+      <a href="case-study.html">FinnBilGlass Case Study</a>
+      <a href="decisions.html">What AI Did / What I Decided</a>
+    </nav>
+
+    <main class="content">
+      <section class="hero">
+        <h2>Architecture Decision Records (ADR)</h2>
+        <p class="sub">Hver signifikante arkitekturbeslutning dokumenteres som en ADR. Status: Accepted / Superseded / Deprecated. Dette signaliserer seniornivå og after-the-fact traceability.</p>
+      </section>
+
+      <div class="adr-list">
+        <article class="adr-card accepted">
+          <header class="adr-header">
+            <span class="adr-id">ADR-001</span>
+            <span class="adr-status accepted">Accepted</span>
+            <h3>Why Cloudflare Workers (not Vercel/Fly.io/Lambda)</h3>
+            <span class="adr-date">2026-08-15</span>
+          </header>
+          <div class="adr-body">
+            <h4>Context</h4>
+            <p>Vi trenger en compute-plattform for Arch Audit som integrerer native med D1 (SQLite), R2 (Object Storage), AI Gateway (tokens/cost/latency), Workers AI, og Cloudflare Pages for static hosting. Alle må være på samme edge-nettverk for ultra-lav latency og null egress fees.</p>
+            <h4>Decision</h4>
+            <p>Cloudflare Workers som primær compute. Cloudflare Pages for static frontend. Cloudflare D1 for relational data. Cloudflare R2 for evidence storage. Cloudflare AI Gateway for AI observability.</p>
+            <h4>Alternatives Considered</h4>
+            <ul>
+              <li><strong>Vercel + Neon/PlanetScale + S3:</strong> Ingen native D1/R2/AI Gateway binding. Cold starts på Neon. Egress fees på S3. Fragmentert observability.</li>
+              <li><strong>Fly.io + PostgreSQL + Tigris:</strong> God edge, men ingen native D1/R2/AI Gateway. Må bygge observability selv. Dyrere for vårt use case.</li>
+              <li><strong>AWS Lambda@Edge + DynamoDB + S3:</strong> Meget dyrt. Kompleks cold start management. Ingen native AI Gateway. Vendor lock-in.</li>
+            </ul>
+            <h4>Consequences</h4>
+            <ul>
+              <li>✅ Enkel stack, én vendor, native integrasjoner</li>
+              <li>✅ Null egress fees (R2)</li>
+              <li>✅ Native AI observability (AI Gateway)</li>
+              <li>⚠️ Mindre mature ecosystem enn AWS/Vercel</li>
+              <li>⚠️ D1 har SQLite-limitter (store JOINs, ingen native RLS)</li>
+              <li>⚠️ Workers AI modellkatalog mindre enn Bedrock/Vertex</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="adr-card accepted">
+          <header class="adr-header">
+            <span class="adr-id">ADR-002</span>
+            <span class="adr-status accepted">Accepted</span>
+            <h3>Tenant Isolation: Application-layer (not D1 RLS)</h3>
+            <span class="adr-date">2026-08-20</span>
+          </header>
+          <div class="adr-body">
+            <h4>Context</h4>
+            <p>Opprinnelig design antog PostgreSQL-style RLS i Cloudflare D1: `CREATE POLICY ... USING (tenant_id = current_setting('app.current_tenant_id'))`. CTO-gjennomgang avdekket at D1 bruker SQLite-semantikk og støtter IKKE `current_setting()` eller native Row Level Security policies.</p>
+            <h4>Decision</h4>
+            <p>Tenant-isolasjon håndheves i application-laget (Worker middleware):</p>
+            <ol>
+              <li>Alle tabeller har `tenant_id` som FK</li>
+              <li>Middleware validerer auth → resolver `tenant_id` fra membership</li>
+              <li>Alle data-access funksjoner krever eksplisitt `tenant_id` i spørringer</li>
+              <li>`tenant_id` aldri fra klient — kun fra server-side membership resolution</li>
+              <li>Obligatoriske cross-tenant attack tests (18/18 grønne)</li>
+            </ol>
+            <h4>Alternatives Considered</h4>
+            <ul>
+              <li><strong>Database-per-tenant:</strong> Cloudflare støtter mange D1-databaser, men schema-migrasjoner, backup, observability, og kostnadskontroll blir komplekst ved 100+ tenanter.</li>
+              <li><strong>Vente på D1 RLS:</strong> Ingen timeline. Blokerer produktutvikling.</li>
+            </ul>
+            <h4>Consequences</h4>
+            <ul>
+              <li>✅ Fungerer i dag med D1s nåværende kapasiteter</li>
+              <li>✅ Full kontroll og testbarhet (vi eier koden)</li>
+              <li>✅ Cross-tenant tests er eksplisitte og reproducerbare</li>
+              <li>⚠️ Mer boilerplate i data-access lag (men genererbar)</li>
+              <li>⚠️ Må være disiplinerte: ALLE spørringer må ha tenant_id</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="adr-card accepted">
+          <header class="adr-header">
+            <span class="adr-id">ADR-003</span>
+            <span class="adr-status accepted">Accepted</span>
+            <h3>Deterministic ROI Engine (not LLM-based)</h3>
+            <span class="adr-date">2026-08-18</span>
+          </header>
+          <div class="adr-body">
+            <h4>Context</h4>
+            <p>ROI-beregning er kjerneverdi i Arch Audit. Kunder tror på tall. Hvis en LLM hallusinerer en besparelse på 487 231 kr, mister vi all trovverdighet. Deterministisk matematikk er 100% testbar, sporbar, og forklarbar.</p>
+            <h4>Decision</h4>
+            <p>ROI-engine = pure functions (TypeScript). Ingen LLM i beregningslogikken. Input variabler klassifiseres: MEASURED / CUSTOMER_PROVIDED / DERIVED / BENCHMARK / ASSUMED. Scenarier: LOW / EXPECTED / HIGH. Sensitivitetanalyse per variabel.</p>
+            <h4>Alternatives Considered</h4>
+            <ul>
+              <li><strong>LLM som regner ut ROI:</strong> Hallusinerer tall. Ikke deterministisk. Ikke testbar. Ikke auditbar.</li>
+              <li><strong>Spreadsheet (Excel/Google Sheets):</strong> Ingen versjonering, ingen audit trail, ingen API, manuelle feil.</li>
+            </ul>
+            <h4>Consequences</h4>
+            <ul>
+              <li>✅ 100% unit test coverage mulig</li>
+              <li>✅ Hver krone sporbart til input</li>
+              <li>✅ Scenarier gir transparens (LOW/EXPECTED/HIGH)</li>
+              <li>⚠️ Krever at input klassifiseres riktig (feature, ikke bug)</li>
+              <li>⚠️ Mer kode å vedlikeholde enn "spør LLM"</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="adr-card accepted">
+          <header class="adr-header">
+            <span class="adr-id">ADR-004</span>
+            <span class="adr-status accepted">Accepted</span>
+            <h3>Why Not Multi-Agent Everywhere (Orkestrering > Autonomi)</h3>
+            <span class="adr-date">2026-08-18</span>
+          </header>
+          <div class="adr-body">
+            <h4>Context</h4>
+            <p>Mange AI-plattformer bruker "swarm of agents" der agenter prater fritt med hverandre. For Arch Audit (høy risiko, krav på auditability, compliance, human-in-the-loop) gir ubegrenset agent-til-agent kommunikasjon: uforutsigbar state, vanskelig policy enforcement, umulig audit trail, hallusinasjoner propagerer.</p>
+            <h4>Decision</h4>
+            <p>Hermes (Chief Architect) er single source of truth for audit state. 6 spesialiserte agenter mottar oppgaver fra Hermes, returnerer resultater til Hermes. Ingen direkte agent-til-agent kommunikasjon. Policy engine (OPA) evaluerer alle handlinger. Human gates for HIGH/CRITICAL risiko.</p>
+            <h4>Alternatives Considered</h4>
+            <ul>
+              <li><strong>LangGraph / AutoGen / CrewAI:</strong> For høyt nivå, ingen governance, Python-only, ingen native Cloudflare Workers support.</li>
+              <li><strong>Full A2A/MCP mellom agenter:</strong> Skaleres dårlig for governance. Vi implementerer MCP kun ved reelt behov for eksternt interop.</li>
+            </ul>
+            <h4>Consequences</h4>
+            <ul>
+              <li>✅ Full auditability: hvem bestemte hva, hvorfor, med hvilken evidens</li>
+              <li>✅ Policy enforcement i én sentral plass (Hermes + OPA)</li>
+              <li>✅ Deterministisk state machine</li>
+              <li>⚠️ Mer orchestration-kode å skrive</li>
+              <li>⚠️ Begrenser "emergent behavior" (som vi ikke vil ha)</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="adr-card accepted">
+          <header class="adr-header">
+            <span class="adr-id">ADR-005</span>
+            <span class="adr-status accepted">Accepted</span>
+            <h3>OPA/Rego vs Cedar for Policy Engine</h3>
+            <span class="adr-date">2026-08-18</span>
+          </header>
+          <div class="adr-body">
+            <h4>Context</h4>
+            <p>Vi trenger policy-as-code med runtime enforcement i Cloudflare Workers, CI/CD testing, og audit trail. To hovedkandidater: OPA/Rego (mature, Kubernetes-standard) og Cedar (AWS Verified Permissions, entity-based).</p>
+            <h4>Decision</h4>
+            <p>OPA/Rego. Grunner:</p>
+            <ol>
+              <li>Mature ecosystem: Kubernetes, Terraform, Envoy bruker det</li>
+              <li>`opa test` innebygd — game-changer for CI/CD gates</li>
+              <li>Rego håndterer komplekse nested JSON naturlig (audit input er komplekst)</li>
+              <li>WASM kompilerer fint i Cloudflare Workers (`opa-wasm`)</li>
+              <li>Teamet kjenner Rego fra andre prosjekter</li>
+              <li>TypeScript support via `rego.ts` / `opa-wasm`</li>
+            </ol>
+            <h4>Alternatives Considered</h4>
+            <ul>
+              <li><strong>Cedar:</strong> Meget lovende (Rust core, entity-based, native decision logging), men mindre mature tooling, mindre CI/CD eksempler, mindre community eksempler for vårt use case.</            </ul>
+            <h4>Consequences</h4>
+            <ul>
+              <li>✅ `opa test` i CI/CD — policy regressjoner fanges før deploy</li>
+              <li>✅ WASM i Workers — lav latency runtime eval</li>
+              <li>✅ Audit trail: alle decisions logges immutable i D1</li>
+              <li>⚠️ Rego lærekurve (men teamet kjenner det)</li>
+              <li>⚠️ Bundle size (men < 100KB gzipped)</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <div class="cta-row">
+        <a href="evals.html" class="btn btn-primary">Se Eval Lab →</a>
+        <a href="decisions.html" class="btn btn-secondary">Se What AI Did / What I Decided →</a>
+      </div>
+
+      <footer class="footer">
+        <a href="index.html">← Tilbake til Arch</a>
+        <span>«Arch lærer av systemet, men endrer aldri sikkerhetsgrenser automatisk.»</span>
+      </footer>
+    </main>
+  </div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

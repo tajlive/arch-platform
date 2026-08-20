@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arch — Autonomous Engineering Platform</title>
+  <title>Arch — AI Audit Consultant</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -19,24 +19,46 @@
       <span class="version">Arch Health Score v<span id="ver">—</span></span>
     </header>
 
-    <section class="hero">
-      <h2>Vi bygger, tester og drifter digitale løsninger — med en autonom AI-plattform og innebygd governance.</h2>
+    <nav class="topnav">
+      <a href="index.html" class="active">Forside</a>
+      <a href="start.html">Start AI-audit</a>
+      <a href="case-arch-platform.html">Case: Arch Platform</a>
+      <a href="case-autoglass.html">Case: Autoglassgrossisten</a>
+      <a href="systems.html">Systems I Run</a>
+      <a href="explore.html">Explore the Engineering</a>
+      <a href="proof.html">Proof Center</a>
+      <a href="trace.html">Agent Trace Explorer</a>
+      <a href="architecture.html">Architecture Explorer</a>
+      <a href="adrs.html">ADR Log</a>
+      <a href="evals.html">Eval Lab</a>
+      <a href="cost.html">AI Cost Metrics</a>
+      <a href="case-study.html">FinnBilGlass Case Study</a>
+      <a href="decisions.html">What AI Did / What I Decided</a>
+    </nav>
+
+    <section class="hero audit-hero">
+      <h2>La AI-en vår undersøke bedriften din.</h2>
       <p class="sub">
-        Ikke «vi lager nettsider». En plattform som analyserer, bygger, tester og drifter —
-        med kontroll, audit og menneskelig godkjenning ved risiko.
+        Arch har allerede gjort hjemmeleksen — offentlige data, regnskap, bransjebenchmark og
+        teknologisignaler — før du svarer på ett eneste spørsmål.
       </p>
+      <form class="company-search" action="start.html" method="get">
+        <input type="text" name="q" placeholder="Firma eller organisasjonsnummer" aria-label="Firma eller organisasjonsnummer" />
+        <button type="submit">Start gratis AI-audit</button>
+      </form>
+      <p class="note">Gratis. AI-ledet samtale — ikke et skjema. Ingen kredittkort.</p>
     </section>
 
     <section class="pipeline card">
-      <h3>Hvordan Arch jobber</h3>
+      <h3>Hvordan det fungerer</h3>
       <div class="steps">
-        <div class="step">Analyser</div><div class="arrow">→</div>
-        <div class="step">Arkitektur-forslag</div><div class="arrow">→</div>
-        <div class="step">Godkjenning</div><div class="arrow">→</div>
-        <div class="step">Prosjekt-fabrikk</div><div class="arrow">→</div>
-        <div class="step">Drift + læring</div>
+        <div class="step">Offentlig research</div><div class="arrow">→</div>
+        <div class="step">AI-samtale</div><div class="arrow">→</div>
+        <div class="step">Dynamisk discovery</div><div class="arrow">→</div>
+        <div class="step">Live funn</div><div class="arrow">→</div>
+        <div class="step">Full audit</div>
       </div>
-      <p class="note">Det som er automatisert er trygt å automatisere. Risiko krever alltid menneskelig godkjenning.</p>
+      <p class="note">AI spør bare om det som faktisk påvirker resultatet. Utilstrekkelig evidens → ærlig «INSUFFICIENT EVIDENCE», ikke oppdiktede tall.</p>
     </section>
 
     <div class="grid">
@@ -52,7 +74,7 @@
       </section>
 
       <section class="card">
-        <h3>Security &amp; Governance</h3>
+        <h3>Security & Governance</h3>
         <div id="security"></div>
         <p class="note">Secret-audit, policy-håndheving og audit-logg på hvert prosjekt.</p>
       </section>

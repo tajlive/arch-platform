@@ -1,0 +1,29 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "arch-audit-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-16",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "arch-audit",
+      "database_id": "3a2bbd50-515d-45b5-a190-f47fdc2b8efb"
+    }
+  ],
+
+  "vars": {
+    "ENVIRONMENT": "production",
+    "PUBLIC_ORIGIN": "https://arch.axn.no"
+  },
+
+  "routes": [
+    {
+      "pattern": "api.arch.axn.no",
+      "custom_domain": true,
+      "zone_name": "axn.no"
+    }
+  ]
+}

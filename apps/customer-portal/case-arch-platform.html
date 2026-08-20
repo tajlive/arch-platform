@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arch Platform — Case | Arch</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <header class="masthead">
+      <div class="brand">
+        <a href="index.html" style="text-decoration:none;color:inherit;">
+          <div class="logo">▲</div>
+          <div>
+            <h1>ARCH</h1>
+            <p class="tagline">Autonomous Engineering Platform</p>
+          </div>
+        </a>
+      </div>
+    </header>
+
+    <main class="content">
+      <nav class="breadcrumb">
+        <a href="index.html">Arch</a> / <span>Case: Arch Platform</span>
+      </nav>
+
+      <section class="hero card">
+        <h2>Arch Platform — Intern plattform for autonomi med governance</h2>
+        <p class="sub">Et flerlags AI-agent-orkestreringssystem der governance, secrets og knowledge er førsteklasses borgere — ikke ettertanke.</p>
+        <div class="metrics-row">
+          <div class="metric"><span class="value">76 %</span><span class="label">Health Score</span></div>
+          <div class="metric"><span class="value">7</span><span class="label">Packages</span></div>
+          <div class="metric"><span class="value">4</span><span class="label">Data Adapters</span></div>
+          <div class="metric"><span class="value">14</span><span class="label">Registrerte prosjekter</span></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>Arkitektur — Seks spesialiserte agenter under Hermes (Chief Architect)</h3>
+        <div class="architecture-diagram">
+<pre><code>┌─────────────────────────────────────────────────────────────┐
+│                    HERMES (Chief Architect)                   │
+│         Governance · Secrets · Knowledge · Deploy             │
+└─────────────────────────┬─────────────────────────────────────┘
+                          │
+        ┌─────────────────┼─────────────────┐
+        ▼                 ▼                 ▼
+┌───────────────┐ ┌───────────────┐ ┌───────────────┐
+│  Project      │ │  Health       │ │  Knowledge    │
+│  Factory      │ │  Score v2.1   │ │  Engine       │
+│  (analyze +   │ │  (Governance  │ │  (failures,   │
+│   init)       │ │   20, Sec 25, │ │   patterns,   │
+└───────────────┘ │   Eng 25,     │ │   lessons,    │
+        ▲         │   Ops 20,     │ │   decisions,  │
+        │         │   Doc 10)     │ │   customers)  │
+        │         └───────────────┘ └───────────────┘
+        │                 ▲                 ▲
+        │                 │                 │
+        ▼                 ▼                 ▼
+┌───────────────┐ ┌───────────────┐ ┌───────────────┐
+│  Data         │ │  Audit        │ │  Governance   │
+│  Adapters     │ │  (F4.1/F4.2B) │ │  (projects.json│
+│  (GitHub,     │ │  Repo +       │ │  SSoT, secrets│
+│   Linear,     │ │  Website      │ │  registry)    │
+│   Knowledge,  │ │  Audit v1/v2) │ │               │
+│   Hermes)     │ │               │ └───────────────┘
+└───────────────┘ └───────────────┘
+        │                 ▲
+        └─────────────────┘
+                          ▼
+              ┌───────────────────────┐
+              │  CI/CD → Cloudflare   │
+              │  Pages (governed)     │
+              └───────────────────────┘
+</code></pre>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>Governance-modell — Hvorfor det skiller seg ut</h3>
+        <table>
+          <thead>
+            <tr><th>Prinsipp</th><th>Implementasjon</th><th>Hvorfor</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Agenter endrer <strong>aldri</strong> sikkerhetsgrenser</td>
+              <td>Policy: <code>Arch lærer av systemet, men endrer aldri sikkerhetsgrenser automatisk</code></td>
+              <td>Produksjonssikkerhet krever menneskelig dømmekraft på risiko</td>
+            </tr>
+            <tr>
+              <td>Linear = eneste oppgave-SSoT</td>
+              <td>Team <code>ARC</code> (Arch) + <code>KLA</code> (Klarpakke), workflow: Triage → Ready for Tom → Approved → In Progress → In Review → Done</td>
+              <td>Ingen dobbel bokføring, ingen tapte oppgaver, audit-spor</td>
+            </tr>
+            <tr>
+              <td>Git workflow: Issue → Branch → Review → Main</td>
+              <td>Commit-melding må referere Linear-issue. Push til <code>main</code> kun etter grønne gates</td>
+              <td>Traceability fra beslutning til kode</td>
+            </tr>
+            <tr>
+              <td>Deploy = Tom-governed</td>
+              <td><code>workflow_dispatch</code> only, 12 gates (build → leak-audit → deploy-ready-check → smoke → rollback)</td>
+              <td>Ingen overraskelser i prod, rollback alltid tilgjengelig</td>
+            </tr>
+            <tr>
+              <td>Secrets governance</td>
+              <td><code>.arch/secrets/registry.yaml</code> (referanser kun), verdier i BWS/wrangler/GH secrets</td>
+              <td>Ingen hemmeligheter i git, rotasjon uten kodeendringer</td>
+            </tr>
+            <tr>
+              <td>Knowledge monotonicitet</td>
+              <td>Append-only <code>.arch/knowledge/{failures,patterns,lessons,decisions}</code></td>
+              <td>Læring akkumuleres, aldri overskrives — evidence vinner over heuristikk</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card" id="secrets-governance">
+        <h3>Secrets-standard — Konkrete regler</h3>
+        <ul>
+          <li><strong>Ingen secrets i config-filer som committes</strong> — alltid <code>wrangler secret put</code> eller BWS</li>
+          <li><strong>Stripe har ingen key-rotasjons-API</strong> — rotasjon = planlagt økt med passkey step-up</li>
+          <li><strong>Resend API-nøkkel-API</strong> støtter full rotasjon uten dashboard</li>
+          <li><strong>Ved rotasjon med utløpstimer</strong>: propager NY nøkkel FØR timeren settes</li>
+          <li><strong>Nøkkelverdier limes aldri i chat</strong> — sikker kanal (1Password/direkte filoverføring)</li>
+        </ul>
+      </section>
+
+      <section class="card" id="linear-sso">
+        <h3>Linear som eneste SSO for oppgaver — Arkitektonisk valg</h3>
+        <p>Vi valgte Linear ikke for "issue tracking", men som <strong>eneste kilde til sannhet for hva som jobbes på</strong>:</p>
+        <ul>
+          <li>To team (<code>ARC</code>, <code>KLA</code>) med separate workflows — unngår "state from different team"-feil ved transitions</li>
+          <li><code>Approved</code>-state finnes KUN i KLA-teamet — ARC går direkte Ready for Tom → Done/In Progress</li>
+          <li>GraphQL-mutasjoner med <code>stateId</code>/<code>teamId</code> (ikke navn) for deterministiske transitions</li>
+          <li>Factory (<code>init-project.mjs</code>) oppretter Linear-prosjekt/team <strong>kun med <code>--approve</code></strong> — ingen auto-oppretting av eksterne ressurser</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>Knowledge Graph — 7 domener, append-only</h3>
+        <div class="grid">
+          <div class="dim"><b>Failures</b><br>8 hendelser — incident-rapporter med rotårsak, blast radius, guard + regresjonstest</div>
+          <div class="dim"><b>Patterns</b><br>4 mønster — vertikale demoer, governede deploys, evidence-ledger, secrets-registry</div>
+          <div class="dim"><b>Lessons</b><br>12 læringer — edge→nodejs, route-handler, wrangler env, kapital kun aktive, registry SSoT, gov deploy verifiser verktøy</div>
+          <div class="dim"><b>Decisions</b><br>10 arkitekturvalg — COMBO-strategi, OKX live, Beta-policy, Arch-navn, Selskapsnavn, Deploy-gates, Linear-graphQL</div>
+          <div class="dim"><b>Customers</b><br>1 ekte kunde (Autoglass) + 8 prospects med audit-score</div>
+          <div class="dim"><b>Architectures</b><br>1 referansearkitektur (Klarpakke Health Score 98 %)</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>Deploy-pipeline — 12 gates, alle må være grønne</h3>
+        <ol>
+          <li>Syntaks-sjekk (alle <code>.mjs</code>)</li>
+          <li>Build (collect — degraderer grasiøst uten secrets)</li>
+          <li>Leakage-audit (publikumsartefakter: lokale stier, tokens, <code>secret://</code>)</li>
+          <li>Deploy Ready Gate (12 bevis: registry, adapters, provenance, intern/publik split, health v2.1, auto-refresh, leakage=0, intern beskyttet, public sanitert, rollback-plan, CI-gates)</li>
+          <li>Deploy Customer Portal (sanitert, KUN kunde-flate)</li>
+          <li>HTTP smoke (prod + assets)</li>
+          <li>Privacy smoke (0 lekkasjer i live <code>data.js</code>)</li>
+          <li>Rollback (ved rød smoke → forrige production-deployment via CF API)</li>
+          <li>Alert (Linear ARC-team ved feil)</li>
+        </ol>
+        <p class="note">TLS-håndtrykk på nytt <code>.pages.dev</code>-domene tar ~60–90s — ikke kodefeil, vent og retry.</p>
+      </section>
+
+      <footer class="footer">
+        <a href="index.html">← Tilbake til Arch</a>
+        <span>«Arch lærer av systemet, men endrer aldri sikkerhetsgrenser automatisk.»</span>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

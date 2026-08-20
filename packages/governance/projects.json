@@ -16,19 +16,19 @@
    "dev_path": "/Users/taj/klarpakke"
   },
   {
-   "project_id": "arch-platform",
-   "name": "Arch Platform",
-   "type": "Internal Platform",
-   "repository": "tajlive/arch-platform",
-   "linear_team": "ARC",
-   "linear_project": "arch-dashboard",
-   "runtime": "cloudflare-pages",
-   "environment": "staging",
-   "visibility": "internal",
-   "health_profile": "platform",
-   "status": "building",
-   "url": null
-  },
+      "project_id": "arch-platform",
+      "name": "Arch Platform",
+      "type": "Autonom engineering-plattform",
+      "repository": "tajlive/arch-platform",
+      "linear_team": "ARC",
+      "linear_project": "arch-dashboard",
+      "runtime": "cloudflare-pages",
+      "environment": "staging",
+      "visibility": "customer",
+      "health_profile": "platform",
+      "status": "building",
+      "url": "https://arch.axn.no"
+    },
   {
    "project_id": "autoglassgrossisten",
    "name": "Autoglass Grossisten",
