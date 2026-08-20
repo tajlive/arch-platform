@@ -13,6 +13,10 @@
     "audit:ready": "node packages/audit/lib/readiness.mjs",
     "audit:delivery": "node packages/audit/lib/record-delivery.mjs",
     "audit:web": "node packages/audit/audit-web.mjs",
-    "audit:web2": "node packages/audit/audit-web-v2.mjs"
+    "audit:web2": "node packages/audit/audit-web-v2.mjs",
+    "test:portal": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1"
   }
 }
