@@ -380,7 +380,7 @@ Juridiske/regulatoriske påstander er ikke vurdert — kun signaler, som krever 
 | Protokoll | Observert |
 |---|---|
 | SPF | v=spf1 include:spf.protection.outlook.com -all |
-| DMARC | {"record":null,"p":null,"policy":null,"subdomain":{"name":"_dmarc.www.autoglasnorden.se","present":false,"record":null}} |
+| DMARC | ikke registrert |
 | MTA-STS | TXT: nei · policy-fil: nei |
 | CAA | ingen CAA |
 | DNSSEC | ikke signert |

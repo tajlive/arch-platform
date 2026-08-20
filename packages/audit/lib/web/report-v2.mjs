@@ -11,6 +11,15 @@
 const ICON = { PASS: "✅", FAIL: "❌", UNKNOWN: "⚠️", NOT_APPLICABLE: "➖" };
 const LABEL = { PASS: "OK", FAIL: "Funn", UNKNOWN: "Ikke verifisert", NOT_APPLICABLE: "N/A" };
 
+function displayDnsValue(value, fallback = "ikke registrert") {
+  if (typeof value === "string" && value.trim()) return value;
+  if (!value || typeof value !== "object") return fallback;
+  if (typeof value.record === "string" && value.record.trim()) return value.record;
+  if (typeof value.policy === "string" && value.policy.trim()) return value.policy;
+  if (Array.isArray(value.records) && value.records.length) return value.records.join(", ");
+  return fallback;
+}
+
 function sectionChecksTable(sec) {
   const lines = ["", `### ${sec.title}`, ""];
   lines.push("| Status | Sjekk | Observert |");
@@ -52,14 +61,14 @@ function renderDnsEmail(sec) {
   let out = sectionChecksTable(sec);
   const rows = [];
   const t = (k, v) => v !== undefined && v !== null && v !== "" ? rows.push(`| ${k} | ${v} |`) : null;
-  if (r.spf) t("SPF", typeof r.spf === "string" ? r.spf : (r.spf.record ?? r.spf.policy ?? JSON.stringify(r.spf)));
-  if (r.dmarc) t("DMARC", typeof r.dmarc === "string" ? r.dmarc : (r.dmarc.policy ? `${r.dmarc.policy} (p=${r.dmarc.p})` : JSON.stringify(r.dmarc)));
-  if (r.dkim) t("DKIM", typeof r.dkim === "string" ? r.dkim : JSON.stringify(r.dkim));
+  if (r.spf) t("SPF", displayDnsValue(r.spf));
+  if (r.dmarc) t("DMARC", r.dmarc?.policy ? `${r.dmarc.policy} (p=${r.dmarc.p})` : displayDnsValue(r.dmarc));
+  if (r.dkim) t("DKIM", displayDnsValue(r.dkim));
   if (r.mta_sts && typeof r.mta_sts === "object") {
     t("MTA-STS", `TXT: ${r.mta_sts.txt ? "ja" : "nei"} · policy-fil: ${r.mta_sts.policy ? "ja" : "nei"}`);
   }
-  if (r.tls_rpt) t("TLS-RPT", typeof r.tls_rpt === "string" ? r.tls_rpt : JSON.stringify(r.tls_rpt));
-  if (r.bimi) t("BIMI", typeof r.bimi === "string" ? r.bimi : JSON.stringify(r.bimi));
+  if (r.tls_rpt) t("TLS-RPT", displayDnsValue(r.tls_rpt));
+  if (r.bimi) t("BIMI", displayDnsValue(r.bimi));
   if (r.caa && typeof r.caa === "object") {
     t("CAA", (r.caa.issuers ?? []).length ? r.caa.issuers.join(", ") : "ingen CAA");
   }
