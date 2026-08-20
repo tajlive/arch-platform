@@ -397,7 +397,7 @@ Juridiske/regulatoriske påstander er ikke vurdert — kun signaler, som krever 
 | Protokoll | Observert |
 |---|---|
 | SPF | v=spf1 include:mail.eu1.inforcloudsuite.com include:spf.protection.outlook.com include:spf.eye-share.com include:167.89.93.88 include:193.69.152.146 -all |
-| DMARC | {"record":null,"p":null,"policy":null,"subdomain":{"name":"_dmarc.www.bilglass.no","present":false,"record":null}} |
+| DMARC | ikke registrert |
 | MTA-STS | TXT: nei · policy-fil: nei |
 | CAA | ingen CAA |
 | DNSSEC | ikke signert |

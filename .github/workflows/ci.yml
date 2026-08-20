@@ -25,6 +25,8 @@ jobs:
         run: node packages/health-score/health-score.mjs . --json
       - name: Leakage-audit
         run: node packages/data-adapters/audit-leak.mjs
+      - name: Kundevendt innholdskontroll
+        run: node packages/governance/public-content-check.mjs
       - name: Deploy Ready Gate (12 bevis)
         run: node packages/governance/deploy-ready-check.mjs
       - name: Portal E2E (norsk tekst og responsivt oppsett)

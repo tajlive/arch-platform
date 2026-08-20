@@ -421,8 +421,8 @@ Juridiske/regulatoriske påstander er ikke vurdert — kun signaler, som krever 
 
 | Protokoll | Observert |
 |---|---|
-| SPF | {"record":null,"policy":null,"private_ips":[]} |
-| DMARC | {"record":null,"p":null,"policy":null} |
+| SPF | ikke registrert |
+| DMARC | ikke registrert |
 | MTA-STS | TXT: nei · policy-fil: nei |
 | CAA | ingen CAA |
 | DNSSEC | signert (AD-flag) |
