@@ -1,5 +1,7 @@
-// demo-company.ts — SYNTHETIC demo-firma «Nordic Service AS»
-// Merket eksplisitt som SYNTHETIC DEMO. Aldri blandet med ekte data.
+// demo-company.ts — SYNTHETIC demo «Multi-location Service Organization»
+// Anonymisert, eksplisitt merket som demo. Aldri blandet med ekte data.
+// Inspirert av en typisk nordisk multi-lokasjons servicevirksomhet (kantine/food-service),
+// men INGEN reelle kundenavn eller tall — kun anonymiserte struktursignaler.
 
 export interface DemoSignal {
   signal_type: string;
@@ -24,56 +26,57 @@ export interface DemoCompany {
 }
 
 export const NORDIC_SERVICE_DEMO: DemoCompany = {
-  company_id: "demo-nordic-service",
+  company_id: "demo-multi-location-service",
   org_number: "999999999",  // SYNTHETIC — ikke et ekte org.nr
-  name: "Nordic Service AS",
-  industry_code: "43.210",
-  industry_name: "Elektrisk installasjonsarbeid",
-  employees: 24,
-  website: "demo.nordicservice.example",
-  municipality: "Trondheim",
+  name: "Multi-location Service Organization",
+  industry_code: "56.220",
+  industry_name: "Kantinedrift og catering",
+  employees: 120,
+  website: "demo.example",
+  municipality: "Midt-Norge",
   disclaimer: "SYNTHETIC DEMO",
   signals: [
     {
-      signal_type: "HIRING",
-      description: "3 aktive stillingsannonser for kundeservice/ordrebehandling siste 30 dager",
-      confidence: "MEDIUM",
-      evidence_reference: "synthetic:nav-stillinger:3",
+      signal_type: "MULTI_LOCATION",
+      description: "Mange servicepunkter fordelt over en region — høy koordineringskompleksitet",
+      confidence: "HIGH",
+      evidence_reference: "synthetic:brreg:multiple-units",
+    },
+    {
+      signal_type: "WORKFORCE",
+      description: "Stor andel operativt ansatte spredt på mange lokasjoner",
+      confidence: "HIGH",
+      evidence_reference: "synthetic:brreg:workforce",
     },
     {
       signal_type: "CUSTOMER_FACING",
-      description: "Nettside har kontakttelefon + epost, men ingen digital booking eller selvbetjening",
-      confidence: "HIGH",
-      evidence_reference: "synthetic:website:no-booking",
-    },
-    {
-      signal_type: "GROWTH",
-      description: "Vekst i antall ansatte fra 18 til 24 siste 24 måneder",
+      description: "Kundedialog skjer på tvers av mange servicepunkter — telefoni, epost, bestilling",
       confidence: "MEDIUM",
-      evidence_reference: "synthetic:brreg:ansatte-vekst",
-    },
-    {
-      signal_type: "DIGITAL_MATURITY",
-      description: "Ingen detekterbar ERP/CRM-integrasjon på offentlig nettside",
-      confidence: "LOW",
-      evidence_reference: "synthetic:website:no-crm-signal",
+      evidence_reference: "synthetic:website:channels",
     },
     {
       signal_type: "OPERATIONAL",
-      description: "Manuell ordrebehandling — signal fra stillingsannonser («registrere ordre», «oppdatere Excel»)",
+      description: "Bemanning, vaktlister og koordinering på tvers av enheter",
       confidence: "MEDIUM",
-      evidence_reference: "synthetic:nav-arbeidsoppgaver",
+      evidence_reference: "synthetic:industry:operations",
+    },
+    {
+      signal_type: "DOCUMENTATION",
+      description: "Rapportering og dokumentasjon spredt over lokasjoner",
+      confidence: "LOW",
+      evidence_reference: "synthetic:industry:documentation",
     },
   ],
   potential_areas: [
-    "Customer operations",
-    "Order administration",
-    "Reporting / documentation",
+    "Customer communication",
+    "Workforce coordination",
+    "Documentation flow",
+    "Operational efficiency",
   ],
   uncertainty: [
-    "Faktisk tidsbruk på manuell ordrebehandling (krever kundesvar)",
-    "Eksisterende systemer (ERP/CRM) — ikke synlig offentlig",
-    "Volum av kundehenvendelser",
+    "Faktisk tidsbruk på koordinering og kundedialog (krever kundesvar)",
+    "Eksisterende systemer (bemannings-/bestillingssystem) — ikke synlig offentlig",
+    "Volum av henvendelser per servicepunkt",
   ],
 };
 
@@ -84,9 +87,9 @@ export interface DemoStep {
 }
 
 export const NORDIC_SERVICE_FLOW: DemoStep[] = [
-  { step: "PUBLIC_SIGNALS", content: "Fant 5 signaler: hiring, customer-facing, growth, digital maturity, operational." },
-  { step: "AI_REASONING", content: "3 stillingsannonser for kundeservice + ingen digital booking → mulig høy manuell kundehåndtering. INSUFFICIENT EVIDENCE for presis ROI." },
-  { step: "QUESTION", content: "«Hvor mye tid bruker teamet på manuell ordrebehandling og kundehenvendelser per uke?»" },
-  { step: "FINDING", content: "Potensielt automatiseringsområde: innkommende kundehenvendelser (confidence: MEDIUM)." },
+  { step: "PUBLIC_SIGNALS", content: "Fant 5 struktursignaler: multi-location, workforce, customer-facing, operational, documentation." },
+  { step: "AI_REASONING", content: "Mange servicepunkter + spredt bemanning + kundedialog på tvers → mulig høy koordinerings- og kommunikasjonsbelastning. INSUFFICIENT EVIDENCE for presis ROI." },
+  { step: "QUESTION", content: "«Hvor mye tid bruker ledelsen på koordinering og kundedialog på tvers av lokasjoner per uke?»" },
+  { step: "FINDING", content: "Potensielt automatiseringsområde: koordinering og kundekommunikasjon (confidence: MEDIUM)." },
   { step: "UPGRADE_BOUNDARY", content: "For å verifisere og kvantifisere krever Full Audit intern prosess- og systemdata." },
 ];

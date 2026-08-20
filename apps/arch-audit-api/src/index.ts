@@ -173,6 +173,21 @@ async function handleCompanyResolve(env: Env, req: Request): Promise<Response> {
   }
 }
 
+async function handleCompanyIntelligence(env: Env, req: Request): Promise<Response> {
+  const body = (await req.json().catch(() => null)) as { query?: string } | null;
+  const query = body?.query?.trim();
+  if (!query || query.length < 2) throw badRequest("INVALID_QUERY", "Firma eller organisasjonsnummer mangler.");
+  const svc = new CompanyService(env.DB);
+  const result = await svc.intelligence(query);
+  if (!result) {
+    return Response.json(
+      { resolved: false, error: { code: "COMPANY_NOT_FOUND", message: "Vi fant ikke virksomheten." } },
+      { status: 404 }
+    );
+  }
+  return Response.json({ resolved: true, company: result.company, intelligence: result.report });
+}
+
 async function handleAskQuestion(env: Env, req: Request): Promise<Response> {
   const { sessionId } = await requireAnonymousSession(env, req.headers.get("Cookie"));
   const body = (await req.json().catch(() => null)) as { context_id?: string } | null;
@@ -358,6 +373,7 @@ async function route(req: Request, env: Env, ctx: ExecutionContext, rid: string)
   if (path === "/v1/public/audit/session" && method === "POST") return withCors(await handleCreateSession(env), ch);
   if (path.startsWith("/v1/public/audit/session/") && method === "GET") return withCors(await handleGetSession(env, req), ch);
   if (path === "/v1/public/company/resolve" && method === "POST") return withCors(await handleCompanyResolve(env, req), ch);
+  if (path === "/v1/public/company/intelligence" && method === "POST") return withCors(await handleCompanyIntelligence(env, req), ch);
   if (path === "/v1/public/audit/question" && method === "POST") return withCors(await handleAskQuestion(env, req), ch);
   if (path === "/v1/public/demo/company" && method === "GET") {
     // SYNTHETIC demo — eksplisitt merket, aldri blandet med ekte data

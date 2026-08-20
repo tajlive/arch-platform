@@ -661,6 +661,26 @@ section { padding: 96px 0; }
 .audit-trust { background: var(--navy-deep); padding: 48px 0; }
 .audit-trust p { color: rgba(255,255,255,0.8); font-size: 20px; text-align: center; font-weight: 300; max-width: 640px; margin: 0 auto; }
 
+/* Executive Brief */
+.brief-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+.brief-header .panel-title { margin-bottom: 0; }
+.brief-section { padding: 18px 0; border-bottom: 1px solid var(--border); }
+.brief-section:last-of-type { border-bottom: none; }
+.brief-section-title {
+  font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--slate); margin-bottom: 12px;
+}
+.brief-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 6px 0; }
+.brief-label { font-size: 14px; color: var(--slate); flex: none; }
+.brief-value { font-size: 14px; font-weight: 600; color: var(--ink); text-align: right; }
+.brief-value.brief-ok { color: #0a8f3f; }
+.brief-value.brief-empty { color: var(--slate); font-weight: 500; }
+.brief-value.brief-na { color: var(--slate); font-weight: 500; font-style: italic; }
+.brief-confidence {
+  margin-top: 18px; font-size: 12px; color: var(--slate);
+  background: var(--blue-faint); border-radius: 8px; padding: 12px 16px;
+}
+
 @media (max-width: 560px) {
   .audit-hero h1 { font-size: 34px; }
   .audit-panel { padding: 24px 20px; }

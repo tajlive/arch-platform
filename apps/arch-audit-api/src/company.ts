@@ -2,6 +2,7 @@
 
 import type { D1Database } from "@cloudflare/workers-types";
 import { BrregAdapter, BrregCompany } from "./adapters";
+import { EvidenceEngine, IntelligenceReport } from "./evidence-engine";
 import { PublicCompanyContextRow, QuestionPurpose } from "./types";
 import { randomId } from "./utils";
 
@@ -9,6 +10,7 @@ export class CompanyService {
   constructor(private db: D1Database) {}
 
   private adapter = new BrregAdapter();
+  private engine = new EvidenceEngine();
 
   async resolve(query: string): Promise<{ company: BrregCompany; contextId: string }> {
     const result = await this.adapter.fetch({ query });
@@ -54,6 +56,19 @@ export class CompanyService {
       .run();
 
     return { company, contextId };
+  }
+
+  /**
+   * Evidence Engine v1 — samler alle tilgjengelige datakilder til én rapport.
+   * Returnerer null (ikke throw) hvis selskapet ikke finnes.
+   */
+  async intelligence(query: string): Promise<{ company: BrregCompany; report: IntelligenceReport } | null> {
+    try {
+      return await this.engine.analyze(query);
+    } catch (e) {
+      if ((e as Error).message === "COMPANY_NOT_FOUND") return null;
+      throw e;
+    }
   }
 
   /**

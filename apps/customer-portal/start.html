@@ -91,6 +91,15 @@
         </div>
       </div>
 
+      <!-- Executive Brief (rik evidence-rapport) -->
+      <div class="engine-panel" id="brief-panel" hidden>
+        <div class="brief-header">
+          <h2 class="panel-title">Executive Brief</h2>
+          <span class="mockup-tag">Verified public sources</span>
+        </div>
+        <div id="brief-body"></div>
+      </div>
+
       <!-- Company profile (ekte data fra Brønnøysund) -->
       <div class="engine-panel" id="profile-panel" hidden>
         <h2 class="panel-title" id="profile-name">Company profile</h2>
@@ -148,6 +157,7 @@
       const statusNote = document.getElementById("status-note");
       const engine = document.getElementById("engine");
       const evidencePanel = document.getElementById("evidence-map-panel");
+      const briefPanel = document.getElementById("brief-panel");
       const profilePanel = document.getElementById("profile-panel");
       const frictionPanel = document.getElementById("friction-panel");
       const conversationPanel = document.getElementById("conversation-panel");
@@ -189,6 +199,7 @@
         statusNote.textContent = "Arch is analyzing your company…";
         engine.hidden = false;
         evidencePanel.hidden = false;
+        briefPanel.hidden = true;
         profilePanel.hidden = true;
         frictionPanel.hidden = true;
         conversationPanel.hidden = true;
@@ -207,8 +218,8 @@
           });
           if (!sessRes.ok) throw new Error("session");
 
-          // 2. Resolve company
-          const res = await fetch(API + "/v1/public/company/resolve", {
+          // 2. Evidence Engine — rik rapport (identitet + ledelse + regnskap + digital + kilder)
+          const res = await fetch(API + "/v1/public/company/intelligence", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ query: q }),
@@ -220,12 +231,12 @@
             setDetail("em-company-detail", "Not found in public registries");
             statusNote.textContent = "We could not find this company in public registries. Try another name or organisation number.";
             discoverBtn.disabled = false;
-            discoverBtn.textContent = "Discover";
+            discoverBtn.textContent = "Generate Intelligence Map";
             return;
           }
 
           company = data.company;
-          contextId = data.context_id;
+          const intelligence = data.intelligence;
 
           // Company identifisert
           setState("em-company", 2);
@@ -233,33 +244,34 @@
 
           // Public sources koblet
           setState("em-sources", 1);
-          await sleep(350);
+          await sleep(300);
           setState("em-sources", 2);
-          setDetail("em-sources-detail", "Brønnøysund Enhetsregisteret");
+          const availableCount = (intelligence.sources || []).filter(function (s) { return s.status === "AVAILABLE"; }).length;
+          setDetail("em-sources-detail", availableCount + " sources verified");
 
           // Business signals
           setState("em-signals", 1);
-          await sleep(350);
+          await sleep(300);
           setState("em-signals", 2);
           setDetail("em-signals-detail", signalsSummary(company));
 
           // Audit questions klar
           setState("em-questions", 1);
-          await sleep(350);
+          await sleep(300);
           setState("em-questions", 2);
           setDetail("em-questions-detail", "Ready");
 
-          // Vis company profile (ekte data)
-          renderProfile(company);
-          profilePanel.hidden = false;
+          // Vis Executive Brief (rik evidence-rapport)
+          renderBrief(intelligence, company);
+          briefPanel.hidden = false;
+          briefPanel.scrollIntoView({ behavior: "smooth", block: "start" });
 
           // Vis executive friction question
           setTimeout(function () {
             frictionPanel.hidden = false;
-            frictionPanel.scrollIntoView({ behavior: "smooth", block: "center" });
-          }, 400);
+          }, 500);
 
-          statusNote.textContent = "Arch discovered " + company.company_name + " from verified public sources.";
+          statusNote.textContent = "Arch researched " + company.company_name + " from " + availableCount + " verified public sources before asking anything.";
 
         } catch (err) {
           statusNote.textContent = "Something went wrong. Please try again.";
@@ -267,7 +279,7 @@
           conversationPanel.hidden = false;
         } finally {
           discoverBtn.disabled = false;
-          discoverBtn.textContent = "Discover";
+          discoverBtn.textContent = "Generate Intelligence Map";
         }
       }
 
@@ -308,6 +320,112 @@
         });
       }
 
+      function fmtMoney(n) {
+        if (n == null) return "—";
+        const abs = Math.abs(n);
+        if (abs >= 1e9) return (n / 1e9).toFixed(1) + " bn";
+        if (abs >= 1e6) return (n / 1e6).toFixed(1) + " mn";
+        if (abs >= 1e3) return (n / 1e3).toFixed(0) + " k";
+        return String(n);
+      }
+
+      // Executive Brief — rik evidence-rapport (identitet + ledelse + regnskap + digital + kilder)
+      function renderBrief(intel, c) {
+        const body = document.getElementById("brief-body");
+        body.innerHTML = "";
+        const id = intel.identity || {};
+
+        function section(title, rows) {
+          const s = document.createElement("div");
+          s.className = "brief-section";
+          const h = document.createElement("div");
+          h.className = "brief-section-title";
+          h.textContent = title;
+          s.appendChild(h);
+          rows.forEach(function (row) {
+            const r = document.createElement("div");
+            r.className = "brief-row";
+            const l = document.createElement("span");
+            l.className = "brief-label";
+            l.textContent = row[0];
+            const v = document.createElement("span");
+            v.className = "brief-value";
+            v.textContent = row[1];
+            r.appendChild(l); r.appendChild(v);
+            s.appendChild(r);
+          });
+          body.appendChild(s);
+        }
+
+        // 1. Company
+        section("Company", [
+          ["Name", c.company_name],
+          ["Industry", id.industry_name || "Not stated"],
+          ["Employees", id.employees != null ? String(id.employees) : "Not stated"],
+          ["Location", id.municipality || "Not stated"],
+        ]);
+
+        // 2. Leadership & governance
+        const ld = intel.leadership || [];
+        if (ld.length) {
+          section("Leadership & governance", ld.map(function (r) {
+            return [r.role_description, r.person_name || "—"];
+          }));
+        }
+
+        // 3. Financial profile
+        const f = intel.financial;
+        if (f) {
+          section("Financial profile (" + f.period_to + ")", [
+            ["Revenue", f.revenue != null ? fmtMoney(f.revenue) + " " + (f.currency||"") : "Not stated"],
+            ["Operating result", f.operating_result != null ? fmtMoney(f.operating_result) + " " + (f.currency||"") : "Not stated"],
+            ["Net result", f.net_result != null ? fmtMoney(f.net_result) + " " + (f.currency||"") : "Not stated"],
+            ["Equity", f.equity != null ? fmtMoney(f.equity) + " " + (f.currency||"") : "Not stated"],
+            ["Audited", f.audited ? "Yes" : "No"],
+          ]);
+        }
+
+        // 4. Digital footprint
+        const dig = intel.digital;
+        if (dig && dig.fetched) {
+          section("Digital footprint", [
+            ["Website", dig.website],
+            ["Technology", dig.tech_stack.length ? dig.tech_stack.join(", ") : "Not detected"],
+            ["Channels", dig.channels.length ? dig.channels.join(", ") : "Not detected"],
+          ]);
+        }
+
+        // 5. Evidence sources (ærlig status)
+        const srcs = intel.sources || [];
+        const srcS = document.createElement("div");
+        srcS.className = "brief-section";
+        const srcH = document.createElement("div");
+        srcH.className = "brief-section-title";
+        srcH.textContent = "Evidence sources";
+        srcS.appendChild(srcH);
+        srcs.forEach(function (s) {
+          const r = document.createElement("div");
+          r.className = "brief-row";
+          const l = document.createElement("span");
+          l.className = "brief-label";
+          l.textContent = s.label;
+          const v = document.createElement("span");
+          v.className = "brief-value";
+          if (s.status === "AVAILABLE") { v.className = "brief-value brief-ok"; v.textContent = "✓ " + (s.note || "Available"); }
+          else if (s.status === "EMPTY") { v.className = "brief-value brief-empty"; v.textContent = "No data"; }
+          else { v.className = "brief-value brief-na"; v.textContent = "Not connected"; }
+          r.appendChild(l); r.appendChild(v);
+          srcS.appendChild(r);
+        });
+        body.appendChild(srcS);
+
+        // Confidence footer
+        const foot = document.createElement("p");
+        foot.className = "brief-confidence";
+        foot.textContent = "Confidence: based on verified public sources. Insufficient evidence is stated honestly.";
+        body.appendChild(foot);
+      }
+
       // Friction area selection → stiller første context-aware spørsmål
       document.querySelectorAll(".friction-card").forEach(function (btn) {
         btn.addEventListener("click", async function () {
@@ -323,10 +441,22 @@
           conversationPanel.scrollIntoView({ behavior: "smooth", block: "start" });
 
           try {
+            // Få context_id via resolve (for question-endepunktet)
+            let cid = contextId;
+            if (!cid) {
+              const r2 = await fetch(API + "/v1/public/company/resolve", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ query: company.company_name }),
+              });
+              const d2 = await r2.json();
+              cid = d2.context_id;
+              contextId = cid;
+            }
             const qRes = await fetch(API + "/v1/public/audit/question", {
               method: "POST", credentials: "include",
               headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ context_id: contextId }),
+              body: JSON.stringify({ context_id: cid }),
             });
             const qData = await qRes.json();
             if (qData.insufficient) {
