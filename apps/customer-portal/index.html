@@ -3,101 +3,240 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arch — AI Audit Consultant</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Arch AXN — AI-Powered Business Intelligence</title>
+  <meta name="description" content="Arch analyzes companies, processes and public signals to identify evidence-based opportunities for improvement." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="axn.css" />
 </head>
 <body>
-  <div class="shell">
-    <header class="masthead">
-      <div class="brand">
-        <div class="logo">▲</div>
-        <div>
-          <h1>ARCH</h1>
-          <p class="tagline">Autonomous Engineering Platform</p>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="wrap nav">
+      <a href="index.html" class="brand">
+        <div class="brand-mark">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 19 A8 8 0 0 1 20 19" stroke="white" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+            <path d="M7 19 A5 5 0 0 1 17 19" stroke="white" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="brand-name">ARCH <span>AXN</span></div>
+      </a>
+      <nav class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#trust">Security</a>
+        <a href="#loop">Learning</a>
+        <a href="proof.html">Proof Center</a>
+      </nav>
+      <a href="#beta" class="nav-cta">Request Beta Access</a>
+    </div>
+  </header>
+
+  <!-- 1. Hero -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <span class="eyebrow">AI-Powered Business Intelligence</span>
+      <h1>Understand your business.<br />Discover where <span class="accent">AI creates real value</span>.</h1>
+      <p class="lede">Arch analyzes companies, processes and public signals to identify evidence-based opportunities for improvement.</p>
+      <div class="hero-cta">
+        <a href="start.html" class="btn btn-primary">Start Company Audit</a>
+        <a href="#beta" class="btn btn-ghost">Request Beta Access</a>
+      </div>
+      <p class="hero-note">Evidence-based · Norwegian · No fabricated metrics — <code>NOT YET MEASURED</code> until proven</p>
+    </div>
+  </section>
+
+  <!-- 2. Problem -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">The problem</span>
+        <h2>Most companies know AI matters. Few know where it actually creates value.</h2>
+      </div>
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="icon">⚙️</div>
+          <h3>Manual processes</h3>
+          <p>Repetitive work hidden across teams — order handling, reporting, customer follow-up — never measured, never improved.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🗂️</div>
+          <h3>Data scattered across systems</h3>
+          <p>Information lives in email, spreadsheets, ERP and CRM — with no single view of where time and cost actually go.</p>
+        </div>
+        <div class="card">
+          <div class="icon">❓</div>
+          <h3>Unclear AI opportunities</h3>
+          <p>Without evidence, AI investments become guesses. Arch turns signals into verified opportunities before you spend.</p>
         </div>
       </div>
-      <span class="version">Arch Health Score v<span id="ver">—</span></span>
-    </header>
-
-    <nav class="topnav">
-      <a href="index.html" class="active">Forside</a>
-      <a href="start.html">Start AI-audit</a>
-      <a href="case-arch-platform.html">Case: Arch Platform</a>
-      <a href="case-autoglass.html">Case: Autoglassgrossisten</a>
-      <a href="systems.html">Systems I Run</a>
-      <a href="explore.html">Explore the Engineering</a>
-      <a href="proof.html">Proof Center</a>
-      <a href="trace.html">Agent Trace Explorer</a>
-      <a href="architecture.html">Architecture Explorer</a>
-      <a href="adrs.html">ADR Log</a>
-      <a href="evals.html">Eval Lab</a>
-      <a href="cost.html">AI Cost Metrics</a>
-      <a href="case-study.html">FinnBilGlass Case Study</a>
-      <a href="decisions.html">What AI Did / What I Decided</a>
-    </nav>
-
-    <section class="hero audit-hero">
-      <h2>La AI-en vår undersøke bedriften din.</h2>
-      <p class="sub">
-        Arch har allerede gjort hjemmeleksen — offentlige data, regnskap, bransjebenchmark og
-        teknologisignaler — før du svarer på ett eneste spørsmål.
-      </p>
-      <form class="company-search" action="start.html" method="get">
-        <input type="text" name="q" placeholder="Firma eller organisasjonsnummer" aria-label="Firma eller organisasjonsnummer" />
-        <button type="submit">Start gratis AI-audit</button>
-      </form>
-      <p class="note">Gratis. AI-ledet samtale — ikke et skjema. Ingen kredittkort.</p>
-    </section>
-
-    <section class="pipeline card">
-      <h3>Hvordan det fungerer</h3>
-      <div class="steps">
-        <div class="step">Offentlig research</div><div class="arrow">→</div>
-        <div class="step">AI-samtale</div><div class="arrow">→</div>
-        <div class="step">Dynamisk discovery</div><div class="arrow">→</div>
-        <div class="step">Live funn</div><div class="arrow">→</div>
-        <div class="step">Full audit</div>
-      </div>
-      <p class="note">AI spør bare om det som faktisk påvirker resultatet. Utilstrekkelig evidens → ærlig «INSUFFICIENT EVIDENCE», ikke oppdiktede tall.</p>
-    </section>
-
-    <div class="grid">
-      <section class="card">
-        <h3>Prosjekter</h3>
-        <div id="projects"></div>
-      </section>
-
-      <section class="card">
-        <h3>Knowledge Graph</h3>
-        <div id="knowledge" class="knowledge-grid"></div>
-        <p class="note" id="knowledge-src"></p>
-      </section>
-
-      <section class="card">
-        <h3>Security & Governance</h3>
-        <div id="security"></div>
-        <p class="note">Secret-audit, policy-håndheving og audit-logg på hvert prosjekt.</p>
-      </section>
-
-      <section class="card">
-        <h3>Agenter</h3>
-        <div id="agents"></div>
-        <p class="note">Status vises kun som observert — aldri antatt.</p>
-      </section>
     </div>
+  </section>
 
-    <footer class="footer">
-      <span>«Arch lærer av systemet, men endrer aldri sikkerhetsgrenser automatisk.»</span>
-      <span class="footer-links">
-        <a href="privacy.html">Personvern</a> ·
-        <a href="security.html">Sikkerhet</a> ·
-        <a href="terms.html">Vilkår</a> ·
-        <a href="data-sources.html">Datakilder</a>
-      </span>
-      <span id="gen">—</span>
-    </footer>
-  </div>
-  <script src="data.js"></script>
-  <script src="app.js"></script>
+  <!-- 3. How Arch works -->
+  <section id="how" style="background: #F8FAFD;">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">How Arch works</span>
+        <h2>Evidence before action.</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div>
+            <h3>DISCOVER</h3>
+            <p>Public data, company signals and business context — Arch does the homework before the first question.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div>
+            <h3>ANALYZE</h3>
+            <p>Evidence-based AI audit and process intelligence. Signals become hypotheses, never fabricated findings.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div>
+            <h3>IMPROVE</h3>
+            <p>Recommendations with measurable outcomes — measure first, recommend after.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Security & Trust -->
+  <section class="trust" id="trust">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Security &amp; Trust</span>
+        <h2>Production-grade, verified — not promised.</h2>
+        <p>Real production status. Every claim below is measured in production, not a marketing badge.</p>
+      </div>
+      <div class="grid grid-2">
+        <div class="trust-card">
+          <span class="trust-badge">PASS — production</span>
+          <h3>Production infrastructure</h3>
+          <p>Cloudflare Workers, D1 database, custom domain — live and serving traffic at api.arch.axn.no.</p>
+        </div>
+        <div class="trust-card">
+          <span class="trust-badge">PASS — verified</span>
+          <h3>Tenant isolation</h3>
+          <p>Cross-tenant attack tests prove user A can never read or write tenant B's data — 7/7 tests passing.</p>
+        </div>
+        <div class="trust-card">
+          <span class="trust-badge">PASS — verified</span>
+          <h3>Evidence model</h3>
+          <p>Every finding links to evidence. Insufficient evidence is stated honestly — never guessed.</p>
+        </div>
+        <div class="trust-card">
+          <span class="trust-badge">PASS — production</span>
+          <h3>Privacy architecture</h3>
+          <p>Privacy-first: no fingerprinting, no cross-site tracking, no purchased profiling. Aggregated signals only.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Learning Loop -->
+  <section id="loop">
+    <div class="wrap">
+      <div class="section-head" style="text-align:center; margin-left:auto; margin-right:auto;">
+        <span class="eyebrow">The Arch difference</span>
+        <h2>Arch improves through verified outcomes, not just more data.</h2>
+        <p>Most AI systems guess. Arch closes the loop — from signal to measured result.</p>
+      </div>
+      <div class="loop">
+        <div class="loop-node">Signal</div>
+        <div class="loop-arrow">↓</div>
+        <div class="loop-node">Evidence</div>
+        <div class="loop-arrow">↓</div>
+        <div class="loop-node">Question Intelligence</div>
+        <div class="loop-arrow">↓</div>
+        <div class="loop-node">Finding</div>
+        <div class="loop-arrow">↓</div>
+        <div class="loop-node">Recommendation</div>
+        <div class="loop-arrow">↓</div>
+        <div class="loop-node">Measured Outcome</div>
+        <div class="loop-arrow">↓</div>
+        <div class="loop-node highlight">Learning</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Target users -->
+  <section style="background: #F8FAFD;">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Who Arch is for</span>
+        <h2>Built for decision-makers who need evidence.</h2>
+      </div>
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="icon">🏢</div>
+          <h3>SMB Leaders</h3>
+          <p>Find where automation creates value — before investing in AI you don't need.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🏛️</div>
+          <h3>Enterprise</h3>
+          <p>AI governance and operational intelligence across teams, systems and processes.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🧭</div>
+          <h3>Consultants</h3>
+          <p>Structured business analysis — evidence-based findings your clients can trust.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Beta -->
+  <section class="beta" id="beta">
+    <div class="wrap">
+      <span class="eyebrow" style="color:var(--blue-light)">Closed beta</span>
+      <h2>Arch is currently working with selected beta partners.</h2>
+      <p>We're not selling a finished product — we're proving where AI actually creates value, one company at a time.</p>
+      <a href="mailto:support@arch.axn.no?subject=Founding%20Beta%20Partner" class="btn btn-primary">Become a Founding Beta Partner</a>
+    </div>
+  </section>
+
+  <!-- 8. Footer -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">ARCH <span>AXN</span></div>
+          <p style="font-size:14px; max-width:280px;">AI-Powered Business Intelligence. Evidence-based audits that reveal where AI creates real value.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <a href="proof.html">Security</a>
+          <a href="architecture.html">Architecture</a>
+          <a href="explore.html">Engineering</a>
+        </div>
+        <div class="footer-col">
+          <h4>Trust</h4>
+          <a href="privacy.html">Privacy</a>
+          <a href="security.html">Security</a>
+          <a href="terms.html">Terms</a>
+          <a href="data-sources.html">Data Sources</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:support@arch.axn.no">support@arch.axn.no</a>
+          <a href="#beta">Become a Beta Partner</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Arch AXN. Evidence-based, not opinion-based.</span>
+        <span>Norwegian AI business intelligence platform</span>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
