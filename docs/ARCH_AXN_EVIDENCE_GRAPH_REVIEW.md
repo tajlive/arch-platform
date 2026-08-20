@@ -2,9 +2,38 @@
 
 **Dato:** 2026-08-20
 **Rolle:** Principal Data Architect
-**Status:** REVIEW — for godkjenning FØR implementering (ingen kode bygget)
+**Status:** ✅ GODKJENT (Tom 2026-08-20) — med 5 endringer, se «Endelige beslutninger»
 
 > Fase 0 leveranse. Formål: erstatte flat `company_context` JSON-blob med en **Evidence Graph** som blir kjernen i ARCH AXN.
+
+---
+
+## Endelige beslutninger (Tom 2026-08-20)
+
+| # | Punkt | Beslutning |
+|---|-------|-----------|
+| 1 | Node-typer | **10 typer** — legger til `HYPOTHESIS` + `QUESTION` (reasoning graph fra dag én) |
+| 2 | Edge-relasjoner | **7 relasjoner** — legger til `GENERATES` (hypothesis→question) + `ANSWERS` (question→evidence, læringssløyfen) |
+| 3 | Evidence-kobling | **Join-tabell `hypothesis_evidence`** (IKKE JSON-array) — toveis søk, analytics, Vectorize-klar |
+| 4 | Questions FK | `hypothesis_id` FK — **ikke null** for AI-genererte spørsmål |
+| 5 | Tenant-scoping | `tenant_id` **nullable kolonne nå** (PUBLIC = NULL, CUSTOMER = customer_id senere) — full isolasjon i fase 2 |
+| + | Evidence Quality | Hver evidence: `type, source, confidence, freshness, verified` |
+
+---
+
+## Evidence Quality Model (alle evidence-noder)
+
+```json
+{
+  "type": "FINANCIAL",
+  "source": "BRREG",
+  "confidence": "HIGH",
+  "freshness": "2025",
+  "verified": true
+}
+```
+
+Arch vil ha kilder av svært ulik kvalitet (Brønnøysund vs nyheter vs LinkedIn vs brukerdata). AI-en må kunne svare på «Kan jeg stole på dette?» — derfor er freshness + verified en del av selve noden, ikke metadata.
 
 ---
 
