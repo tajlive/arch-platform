@@ -670,9 +670,9 @@ section { padding: 96px 0; }
   font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
   color: var(--slate); margin-bottom: 12px;
 }
-.brief-row { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 6px 0; }
-.brief-label { font-size: 14px; color: var(--slate); flex: none; }
-.brief-value { font-size: 14px; font-weight: 600; color: var(--ink); text-align: right; }
+.brief-row { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr); align-items: baseline; gap: 16px; padding: 6px 0; }
+.brief-label { font-size: 14px; color: var(--slate); min-width: 0; overflow-wrap: anywhere; }
+.brief-value { font-size: 14px; font-weight: 600; color: var(--ink); min-width: 0; overflow-wrap: anywhere; text-align: right; }
 .brief-value.brief-ok { color: #0a8f3f; }
 .brief-value.brief-empty { color: var(--slate); font-weight: 500; }
 .brief-value.brief-na { color: var(--slate); font-weight: 500; font-style: italic; }
@@ -686,6 +686,8 @@ section { padding: 96px 0; }
   .audit-panel { padding: 24px 20px; }
   .progress-line { width: 24px; margin: 0 8px; }
   .cta-row-inline { flex-direction: column; }
+  .brief-row { grid-template-columns: 1fr; gap: 2px; }
+  .brief-value { text-align: left; }
 }
 
 /* ═══ START EXPERIENCE v2.0 — AI analyst onboarding ═══ */
@@ -803,4 +805,3 @@ p, h1, h2, h3, h4, a, span { overflow-wrap: anywhere; }
   .engine-label { min-width: 0; }
   .engine-detail { flex-basis: 100%; }
 }
-

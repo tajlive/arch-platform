@@ -14,6 +14,7 @@ const read = (p) => (existsSync(p) ? readFileSync(p, "utf8") : "");
 const walk = (d, out = []) => {
   if (!existsSync(d)) return out;
   for (const f of readdirSync(d)) {
+    if (["node_modules", ".git"].includes(f)) continue;
     const p = join(d, f);
     if (statSync(p).isDirectory()) walk(p, out);
     else out.push(p);
