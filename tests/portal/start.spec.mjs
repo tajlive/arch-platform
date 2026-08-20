@@ -57,6 +57,7 @@ const intelligenceResponse = {
 };
 
 async function mockAuditApi(page) {
+  const calls = { questions: [] };
   await page.route("https://api.arch.axn.no/v1/public/audit/session", (route) => route.fulfill({ status: 200, body: "{}" }));
   await page.route("https://api.arch.axn.no/v1/public/company/intelligence", (route) => route.fulfill({
     status: 200,
@@ -68,19 +69,32 @@ async function mockAuditApi(page) {
     contentType: "application/json",
     body: JSON.stringify({ context_id: "test-context" })
   }));
-  await page.route("https://api.arch.axn.no/v1/public/audit/question", (route) => route.fulfill({
-    status: 200,
-    contentType: "application/json",
-    body: JSON.stringify({ question: "Hvordan dokumenteres kundehenvendelser i dag?", required_for: "arbeidsflytanalyse", expected_information_gain: 25 })
-  }));
+  await page.route("https://api.arch.axn.no/v1/public/audit/question", async (route) => {
+    const body = route.request().postDataJSON();
+    calls.questions.push(body);
+    await new Promise((resolveDelay) => setTimeout(resolveDelay, 75));
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        question: body.focus_area === "Administrasjon"
+          ? "For ROLF SOLHEIM: Hvilken administrativ oppgave tar mest tid i en vanlig uke?"
+          : "For ROLF SOLHEIM: Hvor kommer flest nye kundehenvendelser inn i dag?",
+        required_for: "IDENTIFY_PROCESS",
+        expected_information_gain: 25
+      })
+    });
+  });
+  return calls;
 }
 
 async function openBrief(page) {
-  await mockAuditApi(page);
+  const calls = await mockAuditApi(page);
   await page.goto(`${baseUrl}/start.html`);
   await page.locator("#company-input").fill("Rolf Solheim");
   await page.locator("#discover-btn").click();
   await expect(page.locator("#brief-panel")).toBeVisible();
+  return calls;
 }
 
 test("viser en norsk, dokumentert virksomhetsoversikt uten tekniske statuser", async ({ page }, testInfo) => {
@@ -108,7 +122,7 @@ test("viser en norsk, dokumentert virksomhetsoversikt uten tekniske statuser", a
 
 test("holder tekst og valg ryddig på mobil", async ({ page }, testInfo) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await openBrief(page);
+  const calls = await openBrief(page);
 
   const brief = page.locator("#brief-panel");
   const label = brief.locator(".brief-row").first().locator(".brief-label");
@@ -118,9 +132,14 @@ test("holder tekst og valg ryddig på mobil", async ({ page }, testInfo) => {
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
 
   await expect(page.locator("#friction-panel")).toBeVisible();
-  await page.getByRole("button", { name: "Kundekommunikasjon" }).click();
-  await expect(page.locator("#conversation-panel")).toContainText("Hvordan dokumenteres kundehenvendelser i dag?");
-  await expect(page.locator("#conversation-panel")).toContainText("Formål: arbeidsflytanalyse");
+  await page.locator("#friction-grid").evaluate((grid) => {
+    const admin = [...grid.querySelectorAll("button")].find((button) => button.textContent.includes("Administrasjon"));
+    for (let i = 0; i < 5; i++) admin.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+  });
+  await expect(page.locator("#conversation-panel")).toContainText("Hvilken administrativ oppgave tar mest tid i en vanlig uke?");
+  await expect(page.locator("#conversation-panel")).toContainText("Formål: kartlegge arbeidsflyten");
+  await expect(page.locator("#conversation-panel .msg")).toHaveCount(1);
+  expect(calls.questions).toEqual([{ context_id: "test-context", focus_area: "Administrasjon" }]);
 
   await testInfo.attach("start-mobile", { body: await page.screenshot({ fullPage: true }), contentType: "image/png" });
 });

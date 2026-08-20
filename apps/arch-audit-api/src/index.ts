@@ -190,7 +190,7 @@ async function handleCompanyIntelligence(env: Env, req: Request): Promise<Respon
 
 async function handleAskQuestion(env: Env, req: Request): Promise<Response> {
   const { sessionId } = await requireAnonymousSession(env, req.headers.get("Cookie"));
-  const body = (await req.json().catch(() => null)) as { context_id?: string } | null;
+  const body = (await req.json().catch(() => null)) as { context_id?: string; focus_area?: string } | null;
   const access = new PublicAuditDataAccess(env.DB);
   const session = await access.getSession(sessionId);
   if (!session) throw unauthorized("SESSION_INVALID", "Session finnes ikke.");
@@ -204,7 +204,7 @@ async function handleAskQuestion(env: Env, req: Request): Promise<Response> {
   if (!company) {
     return Response.json({ insufficient: true, message: "INSUFFICIENT EVIDENCE — oppgi firma eller organisasjonsnummer først." });
   }
-  const q = await svc.firstQuestion(company);
+  const q = await svc.firstQuestion(company, body?.focus_area);
   const questionId = await access.addQuestion(sessionId, q);
   return Response.json({ question_id: questionId, ...q });
 }

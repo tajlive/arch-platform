@@ -70,7 +70,7 @@
 
       <!-- Evidence Map — levende visualisering -->
       <div class="engine-panel" id="evidence-map-panel">
-        <h2 class="panel-title">Kartlegging pågår</h2>
+        <h2 class="panel-title">Kontrollerer grunnlaget</h2>
         <div class="engine-map">
           <div class="engine-row" id="em-company">
             <span class="engine-state" data-state="0"></span>
@@ -86,14 +86,14 @@
           <div class="engine-line"></div>
           <div class="engine-row" id="em-signals">
             <span class="engine-state" data-state="0"></span>
-            <span class="engine-label">Virksomhetssignaler</span>
+            <span class="engine-label">Bransje og størrelse</span>
             <span class="engine-detail" id="em-signals-detail">Kartlegger…</span>
           </div>
           <div class="engine-line"></div>
           <div class="engine-row" id="em-questions">
             <span class="engine-state" data-state="0"></span>
-            <span class="engine-label">Kartleggingsspørsmål</span>
-            <span class="engine-detail" id="em-questions-detail">Forbereder…</span>
+            <span class="engine-label">Neste steg</span>
+            <span class="engine-detail" id="em-questions-detail">Avventer valg…</span>
           </div>
         </div>
       </div>
@@ -172,6 +172,9 @@
 
       let contextId = null;
       let company = null;
+      let questionLoading = false;
+      let questionRequest = 0;
+      let selectedArea = null;
 
       function setState(id, state) {
         // state: 0 = pending, 1 = active, 2 = done
@@ -193,6 +196,25 @@
         log.appendChild(div);
       }
 
+      function setFrictionControlsDisabled(disabled) {
+        document.querySelectorAll(".friction-card").forEach(function (button) {
+          button.disabled = disabled;
+        });
+      }
+
+      function purposeLabel(purpose) {
+        const labels = {
+          REDUCE_UNCERTAINTY: "avklare usikkerhet",
+          QUANTIFY_VALUE: "forstå omfang og verdi",
+          IDENTIFY_PROCESS: "kartlegge arbeidsflyten",
+          IDENTIFY_SYSTEM: "forstå systemstøtten",
+          VERIFY_EVIDENCE: "bekrefte dokumentasjon",
+          ASSESS_RISK: "vurdere risiko",
+          CHOOSE_TECHNOLOGY: "avklare teknologibehov"
+        };
+        return labels[purpose] || "avklare neste steg";
+      }
+
       input.addEventListener("keydown", function (e) {
         if (e.key === "Enter") { e.preventDefault(); discover(); }
       });
@@ -201,6 +223,12 @@
       async function discover() {
         const q = input.value.trim();
         if (!q) return;
+        contextId = null;
+        selectedArea = null;
+        questionLoading = false;
+        questionRequest++;
+        log.innerHTML = "";
+        setFrictionControlsDisabled(false);
         discoverBtn.disabled = true;
           discoverBtn.textContent = "Kartlegger…";
           statusNote.textContent = "Arch kartlegger virksomheten…";
@@ -266,11 +294,12 @@
           setState("em-questions", 1);
           await sleep(300);
           setState("em-questions", 2);
-          setDetail("em-questions-detail", "Klar");
+          setDetail("em-questions-detail", "Velg område");
 
           // Vis Executive Brief (rik evidence-rapport)
           renderBrief(intelligence, company);
           briefPanel.hidden = false;
+          evidencePanel.hidden = true;
           briefPanel.scrollIntoView({ behavior: "smooth", block: "start" });
 
           // Vis executive friction question
@@ -278,7 +307,7 @@
             frictionPanel.hidden = false;
           }, 500);
 
-          statusNote.textContent = "Arch har kontrollert " + company.company_name + " mot " + availableCount + " offentlige kilder før kartleggingen fortsetter.";
+          statusNote.textContent = "Grunnlaget for " + company.company_name + " er klart. Velg området dere vil starte med.";
 
         } catch (err) {
           statusNote.textContent = "Noe gikk galt. Prøv igjen.";
@@ -445,6 +474,13 @@
       document.querySelectorAll(".friction-card").forEach(function (btn) {
         btn.addEventListener("click", async function () {
           const area = btn.dataset.area;
+          if (questionLoading || area === selectedArea) return;
+          selectedArea = area;
+          questionLoading = true;
+          const requestId = ++questionRequest;
+          setFrictionControlsDisabled(true);
+          log.innerHTML = "";
+
           // Marker valgt
           document.querySelectorAll(".friction-card").forEach(function (b) {
             b.classList.toggle("selected", b === btn);
@@ -471,20 +507,26 @@
             const qRes = await fetch(API + "/v1/public/audit/question", {
               method: "POST", credentials: "include",
               headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ context_id: cid }),
+              body: JSON.stringify({ context_id: cid, focus_area: area }),
             });
             const qData = await qRes.json();
+            if (requestId !== questionRequest) return;
             if (qData.insufficient) {
               addMsg(qData.message);
             } else {
               addMsg(qData.question);
               const purpose = document.createElement("span");
               purpose.className = "purpose";
-              purpose.textContent = "Formål: " + qData.required_for + " · Forventet informasjonsgevinst: " + qData.expected_information_gain + "%";
+              purpose.textContent = "Formål: " + purposeLabel(qData.required_for);
               log.lastChild.appendChild(purpose);
             }
           } catch (err) {
-            addMsg("Noe gikk galt. Prøv igjen.");
+            if (requestId === questionRequest) addMsg("Noe gikk galt. Prøv igjen.");
+          } finally {
+            if (requestId === questionRequest) {
+              questionLoading = false;
+              setFrictionControlsDisabled(false);
+            }
           }
         });
       });
