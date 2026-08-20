@@ -5,6 +5,7 @@ import { PublicAuditDataAccess } from "./sessions";
 import { CompanyService } from "./company";
 import { AuthService, TenantContext, getAccessIdentity, authorize } from "./auth";
 import { TenantDataAccess } from "./tenant-access";
+import { RateLimiter } from "./rate-limiter";
 import {
   requestId, log, isAllowedOrigin, badRequest, notFound, unauthorized, forbidden,
 } from "./utils";
@@ -15,24 +16,33 @@ export interface Env {
   PUBLIC_ORIGIN: string;
   GIT_SHA?: string;
   BUILD_TIME?: string;
+  RATE_LIMITER: DurableObjectNamespace;
 }
 
-// ── In-memory rate limiter (per IP, sliding window) ──────────
-// NOTE: per-isolate only. Production bør bruke Cloudflare WAF/Rate Limiting.
-const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
-const RATE_LIMIT_WINDOW_MS = 60_000;
-const RATE_LIMIT_MAX = 60;
+// ── Global rate limiting via Durable Object ──────────────────
+// Erstatter P1C sin per-isolate in-memory Map (som var stateless og resettes ved cold start).
+// Durable Object = singleton per key → global, atomisk state.
 
-function checkRateLimit(ip: string): boolean {
-  const now = Date.now();
-  const entry = rateLimitMap.get(ip);
-  if (!entry || entry.resetAt < now) {
-    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
-    return true;
+function rateProfileForPath(path: string, method: string): "anonymous" | "authenticated" | "internal" {
+  if (path.startsWith("/v1/internal/")) return "internal";
+  if (path.startsWith("/v1/tenant/")) return "authenticated";
+  return "anonymous"; // /v1/public/* + /health
+}
+
+async function enforceRateLimit(env: Env, ip: string, path: string): Promise<Response | null> {
+  const profile = rateProfileForPath(path, "GET");
+  // key = IP + profil, slik at én IP kan ha ulike grenser per profil
+  const id = env.RATE_LIMITER.idFromName(`${ip}:${profile}`);
+  const stub = env.RATE_LIMITER.get(id);
+  const resp = await stub.fetch(`https://rate-limiter/?profile=${profile}`);
+  if (resp.status === 429) {
+    const retryAfter = resp.headers.get("Retry-After") ?? "60";
+    return Response.json(
+      { error: { code: "RATE_LIMITED", message: "For mange forespørsler." } },
+      { status: 429, headers: { "Retry-After": retryAfter } }
+    );
   }
-  if (entry.count >= RATE_LIMIT_MAX) return false;
-  entry.count++;
-  return true;
+  return null;
 }
 
 // ── CORS ─────────────────────────────────────────────────────
@@ -347,6 +357,8 @@ async function route(req: Request, env: Env, ctx: ExecutionContext, rid: string)
 
 // ── Entry ───────────────────────────────────────────────────
 
+export { RateLimiter };
+
 export default {
   async fetch(req: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const rid = requestId();
@@ -354,9 +366,8 @@ export default {
     const url = new URL(req.url);
 
     const ip = req.headers.get("CF-Connecting-IP") ?? "unknown";
-    if (!checkRateLimit(ip)) {
-      return Response.json({ error: { code: "RATE_LIMITED", message: "For mange forespørsler.", request_id: rid } }, { status: 429 });
-    }
+    const rateLimited = await enforceRateLimit(env, ip, url.pathname);
+    if (rateLimited) return rateLimited;
 
     try {
       const res = await route(req, env, ctx, rid);

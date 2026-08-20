@@ -30,6 +30,13 @@ export interface BrregCompany {
   municipality?: string;
   municipality_number?: string;
   registered_at?: string;
+  roles?: BrregRole[];         // daglig leder, styre, etc.
+}
+
+export interface BrregRole {
+  role_type: string;           // "DAGL", "STYR", "REVI", "REGN"
+  role_description: string;    // "Daglig leder", "Styre"
+  person_name?: string;        // IKKE fødselsdato (personvern)
 }
 
 interface BrregResponse {
@@ -98,6 +105,34 @@ export class BrregAdapter implements PublicDataAdapter<BrregCompany> {
         municipality_number: unit.postadresse?.kommunenummer,
         registered_at: unit.registreringsdatoEnhetsregisteret,
       };
+
+      // Hent roller (daglig leder, styre) — separat kall, best effort.
+      // Personvern: henter KUN navn, aldri fødselsdato.
+      try {
+        const rolesResp = await fetch(
+          `https://data.brreg.no/enhetsregisteret/api/enheter/${company.org_number}/roller`,
+          { headers: { "Accept": "application/json" } }
+        );
+        if (rolesResp.ok) {
+          const rolesBody: any = await rolesResp.json();
+          const roles: BrregRole[] = [];
+          for (const group of rolesBody?.rollegrupper ?? []) {
+            const type = group?.type?.beskrivelse ?? group?.type?.kode ?? "Ukjent";
+            for (const r of group?.roller ?? []) {
+              if (r?.person?.navn) {
+                roles.push({
+                  role_type: r?.type?.kode ?? "UKJENT",
+                  role_description: type,
+                  person_name: `${r.person.navn.fornavn ?? ""} ${r.person.navn.etternavn ?? ""}`.trim(),
+                });
+              }
+            }
+          }
+          if (roles.length > 0) company.roles = roles;
+        }
+      } catch {
+        // Roller er best-effort — ikke kritisk hvis det feiler
+      }
 
       return {
         data: company,
