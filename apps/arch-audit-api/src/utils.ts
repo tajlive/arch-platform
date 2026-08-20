@@ -35,8 +35,8 @@ export interface LogEntry {
   level: "info" | "warn" | "error";
   request_id: string;
   trace_id: string;
-  route: string;
-  method: string;
+  route?: string;
+  method?: string;
   status?: number;
   latency_ms?: number;
   error_code?: string;

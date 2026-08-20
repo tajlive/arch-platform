@@ -115,6 +115,57 @@ export class PublicAuditDataAccess {
       .run();
   }
 
+  /**
+   * Atomisk claim av anonymous session → authenticated tenant.
+   * Krav (direktiv §25-26):
+   * - valid anonymous session credential må presenteres
+   * - login alene skal IKKE kunne claime vilkårlig session-ID
+   * - atomisk: én session kan ikke claimes av to tenants (race)
+   *
+   * Implementasjon: UPDATE ... WHERE id = ? AND ownership_mode = 'ANONYMOUS'
+   * betyr at kun ÉN transaction kan vinne (second UPDATE matcher 0 rader).
+   */
+  async claimSession(
+    sessionId: string,
+    credential: string,
+    tenantId: string,
+    userId: string
+  ): Promise<"CLAIMED" | "INVALID_CREDENTIAL" | "ALREADY_CLAIMED" | "NOT_FOUND"> {
+    // 1. Verifiser credential (server-side)
+    const ok = await this.verifyCredential(sessionId, credential);
+    if (!ok) return "INVALID_CREDENTIAL";
+
+    // 2. Atomisk ownership transfer — kun ANONYMOUS kan claimes.
+    // WHERE ownership_mode = 'ANONYMOUS' gjør at en andre claim på samme session
+    // matcher 0 rader (allerede AUTHENTICATED) → ALREADY_CLAIMED.
+    const res = await this.db
+      .prepare(
+        `UPDATE audit_sessions
+         SET ownership_mode = 'AUTHENTICATED', tenant_id = ?, user_id = ?, updated_at = ?
+         WHERE id = ? AND ownership_mode = 'ANONYMOUS'`
+      )
+      .bind(tenantId, userId, new Date().toISOString(), sessionId)
+      .run();
+
+    if (res.meta?.changes === 0) {
+      // Enten finnes ikke, eller allerede claimed
+      const existing = await this.db
+        .prepare(`SELECT ownership_mode FROM audit_sessions WHERE id = ?`)
+        .bind(sessionId)
+        .first<{ ownership_mode: string }>();
+      if (!existing) return "NOT_FOUND";
+      return "ALREADY_CLAIMED";
+    }
+
+    // 3. Roter/invalider credential (session eies nå av tenant, anonym credential fjernes)
+    await this.db
+      .prepare(`DELETE FROM session_credentials WHERE session_id = ?`)
+      .bind(sessionId)
+      .run();
+
+    return "CLAIMED";
+  }
+
   private async hashCredential(credential: string): Promise<string> {
     const data = new TextEncoder().encode(`arch-session:${credential}`);
     const digest = await crypto.subtle.digest("SHA-256", data);
