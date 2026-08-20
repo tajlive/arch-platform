@@ -53,6 +53,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.125.0"
           command: pages deploy apps/customer-portal --project-name arch-platform --branch main
 
   smoke:
@@ -61,13 +62,33 @@ jobs:
     steps:
       - name: HTTP smoke (prod + assets)
         run: |
-          set -e
-          curl -sf -o /dev/null "https://arch-platform.pages.dev/"
-          curl -sf -o /dev/null "https://arch-platform.pages.dev/styles.css"
-          curl -sf -o /dev/null "https://arch-platform.pages.dev/app.js"
-          curl -sf -o /dev/null "https://arch-platform.pages.dev/data.js"
-          curl -sf "https://arch-platform.pages.dev/robots.txt" | grep -q "Sitemap: https://arch.axn.no/sitemap.xml"
-          curl -sf "https://arch-platform.pages.dev/sitemap.xml" | grep -q "https://arch.axn.no/start"
+          set -euo pipefail
+          wait_for_url() {
+            local url="$1"
+            for attempt in {1..12}; do
+              if curl -fsS --connect-timeout 5 --max-time 15 -o /dev/null "$url"; then return 0; fi
+              echo "Venter på Pages-edge ($attempt/12): $url"
+              sleep 5
+            done
+            echo "🔴 Ikke tilgjengelig etter 60 sekunder: $url"
+            return 1
+          }
+          wait_for_content() {
+            local url="$1" expected="$2" body
+            for attempt in {1..12}; do
+              if body=$(curl -fsS --connect-timeout 5 --max-time 15 "$url") && grep -Fq "$expected" <<<"$body"; then return 0; fi
+              echo "Venter på Pages-edge ($attempt/12): $url"
+              sleep 5
+            done
+            echo "🔴 Forventet innhold mangler etter 60 sekunder: $url"
+            return 1
+          }
+          wait_for_url "https://arch-platform.pages.dev/"
+          wait_for_url "https://arch-platform.pages.dev/styles.css"
+          wait_for_url "https://arch-platform.pages.dev/app.js"
+          wait_for_url "https://arch-platform.pages.dev/data.js"
+          wait_for_content "https://arch-platform.pages.dev/robots.txt" "Sitemap: https://arch.axn.no/sitemap.xml"
+          wait_for_content "https://arch-platform.pages.dev/sitemap.xml" "https://arch.axn.no/start"
           echo "✅ smoke OK"
       - name: Privacy smoke (0 lekkasjer i live data.js)
         run: |
