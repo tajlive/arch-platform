@@ -7,6 +7,7 @@ import { AuthService, TenantContext, getAccessIdentity, authorize } from "./auth
 import { TenantDataAccess } from "./tenant-access";
 import { RateLimiter } from "./rate-limiter";
 import { NORDIC_SERVICE_DEMO, NORDIC_SERVICE_FLOW } from "./demo-company";
+import { BetaService, BetaProvisionInput } from "./beta";
 import {
   requestId, log, isAllowedOrigin, badRequest, notFound, unauthorized, forbidden,
 } from "./utils";
@@ -374,10 +375,28 @@ async function route(req: Request, env: Env, ctx: ExecutionContext, rid: string)
   }
   if (path === "/v1/tenant/session/claim" && method === "POST") return withCors(await handleClaimSession(env, req, ctx, rid), ch);
 
-  // Protected internal namespace (samme Access-krav som tenant — ADMIN rolle)
+  // Protected internal namespace (krever Access + ADMIN/OWNER-rolle)
   if (path.startsWith("/v1/internal/")) {
     const tc = await requireTenantContext(env, req, ctx, rid);
     if (tc.role !== "ADMIN" && tc.role !== "OWNER") throw forbidden("FORBIDDEN", "Krever admin-rolle.");
+
+    const beta = new BetaService(env.DB);
+
+    if (path === "/v1/internal/beta/tenant/create" && method === "POST") {
+      const body = (await req.json().catch(() => null)) as BetaProvisionInput | null;
+      if (!body?.company_name || !body?.org_number || !body?.contact_email || !body?.beta_cohort) {
+        throw badRequest("INVALID_INPUT", "company_name, org_number, contact_email og beta_cohort er påkrevd.");
+      }
+      const result = await beta.provisionTenant(body);
+      log({ timestamp: new Date().toISOString(), level: "info", request_id: rid, trace_id: rid, event: "BETA_TENANT_CREATED", tenant_id: result.tenant_id, actor: tc.user_id });
+      return withCors(Response.json(result, { status: 201 }), ch);
+    }
+
+    if (path === "/v1/internal/beta/companies" && method === "GET") {
+      const companies = await beta.listBetaCompanies();
+      return withCors(Response.json({ companies }), ch);
+    }
+
     throw notFound("NOT_FOUND", "Internal endpoint finnes ikke.");
   }
 
