@@ -66,6 +66,8 @@ jobs:
           curl -sf -o /dev/null "https://arch-platform.pages.dev/styles.css"
           curl -sf -o /dev/null "https://arch-platform.pages.dev/app.js"
           curl -sf -o /dev/null "https://arch-platform.pages.dev/data.js"
+          curl -sf "https://arch-platform.pages.dev/robots.txt" | grep -q "Sitemap: https://arch.axn.no/sitemap.xml"
+          curl -sf "https://arch-platform.pages.dev/sitemap.xml" | grep -q "https://arch.axn.no/start"
           echo "✅ smoke OK"
       - name: Privacy smoke (0 lekkasjer i live data.js)
         run: |

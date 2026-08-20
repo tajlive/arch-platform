@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /audits/
+
+Sitemap: https://arch.axn.no/sitemap.xml

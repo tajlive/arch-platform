@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Explore the Engineering — Arch</title>
+  <meta name="robots" content="noindex,follow" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -45,35 +46,35 @@
         <h3>Guided Tour</h3>
         <ol class="tour-steps">
           <li>
-            <h4>1. Problem</h3>
+            <h4>1. Problem</h4>
             <p>Bedrifter vet ikke hva de bør automatisere. Intervjuer gir anekdotisk evidens. Systemdata gir noe annet. Arch bruker evidens til å finne verdien.</p>
           </li>
           <li>
-            <h4>2. Arkitektur</h3>
+            <h4>2. Arkitektur</h4>
             <p>Cloudflare Workers + D1 + R2 + AI Gateway. Én plattform. Application-layer tenant isolation. Deterministisk ROI-engine. Evidence-first metodikk (E0–E4).</p>
           </li>
           <li>
-            <h4>3. AI-agenter</h3>
+            <h4>3. AI-agenter</h4>
             <p>Orkestrert av Hermes (Chief Architect). 6 spesialiserte agenter: Discovery, Evidence, Process, Automation, Risk, Critic. Hver med definert autonomi (A0–A5) og policy-enforced tool permissions.</p>
           </li>
           <li>
-            <h4>4. Governance</h3>
+            <h4>4. Governance</h4>
             <p>Policy-as-code (OPA/Rego). Runtime enforcement + CI/CD gates. Audit trail på alle beslutninger. Human-in-the-loop for HIGH/CRITICAL risiko.</p>
           </li>
           <li>
-            <h4>5. Security</h3>
+            <h4>5. Security</h4>
             <p>Zero-trust. Application-layer tenant isolation (D1 RLS via middleware, R2 prefix, Workers middleware). Cloudflare Access + OIDC. Cross-tenant attack testing (18/18 grønne).</p>
           </li>
           <li>
-            <h4>6. Observability</h3>
+            <h4>6. Observability</h4>
             <p>Cloudflare AI Gateway (tokens, cost, latency) + OpenTelemetry export. Full trace: User → Orchestrator → Agent → Model → Tool → Policy → Evidence → Decision.</p>
           </li>
           <li>
-            <h4>7. Evals</h3>
+            <h4>7. Evals</h4>
             <p>Golden cases (12 scenarier). Regression gate (95% threshold). Extraction F1 > 90%, Classification > 85%, Grounding 100%, Hallucination < 2%.</p>
           </li>
           <li>
-            <h4>8. Produksjonsbevis</h3>
+            <h4>8. Produksjonsbevis</h4>
             <p>Live CI: 487 tests passed. Cross-tenant tests: 18/18 grønne. Deploy gates: 12/12 grønne. Production verified på arch.axn.no.</p>
           </li>
         </ol>

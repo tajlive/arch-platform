@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ARCH AXN — Evidence-based AI Business Intelligence</title>
-  <meta name="description" content="Arch analyzes companies, processes and public signals to identify evidence-based opportunities for improvement." />
-  <meta property="og:title" content="ARCH AXN — Evidence-based AI Business Intelligence" />
-  <meta property="og:description" content="Arch analyzes companies, processes and public signals to identify evidence-based opportunities for improvement." />
+  <title>ARCH AXN | Evidensbasert bedriftsintelligens</title>
+  <meta name="description" content="ARCH AXN samler dokumenterte offentlige selskapsdata i en sporbar intelligence-graf, slik at virksomheter kan stille bedre spørsmål før de investerer i KI." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://arch.axn.no/" />
+  <meta property="og:title" content="ARCH AXN | Evidensbasert bedriftsintelligens" />
+  <meta property="og:description" content="Sporbar bedriftsintelligens fra dokumenterte offentlige kilder." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/linkedin-banner.svg" />
+  <meta property="og:url" content="https://arch.axn.no/" />
+  <meta property="og:locale" content="nb_NO" />
+  <meta property="og:image" content="https://arch.axn.no/assets/linkedin-banner.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,28 +25,29 @@
   <!-- Header -->
   <header class="site-header">
     <div class="wrap nav">
-      <a href="index.html" class="brand">
+        <a href="/" class="brand">
         <img src="assets/logo.svg" alt="ARCH AXN" class="brand-logo" />
       </a>
       <nav class="nav-links">
         <a href="#intelligence-engine">Intelligence Engine</a>
         <a href="#security-architecture">Security Architecture</a>
         <a href="#learning-loop">Learning Loop</a>
-        <a href="proof.html">Proof Center</a>
+        <a href="/proof">Proof Center</a>
       </nav>
-      <a href="#beta" class="nav-cta">Request Beta Access</a>
+      <a href="#beta" class="nav-cta">Be om beta-tilgang</a>
     </div>
   </header>
 
   <!-- 1. Hero -->
   <section class="hero">
     <div class="wrap hero-inner">
-      <span class="eyebrow">Evidence-based AI Intelligence Platform</span>
+      <span class="eyebrow">Evidensbasert KI-intelligens</span>
       <h1>ARCH AXN</h1>
-      <h2 class="hero-subtitle">Evidence-based AI intelligence for modern businesses.</h2>
-      <p class="lede">Arch analyzes companies, processes and public signals to identify evidence-based opportunities for improvement.</      <div class="hero-cta">
-        <a href="start.html" class="btn btn-primary">Generate Intelligence Map</a>
-        <a href="#beta" class="btn btn-ghost">Request Beta Access</a>
+      <h2 class="hero-subtitle">Evidensbasert KI-intelligens for moderne virksomheter.</h2>
+      <p class="lede">Arch samler selskapsdata og offentlige signaler i en sporbar intelligence-graf, slik at du kan undersøke muligheter før du tar beslutninger.</p>
+      <div class="hero-cta">
+        <a href="/start" class="btn btn-primary">Lag intelligence-kart</a>
+        <a href="#beta" class="btn btn-ghost">Be om beta-tilgang</a>
       </div>
       <p class="hero-note">Evidence-based · No fabricated metrics — <code>NOT YET MEASURED</code> until proven</p>
     </div>
@@ -66,7 +72,7 @@
           <div class="engine-node active" data-node="2">
             <div class="node-icon">✓</div>
             <div class="node-label">Verified Data</div>
-            <div class="node-desc">Brønnøysund, SSB, NAV</div>
+            <div class="node-desc">Dokumenterte kilder</div>
           </div>
           <div class="engine-connector">→</div>
           <div class="engine-node" data-node="3">
@@ -83,8 +89,8 @@
           <div class="engine-connector">→</div>
           <div class="engine-node" data-node="5">
             <div class="node-icon">💡</div>
-            <div class="node-label">Recommendations</div>
-            <div class="node-desc">Measurable outcomes</div>
+            <div class="node-label">Spørsmål</div>
+            <div class="node-desc">Videre undersøkelse</div>
           </div>
         </div>
         <div class="engine-progress">
@@ -136,25 +142,25 @@
       <div class="section-head">
         <span class="eyebrow">Product</span>
         <h2>Intelligence Engine</h2>
-        <p style="max-width: 600px; color: var(--slate);">Automated evidence discovery and hypothesis generation from public and private data sources.</p>
+          <p style="max-width: 600px; color: var(--slate);">Automatisert innhenting og validering av observasjoner fra dokumenterte offentlige kilder.</p>
       </div>
       <div class="grid grid-3">
         <div class="product-card">
           <div class="product-icon">🔍</div>
           <h3>Company Intelligence</h3>
-          <p>Automated company profiling from Brønnøysund, SSB, NAV and web signals — verified public sources.</p>
-          <div class="product-metric">Measured in production</div>
+          <p>Selskapsprofil fra Brønnøysundregistrene og tilgjengelige offentlige nettsider, med kilde og innhentingstidspunkt.</p>
+          <div class="product-metric">Tilgjengelig i beta</div>
         </div>
         <div class="product-card">
           <div class="product-icon">📈</div>
           <h3>Signal Detection</h3>
-          <p>Hiring patterns, financial stress, digital maturity and tech stack signals from public data.</p>
+          <p>Regnskaps- og digitale signaler fra offentlige kilder som må undersøkes videre før de blir til funn.</p>
           <div class="product-metric">Validation in progress</div>
         </div>
         <div class="product-card">
           <div class="product-icon">🎯</div>
           <h3>Hypothesis Engine</h3>
-          <p>Evidence → Hypothesis → Question → Verified Finding. Every recommendation traces back to source evidence.</p>
+          <p>Observasjon → evidens → hypotese → spørsmål. Systemet produserer ikke anbefalinger uten tilstrekkelig dokumentasjon.</p>
           <div class="product-metric">Evidence required</div>
         </div>
       </div>
@@ -166,26 +172,26 @@
       <div class="section-head">
         <span class="eyebrow">Product</span>
         <h2>Security Architecture</h2>
-        <p style="max-width: 600px; color: var(--slate);">Enterprise-grade multi-tenancy with cryptographic isolation and audit-grade logging.</p>
+        <p style="max-width: 600px; color: var(--slate);">Tenant-isolasjon, eksplisitt autorisasjon og sporbare API-forespørsler.</p>
       </div>
       <div class="grid grid-3">
         <div class="product-card">
           <div class="product-icon">🔐</div>
           <h3>Tenant Isolation</h3>
-          <p>Cryptographic data separation. Cross-tenant attack tests in production — 7/7 passing.</p>
-          <div class="product-metric">Measured in production</div>
+          <p>Applikasjonsstyrt tenant-isolasjon med autorisasjon og avgrensede databaseoppslag.</p>
+          <div class="product-metric">Automatisert testet</div>
         </div>
         <div class="product-card">
           <div class="product-icon">📋</div>
           <h3>Audit-Grade Logging</h3>
-          <p>Every AI decision, evidence retrieval, and user action logged with request IDs for traceability.</p>
-          <div class="product-metric">Measured in production</div>
+          <p>Forespørsler til API-et logges med request-ID for sporbarhet og feilsøking.</p>
+          <div class="product-metric">Aktivt i API-et</div>
         </div>
         <div class="product-card">
           <div class="product-icon">🛡️</div>
           <h3>Cloudflare Edge Security</h3>
-          <p>DDoS protection, WAF and rate limiting at the edge. Workers isolate execution per tenant.</p>
-          <div class="product-metric">Measured in production</div>
+          <p>Ratebegrensning og sikkerhetsheadere håndheves i API-laget ved kanten.</p>
+          <div class="product-metric">Aktivt i API-et</div>
         </div>
       </div>
     </div>
@@ -196,25 +202,25 @@
       <div class="section-head">
         <span class="eyebrow">Product</span>
         <h2>Learning Loop</h2>
-        <p style="max-width: 600px; color: var(--slate);">Continuous improvement through verified outcomes. AI that learns from measured results, not just more data.</p>
+        <p style="max-width: 600px; color: var(--slate);">Planlagt læring basert på verifiserte utfall. Funksjonen er ikke aktivert i beta.</p>
       </div>
       <div class="grid grid-3">
         <div class="product-card">
           <div class="product-icon">🔄</div>
           <h3>Outcome Tracking</h3>
-          <p>Every recommendation is linked to a measured outcome where available. Accuracy is tracked per signal type.</p>
+          <p>Utfallsmåling og signalpresisjon er planlagt. De publiseres ikke før de er målt.</p>
           <div class="product-metric">NOT YET MEASURED</div>
         </div>
         <div class="product-card">
           <div class="product-icon">👥</div>
           <h3>Human Feedback Loop</h3>
-          <p>Expert review gates before learning activation. No automatic model updates without verification.</p>
-          <div class="product-metric">Measured in production</div>
+          <p>Eventuell læring skal kreve faglig kontroll før aktivering. Automatiske modelloppdateringer er ikke aktivert.</p>
+          <div class="product-metric">Planlagt</div>
         </div>
         <div class="product-card">
           <div class="product-icon">📚</div>
           <h3>Industry Intelligence</h3>
-          <p>Anonymous pattern aggregation across tenants. Industry context without sharing data.</p>
+          <p>Bransjekontekst er planlagt og blir ikke publisert før kildegrunnlag og personvernrammer er verifisert.</p>
           <div class="product-metric">Validation in progress</div>
         </div>
       </div>
@@ -226,8 +232,8 @@
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow">Interface</span>
-        <h2>Realistic UI Mockups</h2>
-        <p style="max-width: 600px; color: var(--slate);">Production screenshots from the Arch Intelligence Platform.</p>
+        <h2>Eksempel på grensesnitt</h2>
+        <p style="max-width: 600px; color: var(--slate);">Illustrasjoner av hvordan en sporbar intelligence-graf kan presenteres. De er ikke kundedata eller produksjonsskjermbilder.</p>
       </div>
       <div class="mockups-grid">
         <div class="mockup-card">
@@ -277,7 +283,7 @@
             <div class="evidence-arrow">→</div>
             <div class="evidence-node evidence-sources">Brønnøysund ✓</div>
             <div class="evidence-arrow">→</div>
-            <div class="evidence-node evidence-signals">SSB + NAV ✓</div>
+            <div class="evidence-node evidence-signals">Regnskapsdata ✓</div>
             <div class="evidence-arrow">→</div>
             <div class="evidence-node evidence-signals">Web signals ✓</div>
             <div class="evidence-arrow">→</div>
@@ -326,29 +332,29 @@
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow">Security & Trust</span>
-        <h2>Production-grade, verified — not promised.</h2>
-        <p>Real production status. Every claim below is measured in production, not a marketing badge.</p>
+        <h2>Status og sikkerhetsprinsipper.</h2>
+        <p>Hver påstand beskriver en aktiv implementasjon, en automatisert kontroll eller en tydelig avgrensning.</p>
       </div>
       <div class="grid grid-2">
         <div class="trust-card">
-          <span class="trust-badge">PASS — production</span>
+          <span class="trust-badge">AKTIV</span>
           <h3>Production infrastructure</h3>
           <p>Cloudflare Workers, D1 database, custom domain — live and serving traffic at api.arch.axn.no.</p>
         </div>
         <div class="trust-card">
-          <span class="trust-badge">PASS — verified</span>
+          <span class="trust-badge">AUTOMATISERT TESTET</span>
           <h3>Tenant isolation</h3>
-          <p>Cross-tenant attack tests prove user A can never read or write tenant B's data — 7/7 tests passing.</p>
+          <p>Tilgangskontroll avgrenser data med tenant-kontekst, og automatiserte tester dekker kryss-tenant-forsøk.</p>
         </div>
         <div class="trust-card">
-          <span class="trust-badge">PASS — verified</span>
+          <span class="trust-badge">AKTIV</span>
           <h3>Evidence model</h3>
-          <p>Every finding links to evidence. Insufficient evidence is stated honestly — never guessed.</p>
+          <p>Rå observasjoner valideres med kilde, tidspunkt og konfidens før de kan inngå i intelligence-grafen.</p>
         </div>
         <div class="trust-card">
-          <span class="trust-badge">PASS — production</span>
+          <span class="trust-badge">PRINSIPP</span>
           <h3>Privacy architecture</h3>
-          <p>Privacy-first: no fingerprinting, no cross-site tracking, no purchased profiling. Aggregated signals only.</p>
+          <p>Ingen skjult sporing, kjøpt profilering eller kryssnettsted-sporing. Se personvernsiden for avgrensningene.</p>
         </div>
       </div>
     </div>
@@ -359,8 +365,8 @@
     <div class="wrap">
       <div class="section-head" style="text-align:center; margin-left:auto; margin-right:auto;">
         <span class="eyebrow">The Arch difference</span>
-        <h2>Arch improves through verified outcomes, not just more data.</h2>
-        <p>Most AI systems guess. Arch closes the loop — from signal to measured result.</p>
+        <h2>Arch skal forbedres gjennom verifiserte utfall, ikke bare mer data.</h2>
+        <p>Læringssløyfen er et planlagt mål. I beta tydeliggjør Arch når dokumentasjonen ikke er tilstrekkelig.</p>
       </div>
       <div class="loop">
         <div class="loop-node">Signal</div>
@@ -369,11 +375,9 @@
         <div class="loop-arrow">↓</div>
         <div class="loop-node">Question Intelligence</div>
         <div class="loop-arrow">↓</div>
-        <div class="loop-node">Finding</div>
+        <div class="loop-node">Spørsmål</div>
         <div class="loop-arrow">↓</div>
-        <div class="loop-node">Recommendation</div>
-        <div class="loop-arrow">↓</div>
-        <div class="loop-node">Measured Outcome</div>
+        <div class="loop-node">Verifisert utfall</div>
         <div class="loop-arrow">↓</div>
         <div class="loop-node highlight">Learning</div>
       </div>

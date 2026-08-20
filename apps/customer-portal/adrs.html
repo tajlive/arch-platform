@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ADR Log — Arch</title>
+  <meta name="robots" content="noindex,follow" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -185,7 +186,8 @@
             </ol>
             <h4>Alternatives Considered</h4>
             <ul>
-              <li><strong>Cedar:</strong> Meget lovende (Rust core, entity-based, native decision logging), men mindre mature tooling, mindre CI/CD eksempler, mindre community eksempler for vårt use case.</            </ul>
+              <li><strong>Cedar:</strong> Meget lovende (Rust core, entity-based, native decision logging), men mindre mature tooling, mindre CI/CD eksempler, mindre community eksempler for vårt use case.</li>
+            </ul>
             <h4>Consequences</h4>
             <ul>
               <li>✅ `opa test` i CI/CD — policy regressjoner fanges før deploy</li>
