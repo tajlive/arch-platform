@@ -53,36 +53,48 @@ export async function getAccessIdentity(ctx: ExecutionContext): Promise<AccessId
   const identity = await ctx.access.getIdentity();
   if (!identity) return undefined;
 
-  const provider = identity.idp?.id ?? "cloudflare_access";
+  // Provider: bruk STABIL type-streng, ikke IdP-UUID (idp.id varierer per konto).
   const providerType = identity.idp?.type ?? "access";
   const email = identity.email;
 
-  // Stabil subject foretrekkes (OIDC IdP-er gir user_uuid/sub)
+  // onetimepin (OTP) er Cloudflares egen e-post-PIN-IdP.
+  // Den gir typisk IKKE user_uuid — e-posten ER identiteten.
+  if (providerType === "onetimepin") {
+    if (!email) return undefined;
+    const normalizedEmail = email.trim().toLowerCase();
+    return {
+      provider_subject: `onetimepin:${normalizedEmail}`,
+      email: normalizedEmail,
+      name: identity.name ?? normalizedEmail,
+      provider: "onetimepin",
+      provider_type: "onetimepin",
+    };
+  }
+
+  // OIDC IdP-er gir stabil subject (user_uuid/sub)
   const stableSubject = identity.user_uuid;
   if (stableSubject) {
     return {
       provider_subject: stableSubject,
       email,
       name: identity.name,
-      provider,
+      provider: providerType,
       provider_type: providerType,
     };
   }
 
-  // onetimepin-fall: ingen stabil subject → eposten er identiteten.
-  // Namespacet med provider-type så det aldri kolliderer med en OIDC-identity.
+  // Fallback: epost som subject for andre provider-typer
   if (email) {
     const normalizedEmail = email.trim().toLowerCase();
     return {
-      provider_subject: `onetimepin:${normalizedEmail}`,
+      provider_subject: `${providerType}:${normalizedEmail}`,
       email: normalizedEmail,
       name: identity.name ?? normalizedEmail,
-      provider: provider || "onetimepin",
-      provider_type: providerType || "onetimepin",
+      provider: providerType,
+      provider_type: providerType,
     };
   }
 
-  // Verken stabil subject eller epost → kan ikke identifisere
   return undefined;
 }
 
@@ -94,11 +106,23 @@ export class AuthService {
    * Hvis identity ikke finnes, returneres null (controlled onboarding path).
    */
   async resolveUser(access: AccessIdentityInfo): Promise<ResolveResult | null> {
-    // 1. Finn identity via (provider, provider_subject) — stabil nøkkel
-    const identity = await this.db
+    // 1. Finn identity via (provider, provider_subject) — stabil nøkkel.
+    let identity = await this.db
       .prepare(`SELECT id FROM identities WHERE identity_provider = ? AND provider_subject = ?`)
       .bind(access.provider, access.provider_subject)
       .first<{ id: string }>();
+
+    // 2. Fallback: epost-basert lookup (onetimepin identifiserer ved epost).
+    //    Hvis provider_subject mismatch (f.eks. Access ga user_uuid i stedet for
+    //    onetimepin:{epost}), match på epost i stedet. Trygt fordi epost i
+    //    identities er unik per provider.
+    if (!identity && access.email) {
+      const byEmail = await this.db
+        .prepare(`SELECT id FROM identities WHERE identity_provider = ? AND email = ?`)
+        .bind(access.provider, access.email)
+        .first<{ id: string }>();
+      identity = byEmail;
+    }
 
     if (!identity) return null;
 

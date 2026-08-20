@@ -193,7 +193,14 @@ async function requireTenantContext(env: Env, req: Request, ctx: ExecutionContex
   let resolve = await auth.resolveUser(accessIdentity);
   if (!resolve) {
     // Unknown identity — DENY (controlled onboarding path skjer manuelt/separat)
-    log({ timestamp: new Date().toISOString(), level: "warn", request_id: rid, trace_id: rid, route: new URL(req.url).pathname, method: req.method, event: "IDENTITY_RESOLUTION_FAILED" });
+    // Sanert logging: provider + provider_subject (IKKE email), for å debugge mismatch.
+    log({
+      timestamp: new Date().toISOString(), level: "warn", request_id: rid, trace_id: rid,
+      route: new URL(req.url).pathname, method: req.method, event: "IDENTITY_RESOLUTION_FAILED",
+      provider: accessIdentity.provider,
+      provider_type: accessIdentity.provider_type,
+      provider_subject: accessIdentity.provider_subject,
+    });
     throw forbidden("IDENTITY_NOT_PROVISIONED", "Identitet ikke provisionert. Kontakt Arch.");
   }
 

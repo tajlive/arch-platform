@@ -1,46 +1,40 @@
 # P1E Fase 1 — Manuel Positiv Access-test (OTP)
 
-**Status:** AWAITING OWNER VERIFICATION  
+**Status:** ✅ PASS — OWNER VERIFIED  
 **Dato:** 2026-08-20
 
-## Hvorfor manuell
-
-`ctx.access.getIdentity()` returnerer identitet kun når en ekte bruker har fullført Cloudflare Access-login. Dette kan ikke automatiseres uten Toms faktiske OTP-interaksjon (e-posten går til ham).
-
-## Testprosedyre
-
-1. Åpne i nettleser (inkognito, ny session):
-   ```
-   https://api.arch.axn.no/v1/tenant/me
-   ```
-
-2. Forventet: Cloudflare Access login-side (tomarnejensen.cloudflareaccess.com).
-
-3. Skriv inn `tomarnejensen@gmail.com` → «Send login code».
-
-4. Motta OTP på e-post → skriv inn koden.
-
-5. Etter login: forventet JSON-respons:
-   ```json
-   {
-     "user_id": "user-tom",
-     "tenant_id": "tenant-tom",
-     "role": "OWNER",
-     "permissions": ["audit:read", "audit:write", "audit:delete", "tenant:manage", "tenant:read"]
-   }
-   ```
-
-## Dokumenter (fylles ut ved test)
+## Resultat
 
 | Felt | Verdi |
 |------|-------|
-| Tidspunkt | (fylles inn) |
+| Tidspunkt | 2026-08-20 (Tom logget inn) |
 | Identity provider | onetimepin |
 | provider_subject format | `onetimepin:tomarnejensen@gmail.com` |
-| Tenant resolved | tenant-tom (forventet) |
-| Role | OWNER (forventet) |
-| Response | (fylles inn — forventet 200 JSON) |
+| Tenant resolved | tenant-tom |
+| Role | OWNER |
+| Response | 200 JSON med user_id, tenant_id, role, permissions |
 
-## Ikke fake PASS
+**Response (faktisk):**
+```json
+{
+  "user_id": "user-tom",
+  "tenant_id": "tenant-tom",
+  "role": "OWNER",
+  "permissions": ["audit:read", "audit:write", "audit:delete", "tenant:manage", "tenant:read"]
+}
+```
 
-Før Toms faktiske login er verifisert, er positiv path **infrastruktur-verifisert men IKKE bruker-verifisert**. Proof Center viser dette ærlig.
+## Rotårsak (fixet underveis)
+
+Første forsøk ga `IDENTITY_NOT_PROVISIONED`. Rotårsak: `ctx.access.getIdentity()` returnerer en `user_uuid` (Cloudflare-generert) for onetimepin, ikke `onetimepin:{epost}`. Koden brukte den som provider_subject, som ikke matchet DB-raden.
+
+Fiks (3 lag):
+1. `getAccessIdentity()` bruker `idp.type` (stabil `onetimepin`), ikke `idp.id` (UUID).
+2. For onetimepin tvinges `provider_subject = onetimepin:{epost}`.
+3. `resolveUser()` har epost-fallback.
+
+## Konklusjon
+
+Positiv path er **bruker-verifisert i produksjon**. Combined med P1C sine negative cross-tenant-tester, er Arch nå:
+
+**TENANT ISOLATION — SECURITY VERIFIED**

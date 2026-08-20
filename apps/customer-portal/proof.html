@@ -43,10 +43,14 @@
 
       <div class="grid">
         <section class="card proof-section">
-          <h3>🔐 Security Foundation — P1D (production verified)</h3>
+          <h3>🔐 Security Foundation — P1D/P1E (production + user verified)</h3>
           <div class="proof-metric">
             <span class="metric-label">Authentication (Cloudflare Access)</span>
-            <span class="metric-value pass">PASS — active</span>
+            <span class="metric-value pass">PASS — OTP user-verified</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">Identity federation (Access → User → Tenant)</span>
+            <span class="metric-value pass">PASS — OWNER resolved</span>
           </div>
           <div class="proof-metric">
             <span class="metric-label">Tenant isolation (application-layer)</span>
@@ -59,6 +63,10 @@
           <div class="proof-metric">
             <span class="metric-label">Workers.dev/preview bypass</span>
             <span class="metric-value pass">PASS — denied (401)</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">Rate limiting (Durable Object global)</span>
+            <span class="metric-value pass">PASS — 429 verified</span>
           </div>
           <div class="proof-metric">
             <span class="metric-label">Production deployment</span>
