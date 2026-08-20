@@ -6,6 +6,7 @@ import { CompanyService } from "./company";
 import { AuthService, TenantContext, getAccessIdentity, authorize } from "./auth";
 import { TenantDataAccess } from "./tenant-access";
 import { RateLimiter } from "./rate-limiter";
+import { NORDIC_SERVICE_DEMO, NORDIC_SERVICE_FLOW } from "./demo-company";
 import {
   requestId, log, isAllowedOrigin, badRequest, notFound, unauthorized, forbidden,
 } from "./utils";
@@ -63,6 +64,23 @@ function corsHeaders(env: Env, origin: string | null): Record<string, string> {
 }
 
 // ── Error rendering ──────────────────────────────────────────
+
+// Security headers — påføres alle responses (også errors)
+const SECURITY_HEADERS: Record<string, string> = {
+  "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY",
+  "Referrer-Policy": "strict-origin-when-cross-origin",
+  "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+};
+
+function applySecurityHeaders(res: Response): Response {
+  const merged = new Response(res.body, { status: res.status, headers: res.headers });
+  for (const [k, v] of Object.entries(SECURITY_HEADERS)) {
+    if (!merged.headers.has(k)) merged.headers.set(k, v);
+  }
+  return merged;
+}
 
 function renderError(e: unknown, rid: string): Response {
   const h = new HttpError(500, "INTERNAL_ERROR", "Noe gikk galt.");
@@ -340,6 +358,10 @@ async function route(req: Request, env: Env, ctx: ExecutionContext, rid: string)
   if (path.startsWith("/v1/public/audit/session/") && method === "GET") return withCors(await handleGetSession(env, req), ch);
   if (path === "/v1/public/company/resolve" && method === "POST") return withCors(await handleCompanyResolve(env, req), ch);
   if (path === "/v1/public/audit/question" && method === "POST") return withCors(await handleAskQuestion(env, req), ch);
+  if (path === "/v1/public/demo/company" && method === "GET") {
+    // SYNTHETIC demo — eksplisitt merket, aldri blandet med ekte data
+    return withCors(Response.json({ ...NORDIC_SERVICE_DEMO, flow: NORDIC_SERVICE_FLOW }), ch);
+  }
 
   // Protected tenant API (krever Access + membership)
   if (path === "/v1/tenant/me" && method === "GET") return withCors(await handleTenantMe(env, req, ctx, rid), ch);
@@ -382,7 +404,7 @@ export default {
         timestamp: new Date().toISOString(), level: "info", request_id: rid, trace_id: rid,
         route: url.pathname, method: req.method, status: res.status, latency_ms: Date.now() - start,
       });
-      return res;
+      return applySecurityHeaders(res);
     } catch (e) {
       const res = renderError(e, rid);
       log({
@@ -390,7 +412,7 @@ export default {
         route: url.pathname, method: req.method, status: res.status, latency_ms: Date.now() - start,
         error_code: e instanceof HttpError ? e.code : "INTERNAL_ERROR",
       });
-      return res;
+      return applySecurityHeaders(res);
     }
   },
 };
