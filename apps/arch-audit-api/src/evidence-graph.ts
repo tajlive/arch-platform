@@ -87,12 +87,112 @@ export interface Question {
   created_at: string;
 }
 
+// ── Research Orchestrator v1: Raw Evidence Quality Gate ─────
+
+export interface RawEvidence {
+  type: Exclude<NodeType, "HYPOTHESIS" | "QUESTION">;
+  observation: string;
+  source: string | null;
+  observed_at: string | null;
+  confidence: Confidence | null;
+  freshness?: string | null;
+  metadata?: Record<string, string | number | boolean | null>;
+}
+
+export interface ValidatedEvidence extends RawEvidence {
+  source: string;
+  observed_at: string;
+  confidence: Confidence;
+  verified: boolean;
+  dedupe_key: string;
+}
+
+export interface EvidenceValidationIssue {
+  code:
+    | "MISSING_SOURCE"
+    | "MISSING_TIMESTAMP"
+    | "MISSING_CONFIDENCE"
+    | "EMPTY_OBSERVATION"
+    | "DUPLICATE_EVIDENCE";
+  evidence: RawEvidence;
+}
+
+export interface EvidenceValidationResult {
+  accepted: ValidatedEvidence[];
+  rejected: EvidenceValidationIssue[];
+}
+
 // ── Validatorer ─────────────────────────────────────────────
 
 export class EvidenceGraphError extends Error {
   constructor(message: string) {
     super(message);
     this.name = "EvidenceGraphError";
+  }
+}
+
+export function evidenceDedupeKey(evidence: {
+  type: NodeType;
+  observation: string;
+  source: string;
+  freshness?: string | null;
+}): string {
+  return [
+    evidence.type,
+    evidence.source.trim().toLowerCase(),
+    evidence.observation.trim().toLowerCase(),
+    evidence.freshness ?? "",
+  ].join("|");
+}
+
+export class EvidenceValidator {
+  validate(raw: RawEvidence[]): EvidenceValidationResult {
+    const accepted: ValidatedEvidence[] = [];
+    const rejected: EvidenceValidationIssue[] = [];
+    const seen = new Set<string>();
+
+    for (const evidence of raw) {
+      if (!evidence.observation.trim()) {
+        rejected.push({ code: "EMPTY_OBSERVATION", evidence });
+        continue;
+      }
+      if (!evidence.source?.trim()) {
+        rejected.push({ code: "MISSING_SOURCE", evidence });
+        continue;
+      }
+      if (!evidence.observed_at?.trim()) {
+        rejected.push({ code: "MISSING_TIMESTAMP", evidence });
+        continue;
+      }
+      if (!evidence.confidence) {
+        rejected.push({ code: "MISSING_CONFIDENCE", evidence });
+        continue;
+      }
+
+      const dedupe_key = evidenceDedupeKey({
+        type: evidence.type,
+        source: evidence.source,
+        observation: evidence.observation,
+        freshness: evidence.freshness,
+      });
+
+      if (seen.has(dedupe_key)) {
+        rejected.push({ code: "DUPLICATE_EVIDENCE", evidence });
+        continue;
+      }
+
+      seen.add(dedupe_key);
+      accepted.push({
+        ...evidence,
+        source: evidence.source,
+        observed_at: evidence.observed_at,
+        confidence: evidence.confidence,
+        verified: evidence.confidence === "HIGH" || evidence.confidence === "VERIFIED",
+        dedupe_key,
+      });
+    }
+
+    return { accepted, rejected };
   }
 }
 

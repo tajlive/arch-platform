@@ -8,6 +8,8 @@ import {
   validateAiQuestionHasHypothesis,
   validateQuestionGeneratedByHypothesis,
   EvidenceGraphError,
+  EvidenceValidator,
+  RawEvidence,
 } from "../src/evidence-graph";
 
 // Hjelpere for å bygge test-noder
@@ -92,5 +94,47 @@ describe("Evidence Graph — designregler", () => {
   it("REGLER: ikke-HYPOTHESIS-noder hoppes (ingen falsk positiv)", () => {
     const e = node({ id: "e1", type: "EVIDENCE", value: "Annual accounts 2025" });
     expect(() => validateHypothesisHasEvidence(e, [])).not.toThrow();
+  });
+});
+
+describe("Research Orchestrator — Raw Evidence Validator", () => {
+  const valid: RawEvidence = {
+    type: "COMPANY",
+    observation: "ARCH AS has organisation number 123456789",
+    source: "brreg-enhet",
+    observed_at: "2026-08-20T12:00:00Z",
+    confidence: "HIGH",
+  };
+
+  it("aksepterer evidence med source, timestamp og confidence", () => {
+    const result = new EvidenceValidator().validate([valid]);
+    expect(result.accepted).toHaveLength(1);
+    expect(result.rejected).toHaveLength(0);
+    expect(result.accepted[0].verified).toBe(true);
+    expect(result.accepted[0].dedupe_key).toContain("brreg-enhet");
+  });
+
+  it("avviser evidence uten source", () => {
+    const result = new EvidenceValidator().validate([{ ...valid, source: null }]);
+    expect(result.accepted).toHaveLength(0);
+    expect(result.rejected[0].code).toBe("MISSING_SOURCE");
+  });
+
+  it("avviser evidence uten timestamp", () => {
+    const result = new EvidenceValidator().validate([{ ...valid, observed_at: null }]);
+    expect(result.accepted).toHaveLength(0);
+    expect(result.rejected[0].code).toBe("MISSING_TIMESTAMP");
+  });
+
+  it("avviser evidence uten confidence", () => {
+    const result = new EvidenceValidator().validate([{ ...valid, confidence: null }]);
+    expect(result.accepted).toHaveLength(0);
+    expect(result.rejected[0].code).toBe("MISSING_CONFIDENCE");
+  });
+
+  it("avviser duplikater før graph-build", () => {
+    const result = new EvidenceValidator().validate([valid, { ...valid }]);
+    expect(result.accepted).toHaveLength(1);
+    expect(result.rejected[0].code).toBe("DUPLICATE_EVIDENCE");
   });
 });

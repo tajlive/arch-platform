@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sikkerhet — Arch</title>
+  <meta name="description" content="Sikkerhetsprinsippene i ARCH AXN: tenant-isolasjon, Cloudflare Access, sikre anonyme sesjoner og ratebegrensning." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://arch.axn.no/security" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -17,17 +20,17 @@
     <main class="content">
       <section class="hero">
         <h2>Sikkerhet</h2>
-        <p class="sub">Arch er bygget med tenant isolation, identity federation og beviselig autorisasjon.</p>
+        <p class="sub">Arch er bygget med tenant-isolasjon, identitetsføderasjon og eksplisitt autorisasjon.</p>
       </section>
 
       <section class="card">
         <h3>Tenant isolation</h3>
-        <p>Hver kunde er en egen tenant. All datatilgang går gjennom et canonical data-access-lag som alltid scoper spørringer med <code>tenant_id</code>. Cross-tenant-tester beviser at bruker A aldri kan lese eller endre tenant B sine data.</p>
+        <p>Hver kunde er en egen tenant. All datatilgang går gjennom et felles dataaksesslag som avgrenser spørringer med <code>tenant_id</code>. Automatiserte tester dekker forsøk på kryss-tenant-tilgang.</p>
       </section>
 
       <section class="card">
         <h3>Identity federation</h3>
-        <p>Autentisering via Cloudflare Access. Identitet modelleres som <code>Identity → User → TenantMembership → Tenant</code>. E-post er en attribute, ikke en identitetsnøkkel.</p>
+        <p>Autentisering skjer via Cloudflare Access. Identitet modelleres som <code>Identity → User → TenantMembership → Tenant</code>. E-post er et attributt, ikke en identitetsnøkkel.</p>
       </section>
 
       <section class="card">
@@ -37,7 +40,7 @@
 
       <section class="card">
         <h3>Rate limiting</h3>
-        <p>Global rate limiting via Durable Objects (ikke per-server). Profiler: anonym (30/min), autentisert (300/min), intern (120/min).</p>
+        <p>Global ratebegrensning håndheves via Durable Objects, ikke en lokal teller per serverinstans. Ulike profiler brukes for anonyme, autentiserte og interne ruter.</p>
       </section>
 
       <section class="card">

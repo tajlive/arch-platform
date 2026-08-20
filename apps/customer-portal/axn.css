@@ -790,4 +790,17 @@ section { padding: 96px 0; }
   .engine-label { min-width: 100px; }
 }
 
+/* Prevent long source names and status labels from escaping their containers. */
+body { overflow-x: hidden; }
+p, h1, h2, h3, h4, a, span { overflow-wrap: anywhere; }
+.nav { min-height: 68px; height: auto; gap: 16px; }
+.mockup-title, .mockup-value, .finding-text, .engine-detail { min-width: 0; }
+
+@media (max-width: 560px) {
+  .wrap { padding-left: 16px; padding-right: 16px; }
+  .nav-cta { padding: 8px 12px; font-size: 13px; }
+  .engine-row { align-items: flex-start; }
+  .engine-label { min-width: 0; }
+  .engine-detail { flex-basis: 100%; }
+}
 
