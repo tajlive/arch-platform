@@ -368,3 +368,106 @@ section { padding: 96px 0; }
   .cta-row-inline { flex-direction: column; }
 }
 
+/* ═══ START EXPERIENCE v2.0 — AI analyst onboarding ═══ */
+
+/* Search box i hero */
+.search-wrap { max-width: 640px; margin: 36px auto 0; }
+.search-box {
+  display: flex; align-items: center; gap: 10px;
+  background: #fff; border: 1px solid var(--border); border-radius: 14px;
+  padding: 8px 8px 8px 18px;
+  box-shadow: var(--shadow-blue) 0px 4px 8px, var(--shadow-ambient) 0px 16px 40px -12px;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.search-box:focus-within {
+  border-color: var(--blue);
+  box-shadow: var(--shadow-blue) 0px 4px 8px, 0 0 0 3px rgba(0,102,255,0.12);
+}
+.search-icon { color: var(--slate); display: grid; place-items: center; flex: none; }
+.search-box input {
+  flex: 1; border: none; outline: none; background: transparent;
+  font-size: 17px; font-family: inherit; color: var(--ink); padding: 10px 0;
+}
+.search-box input::placeholder { color: #9aa5b5; }
+.search-box .btn { flex: none; padding: 13px 24px; }
+.search-note { text-align: center; font-size: 13px; color: var(--slate); margin-top: 14px; }
+
+/* Engine panels */
+.engine-panel {
+  background: #fff; border: 1px solid var(--border); border-radius: 16px;
+  padding: 36px; margin-bottom: 24px;
+  box-shadow: var(--shadow-blue) 0px 2px 4px, var(--shadow-ambient) 0px 8px 24px -8px;
+}
+
+/* Evidence map (levende) */
+.engine-map { display: flex; flex-direction: column; margin-top: 24px; }
+.engine-row {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 16px; border-radius: 12px;
+  background: var(--blue-faint);
+  transition: background .3s ease;
+}
+.engine-row.active { background: #F4F9FF; }
+.engine-row.done { background: rgba(21,190,83,0.06); }
+.engine-state {
+  width: 22px; height: 22px; flex: none; border-radius: 50%;
+  border: 2px solid var(--border); background: #fff;
+  display: grid; place-items: center;
+  font-size: 12px; font-weight: 700; color: transparent;
+  transition: all .3s ease;
+}
+.engine-row.active .engine-state {
+  border-color: var(--blue); border-top-color: transparent;
+  animation: spin 0.8s linear infinite;
+}
+.engine-row.done .engine-state {
+  background: var(--green); border-color: var(--green); color: #fff;
+}
+.engine-row.done .engine-state::after { content: '✓'; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.engine-label { font-weight: 600; color: var(--ink); font-size: 15px; min-width: 130px; }
+.engine-detail { color: var(--slate); font-size: 14px; flex: 1; }
+.engine-row.done .engine-detail { color: var(--ink); }
+.engine-line { width: 2px; height: 18px; background: var(--border); margin-left: 26px; }
+
+/* Company profile grid */
+.profile-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 20px;
+}
+.profile-cell {
+  background: var(--blue-faint); border-radius: 12px; padding: 16px 18px;
+}
+.profile-label {
+  display: block; font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.06em; color: var(--slate); margin-bottom: 5px;
+}
+.profile-value { font-size: 16px; font-weight: 600; color: var(--ink); }
+
+/* Friction cards (executive discovery question) */
+.friction-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 20px;
+}
+.friction-card {
+  display: flex; align-items: center; gap: 12px;
+  padding: 18px 20px; border-radius: 12px;
+  border: 1px solid var(--border); background: #fff;
+  font-size: 15px; font-weight: 600; color: var(--ink);
+  cursor: pointer; text-align: left; font-family: inherit;
+  transition: all .15s ease;
+}
+.friction-card:hover { border-color: var(--blue); box-shadow: var(--shadow-ambient) 0px 6px 16px -6px; }
+.friction-card.selected {
+  border-color: var(--blue); background: var(--blue-faint);
+  box-shadow: 0 0 0 3px rgba(0,102,255,0.12);
+}
+.friction-icon { font-size: 20px; }
+.friction-card:nth-child(5) { grid-column: 1 / -1; }
+
+@media (max-width: 560px) {
+  .profile-grid, .friction-grid { grid-template-columns: 1fr; }
+  .search-box { flex-wrap: wrap; padding: 12px; }
+  .search-box .btn { width: 100%; }
+  .engine-label { min-width: 100px; }
+}
+
+

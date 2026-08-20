@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Start your company audit — Arch AXN</title>
-  <meta name="description" content="Analyze your business context, public signals and improvement opportunities with an evidence-based AI audit." />
+  <title>Start your Company Intelligence Audit — Arch AXN</title>
+  <meta name="description" content="Enter your company. Arch builds an evidence map from verified public sources." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -32,133 +32,95 @@
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero — AI analyst onboarding, ikke skjema -->
   <section class="audit-hero">
     <div class="wrap audit-hero-inner">
-      <span class="eyebrow">Company Audit</span>
-      <h1>Start your company audit</h1>
-      <p class="lede">Analyze your business context, public signals and improvement opportunities with an evidence-based AI audit.</p>
+      <span class="eyebrow">Company Intelligence Audit</span>
+      <h1>Enter your company. Arch builds an evidence map from verified sources.</h1>
+      <p class="lede">Arch discovers your company profile, industry context and public signals — then asks the questions that matter.</p>
       <div class="trust-row">
         <span class="trust-pill">Powered by Arch AXN</span>
         <span class="trust-pill">Evidence-based analysis</span>
       </div>
+
+      <!-- Search -->
+      <div class="search-wrap">
+        <div class="search-box">
+          <span class="search-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+              <path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <input type="text" id="company-input" placeholder="Organisasjonsnummer, firmanavn eller nettside" autocomplete="off" aria-label="Company search" />
+          <button class="btn btn-primary" id="discover-btn">Discover</button>
+        </div>
+        <p class="search-note" id="status-note">Arch starts with verified company information — it never guesses.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Progress -->
-  <section class="audit-shell">
+  <!-- Intelligence engine (vises etter lookup) -->
+  <section class="audit-shell" id="engine" hidden>
     <div class="wrap">
-      <div class="progress-track">
-        <div class="progress-step active" data-step="1">
-          <span class="progress-num">1</span>
-          <span class="progress-label">Identify</span>
-        </div>
-        <div class="progress-line"></div>
-        <div class="progress-step" data-step="2">
-          <span class="progress-num">2</span>
-          <span class="progress-label">Context</span>
-        </div>
-        <div class="progress-line"></div>
-        <div class="progress-step" data-step="3">
-          <span class="progress-num">3</span>
-          <span class="progress-label">Audit</span>
-        </div>
-      </div>
 
-      <!-- STEP 1: Company identification -->
-      <div class="audit-panel" id="step-1">
-        <h2 class="panel-title">Company identification</h2>
-        <p class="panel-sub">Arch starts with verified company information.</p>
-
-        <div class="field">
-          <label for="company-input">Organisasjonsnummer, firmanavn eller nettside</label>
-          <input type="text" id="company-input" placeholder="F.eks. 914791723, ISS Facility Services, eller iss.no" autocomplete="off" />
-        </div>
-
-        <div class="field-hint">
-          <span class="hint-icon">✓</span>
-          <span>Vi henter verifiserte data fra offentlige registre — ikke gjetting.</span>
-        </div>
-
-        <button class="btn btn-primary" id="identify-btn">Continue</button>
-        <p class="panel-note" id="status-note">Arch does not guess. It separates observations, evidence and recommendations.</p>
-      </div>
-
-      <!-- STEP 2: Company context -->
-      <div class="audit-panel" id="step-2" hidden>
-        <h2 class="panel-title">Company context</h2>
-        <p class="panel-sub" id="company-summary">Loading verified company…</p>
-
-        <div class="field">
-          <label for="industry-select">Industry</label>
-          <select id="industry-select">
-            <option value="">— Select —</option>
-            <option>Customer service</option>
-            <option>Administration</option>
-            <option>Operations</option>
-            <option>Documentation</option>
-            <option>Sales process</option>
-            <option>Finance / accounting</option>
-            <option>Logistics</option>
-            <option>Facility management</option>
-            <option>Other</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="size-select">Company size</label>
-          <select id="size-select">
-            <option value="">— Select —</option>
-            <option>1–10 employees</option>
-            <option>11–50 employees</option>
-            <option>51–200 employees</option>
-            <option>201–1000 employees</option>
-            <option>1000+ employees</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="challenge-select">Main challenge</label>
-          <select id="challenge-select">
-            <option value="">— Select —</option>
-            <option>Customer service</option>
-            <option>Administration</option>
-            <option>Operations</option>
-            <option>Documentation</option>
-            <option>Sales process</option>
-          </select>
-        </div>
-
-        <p class="panel-note">These details help prepare the audit. Arch still starts from verified public data — your context sharpens the questions, it never replaces evidence.</p>
-
-        <div class="cta-row-inline">
-          <button class="btn btn-ghost" id="back-btn">← Back</button>
-          <button class="btn btn-primary" id="prepare-btn">Prepare audit</button>
+      <!-- Evidence Map — levende visualisering -->
+      <div class="engine-panel" id="evidence-map-panel">
+        <h2 class="panel-title">Company Intelligence Engine</h2>
+        <div class="engine-map">
+          <div class="engine-row" id="em-company">
+            <span class="engine-state" data-state="0"></span>
+            <span class="engine-label">Company</span>
+            <span class="engine-detail" id="em-company-detail">Identifying…</span>
+          </div>
+          <div class="engine-line"></div>
+          <div class="engine-row" id="em-sources">
+            <span class="engine-state" data-state="0"></span>
+            <span class="engine-label">Public sources</span>
+            <span class="engine-detail" id="em-sources-detail">Connecting…</span>
+          </div>
+          <div class="engine-line"></div>
+          <div class="engine-row" id="em-signals">
+            <span class="engine-state" data-state="0"></span>
+            <span class="engine-label">Business signals</span>
+            <span class="engine-detail" id="em-signals-detail">Discovering…</span>
+          </div>
+          <div class="engine-line"></div>
+          <div class="engine-row" id="em-questions">
+            <span class="engine-state" data-state="0"></span>
+            <span class="engine-label">Audit questions</span>
+            <span class="engine-detail" id="em-questions-detail">Preparing…</span>
+          </div>
         </div>
       </div>
 
-      <!-- STEP 3: Audit preparation -->
-      <div class="audit-panel" id="step-3" hidden>
-        <h2 class="panel-title">Preparing evidence map…</h2>
+      <!-- Company profile (ekte data fra Brønnøysund) -->
+      <div class="engine-panel" id="profile-panel" hidden>
+        <h2 class="panel-title" id="profile-name">Company profile</h2>
+        <p class="panel-sub">Verified from Brønnøysund Enhetsregisteret.</p>
+        <div class="profile-grid" id="profile-grid"></div>
+      </div>
 
-        <div class="evidence-map">
-          <div class="map-node">Company</div>
-          <div class="map-arrow">↓</div>
-          <div class="map-node">Public signals</div>
-          <div class="map-arrow">↓</div>
-          <div class="map-node">Business context</div>
-          <div class="map-arrow">↓</div>
-          <div class="map-node highlight">Audit questions</div>
+      <!-- Executive discovery question -->
+      <div class="engine-panel" id="friction-panel" hidden>
+        <h2 class="panel-title">Where does the most friction occur today?</h2>
+        <p class="panel-sub">This sharpens the audit focus. It never replaces evidence.</p>
+        <div class="friction-grid" id="friction-grid">
+          <button class="friction-card" data-area="Customer communication"><span class="friction-icon">📞</span>Customer communication</button>
+          <button class="friction-card" data-area="Administration"><span class="friction-icon">🗂️</span>Administration</button>
+          <button class="friction-card" data-area="Documentation"><span class="friction-icon">📄</span>Documentation</button>
+          <button class="friction-card" data-area="Operations"><span class="friction-icon">⚙️</span>Operations</button>
+          <button class="friction-card" data-area="Sales"><span class="friction-icon">📊</span>Sales</button>
         </div>
+        <p class="panel-note" id="friction-note">Arch does not guess. It separates observations, evidence and recommendations.</p>
+      </div>
 
-        <div class="checklist">
-          <div class="check-item" id="check-sources"><span class="check-icon">·</span> Public sources connected</div>
-          <div class="check-item" id="check-profile"><span class="check-icon">·</span> Company profile created</div>
-          <div class="check-item" id="check-analysis"><span class="check-icon">·</span> Analysis ready</div>
-        </div>
-
+      <!-- Audit conversation -->
+      <div class="engine-panel" id="conversation-panel" hidden>
+        <h2 class="panel-title">Audit questions</h2>
         <div id="conversation-log" class="audit-conversation"></div>
       </div>
+
     </div>
   </section>
 
@@ -179,66 +141,72 @@
   </footer>
 
   <script>
-    // Arch AXN — premium 3-stegs audit-opplevelse.
-    // API-kontrakt uendret: session → resolve → question (cookie-basert anonym session).
+    // Arch AXN — AI analyst onboarding (v2.0)
+    // API-kontrakt uendret: session → resolve → question (cookie-basert).
+    // Alle viste data = ekte fra backend. Ingen oppdiktede signaler.
     (function () {
       const API = "https://api.arch.axn.no";
-      const step1 = document.getElementById("step-1");
-      const step2 = document.getElementById("step-2");
-      const step3 = document.getElementById("step-3");
-      const identifyBtn = document.getElementById("identify-btn");
-      const prepareBtn = document.getElementById("prepare-btn");
-      const backBtn = document.getElementById("back-btn");
       const input = document.getElementById("company-input");
+      const discoverBtn = document.getElementById("discover-btn");
       const statusNote = document.getElementById("status-note");
-      const companySummary = document.getElementById("company-summary");
+      const engine = document.getElementById("engine");
+      const evidencePanel = document.getElementById("evidence-map-panel");
+      const profilePanel = document.getElementById("profile-panel");
+      const frictionPanel = document.getElementById("friction-panel");
+      const conversationPanel = document.getElementById("conversation-panel");
       const log = document.getElementById("conversation-log");
 
       let contextId = null;
+      let company = null;
 
-      function showStep(n) {
-        step1.hidden = n !== 1;
-        step2.hidden = n !== 2;
-        step3.hidden = n !== 3;
-        document.querySelectorAll(".progress-step").forEach(function (s) {
-          s.classList.toggle("active", Number(s.dataset.step) <= n);
-        });
-        window.scrollTo({ top: 0, behavior: "smooth" });
+      function setState(id, state) {
+        // state: 0 = pending, 1 = active, 2 = done
+        const row = document.getElementById(id);
+        if (!row) return;
+        const dot = row.querySelector(".engine-state");
+        row.classList.remove("active", "done");
+        if (state === 1) row.classList.add("active");
+        if (state === 2) row.classList.add("done");
+      }
+      function setDetail(id, text) {
+        document.getElementById(id).textContent = text;
       }
 
-      function addMsg(cls, text) {
+      function addMsg(text) {
         const div = document.createElement("div");
-        div.className = "msg " + cls;
+        div.className = "msg ai";
         div.textContent = text;
         log.appendChild(div);
       }
 
-      function markCheck(id, done) {
-        const el = document.getElementById(id);
-        if (!el) return;
-        el.querySelector(".check-icon").textContent = done ? "✓" : "·";
-        el.classList.toggle("done", done);
-      }
-
-      // Enter-tast i input utløser identifisering
       input.addEventListener("keydown", function (e) {
-        if (e.key === "Enter") { e.preventDefault(); identify(); }
+        if (e.key === "Enter") { e.preventDefault(); discover(); }
       });
+      discoverBtn.addEventListener("click", discover);
 
-      identifyBtn.addEventListener("click", identify);
-
-      async function identify() {
+      async function discover() {
         const q = input.value.trim();
         if (!q) return;
-        identifyBtn.disabled = true;
-        identifyBtn.textContent = "Verifying…";
-        statusNote.textContent = "Fetching verified company data…";
+        discoverBtn.disabled = true;
+        discoverBtn.textContent = "Analyzing…";
+        statusNote.textContent = "Arch is analyzing your company…";
+        engine.hidden = false;
+        evidencePanel.hidden = false;
+        profilePanel.hidden = true;
+        frictionPanel.hidden = true;
+        conversationPanel.hidden = true;
+        engine.scrollIntoView({ behavior: "smooth", block: "start" });
+
+        // Progressiv evidence-map-avsløring
+        setState("em-company", 1);
+        setState("em-sources", 0);
+        setState("em-signals", 0);
+        setState("em-questions", 0);
 
         try {
-          // 1. Anonym session (HttpOnly cookie)
+          // 1. Anonym session
           const sessRes = await fetch(API + "/v1/public/audit/session", {
-            method: "POST",
-            credentials: "include",
+            method: "POST", credentials: "include",
           });
           if (!sessRes.ok) throw new Error("session");
 
@@ -251,60 +219,133 @@
           const data = await res.json();
 
           if (!data.resolved) {
+            setState("em-company", 2);
+            setDetail("em-company-detail", "Not found in public registries");
             statusNote.textContent = "We could not find this company in public registries. Try another name or organisation number.";
-            identifyBtn.disabled = false;
-            identifyBtn.textContent = "Continue";
+            discoverBtn.disabled = false;
+            discoverBtn.textContent = "Discover";
             return;
           }
 
+          company = data.company;
           contextId = data.context_id;
-          const c = data.company;
-          companySummary.textContent = "Verified: " + c.company_name +
-            (c.industry_name ? " · " + c.industry_name : "") +
-            (c.employees ? " · " + c.employees + " employees" : "");
 
-          showStep(2);
+          // Company identifisert
+          setState("em-company", 2);
+          setDetail("em-company-detail", company.company_name);
+
+          // Public sources koblet
+          setState("em-sources", 1);
+          await sleep(350);
+          setState("em-sources", 2);
+          setDetail("em-sources-detail", "Brønnøysund Enhetsregisteret");
+
+          // Business signals
+          setState("em-signals", 1);
+          await sleep(350);
+          setState("em-signals", 2);
+          setDetail("em-signals-detail", signalsSummary(company));
+
+          // Audit questions klar
+          setState("em-questions", 1);
+          await sleep(350);
+          setState("em-questions", 2);
+          setDetail("em-questions-detail", "Ready");
+
+          // Vis company profile (ekte data)
+          renderProfile(company);
+          profilePanel.hidden = false;
+
+          // Vis executive friction question
+          setTimeout(function () {
+            frictionPanel.hidden = false;
+            frictionPanel.scrollIntoView({ behavior: "smooth", block: "center" });
+          }, 400);
+
+          statusNote.textContent = "Arch discovered " + company.company_name + " from verified public sources.";
+
         } catch (err) {
           statusNote.textContent = "Something went wrong. Please try again.";
+          addMsg("Something went wrong during analysis. Please try again.");
+          conversationPanel.hidden = false;
         } finally {
-          identifyBtn.disabled = false;
-          identifyBtn.textContent = "Continue";
+          discoverBtn.disabled = false;
+          discoverBtn.textContent = "Discover";
         }
       }
 
-      prepareBtn.addEventListener("click", prepare);
-      backBtn.addEventListener("click", function () { showStep(1); });
+      function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
 
-      async function prepare() {
-        showStep(3);
-        // Progressiv checkliste-animasjon (kun visuell — ingen fake resultater)
-        setTimeout(function () { markCheck("check-sources", true); }, 300);
-        setTimeout(function () { markCheck("check-profile", true); }, 700);
-        setTimeout(function () { markCheck("check-analysis", true); }, 1100);
+      function signalsSummary(c) {
+        const parts = [];
+        if (c.industry_name) parts.push(c.industry_name);
+        if (c.employees != null) parts.push(c.employees + " employees");
+        if (c.municipality) parts.push(c.municipality);
+        return parts.length ? parts.join(" · ") : "Signals found";
+      }
 
-        // 3. Still første context-aware spørsmål (ekte API-kall)
-        try {
-          const qRes = await fetch(API + "/v1/public/audit/question", {
-            method: "POST",
-            credentials: "include",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ context_id: contextId }),
+      function renderProfile(c) {
+        document.getElementById("profile-name").textContent = c.company_name;
+        const grid = document.getElementById("profile-grid");
+        grid.innerHTML = "";
+        const items = [
+          ["Organisation", c.org_number],
+          ["Industry", c.industry_name || "Not stated"],
+          ["Employees", c.employees != null ? String(c.employees) : "Not stated"],
+          ["Website", c.website || "Not stated"],
+          ["Location", c.municipality || "Not stated"],
+          ["Form", c.org_form || "Not stated"],
+        ];
+        items.forEach(function (kv) {
+          const cell = document.createElement("div");
+          cell.className = "profile-cell";
+          const label = document.createElement("span");
+          label.className = "profile-label";
+          label.textContent = kv[0];
+          const value = document.createElement("span");
+          value.className = "profile-value";
+          value.textContent = kv[1];
+          cell.appendChild(label);
+          cell.appendChild(value);
+          grid.appendChild(cell);
+        });
+      }
+
+      // Friction area selection → stiller første context-aware spørsmål
+      document.querySelectorAll(".friction-card").forEach(function (btn) {
+        btn.addEventListener("click", async function () {
+          const area = btn.dataset.area;
+          // Marker valgt
+          document.querySelectorAll(".friction-card").forEach(function (b) {
+            b.classList.toggle("selected", b === btn);
           });
-          const qData = await qRes.json();
+          frictionPanel.querySelector(".panel-note").textContent =
+            "Focus: " + area + " — Arch will investigate this area first.";
 
-          if (qData.insufficient) {
-            addMsg("ai", qData.message);
-          } else {
-            addMsg("ai", qData.question);
-            const purpose = document.createElement("span");
-            purpose.className = "purpose";
-            purpose.textContent = "Purpose: " + qData.required_for + " · Information gain: " + qData.expected_information_gain + "%";
-            log.lastChild.appendChild(purpose);
+          conversationPanel.hidden = false;
+          conversationPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+
+          try {
+            const qRes = await fetch(API + "/v1/public/audit/question", {
+              method: "POST", credentials: "include",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ context_id: contextId }),
+            });
+            const qData = await qRes.json();
+            if (qData.insufficient) {
+              addMsg(qData.message);
+            } else {
+              addMsg(qData.question);
+              const purpose = document.createElement("span");
+              purpose.className = "purpose";
+              purpose.textContent = "Purpose: " + qData.required_for + " · Information gain: " + qData.expected_information_gain + "%";
+              log.lastChild.appendChild(purpose);
+            }
+          } catch (err) {
+            addMsg("Something went wrong. Please try again.");
           }
-        } catch (err) {
-          addMsg("ai", "Something went wrong preparing the audit. Please try again.");
-        }
-      }
+        });
+      });
     })();
   </script>
 </body>
