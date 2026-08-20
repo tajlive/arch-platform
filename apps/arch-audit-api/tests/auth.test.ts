@@ -113,16 +113,7 @@ describe("getAccessIdentity — sikkerhetsgrenser", () => {
     expect(await getAccessIdentity(ctx)).toBeUndefined();
   });
 
-  it("returnerer undefined uten user_uuid (stabil subject påkrevd)", async () => {
-    const ctx = {
-      access: {
-        getIdentity: async () => ({ email: "x@y.no", name: "X" }),
-      },
-    } as never;
-    expect(await getAccessIdentity(ctx)).toBeUndefined();
-  });
-
-  it("returnerer identity med provider_subject = user_uuid", async () => {
+  it("returnerer identity med provider_subject = user_uuid (OIDC)", async () => {
     const ctx = {
       access: {
         getIdentity: async () => ({ user_uuid: "uuid-123", email: "x@y.no", idp: { id: "google", type: "oidc" } }),
@@ -131,5 +122,25 @@ describe("getAccessIdentity — sikkerhetsgrenser", () => {
     const id = await getAccessIdentity(ctx);
     expect(id?.provider_subject).toBe("uuid-123");
     expect(id?.email).toBe("x@y.no");
+  });
+
+  it("onetimepin (ingen user_uuid) faller tilbake til namespaced epost-subject", async () => {
+    const ctx = {
+      access: {
+        getIdentity: async () => ({ email: "Tom@Example.no", name: "Tom", idp: { id: "onetimepin", type: "onetimepin" } }),
+      },
+    } as never;
+    const id = await getAccessIdentity(ctx);
+    expect(id?.provider_subject).toBe("onetimepin:tom@example.no");
+    expect(id?.email).toBe("tom@example.no"); // normalisert
+  });
+
+  it("returnerer undefined uten verken user_uuid eller epost", async () => {
+    const ctx = {
+      access: {
+        getIdentity: async () => ({ name: "Tom" }),
+      },
+    } as never;
+    expect(await getAccessIdentity(ctx)).toBeUndefined();
   });
 });

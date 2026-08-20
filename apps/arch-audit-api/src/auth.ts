@@ -40,24 +40,50 @@ export interface MembershipRow {
 /**
  * Hent Access-identity fra native ctx.access.
  * Returnerer undefined hvis requesten IKKE er Access-autentisert.
+ *
+ * Identity-nøkkel (direktiv §5):
+ * - Primær = stabil provider subject (user_uuid/sub) når tilgjengelig.
+ * - onetimepin (OTP) gir IKKE user_uuid — e-posten ER identiteten.
+ *   Da brukes namespaced subject: `onetimepin:{normalisert epost}`.
+ * - email er attribute, aldri permanent primary key alene.
+ *   Kompositt-nøkkel (provider, provider_subject) er UNIQUE i schema.
  */
 export async function getAccessIdentity(ctx: ExecutionContext): Promise<AccessIdentityInfo | undefined> {
   if (!ctx.access) return undefined;
   const identity = await ctx.access.getIdentity();
   if (!identity) return undefined;
 
-  // user_uuid = stabil provider subject (primær identity-nøkkel).
-  // email er kun en attribute, IKKE primary key.
-  const providerSubject = identity.user_uuid;
-  if (!providerSubject) return undefined;
+  const provider = identity.idp?.id ?? "cloudflare_access";
+  const providerType = identity.idp?.type ?? "access";
+  const email = identity.email;
 
-  return {
-    provider_subject: providerSubject,
-    email: identity.email,
-    name: identity.name,
-    provider: identity.idp?.id ?? "cloudflare_access",
-    provider_type: identity.idp?.type ?? "access",
-  };
+  // Stabil subject foretrekkes (OIDC IdP-er gir user_uuid/sub)
+  const stableSubject = identity.user_uuid;
+  if (stableSubject) {
+    return {
+      provider_subject: stableSubject,
+      email,
+      name: identity.name,
+      provider,
+      provider_type: providerType,
+    };
+  }
+
+  // onetimepin-fall: ingen stabil subject → eposten er identiteten.
+  // Namespacet med provider-type så det aldri kolliderer med en OIDC-identity.
+  if (email) {
+    const normalizedEmail = email.trim().toLowerCase();
+    return {
+      provider_subject: `onetimepin:${normalizedEmail}`,
+      email: normalizedEmail,
+      name: identity.name ?? normalizedEmail,
+      provider: provider || "onetimepin",
+      provider_type: providerType || "onetimepin",
+    };
+  }
+
+  // Verken stabil subject eller epost → kan ikke identifisere
+  return undefined;
 }
 
 export class AuthService {

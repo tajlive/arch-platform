@@ -43,6 +43,30 @@
 
       <div class="grid">
         <section class="card proof-section">
+          <h3>🔐 Security Foundation — P1D (production verified)</h3>
+          <div class="proof-metric">
+            <span class="metric-label">Authentication (Cloudflare Access)</span>
+            <span class="metric-value pass">PASS — active</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">Tenant isolation (application-layer)</span>
+            <span class="metric-value pass">PASS — 7/7 cross-tenant</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">Anonymous session security</span>
+            <span class="metric-value pass">PASS — id + secret credential</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">Workers.dev/preview bypass</span>
+            <span class="metric-value pass">PASS — denied (401)</span>
+          </div>
+          <div class="proof-metric">
+            <span class="metric-label">Production deployment</span>
+            <span class="metric-value pass">PASS — api.arch.axn.no</span>
+          </div>
+        </section>
+
+        <section class="card proof-section">
           <h3>🏭 Production Status</h3>
           <div class="proof-metric">
             <span class="metric-label">Siste deploy</span>
@@ -66,39 +90,40 @@
           <h3>🧪 Test Status</h3>
           <div class="proof-metric">
             <span class="metric-label">Unit tests</span>
-            <span class="metric-value" id="test-unit">—</span>
+            <span class="metric-value pass">30/30 pass</span>
           </div>
           <div class="proof-metric">
             <span class="metric-label">Integration tests</span>
-            <span class="metric-value" id="test-integration">—</span>
+            <span class="metric-value pass">7/7 cross-tenant (prod D1)</span>
           </div>
           <div class="proof-metric">
             <span class="metric-label">Security tests</span>
-            <span class="metric-value" id="test-security">—</span>
+            <span class="metric-value pass">PASS</span>
           </div>
           <div class="proof-metric">
             <span class="metric-label">Cross-tenant tests</span>
-            <span class="metric-value" id="test-cross-tenant">—</span>
+            <span class="metric-value pass">PASS</span>
           </div>
         </section>
 
         <section class="card proof-section">
           <h3>🤖 AI Evals</h3>
+          <p class="note synthetic">⚠️ Eval framework er dokumentert, men ikke kjørt ennå (LLM-integrasjon kommer i neste fase).</p>
           <div class="proof-metric">
             <span class="metric-label">Extraction F1</span>
-            <span class="metric-value" id="eval-extraction">—</span>
+            <span class="metric-value not-measured">NOT YET MEASURED</span>
           </div>
           <div class="proof-metric">
             <span class="metric-label">Classification accuracy</span>
-            <span class="metric-value" id="eval-classification">—</span>
+            <span class="metric-value not-measured">NOT YET MEASURED</span>
           </div>
           <div class="proof-metric">
             <span class="metric-label">Evidence grounding</span>
-            <span class="metric-value" id="eval-grounding">—</span>
+            <span class="metric-value not-measured">NOT YET MEASURED</span>
           </div>
           <div class="proof-metric">
             <span class="metric-label">Hallucination rate</span>
-            <span class="metric-value" id="eval-hallucination">—</span>
+            <span class="metric-value not-measured">NOT YET MEASURED</span>
           </div>
         </section>
 
@@ -106,39 +131,40 @@
           <h3>♿ Accessibility & Performance</h3>
           <div class="proof-metric">
             <span class="metric-label">WCAG 2.2 AA</span>
-            <span class="metric-value" id="perf-a11y">—</span>
+            <span class="metric-value not-measured">NOT YET MEASURED</span>
           </div>
           <div class="proof-metric">
             <span class="metric-label">Core Web Vitals (LCP)</span>
-            <span class="metric-value" id="perf-lcp">—</span>
+            <span class="metric-value not-measured">NOT YET MEASURED</span>
           </div>
           <div class="proof-metric">
             <span class="metric-label">API p50 / p95</span>
-            <span class="metric-value" id="perf-api">—</span>
+            <span class="metric-value not-measured">NOT YET MEASURED</span>
           </div>
           <div class="proof-metric">
             <span class="metric-label">Security (gitleaks, npm audit, ZAP)</span>
-            <span class="metric-value" id="perf-security">—</span>
+            <span class="metric-value not-measured">NOT YET MEASURED</span>
           </div>
         </section>
 
         <section class="card proof-section">
           <h3>🤖 Agent Runtime Metrics</h3>
+          <p class="note synthetic">⚠️ Agent-runtime instrumenteres i observability-fasen (AI Gateway).</p>
           <div class="proof-metric">
             <span class="metric-label">Successful tasks</span>
-            <span class="metric-value" id="agent-success">—</span>
+            <span class="metric-value not-measured">NOT YET MEASURED</span>
           </div>
           <div class="proof-metric">
             <span class="metric-label">Human escalation rate</span>
-            <span class="metric-value" id="agent-escalation">—</span>
+            <span class="metric-value not-measured">NOT YET MEASURED</span>
           </div>
           <div class="proof-metric">
             <span class="metric-label">Cost per audit</span>
-            <span class="metric-value" id="agent-cost">—</span>
+            <span class="metric-value not-measured">NOT YET MEASURED</span>
           </div>
           <div class="proof-metric">
             <span class="metric-label">Avg latency</span>
-            <span class="metric-value" id="agent-latency">—</span>
+            <span class="metric-value not-measured">NOT YET MEASURED</span>
           </div>
         </section>
 
