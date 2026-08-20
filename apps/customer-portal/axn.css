@@ -78,6 +78,7 @@ section { padding: 96px 0; }
 }
 .brand-name { font-weight: 700; font-size: 17px; color: var(--ink); letter-spacing: -0.01em; }
 .brand-name span { color: var(--blue); }
+.brand-logo { height: 34px; width: auto; display: block; }
 .nav-links { display: flex; align-items: center; gap: 28px; }
 .nav-links a { color: var(--slate-dark); font-size: 14px; font-weight: 500; }
 .nav-links a:hover { color: var(--blue); }
@@ -196,6 +197,46 @@ section { padding: 96px 0; }
 .beta p { color: rgba(255,255,255,0.75); font-size: 18px; max-width: 560px; margin: 0 auto 32px; }
 .beta .btn-primary { background: var(--blue); box-shadow: 0 8px 24px rgba(0,102,255,0.4); }
 
+/* ── Trust: built with ─────────────────────────────────── */
+.built-with {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 8px;
+}
+.built-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 18px 20px; border-radius: 12px;
+  background: #fff; border: 1px solid var(--border);
+  font-size: 14px; font-weight: 600; color: var(--ink);
+  box-shadow: var(--shadow-ambient) 0px 2px 8px -2px;
+}
+.built-check {
+  color: var(--blue); font-weight: 700; font-size: 16px;
+  width: 22px; height: 22px; display: grid; place-items: center;
+  border-radius: 50%; background: var(--blue-faint); flex: none;
+}
+
+/* ── Demo case preview ─────────────────────────────────── */
+.demo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.demo-card {
+  background: #fff; border: 1px solid var(--border); border-radius: 14px;
+  padding: 28px;
+  box-shadow: var(--shadow-blue) 0px 2px 4px, var(--shadow-ambient) 0px 8px 24px -8px;
+}
+.demo-card h3 { font-size: 18px; margin-bottom: 16px; letter-spacing: -0.01em; }
+.demo-list { list-style: none; padding: 0; margin: 0; }
+.demo-list li {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 0; font-size: 15px; color: var(--slate-dark);
+  border-bottom: 1px solid var(--border);
+}
+.demo-list li:last-child { border-bottom: none; }
+.demo-check { color: var(--green); font-weight: 700; }
+.demo-arrow { color: var(--blue); font-weight: 700; }
+.demo-status {
+  margin-top: 20px; font-size: 13px; color: var(--slate);
+  background: var(--blue-faint); border-radius: 8px; padding: 12px 16px;
+}
+.demo-status strong { color: var(--ink); }
+
 /* ── Footer ────────────────────────────────────────────── */
 .site-footer { background: var(--navy-deep); color: rgba(255,255,255,0.6); padding: 64px 0 40px; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
@@ -217,6 +258,8 @@ section { padding: 96px 0; }
   .section-head h2 { font-size: 30px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .nav-links { display: none; }
+  .built-with { grid-template-columns: repeat(2, 1fr); }
+  .demo-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .hero h1 { font-size: 36px; }
@@ -224,6 +267,7 @@ section { padding: 96px 0; }
   .footer-grid { grid-template-columns: 1fr; }
   .btn { width: 100%; }
   .hero-cta { flex-direction: column; }
+  .built-with { grid-template-columns: 1fr; }
 }
 
 /* ═══ START EXPERIENCE — premium audit flow ═══ */

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" fill="none" role="img" aria-label="ARCH AXN — Evidence-based AI Business Intelligence">
+  <rect width="1200" height="630" fill="#061A40"/>
+  <!-- Subtle radial accent -->
+  <radialGradient id="g" cx="0" cy="0" r="1" gradientTransform="translate(1000 100) scale(500)">
+    <stop offset="0" stop-color="#0066FF" stop-opacity="0.25"/>
+    <stop offset="1" stop-color="#0066FF" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <!-- Symbol -->
+  <g transform="translate(96 110) scale(1.1)">
+    <path d="M40 130 L80 22 L120 130" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M58 92 Q80 66 102 92" stroke="#0066FF" stroke-width="12" stroke-linecap="round" fill="none"/>
+  </g>
+  <!-- Wordmark -->
+  <g font-family="Inter, -apple-system, 'Segoe UI', Roboto, sans-serif">
+    <text x="200" y="150" font-size="64" font-weight="700" fill="#FFFFFF" letter-spacing="-0.02em">ARCH <tspan fill="#33A1FF">AXN</tspan></text>
+    <text x="200" y="200" font-size="28" font-weight="400" fill="rgba(255,255,255,0.7)">Evidence-based AI Business Intelligence</text>
+  </g>
+</svg>
