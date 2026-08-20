@@ -28,23 +28,23 @@
         <img src="assets/logo.svg" alt="ARCH AXN" class="brand-logo" />
       </a>
       <nav class="nav-links">
-        <a href="index.html#how">How it works</a>
-        <a href="index.html#trust">Security</a>
-        <a href="proof.html">Proof Center</a>
+        <a href="index.html#how">Slik fungerer det</a>
+        <a href="index.html#trust">Sikkerhet</a>
+        <a href="proof.html">Dokumentasjon</a>
       </nav>
-      <a href="index.html" class="nav-cta">← Back</a>
+      <a href="index.html" class="nav-cta">← Tilbake</a>
     </div>
   </header>
 
   <!-- Hero — AI analyst onboarding, ikke skjema -->
   <section class="audit-hero">
     <div class="wrap audit-hero-inner">
-      <span class="eyebrow">Company Intelligence Audit</span>
-      <h1>Enter your company. Arch builds an evidence map from verified sources.</h1>
-      <p class="lede">Arch discovers your company profile, industry context and public signals — then asks the questions that matter.</p>
+      <span class="eyebrow">Selskapskartlegging</span>
+      <h1>Finn virksomheten. Arch bygger et dokumentert kunnskapsgrunnlag fra åpne kilder.</h1>
+      <p class="lede">Arch henter virksomhetsprofil, bransjekontekst og offentlige signaler før det stilles relevante spørsmål.</p>
       <div class="trust-row">
         <span class="trust-pill">Powered by Arch AXN</span>
-        <span class="trust-pill">Evidence-based analysis</span>
+        <span class="trust-pill">Dokumentert analyse</span>
       </div>
 
       <!-- Search -->
@@ -56,10 +56,10 @@
               <path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </span>
-          <input type="text" id="company-input" placeholder="Organisasjonsnummer, firmanavn eller nettside" autocomplete="off" aria-label="Company search" />
-          <button class="btn btn-primary" id="discover-btn">Generate Intelligence Map</button>
+          <input type="text" id="company-input" placeholder="Organisasjonsnummer, firmanavn eller nettside" autocomplete="off" aria-label="Søk etter virksomhet" />
+          <button class="btn btn-primary" id="discover-btn">Kartlegg virksomheten</button>
         </div>
-        <p class="search-note" id="status-note">Arch starts with verified company information — it never guesses.</p>
+        <p class="search-note" id="status-note">Arch starter med bekreftede virksomhetsopplysninger og gjetter ikke.</p>
       </div>
     </div>
   </section>
@@ -70,30 +70,30 @@
 
       <!-- Evidence Map — levende visualisering -->
       <div class="engine-panel" id="evidence-map-panel">
-        <h2 class="panel-title">Company Intelligence Engine</h2>
+        <h2 class="panel-title">Kartlegging pågår</h2>
         <div class="engine-map">
           <div class="engine-row" id="em-company">
             <span class="engine-state" data-state="0"></span>
-            <span class="engine-label">Company</span>
-            <span class="engine-detail" id="em-company-detail">Identifying…</span>
+            <span class="engine-label">Virksomhet</span>
+            <span class="engine-detail" id="em-company-detail">Identifiserer…</span>
           </div>
           <div class="engine-line"></div>
           <div class="engine-row" id="em-sources">
             <span class="engine-state" data-state="0"></span>
-            <span class="engine-label">Public sources</span>
-            <span class="engine-detail" id="em-sources-detail">Connecting…</span>
+            <span class="engine-label">Offentlige kilder</span>
+            <span class="engine-detail" id="em-sources-detail">Kontrollerer…</span>
           </div>
           <div class="engine-line"></div>
           <div class="engine-row" id="em-signals">
             <span class="engine-state" data-state="0"></span>
-            <span class="engine-label">Business signals</span>
-            <span class="engine-detail" id="em-signals-detail">Discovering…</span>
+            <span class="engine-label">Virksomhetssignaler</span>
+            <span class="engine-detail" id="em-signals-detail">Kartlegger…</span>
           </div>
           <div class="engine-line"></div>
           <div class="engine-row" id="em-questions">
             <span class="engine-state" data-state="0"></span>
-            <span class="engine-label">Audit questions</span>
-            <span class="engine-detail" id="em-questions-detail">Preparing…</span>
+            <span class="engine-label">Kartleggingsspørsmål</span>
+            <span class="engine-detail" id="em-questions-detail">Forbereder…</span>
           </div>
         </div>
       </div>
@@ -101,36 +101,36 @@
       <!-- Executive Brief (rik evidence-rapport) -->
       <div class="engine-panel" id="brief-panel" hidden>
         <div class="brief-header">
-          <h2 class="panel-title">Executive Brief</h2>
-          <span class="mockup-tag">Verified public sources</span>
+          <h2 class="panel-title">Virksomhetsoversikt</h2>
+          <span class="mockup-tag">Bekreftede offentlige kilder</span>
         </div>
         <div id="brief-body"></div>
       </div>
 
       <!-- Company profile (ekte data fra Brønnøysund) -->
       <div class="engine-panel" id="profile-panel" hidden>
-        <h2 class="panel-title" id="profile-name">Company profile</h2>
-        <p class="panel-sub">Verified from Brønnøysund Enhetsregisteret.</p>
+        <h2 class="panel-title" id="profile-name">Virksomhetsprofil</h2>
+        <p class="panel-sub">Bekreftet mot Enhetsregisteret.</p>
         <div class="profile-grid" id="profile-grid"></div>
       </div>
 
       <!-- Executive discovery question -->
       <div class="engine-panel" id="friction-panel" hidden>
-        <h2 class="panel-title">Where does the most friction occur today?</h2>
-        <p class="panel-sub">This sharpens the audit focus. It never replaces evidence.</p>
+        <h2 class="panel-title">Hvor opplever dere mest friksjon i dag?</h2>
+        <p class="panel-sub">Valget avgrenser kartleggingen, men erstatter aldri dokumentasjon.</p>
         <div class="friction-grid" id="friction-grid">
-          <button class="friction-card" data-area="Customer communication"><span class="friction-icon">📞</span>Customer communication</button>
-          <button class="friction-card" data-area="Administration"><span class="friction-icon">🗂️</span>Administration</button>
-          <button class="friction-card" data-area="Documentation"><span class="friction-icon">📄</span>Documentation</button>
-          <button class="friction-card" data-area="Operations"><span class="friction-icon">⚙️</span>Operations</button>
-          <button class="friction-card" data-area="Sales"><span class="friction-icon">📊</span>Sales</button>
+          <button class="friction-card" data-area="Kundekommunikasjon"><span class="friction-icon">📞</span>Kundekommunikasjon</button>
+          <button class="friction-card" data-area="Administrasjon"><span class="friction-icon">🗂️</span>Administrasjon</button>
+          <button class="friction-card" data-area="Dokumentasjon"><span class="friction-icon">📄</span>Dokumentasjon</button>
+          <button class="friction-card" data-area="Drift"><span class="friction-icon">⚙️</span>Drift</button>
+          <button class="friction-card" data-area="Salg"><span class="friction-icon">📊</span>Salg</button>
         </div>
-        <p class="panel-note" id="friction-note">Arch does not guess. It separates observations, evidence and recommendations.</p>
+        <p class="panel-note" id="friction-note">Arch skiller mellom observasjoner, dokumentasjon og anbefalinger.</p>
       </div>
 
       <!-- Audit conversation -->
       <div class="engine-panel" id="conversation-panel" hidden>
-        <h2 class="panel-title">Audit questions</h2>
+        <h2 class="panel-title">Kartleggingsspørsmål</h2>
         <div id="conversation-log" class="audit-conversation"></div>
       </div>
 
@@ -140,15 +140,15 @@
   <!-- Trust element -->
   <section class="audit-trust">
     <div class="wrap">
-      <p>«Arch does not guess. It separates observations, evidence and recommendations.»</p>
+      <p>«Arch gjetter ikke. Det skiller mellom observasjoner, dokumentasjon og anbefalinger.»</p>
     </div>
   </section>
 
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-bottom">
-        <span>© 2026 Arch AXN. Evidence-based, not opinion-based.</span>
-        <span><a href="privacy.html" style="color:rgba(255,255,255,0.6)">Privacy</a> · <a href="security.html" style="color:rgba(255,255,255,0.6)">Security</a></span>
+        <span>© 2026 Arch AXN. Dokumentasjon fremfor antakelser.</span>
+        <span><a href="privacy.html" style="color:rgba(255,255,255,0.6)">Personvern</a> · <a href="security.html" style="color:rgba(255,255,255,0.6)">Sikkerhet</a></span>
       </div>
     </div>
   </footer>
@@ -202,8 +202,8 @@
         const q = input.value.trim();
         if (!q) return;
         discoverBtn.disabled = true;
-        discoverBtn.textContent = "Analyzing…";
-        statusNote.textContent = "Arch is analyzing your company…";
+          discoverBtn.textContent = "Kartlegger…";
+          statusNote.textContent = "Arch kartlegger virksomheten…";
         engine.hidden = false;
         evidencePanel.hidden = false;
         briefPanel.hidden = true;
@@ -235,10 +235,10 @@
 
           if (!data.resolved) {
             setState("em-company", 2);
-            setDetail("em-company-detail", "Not found in public registries");
-            statusNote.textContent = "We could not find this company in public registries. Try another name or organisation number.";
+            setDetail("em-company-detail", "Ikke funnet i offentlige registre");
+            statusNote.textContent = "Vi fant ikke virksomheten i offentlige registre. Prøv et annet navn eller organisasjonsnummer.";
             discoverBtn.disabled = false;
-            discoverBtn.textContent = "Generate Intelligence Map";
+            discoverBtn.textContent = "Kartlegg virksomheten";
             return;
           }
 
@@ -254,7 +254,7 @@
           await sleep(300);
           setState("em-sources", 2);
           const availableCount = (intelligence.sources || []).filter(function (s) { return s.status === "AVAILABLE"; }).length;
-          setDetail("em-sources-detail", availableCount + " sources verified");
+          setDetail("em-sources-detail", availableCount + " kilder bekreftet");
 
           // Business signals
           setState("em-signals", 1);
@@ -266,7 +266,7 @@
           setState("em-questions", 1);
           await sleep(300);
           setState("em-questions", 2);
-          setDetail("em-questions-detail", "Ready");
+          setDetail("em-questions-detail", "Klar");
 
           // Vis Executive Brief (rik evidence-rapport)
           renderBrief(intelligence, company);
@@ -278,15 +278,15 @@
             frictionPanel.hidden = false;
           }, 500);
 
-          statusNote.textContent = "Arch researched " + company.company_name + " from " + availableCount + " verified public sources before asking anything.";
+          statusNote.textContent = "Arch har kontrollert " + company.company_name + " mot " + availableCount + " offentlige kilder før kartleggingen fortsetter.";
 
         } catch (err) {
-          statusNote.textContent = "Something went wrong. Please try again.";
-          addMsg("Something went wrong during analysis. Please try again.");
+          statusNote.textContent = "Noe gikk galt. Prøv igjen.";
+          addMsg("Noe gikk galt under kartleggingen. Prøv igjen.");
           conversationPanel.hidden = false;
         } finally {
           discoverBtn.disabled = false;
-          discoverBtn.textContent = "Generate Intelligence Map";
+          discoverBtn.textContent = "Kartlegg virksomheten";
         }
       }
 
@@ -295,9 +295,9 @@
       function signalsSummary(c) {
         const parts = [];
         if (c.industry_name) parts.push(c.industry_name);
-        if (c.employees != null) parts.push(c.employees + " employees");
+        if (c.employees != null) parts.push(c.employees + " ansatte");
         if (c.municipality) parts.push(c.municipality);
-        return parts.length ? parts.join(" · ") : "Signals found";
+        return parts.length ? parts.join(" · ") : "Ingen ytterligere signaler";
       }
 
       function renderProfile(c) {
@@ -305,12 +305,12 @@
         const grid = document.getElementById("profile-grid");
         grid.innerHTML = "";
         const items = [
-          ["Organisation", c.org_number],
-          ["Industry", c.industry_name || "Not stated"],
-          ["Employees", c.employees != null ? String(c.employees) : "Not stated"],
-          ["Website", c.website || "Not stated"],
-          ["Location", c.municipality || "Not stated"],
-          ["Form", c.org_form || "Not stated"],
+          ["Organisasjonsnummer", c.org_number],
+          ["Bransje", c.industry_name || "Ikke oppgitt"],
+          ["Ansatte", c.employees != null ? String(c.employees) : "Ikke oppgitt"],
+          ["Nettside", c.website || "Ikke oppgitt"],
+          ["Sted", c.municipality || "Ikke oppgitt"],
+          ["Organisasjonsform", c.org_form || "Ikke oppgitt"],
         ];
         items.forEach(function (kv) {
           const cell = document.createElement("div");
@@ -364,63 +364,71 @@
           body.appendChild(s);
         }
 
-        // 1. Company
-        section("Company", [
-          ["Name", c.company_name],
-          ["Industry", id.industry_name || "Not stated"],
-          ["Employees", id.employees != null ? String(id.employees) : "Not stated"],
-          ["Location", id.municipality || "Not stated"],
+        // 1. Virksomhet
+        section("Virksomhet", [
+          ["Navn", c.company_name],
+          ["Bransje", id.industry_name || "Ikke oppgitt"],
+          ["Ansatte", id.employees != null ? String(id.employees) : "Ikke oppgitt"],
+          ["Sted", id.municipality || "Ikke oppgitt"],
         ]);
 
-        // 2. Leadership & governance
+        // 2. Ledelse og roller
         const ld = intel.leadership || [];
         if (ld.length) {
-          section("Leadership & governance", ld.map(function (r) {
+          section("Ledelse og roller", ld.map(function (r) {
             return [r.role_description, r.person_name || "—"];
           }));
         }
 
-        // 3. Financial profile
+        // 3. Regnskapsopplysninger
         const f = intel.financial;
         if (f) {
-          section("Financial profile (" + f.period_to + ")", [
-            ["Revenue", f.revenue != null ? fmtMoney(f.revenue) + " " + (f.currency||"") : "Not stated"],
-            ["Operating result", f.operating_result != null ? fmtMoney(f.operating_result) + " " + (f.currency||"") : "Not stated"],
-            ["Net result", f.net_result != null ? fmtMoney(f.net_result) + " " + (f.currency||"") : "Not stated"],
-            ["Equity", f.equity != null ? fmtMoney(f.equity) + " " + (f.currency||"") : "Not stated"],
-            ["Audited", f.audited ? "Yes" : "No"],
+          section("Regnskapsopplysninger (" + f.period_to + ")", [
+            ["Omsetning", f.revenue != null ? fmtMoney(f.revenue) + " " + (f.currency||"") : "Ikke oppgitt"],
+            ["Driftsresultat", f.operating_result != null ? fmtMoney(f.operating_result) + " " + (f.currency||"") : "Ikke oppgitt"],
+            ["Årsresultat", f.net_result != null ? fmtMoney(f.net_result) + " " + (f.currency||"") : "Ikke oppgitt"],
+            ["Egenkapital", f.equity != null ? fmtMoney(f.equity) + " " + (f.currency||"") : "Ikke oppgitt"],
+            ["Revidert", f.audited ? "Ja" : "Nei"],
           ]);
         }
 
-        // 4. Digital footprint
+        // 4. Digital tilstedeværelse
         const dig = intel.digital;
         if (dig && dig.fetched) {
-          section("Digital footprint", [
-            ["Website", dig.website],
-            ["Technology", dig.tech_stack.length ? dig.tech_stack.join(", ") : "Not detected"],
-            ["Channels", dig.channels.length ? dig.channels.join(", ") : "Not detected"],
+          section("Digital tilstedeværelse", [
+            ["Nettside", dig.website],
+            ["Teknologi", dig.tech_stack.length ? dig.tech_stack.join(", ") : "Ikke registrert"],
+            ["Kanaler", dig.channels.length ? dig.channels.join(", ") : "Ikke registrert"],
           ]);
         }
 
-        // 5. Evidence sources (ærlig status)
-        const srcs = intel.sources || [];
+        // 5. Datagrunnlag. Vis dokumenterte kilder, ikke tekniske mangler.
+        const sourceLabels = {
+          "Company identity": "Virksomhetsidentitet",
+          "Leadership & governance": "Ledelse og roller",
+          "Financial profile": "Regnskapsopplysninger",
+          "Digital footprint": "Digital tilstedeværelse",
+          "Workforce signals": "Arbeidsstyrkesignaler",
+          "Market signals": "Markedssignaler",
+          "Industry context": "Bransjekontekst"
+        };
+        const srcs = (intel.sources || []).filter(function (s) { return s.status === "AVAILABLE"; });
         const srcS = document.createElement("div");
         srcS.className = "brief-section";
         const srcH = document.createElement("div");
         srcH.className = "brief-section-title";
-        srcH.textContent = "Evidence sources";
+        srcH.textContent = "Datagrunnlag";
         srcS.appendChild(srcH);
         srcs.forEach(function (s) {
           const r = document.createElement("div");
           r.className = "brief-row";
           const l = document.createElement("span");
           l.className = "brief-label";
-          l.textContent = s.label;
+          l.textContent = sourceLabels[s.label] || s.label;
           const v = document.createElement("span");
           v.className = "brief-value";
-          if (s.status === "AVAILABLE") { v.className = "brief-value brief-ok"; v.textContent = "✓ " + (s.note || "Available"); }
-          else if (s.status === "EMPTY") { v.className = "brief-value brief-empty"; v.textContent = "No data"; }
-          else { v.className = "brief-value brief-na"; v.textContent = "Not connected"; }
+          v.className = "brief-value brief-ok";
+          v.textContent = "✓ Bekreftet";
           r.appendChild(l); r.appendChild(v);
           srcS.appendChild(r);
         });
@@ -429,7 +437,7 @@
         // Confidence footer
         const foot = document.createElement("p");
         foot.className = "brief-confidence";
-        foot.textContent = "Confidence: based on verified public sources. Insufficient evidence is stated honestly.";
+        foot.textContent = srcs.length + " offentlige kilder er kontrollert. Opplysninger som ikke er dokumentert, vises ikke som fakta.";
         body.appendChild(foot);
       }
 
@@ -442,7 +450,7 @@
             b.classList.toggle("selected", b === btn);
           });
           frictionPanel.querySelector(".panel-note").textContent =
-            "Focus: " + area + " — Arch will investigate this area first.";
+            "Fokus: " + area + ". Arch undersøker dette området først.";
 
           conversationPanel.hidden = false;
           conversationPanel.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -472,11 +480,11 @@
               addMsg(qData.question);
               const purpose = document.createElement("span");
               purpose.className = "purpose";
-              purpose.textContent = "Purpose: " + qData.required_for + " · Information gain: " + qData.expected_information_gain + "%";
+              purpose.textContent = "Formål: " + qData.required_for + " · Forventet informasjonsgevinst: " + qData.expected_information_gain + "%";
               log.lastChild.appendChild(purpose);
             }
           } catch (err) {
-            addMsg("Something went wrong. Please try again.");
+            addMsg("Noe gikk galt. Prøv igjen.");
           }
         });
       });
