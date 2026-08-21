@@ -228,6 +228,9 @@ export async function callAnalystModel(
         temperature: 0,
         max_tokens: maxOutputTokens,
         response_format: { type: "json_object" },
+        // Avslå reasoning: gjør Nemotron vesentlig raskere (~7s vs ~16s) og
+        // plasserer JSON i `content` (ikke reasoning_content) — holder innenfor Workers-limit.
+        reasoning_effort: "none",
       }),
       signal: controller.signal,
     });

@@ -32,7 +32,10 @@
 
   "vars": {
     "ENVIRONMENT": "production",
-    "PUBLIC_ORIGIN": "https://arch.axn.no"
+    "PUBLIC_ORIGIN": "https://arch.axn.no",
+    "ANALYST_PROVIDER": "nvidia",
+    "ANALYST_BASE_URL": "https://integrate.api.nvidia.com/v1",
+    "ANALYST_MODEL": "nvidia/nemotron-3.5-lightning-30b-a3b"
   },
 
   "routes": [
