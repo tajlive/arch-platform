@@ -5,8 +5,8 @@
 //   ✓ brreg-enhet    — Brønnøysund Enhetsregisteret (identitet, roller, ansatte)
 //   ✓ brreg-regnskap — Brønnøysund Regnskapsregisteret (driftsresultat, resultat, EK, gjeld, revisjon)
 //   ✓ website        — nettsideanalyse (tech stack, kanaler) — rate-limit-sensitiv, fallback
-//   ✗ nav-stillinger — krever bearer-auth (404 på public-feed) → markeres NOT_AVAILABLE
-//   ✗ ssb-bransje    — feil endepunkt (400) → markeres NOT_AVAILABLE
+//   ✓ nav-arbeidsplassen — NAV Arbeidsplassen feed (stillinger og kompetansesignaler)
+//   · ssb-bransje    — tilgjengelig i ComparativeAnalyzer, ikke i enkeltselskapsrapporten
 //   ✗ kunngjoringer  — 404 → markeres NOT_AVAILABLE
 //
 // Prinsipp: en utilgjengelig kilde markeres ærlig — aldri late som den finnes.

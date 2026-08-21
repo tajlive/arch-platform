@@ -3,6 +3,7 @@
 import { HttpError } from "./types";
 import { PublicAuditDataAccess } from "./sessions";
 import { CompanyService } from "./company";
+import { ComparativeOrchestrator } from "./comparative";
 import { BrregAdapter } from "./adapters";
 import { AuthService, TenantContext, getAccessIdentity, authorize } from "./auth";
 import { TenantDataAccess } from "./tenant-access";
@@ -198,6 +199,25 @@ async function handleCompanyIntelligence(env: Env, req: Request): Promise<Respon
   return Response.json({ resolved: true, company: result.company, intelligence: result.report });
 }
 
+async function handleCompanyCompare(env: Env, req: Request): Promise<Response> {
+  const body = (await req.json().catch(() => null)) as { companies?: string[] } | null;
+  const companies = body?.companies?.map((company) => company.trim()).filter(Boolean) ?? [];
+  const uniqueCompanies = Array.from(new Set(companies));
+  if (uniqueCompanies.length < 2) throw badRequest("INVALID_COMPANIES", "Minst to selskaper kreves for sammenligning.");
+  if (uniqueCompanies.length > 5) throw badRequest("INVALID_COMPANIES", "Maks fem selskaper kan sammenlignes samtidig.");
+
+  const svc = new CompanyService(env.DB);
+  const orchestrator = new ComparativeOrchestrator((query) => svc.intelligence(query));
+  const result = await orchestrator.compare(uniqueCompanies);
+  if (!result.resolved) {
+    return Response.json(
+      { resolved: false, unresolved: result.unresolved, error: { code: "INSUFFICIENT_COMPANIES", message: "Minst to selskaper må kunne hentes før sammenligning." } },
+      { status: 404 }
+    );
+  }
+  return Response.json(result);
+}
+
 async function handleAskQuestion(env: Env, req: Request): Promise<Response> {
   const { sessionId } = await requireAnonymousSession(env, req.headers.get("Cookie"));
   const body = (await req.json().catch(() => null)) as { context_id?: string; focus_area?: string } | null;
@@ -385,6 +405,7 @@ async function route(req: Request, env: Env, ctx: ExecutionContext, rid: string)
   if (path === "/v1/public/company/resolve" && method === "POST") return withCors(await handleCompanyResolve(env, req), ch);
   if (path === "/v1/public/company/search" && method === "POST") return withCors(await handleCompanySearch(env, req), ch);
   if (path === "/v1/public/company/intelligence" && method === "POST") return withCors(await handleCompanyIntelligence(env, req), ch);
+  if (path === "/v1/public/company/compare" && method === "POST") return withCors(await handleCompanyCompare(env, req), ch);
   if (path === "/v1/public/audit/question" && method === "POST") return withCors(await handleAskQuestion(env, req), ch);
   if (path === "/v1/public/demo/company" && method === "GET") {
     // SYNTHETIC demo — eksplisitt merket, aldri blandet med ekte data
