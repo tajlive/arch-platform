@@ -142,7 +142,13 @@ function equityRatio(fp: FinancialProfile): number | null {
 
 export class BrregFinancialHistoryCollector {
   private readonly baseUrl = "https://data.brreg.no/regnskapsregisteret/regnskap";
-  constructor(private readonly fetcher: typeof fetch = fetch) {}
+  // Binder fetcher eksplisitt for å unngå "Illegal invocation"-feil i Cloudflare Workers
+  // (når `fetch` lagres som instans-egenskap mister den korrekt `this`-kontekst).
+  private readonly fetcher: typeof fetch;
+
+  constructor(fetcher?: typeof fetch) {
+    this.fetcher = fetcher ?? fetch.bind(globalThis);
+  }
 
   async collect(orgNumber: string, companyName?: string): Promise<HistoryCollectorResult> {
     const raw: RawEvidence[] = [];

@@ -68,7 +68,12 @@ export class PeerGroupBuilder {
   private readonly baseUrl = "https://data.brreg.no/enhetsregisteret/api/enheter";
   private readonly maxCandidates = 20;
 
-  constructor(private readonly fetcher: typeof fetch = fetch) {}
+  private readonly fetcher: typeof fetch;
+
+  constructor(fetcher?: typeof fetch) {
+    // Bind fetch eksplisitt — unngår "Illegal invocation"-feil i Cloudflare Workers
+    this.fetcher = fetcher ?? fetch.bind(globalThis);
+  }
 
   /**
    * Bygg peer-gruppe for et selskap.
