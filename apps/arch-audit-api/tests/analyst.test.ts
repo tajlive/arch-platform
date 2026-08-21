@@ -180,6 +180,21 @@ describe("parseAnalystJson", () => {
     expect(output.analyst.priorities[0].evidence_refs).toEqual(["brreg-regnskap"]);
   });
 
+  it("normaliserer kjente kildealiaser og forkaster funn med ukjent kilde", () => {
+    const raw = JSON.stringify({
+      analyst: {
+        summary: "x",
+        strengths: [{ claim: "Registrert virksomhet", evidence_refs: ["Enhetsregisteret"], kind: "FACT" }],
+        weaknesses: [{ claim: "Ukjent kilde", evidence_refs: ["sosiale medier"], kind: "INTERPRETATION" }],
+        priorities: [{ rank: 1, recommendation: "Kontroller data", evidence_refs: "Kilde: Regnskapsregisteret", kind: "HYPOTHESIS" }],
+      },
+    });
+    const output = parseAnalystJson(raw, "951001880", "ALFA SKO AS", "nvidia", "nemotron", 0, 0);
+    expect(output.analyst.strengths[0].evidence_refs).toEqual(["brreg-enhet"]);
+    expect(output.analyst.weaknesses).toEqual([]);
+    expect(output.analyst.priorities[0].evidence_refs).toEqual(["brreg-regnskap"]);
+  });
+
   it("retter kjente feilord uten å endre beløp eller kilder", () => {
     const raw = JSON.stringify({
       analyst: {
