@@ -183,7 +183,7 @@ describe("parseAnalystJson", () => {
   it("retter kjente feilord uten å endre beløp eller kilder", () => {
     const raw = JSON.stringify({
       analyst: {
-        summary: "Branchens driftsoverresult var 56 216 NOK.",
+        summary: "Branchens driftsoverresultatet var 56 216 NOK.",
         strengths: [{ claim: "Driftsovertaket var dokumentert.", evidence_refs: ["brreg-regnskap"], kind: "FACT" }],
         weaknesses: [],
         priorities: [],

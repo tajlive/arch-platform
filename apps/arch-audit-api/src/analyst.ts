@@ -120,8 +120,8 @@ export type AnalystResult =
  */
 const NORWEGIAN_TERM_REPAIRS: ReadonlyArray<readonly [RegExp, string]> = [
   [/\bbranchens\b/gi, "bransjens"],
-  [/\bdriftsoverresult(?:et)?\b/gi, "driftsresultat"],
-  [/\bdriftsovertak(?:et)?\b/gi, "driftsresultat"],
+  [/\bdriftsoverresult[a-zæøå]*\b/gi, "driftsresultat"],
+  [/\bdriftsovertak[a-zæøå]*\b/gi, "driftsresultat"],
 ];
 
 /** Ord som ikke skal kunne leveres i et kundesvar. */
