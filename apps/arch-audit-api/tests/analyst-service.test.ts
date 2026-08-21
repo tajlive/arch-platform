@@ -1,0 +1,87 @@
+// analyst-service.test.ts — enhetstest for AnalystService + computeBenchmarkDeltas
+import { describe, it, expect } from "vitest";
+import { computeBenchmarkDeltas } from "../src/analyst-service";
+import type { ComparativeReport } from "../src/comparative";
+import type { IntelligenceReport } from "../src/research-orchestrator";
+
+function sampleReport(): IntelligenceReport {
+  return {
+    org_number: "951001880",
+    company_name: "ALFA SKO AS",
+    identity: { industry_code: "15.200", industry_name: "Produksjon av skotøy", employees: 23 },
+    leadership: [],
+    financial: { period_from: "2025-01-01", period_to: "2025-12-31", revenue: 146693681, operating_result: -19318991, equity: 30109263, total_assets: 133194811, currency: "NOK", audited: true },
+    financial_history: { org_number: "951001880", years: [], trends: [], latest_year: "2025", data_points: 1 },
+    digital: { website: "www.alfa.no", tech_stack: [], channels: [], has_booking: false, has_self_service: false, fetched: false },
+    sources: [],
+    evidence_map: [],
+    graph: { org_number: "951001880", company_name: "ALFA SKO AS", generated_at: "", evidence: [], rejected_evidence: [], coverage: { accepted: 0, rejected: 0, sources: 0 } },
+  };
+}
+
+function sampleComparative(): ComparativeReport {
+  return {
+    generated_at: "2026-08-21T00:00:00Z",
+    companies: [
+      {
+        org_number: "951001880",
+        company_name: "ALFA SKO AS",
+        metrics: { operating_margin: -13.17, equity_ratio: 22.61, employees: 23 },
+        evidence: {},
+        source_status: {},
+        graph: sampleReport().graph,
+      },
+    ],
+    benchmark: {
+      generated_at: "2026-08-21T00:00:00Z",
+      peer_group: { basis: "selected_companies", industry_code: "15.200", industry_name: "Produksjon av skotøy", company_count: 3, note: "test" },
+      metrics: [
+        { key: "operating_margin", label: "Operating margin", unit: "percent", values: [], median: 5.2, q1: 2, q3: 9, top_decile: 12, bottom_decile: -3 },
+        { key: "equity_ratio", label: "Equity ratio", unit: "percent", values: [], median: 30.0, q1: 20, q3: 45, top_decile: 60, bottom_decile: 10 },
+        { key: "employees", label: "Employees", unit: "count", values: [], median: 40, q1: 20, q3: 80, top_decile: 120, bottom_decile: 5 },
+      ],
+      sources: [],
+    },
+    strengths: [],
+    weaknesses: [],
+    gaps: [],
+    recommendations: [],
+  };
+}
+
+describe("computeBenchmarkDeltas", () => {
+  it("beregner deltas for alle metrikker med selskap + median", () => {
+    const deltas = computeBenchmarkDeltas(sampleReport(), sampleComparative());
+    expect(deltas.length).toBe(3);
+
+    const margin = deltas.find((d) => d.metric === "operating_margin");
+    expect(margin?.company_value).toBe(-13.17);
+    expect(margin?.peer_median).toBe(5.2);
+    expect(margin?.delta).toBeCloseTo(-18.37, 1);
+    expect(margin?.direction).toBe("below");
+
+    const equity = deltas.find((d) => d.metric === "equity_ratio");
+    expect(equity?.direction).toBe("below");
+
+    const employees = deltas.find((d) => d.metric === "employees");
+    expect(employees?.direction).toBe("below");
+  });
+
+  it("returnerer tom liste når comparative mangler", () => {
+    expect(computeBenchmarkDeltas(sampleReport(), null)).toEqual([]);
+    expect(computeBenchmarkDeltas(sampleReport(), undefined)).toEqual([]);
+  });
+
+  it("returnerer tom liste når eget selskap ikke finnes i comparative", () => {
+    const comparative = sampleComparative();
+    comparative.companies = [{
+      org_number: "999999999",
+      company_name: "ANNET",
+      metrics: { operating_margin: 3 },
+      evidence: {},
+      source_status: {},
+      graph: sampleReport().graph,
+    }];
+    expect(computeBenchmarkDeltas(sampleReport(), comparative)).toEqual([]);
+  });
+});

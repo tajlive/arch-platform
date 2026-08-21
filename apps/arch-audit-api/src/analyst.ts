@@ -29,20 +29,54 @@ export type FocusArea =
   | "dokumentasjon"
   | "kundekommunikasjon";
 
+/** FACT/INTERPRETATION/HYPOTHESIS — provenance-ærlighet på hvert funn. */
+export type FindingKind = "FACT" | "INTERPRETATION" | "HYPOTHESIS";
+
+/** Innsatsnivå for tiltak (ny systemprompt 2026). */
+export type EffortLevel = "low" | "medium" | "high";
+
+/** Tidshorisont i dager (30/90/180). */
+export type TimeHorizon = 30 | 90 | 180;
+
 export interface AnalystClaim {
   claim: string;
   evidence_refs: string[];
+  /** FACT = direkte observert, INTERPRETATION = støttet av facts, HYPOTHESIS = må valideres */
+  kind: FindingKind;
 }
 
 export interface AnalystPriority {
   rank: number;
+  /** Konkret tiltak */
   recommendation: string;
+  /** Forventet effekt av tiltaket */
+  expected_effect: string;
+  /** Innsats: lav/medium/høy */
+  effort: EffortLevel;
+  /** Tidshorisont i dager: 30/90/180 */
+  time_horizon: TimeHorizon;
+  /** Obligatorisk — minst én */
   evidence_refs: string[];
+  /** Usikkerheter knyttet til tiltaket */
+  uncertainties: string[];
+  /** Hva som må undersøkes før tiltaket gjennomføres */
+  pre_work: string[];
+  /** Klassifisering av anbefalingen */
+  kind: FindingKind;
 }
 
 export interface AnalystUnknown {
   question: string;
   why: string; // hva evidens mangler
+}
+
+export interface BenchmarkDelta {
+  metric: string;
+  label: string;
+  company_value: number | null;
+  peer_median: number | null;
+  delta: number | null; // company - median
+  direction: "above" | "below" | "at" | "unknown";
 }
 
 export interface AnalystOutput {
@@ -63,6 +97,9 @@ export interface AnalystOutput {
   };
   provenance: {
     evidence_sources: string[];
+    /** Beslutningsstøtte-merking — finans/juss/kreditt er ikke rådgivning */
+    disclaimer: string;
+    benchmark_deltas: BenchmarkDelta[];
   };
 }
 
@@ -162,7 +199,7 @@ export function allowedEvidence(bundle: EvidenceBundle): Array<{ type: string; o
 
 // ── prompt-bygging ────────────────────────────────────────────
 
-export function buildPrompt(bundle: EvidenceBundle, focusArea: FocusArea): string {
+export function buildPrompt(bundle: EvidenceBundle, focusArea: FocusArea, benchmarkDeltas: BenchmarkDelta[] = []): string {
   const evidence = allowedEvidence(bundle);
   // Kap antall evidens-linjer til 12 for å holde LLM-kall innenfor Workers 30s-limit
   const sourceLines = evidence.slice(0, 12).map((e) => `- [${e.source}] ${e.observation}`).join("\n");
@@ -171,24 +208,48 @@ export function buildPrompt(bundle: EvidenceBundle, focusArea: FocusArea): strin
     .filter((s) => !s.includes("NOT_AVAILABLE") && !s.includes("ERROR"))
     .join(", ");
 
+  // Benchmark-avvik: deterministisk input som ArchAnalyst forklarer
+  const benchmarkLines = benchmarkDeltas.length
+    ? benchmarkDeltas.map((d) => `- ${d.label}: selskap=${d.company_value ?? "ukjent"}, peer-median=${d.peer_median ?? "ukjent"}, avvik=${d.delta ?? "ukjent"} (${d.direction})`).join("\n")
+    : "(ingen benchmark-avvik beregnet)";
+
   return [
     "Du er ArchAnalyst — en analytiker som KUN bruker dokumentert evidens.",
     "HARD REGEL: Du SKAL ALDRI finne opp tall eller påstander. Hvis evidens mangler,",
     "skriv «ukjent». Hver påstand MÅ ha minst én evidence_ref fra kildene under.",
     "",
+    "KLASSIFISER hvert funn som:",
+    "- FACT: direkte observert fra kilde",
+    "- INTERPRETATION: forklaring støttet av facts",
+    "- HYPOTHESIS: mulig forklaring som må valideres (ALDRI presenter som FACT)",
+    "",
     `Firma: ${bundle.company_name} (${bundle.org_number})`,
     `NACE: ${bundle.industry_code ?? "ukjent"} — ${bundle.industry_name ?? "ukjent"}`,
     `Fokusområde: ${focusArea}`,
     "",
+    "BENCHMARK-AVVIK (mot peer-median):",
+    benchmarkLines,
+    "",
     "VERIFISERT EVIDENS:",
     sourceLines || "  (ingen verifisert evidens)",
     "",
-    "Svar i JSON (norsk), streng skjema:",
+    "Svar i JSON (norsk), streng skjema. Hver priority MÅ ha expected_effect, effort (low/medium/high),",
+    "time_horizon (30/90/180 dager), uncertainties og pre_work (hva må undersøkes før tiltak):",
     JSON.stringify({
       summary: "norsk syntese",
-      strengths: [{ claim: "påstand", evidence_refs: ["kilde"] }],
-      weaknesses: [{ claim: "påstand", evidence_refs: ["kilde"] }],
-      priorities: [{ rank: 1, recommendation: "anbefaling", evidence_refs: ["kilde"] }],
+      strengths: [{ claim: "påstand", evidence_refs: ["kilde"], kind: "FACT" }],
+      weaknesses: [{ claim: "påstand", evidence_refs: ["kilde"], kind: "INTERPRETATION" }],
+      priorities: [{
+        rank: 1,
+        recommendation: "konkret tiltak",
+        expected_effect: "forventet effekt",
+        effort: "medium",
+        time_horizon: 90,
+        evidence_refs: ["kilde"],
+        uncertainties: ["usikkerhet"],
+        pre_work: ["hva som må undersøkes først"],
+        kind: "HYPOTHESIS"
+      }],
       unknowns: [{ question: "spørsmål", why: "hvorfor evidens mangler" }],
     }),
   ].join("\n");
@@ -272,7 +333,7 @@ function looksLikeJson(text: string | undefined | null): boolean {
   }
 }
 
-export function parseAnalystJson(raw: string, orgNumber: string, companyName: string, provider: string, model: string, inputTokens: number, outputTokens: number): AnalystOutput {
+export function parseAnalystJson(raw: string, orgNumber: string, companyName: string, provider: string, model: string, inputTokens: number, outputTokens: number, benchmarkDeltas: BenchmarkDelta[] = []): AnalystOutput {
   let parsed: any;
   try {
     parsed = JSON.parse(raw);
@@ -281,23 +342,48 @@ export function parseAnalystJson(raw: string, orgNumber: string, companyName: st
   }
   const analyst = parsed?.analyst ?? parsed;
 
+  // Normaliser kind til gyldig verdi — HYPOTHESIS skal aldri presenteres som FACT
+  const normalizeKind = (value: unknown): FindingKind => {
+    const kind = String(value ?? "").trim().toUpperCase();
+    if (kind === "FACT" || kind === "INTERPRETATION" || kind === "HYPOTHESIS") return kind;
+    // Fallback: claims med evidence_refs = INTERPRETATION, uten = HYPOTHESIS
+    return "INTERPRETATION";
+  };
+
   const clean = (arr: any[], field: string, requiredRefs = true): AnalystClaim[] => {
     if (!Array.isArray(arr)) return [];
     return arr
       .map((item) => ({
         claim: String(item?.claim ?? item?.[field] ?? "").trim(),
         evidence_refs: Array.isArray(item?.evidence_refs) ? item.evidence_refs.map(String) : [],
+        kind: normalizeKind(item?.kind),
       }))
       .filter((item) => item.claim.length > 0 && (!requiredRefs || item.evidence_refs.length > 0));
+  };
+
+  const normalizeEffort = (value: unknown): EffortLevel => {
+    const effort = String(value ?? "").trim().toLowerCase();
+    return effort === "low" || effort === "medium" || effort === "high" ? effort : "medium";
+  };
+
+  const normalizeHorizon = (value: unknown): TimeHorizon => {
+    const n = Number(value);
+    return n === 30 || n === 90 || n === 180 ? n : 90;
   };
 
   const strengths = clean(analyst?.strengths, "claim");
   const weaknesses = clean(analyst?.weaknesses, "claim");
   const priorities = (Array.isArray(analyst?.priorities) ? analyst.priorities : [])
-    .map((p: any, idx: number) => ({
+    .map((p: any, idx: number): AnalystPriority => ({
       rank: Number(p?.rank ?? idx + 1),
       recommendation: String(p?.recommendation ?? "").trim(),
+      expected_effect: String(p?.expected_effect ?? p?.effect ?? "").trim(),
+      effort: normalizeEffort(p?.effort),
+      time_horizon: normalizeHorizon(p?.time_horizon ?? p?.horizon),
       evidence_refs: Array.isArray(p?.evidence_refs) ? p.evidence_refs.map(String) : [],
+      uncertainties: Array.isArray(p?.uncertainties) ? p.uncertainties.map(String).filter(Boolean) : [],
+      pre_work: Array.isArray(p?.pre_work) ? p.pre_work.map(String).filter(Boolean) : [],
+      kind: normalizeKind(p?.kind),
     }))
     .filter((p: AnalystPriority) => p.recommendation.length > 0 && p.evidence_refs.length > 0);
   const unknowns = (Array.isArray(analyst?.unknowns) ? analyst.unknowns : [])
@@ -316,7 +402,12 @@ export function parseAnalystJson(raw: string, orgNumber: string, companyName: st
       unknowns,
     },
     model: { provider, model, tokens: { input: inputTokens, output: outputTokens } },
-    provenance: { evidence_sources: ["brreg-enhet", "brreg-regnskap", "peer-group", "nav-arbeidsplassen", "website"] },
+    provenance: {
+      evidence_sources: ["brreg-enhet", "brreg-regnskap", "peer-group", "nav-arbeidsplassen", "website"],
+      disclaimer:
+        "Denne analysen er beslutningsstøtte basert på offentlige registre, ikke finansiell, juridisk eller kredittrådgivning. Verifiser forholdene mot primærkilder før beslutninger.",
+      benchmark_deltas: benchmarkDeltas,
+    },
   };
 }
 

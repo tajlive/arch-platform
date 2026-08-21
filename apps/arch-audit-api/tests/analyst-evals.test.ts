@@ -17,7 +17,11 @@ function sampleOutput(overrides?: Partial<AnalystOutput["analyst"]>): AnalystOut
       ...overrides,
     },
     model: { provider: "nvidia", model: "nemotron", tokens: { input: 100, output: 50 } },
-    provenance: { evidence_sources: ["brreg-regnskap"] },
+    provenance: {
+      evidence_sources: ["brreg-regnskap"],
+      disclaimer: "Beslutningsstøtte, ikke rådgivning.",
+      benchmark_deltas: [],
+    },
   };
 }
 
@@ -61,5 +65,39 @@ describe("runAnalystEvals", () => {
     // selve struktur-evalen feiler for tom syntese — men ingen fabrikasjon
     const noFab = suite.results.find((r) => r.id === "ANALYST_NO_FABRICATION");
     expect(noFab?.passed).toBe(true);
+  });
+
+  it("feiler når priority mangler expected_effect (kontrakt-brudd)", () => {
+    const output = sampleOutput({
+      priorities: [samplePriority(1, "tiltak", ["brreg-regnskap"], { expected_effect: "" })],
+    });
+    const suite = runAnalystEvals(output);
+    const contract = suite.results.find((r) => r.id === "ANALYST_PRIORITY_CONTRACT");
+    expect(contract?.passed).toBe(false);
+    expect(contract?.severity).toBe("error");
+  });
+
+  it("feiler når priority har ugyldig time_horizon", () => {
+    const output = sampleOutput({
+      priorities: [samplePriority(1, "tiltak", ["brreg-regnskap"], { time_horizon: 45 as any })],
+    });
+    const suite = runAnalystEvals(output);
+    const contract = suite.results.find((r) => r.id === "ANALYST_PRIORITY_CONTRACT");
+    expect(contract?.passed).toBe(false);
+  });
+
+  it("feiler når funn mangler gyldig kind", () => {
+    const output = sampleOutput({
+      strengths: [{ claim: "uten kind", evidence_refs: ["brreg-regnskap"], kind: "FABEL" as any }],
+    });
+    const suite = runAnalystEvals(output);
+    const kindEval = suite.results.find((r) => r.id === "ANALYST_KIND_CLASSIFIED");
+    expect(kindEval?.passed).toBe(false);
+  });
+
+  it("passerer når disclaimer er til stede", () => {
+    const suite = runAnalystEvals(sampleOutput());
+    const disclaimer = suite.results.find((r) => r.id === "ANALYST_DISCLAIMER");
+    expect(disclaimer?.passed).toBe(true);
   });
 });

@@ -96,16 +96,72 @@ export function runAnalystEvals(output: AnalystOutput, evidenceSources?: string[
     detail: `summary lengde: ${output.analyst.summary.length}`,
   });
 
+  // ── Eval 6: Priority-kontrakt (effort + time_horizon + expected_effect) ──
+  const badPriorities = output.analyst.priorities.filter(
+    (p) =>
+      !p.expected_effect ||
+      !["low", "medium", "high"].includes(p.effort) ||
+      ![30, 90, 180].includes(p.time_horizon)
+  );
+  results.push({
+    id: "ANALYST_PRIORITY_CONTRACT",
+    name: "Hver priority har expected_effect, effort (low/medium/high) og time_horizon (30/90/180)",
+    passed: badPriorities.length === 0,
+    severity: "error",
+    detail: `${output.analyst.priorities.length} prioriteter, ${badPriorities.length} uten full kontrakt`,
+  });
+
+  // ── Eval 7: kind-klassifisering (FACT/INTERPRETATION/HYPOTHESIS) ──
+  const validKinds = new Set(["FACT", "INTERPRETATION", "HYPOTHESIS"]);
+  const unclassified = [
+    ...output.analyst.strengths,
+    ...output.analyst.weaknesses,
+    ...output.analyst.priorities,
+  ].filter((f) => !validKinds.has(f.kind));
+  results.push({
+    id: "ANALYST_KIND_CLASSIFIED",
+    name: "Hvert funn er klassifisert FACT/INTERPRETATION/HYPOTHESIS",
+    passed: unclassified.length === 0,
+    severity: "error",
+    detail: `${unclassified.length} funn uten gyldig kind`,
+  });
+
+  // ── Eval 8: Beslutningsstøtte-merking (disclaimer) ──
+  const hasDisclaimer = output.provenance.disclaimer.length > 0;
+  results.push({
+    id: "ANALYST_DISCLAIMER",
+    name: "Beslutningsstøtte-merking til stede (ikke rådgivning)",
+    passed: hasDisclaimer,
+    severity: "error",
+    detail: hasDisclaimer ? "disclaimer til stede" : "disclaimer mangler",
+  });
+
   const passed = results.filter((r) => r.passed).length;
   const failed = results.filter((r) => !r.passed).length;
   return { suite: "analyst-evals", passed, failed, results };
 }
 
 /** Lager en falsk evidens-lenket claim som IKKE bryter 0-fabrikasjon (for tester). */
-export function sampleClaim(claim: string, refs: string[]): AnalystClaim {
-  return { claim, evidence_refs: refs };
+export function sampleClaim(claim: string, refs: string[], kind: AnalystClaim["kind"] = "FACT"): AnalystClaim {
+  return { claim, evidence_refs: refs, kind };
 }
 
-export function samplePriority(rank: number, recommendation: string, refs: string[]): AnalystPriority {
-  return { rank, recommendation, evidence_refs: refs };
+export function samplePriority(
+  rank: number,
+  recommendation: string,
+  refs: string[],
+  overrides?: Partial<Omit<AnalystPriority, "rank" | "recommendation" | "evidence_refs">>
+): AnalystPriority {
+  return {
+    rank,
+    recommendation,
+    evidence_refs: refs,
+    expected_effect: "Redusert risiko",
+    effort: "medium",
+    time_horizon: 90,
+    uncertainties: [],
+    pre_work: [],
+    kind: "INTERPRETATION",
+    ...overrides,
+  };
 }

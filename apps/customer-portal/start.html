@@ -216,6 +216,7 @@
       let questionLoading = false;
       let questionRequest = 0;
       let selectedArea = null;
+      let analystDisclaimer = "";
 
       function setState(id, state) {
         // state: 0 = pending, 1 = active, 2 = done
@@ -522,6 +523,7 @@
             return;
           }
           const data = await res.json();
+          analystDisclaimer = (data.provenance && data.provenance.disclaimer) || "";
           renderAnalystResult(data.analyst || {}, data.model || null);
         } catch (err) {
           analystBody.innerHTML = "<p class=\"panel-sub\">Noe gikk galt under analysen. Prøv igjen.</p>";
@@ -553,7 +555,7 @@
         if (analyst.priorities && analyst.priorities.length) {
           analystBody.appendChild(sectionHeader("Prioriterte anbefalinger"));
           analyst.priorities.slice().sort(function (a, b) { return a.rank - b.rank; }).forEach(function (p) {
-            analystBody.appendChild(findingRow(p.recommendation, p.evidence_refs, "priority", p.rank));
+            analystBody.appendChild(priorityRow(p));
           });
         }
         // Unknowns (provenance-ærlighet — aldri gjettet)
@@ -565,6 +567,13 @@
             row.innerHTML = "<span class=\"analyst-q\">" + u.question + "</span><span class=\"analyst-why\">" + u.why + "</span>";
             analystBody.appendChild(row);
           });
+        }
+        // Beslutningsstøtte-merking
+        if (analystDisclaimer) {
+          const disc = document.createElement("p");
+          disc.className = "analyst-disclaimer";
+          disc.textContent = analystDisclaimer;
+          analystBody.appendChild(disc);
         }
         // Modell-info (sporbarhet)
         if (model && model.model) {
@@ -594,6 +603,26 @@
           refSpan.textContent = "Kilde: " + refs.join(", ");
           row.appendChild(refSpan);
         }
+        return row;
+      }
+
+      function priorityRow(p) {
+        const row = document.createElement("div");
+        row.className = "analyst-finding priority";
+        row.innerHTML =
+          "<span class=\"analyst-icon\">" + (p.rank || "#") + "</span>" +
+          "<div class=\"analyst-priority-body\">" +
+            "<span class=\"analyst-claim\">" + p.recommendation + "</span>" +
+            "<span class=\"analyst-priority-tags\">" +
+              "<span class=\"analyst-tag effort-" + (p.effort || "medium") + "\">Innsats: " + (p.effort || "medium") + "</span>" +
+              "<span class=\"analyst-tag\">Tid: " + (p.time_horizon || "?") + " dager</span>" +
+              "<span class=\"analyst-tag kind-" + (p.kind || "INTERPRETATION").toLowerCase() + "\">" + (p.kind || "INTERPRETATION") + "</span>" +
+            "</span>" +
+            (p.expected_effect ? "<span class=\"analyst-effect\">Forventet effekt: " + p.expected_effect + "</span>" : "") +
+            (p.uncertainties && p.uncertainties.length ? "<span class=\"analyst-why\">Usikkerhet: " + p.uncertainties.join("; ") + "</span>" : "") +
+            (p.pre_work && p.pre_work.length ? "<span class=\"analyst-why\">Før tiltak: " + p.pre_work.join("; ") + "</span>" : "") +
+            (p.evidence_refs && p.evidence_refs.length ? "<span class=\"analyst-refs\">Kilde: " + p.evidence_refs.join(", ") + "</span>" : "") +
+          "</div>";
         return row;
       }
 

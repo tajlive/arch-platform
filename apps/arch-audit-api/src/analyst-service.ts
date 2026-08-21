@@ -5,10 +5,11 @@
 //  - FAIL-CLOSED: evals-gate validerer 0-fabrikasjon FØR output leveres.
 
 import type { IntelligenceReport } from "./research-orchestrator";
-import type { ComparativeReport } from "./comparative";
+import type { ComparativeReport, BenchmarkMetric, BenchmarkMetricKey } from "./comparative";
 import {
   AnalystOutput,
   AnalystModel,
+  BenchmarkDelta,
   FocusArea,
   buildEvidenceBundle,
   buildPrompt,
@@ -18,6 +19,34 @@ import {
   allowedEvidence,
 } from "./analyst";
 import { runAnalystEvals } from "./analyst-evals";
+
+/** Beregn benchmark-deltas (selskap vs peer-median) fra ComparativeReport. */
+export function computeBenchmarkDeltas(report: IntelligenceReport, comparative?: ComparativeReport | null): BenchmarkDelta[] {
+  if (!comparative?.benchmark) return [];
+
+  const own = comparative.companies.find((c) => c.org_number === report.org_number);
+  if (!own) return [];
+
+  const deltas: BenchmarkDelta[] = [];
+  for (const metric of Object.values(comparative.benchmark.metrics ?? {}) as BenchmarkMetric[]) {
+    const key = metric.key;
+    const companyValue = own.metrics[key];
+    const median = metric.median;
+    if (companyValue === undefined || median === undefined) continue;
+    const delta = Math.round((companyValue - median) * 100) / 100;
+    const direction: BenchmarkDelta["direction"] =
+      Math.abs(delta) < 0.01 ? "at" : delta > 0 ? "above" : "below";
+    deltas.push({
+      metric: key,
+      label: metric.label,
+      company_value: companyValue,
+      peer_median: median,
+      delta,
+      direction,
+    });
+  }
+  return deltas;
+}
 
 export class AnalystService {
   private readonly model: AnalystModel;
@@ -34,12 +63,14 @@ export class AnalystService {
     orgNumber: string,
     report: IntelligenceReport,
     focusArea: FocusArea = "salg",
-    comparativeContext: string[] = []
+    comparativeContext: string[] = [],
+    comparative?: ComparativeReport | null
   ): Promise<{ analyst: AnalystOutput["analyst"]; model: AnalystOutput["model"]; provenance: AnalystOutput["provenance"] }> {
     const bundle = buildEvidenceBundle(report);
 
-    // Hvis det finnes komparativ kontekst, berik evidensen (tom for nå — valgfritt)
-    const prompt = buildPrompt(bundle, focusArea);
+    // Benchmark-avvik fra deterministisk ComparativeEngine — ArchAnalyst forklarer AVVIK
+    const benchmarkDeltas = computeBenchmarkDeltas(report, comparative);
+    const prompt = buildPrompt(bundle, focusArea, benchmarkDeltas);
 
     const inputText = prompt;
     // Retry mot transiente overbelastning (NVIDIA 503) — 2 forsøk, kort backoff.
@@ -60,7 +91,8 @@ export class AnalystService {
       this.model.provider,
       this.model.model,
       estimateTokens(inputText),
-      estimateTokens(raw)
+      estimateTokens(raw),
+      benchmarkDeltas
     );
 
     // FAIL-CLOSED: evals-gate må passeres før output leveres til kunde.

@@ -253,11 +253,22 @@ async function handleCompanyAnalyst(env: Env, req: Request): Promise<Response> {
     model: env.ANALYST_MODEL,
   });
   try {
+    // Benchmark-avvik: hvis peers er angitt, kjør deterministisk ComparativeEngine
+    // FØR analysen — ArchAnalyst forklarer AVVIK, ikke bare absolutte tall.
+    let comparative = null;
+    const peers = (body?.comparative_context ?? []).map((p) => p.trim()).filter(Boolean);
+    if (peers.length >= 1) {
+      const orchestrator = new ComparativeOrchestrator((query) => svc.intelligence(query));
+      const cmpResult = await orchestrator.compare(Array.from(new Set([orgNumber, ...peers])).slice(0, 5));
+      if (cmpResult.resolved) comparative = cmpResult.report;
+    }
+
     const output = await analyst.analyze(
       orgNumber,
       result.report,
       (body?.focus_area as any) ?? "salg",
-      body?.comparative_context ?? []
+      peers,
+      comparative
     );
     return Response.json({ resolved: true, ...output });
   } catch (e) {

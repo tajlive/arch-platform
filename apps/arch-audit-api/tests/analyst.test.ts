@@ -97,6 +97,72 @@ describe("parseAnalystJson", () => {
     expect(output.analyst.strengths.length).toBe(1);
     expect(output.analyst.strengths[0].claim).toBe("Har evidens");
   });
+
+  it("normaliserer priorities med full kontrakt (effort/time_horizon/expected_effect/uncertainties/pre_work)", () => {
+    const raw = JSON.stringify({
+      analyst: {
+        summary: "x",
+        strengths: [],
+        weaknesses: [],
+        priorities: [{
+          rank: 1,
+          recommendation: "Forbedre marginer",
+          expected_effect: "Økt lønnsomhet",
+          effort: "high",
+          time_horizon: 180,
+          evidence_refs: ["brreg-regnskap"],
+          uncertainties: ["uforutsette kostnader"],
+          pre_work: ["kartlegge kostnadsdrivere"],
+          kind: "HYPOTHESIS",
+        }],
+      },
+    });
+    const output = parseAnalystJson(raw, "951001880", "ALFA SKO AS", "nvidia", "nemotron", 0, 0);
+    const p = output.analyst.priorities[0];
+    expect(p.effort).toBe("high");
+    expect(p.time_horizon).toBe(180);
+    expect(p.expected_effect).toBe("Økt lønnsomhet");
+    expect(p.uncertainties).toEqual(["uforutsette kostnader"]);
+    expect(p.pre_work).toEqual(["kartlegge kostnadsdrivere"]);
+    expect(p.kind).toBe("HYPOTHESIS");
+  });
+
+  it("normaliserer ugyldige effort/horizon til defaults", () => {
+    const raw = JSON.stringify({
+      analyst: {
+        summary: "x",
+        strengths: [],
+        weaknesses: [],
+        priorities: [{ rank: 1, recommendation: "Tiltak", evidence_refs: ["brreg-regnskap"], effort: "enorm", time_horizon: 7 }],
+      },
+    });
+    const output = parseAnalystJson(raw, "951001880", "ALFA SKO AS", "nvidia", "nemotron", 0, 0);
+    expect(output.analyst.priorities[0].effort).toBe("medium");
+    expect(output.analyst.priorities[0].time_horizon).toBe(90);
+  });
+
+  it("klassifiserer funn med kind (FACT/INTERPRETATION/HYPOTHESIS)", () => {
+    const raw = JSON.stringify({
+      analyst: {
+        summary: "x",
+        strengths: [{ claim: "23 ansatte", evidence_refs: ["brreg-enhet"], kind: "FACT" }],
+        weaknesses: [{ claim: "negativ margin", evidence_refs: ["brreg-regnskap"], kind: "INTERPRETATION" }],
+        priorities: [{ rank: 1, recommendation: "tiltak", evidence_refs: ["brreg-regnskap"], kind: "HYPOTHESIS" }],
+      },
+    });
+    const output = parseAnalystJson(raw, "951001880", "ALFA SKO AS", "nvidia", "nemotron", 0, 0);
+    expect(output.analyst.strengths[0].kind).toBe("FACT");
+    expect(output.analyst.weaknesses[0].kind).toBe("INTERPRETATION");
+    expect(output.analyst.priorities[0].kind).toBe("HYPOTHESIS");
+  });
+
+  it("inkluderer disclaimer og benchmark_deltas i provenance", () => {
+    const raw = JSON.stringify({ analyst: { summary: "x", strengths: [], weaknesses: [], priorities: [] } });
+    const deltas = [{ metric: "operating_margin", label: "Operating margin", company_value: -13.17, peer_median: 5.2, delta: -18.37, direction: "below" as const }];
+    const output = parseAnalystJson(raw, "951001880", "ALFA SKO AS", "nvidia", "nemotron", 0, 0, deltas);
+    expect(output.provenance.disclaimer.length).toBeGreaterThan(0);
+    expect(output.provenance.benchmark_deltas).toEqual(deltas);
+  });
 });
 
 describe("callAnalystModel", () => {

@@ -107,12 +107,23 @@ async function mockAuditApi(page, searchCandidates) {
       body: JSON.stringify({
         analyst: {
           summary: "Dokumentert syntese for virksomheten.",
-          strengths: [{ claim: "Etablert ledelse", evidence_refs: ["brreg-roller"] }],
+          strengths: [{ claim: "Etablert ledelse", evidence_refs: ["brreg-roller"], kind: "FACT" }],
           weaknesses: [],
-          priorities: [{ rank: 1, recommendation: "Kartlegge arbeidsprosesser", evidence_refs: ["brreg-regnskap"] }],
+          priorities: [{
+            rank: 1,
+            recommendation: "Kartlegge arbeidsprosesser",
+            expected_effect: "Redusert tidsbruk",
+            effort: "medium",
+            time_horizon: 90,
+            evidence_refs: ["brreg-regnskap"],
+            uncertainties: ["uforutsette avhengigheter"],
+            pre_work: ["intervjue ansatte"],
+            kind: "HYPOTHESIS"
+          }],
           unknowns: [{ question: "Digital tilstedeværelse?", why: "mangler evidens" }]
         },
-        model: { model: "test-model", tokens: { output: 42 } }
+        model: { model: "test-model", tokens: { output: 42 } },
+        provenance: { disclaimer: "Beslutningsstøtte, ikke rådgivning." }
       })
     });
   });
@@ -221,6 +232,12 @@ test("viser Arch Analytiker med dokumenterte funn når fokusområde velges", asy
   await expect(analyst).toContainText("Kartlegge arbeidsprosesser");
   await expect(analyst).toContainText("Ikke dokumentert");
   await expect(analyst).toContainText("Kilde: brreg-roller");
+  // Ny kontrakt: innsats, tidshorisont, kind, forventet effekt, disclaimer
+  await expect(analyst).toContainText("Innsats: medium");
+  await expect(analyst).toContainText("Tid: 90 dager");
+  await expect(analyst).toContainText("HYPOTHESIS");
+  await expect(analyst).toContainText("Forventet effekt: Redusert tidsbruk");
+  await expect(analyst).toContainText("Beslutningsstøtte, ikke rådgivning.");
 
   // Riktig fokusområde ble sendt til analyst-endepunktet
   expect(calls.analyst).toHaveLength(1);
