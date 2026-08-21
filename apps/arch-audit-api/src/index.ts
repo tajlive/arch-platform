@@ -21,6 +21,11 @@ export interface Env {
   GIT_SHA?: string;
   BUILD_TIME?: string;
   RATE_LIMITER: DurableObjectNamespace;
+  // ArchAnalyst (stateless LLM-analyse) — valgfrie, FAIL-OPEN hvis ikke satt
+  ANALYST_PROVIDER?: string;
+  ANALYST_BASE_URL?: string;
+  ANALYST_API_KEY?: string;
+  ANALYST_MODEL?: string;
 }
 
 // ── Global rate limiting via Durable Object ──────────────────
@@ -218,6 +223,44 @@ async function handleCompanyCompare(env: Env, req: Request): Promise<Response> {
   return Response.json(result);
 }
 
+async function handleCompanyAnalyst(env: Env, req: Request): Promise<Response> {
+  const body = (await req.json().catch(() => null)) as { org_number?: string; focus_area?: string; comparative_context?: string[] } | null;
+  const orgNumber = body?.org_number?.trim();
+  if (!orgNumber || orgNumber.length < 2) throw badRequest("INVALID_QUERY", "Organisasjonsnummer mangler.");
+
+  // FAIL-OPEN: hvis LLM-konfig ikke er satt, lever IKKE fabrikkert analyse — 503 med ærlig feil.
+  if (!env.ANALYST_BASE_URL || !env.ANALYST_API_KEY || !env.ANALYST_MODEL) {
+    return Response.json(
+      { resolved: false, error: { code: "ANALYST_NOT_CONFIGURED", message: "Analyst-modellen er ikke konfigurert." } },
+      { status: 503 }
+    );
+  }
+
+  const svc = new CompanyService(env.DB);
+  const result = await svc.intelligence(orgNumber);
+  if (!result) {
+    return Response.json(
+      { resolved: false, error: { code: "COMPANY_NOT_FOUND", message: "Vi fant ikke virksomheten." } },
+      { status: 404 }
+    );
+  }
+
+  const { AnalystService } = await import("./analyst-service");
+  const analyst = new AnalystService({
+    provider: env.ANALYST_PROVIDER ?? "nvidia",
+    baseUrl: env.ANALYST_BASE_URL,
+    apiKey: env.ANALYST_API_KEY,
+    model: env.ANALYST_MODEL,
+  });
+  const output = await analyst.analyze(
+    orgNumber,
+    result.report,
+    (body?.focus_area as any) ?? "salg",
+    body?.comparative_context ?? []
+  );
+  return Response.json({ resolved: true, ...output });
+}
+
 async function handleAskQuestion(env: Env, req: Request): Promise<Response> {
   const { sessionId } = await requireAnonymousSession(env, req.headers.get("Cookie"));
   const body = (await req.json().catch(() => null)) as { context_id?: string; focus_area?: string } | null;
@@ -406,6 +449,7 @@ async function route(req: Request, env: Env, ctx: ExecutionContext, rid: string)
   if (path === "/v1/public/company/search" && method === "POST") return withCors(await handleCompanySearch(env, req), ch);
   if (path === "/v1/public/company/intelligence" && method === "POST") return withCors(await handleCompanyIntelligence(env, req), ch);
   if (path === "/v1/public/company/compare" && method === "POST") return withCors(await handleCompanyCompare(env, req), ch);
+  if (path === "/v1/public/company/analyst" && method === "POST") return withCors(await handleCompanyAnalyst(env, req), ch);
   if (path === "/v1/public/audit/question" && method === "POST") return withCors(await handleAskQuestion(env, req), ch);
   if (path === "/v1/public/demo/company" && method === "GET") {
     // SYNTHETIC demo — eksplisitt merket, aldri blandet med ekte data
