@@ -918,3 +918,33 @@ p, h1, h2, h3, h4, a, span { overflow-wrap: anywhere; }
   .company-picker-item { grid-template-columns: 1fr; gap: 2px; }
   .cpi-loc { text-align: left; }
 }
+
+/* ── Arch Analyst panel ─────────────────────────── */
+.analyst-summary {
+  font-size: 15px; line-height: 1.65; color: var(--ink);
+  margin-bottom: 20px; padding: 14px 18px;
+  background: var(--blue-faint); border-radius: 10px;
+}
+.analyst-section {
+  font-size: 14px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.03em; color: var(--slate);
+  margin: 20px 0 10px;
+}
+.analyst-finding {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 10px 0; border-bottom: 1px solid var(--border);
+}
+.analyst-finding:last-child { border-bottom: none; }
+.analyst-icon { flex-shrink: 0; font-weight: 700; }
+.analyst-finding.strength .analyst-icon { color: #0a8f3f; }
+.analyst-finding.weakness .analyst-icon { color: #c0392b; }
+.analyst-finding.priority .analyst-icon { color: var(--blue); }
+.analyst-claim { font-size: 14px; color: var(--ink); flex: 1; }
+.analyst-refs { display: block; font-size: 12px; color: var(--slate); margin-top: 2px; }
+.analyst-unknown {
+  padding: 10px 0; border-bottom: 1px solid var(--border);
+  display: flex; flex-direction: column; gap: 2px;
+}
+.analyst-q { font-size: 14px; color: var(--ink); font-weight: 600; }
+.analyst-why { font-size: 12px; color: var(--slate); }
+.analyst-meta { font-size: 12px; color: var(--slate); margin-top: 18px; font-style: italic; }

@@ -37,7 +37,7 @@ test.afterAll(async () => new Promise((resolveServer) => server.close(resolveSer
 
 const intelligenceResponse = {
   resolved: true,
-  company: { company_name: "ROLF SOLHEIM" },
+  company: { company_name: "ROLF SOLHEIM", org_number: "936796702" },
   intelligence: {
     identity: {
       industry_name: "Drift av restauranter",
@@ -61,7 +61,7 @@ const defaultSearchCandidates = [
 ];
 
 async function mockAuditApi(page, searchCandidates) {
-  const calls = { questions: [], searches: [] };
+  const calls = { questions: [], searches: [], analyst: [] };
   const candidates = searchCandidates || defaultSearchCandidates;
   await page.route("https://api.arch.axn.no/v1/public/audit/session", (route) => route.fulfill({ status: 200, body: "{}" }));
   await page.route("https://api.arch.axn.no/v1/public/company/search", async (route) => {
@@ -95,6 +95,24 @@ async function mockAuditApi(page, searchCandidates) {
           : "For ROLF SOLHEIM: Hvor kommer flest nye kundehenvendelser inn i dag?",
         required_for: "IDENTIFY_PROCESS",
         expected_information_gain: 25
+      })
+    });
+  });
+  await page.route("https://api.arch.axn.no/v1/public/company/analyst", async (route) => {
+    const body = route.request().postDataJSON();
+    calls.analyst.push(body);
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        analyst: {
+          summary: "Dokumentert syntese for virksomheten.",
+          strengths: [{ claim: "Etablert ledelse", evidence_refs: ["brreg-roller"] }],
+          weaknesses: [],
+          priorities: [{ rank: 1, recommendation: "Kartlegge arbeidsprosesser", evidence_refs: ["brreg-regnskap"] }],
+          unknowns: [{ question: "Digital tilstedeværelse?", why: "mangler evidens" }]
+        },
+        model: { model: "test-model", tokens: { output: 42 } }
       })
     });
   });
@@ -181,4 +199,31 @@ test("viser firma-velger ved flertreff og kartlegger valgt virksomhet", async ({
   // Search ble kalt med det opprinnelige søket
   expect(calls.searches).toHaveLength(1);
   expect(calls.searches[0].query).toBe("melhus bil");
+});
+
+test("viser Arch Analytiker med dokumenterte funn når fokusområde velges", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  const calls = await mockAuditApi(page);
+  await page.goto(`${baseUrl}/start.html`);
+  await page.locator("#company-input").fill("Rolf Solheim");
+  await page.locator("#discover-btn").click();
+  await expect(page.locator("#brief-panel")).toBeVisible();
+
+  // Velg fokusområde → analyst-panel åpner og henter dokumentert analyse
+  await expect(page.locator("#friction-panel")).toBeVisible();
+  await page.locator(".friction-card", { hasText: "Drift" }).click();
+
+  const analyst = page.locator("#analyst-panel");
+  await expect(analyst).toBeVisible();
+  await expect(analyst).toContainText("Arch Analytiker");
+  await expect(analyst).toContainText("Dokumentert syntese for virksomheten.");
+  await expect(analyst).toContainText("Etablert ledelse");
+  await expect(analyst).toContainText("Kartlegge arbeidsprosesser");
+  await expect(analyst).toContainText("Ikke dokumentert");
+  await expect(analyst).toContainText("Kilde: brreg-roller");
+
+  // Riktig fokusområde ble sendt til analyst-endepunktet
+  expect(calls.analyst).toHaveLength(1);
+  expect(calls.analyst[0].focus_area).toBe("drift");
+  expect(calls.analyst[0].org_number).toBeDefined();
 });

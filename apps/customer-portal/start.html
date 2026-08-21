@@ -162,6 +162,17 @@
         <div id="conversation-log" class="audit-conversation"></div>
       </div>
 
+      <!-- Arch Analyst (LLM-tolkning av verifisert evidenslag) -->
+      <div class="engine-panel" id="analyst-panel" hidden>
+        <div class="brief-header">
+          <h2 class="panel-title">Arch Analytiker</h2>
+          <span class="mockup-tag">Evidensbasert · 0 antakelser</span>
+        </div>
+        <div id="analyst-body">
+          <p class="panel-sub">Velg et fokusområde over for å få Arch sin dokumenterte analyse.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -197,6 +208,8 @@
       const frictionPanel = document.getElementById("friction-panel");
       const conversationPanel = document.getElementById("conversation-panel");
       const log = document.getElementById("conversation-log");
+      const analystPanel = document.getElementById("analyst-panel");
+      const analystBody = document.getElementById("analyst-body");
 
       let contextId = null;
       let company = null;
@@ -490,6 +503,99 @@
         "nyheter": "Markedssignaler",
         "ssb-bransje": "Bransjekontekst",
       };
+
+      // ── Arch Analyst: kall LLM-ruten og render dokumentert analyse ──
+      async function renderAnalyst(orgNumber, area, areaLabel) {
+        if (!orgNumber) return;
+        analystPanel.hidden = false;
+        analystPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        analystBody.innerHTML = "<p class=\"panel-sub\">Arch analyserer dokumenterte signaler for <strong>" + areaLabel + "</strong>…</p>";
+        try {
+          const res = await fetch(API + "/v1/public/company/analyst", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ org_number: orgNumber, focus_area: area.trim().toLowerCase() }),
+          });
+          if (!res.ok) {
+            const err = await res.json().catch(function () { return null; });
+            analystBody.innerHTML = "<p class=\"panel-sub\">" + ((err && err.error && err.error.message) || "Analytikeren er midlertidig utilgjengelig. Prøv igjen senere.") + "</p>";
+            return;
+          }
+          const data = await res.json();
+          renderAnalystResult(data.analyst || {}, data.model || null);
+        } catch (err) {
+          analystBody.innerHTML = "<p class=\"panel-sub\">Noe gikk galt under analysen. Prøv igjen.</p>";
+        }
+      }
+
+      function renderAnalystResult(analyst, model) {
+        analystBody.innerHTML = "";
+        const summary = document.createElement("p");
+        summary.className = "analyst-summary";
+        summary.textContent = analyst.summary || "Ingen verifisert syntese tilgjengelig.";
+        analystBody.appendChild(summary);
+
+        // Strengths
+        if (analyst.strengths && analyst.strengths.length) {
+          analystBody.appendChild(sectionHeader("Styrker"));
+          analyst.strengths.forEach(function (s) {
+            analystBody.appendChild(findingRow(s.claim, s.evidence_refs, "strength"));
+          });
+        }
+        // Weaknesses
+        if (analyst.weaknesses && analyst.weaknesses.length) {
+          analystBody.appendChild(sectionHeader("Svakheter"));
+          analyst.weaknesses.forEach(function (w) {
+            analystBody.appendChild(findingRow(w.claim, w.evidence_refs, "weakness"));
+          });
+        }
+        // Priorities
+        if (analyst.priorities && analyst.priorities.length) {
+          analystBody.appendChild(sectionHeader("Prioriterte anbefalinger"));
+          analyst.priorities.slice().sort(function (a, b) { return a.rank - b.rank; }).forEach(function (p) {
+            analystBody.appendChild(findingRow(p.recommendation, p.evidence_refs, "priority", p.rank));
+          });
+        }
+        // Unknowns (provenance-ærlighet — aldri gjettet)
+        if (analyst.unknowns && analyst.unknowns.length) {
+          analystBody.appendChild(sectionHeader("Ikke dokumentert"));
+          analyst.unknowns.forEach(function (u) {
+            const row = document.createElement("div");
+            row.className = "analyst-unknown";
+            row.innerHTML = "<span class=\"analyst-q\">" + u.question + "</span><span class=\"analyst-why\">" + u.why + "</span>";
+            analystBody.appendChild(row);
+          });
+        }
+        // Modell-info (sporbarhet)
+        if (model && model.model) {
+          const meta = document.createElement("p");
+          meta.className = "analyst-meta";
+          meta.textContent = "Modell: " + model.model + " · " + (model.tokens ? model.tokens.output + " tokens" : "");
+          analystBody.appendChild(meta);
+        }
+      }
+
+      function sectionHeader(text) {
+        const h = document.createElement("h3");
+        h.className = "analyst-section";
+        h.textContent = text;
+        return h;
+      }
+
+      function findingRow(claim, refs, kind, rank) {
+        const row = document.createElement("div");
+        row.className = "analyst-finding " + kind;
+        const icon = kind === "strength" ? "✓" : kind === "weakness" ? "⚠" : kind === "priority" ? "#" : "·";
+        row.innerHTML = "<span class=\"analyst-icon\">" + icon + "</span><span class=\"analyst-claim\">" +
+          (rank ? rank + ". " : "") + claim + "</span>";
+        if (refs && refs.length) {
+          const refSpan = document.createElement("span");
+          refSpan.className = "analyst-refs";
+          refSpan.textContent = "Kilde: " + refs.join(", ");
+          row.appendChild(refSpan);
+        }
+        return row;
+      }
 
       function renderMap(intel, c) {
         const svg = document.getElementById("intel-map-svg");
@@ -813,6 +919,9 @@
 
           conversationPanel.hidden = false;
           conversationPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+
+          // Arch Analyst: kjør dokumentert analyse for valgt fokusområde (uavhengig av question)
+          if (company) renderAnalyst(company.org_number, area, area);
 
           try {
             // Få context_id via resolve (for question-endepunktet)
