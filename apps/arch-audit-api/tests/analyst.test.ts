@@ -163,6 +163,20 @@ describe("parseAnalystJson", () => {
     expect(output.provenance.disclaimer.length).toBeGreaterThan(0);
     expect(output.provenance.benchmark_deltas).toEqual(deltas);
   });
+
+  it("normaliserer evidence_refs med [klammer] til rene kildenavn", () => {
+    const raw = JSON.stringify({
+      analyst: {
+        summary: "x",
+        strengths: [{ claim: "23 ansatte", evidence_refs: ["[brreg-enhet]"], kind: "FACT" }],
+        weaknesses: [],
+        priorities: [{ rank: 1, recommendation: "tiltak", evidence_refs: ["[brreg-regnskap]"], kind: "INTERPRETATION" }],
+      },
+    });
+    const output = parseAnalystJson(raw, "951001880", "ALFA SKO AS", "nvidia", "nemotron", 0, 0);
+    expect(output.analyst.strengths[0].evidence_refs).toEqual(["brreg-enhet"]);
+    expect(output.analyst.priorities[0].evidence_refs).toEqual(["brreg-regnskap"]);
+  });
 });
 
 describe("callAnalystModel", () => {

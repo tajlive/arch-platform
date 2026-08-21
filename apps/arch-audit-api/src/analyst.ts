@@ -233,7 +233,8 @@ export function buildPrompt(bundle: EvidenceBundle, focusArea: FocusArea, benchm
     "VERIFISERT EVIDENS:",
     sourceLines || "  (ingen verifisert evidens)",
     "",
-    "Svar i JSON (norsk), streng skjema. Hver priority MÅ ha expected_effect, effort (low/medium/high),",
+    "Svar i JSON (norsk), streng skjema. evidence_refs SKAL være rene kildenavn uten [klammer].",
+    "Hver priority MÅ ha expected_effect, effort (low/medium/high),",
     "time_horizon (30/90/180 dager), uncertainties og pre_work (hva må undersøkes før tiltak):",
     JSON.stringify({
       summary: "norsk syntese",
@@ -350,12 +351,20 @@ export function parseAnalystJson(raw: string, orgNumber: string, companyName: st
     return "INTERPRETATION";
   };
 
+  // Normaliser evidence_refs — fjern [brackets] og trim (LLM kopierer ofte prompt-formatet)
+  const normalizeRefs = (value: unknown): string[] => {
+    if (!Array.isArray(value)) return [];
+    return value
+      .map((r) => String(r).trim().replace(/^\[|\]$/g, "").trim())
+      .filter(Boolean);
+  };
+
   const clean = (arr: any[], field: string, requiredRefs = true): AnalystClaim[] => {
     if (!Array.isArray(arr)) return [];
     return arr
       .map((item) => ({
         claim: String(item?.claim ?? item?.[field] ?? "").trim(),
-        evidence_refs: Array.isArray(item?.evidence_refs) ? item.evidence_refs.map(String) : [],
+        evidence_refs: normalizeRefs(item?.evidence_refs),
         kind: normalizeKind(item?.kind),
       }))
       .filter((item) => item.claim.length > 0 && (!requiredRefs || item.evidence_refs.length > 0));
@@ -380,7 +389,7 @@ export function parseAnalystJson(raw: string, orgNumber: string, companyName: st
       expected_effect: String(p?.expected_effect ?? p?.effect ?? "").trim(),
       effort: normalizeEffort(p?.effort),
       time_horizon: normalizeHorizon(p?.time_horizon ?? p?.horizon),
-      evidence_refs: Array.isArray(p?.evidence_refs) ? p.evidence_refs.map(String) : [],
+      evidence_refs: normalizeRefs(p?.evidence_refs),
       uncertainties: Array.isArray(p?.uncertainties) ? p.uncertainties.map(String).filter(Boolean) : [],
       pre_work: Array.isArray(p?.pre_work) ? p.pre_work.map(String).filter(Boolean) : [],
       kind: normalizeKind(p?.kind),
