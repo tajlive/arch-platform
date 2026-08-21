@@ -160,6 +160,32 @@ describe("Comparative intelligence", () => {
     expect(comparable.evidence.workforce_signals).toContain("workforce|111111111|open_positions_count");
   });
 
+  it("exposes wage context in comparisons without ranking it as a strength or weakness", () => {
+    const result = report({ org: "111111111", name: "Alpha Glass AS", revenue: 1_000, operatingResult: 200 });
+    result.report.wage_context = {
+      industry_group: { code: "45-47", label: "Varehandel", based_on_nace_code: "45.200" },
+      period: "2026K2",
+      regional: null,
+      national: {
+        region_code: "Ialt",
+        region_label: "I alt",
+        scope: "country",
+        statistics: { average_monthly_salary: 50000 },
+        source_url: "https://data.ssb.no/example",
+      },
+      company_personnel_costs: {
+        status: "NOT_AVAILABLE",
+        note: "Strukturert regnskapsdata mangler personalkostnader.",
+      },
+      caveats: ["Aggregert statistikk."],
+    };
+
+    const comparable = toComparableCompany(result);
+
+    expect(comparable.wage_context?.national.statistics.average_monthly_salary).toBe(50000);
+    expect(comparable.metrics).not.toHaveProperty("average_monthly_salary");
+  });
+
   it("adds an SSB industry reference only for a shared industry", async () => {
     const benchmark = new BenchmarkEngine({
       collect: async () => ({

@@ -60,6 +60,14 @@ describe("runAnalystEvals", () => {
     expect(allowed?.passed).toBe(false);
   });
 
+  it("tillater evidence_ref fra SSBs lønnskontekst", () => {
+    const output = sampleOutput({
+      strengths: [sampleClaim("Offentlig lønnskontekst er tilgjengelig", ["ssb-lonn"])],
+    });
+    const suite = runAnalystEvals(output);
+    expect(suite.results.find((result) => result.id === "ANALYST_ALLOWED_SOURCES")?.passed).toBe(true);
+  });
+
   it("passerer med tom output (ingen evals feiler)", () => {
     const suite = runAnalystEvals(sampleOutput({ strengths: [], weaknesses: [], priorities: [], unknowns: [], summary: "" }));
     // selve struktur-evalen feiler for tom syntese — men ingen fabrikasjon

@@ -87,6 +87,30 @@ describe("BrregAdapter.search", () => {
     expect(url).toContain("size=8");
   });
 
+  it("bruker forretningsadresse foran postadresse som geografisk virksomhetssted", async () => {
+    const fetchMock = vi.fn().mockResolvedValue(
+      new Response(
+        JSON.stringify({
+          organisasjonsnummer: "914780184",
+          navn: "Eksempel AS",
+          postadresse: { kommune: "OSLO", kommunenummer: "0301", postnummer: "0101", poststed: "OSLO" },
+          forretningsadresse: { kommune: "TRONDHEIM", kommunenummer: "5001", postnummer: "7010", poststed: "TRONDHEIM" },
+        }),
+        { status: 200, headers: { "Content-Type": "application/json" } }
+      )
+    );
+    vi.stubGlobal("fetch", fetchMock);
+
+    const result = await new BrregAdapter().search("914780184");
+
+    expect(result[0]).toMatchObject({
+      municipality: "TRONDHEIM",
+      municipality_number: "5001",
+      postal_code: "7010",
+      postal_place: "TRONDHEIM",
+    });
+  });
+
   it("returnerer tom liste ved HTTP-feil", async () => {
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response("boom", { status: 500 })));
     const adapter = new BrregAdapter();

@@ -51,10 +51,36 @@ const intelligenceResponse = {
     },
     leadership: [{ role_description: "Innehaver", person_name: "Rolf Solheim" }],
     financial: null,
+    wage_context: {
+      industry_group: { code: "55-56", label: "Overnattings- og serveringsvirksomhet" },
+      period: "2026K2",
+      regional: {
+        region_label: "Trøndelag",
+        statistics: {
+          average_monthly_salary: 42500,
+          median_monthly_salary: 39940,
+          jobs: 11587,
+          average_monthly_salary_growth_pct: 6.25
+        }
+      },
+      national: {
+        statistics: {
+          average_monthly_salary: 43640,
+          median_monthly_salary: 40240,
+          jobs: 140054
+        }
+      },
+      company_personnel_costs: {
+        status: "NOT_AVAILABLE",
+        note: "Strukturert regnskapsdata mangler personalkostnader."
+      },
+      caveats: ["Statistikken beskriver lønn i en næringsgruppe, ikke lønnen i virksomheten."]
+    },
     digital: null,
     sources: [
       { label: "Company identity", status: "AVAILABLE" },
       { label: "Leadership & governance", status: "AVAILABLE" },
+      { label: "Lønn og arbeidskraft (SSB)", status: "AVAILABLE" },
       { label: "Financial profile", status: "EMPTY" },
       { label: "Digital footprint", status: "NOT_AVAILABLE" }
     ]
@@ -178,6 +204,12 @@ test("viser en norsk, dokumentert virksomhetsoversikt uten tekniske statuser", a
   await expect(brief).toContainText("Datagrunnlag");
   await expect(brief).toContainText("Postnummer og poststed");
   await expect(brief).toContainText("7011 TRONDHEIM");
+  await expect(brief).toContainText("Lønn og arbeidskraft");
+  await expect(brief).toContainText("Trøndelag: gjennomsnittlig månedslønn");
+  await expect(brief).toContainText(/42\s*500 NOK/);
+  await expect(brief).toContainText("Selskapets personalkostnader");
+  await expect(brief).toContainText("Ikke tilgjengelig i den strukturerte offentlige kilden");
+  await expect(brief).toContainText("ikke lønnen i virksomheten");
   await expect(brief).toContainText("Opplysninger som ikke er dokumentert, vises ikke som fakta.");
   await expect(brief).not.toContainText("Not connected");
   await expect(brief).not.toContainText("No data");

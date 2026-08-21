@@ -20,6 +20,8 @@ export interface ComparableCompany {
   industry_name?: string;
   metrics: Partial<Record<BenchmarkMetricKey, number>>;
   evidence: Partial<Record<BenchmarkMetricKey, string[]>>;
+  /** Offentlig lønns- og arbeidskraftkontekst per selskap. Ikke en rangeringsmetrik. */
+  wage_context?: IntelligenceReport["wage_context"];
   source_status: Record<string, string>;
   graph: CompanyIntelligenceGraph;
 }
@@ -336,6 +338,7 @@ export function toComparableCompany(result: CompanyIntelligenceResult): Comparab
     industry_name: report.identity.industry_name,
     metrics,
     evidence,
+    wage_context: report.wage_context ?? null,
     source_status: Object.fromEntries(report.sources.map((source) => [source.key, source.status])),
     graph: report.graph,
   };

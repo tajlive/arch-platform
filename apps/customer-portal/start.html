@@ -535,6 +535,7 @@
         "brreg-regnskap": "Regnskapsregisteret",
         "website": "Nettsideanalyse",
         "nav-arbeidsplassen": "Arbeidsstyrke",
+        "ssb-lonn": "Lønn og arbeidskraft (SSB)",
         "brreg-regnskap-historikk": "Regnskapshistorikk",
         "nyheter": "Markedssignaler",
         "ssb-bransje": "Bransjekontekst",
@@ -927,6 +928,20 @@
           var v = md.value;
           return name + ": " + (v != null ? fmtMoney(v) + " NOK" : "Ikke oppgitt");
         }
+        if (t === "INDUSTRY_CONTEXT") {
+          const metricLabels = {
+            average_monthly_salary: "Gjennomsnittlig månedslønn",
+            median_monthly_salary: "Median månedslønn",
+            jobs: "Antall jobber",
+            full_time_equivalents: "Heltidsekvivalenter",
+            average_monthly_salary_growth_pct: "Lønnsutvikling",
+          };
+          const name = metricLabels[md.metric] || "Bransjekontekst";
+          const salaryMetric = String(md.metric || "").indexOf("salary") > -1;
+          const percentMetric = String(md.metric || "").indexOf("growth") > -1;
+          const suffix = salaryMetric ? " NOK" : percentMetric ? " %" : "";
+          return name + ": " + (md.value != null ? fmtMoney(md.value) + suffix : "Ikke oppgitt");
+        }
         // COMPANY: kortfattet norsk formulering fra normalisert metadata.
         const obs = e.observation || "";
         const lower = obs.toLowerCase();
@@ -1004,7 +1019,38 @@
                   }
                 }
 
-        // 4. Digital tilstedeværelse
+        // 4. Lønn og arbeidskraft. SSB-tall er markeds- og bransjekontekst,
+        // ikke en påstand om hva virksomheten faktisk betaler sine ansatte.
+        const wage = intel.wage_context;
+        if (wage && wage.national) {
+          const wageRows = [];
+          if (wage.industry_group && wage.industry_group.label) wageRows.push(["SSB-næringsgruppe", wage.industry_group.label]);
+          if (wage.period) wageRows.push(["Rapporteringsperiode", wage.period]);
+          const regional = wage.regional;
+          if (regional && regional.statistics) {
+            const stats = regional.statistics;
+            if (stats.average_monthly_salary != null) wageRows.push([regional.region_label + ": gjennomsnittlig månedslønn", fmtMoney(stats.average_monthly_salary) + " NOK"]);
+            if (stats.median_monthly_salary != null) wageRows.push([regional.region_label + ": median månedslønn", fmtMoney(stats.median_monthly_salary) + " NOK"]);
+            if (stats.jobs != null) wageRows.push([regional.region_label + ": jobber i bransjegruppen", fmtMoney(stats.jobs)]);
+            if (stats.average_monthly_salary_growth_pct != null) wageRows.push([regional.region_label + ": lønnsutvikling", stats.average_monthly_salary_growth_pct + " %"]);
+          }
+          const national = wage.national.statistics || {};
+          if (national.average_monthly_salary != null) wageRows.push(["Norge: gjennomsnittlig månedslønn", fmtMoney(national.average_monthly_salary) + " NOK"]);
+          if (national.median_monthly_salary != null) wageRows.push(["Norge: median månedslønn", fmtMoney(national.median_monthly_salary) + " NOK"]);
+          if (national.jobs != null) wageRows.push(["Norge: jobber i bransjegruppen", fmtMoney(national.jobs)]);
+          if (wage.company_personnel_costs && wage.company_personnel_costs.status === "NOT_AVAILABLE") {
+            wageRows.push(["Selskapets personalkostnader", "Ikke tilgjengelig i den strukturerte offentlige kilden"]);
+          }
+          if (wageRows.length) section("Lønn og arbeidskraft", wageRows);
+          if (wage.caveats && wage.caveats.length) {
+            const caveat = document.createElement("p");
+            caveat.className = "brief-confidence";
+            caveat.textContent = wage.caveats.join(" ");
+            body.appendChild(caveat);
+          }
+        }
+
+        // 5. Digital tilstedeværelse
         const dig = intel.digital;
         if (dig && dig.fetched) {
           const digRows = [];
@@ -1016,7 +1062,7 @@
           }
         }
 
-        // 5. Datagrunnlag. Vis dokumenterte kilder, ikke tekniske mangler.
+        // 6. Datagrunnlag. Vis dokumenterte kilder, ikke tekniske mangler.
         const sourceLabels = {
           "Company identity": "Virksomhetsidentitet",
           "Leadership & governance": "Ledelse og roller",

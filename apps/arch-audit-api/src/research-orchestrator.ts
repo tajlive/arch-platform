@@ -7,6 +7,7 @@ import {
 } from "./evidence-graph";
 import { NavAdapter } from "./collectors/nav";
 import { BrregFinancialHistoryCollector, FinancialHistory } from "./collectors/brreg-financial-history";
+import { SsbWageContextCollector, WageContext } from "./collectors/ssb-wage-context";
 
 export interface FinancialProfile {
   period_from: string;
@@ -75,6 +76,8 @@ export interface IntelligenceReport {
   financial: FinancialProfile | null;
   /** Sprint 4: historisk regnskapsserie med trender (valgfritt supplement) */
   financial_history?: FinancialHistory | null;
+  /** Offentlig, aggregert lønns- og arbeidskraftkontekst fra SSB. */
+  wage_context?: WageContext | null;
   digital: DigitalFootprint | null;
   sources: EvidenceSource[];
   evidence_map: { stage: string; status: "done" | "pending" | "not_available" }[];
@@ -374,6 +377,7 @@ export class ResearchOrchestrator {
   private nav = new NavAdapter();
   private validator = new EvidenceValidator();
   private financialHistoryCollector = new BrregFinancialHistoryCollector();
+  private wageContextCollector = new SsbWageContextCollector();
 
   async run(query: string): Promise<{ company: BrregCompany; report: IntelligenceReport }> {
     const result = await this.brreg.fetch({ query });
@@ -381,11 +385,15 @@ export class ResearchOrchestrator {
     const company = result.data;
 
     const financialFetchedAt = new Date().toISOString();
-    const [financial, digital, navResult, historyResult] = await Promise.all([
+    const [financial, digital, navResult, historyResult, wageResult] = await Promise.all([
       fetchFinancial(company.org_number),
       fetchDigital(company.website ?? ""),
       this.nav.collect(company.org_number, company.company_name),
       this.financialHistoryCollector.collect(company.org_number, company.company_name),
+      this.wageContextCollector.collect({
+        industryCode: company.industry_code,
+        municipalityNumber: company.municipality_number,
+      }),
     ]);
     const digitalFetchedAt = new Date().toISOString();
 
@@ -395,6 +403,7 @@ export class ResearchOrchestrator {
       collectFinancial(financial, financialFetchedAt),
       collectDigital(digital, digitalFetchedAt),
       navResult,
+      { raw: wageResult.raw, source: wageResult.source },
     ];
     const validated = this.validator.validate(collectorResults.flatMap((r) => r.raw));
 
@@ -424,6 +433,7 @@ export class ResearchOrchestrator {
       { stage: "Financial history", status: historyResult.history ? ("done" as const) : ("pending" as const) },
       { stage: "Digital footprint", status: digital?.fetched ? ("done" as const) : ("pending" as const) },
       { stage: "Workforce signals", status: navResult.source.status === "AVAILABLE" ? ("done" as const) : ("pending" as const) },
+      { stage: "Wage and labour context", status: wageResult.context ? ("done" as const) : ("pending" as const) },
       { stage: "Market signals", status: "not_available" as const },
       { stage: "Industry context", status: "not_available" as const },
     ];
@@ -457,6 +467,7 @@ export class ResearchOrchestrator {
         leadership,
         financial,
         financial_history: historyResult.history ?? null,
+        wage_context: wageResult.context,
         digital,
         sources,
         evidence_map,
