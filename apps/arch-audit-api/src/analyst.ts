@@ -124,6 +124,9 @@ const NORWEGIAN_TERM_REPAIRS: ReadonlyArray<readonly [RegExp, string]> = [
   [/\bbranchen\b/gi, "bransjen"],
   [/\b(?:registrert\s+)?enhetsbasert[a-zæøå]*\s+(?:bedrift|virksomhet|selskap)[a-zæøå]*\b/gi, "registrert virksomhet"],
   [/\bnettresultat[a-zæøå]*\b/gi, "årsresultat"],
+  [/\bnettoårsresultat[a-zæøå]*\b/gi, "årsresultat"],
+  [/\bomsettelse[a-zæøå]*\b/gi, "omsetning"],
+  [/\bbudget[a-zæøå]*\b/gi, "budsjett"],
   [/\bdriftsoverresult[a-zæøå]*\b/gi, "driftsresultat"],
   [/\bdriftsovertak[a-zæøå]*\b/gi, "driftsresultat"],
 ];
@@ -134,6 +137,9 @@ export const DISALLOWED_ANALYST_TERMS = [
   "branchen",
   "enhetsbasert",
   "nettresultat",
+  "nettoårsresultat",
+  "omsettelse",
+  "budget",
   "driftsoverresult",
   "driftsovertak",
 ] as const;
@@ -163,6 +169,10 @@ export interface EvidenceBundle {
   employees?: number;
   municipality?: string;
   revenue?: number;
+  operating_result?: number;
+  net_result?: number;
+  currency?: string;
+  financial_period_to?: string;
   operating_margin?: number;
   equity_ratio?: number;
   digital_score?: number;
@@ -196,6 +206,10 @@ export function buildEvidenceBundle(report: IntelligenceReport): EvidenceBundle 
     employees: report.identity?.employees,
     municipality: report.identity?.municipality,
     revenue: financial?.revenue,
+    operating_result: financial?.operating_result,
+    net_result: financial?.net_result,
+    currency: financial?.currency,
+    financial_period_to: financial?.period_to,
     operating_margin: financial?.revenue && financial?.operating_result !== undefined
       ? Math.round((financial.operating_result / financial.revenue) * 10000) / 100
       : undefined,
@@ -218,6 +232,34 @@ export function buildEvidenceBundle(report: IntelligenceReport): EvidenceBundle 
     sources: report.sources ?? [],
     evidence,
   };
+}
+
+/**
+ * Oppsummering for kundevisningen bygges deterministisk fra verifiserte felt.
+ * Det hindrer at modellen fyller inn årsakssammenhenger som ikke finnes i kildene.
+ */
+export function buildDeterministicSummary(bundle: EvidenceBundle): string {
+  const details: string[] = [];
+  if (bundle.industry_name) details.push(`er registrert i bransjen ${bundle.industry_name}`);
+  if (bundle.employees !== undefined) details.push(`har ${bundle.employees} ansatte`);
+
+  const intro = details.length
+    ? `${bundle.company_name} ${details.join(" og ")}.`
+    : `${bundle.company_name} er registrert i offentlige registre.`;
+
+  const currency = bundle.currency ?? "NOK";
+  const period = bundle.financial_period_to ? ` for perioden som slutter ${bundle.financial_period_to}` : "";
+  if (bundle.operating_result !== undefined) {
+    return `${intro} Det dokumenterte driftsresultatet${period} er ${formatAmount(bundle.operating_result)} ${currency}.`;
+  }
+  if (bundle.net_result !== undefined) {
+    return `${intro} Det dokumenterte årsresultatet${period} er ${formatAmount(bundle.net_result)} ${currency}.`;
+  }
+  return intro;
+}
+
+function formatAmount(value: number): string {
+  return new Intl.NumberFormat("nb-NO", { maximumFractionDigits: 0 }).format(value);
 }
 
 // ── Evidenskilder som LLM har lov til å bruke ─────────────────
@@ -282,7 +324,10 @@ export function buildPrompt(bundle: EvidenceBundle, focusArea: FocusArea, benchm
     "Bruk nøyaktig disse regnskapsbegrepene når de finnes i evidensen: omsetning,",
     "driftsresultat, årsresultat, egenkapital, egenkapitalandel og totale eiendeler.",
     "Gjengi beløp med den opprinnelige metrikken, for eksempel «driftsresultatet var 56 216 NOK».",
-    "Aldri dikt opp eller bland finansord. Ikke bruk «driftsoverresult», «driftsovertak», «nettresultat», «enhetsbasert», «branchen» eller «branchens».",
+    "Aldri dikt opp eller bland finansord. Ikke bruk «driftsoverresult», «driftsovertak», «nettresultat», «nettoårsresultat», «omsettelse», «budget», «enhetsbasert», «branchen» eller «branchens».",
+    "Ikke forklar hvorfor et regnskapstall ser ut som det gjør, og ikke nevn renter, skatt, kostnader eller avkastning med mindre dette står eksplisitt i evidensen.",
+    "Returner weaknesses: [] med mindre evidensen viser et negativt eller fallende forhold, eller et benchmark-avvik under peer-medianen.",
+    "Returner priorities: [] med mindre en dokumentert weakness eller et benchmark-avvik direkte begrunner tiltaket. Ikke gi generelle råd om overvåking, gjennomgang eller forbedring.",
     "",
     "KLASSIFISER hvert funn som:",
     "- FACT: direkte observert fra kilde",

@@ -12,6 +12,7 @@ import {
   BenchmarkDelta,
   FocusArea,
   buildEvidenceBundle,
+  buildDeterministicSummary,
   buildPrompt,
   callAnalystModel,
   parseAnalystJson,
@@ -94,6 +95,18 @@ export class AnalystService {
       estimateTokens(raw),
       benchmarkDeltas
     );
+
+    // Kundeoppsummeringen er kun verifiserte metadata og regnskapstall, aldri LLM-tolkning.
+    output.analyst.summary = buildDeterministicSummary(bundle);
+
+    // Uten et dokumentert negativt forhold skal modellen ikke fylle ut generiske svakheter eller tiltak.
+    const hasDocumentedGap = benchmarkDeltas.some((delta) => delta.direction === "below")
+      || (bundle.operating_result !== undefined && bundle.operating_result < 0)
+      || (bundle.net_result !== undefined && bundle.net_result < 0);
+    if (!hasDocumentedGap) {
+      output.analyst.weaknesses = [];
+      output.analyst.priorities = [];
+    }
 
     // FAIL-CLOSED: evals-gate må passeres før output leveres til kunde.
     const sources = bundle.sources.map((s) => s.status);

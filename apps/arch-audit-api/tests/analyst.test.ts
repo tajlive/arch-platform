@@ -2,6 +2,7 @@
 import { describe, it, expect, vi } from "vitest";
 import {
   buildEvidenceBundle,
+  buildDeterministicSummary,
   buildPrompt,
   parseAnalystJson,
   callAnalystModel,
@@ -50,6 +51,10 @@ describe("buildEvidenceBundle", () => {
     expect(bundle.operating_margin).toBeCloseTo(-13.17, 1);
     expect(bundle.equity_ratio).toBeCloseTo(22.61, 1);
     expect(bundle.evidence.length).toBe(2);
+    const expectedAmount = new Intl.NumberFormat("nb-NO", { maximumFractionDigits: 0 }).format(-19318991);
+    expect(buildDeterministicSummary(bundle)).toBe(
+      `ALFA SKO AS er registrert i bransjen Produksjon av skotøy og har 23 ansatte. Det dokumenterte driftsresultatet for perioden som slutter 2025-12-31 er ${expectedAmount} NOK.`
+    );
   });
 });
 
@@ -213,14 +218,14 @@ describe("parseAnalystJson", () => {
   it("retter observerte bokmålsavvik i kundesvaret", () => {
     const raw = JSON.stringify({
       analyst: {
-        summary: "SMILE PIZZA er en registrert enhetsbaserte selskapet i restaurantbranchens med nettresultatet på 42 271 NOK.",
+        summary: "SMILE PIZZA er en registrert enhetsbaserte selskapet i restaurantbranchens med nettoårsresultatet på 42 271 NOK. Omsettelse følger budget.",
         strengths: [],
         weaknesses: [],
         priorities: [],
       },
     });
     const output = parseAnalystJson(raw, "997788648", "SMILE PIZZA & GRILL AS", "nvidia", "nemotron", 0, 0);
-    expect(output.analyst.summary).toBe("SMILE PIZZA er en registrert virksomhet i restaurantbransjens med årsresultat på 42 271 NOK.");
+    expect(output.analyst.summary).toBe("SMILE PIZZA er en registrert virksomhet i restaurantbransjens med årsresultat på 42 271 NOK. Omsetning følger budsjett.");
   });
 });
 
