@@ -6,6 +6,7 @@ import {
   ValidatedEvidence,
 } from "./evidence-graph";
 import { NavAdapter } from "./collectors/nav";
+import { BrregFinancialHistoryCollector, FinancialHistory } from "./collectors/brreg-financial-history";
 
 export interface FinancialProfile {
   period_from: string;
@@ -72,6 +73,8 @@ export interface IntelligenceReport {
   };
   leadership: LeadershipRole[];
   financial: FinancialProfile | null;
+  /** Sprint 4: historisk regnskapsserie med trender (valgfritt supplement) */
+  financial_history?: FinancialHistory | null;
   digital: DigitalFootprint | null;
   sources: EvidenceSource[];
   evidence_map: { stage: string; status: "done" | "pending" | "not_available" }[];
@@ -370,6 +373,7 @@ export class ResearchOrchestrator {
   private brreg = new BrregAdapter();
   private nav = new NavAdapter();
   private validator = new EvidenceValidator();
+  private financialHistoryCollector = new BrregFinancialHistoryCollector();
 
   async run(query: string): Promise<{ company: BrregCompany; report: IntelligenceReport }> {
     const result = await this.brreg.fetch({ query });
@@ -377,10 +381,11 @@ export class ResearchOrchestrator {
     const company = result.data;
 
     const financialFetchedAt = new Date().toISOString();
-    const [financial, digital, navResult] = await Promise.all([
+    const [financial, digital, navResult, historyResult] = await Promise.all([
       fetchFinancial(company.org_number),
       fetchDigital(company.website ?? ""),
       this.nav.collect(company.org_number, company.company_name),
+      this.financialHistoryCollector.collect(company.org_number, company.company_name),
     ]);
     const digitalFetchedAt = new Date().toISOString();
 
@@ -443,6 +448,7 @@ export class ResearchOrchestrator {
         },
         leadership,
         financial,
+        financial_history: historyResult.history ?? null,
         digital,
         sources,
         evidence_map,
