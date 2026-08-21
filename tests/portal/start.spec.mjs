@@ -71,7 +71,7 @@ const defaultSearchCandidates = [
   }
 ];
 
-async function mockAuditApi(page, searchCandidates) {
+async function mockAuditApi(page, searchCandidates, options = {}) {
   const calls = { questions: [], searches: [], analyst: [], feedback: [] };
   const candidates = searchCandidates || defaultSearchCandidates;
   await page.route("https://api.arch.axn.no/v1/public/audit/session", (route) => route.fulfill({ status: 200, body: "{}" }));
@@ -101,9 +101,13 @@ async function mockAuditApi(page, searchCandidates) {
       status: 200,
       contentType: "application/json",
       body: JSON.stringify({
-        question: body.focus_area === "Administrasjon"
-          ? "For ROLF SOLHEIM: Hvilken administrativ oppgave tar mest tid i en vanlig uke?"
-          : "For ROLF SOLHEIM: Hvor kommer flest nye kundehenvendelser inn i dag?",
+        question: {
+          Kundekommunikasjon: "For ROLF SOLHEIM: Hvor kommer flest nye kundehenvendelser inn i dag?",
+          Administrasjon: "For ROLF SOLHEIM: Hvilken administrativ oppgave tar mest tid i en vanlig uke?",
+          Dokumentasjon: "For ROLF SOLHEIM: Hvilken dokumentasjon er vanskeligst å finne når dere trenger den?",
+          Drift: "For ROLF SOLHEIM: Hvor oppstår de største forsinkelsene i den daglige driften?",
+          Salg: "For ROLF SOLHEIM: Hvilket steg i salgsarbeidet gir færrest henvendelser eller avtaler?"
+        }[body.focus_area],
         required_for: "IDENTIFY_PROCESS",
         expected_information_gain: 25
       })
@@ -112,6 +116,14 @@ async function mockAuditApi(page, searchCandidates) {
   await page.route("https://api.arch.axn.no/v1/public/company/analyst", async (route) => {
     const body = route.request().postDataJSON();
     calls.analyst.push(body);
+    if (options.analystError) {
+      await route.fulfill({
+        status: options.analystError.status || 503,
+        contentType: "application/json",
+        body: JSON.stringify({ error: options.analystError.error })
+      });
+      return;
+    }
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -244,6 +256,27 @@ test("viser firma-velger ved flertreff og kartlegger valgt virksomhet", async ({
   expect(calls.searches[0].query).toBe("melhus bil");
 });
 
+test("gir tydelig veiledning for tomt søk og avbrutt virksomhetsvalg", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await mockAuditApi(page, [
+    { org_number: "111111111", company_name: "FØRSTE VIRKSOMHET", postal_code: "7010", postal_place: "TRONDHEIM" },
+    { org_number: "222222222", company_name: "ANDRE VIRKSOMHET", postal_code: "7020", postal_place: "TRONDHEIM" }
+  ]);
+  await page.goto(`${baseUrl}/start.html`);
+
+  await page.locator("#discover-btn").click();
+  await expect(page.locator("#status-note")).toHaveText("Skriv inn organisasjonsnummer, navn eller nettside for å starte kartleggingen.");
+  await expect(page.locator("#company-input")).toBeFocused();
+
+  await page.locator("#company-input").fill("virksomhet");
+  await page.locator("#discover-btn").click();
+  await expect(page.locator("#company-picker")).toBeVisible();
+  await page.locator("#company-picker-cancel").click();
+  await expect(page.locator("#company-picker")).toBeHidden();
+  await expect(page.locator("#status-note")).toHaveText("Kartleggingen ble avbrutt.");
+  await expect(page.locator("#discover-btn")).toBeEnabled();
+});
+
 test("viser Arch Analytiker med dokumenterte funn når fokusområde velges", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   const calls = await mockAuditApi(page);
@@ -266,7 +299,8 @@ test("viser Arch Analytiker med dokumenterte funn når fokusområde velges", asy
   await expect(analyst).toContainText("Kilde: brreg-roller");
   // Ny kontrakt: innsats, tidshorisont, kind, forventet effekt, disclaimer
   await expect(analyst).toContainText("Innsats: Middels");
-  await expect(analyst).toContainText("Tid: 90 dager");
+  await expect(analyst).toContainText("Tidshorisont: 90 dager");
+  await expect(analyst).toContainText("Fakta");
   await expect(analyst).toContainText("Hypotese");
   await expect(analyst).toContainText("Forventet effekt: Redusert tidsbruk");
   await expect(analyst).toContainText("Beslutningsstøtte, ikke rådgivning.");
@@ -279,10 +313,51 @@ test("viser Arch Analytiker med dokumenterte funn når fokusområde velges", asy
   // Feedback: klikk "Korrekt" på en strength → POST til feedback-endepunkt
   await analyst.locator(".analyst-feedback-btn", { hasText: "Korrekt" }).first().click();
   await expect(analyst).toContainText("Registrert");
+  await expect(analyst).toContainText("Takk for tilbakemeldingen.");
   expect(calls.feedback).toHaveLength(1);
   expect(calls.feedback[0].feedback).toBe("correct");
   expect(calls.feedback[0].finding_type).toBe("strength");
   expect(calls.feedback[0].focus_area).toBe("drift");
+});
+
+test("alle fokusområder gir et konkret spørsmål og en dokumentert analyse", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  const calls = await openBrief(page);
+  const questions = {
+    Kundekommunikasjon: "Hvor kommer flest nye kundehenvendelser inn i dag?",
+    Administrasjon: "Hvilken administrativ oppgave tar mest tid i en vanlig uke?",
+    Dokumentasjon: "Hvilken dokumentasjon er vanskeligst å finne når dere trenger den?",
+    Drift: "Hvor oppstår de største forsinkelsene i den daglige driften?",
+    Salg: "Hvilket steg i salgsarbeidet gir færrest henvendelser eller avtaler?"
+  };
+
+  for (const [area, question] of Object.entries(questions)) {
+    await page.locator(".friction-card", { hasText: area }).click();
+    await expect(page.locator("#conversation-panel")).toContainText(question);
+    await expect(page.locator("#analyst-panel")).toContainText("Dokumentert syntese for virksomheten.");
+    await expect.poll(() => calls.analyst.length).toBe(Object.keys(questions).indexOf(area) + 1);
+  }
+
+  expect(calls.questions.map((call) => call.focus_area)).toEqual(Object.keys(questions));
+  expect(calls.analyst.map((call) => call.focus_area)).toEqual([
+    "kundekommunikasjon", "administrasjon", "dokumentasjon", "drift", "salg"
+  ]);
+});
+
+test("viser en forståelig melding når analysen er midlertidig utilgjengelig", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await mockAuditApi(page, undefined, {
+    analystError: { status: 503, error: { code: "ANALYST_UNAVAILABLE", message: "LLM HTTP 503" } }
+  });
+  await page.goto(`${baseUrl}/start.html`);
+  await page.locator("#company-input").fill("Rolf Solheim");
+  await page.locator("#discover-btn").click();
+  await expect(page.locator("#brief-panel")).toBeVisible();
+  await page.locator(".friction-card", { hasText: "Drift" }).click();
+
+  const analyst = page.locator("#analyst-panel");
+  await expect(analyst).toContainText("Analysen er midlertidig opptatt. Prøv igjen om et lite øyeblikk.");
+  await expect(analyst).not.toContainText("LLM HTTP 503");
 });
 
 test("viser norsk tekst på kunde-, dokumentasjons- og markedsflater", async ({ page }) => {

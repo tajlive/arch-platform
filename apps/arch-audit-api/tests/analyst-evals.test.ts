@@ -100,4 +100,12 @@ describe("runAnalystEvals", () => {
     const disclaimer = suite.results.find((r) => r.id === "ANALYST_DISCLAIMER");
     expect(disclaimer?.passed).toBe(true);
   });
+
+  it("feiler når kundesvaret inneholder et kjent feilaktig finansord", () => {
+    const output = sampleOutput({ summary: "Branchens driftsoverresult er positivt." });
+    const suite = runAnalystEvals(output);
+    const language = suite.results.find((r) => r.id === "ANALYST_NORWEGIAN_QUALITY");
+    expect(language?.passed).toBe(false);
+    expect(language?.severity).toBe("error");
+  });
 });

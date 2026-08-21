@@ -6,7 +6,7 @@
 //
 // Ingen LLM-kall her — ren deterministisk validering over AnalystOutput.
 
-import type { AnalystOutput, AnalystClaim, AnalystPriority } from "./analyst";
+import { DISALLOWED_ANALYST_TERMS, type AnalystOutput, type AnalystClaim, type AnalystPriority } from "./analyst";
 
 export type EvalSeverity = "error" | "warning";
 
@@ -134,6 +134,27 @@ export function runAnalystEvals(output: AnalystOutput, evidenceSources?: string[
     passed: hasDisclaimer,
     severity: "error",
     detail: hasDisclaimer ? "disclaimer til stede" : "disclaimer mangler",
+  });
+
+  // ── Eval 9: Språkkvalitet — ikke lever kjente feilord til kunde ──
+  const textParts = [
+    output.analyst.summary,
+    ...allClaims.map((claim) => claim.claim),
+    ...priorities.flatMap((priority) => [
+      priority.recommendation,
+      priority.expected_effect,
+      ...priority.uncertainties,
+      ...priority.pre_work,
+    ]),
+    ...output.analyst.unknowns.flatMap((unknown) => [unknown.question, unknown.why]),
+  ].join(" ").toLocaleLowerCase("nb-NO");
+  const disallowedTerms = DISALLOWED_ANALYST_TERMS.filter((term) => textParts.includes(term));
+  results.push({
+    id: "ANALYST_NORWEGIAN_QUALITY",
+    name: "Kundesvaret inneholder ikke kjente feilaktige norske finansord",
+    passed: disallowedTerms.length === 0,
+    severity: "error",
+    detail: disallowedTerms.length ? `ugyldige ord: ${disallowedTerms.join(", ")}` : "språkkontroll passerte",
   });
 
   const passed = results.filter((r) => r.passed).length;
