@@ -252,13 +252,22 @@ async function handleCompanyAnalyst(env: Env, req: Request): Promise<Response> {
     apiKey: env.ANALYST_API_KEY,
     model: env.ANALYST_MODEL,
   });
-  const output = await analyst.analyze(
-    orgNumber,
-    result.report,
-    (body?.focus_area as any) ?? "salg",
-    body?.comparative_context ?? []
-  );
-  return Response.json({ resolved: true, ...output });
+  try {
+    const output = await analyst.analyze(
+      orgNumber,
+      result.report,
+      (body?.focus_area as any) ?? "salg",
+      body?.comparative_context ?? []
+    );
+    return Response.json({ resolved: true, ...output });
+  } catch (e) {
+    // FAIL-OPEN: LLM-feil (overbelastet/timeout) → 503 med ærlig feil, aldri fabrikasjon.
+    const message = e instanceof Error ? e.message : "Analyst-modellen svarte ikke.";
+    return Response.json(
+      { resolved: false, error: { code: "ANALYST_UNAVAILABLE", message } },
+      { status: 503 }
+    );
+  }
 }
 
 async function handleAskQuestion(env: Env, req: Request): Promise<Response> {
