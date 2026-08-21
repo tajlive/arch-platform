@@ -37,7 +37,12 @@ test.afterAll(async () => new Promise((resolveServer) => server.close(resolveSer
 
 const intelligenceResponse = {
   resolved: true,
-  company: { company_name: "ROLF SOLHEIM", org_number: "936796702" },
+  company: {
+    company_name: "ROLF SOLHEIM",
+    org_number: "936796702",
+    postal_code: "7011",
+    postal_place: "TRONDHEIM"
+  },
   intelligence: {
     identity: {
       industry_name: "Drift av restauranter",
@@ -57,7 +62,13 @@ const intelligenceResponse = {
 };
 
 const defaultSearchCandidates = [
-  { org_number: "999888777", company_name: "ROLF SOLHEIM", municipality: "TRONDHEIM" }
+  {
+    org_number: "999888777",
+    company_name: "ROLF SOLHEIM",
+    municipality: "TRONDHEIM",
+    postal_code: "7011",
+    postal_place: "TRONDHEIM"
+  }
 ];
 
 async function mockAuditApi(page, searchCandidates) {
@@ -153,6 +164,8 @@ test("viser en norsk, dokumentert virksomhetsoversikt uten tekniske statuser", a
   await expect(brief).toContainText("ROLF SOLHEIM");
   await expect(brief).toContainText("Ledelse og roller");
   await expect(brief).toContainText("Datagrunnlag");
+  await expect(brief).toContainText("Postnummer og poststed");
+  await expect(brief).toContainText("7011 TRONDHEIM");
   await expect(brief).toContainText("Opplysninger som ikke er dokumentert, vises ikke som fakta.");
   await expect(brief).not.toContainText("Not connected");
   await expect(brief).not.toContainText("No data");
@@ -194,8 +207,20 @@ test("holder tekst og valg ryddig på mobil", async ({ page }, testInfo) => {
 test("viser firma-velger ved flertreff og kartlegger valgt virksomhet", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   const calls = await mockAuditApi(page, [
-    { org_number: "111111111", company_name: "MELHUS BIL ORKANGER AS", municipality: "TRONDHEIM" },
-    { org_number: "944638741", company_name: "MELHUS BIL TRONDHEIM AS", municipality: "TRONDHEIM" }
+    {
+      org_number: "111111111",
+      company_name: "MELHUS BIL ORKANGER AS",
+      municipality: "TRONDHEIM",
+      postal_code: "7000",
+      postal_place: "TRONDHEIM"
+    },
+    {
+      org_number: "944638741",
+      company_name: "MELHUS BIL TRONDHEIM AS",
+      municipality: "ORKANGER",
+      postal_code: "7300",
+      postal_place: "ORKANGER"
+    }
   ]);
   await page.goto(`${baseUrl}/start.html`);
   await page.locator("#company-input").fill("melhus bil");
@@ -206,6 +231,8 @@ test("viser firma-velger ved flertreff og kartlegger valgt virksomhet", async ({
   await expect(picker).toBeVisible();
   await expect(picker).toContainText("MELHUS BIL ORKANGER AS");
   await expect(picker).toContainText("MELHUS BIL TRONDHEIM AS");
+  await expect(picker).toContainText("7000 TRONDHEIM");
+  await expect(picker).toContainText("7300 ORKANGER");
 
   // Velger andre kandidat → intelligence kjøres for valgt org.nr
   await page.locator(".company-picker-item", { hasText: "MELHUS BIL TRONDHEIM AS" }).click();

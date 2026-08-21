@@ -417,7 +417,7 @@
             '<span class="cpi-name"></span><span class="cpi-org"></span><span class="cpi-loc"></span>';
           item.querySelector(".cpi-name").textContent = c.company_name;
           item.querySelector(".cpi-org").textContent = c.org_number;
-          item.querySelector(".cpi-loc").textContent = c.municipality || "";
+          item.querySelector(".cpi-loc").textContent = postalLocation(c);
           list.appendChild(item);
         });
         picker.hidden = false;
@@ -450,8 +450,16 @@
         const parts = [];
         if (c.industry_name) parts.push(c.industry_name);
         if (c.employees != null) parts.push(c.employees + " ansatte");
-        if (c.municipality) parts.push(c.municipality);
+        const location = postalLocation(c);
+        if (location) parts.push(location);
         return parts.length ? parts.join(" · ") : "Ingen ytterligere signaler";
+      }
+
+      function postalLocation(c) {
+        const parts = [];
+        if (c.postal_code) parts.push(c.postal_code);
+        if (c.postal_place) parts.push(c.postal_place);
+        return parts.length ? parts.join(" ") : (c.municipality || "");
       }
 
       function renderProfile(c) {
@@ -464,6 +472,7 @@
           ["Ansatte", c.employees != null ? String(c.employees) : "Ikke oppgitt"],
           ["Nettside", c.website || "Ikke oppgitt"],
           ["Sted", c.municipality || "Ikke oppgitt"],
+          ["Postnummer og poststed", postalLocation(c) || "Ikke oppgitt"],
           ["Organisasjonsform", c.org_form || "Ikke oppgitt"],
         ];
         items.forEach(function (kv) {
@@ -916,6 +925,8 @@
         if (id.industry_name) companyRows.push(["Bransje", id.industry_name]);
         if (id.employees != null) companyRows.push(["Ansatte", String(id.employees)]);
         if (id.municipality) companyRows.push(["Sted", id.municipality]);
+        const location = postalLocation(c);
+        if (location) companyRows.push(["Postnummer og poststed", location]);
         section("Virksomhet", companyRows);
 
         // 2. Ledelse og roller
