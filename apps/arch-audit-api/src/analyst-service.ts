@@ -100,7 +100,9 @@ export class AnalystService {
     const suite = runAnalystEvals(output, sources);
     const errors = suite.results.filter((r) => !r.passed && r.severity === "error");
     if (errors.length > 0) {
-      throw new Error(`analyst-evals feilet: ${errors.map((e) => e.id).join(", ")}`);
+      // Teknisk diagnose for API-observability. Kundeportalen viser bare en nøytral,
+      // norsk feilmelding basert på error.code og eksponerer ikke denne teksten.
+      throw new Error(`analyst-evals feilet: ${errors.map((e) => `${e.id} (${e.detail})`).join(", ")}`);
     }
 
     return { analyst: output.analyst, model: output.model, provenance: output.provenance };
