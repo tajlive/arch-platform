@@ -120,6 +120,9 @@ export type AnalystResult =
  */
 const NORWEGIAN_TERM_REPAIRS: ReadonlyArray<readonly [RegExp, string]> = [
   [/\bbranchens\b/gi, "bransjens"],
+  [/\bbranchen\b/gi, "bransjen"],
+  [/\b(?:registrert\s+)?enhetsbasert\s+(?:bedrift|virksomhet)\b/gi, "registrert virksomhet"],
+  [/\bnettresultat\b/gi, "årsresultat"],
   [/\bdriftsoverresult[a-zæøå]*\b/gi, "driftsresultat"],
   [/\bdriftsovertak[a-zæøå]*\b/gi, "driftsresultat"],
 ];
@@ -127,18 +130,25 @@ const NORWEGIAN_TERM_REPAIRS: ReadonlyArray<readonly [RegExp, string]> = [
 /** Ord som ikke skal kunne leveres i et kundesvar. */
 export const DISALLOWED_ANALYST_TERMS = [
   "branchens",
+  "branchen",
+  "enhetsbasert",
+  "nettresultat",
   "driftsoverresult",
   "driftsovertak",
 ] as const;
 
 function normalizeNorwegianCopy(value: unknown): string {
+  const withCompoundBranch = String(value ?? "").trim().replace(
+    /\b([a-zæøå]+)branchen\b/gi,
+    (_match, prefix: string) => `${prefix}bransjen`
+  );
   return NORWEGIAN_TERM_REPAIRS.reduce(
     (text, [pattern, replacement]) => text.replace(pattern, (match) => {
       if (match === match.toUpperCase()) return replacement.toUpperCase();
       if (/^[A-ZÆØÅ]/.test(match)) return replacement.charAt(0).toUpperCase() + replacement.slice(1);
       return replacement;
     }),
-    String(value ?? "").trim()
+    withCompoundBranch
   );
 }
 
@@ -271,7 +281,7 @@ export function buildPrompt(bundle: EvidenceBundle, focusArea: FocusArea, benchm
     "Bruk nøyaktig disse regnskapsbegrepene når de finnes i evidensen: omsetning,",
     "driftsresultat, årsresultat, egenkapital, egenkapitalandel og totale eiendeler.",
     "Gjengi beløp med den opprinnelige metrikken, for eksempel «driftsresultatet var 56 216 NOK».",
-    "Aldri dikt opp eller bland finansord. Ikke bruk «driftsoverresult», «driftsovertak» eller «branchens».",
+    "Aldri dikt opp eller bland finansord. Ikke bruk «driftsoverresult», «driftsovertak», «nettresultat», «enhetsbasert», «branchen» eller «branchens».",
     "",
     "KLASSIFISER hvert funn som:",
     "- FACT: direkte observert fra kilde",
