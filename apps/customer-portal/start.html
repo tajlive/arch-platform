@@ -712,12 +712,13 @@
         }
 
         // 1. Virksomhet
-        section("Virksomhet", [
+        const companyRows = [
           ["Navn", c.company_name],
-          ["Bransje", id.industry_name || "Ikke oppgitt"],
-          ["Ansatte", id.employees != null ? String(id.employees) : "Ikke oppgitt"],
-          ["Sted", id.municipality || "Ikke oppgitt"],
-        ]);
+        ];
+        if (id.industry_name) companyRows.push(["Bransje", id.industry_name]);
+        if (id.employees != null) companyRows.push(["Ansatte", String(id.employees)]);
+        if (id.municipality) companyRows.push(["Sted", id.municipality]);
+        section("Virksomhet", companyRows);
 
         // 2. Ledelse og roller
         const ld = intel.leadership || [];
@@ -728,25 +729,29 @@
         }
 
         // 3. Regnskapsopplysninger
-        const f = intel.financial;
-        if (f) {
-          section("Regnskapsopplysninger (" + f.period_to + ")", [
-            ["Omsetning", f.revenue != null ? fmtMoney(f.revenue) + " " + (f.currency||"") : "Ikke oppgitt"],
-            ["Driftsresultat", f.operating_result != null ? fmtMoney(f.operating_result) + " " + (f.currency||"") : "Ikke oppgitt"],
-            ["Årsresultat", f.net_result != null ? fmtMoney(f.net_result) + " " + (f.currency||"") : "Ikke oppgitt"],
-            ["Egenkapital", f.equity != null ? fmtMoney(f.equity) + " " + (f.currency||"") : "Ikke oppgitt"],
-            ["Revidert", f.audited ? "Ja" : "Nei"],
-          ]);
-        }
+                const f = intel.financial;
+                if (f) {
+                  const finRows = [];
+                  if (f.revenue != null) finRows.push(["Omsetning", fmtMoney(f.revenue) + " " + (f.currency||"")]);
+                  if (f.operating_result != null) finRows.push(["Driftsresultat", fmtMoney(f.operating_result) + " " + (f.currency||"")]);
+                  if (f.net_result != null) finRows.push(["Årsresultat", fmtMoney(f.net_result) + " " + (f.currency||"")]);
+                  if (f.equity != null) finRows.push(["Egenkapital", fmtMoney(f.equity) + " " + (f.currency||"")]);
+                  finRows.push(["Revidert", f.audited ? "Ja" : "Nei"]);
+                  if (finRows.length > 0) {
+                    section("Regnskapsopplysninger (" + f.period_to + ")", finRows);
+                  }
+                }
 
         // 4. Digital tilstedeværelse
         const dig = intel.digital;
         if (dig && dig.fetched) {
-          section("Digital tilstedeværelse", [
-            ["Nettside", dig.website],
-            ["Teknologi", dig.tech_stack.length ? dig.tech_stack.join(", ") : "Ikke registrert"],
-            ["Kanaler", dig.channels.length ? dig.channels.join(", ") : "Ikke registrert"],
-          ]);
+          const digRows = [];
+          if (dig.website) digRows.push(["Nettside", dig.website]);
+          if (dig.tech_stack && dig.tech_stack.length) digRows.push(["Teknologi", dig.tech_stack.join(", ")]);
+          if (dig.channels && dig.channels.length) digRows.push(["Kanaler", dig.channels.join(", ")]);
+          if (digRows.length > 0) {
+            section("Digital tilstedeværelse", digRows);
+          }
         }
 
         // 5. Datagrunnlag. Vis dokumenterte kilder, ikke tekniske mangler.
