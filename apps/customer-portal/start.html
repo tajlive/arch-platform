@@ -580,11 +580,26 @@
         const md = e.metadata || {};
         if (t === "PERSON") return md.person_name || e.observation;
         if (t === "FINANCIAL_EVENT") {
+          const metricLabels = {
+            revenue: "Omsetning",
+            operating_result: "Driftsresultat",
+            net_result: "Årsresultat",
+            equity: "Egenkapital",
+            total_assets: "Totale eiendeler",
+            total_liabilities: "Total gjeld",
+          };
+          const name = metricLabels[md.metric] || md.metric || "Resultat";
           var v = md.value;
-          return (md.metric || "resultat") + ": " + (v != null ? fmtMoney(v) + " NOK" : "—");
+          return name + ": " + (v != null ? fmtMoney(v) + " NOK" : "—");
         }
-        // COMPANY: extract headline fact
+        // COMPANY: kortfattet norsk etikett fra observasjonen
         const obs = e.observation || "";
+        const lower = obs.toLowerCase();
+        if (lower.indexOf("organisation number") > -1) return "Org.nr " + (md.org_number || "");
+        if (lower.indexOf("registered employees") > -1) return (md.employees != null ? md.employees + " ansatte" : "Ansatte");
+        if (lower.indexOf("industry") > -1) return md.industry_name || "Bransje";
+        if (lower.indexOf("municipality") > -1) return md.municipality || "Kommune";
+        if (lower.indexOf("registered") > -1) return "Registrert";
         return obs.length > 34 ? obs.slice(0, 34) + "…" : obs;
       }
 
