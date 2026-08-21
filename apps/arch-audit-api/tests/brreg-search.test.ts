@@ -21,7 +21,7 @@ describe("BrregAdapter.search", () => {
           navn: "Melhus Bil AS",
           organisasjonsform: { beskrivelse: "Aksjeselskap" },
           naeringskode1: { kode: "45.112", beskrivelse: "Bilhandel" },
-          postadresse: { kommune: "MELHUS" },
+          postadresse: { kommune: "MELHUS", postnummer: "7224", poststed: "MELHUS" },
           antallAnsatte: 18,
         }),
         { status: 200, headers: { "Content-Type": "application/json" } }
@@ -35,6 +35,8 @@ describe("BrregAdapter.search", () => {
     expect(result).toHaveLength(1);
     expect(result[0].org_number).toBe("914780184");
     expect(result[0].company_name).toBe("Melhus Bil AS");
+    expect(result[0].postal_code).toBe("7224");
+    expect(result[0].postal_place).toBe("MELHUS");
     expect(fetchMock).toHaveBeenCalled();
     const orgUrl = fetchMock.mock.calls.map((c) => String(c[0])).find((u) => u.includes("/enheter/914780184"));
     expect(orgUrl).toBeTruthy();
@@ -51,7 +53,7 @@ describe("BrregAdapter.search", () => {
                 navn: "Melhus Bil AS",
                 organisasjonsform: { beskrivelse: "Aksjeselskap" },
                 naeringskode1: { kode: "45.112", beskrivelse: "Bilhandel" },
-                postadresse: { kommune: "MELHUS" },
+                postadresse: { kommune: "MELHUS", postnummer: "7224", poststed: "MELHUS" },
                 antallAnsatte: 18,
               },
               {
@@ -59,7 +61,7 @@ describe("BrregAdapter.search", () => {
                 navn: "Melhus Bilutleie AS",
                 organisasjonsform: { beskrivelse: "Aksjeselskap" },
                 naeringskode1: { kode: "77.110", beskrivelse: "Bilutleie" },
-                postadresse: { kommune: "MELHUS" },
+                forretningsadresse: { kommune: "MELHUS", postnummer: "7224", poststed: "MELHUS" },
                 antallAnsatte: 3,
               },
             ],
@@ -75,6 +77,10 @@ describe("BrregAdapter.search", () => {
 
     expect(result).toHaveLength(2);
     expect(result.map((c) => c.org_number)).toEqual(["914780184", "912345678"]);
+    expect(result.map((c) => [c.postal_code, c.postal_place])).toEqual([
+      ["7224", "MELHUS"],
+      ["7224", "MELHUS"],
+    ]);
     // Søket anroper navn-endepunktet med size=8 (flervalg), ikke size=1
     const url = String(fetchMock.mock.calls[0][0]);
     expect(url).toContain("navn=");

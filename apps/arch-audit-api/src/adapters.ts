@@ -29,6 +29,8 @@ export interface BrregCompany {
   website?: string;
   municipality?: string;
   municipality_number?: string;
+  postal_code?: string;
+  postal_place?: string;
   registered_at?: string;
   roles?: BrregRole[];         // daglig leder, styre, etc.
 }
@@ -39,6 +41,13 @@ export interface BrregRole {
   person_name?: string;        // IKKE fødselsdato (personvern)
 }
 
+interface BrregAddress {
+  postnummer?: string;
+  poststed?: string;
+  kommune?: string;
+  kommunenummer?: string;
+}
+
 interface BrregResponse {
   organisasjonsnummer: string;
   navn: string;
@@ -46,8 +55,29 @@ interface BrregResponse {
   naeringskode1?: { kode: string; beskrivelse: string };
   antallAnsatte?: number;
   hjemmeside?: string;
-  postadresse?: { kommune?: string; kommunenummer?: string };
+  postadresse?: BrregAddress;
+  forretningsadresse?: BrregAddress;
   registreringsdatoEnhetsregisteret?: string;
+}
+
+function toBrregCompany(unit: BrregResponse): BrregCompany {
+  const postalAddress = unit.postadresse;
+  const businessAddress = unit.forretningsadresse;
+
+  return {
+    org_number: unit.organisasjonsnummer,
+    company_name: unit.navn,
+    org_form: unit.organisasjonsform?.beskrivelse,
+    industry_code: unit.naeringskode1?.kode,
+    industry_name: unit.naeringskode1?.beskrivelse,
+    employees: unit.antallAnsatte,
+    website: unit.hjemmeside,
+    municipality: postalAddress?.kommune ?? businessAddress?.kommune,
+    municipality_number: postalAddress?.kommunenummer ?? businessAddress?.kommunenummer,
+    postal_code: postalAddress?.postnummer ?? businessAddress?.postnummer,
+    postal_place: postalAddress?.poststed ?? businessAddress?.poststed,
+    registered_at: unit.registreringsdatoEnhetsregisteret,
+  };
 }
 
 export class BrregAdapter implements PublicDataAdapter<BrregCompany> {
@@ -71,18 +101,7 @@ export class BrregAdapter implements PublicDataAdapter<BrregCompany> {
     if (!resp.ok) return [];
     const body: any = await resp.json();
     const list: BrregResponse[] = body?._embedded?.enheter ?? [];
-    return list.map((u) => ({
-      org_number: u.organisasjonsnummer,
-      company_name: u.navn,
-      org_form: u.organisasjonsform?.beskrivelse,
-      industry_code: u.naeringskode1?.kode,
-      industry_name: u.naeringskode1?.beskrivelse,
-      employees: u.antallAnsatte,
-      website: u.hjemmeside,
-      municipality: u.postadresse?.kommune,
-      municipality_number: u.postadresse?.kommunenummer,
-      registered_at: u.registreringsdatoEnhetsregisteret,
-    }));
+    return list.map(toBrregCompany);
   }
 
   async fetch(input: AdapterInput): Promise<AdapterResult<BrregCompany>> {
@@ -125,18 +144,7 @@ export class BrregAdapter implements PublicDataAdapter<BrregCompany> {
         unit = body as BrregResponse;
       }
 
-      const company: BrregCompany = {
-        org_number: unit.organisasjonsnummer,
-        company_name: unit.navn,
-        org_form: unit.organisasjonsform?.beskrivelse,
-        industry_code: unit.naeringskode1?.kode,
-        industry_name: unit.naeringskode1?.beskrivelse,
-        employees: unit.antallAnsatte,
-        website: unit.hjemmeside,
-        municipality: unit.postadresse?.kommune,
-        municipality_number: unit.postadresse?.kommunenummer,
-        registered_at: unit.registreringsdatoEnhetsregisteret,
-      };
+      const company = toBrregCompany(unit);
 
       // Hent roller (daglig leder, styre) — separat kall, best effort.
       // Personvern: henter KUN navn, aldri fødselsdato.
