@@ -792,6 +792,55 @@ section { padding: 96px 0; }
   .engine-label { min-width: 100px; }
 }
 
+/* ── Intelligence Map (levende evidence-graf) ──────────── */
+.intel-map-wrap {
+  display: flex; flex-direction: column; align-items: center; margin-top: 20px;
+}
+.intel-map-wrap svg { width: 100%; max-width: 760px; height: auto; }
+.intel-map-wrap .map-legend {
+  display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px;
+  font-size: 12px; color: var(--slate); justify-content: center;
+}
+.map-legend .lg { display: inline-flex; align-items: center; gap: 6px; }
+.map-legend .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+.intel-map-wrap .im-node {
+  cursor: pointer;
+  transition: opacity .15s ease;
+}
+.intel-map-wrap .im-node:hover { opacity: 0.82; }
+.intel-map-wrap .im-node .im-ring { transition: all .15s ease; }
+.intel-map-wrap .im-node.selected .im-ring { stroke-width: 3px; }
+.intel-map-wrap .im-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 600; fill: var(--ink);
+  pointer-events: none;
+}
+.intel-map-wrap .im-sub {
+  font-family: 'Inter', system-ui, sans-serif;
+  fill: var(--slate); font-weight: 500;
+  pointer-events: none;
+}
+.intel-map-wrap .im-edge { stroke: var(--border); stroke-width: 1.5px; }
+.intel-map-wrap .im-edge.active { stroke: var(--blue); opacity: 0.6; }
+
+/* Map detail panel */
+.intel-map-detail {
+  display: none; width: 100%; max-width: 760px;
+  background: var(--blue-faint); border: 1px solid var(--border);
+  border-radius: 12px; padding: 18px 20px; margin-top: 16px;
+}
+.intel-map-detail.visible { display: block; }
+.intel-map-detail .md-title { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.intel-map-detail .md-body { font-size: 13.5px; color: var(--slate-dark); line-height: 1.6; }
+.intel-map-detail .md-body ul { margin: 6px 0 0 18px; }
+.intel-map-detail .md-body li { margin-bottom: 3px; }
+
+@media (max-width: 560px) {
+  .intel-map-wrap svg { max-width: 100%; }
+  .intel-map-wrap .im-sub { display: none; }
+}
+
 /* Prevent long source names and status labels from escaping their containers. */
 body { overflow-x: hidden; }
 p, h1, h2, h3, h4, a, span { overflow-wrap: anywhere; }

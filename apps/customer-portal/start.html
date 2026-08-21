@@ -98,6 +98,27 @@
         </div>
       </div>
 
+      <!-- Intelligence Map — levende evidence-graf -->
+      <div class="engine-panel" id="map-panel" hidden>
+        <div class="brief-header">
+          <h2 class="panel-title">Intelligence Map</h2>
+          <span class="mockup-tag">Dokumenterte offentlige kilder</span>
+        </div>
+        <p class="panel-sub">Selskapet i sentrum, koblet til dokumenterte kilder og kartlagte faktaområder. Klikk på en node for detaljer.</p>
+        <div class="intel-map-wrap">
+          <svg id="intel-map-svg" viewBox="0 0 760 600" role="img" aria-label="Intelligence map over virksomheten"></svg>
+          <div class="map-legend">
+            <span class="lg"><span class="dot" style="background:#061A40"></span>Virksomhet</span>
+            <span class="lg"><span class="dot" style="background:#0066FF"></span>Faktaområde</span>
+            <span class="lg"><span class="dot" style="background:#0E9F54"></span>Dokumentert kilde</span>
+          </div>
+        </div>
+        <div class="intel-map-detail" id="map-detail">
+          <div class="md-title" id="map-detail-title"></div>
+          <div class="md-body" id="map-detail-body"></div>
+        </div>
+      </div>
+
       <!-- Executive Brief (rik evidence-rapport) -->
       <div class="engine-panel" id="brief-panel" hidden>
         <div class="brief-header">
@@ -238,6 +259,10 @@
         profilePanel.hidden = true;
         frictionPanel.hidden = true;
         conversationPanel.hidden = true;
+        const mapPanelReset = document.getElementById("map-panel");
+        if (mapPanelReset) { mapPanelReset.hidden = true; }
+        const mapDetailReset = document.getElementById("map-detail");
+        if (mapDetailReset) { mapDetailReset.classList.remove("visible"); }
         engine.scrollIntoView({ behavior: "smooth", block: "start" });
 
         // Progressiv evidence-map-avsløring
@@ -302,6 +327,11 @@
           evidencePanel.hidden = true;
           briefPanel.scrollIntoView({ behavior: "smooth", block: "start" });
 
+          // Vis Intelligence Map (levende evidence-graf)
+          renderMap(intelligence, company);
+          const mapPanel = document.getElementById("map-panel");
+          if (mapPanel) mapPanel.hidden = false;
+
           // Vis executive friction question
           setTimeout(function () {
             frictionPanel.hidden = false;
@@ -363,6 +393,199 @@
         if (abs >= 1e6) return (n / 1e6).toFixed(1) + " mn";
         if (abs >= 1e3) return (n / 1e3).toFixed(0) + " k";
         return String(n);
+      }
+
+      // ──────────────────────────────────────────────────────────────
+      // Intelligence Map — levende evidence-graf (SVG)
+      // Sentrum: selskap. Ring: kilder. Ytterst: verifiserte evidenspunkter.
+      // Data = intelligence.graph.evidence (kun verified). Fallback til hubs
+      // dersom graph mangler. All data er ekte fra /v1/public/company/intelligence.
+      // ──────────────────────────────────────────────────────────────
+      const SRC_LABELS = {
+        "brreg-enhet": "Enhetsregisteret",
+        "brreg-roller": "Styre og ledelse",
+        "brreg-regnskap": "Regnskapsregisteret",
+        "website": "Nettsideanalyse",
+        "nav-stillinger": "Arbeidsstyrke",
+        "nyheter": "Markedssignaler",
+        "ssb-bransje": "Bransjekontekst",
+      };
+
+      function renderMap(intel, c) {
+        const svg = document.getElementById("intel-map-svg");
+        const detailPanel = document.getElementById("map-detail");
+        const detailTitle = document.getElementById("map-detail-title");
+        const detailBody = document.getElementById("map-detail-body");
+        if (!svg) return;
+
+        const NS = "http://www.w3.org/2000/svg";
+        const CX = 380, CY = 300;
+        const R_SRC = 175;   // kilde-ring
+        const R_EV = 250;    // evidens-ring
+
+        const graph = intel.graph || {};
+        const evidence = (graph.evidence || []).filter(function (e) { return e.verified; });
+
+        // Build nodes. Fallback: if no evidence graph, derive hubs from intel.
+        let hubs = [];      // kilde-noder (blå)
+        let evidences = []; // evidens-noder (grønne), each tied to a hub key
+
+        if (evidence.length) {
+          const seen = {};
+          evidence.forEach(function (e) {
+            if (!seen[e.source]) {
+              seen[e.source] = { key: e.source, label: SRC_LABELS[e.source] || e.source };
+              hubs.push(seen[e.source]);
+            }
+            evidences.push({
+              key: "ev" + evidences.length,
+              hub: e.source,
+              label: evidLabel(e),
+              sub: e.confidence,
+              obs: e.observation,
+              meta: e.metadata || {},
+            });
+          });
+        } else {
+          // Fallback til fakta-huber (dersom graph ikke leveres)
+          const id = intel.identity || {};
+          const hubList = [{ key: "identity", label: "Virksomhet" }];
+          if ((intel.leadership || []).length) hubList.push({ key: "leadership", label: "Styre og ledelse" });
+          if (intel.financial) hubList.push({ key: "financial", label: "Regnskap" });
+          if (intel.digital && intel.digital.fetched) hubList.push({ key: "digital", label: "Digital" });
+          hubs = hubList;
+          hubList.forEach(function (h) {
+            var items = [];
+            if (h.key === "identity") items = [["Bransje", id.industry_name], ["Ansatte", id.employees], ["Sted", id.municipality]];
+            else if (h.key === "leadership") items = (intel.leadership || []).map(function (r) { return [r.role_description, r.person_name]; });
+            else if (h.key === "financial") {
+              var f = intel.financial;
+              items = [["Omsetning", f.revenue != null ? fmtMoney(f.revenue) + " NOK" : null], ["Årsresultat", f.net_result != null ? fmtMoney(f.net_result) + " NOK" : null], ["Egenkapital", f.equity != null ? fmtMoney(f.equity) + " NOK" : null]];
+            }
+            else if (h.key === "digital") items = [["Nettside", intel.digital.website]];
+            items.forEach(function (row) { if (row[1] != null) evidences.push({ key: "ev" + evidences.length, hub: h.key, label: row[0], sub: "Dokumentert", obs: row[0] + ": " + row[1], meta: {} }); });
+          });
+        }
+
+        svg.setAttribute("viewBox", "0 0 760 600");
+        svg.innerHTML = "";
+
+        function hubAngle(i, n) { return -Math.PI / 2 + (i / n) * 2 * Math.PI; }
+        function evAngle(i, total, hubIdx, hubCount) {
+          const base = hubAngle(hubIdx, hubCount);
+          const spread = (total > 1) ? (i / (total - 1) - 0.5) * 0.9 : 0;
+          return base + spread;
+        }
+
+        const hubPos = hubs.map(function (_, i) {
+          const a = hubAngle(i, hubs.length);
+          return { x: CX + R_SRC * Math.cos(a), y: CY + R_SRC * Math.sin(a) };
+        });
+        const evByHub = {};
+        evidences.forEach(function (e) { (evByHub[e.hub] = evByHub[e.hub] || []).push(e); });
+        const evPos = {};
+        Object.keys(evByHub).forEach(function (hubKey) {
+          const hIdx = hubs.findIndex(function (h) { return h.key === hubKey; });
+          if (hIdx < 0) return;
+          const arr = evByHub[hubKey];
+          arr.forEach(function (e, i) {
+            const a = evAngle(i, arr.length, hIdx, hubs.length);
+            evPos[e.key] = { x: CX + R_EV * Math.cos(a), y: CY + R_EV * Math.sin(a) };
+          });
+        });
+
+        // Edges: company→hub, hub→evidence
+        const edges = [];
+        hubs.forEach(function (h, i) {
+          edges.push({ from: "company", to: h.key, ax: CX, ay: CY, bx: hubPos[i].x, by: hubPos[i].y });
+          (evByHub[h.key] || []).forEach(function (e) {
+            const p = evPos[e.key];
+            edges.push({ from: h.key, to: e.key, ax: hubPos[i].x, ay: hubPos[i].y, bx: p.x, by: p.y });
+          });
+        });
+        edges.forEach(function (e) {
+          const line = document.createElementNS(NS, "line");
+          line.setAttribute("x1", e.ax); line.setAttribute("y1", e.ay);
+          line.setAttribute("x2", e.bx); line.setAttribute("y2", e.by);
+          line.setAttribute("class", "im-edge");
+          svg.appendChild(line);
+        });
+
+        // Nodes
+        const nodeData = [];
+        nodeData.push({ key: "company", x: CX, y: CY, r: 50, label: c.company_name, sub: "", fill: "#061A40", text: "#fff", detail: [["Org.nr", c.org_number], ["Form", c.org_form || "—"]] });
+        hubs.forEach(function (h, i) {
+          nodeData.push({ key: h.key, x: hubPos[i].x, y: hubPos[i].y, r: 30, label: h.label, sub: (evByHub[h.key] || []).length + " bevis", fill: "#0066FF", text: "#fff", detail: [["Kilde", SRC_LABELS[h.key] || h.label]] });
+        });
+        evidences.forEach(function (e) {
+          const p = evPos[e.key];
+          if (!p) return;
+          nodeData.push({ key: e.key, x: p.x, y: p.y, r: 18, label: e.label, sub: "", fill: "#0E9F54", text: "#fff", detail: [["Observasjon", e.obs], ["Konfidens", e.sub], ["Kilde", SRC_LABELS[e.hub] || e.hub]] });
+        });
+
+        function showDetail(node) {
+          detailTitle.textContent = node.label;
+          let html = "<ul>";
+          (node.detail || []).forEach(function (row) {
+            html += "<li><strong>" + row[0] + ":</strong> " + row[1] + "</li>";
+          });
+          html += "</ul>";
+          detailBody.innerHTML = html || "<p>—</p>";
+          detailPanel.classList.add("visible");
+        }
+
+        nodeData.forEach(function (n) {
+          const g = document.createElementNS(NS, "g");
+          g.setAttribute("class", "im-node");
+          const circ = document.createElementNS(NS, "circle");
+          circ.setAttribute("cx", n.x); circ.setAttribute("cy", n.y); circ.setAttribute("r", n.r);
+          circ.setAttribute("fill", n.fill);
+          circ.setAttribute("class", "im-ring");
+          g.appendChild(circ);
+
+          // Ren sirkel-node. Etikett plassert UNDER noden på nøytral bakgrunn
+          // for god kontrast. Ingen tekst inni noen node — konsistent og lesbart.
+          const labelY = n.y + n.r + 20;
+          const lab = document.createElementNS(NS, "text");
+          lab.setAttribute("x", n.x); lab.setAttribute("y", labelY);
+          lab.setAttribute("text-anchor", "middle");
+          lab.setAttribute("fill", "#0F172A"); lab.setAttribute("font-size", 11); lab.setAttribute("font-weight", 600);
+          lab.setAttribute("class", "im-label");
+          lab.textContent = n.label.length > 26 ? n.label.slice(0, 26) + "…" : n.label;
+          g.appendChild(lab);
+          if (n.sub) {
+            const sub = document.createElementNS(NS, "text");
+            sub.setAttribute("x", n.x); sub.setAttribute("y", labelY + 14);
+            sub.setAttribute("text-anchor", "middle");
+            sub.setAttribute("fill", "#64748b"); sub.setAttribute("font-size", 9.5); sub.setAttribute("font-weight", 500);
+            sub.setAttribute("class", "im-sub");
+            sub.textContent = n.sub.length > 22 ? n.sub.slice(0, 22) + "…" : n.sub;
+            g.appendChild(sub);
+          }
+
+          g.addEventListener("click", function () {
+            document.querySelectorAll("#intel-map-svg .im-node").forEach(function (x) { x.classList.remove("selected"); });
+            g.classList.add("selected");
+            showDetail(n);
+          });
+          svg.appendChild(g);
+        });
+
+        const first = svg.querySelector(".im-node");
+        if (first) { first.classList.add("selected"); showDetail(nodeData[0]); }
+      }
+
+      function evidLabel(e) {
+        const t = e.type || "";
+        const md = e.metadata || {};
+        if (t === "PERSON") return md.person_name || e.observation;
+        if (t === "FINANCIAL_EVENT") {
+          var v = md.value;
+          return (md.metric || "resultat") + ": " + (v != null ? fmtMoney(v) + " NOK" : "—");
+        }
+        // COMPANY: extract headline fact
+        const obs = e.observation || "";
+        return obs.length > 34 ? obs.slice(0, 34) + "…" : obs;
       }
 
       // Executive Brief — rik evidence-rapport (identitet + ledelse + regnskap + digital + kilder)
