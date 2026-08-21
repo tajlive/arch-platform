@@ -53,6 +53,38 @@ interface BrregResponse {
 export class BrregAdapter implements PublicDataAdapter<BrregCompany> {
   source = "brreg";
 
+  /**
+   * Søk som returnerer FLERE kandidater (flervalg).
+   * Brukes når brukeren søker på firmanavn som matcher flere enheter.
+   * Returnerer tom liste ved ingen treff.
+   */
+  async search(query: string): Promise<BrregCompany[]> {
+    const q = query.trim();
+    if (!q) return [];
+    // Org.nr → direkte treff (kun én mulig)
+    if (/^\d{9}$/.test(q)) {
+      const one = await this.fetch({ query: q });
+      return one.data ? [one.data] : [];
+    }
+    const url = `https://data.brreg.no/enhetsregisteret/api/enheter?navn=${encodeURIComponent(q)}&size=8`;
+    const resp = await fetch(url, { headers: { "Accept": "application/json" } });
+    if (!resp.ok) return [];
+    const body: any = await resp.json();
+    const list: BrregResponse[] = body?._embedded?.enheter ?? [];
+    return list.map((u) => ({
+      org_number: u.organisasjonsnummer,
+      company_name: u.navn,
+      org_form: u.organisasjonsform?.beskrivelse,
+      industry_code: u.naeringskode1?.kode,
+      industry_name: u.naeringskode1?.beskrivelse,
+      employees: u.antallAnsatte,
+      website: u.hjemmeside,
+      municipality: u.postadresse?.kommune,
+      municipality_number: u.postadresse?.kommunenummer,
+      registered_at: u.registreringsdatoEnhetsregisteret,
+    }));
+  }
+
   async fetch(input: AdapterInput): Promise<AdapterResult<BrregCompany>> {
     const fetched_at = new Date().toISOString();
     const errors: string[] = [];

@@ -3,6 +3,7 @@
 import { HttpError } from "./types";
 import { PublicAuditDataAccess } from "./sessions";
 import { CompanyService } from "./company";
+import { BrregAdapter } from "./adapters";
 import { AuthService, TenantContext, getAccessIdentity, authorize } from "./auth";
 import { TenantDataAccess } from "./tenant-access";
 import { RateLimiter } from "./rate-limiter";
@@ -171,6 +172,15 @@ async function handleCompanyResolve(env: Env, req: Request): Promise<Response> {
     }
     throw e;
   }
+}
+
+async function handleCompanySearch(env: Env, req: Request): Promise<Response> {
+  const body = (await req.json().catch(() => null)) as { query?: string } | null;
+  const query = body?.query?.trim();
+  if (!query || query.length < 2) throw badRequest("INVALID_QUERY", "Firma eller organisasjonsnummer mangler.");
+  const adapter = new BrregAdapter();
+  const candidates = await adapter.search(query);
+  return Response.json({ query, count: candidates.length, candidates });
 }
 
 async function handleCompanyIntelligence(env: Env, req: Request): Promise<Response> {
@@ -373,6 +383,7 @@ async function route(req: Request, env: Env, ctx: ExecutionContext, rid: string)
   if (path === "/v1/public/audit/session" && method === "POST") return withCors(await handleCreateSession(env), ch);
   if (path.startsWith("/v1/public/audit/session/") && method === "GET") return withCors(await handleGetSession(env, req), ch);
   if (path === "/v1/public/company/resolve" && method === "POST") return withCors(await handleCompanyResolve(env, req), ch);
+  if (path === "/v1/public/company/search" && method === "POST") return withCors(await handleCompanySearch(env, req), ch);
   if (path === "/v1/public/company/intelligence" && method === "POST") return withCors(await handleCompanyIntelligence(env, req), ch);
   if (path === "/v1/public/audit/question" && method === "POST") return withCors(await handleAskQuestion(env, req), ch);
   if (path === "/v1/public/demo/company" && method === "GET") {

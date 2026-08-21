@@ -21,6 +21,8 @@ const BRREG_BASE = "https://data.brreg.no/enhetsregisteret/api";
 const BRREG_ACCEPT = "application/vnd.brreg.enhetsregisteret.enhet.v2+json";
 const ROLLER_ACCEPT = "application/vnd.brreg.enhetsregisteret.rolle.v1+json";
 const REGNSKAP_URL = "https://data.brreg.no/regnskapsregisteret/regnskap";
+const FINANSTILSYNET_BASE = "https://api.finanstilsynet.no/registry/v2";
+const OPPGAVEREGISTERET_BASE = "https://data.brreg.no/oppgaveregisteret/api";
 
 // Kuratert næringskode (2 første tegn) → SSB-tabell. Alle tabell-id-er er
 // VERIFISERT live 2026-08-14 (tabell 12817 svarer med json-stat2 for hver kode).
@@ -407,7 +409,66 @@ export async function collectNorge({ domain, nameCandidates = [], orgNr = null }
       "utenlandsk domene — Norid ikke autoritativ", "high", "norid"));
   }
 
-  return { section: "norge", title: "Norge-data (Brreg · Norid · SSB)", checks, raw };
+  // ── 6. Finanstilsynet Virksomhetsregister (lisenshavere under tilsyn) ──
+  if (unit?.organisasjonsnummer) {
+    const fsRes = await httpJson(`${FINANSTILSYNET_BASE}/legal-entities/filter?query=${encodeURIComponent(unit.organisasjonsnummer)}&pageSize=5`, { timeout: 15000 });
+    if (fsRes.ok && fsRes.json) {
+      const hits = fsRes.json.legalEntities ?? [];
+      if (hits.length > 0) {
+        const f = hits[0];
+        const licences = f.licences ?? [];
+        const licenceTypes = licences.map(l => l.licenceType?.name?.nb ?? l.licenceType?.code ?? l.licenceType?.name?.english).filter(Boolean);
+        raw.finanstilsynet = { legalEntityId: f.legalEntityId, finanstilsynetId: f.finanstilsynetId, name: f.name, organisationNumber: f.organisationNumber, licences: licenceTypes };
+        checks.push(check("trust_privacy", "finanstilsynet_licence", "Finanstilsynet-lisens", "PASS",
+          `${f.name} — ${licenceTypes.join(", ") || "ukjent type"}`, "high", "finanstilsynet"));
+        checks.push(check("security", "finanstilsynet_supervision", "Under Finanstilsynet tilsyn", "PASS",
+          `ja — ${licenceTypes.length} lisens(er)`, "high", "finanstilsynet"));
+      } else {
+        raw.finanstilsynet = { organisationNumber: unit.organisasjonsnummer, found: false };
+        checks.push(check("trust_privacy", "finanstilsynet_licence", "Finanstilsynet-lisens", "NOT_APPLICABLE",
+          "ikke funnet i Finanstilsynet virksomhetsregister", "medium", "finanstilsynet"));
+      }
+    } else {
+      raw.finanstilsynet = { organisationNumber: unit.organisasjonsnummer, error: fsRes.error ?? `HTTP ${fsRes.status}` };
+      checks.push(check("trust_privacy", "finanstilsynet_licence", "Finanstilsynet-lisens", "UNKNOWN",
+        `klarte ikke hente (HTTP ${fsRes.status})`, "medium", "finanstilsynet"));
+    }
+  }
+
+  // ── 7. Oppgaveregisteret (revisjonsplikt, skjema, rapporteringsplikter per orgform/næring) ──
+  if (unit?.organisasjonsnummer) {
+    const orgForm = unit.organisasjonsform?.kode;
+    const naering = unit.naeringskode1?.kode?.split(".")[0];
+    const params = new URLSearchParams();
+    if (orgForm) params.append("organisasjonsformer", orgForm);
+    if (naering) params.append("naeringskoder", naering);
+    const ogRes = await httpJson(`${OPPGAVEREGISTERET_BASE}/skjema?${params.toString()}&size=50`, { timeout: 15000 });
+    if (ogRes.ok && ogRes.json?.skjema) {
+      const forms = ogRes.json.skjema.filter(s =>
+        s.formaal?.kategorier?.some(k => k.kode === "KONTROLL_TILSYN") &&
+        s.maalgruppe?.naeringsgrupper?.some(g =>
+          (!g.organisasjonsformer?.length || g.organisasjonsformer.some(o => o.verdi === orgForm)) &&
+          (!g.naeringskoder?.length || g.naeringskoder.some(n => n.verdi === naering))
+        )
+      );
+      if (forms.length > 0) {
+        raw.oppgaveregisteret = { organisasjonsform: orgForm, naering, forms: forms.map(f => ({
+          navn: f.navn, nummer: f.nummer, formål: f.formål?.fritekst,
+          lovhjemler: f.lovhjemler?.map(l => `${l.tittel} ${l.henvisning || ""}`.trim())
+        })) };
+        checks.push(check("trust_privacy", "oppgaveregisteret_forms", "Oppgavepliktige skjema (revisjon/rapportering)", "PASS",
+          `${forms.length} skjema matcher orgform ${orgForm} + næring ${naering} (f.eks. ${forms[0].navn})`, "high", "brreg"));
+      } else {
+        checks.push(check("trust_privacy", "oppgaveregisteret_forms", "Oppgavepliktige skjema", "NOT_APPLICABLE",
+          `ingen skjema for orgform ${orgForm} + næring ${naering}`, "medium", "brreg"));
+      }
+    } else {
+      checks.push(check("trust_privacy", "oppgaveregisteret_forms", "Oppgavepliktige skjema", "UNKNOWN",
+        `klarte ikke hente (HTTP ${ogRes.status})`, "medium", "brreg"));
+    }
+  }
+
+  return { section: "norge", title: "Norge-data (Brreg · Norid · SSB · Finanstilsynet · Oppgaveregisteret)", checks, raw };
 }
 
 // ── Direkte kjøring: node norge.mjs <navn> <domene> ──
