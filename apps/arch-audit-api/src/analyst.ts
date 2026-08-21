@@ -234,16 +234,40 @@ export async function callAnalystModel(
     if (!resp.ok) {
       throw new Error(`LLM HTTP ${resp.status}`);
     }
-    const data = (await resp.json()) as { choices?: Array<{ message?: { content?: string } }> };
-    const content = data.choices?.[0]?.message?.content;
-    if (!content) throw new Error("LLM returnerte tomt svar");
-    return content;
+    const data = (await resp.json()) as { choices?: Array<{ message?: { content?: string; reasoning_content?: string } }> };
+    const msg = data.choices?.[0]?.message;
+    // NVIDIA Nemotron (med reasoning) legger JSON-syntesen i `reasoning_content`,
+    // mens `content` ofte inneholder tankeprosessen. Velg JSON-holdig felt.
+    const content = msg?.content;
+    const reasoning = msg?.reasoning_content;
+    const jsonCandidate = looksLikeJson(content) ? content : looksLikeJson(reasoning) ? reasoning : content;
+    if (!jsonCandidate) throw new Error("LLM returnerte tomt svar");
+    return jsonCandidate;
   } finally {
     clearTimeout(timeout);
   }
 }
 
 // ── Parse og valider (FAIL-CLOSED på fabrikasjon) ─────────────
+
+/** Sjekk om en streng ser ut som JSON (starter med { og parses). */
+function looksLikeJson(text: string | undefined | null): boolean {
+  if (!text) return false;
+  const trimmed = text.trim();
+  if (!trimmed.startsWith("{")) return false;
+  try {
+    JSON.parse(trimmed);
+    return true;
+  } catch {
+    // Kan inneholde markdown-fence — prøv å ekstrahere
+    try {
+      JSON.parse(extractJsonObject(trimmed));
+      return true;
+    } catch {
+      return false;
+    }
+  }
+}
 
 export function parseAnalystJson(raw: string, orgNumber: string, companyName: string, provider: string, model: string, inputTokens: number, outputTokens: number): AnalystOutput {
   let parsed: any;
