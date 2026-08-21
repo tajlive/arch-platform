@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Start selskapskartlegging | ARCH AXN</title>
-  <meta name="description" content="Søk etter en norsk virksomhet og se hvilke dokumenterte offentlige kilder ARCH AXN kan samle i en intelligence-graf." />
+  <meta name="description" content="Søk etter en norsk virksomhet og se hvilke dokumenterte offentlige kilder ARCH AXN kan samle i et kunnskapskart." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://arch.axn.no/start" />
   <meta property="og:title" content="Start selskapskartlegging | ARCH AXN" />
@@ -43,7 +43,7 @@
       <h1>Finn virksomheten. Arch bygger et dokumentert kunnskapsgrunnlag fra åpne kilder.</h1>
       <p class="lede">Arch henter virksomhetsprofil, bransjekontekst og offentlige signaler før det stilles relevante spørsmål.</p>
       <div class="trust-row">
-        <span class="trust-pill">Powered by Arch AXN</span>
+        <span class="trust-pill">Utviklet av Arch AXN</span>
         <span class="trust-pill">Dokumentert analyse</span>
       </div>
 
@@ -108,12 +108,12 @@
       <!-- Intelligence Map — levende evidence-graf -->
       <div class="engine-panel" id="map-panel" hidden>
         <div class="brief-header">
-          <h2 class="panel-title">Intelligence Map</h2>
+          <h2 class="panel-title">Kunnskapskart</h2>
           <span class="mockup-tag">Dokumenterte offentlige kilder</span>
         </div>
         <p class="panel-sub">Selskapet i sentrum, koblet til dokumenterte kilder og kartlagte faktaområder. Klikk på en node for detaljer.</p>
         <div class="intel-map-wrap">
-          <svg id="intel-map-svg" viewBox="0 0 760 600" role="img" aria-label="Intelligence map over virksomheten"></svg>
+          <svg id="intel-map-svg" viewBox="0 0 760 600" role="img" aria-label="Kunnskapskart over virksomheten"></svg>
           <div class="map-legend">
             <span class="lg"><span class="dot" style="background:#061A40"></span>Virksomhet</span>
             <span class="lg"><span class="dot" style="background:#0066FF"></span>Faktaområde</span>
@@ -501,7 +501,8 @@
         "brreg-roller": "Styre og ledelse",
         "brreg-regnskap": "Regnskapsregisteret",
         "website": "Nettsideanalyse",
-        "nav-stillinger": "Arbeidsstyrke",
+        "nav-arbeidsplassen": "Arbeidsstyrke",
+        "brreg-regnskap-historikk": "Regnskapshistorikk",
         "nyheter": "Markedssignaler",
         "ssb-bransje": "Bransjekontekst",
       };
@@ -581,7 +582,7 @@
         if (model && model.model) {
           const meta = document.createElement("p");
           meta.className = "analyst-meta";
-          meta.textContent = "Modell: " + model.model + " · " + (model.tokens ? model.tokens.output + " tokens" : "");
+          meta.textContent = "Modell: " + model.model + " · " + (model.tokens ? model.tokens.output + " tokener" : "");
           analystBody.appendChild(meta);
         }
       }
@@ -664,6 +665,10 @@
       }
 
       function priorityRow(p, findingIndex) {
+        const effort = p.effort || "medium";
+        const kind = p.kind || "INTERPRETATION";
+        const effortLabels = { low: "Lav", medium: "Middels", high: "Høy" };
+        const kindLabels = { FACT: "Fakta", INTERPRETATION: "Tolkning", HYPOTHESIS: "Hypotese" };
         const row = document.createElement("div");
         row.className = "analyst-finding priority";
         row.innerHTML =
@@ -671,9 +676,9 @@
           "<div class=\"analyst-priority-body\">" +
             "<span class=\"analyst-claim\">" + p.recommendation + "</span>" +
             "<span class=\"analyst-priority-tags\">" +
-              "<span class=\"analyst-tag effort-" + (p.effort || "medium") + "\">Innsats: " + (p.effort || "medium") + "</span>" +
+              "<span class=\"analyst-tag effort-" + effort + "\">Innsats: " + (effortLabels[effort] || effort) + "</span>" +
               "<span class=\"analyst-tag\">Tid: " + (p.time_horizon || "?") + " dager</span>" +
-              "<span class=\"analyst-tag kind-" + (p.kind || "INTERPRETATION").toLowerCase() + "\">" + (p.kind || "INTERPRETATION") + "</span>" +
+              "<span class=\"analyst-tag kind-" + kind.toLowerCase() + "\">" + (kindLabels[kind] || kind) + "</span>" +
             "</span>" +
             (p.expected_effect ? "<span class=\"analyst-effect\">Forventet effekt: " + p.expected_effect + "</span>" : "") +
             (p.uncertainties && p.uncertainties.length ? "<span class=\"analyst-why\">Usikkerhet: " + p.uncertainties.join("; ") + "</span>" : "") +
@@ -952,6 +957,7 @@
           "Company identity": "Virksomhetsidentitet",
           "Leadership & governance": "Ledelse og roller",
           "Financial profile": "Regnskapsopplysninger",
+          "Financial history": "Regnskapshistorikk",
           "Digital footprint": "Digital tilstedeværelse",
           "Workforce signals": "Arbeidsstyrkesignaler",
           "Market signals": "Markedssignaler",
