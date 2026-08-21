@@ -281,6 +281,46 @@ async function handleCompanyAnalyst(env: Env, req: Request): Promise<Response> {
   }
 }
 
+async function handleAnalystFeedback(env: Env, req: Request): Promise<Response> {
+  const { storeFeedback } = await import("./feedback");
+  const body = (await req.json().catch(() => null)) as {
+    org_number?: string;
+    focus_area?: string;
+    analyst_run_id?: string;
+    finding_type?: string;
+    finding_index?: number;
+    feedback?: string;
+    comment?: string;
+  } | null;
+  if (!body) throw badRequest("INVALID_FEEDBACK", "Ugyldig forespørsel.");
+
+  const result = await storeFeedback(env.DB, {
+    org_number: body.org_number ?? "",
+    focus_area: body.focus_area ?? "",
+    analyst_run_id: body.analyst_run_id,
+    finding_type: (body.finding_type ?? "strength") as any,
+    finding_index: typeof body.finding_index === "number" ? body.finding_index : -1,
+    feedback: (body.feedback ?? "") as any,
+    comment: body.comment,
+  });
+
+  if (!result.ok) {
+    return Response.json(
+      { ok: false, error: { code: result.error, message: "Ugyldig tilbakemelding." } },
+      { status: 400 }
+    );
+  }
+  return Response.json({ ok: true, feedback_id: result.feedback_id });
+}
+
+async function handleAnalystFeedbackSummary(env: Env, req: Request): Promise<Response> {
+  const { getFeedbackSummary } = await import("./feedback");
+  const url = new URL(req.url);
+  const orgNumber = url.searchParams.get("org_number")?.trim() || undefined;
+  const summary = await getFeedbackSummary(env.DB, orgNumber);
+  return Response.json({ ok: true, summary });
+}
+
 async function handleAskQuestion(env: Env, req: Request): Promise<Response> {
   const { sessionId } = await requireAnonymousSession(env, req.headers.get("Cookie"));
   const body = (await req.json().catch(() => null)) as { context_id?: string; focus_area?: string } | null;
@@ -470,6 +510,8 @@ async function route(req: Request, env: Env, ctx: ExecutionContext, rid: string)
   if (path === "/v1/public/company/intelligence" && method === "POST") return withCors(await handleCompanyIntelligence(env, req), ch);
   if (path === "/v1/public/company/compare" && method === "POST") return withCors(await handleCompanyCompare(env, req), ch);
   if (path === "/v1/public/company/analyst" && method === "POST") return withCors(await handleCompanyAnalyst(env, req), ch);
+  if (path === "/v1/public/analyst/feedback" && method === "POST") return withCors(await handleAnalystFeedback(env, req), ch);
+  if (path === "/v1/public/analyst/feedback/summary" && method === "GET") return withCors(await handleAnalystFeedbackSummary(env, req), ch);
   if (path === "/v1/public/audit/question" && method === "POST") return withCors(await handleAskQuestion(env, req), ch);
   if (path === "/v1/public/demo/company" && method === "GET") {
     // SYNTHETIC demo — eksplisitt merket, aldri blandet med ekte data

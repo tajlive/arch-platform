@@ -217,6 +217,7 @@
       let questionRequest = 0;
       let selectedArea = null;
       let analystDisclaimer = "";
+      let currentAnalystFocus = null;
 
       function setState(id, state) {
         // state: 0 = pending, 1 = active, 2 = done
@@ -508,6 +509,7 @@
       // ── Arch Analyst: kall LLM-ruten og render dokumentert analyse ──
       async function renderAnalyst(orgNumber, area, areaLabel) {
         if (!orgNumber) return;
+        currentAnalystFocus = area.trim().toLowerCase();
         analystPanel.hidden = false;
         analystPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
         analystBody.innerHTML = "<p class=\"panel-sub\">Arch analyserer dokumenterte signaler for <strong>" + areaLabel + "</strong>…</p>";
@@ -540,22 +542,22 @@
         // Strengths
         if (analyst.strengths && analyst.strengths.length) {
           analystBody.appendChild(sectionHeader("Styrker"));
-          analyst.strengths.forEach(function (s) {
-            analystBody.appendChild(findingRow(s.claim, s.evidence_refs, "strength"));
+          analyst.strengths.forEach(function (s, idx) {
+            analystBody.appendChild(findingRow(s.claim, s.evidence_refs, "strength", undefined, "strength", idx));
           });
         }
         // Weaknesses
         if (analyst.weaknesses && analyst.weaknesses.length) {
           analystBody.appendChild(sectionHeader("Svakheter"));
-          analyst.weaknesses.forEach(function (w) {
-            analystBody.appendChild(findingRow(w.claim, w.evidence_refs, "weakness"));
+          analyst.weaknesses.forEach(function (w, idx) {
+            analystBody.appendChild(findingRow(w.claim, w.evidence_refs, "weakness", undefined, "weakness", idx));
           });
         }
         // Priorities
         if (analyst.priorities && analyst.priorities.length) {
           analystBody.appendChild(sectionHeader("Prioriterte anbefalinger"));
-          analyst.priorities.slice().sort(function (a, b) { return a.rank - b.rank; }).forEach(function (p) {
-            analystBody.appendChild(priorityRow(p));
+          analyst.priorities.slice().sort(function (a, b) { return a.rank - b.rank; }).forEach(function (p, idx) {
+            analystBody.appendChild(priorityRow(p, idx));
           });
         }
         // Unknowns (provenance-ærlighet — aldri gjettet)
@@ -591,7 +593,7 @@
         return h;
       }
 
-      function findingRow(claim, refs, kind, rank) {
+      function findingRow(claim, refs, kind, rank, findingType, findingIndex) {
         const row = document.createElement("div");
         row.className = "analyst-finding " + kind;
         const icon = kind === "strength" ? "✓" : kind === "weakness" ? "⚠" : kind === "priority" ? "#" : "·";
@@ -603,10 +605,65 @@
           refSpan.textContent = "Kilde: " + refs.join(", ");
           row.appendChild(refSpan);
         }
+        // Feedback-knapper (produktflyt-steg 7)
+        row.appendChild(feedbackRow(findingType, findingIndex));
         return row;
       }
 
-      function priorityRow(p) {
+      function feedbackRow(findingType, findingIndex) {
+        const wrap = document.createElement("div");
+        wrap.className = "analyst-feedback";
+        const buttons = [
+          { value: "correct", label: "Korrekt" },
+          { value: "useful", label: "Nyttig" },
+          { value: "irrelevant", label: "Irrelevant" },
+          { value: "missing_context", label: "Mangler kontekst" },
+        ];
+        buttons.forEach(function (b) {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "analyst-feedback-btn";
+          btn.dataset.feedback = b.value;
+          btn.dataset.findingType = findingType;
+          btn.dataset.findingIndex = String(findingIndex);
+          btn.textContent = b.label;
+          btn.addEventListener("click", function () { submitFeedback(btn); });
+          wrap.appendChild(btn);
+        });
+        return wrap;
+      }
+
+      async function submitFeedback(btn) {
+        if (!company || !currentAnalystFocus) return;
+        const feedback = btn.dataset.feedback;
+        const findingType = btn.dataset.findingType;
+        const findingIndex = Number(btn.dataset.findingIndex);
+        btn.disabled = true;
+        try {
+          const res = await fetch(API + "/v1/public/analyst/feedback", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              org_number: company.org_number,
+              focus_area: currentAnalystFocus,
+              finding_type: findingType,
+              finding_index: findingIndex,
+              feedback: feedback,
+            }),
+          });
+          const data = await res.json();
+          if (data.ok) {
+            btn.textContent = "✓ Registrert";
+            btn.classList.add("registered");
+          } else {
+            btn.disabled = false;
+          }
+        } catch (e) {
+          btn.disabled = false;
+        }
+      }
+
+      function priorityRow(p, findingIndex) {
         const row = document.createElement("div");
         row.className = "analyst-finding priority";
         row.innerHTML =
@@ -623,6 +680,7 @@
             (p.pre_work && p.pre_work.length ? "<span class=\"analyst-why\">Før tiltak: " + p.pre_work.join("; ") + "</span>" : "") +
             (p.evidence_refs && p.evidence_refs.length ? "<span class=\"analyst-refs\">Kilde: " + p.evidence_refs.join(", ") + "</span>" : "") +
           "</div>";
+        row.appendChild(feedbackRow("priority", findingIndex));
         return row;
       }
 

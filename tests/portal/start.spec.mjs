@@ -61,7 +61,7 @@ const defaultSearchCandidates = [
 ];
 
 async function mockAuditApi(page, searchCandidates) {
-  const calls = { questions: [], searches: [], analyst: [] };
+  const calls = { questions: [], searches: [], analyst: [], feedback: [] };
   const candidates = searchCandidates || defaultSearchCandidates;
   await page.route("https://api.arch.axn.no/v1/public/audit/session", (route) => route.fulfill({ status: 200, body: "{}" }));
   await page.route("https://api.arch.axn.no/v1/public/company/search", async (route) => {
@@ -126,6 +126,11 @@ async function mockAuditApi(page, searchCandidates) {
         provenance: { disclaimer: "Beslutningsstøtte, ikke rådgivning." }
       })
     });
+  });
+  await page.route("https://api.arch.axn.no/v1/public/analyst/feedback", async (route) => {
+    const body = route.request().postDataJSON();
+    calls.feedback.push(body);
+    await route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ ok: true, feedback_id: "fb-test-1" }) });
   });
   return calls;
 }
@@ -243,4 +248,12 @@ test("viser Arch Analytiker med dokumenterte funn når fokusområde velges", asy
   expect(calls.analyst).toHaveLength(1);
   expect(calls.analyst[0].focus_area).toBe("drift");
   expect(calls.analyst[0].org_number).toBeDefined();
+
+  // Feedback: klikk "Korrekt" på en strength → POST til feedback-endepunkt
+  await analyst.locator(".analyst-feedback-btn", { hasText: "Korrekt" }).first().click();
+  await expect(analyst).toContainText("Registrert");
+  expect(calls.feedback).toHaveLength(1);
+  expect(calls.feedback[0].feedback).toBe("correct");
+  expect(calls.feedback[0].finding_type).toBe("strength");
+  expect(calls.feedback[0].focus_area).toBe("drift");
 });
