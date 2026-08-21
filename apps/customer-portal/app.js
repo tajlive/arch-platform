@@ -32,8 +32,8 @@
   // Knowledge
   const kg = D.knowledge;
   if (kg) {
-    const items = [["Failures", kg.failures], ["Patterns", kg.patterns], ["Lessons", kg.lessons],
-                   ["Decisions", kg.decisions], ["Customers", kg.customers], ["Architectures", kg.architectures]];
+    const items = [["Feil", kg.failures], ["Mønstre", kg.patterns], ["Læringer", kg.lessons],
+                   ["Beslutninger", kg.decisions], ["Kunder", kg.customers], ["Arkitekturer", kg.architectures]];
     setHTML("knowledge", items.map(([l, n]) => `<div class="k-cell"><div class="k-num">${n}</div><div class="k-label">${l}</div></div>`).join(""));
     setText("knowledge-src", "Aggregert kunnskapsbase — læring som arves til neste prosjekt.");
   } else {
@@ -42,16 +42,21 @@
 
   // Security
   const sec = D.security || {};
-  setHTML("security", [["Secrets", sec.secrets], ["Policies", sec.policies], ["Audit", sec.audit]]
+  setHTML("security", [["Hemmeligheter", sec.secrets], ["Regler", sec.policies], ["Revisjon", sec.audit]]
     .map(([k, v]) => `<div class="sec-row"><span>${k}</span><span class="sec-val">${esc(v)}</span></div>`).join(""));
 
   // Agents
   setHTML("agents", (D.agents || []).map((a) => {
     const cls = a.status === "observed" ? "observed" : a.status === "declared" ? "declared" : "unknown";
+    const roleLabels = {
+      "Chief Architect + Ops": "Hovedarkitekt og drift",
+      "Senior Developer": "Seniorutvikler",
+      "Research Analyst": "Forskningsanalytiker"
+    };
     const label = a.status === "observed" ? "Aktiv" : a.status === "declared" ? "Rolle" : "Ukjent";
     return `<div class="agent-row">
       <span class="a-name">${esc(a.name)}</span>
-      <span class="a-role">${esc(a.role)}</span>
+      <span class="a-role">${esc(roleLabels[a.role] || a.role)}</span>
       <span class="badge ${cls}">${label}</span>
     </div>`;
   }).join(""));

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sikkerhet — Arch</title>
-  <meta name="description" content="Sikkerhetsprinsippene i ARCH AXN: tenant-isolasjon, Cloudflare Access, sikre anonyme sesjoner og ratebegrensning." />
+  <meta name="description" content="Sikkerhetsprinsippene i ARCH AXN: kundeisolasjon, Cloudflare Access, sikre anonyme sesjoner og ratebegrensning." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://arch.axn.no/security" />
   <link rel="stylesheet" href="styles.css" />
@@ -14,37 +14,37 @@
     <header class="masthead">
       <div class="brand">
         <div class="logo">▲</div>
-        <div><h1>ARCH</h1><p class="tagline">Autonomous Engineering Platform</p></div>
+        <div><h1>ARCH</h1><p class="tagline">Autonom teknologiplattform</p></div>
       </div>
     </header>
     <main class="content">
       <section class="hero">
         <h2>Sikkerhet</h2>
-        <p class="sub">Arch er bygget med tenant-isolasjon, identitetsføderasjon og eksplisitt autorisasjon.</p>
+        <p class="sub">Arch er bygget med kundeisolasjon, identitetsføderasjon og eksplisitt autorisasjon.</p>
       </section>
 
       <section class="card">
-        <h3>Tenant isolation</h3>
-        <p>Hver kunde er en egen tenant. All datatilgang går gjennom et felles dataaksesslag som avgrenser spørringer med <code>tenant_id</code>. Automatiserte tester dekker forsøk på kryss-tenant-tilgang.</p>
+        <h3>Kundeisolasjon</h3>
+        <p>Hver kunde er isolert. All datatilgang går gjennom et felles dataaksesslag som avgrenser spørringer med <code>tenant_id</code>. Automatiserte tester dekker forsøk på tilgang på tvers av kunder.</p>
       </section>
 
       <section class="card">
-        <h3>Identity federation</h3>
+        <h3>Identitetsføderasjon</h3>
         <p>Autentisering skjer via Cloudflare Access. Identitet modelleres som <code>Identity → User → TenantMembership → Tenant</code>. E-post er et attributt, ikke en identitetsnøkkel.</p>
       </section>
 
       <section class="card">
-        <h3>Anonymous sessions</h3>
-        <p>Gratis audit bruker tilfeldig session-ID + separat hemmelig credential (HttpOnly, Secure, SameSite). UUID alene er ikke autorisasjon.</p>
+        <h3>Anonyme sesjoner</h3>
+        <p>Gratis analyse bruker tilfeldig sesjons-ID og separat hemmelig legitimasjon (HttpOnly, Secure, SameSite). UUID alene er ikke autorisasjon.</p>
       </section>
 
       <section class="card">
-        <h3>Rate limiting</h3>
+        <h3>Ratebegrensning</h3>
         <p>Global ratebegrensning håndheves via Durable Objects, ikke en lokal teller per serverinstans. Ulike profiler brukes for anonyme, autentiserte og interne ruter.</p>
       </section>
 
       <section class="card">
-        <h3>Responsible disclosure</h3>
+        <h3>Ansvarlig varsling</h3>
         <p>Fant du en sårbarhet? Kontakt oss på support@arch.axn.no. Vi setter pris på ansvarlig rapportering.</p>
       </section>
 

@@ -257,3 +257,22 @@ test("viser Arch Analytiker med dokumenterte funn når fokusområde velges", asy
   expect(calls.feedback[0].finding_type).toBe("strength");
   expect(calls.feedback[0].focus_area).toBe("drift");
 });
+
+test("viser norsk tekst på kunde-, dokumentasjons- og markedsflater", async ({ page }) => {
+  await page.goto(`${baseUrl}/index.html`);
+  await expect(page.locator("body")).toContainText("Lag intelligenskart");
+  await expect(page.locator("body")).toContainText("Be om betatilgang");
+
+  await page.goto(`${baseUrl}/proof.html`);
+  await expect(page).toHaveTitle("Bevissenter — Arch");
+  await expect(page.locator("body")).toContainText("Sikkerhetsgrunnlag");
+  await expect(page.locator("body")).not.toContainText("Proof Center");
+
+  await page.goto(`${baseUrl}/marketing/axn-50-evidence-one-pager.html`);
+  await expect(page.locator("h1")).toHaveText("50 evidenssignaler AXN kartlegger i virksomheten din");
+  await expect(page.locator("body")).toContainText("Start en analyse");
+
+  await page.goto(`${baseUrl}/osint-approval-ui.html`);
+  await expect(page).toHaveTitle("Offentlig digital synlighet — Godkjenningsflyt");
+  await expect(page.locator("h1")).toHaveText("🔍 Offentlig digital synlighet");
+});
