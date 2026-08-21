@@ -293,10 +293,36 @@ export function parseAnalystJson(raw: string, orgNumber: string, companyName: st
 }
 
 function extractJsonObject(raw: string): string {
-  const start = raw.indexOf("{");
-  const end = raw.lastIndexOf("}");
-  if (start >= 0 && end > start) return raw.slice(start, end + 1);
-  throw new Error("Ugyldig JSON-respons fra LLM");
+  // Fjern markdown-code-fences (```json ... ``` eller ``` ... ```)
+  let cleaned = raw.trim();
+  const fenceMatch = cleaned.match(/```(?:json)?\s*([\s\S]*?)```/i);
+  if (fenceMatch) cleaned = fenceMatch[1].trim();
+
+  // Finn første { og siste } — ta JSON-objektet mellom dem
+  const start = cleaned.indexOf("{");
+  const end = cleaned.lastIndexOf("}");
+  if (start >= 0 && end > start) {
+    const candidate = cleaned.slice(start, end + 1);
+    // Valider at det faktisk er parsebar JSON — prøv direkte, ellers balanser braces
+    try {
+      JSON.parse(candidate);
+      return candidate;
+    } catch {
+      // Prøv å balansere ved å fjerne tekst utenfor topp-nivå
+      let depth = 0;
+      for (let i = 0; i < candidate.length; i++) {
+        if (candidate[i] === "{") depth++;
+        else if (candidate[i] === "}") {
+          depth--;
+          if (depth === 0) {
+            const inner = candidate.slice(0, i + 1);
+            try { JSON.parse(inner); return inner; } catch { /* fortsett */ }
+          }
+        }
+      }
+    }
+  }
+  throw new Error(`Ugyldig JSON-respons fra LLM (første 200 tegn: ${raw.slice(0, 200)})`);
 }
 
 /** Estimér tokens fra tegn (ca. 4 tegn/token). */
