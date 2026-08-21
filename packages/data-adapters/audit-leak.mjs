@@ -19,8 +19,8 @@ const PATTERNS = [
   { re: /\b[A-Za-z0-9]{32,}\b/g, label: "mulig token/hemmelighet (32+ tegn)" },
   { re: /(sk_live|pk_live|AKIA[0-9A-Z]{16}|ghp_|github_pat_|xoxb-|Bearer\s+[A-Za-z0-9._-]{20,})/g, label: "kjent secret-mønster" },
   { re: /LINEAR_API_KEY\s*[:=]/g, label: "API-nøkkel-variabel" },
-  { re: /\.env(\.local|\.production)?\b/g, label: ".env-referanse" },
-  { re: /dev_path|internal|chain.of.thought|private repo intern/i, label: "intern metadata" },
+  { re: /\.(env(\.local|\.production)?)\b/g, label: ".env-referanse" },
+  { re: /dev_path|chain\.of\.thought|private repo intern|internal metadata|internal path|internal url/gi, label: "intern metadata" },
 ];
 
 const files = [];

@@ -5,6 +5,7 @@ import {
   RawEvidence,
   ValidatedEvidence,
 } from "./evidence-graph";
+import { NavAdapter } from "./collectors/nav";
 
 export interface FinancialProfile {
   period_from: string;
@@ -367,6 +368,7 @@ function collectDigital(digital: DigitalFootprint | null, fetchedAt: string): Co
 
 export class ResearchOrchestrator {
   private brreg = new BrregAdapter();
+  private nav = new NavAdapter();
   private validator = new EvidenceValidator();
 
   async run(query: string): Promise<{ company: BrregCompany; report: IntelligenceReport }> {
@@ -375,9 +377,10 @@ export class ResearchOrchestrator {
     const company = result.data;
 
     const financialFetchedAt = new Date().toISOString();
-    const [financial, digital] = await Promise.all([
+    const [financial, digital, navResult] = await Promise.all([
       fetchFinancial(company.org_number),
       fetchDigital(company.website ?? ""),
+      this.nav.collect(company.org_number, company.company_name),
     ]);
     const digitalFetchedAt = new Date().toISOString();
 
@@ -386,6 +389,7 @@ export class ResearchOrchestrator {
       collectLeadership(company, result.fetched_at),
       collectFinancial(financial, financialFetchedAt),
       collectDigital(digital, digitalFetchedAt),
+      navResult,
     ];
     const validated = this.validator.validate(collectorResults.flatMap((r) => r.raw));
 
@@ -397,7 +401,6 @@ export class ResearchOrchestrator {
 
     const sources: EvidenceSource[] = [
       ...collectorResults.map((r) => r.source),
-      { key: "nav-stillinger", label: "Workforce signals", status: "NOT_AVAILABLE", note: "krever auth" },
       { key: "nyheter", label: "Market signals", status: "NOT_AVAILABLE", note: "ikke koblet" },
       { key: "ssb-bransje", label: "Industry context", status: "NOT_AVAILABLE", note: "ikke koblet" },
     ];
@@ -407,7 +410,7 @@ export class ResearchOrchestrator {
       { stage: "Leadership & governance", status: leadership.length ? ("done" as const) : ("pending" as const) },
       { stage: "Financial profile", status: financial ? ("done" as const) : ("pending" as const) },
       { stage: "Digital footprint", status: digital?.fetched ? ("done" as const) : ("pending" as const) },
-      { stage: "Workforce signals", status: "not_available" as const },
+      { stage: "Workforce signals", status: navResult.source.status === "AVAILABLE" ? ("done" as const) : ("pending" as const) },
       { stage: "Market signals", status: "not_available" as const },
       { stage: "Industry context", status: "not_available" as const },
     ];

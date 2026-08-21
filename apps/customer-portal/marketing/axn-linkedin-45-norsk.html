@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARCH AXN — LinkedIn 4:5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root{
+    --navy:#061A40; --accent:#0066FF; --secondary:#33A1FF; --bg:#FFFFFF;
+    --dark:#020B1A; --slate:#64748d; --border:#E5EDF5;
+  }
+  html,body{ background:#fff; font-family:Inter,-apple-system,'Segoe UI',Roboto,sans-serif; }
+  .canvas{
+    width:1080px; height:1350px; background:var(--bg); overflow:hidden; position:relative;
+    display:flex; flex-direction:column;
+  }
+  .hero{
+    background:linear-gradient(160deg,var(--navy) 0%,#041027 100%);
+    color:#fff; padding:64px 72px 56px; position:relative;
+  }
+  .hero:after{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(700px 360px at 88% -8%, rgba(0,102,255,.30), transparent 70%);
+    pointer-events:none;
+  }
+  .brand{ display:flex; align-items:center; gap:16px; margin-bottom:40px; position:relative; z-index:1; }
+  .brand svg{ height:44px; width:auto; }
+  .brand .wordmark{ font-size:30px; font-weight:800; letter-spacing:-.02em; color:#fff; }
+  .brand .wordmark span{ color:var(--secondary); }
+  .kicker{ display:inline-flex; align-items:center; gap:10px; background:rgba(0,102,255,.15); border:1px solid rgba(0,102,255,.35); color:#cfe3ff; font-size:15px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; padding:10px 18px; border-radius:999px; margin-bottom:30px; position:relative; z-index:1; }
+  .kicker:before{ content:""; width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow:0 0 12px var(--accent); }
+  .hero h1{ font-size:58px; font-weight:800; letter-spacing:-.03em; line-height:1.04; margin-bottom:24px; position:relative; z-index:1; }
+  .hero h1 em{ color:var(--secondary); font-style:normal; }
+  .hero p{ color:#aebcd4; font-size:20px; font-weight:400; max-width:760px; line-height:1.5; position:relative; z-index:1; }
+
+  .pillars{ display:grid; grid-template-columns:repeat(5,1fr); gap:14px; padding:52px 72px 16px; }
+  .pillar{ background:#F6F9FE; border:1px solid var(--border); border-radius:16px; padding:20px 18px; }
+  .pillar .tag{ font-size:13px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--accent); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+  .pillar .tag:before{ content:""; width:7px; height:7px; border-radius:2px; background:var(--accent); }
+  .pillar ul{ list-style:none; }
+  .pillar li{ font-size:14px; color:var(--slate); font-weight:500; padding:6px 0; border-bottom:1px dashed #E5EDF5; line-height:1.35; }
+  .pillar li:last-child{ border-bottom:none; }
+  .pillar li b{ color:var(--navy); font-weight:600; }
+
+  .streak{ display:flex; align-items:center; justify-content:center; gap:8px; padding:8px 72px 14px; color:var(--accent); font-weight:600; font-size:14px; letter-spacing:.06em; }
+  .streak .dotrows{ display:flex; gap:28px; align-items:center; }
+  .streak i{ width:28px; height:28px; border-radius:9px; display:inline-block; }
+
+  .grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:12px; padding:6px 72px 8px; }
+  .card{ background:#fff; border:1px solid var(--border); border-radius:14px; padding:16px 14px; display:flex; flex-direction:column; gap:8px; }
+  .card .n{ width:30px; height:30px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; color:#fff; background:var(--accent); }
+  .card .t{ font-size:14px; color:var(--navy); font-weight:600; line-height:1.3; }
+  .card .d{ font-size:12.5px; color:var(--slate); font-weight:400; line-height:1.4; }
+
+  .footer{ background:var(--dark); color:#fff; padding:40px 72px 44px; display:flex; align-items:center; justify-content:space-between; gap:24px; margin-top:16px; }
+  .footer .left b{ color:#fff; font-weight:700; font-size:20px; display:block; }
+  .footer .left span{ color:#8295b3; font-size:15px; display:block; margin-top:6px; line-height:1.4; max-width:520px; }
+  .footer .cta{ background:var(--accent); color:#fff; font-size:15px; font-weight:600; padding:16px 28px; border-radius:12px; text-decoration:none; white-space:nowrap; }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="hero">
+    <div class="brand">
+      <svg width="36" height="36" viewBox="0 0 40 40" role="img" aria-label="ARCH AXN">
+        <path d="M5 35 L20 5 L35 35" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M13 25 Q20 19 27 25" stroke="#33A1FF" stroke-width="4" stroke-linecap="round" fill="none"/>
+      </svg>
+      <div class="wordmark">ARCH <span>AXN</span></div>
+    </div>
+    <div class="kicker">Evidensbasert AI Business Intelligence</div>
+    <h1>50 evidensbaserte signaler AXN kartlegger i ditt <em>selskap</em></h1>
+    <p>Arch gjetter aldri. Den observerer offentlige og interne kilder, skiller observasjon fra evidens fra anbefaling — og sier fra når evidensen mangler.</p>
+  </div>
+
+  <div class="pillars">
+    <div class="pillar">
+      <div class="tag">Identitet</div>
+      <ul><li><b>01</b> Juridisk enhet</li><li><b>02</b> Registersnapshot</li><li><b>03</b> Eierskap</li><li><b>04</b> Styre &amp; ledelse</li><li><b>05</b> Bransjekode</li></ul>
+    </div>
+    <div class="pillar">
+      <div class="tag">Styring</div>
+      <ul><li><b>06</b> Struktur</li><li><b>07</b> Konsernlenker</li><li><b>08</b> Innleveringsstatus</li><li><b>09</b> Beslutningsnivåer</li><li><b>10</b> Forpliktelser</li></ul>
+    </div>
+    <div class="pillar">
+      <div class="tag">Sikkerhet</div>
+      <ul><li><b>11</b> Angrepsflate</li><li><b>12</b> DNS &amp; e-post</li><li><b>13</b> TLS-helse</li><li><b>14</b> Eksponerte tjenester</li><li><b>15</b> Herdning</li></ul>
+    </div>
+    <div class="pillar">
+      <div class="tag">Compliance</div>
+      <ul><li><b>16</b> Personvern</li><li><b>17</b> Regulert eksponering</li><li><b>18</b> Samtykkemønstre</li><li><b>19</b> Lisensdekning</li><li><b>20</b> Audit-klar</li></ul>
+    </div>
+    <div class="pillar">
+      <div class="tag">Drift</div>
+      <ul><li><b>21</b> Tilgjengelighet</li><li><b>22</b> Lanseringshygiene</li><li><b>23</b> Konfigurasjonsdrift</li><li><b>24</b> Avhengighetseksponering</li><li><b>25</b> Overvåking</li></ul>
+    </div>
+  </div>
+
+  <div class="streak">+ 25 flere signaler</div>
+
+  <div class="grid">
+    <div class="card"><div class="t">26. Kart over offentlige kilder</div><div class="d">Verifiserbare kilder om selskapet.</div></div>
+    <div class="card"><div class="t">27. Business-signaler</div><div class="d">Utledet kun fra disse kildene.</div></div>
+    <div class="card"><div class="t">28. Evidenskjede</div><div class="d">Hver påstand lenkes til kilden.</div></div>
+    <div class="card"><div class="t">29. Proveniens-status</div><div class="d">observert · foreldet · ukjent · feil.</div></div>
+    <div class="card"><div class="t">30. Ærlighet om det ukjente</div><div class="d">Fabrikkerer aldri. Rapporterer hull.</div></div>
+    <div class="card"><div class="t">31. Helseindeks</div><div class="d">Styring · sikkerhet · utvikling · drift · dokumentasjon.</div></div>
+    <div class="card"><div class="t">32. Sårbarheter</div><div class="d">Overflatesignaler, ikke pentest.</div></div>
+    <div class="card"><div class="t">33. E-post-sikkerhet</div><div class="d">SPF, DKIM, DMARC-stilling.</div></div>
+    <div class="card"><div class="t">34. DNS-hygiene</div><div class="d">Oppføringer og feilkonfigurasjoner.</div></div>
+    <div class="card"><div class="t">35. Sertifikater</div><div class="d">Utløp, dekning, kjede-feil.</div></div>
+    <div class="card"><div class="t">36. AI-først-oppdagelse</div><div class="d">Arch forsker — ingen skjema å fylle.</div></div>
+    <div class="card"><div class="t">37. Selskapstilpasning</div><div class="d">Kartlegger selskapet mot relevante kontroller.</div></div>
+    <div class="card"><div class="t">38. Prioriterte spørsmål</div><div class="d">Rangér høy-friksjonsområder.</div></div>
+    <div class="card"><div class="t">39. Hull-deteksjon</div><div class="d">Manglende evidens synlig, ikke skjult.</div></div>
+    <div class="card"><div class="t">40. Anbefaling</div><div class="d">Atskilt fra observasjon.</div></div>
+    <div class="card"><div class="t">41. Kunnskapsgraf</div><div class="d">Relasjonelt kart over enheter.</div></div>
+    <div class="card"><div class="t">42. Sporbarhet</div><div class="d">Hver beslutning sporbar til evidens.</div></div>
+    <div class="card"><div class="t">43. Beslutningslogg</div><div class="d">Hva Arch bestemte og hvorfor.</div></div>
+    <div class="card"><div class="t">44. Læringsarkiv</div><div class="d">Feil og mønstre føres videre.</div></div>
+    <div class="card"><div class="t">45. Revisjonsspor</div><div class="d">Reproduserbart, datert, tilskrivbart.</div></div>
+    <div class="card"><div class="t">46. Leverandørstilling</div><div class="d">Vurder leverandører du er avhengig av.</div></div>
+    <div class="card"><div class="t">47. Regulering</div><div class="d">Finn regulerte kanter av en virksomhet.</div></div>
+    <div class="card"><div class="t">48. Tredjeparts-overflate</div><div class="d">Hva en partner eksponerer om deg.</div></div>
+    <div class="card"><div class="t">49. Benchmark-kontekst</div><div class="d">Signaler i kontekst, ikke rå tall.</div></div>
+    <div class="card"><div class="t">50. Kontinuerlig overvåking</div><div class="d">Kontrollerer på nytt når kilder endres.</div></div>
+  </div>
+
+  <div class="footer">
+    <div class="left">
+      <b>ARCH AXN</b>
+      <span>Kjør en audit på ditt eget selskap på minutter.</span>
+    </div>
+    <a class="cta" href="https://arch.axn.no/start">Start en audit →</a>
+  </div>
+</div>
+</body>
+</html>
