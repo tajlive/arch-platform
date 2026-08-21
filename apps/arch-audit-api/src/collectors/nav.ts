@@ -146,6 +146,9 @@ export class NavAdapter {
   }
 
   // Henter ACTIVE stillinger for et orgnr — bruker If-Modified-Since for nylige annonser
+  // YTELSESSIKRING (2026-08-21): NAV-feed har THOUSANDS av ACTIVE stillinger/side.
+  // Ett fetchFeedEntry-kall per stilling er en performansebombe (titusenvis av HTTP-kall → >60s hang).
+  // Begrenser: maxPages, maxDetailCalls, total deadline. Returnerer tidlig ved funn.
   async searchByOrgNumber(orgNumber: string): Promise<NavFeedItem[]> {
     const token = await this.getPublicToken();
     if (!token) return [];
@@ -153,18 +156,23 @@ export class NavAdapter {
     const results: NavFeedItem[] = [];
     let pageUrl: string | null = "/api/v1/feed";
     let pagesFetched = 0;
-    const maxPages = 5; // ~5000 items
+    let detailCalls = 0;
+    const maxPages = 2;            // ~2000 items — stopp tidlig
+    const maxDetailCalls = 40;     // maks 40 detail-kall totalt
+    const deadline = Date.now() + 8_000; // total 8s — returner tidlig ved funn
     // Hent kun annonser fra de siste 30 dagene
     const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toUTCString();
 
-    while (pageUrl && pagesFetched < maxPages) {
+    while (pageUrl && pagesFetched < maxPages && Date.now() < deadline) {
       const page = await this.fetchFeedPage(pageUrl, token, thirtyDaysAgo);
       if (!page) break;
 
       for (const item of page.items) {
+        if (Date.now() >= deadline || detailCalls >= maxDetailCalls) break;
         const entry = item._feed_entry;
         if (entry.status === "ACTIVE" && entry.businessName) {
-          // Hent detaljer for å få orgnr
+          // Ytelse: kap antall detail-kall globalt
+          detailCalls++;
           const detail = await this.fetchFeedEntry(item.url, token);
           if (detail?.json?.employer?.orgnr === orgNumber) {
             results.push(item);
@@ -175,8 +183,8 @@ export class NavAdapter {
       pageUrl = page.next_url;
       pagesFetched++;
 
-      // Lille pause for å være hyggelig
-      if (pageUrl) await new Promise(r => setTimeout(r, 100));
+      // Lille pause for å være hyggelig (unngå rate-limit)
+      if (pageUrl && Date.now() < deadline) await new Promise(r => setTimeout(r, 50));
     }
 
     return results;

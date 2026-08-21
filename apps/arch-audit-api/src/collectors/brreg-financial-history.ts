@@ -2,9 +2,9 @@
 // Henter historiske regnskap (tidsserier) fra Brreg og normaliserer til
 // FinancialProfile-objekter. Genererer trend-analyser (marginer, EK-ratio, vekst).
 //
-// Brreg-regnskapsregisteret returnerer kun siste regnskapsår per kjøring.
-// Denne collector-en henter så mange som mulig via paginert list, normaliserer
-// hvert år, og bygger en analytisk historikk med trender og år-over-år-vekst.
+// Brreg-regnskapsregisteret eksponerer tilgjengelige rapporteringsperioder per
+// virksomhet. Collector-en normaliserer dem til et historikkformat og bygger
+// trender når kilden faktisk inneholder flere enn én periode.
 
 import { RawEvidence } from "../evidence-graph";
 import { FinancialProfile } from "../research-orchestrator";
@@ -142,14 +142,14 @@ function equityRatio(fp: FinancialProfile): number | null {
 
 export class BrregFinancialHistoryCollector {
   private readonly baseUrl = "https://data.brreg.no/regnskapsregisteret/regnskap";
-  private readonly maxYears = 8; // preferer å hente opp til 8 år
-
   constructor(private readonly fetcher: typeof fetch = fetch) {}
 
   async collect(orgNumber: string, companyName?: string): Promise<HistoryCollectorResult> {
     const raw: RawEvidence[] = [];
     try {
-      // Hent så mange regnskapsår som mulig (Brreg returnerer en liste)
+      // Bruk samme kanoniske ressurs som den løpende finansprofilen. Brreg
+      // ignorerer ikke nødvendigvis `size`, men den parameteren har gitt et
+      // annet resultat fra Workers enn fra lokal kjøring.
       const years = await this.fetchYears(orgNumber);
       if (years.length === 0) {
         return { raw, history: null, error: "Ingen regnskapsdata funnet" };
@@ -192,13 +192,13 @@ export class BrregFinancialHistoryCollector {
   }
 
   private async fetchYears(orgNumber: string): Promise<Array<{ period: string; data: Record<string, unknown> }>> {
-    const resp = await this.fetcher(`${this.baseUrl}/${orgNumber}?size=${this.maxYears}`, {
+    const resp = await this.fetcher(`${this.baseUrl}/${orgNumber}`, {
       headers: { "Accept": "application/json", "User-Agent": "Arch-Audit/0.1" },
       signal: AbortSignal.timeout(10_000),
     });
-    if (!resp.ok) return [];
+    if (!resp.ok) throw new Error(`Brreg regnskapsregister svarte HTTP ${resp.status}`);
     const value = (await resp.json()) as unknown;
-    if (!Array.isArray(value)) return [];
+    if (!Array.isArray(value)) throw new Error("Brreg regnskapsregister returnerte ugyldig svarformat");
 
     return value.flatMap((item) => {
       const ra = asRecord(item);

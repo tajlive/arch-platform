@@ -37,7 +37,7 @@ export interface DigitalFootprint {
   fetched: boolean;
 }
 
-export type SourceStatus = "AVAILABLE" | "NOT_AVAILABLE" | "EMPTY";
+export type SourceStatus = "AVAILABLE" | "NOT_AVAILABLE" | "EMPTY" | "ERROR";
 
 export interface EvidenceSource {
   key: string;
@@ -406,6 +406,13 @@ export class ResearchOrchestrator {
 
     const sources: EvidenceSource[] = [
       ...collectorResults.map((r) => r.source),
+      {
+        key: "brreg-regnskap-historikk",
+        label: "Financial history",
+        status: historyResult.history ? "AVAILABLE" : historyResult.error ? "ERROR" : "EMPTY",
+        fetched_at: financialFetchedAt,
+        note: historyResult.error,
+      },
       { key: "nyheter", label: "Market signals", status: "NOT_AVAILABLE", note: "ikke koblet" },
       { key: "ssb-bransje", label: "Industry context", status: "NOT_AVAILABLE", note: "ikke koblet" },
     ];
@@ -414,6 +421,7 @@ export class ResearchOrchestrator {
       { stage: "Company identity", status: "done" as const },
       { stage: "Leadership & governance", status: leadership.length ? ("done" as const) : ("pending" as const) },
       { stage: "Financial profile", status: financial ? ("done" as const) : ("pending" as const) },
+      { stage: "Financial history", status: historyResult.history ? ("done" as const) : ("pending" as const) },
       { stage: "Digital footprint", status: digital?.fetched ? ("done" as const) : ("pending" as const) },
       { stage: "Workforce signals", status: navResult.source.status === "AVAILABLE" ? ("done" as const) : ("pending" as const) },
       { stage: "Market signals", status: "not_available" as const },

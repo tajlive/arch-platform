@@ -69,6 +69,19 @@ describe("BrregFinancialHistoryCollector", () => {
     expect(result.history).toBeNull();
   });
 
+  it("bruker den kanoniske Brreg-ressursen uten query-parametere", async () => {
+    let requestedUrl = "";
+    const fetcher = (async (input: RequestInfo | URL) => {
+      requestedUrl = String(input);
+      return new Response(JSON.stringify(alfaSkoResponse), { status: 200 });
+    }) as unknown as typeof fetch;
+    const collector = new BrregFinancialHistoryCollector(fetcher);
+
+    await collector.collect("951001880");
+
+    expect(requestedUrl).toBe("https://data.brreg.no/regnskapsregisteret/regnskap/951001880");
+  });
+
   it("bygger evidens-entries for hvert år", async () => {
     const fetcher = (async () => new Response(JSON.stringify(alfaSkoResponse), { status: 200 })) as unknown as typeof fetch;
     const collector = new BrregFinancialHistoryCollector(fetcher);
