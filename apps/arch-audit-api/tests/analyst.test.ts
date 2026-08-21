@@ -213,14 +213,14 @@ describe("parseAnalystJson", () => {
   it("retter observerte bokmålsavvik i kundesvaret", () => {
     const raw = JSON.stringify({
       analyst: {
-        summary: "SMILE PIZZA er en registrert enhetsbasert bedrift i restaurantbranchen med nettresultat på 42 271 NOK.",
+        summary: "SMILE PIZZA er en registrert enhetsbaserte selskapet i restaurantbranchens med nettresultatet på 42 271 NOK.",
         strengths: [],
         weaknesses: [],
         priorities: [],
       },
     });
     const output = parseAnalystJson(raw, "997788648", "SMILE PIZZA & GRILL AS", "nvidia", "nemotron", 0, 0);
-    expect(output.analyst.summary).toBe("SMILE PIZZA er en registrert virksomhet i restaurantbransjen med årsresultat på 42 271 NOK.");
+    expect(output.analyst.summary).toBe("SMILE PIZZA er en registrert virksomhet i restaurantbransjens med årsresultat på 42 271 NOK.");
   });
 });
 

@@ -120,9 +120,10 @@ export type AnalystResult =
  */
 const NORWEGIAN_TERM_REPAIRS: ReadonlyArray<readonly [RegExp, string]> = [
   [/\bbranchens\b/gi, "bransjens"],
+  [/\bbranschen\b/gi, "bransjen"],
   [/\bbranchen\b/gi, "bransjen"],
-  [/\b(?:registrert\s+)?enhetsbasert\s+(?:bedrift|virksomhet)\b/gi, "registrert virksomhet"],
-  [/\bnettresultat\b/gi, "årsresultat"],
+  [/\b(?:registrert\s+)?enhetsbasert[a-zæøå]*\s+(?:bedrift|virksomhet|selskap)[a-zæøå]*\b/gi, "registrert virksomhet"],
+  [/\bnettresultat[a-zæøå]*\b/gi, "årsresultat"],
   [/\bdriftsoverresult[a-zæøå]*\b/gi, "driftsresultat"],
   [/\bdriftsovertak[a-zæøå]*\b/gi, "driftsresultat"],
 ];
@@ -138,10 +139,10 @@ export const DISALLOWED_ANALYST_TERMS = [
 ] as const;
 
 function normalizeNorwegianCopy(value: unknown): string {
-  const withCompoundBranch = String(value ?? "").trim().replace(
-    /\b([a-zæøå]+)branchen\b/gi,
-    (_match, prefix: string) => `${prefix}bransjen`
-  );
+  const withCompoundBranch = String(value ?? "").trim()
+    .replace(/\b([a-zæøå]+)branchens\b/gi, (_match, prefix: string) => `${prefix}bransjens`)
+    .replace(/\b([a-zæøå]+)branschen\b/gi, (_match, prefix: string) => `${prefix}bransjen`)
+    .replace(/\b([a-zæøå]+)branchen\b/gi, (_match, prefix: string) => `${prefix}bransjen`);
   return NORWEGIAN_TERM_REPAIRS.reduce(
     (text, [pattern, replacement]) => text.replace(pattern, (match) => {
       if (match === match.toUpperCase()) return replacement.toUpperCase();
