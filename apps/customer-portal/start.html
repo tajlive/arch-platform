@@ -25,7 +25,7 @@
   <header class="site-header">
     <div class="wrap nav">
       <a href="index.html" class="brand">
-        <img src="assets/logo-full-color.png" alt="ARCH AXN - AI-Powered Business Intelligence" class="brand-logo" />
+        <img src="assets/logo-full-color.png" alt="ARCH AXN - KI-drevet virksomhetsinnsikt" class="brand-logo" />
       </a>
       <nav class="nav-links">
         <a href="index.html#how">Slik fungerer det</a>
@@ -40,11 +40,11 @@
   <section class="audit-hero">
     <div class="wrap audit-hero-inner">
       <span class="eyebrow">Selskapskartlegging</span>
-      <h1>Finn virksomheten. Arch bygger et dokumentert kunnskapsgrunnlag fra åpne kilder.</h1>
-      <p class="lede">Arch henter virksomhetsprofil, bransjekontekst og offentlige signaler før det stilles relevante spørsmål.</p>
+      <h1>Finn virksomheten. Arch samler et dokumentert beslutningsgrunnlag fra åpne kilder.</h1>
+      <p class="lede">Arch henter virksomhetsprofil, bransjekontekst og offentlige signaler før vi stiller relevante spørsmål.</p>
       <div class="trust-row">
         <span class="trust-pill">Utviklet av Arch AXN</span>
-        <span class="trust-pill">Dokumentert analyse</span>
+        <span class="trust-pill">Bygger på dokumenterte kilder</span>
       </div>
 
       <!-- Search -->
@@ -59,7 +59,7 @@
           <input type="text" id="company-input" placeholder="Organisasjonsnummer, firmanavn eller nettside" autocomplete="off" aria-label="Søk etter virksomhet" />
           <button class="btn btn-primary" id="discover-btn">Kartlegg virksomheten</button>
         </div>
-        <p class="search-note" id="status-note">Arch starter med bekreftede virksomhetsopplysninger og gjetter ikke.</p>
+        <p class="search-note" id="status-note" aria-live="polite">Arch starter med bekreftede virksomhetsopplysninger og gjetter ikke.</p>
         <div class="company-picker" id="company-picker" hidden>
           <div class="company-picker-head">
             <span>Flere virksomheter funnet — velg riktig:</span>
@@ -111,13 +111,13 @@
           <h2 class="panel-title">Kunnskapskart</h2>
           <span class="mockup-tag">Dokumenterte offentlige kilder</span>
         </div>
-        <p class="panel-sub">Selskapet i sentrum, koblet til dokumenterte kilder og kartlagte faktaområder. Klikk på en node for detaljer.</p>
+        <p class="panel-sub">Virksomheten er koblet til dokumenterte kilder og kartlagte faktaområder. Velg en node for detaljer.</p>
         <div class="intel-map-wrap">
           <svg id="intel-map-svg" viewBox="0 0 760 600" role="img" aria-label="Kunnskapskart over virksomheten"></svg>
           <div class="map-legend">
             <span class="lg"><span class="dot" style="background:#061A40"></span>Virksomhet</span>
             <span class="lg"><span class="dot" style="background:#0066FF"></span>Faktaområde</span>
-            <span class="lg"><span class="dot" style="background:#0E9F54"></span>Dokumentert kilde</span>
+            <span class="lg"><span class="dot" style="background:#0E9F54"></span>Dokumentert opplysning</span>
           </div>
         </div>
         <div class="intel-map-detail" id="map-detail">
@@ -144,8 +144,8 @@
 
       <!-- Executive discovery question -->
       <div class="engine-panel" id="friction-panel" hidden>
-        <h2 class="panel-title">Hvor opplever dere mest friksjon i dag?</h2>
-        <p class="panel-sub">Valget avgrenser kartleggingen, men erstatter aldri dokumentasjon.</p>
+        <h2 class="panel-title">Hva vil du se nærmere på?</h2>
+        <p class="panel-sub">Velg et område. Arch stiller ett konkret oppfølgingsspørsmål basert på det som er dokumentert.</p>
         <div class="friction-grid" id="friction-grid">
           <button class="friction-card" data-area="Kundekommunikasjon"><span class="friction-icon">📞</span>Kundekommunikasjon</button>
           <button class="friction-card" data-area="Administrasjon"><span class="friction-icon">🗂️</span>Administrasjon</button>
@@ -153,7 +153,7 @@
           <button class="friction-card" data-area="Drift"><span class="friction-icon">⚙️</span>Drift</button>
           <button class="friction-card" data-area="Salg"><span class="friction-icon">📊</span>Salg</button>
         </div>
-        <p class="panel-note" id="friction-note">Arch skiller mellom observasjoner, dokumentasjon og anbefalinger.</p>
+        <p class="panel-note" id="friction-note" aria-live="polite">Arch skiller mellom fakta, tolkninger og hypoteser.</p>
       </div>
 
       <!-- Audit conversation -->
@@ -166,10 +166,10 @@
       <div class="engine-panel" id="analyst-panel" hidden>
         <div class="brief-header">
           <h2 class="panel-title">Arch Analytiker</h2>
-          <span class="mockup-tag">Evidensbasert · 0 antakelser</span>
+          <span class="mockup-tag">Dokumenterte kilder · ingen gjetting</span>
         </div>
         <div id="analyst-body">
-          <p class="panel-sub">Velg et fokusområde over for å få Arch sin dokumenterte analyse.</p>
+          <p class="panel-sub">Velg et område over for å få en dokumentert analyse fra Arch.</p>
         </div>
       </div>
 
@@ -179,7 +179,7 @@
   <!-- Trust element -->
   <section class="audit-trust">
     <div class="wrap">
-      <p>«Arch gjetter ikke. Det skiller mellom observasjoner, dokumentasjon og anbefalinger.»</p>
+      <p>«Arch gjetter ikke. Det skiller tydelig mellom fakta, tolkninger og hypoteser.»</p>
     </div>
   </section>
 
@@ -218,6 +218,7 @@
       let selectedArea = null;
       let analystDisclaimer = "";
       let currentAnalystFocus = null;
+      let analystRequest = 0;
 
       function setState(id, state) {
         // state: 0 = pending, 1 = active, 2 = done
@@ -237,6 +238,25 @@
         div.className = "msg ai";
         div.textContent = text;
         log.appendChild(div);
+      }
+
+      function setAnalystMessage(message) {
+        analystBody.replaceChildren();
+        const text = document.createElement("p");
+        text.className = "panel-sub";
+        text.textContent = message;
+        analystBody.appendChild(text);
+      }
+
+      function analystErrorMessage(payload) {
+        const code = payload && payload.error && payload.error.code;
+        if (code === "ANALYST_UNAVAILABLE" || code === "LLM_FAILED") {
+          return "Analysen er midlertidig opptatt. Prøv igjen om et lite øyeblikk.";
+        }
+        if (code === "COMPANY_NOT_FOUND") {
+          return "Vi mangler et tilstrekkelig grunnlag for å lage analysen av denne virksomheten.";
+        }
+        return "Vi kunne ikke fullføre analysen nå. Prøv igjen.";
       }
 
       function setFrictionControlsDisabled(disabled) {
@@ -265,11 +285,18 @@
 
       async function discover() {
         const q = input.value.trim();
-        if (!q) return;
+        if (!q) {
+          statusNote.textContent = "Skriv inn organisasjonsnummer, navn eller nettside for å starte kartleggingen.";
+          input.focus();
+          return;
+        }
         contextId = null;
         selectedArea = null;
         questionLoading = false;
         questionRequest++;
+        analystRequest++;
+        currentAnalystFocus = null;
+        analystDisclaimer = "";
         log.innerHTML = "";
         setFrictionControlsDisabled(false);
         discoverBtn.disabled = true;
@@ -281,6 +308,7 @@
         profilePanel.hidden = true;
         frictionPanel.hidden = true;
         conversationPanel.hidden = true;
+        analystPanel.hidden = true;
         const mapPanelReset = document.getElementById("map-panel");
         if (mapPanelReset) { mapPanelReset.hidden = true; }
         const mapDetailReset = document.getElementById("map-detail");
@@ -389,11 +417,11 @@
             frictionPanel.hidden = false;
           }, 500);
 
-          statusNote.textContent = "Grunnlaget for " + company.company_name + " er klart. Velg området dere vil starte med.";
+          statusNote.textContent = "Opplysningene om " + company.company_name + " er klare. Velg hva du vil se nærmere på.";
 
         } catch (err) {
-          statusNote.textContent = "Noe gikk galt. Prøv igjen.";
-          addMsg("Noe gikk galt under kartleggingen. Prøv igjen.");
+          statusNote.textContent = "Vi kunne ikke kartlegge virksomheten nå. Prøv igjen.";
+          addMsg("Vi kunne ikke fullføre kartleggingen nå. Prøv igjen.");
           conversationPanel.hidden = false;
         } finally {
           discoverBtn.disabled = false;
@@ -492,11 +520,7 @@
 
       function fmtMoney(n) {
         if (n == null) return "—";
-        const abs = Math.abs(n);
-        if (abs >= 1e9) return (n / 1e9).toFixed(1) + " bn";
-        if (abs >= 1e6) return (n / 1e6).toFixed(1) + " mn";
-        if (abs >= 1e3) return (n / 1e3).toFixed(0) + " k";
-        return String(n);
+        return new Intl.NumberFormat("nb-NO", { maximumFractionDigits: 0 }).format(n);
       }
 
       // ──────────────────────────────────────────────────────────────
@@ -516,13 +540,18 @@
         "ssb-bransje": "Bransjekontekst",
       };
 
+      function sourceStatusLabel(confidence) {
+        return confidence === "VERIFIED" ? "Bekreftet" : confidence === "DOCUMENTED" ? "Dokumentert" : "Kontrollert";
+      }
+
       // ── Arch Analyst: kall LLM-ruten og render dokumentert analyse ──
       async function renderAnalyst(orgNumber, area, areaLabel) {
         if (!orgNumber) return;
         currentAnalystFocus = area.trim().toLowerCase();
+        const requestId = ++analystRequest;
         analystPanel.hidden = false;
         analystPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        analystBody.innerHTML = "<p class=\"panel-sub\">Arch analyserer dokumenterte signaler for <strong>" + areaLabel + "</strong>…</p>";
+        setAnalystMessage("Arch analyserer dokumenterte opplysninger om " + areaLabel + "…");
         try {
           const res = await fetch(API + "/v1/public/company/analyst", {
             method: "POST",
@@ -531,36 +560,48 @@
           });
           if (!res.ok) {
             const err = await res.json().catch(function () { return null; });
-            analystBody.innerHTML = "<p class=\"panel-sub\">" + ((err && err.error && err.error.message) || "Analytikeren er midlertidig utilgjengelig. Prøv igjen senere.") + "</p>";
+            if (requestId === analystRequest) setAnalystMessage(analystErrorMessage(err));
             return;
           }
           const data = await res.json();
+          if (requestId !== analystRequest) return;
           analystDisclaimer = (data.provenance && data.provenance.disclaimer) || "";
-          renderAnalystResult(data.analyst || {}, data.model || null);
+          renderAnalystResult(data.analyst || {});
         } catch (err) {
-          analystBody.innerHTML = "<p class=\"panel-sub\">Noe gikk galt under analysen. Prøv igjen.</p>";
+          if (requestId === analystRequest) setAnalystMessage("Vi kunne ikke fullføre analysen nå. Prøv igjen.");
         }
       }
 
-      function renderAnalystResult(analyst, model) {
-        analystBody.innerHTML = "";
+      function createTextElement(tag, className, text) {
+        const element = document.createElement(tag);
+        if (className) element.className = className;
+        element.textContent = text;
+        return element;
+      }
+
+      function kindLabel(kind) {
+        return { FACT: "Fakta", INTERPRETATION: "Tolkning", HYPOTHESIS: "Hypotese" }[kind] || "Tolkning";
+      }
+
+      function renderAnalystResult(analyst) {
+        analystBody.replaceChildren();
         const summary = document.createElement("p");
         summary.className = "analyst-summary";
-        summary.textContent = analyst.summary || "Ingen verifisert syntese tilgjengelig.";
+        summary.textContent = analyst.summary || "Ingen dokumentert oppsummering er tilgjengelig.";
         analystBody.appendChild(summary);
 
         // Strengths
         if (analyst.strengths && analyst.strengths.length) {
           analystBody.appendChild(sectionHeader("Styrker"));
           analyst.strengths.forEach(function (s, idx) {
-            analystBody.appendChild(findingRow(s.claim, s.evidence_refs, "strength", undefined, "strength", idx));
+            analystBody.appendChild(findingRow(s.claim, s.evidence_refs, "strength", "strength", idx, s.kind));
           });
         }
         // Weaknesses
         if (analyst.weaknesses && analyst.weaknesses.length) {
           analystBody.appendChild(sectionHeader("Svakheter"));
           analyst.weaknesses.forEach(function (w, idx) {
-            analystBody.appendChild(findingRow(w.claim, w.evidence_refs, "weakness", undefined, "weakness", idx));
+            analystBody.appendChild(findingRow(w.claim, w.evidence_refs, "weakness", "weakness", idx, w.kind));
           });
         }
         // Priorities
@@ -576,7 +617,8 @@
           analyst.unknowns.forEach(function (u) {
             const row = document.createElement("div");
             row.className = "analyst-unknown";
-            row.innerHTML = "<span class=\"analyst-q\">" + u.question + "</span><span class=\"analyst-why\">" + u.why + "</span>";
+            row.appendChild(createTextElement("span", "analyst-q", u.question));
+            row.appendChild(createTextElement("span", "analyst-why", u.why));
             analystBody.appendChild(row);
           });
         }
@@ -587,13 +629,6 @@
           disc.textContent = analystDisclaimer;
           analystBody.appendChild(disc);
         }
-        // Modell-info (sporbarhet)
-        if (model && model.model) {
-          const meta = document.createElement("p");
-          meta.className = "analyst-meta";
-          meta.textContent = "Modell: " + model.model + " · " + (model.tokens ? model.tokens.output + " tokener" : "");
-          analystBody.appendChild(meta);
-        }
       }
 
       function sectionHeader(text) {
@@ -603,17 +638,15 @@
         return h;
       }
 
-      function findingRow(claim, refs, kind, rank, findingType, findingIndex) {
+      function findingRow(claim, refs, variant, findingType, findingIndex, findingKind) {
         const row = document.createElement("div");
-        row.className = "analyst-finding " + kind;
-        const icon = kind === "strength" ? "✓" : kind === "weakness" ? "⚠" : kind === "priority" ? "#" : "·";
-        row.innerHTML = "<span class=\"analyst-icon\">" + icon + "</span><span class=\"analyst-claim\">" +
-          (rank ? rank + ". " : "") + claim + "</span>";
+        row.className = "analyst-finding " + variant;
+        const icon = variant === "strength" ? "✓" : variant === "weakness" ? "⚠" : "·";
+        row.appendChild(createTextElement("span", "analyst-icon", icon));
+        row.appendChild(createTextElement("span", "analyst-claim", claim));
+        row.appendChild(createTextElement("span", "analyst-tag kind-" + String(findingKind || "INTERPRETATION").toLowerCase(), kindLabel(findingKind)));
         if (refs && refs.length) {
-          const refSpan = document.createElement("span");
-          refSpan.className = "analyst-refs";
-          refSpan.textContent = "Kilde: " + refs.join(", ");
-          row.appendChild(refSpan);
+          row.appendChild(createTextElement("span", "analyst-refs", "Kilde: " + refs.join(", ")));
         }
         // Feedback-knapper (produktflyt-steg 7)
         row.appendChild(feedbackRow(findingType, findingIndex));
@@ -640,6 +673,10 @@
           btn.addEventListener("click", function () { submitFeedback(btn); });
           wrap.appendChild(btn);
         });
+        const status = document.createElement("span");
+        status.className = "analyst-feedback-status";
+        status.setAttribute("aria-live", "polite");
+        wrap.appendChild(status);
         return wrap;
       }
 
@@ -648,6 +685,8 @@
         const feedback = btn.dataset.feedback;
         const findingType = btn.dataset.findingType;
         const findingIndex = Number(btn.dataset.findingIndex);
+        const feedbackWrap = btn.closest(".analyst-feedback");
+        const feedbackStatus = feedbackWrap && feedbackWrap.querySelector(".analyst-feedback-status");
         btn.disabled = true;
         try {
           const res = await fetch(API + "/v1/public/analyst/feedback", {
@@ -665,11 +704,15 @@
           if (data.ok) {
             btn.textContent = "✓ Registrert";
             btn.classList.add("registered");
+            if (feedbackWrap) feedbackWrap.querySelectorAll("button").forEach(function (button) { button.disabled = true; });
+            if (feedbackStatus) feedbackStatus.textContent = "Takk for tilbakemeldingen.";
           } else {
             btn.disabled = false;
+            if (feedbackStatus) feedbackStatus.textContent = "Vi kunne ikke registrere tilbakemeldingen. Prøv igjen.";
           }
         } catch (e) {
           btn.disabled = false;
+          if (feedbackStatus) feedbackStatus.textContent = "Vi kunne ikke registrere tilbakemeldingen. Prøv igjen.";
         }
       }
 
@@ -677,23 +720,23 @@
         const effort = p.effort || "medium";
         const kind = p.kind || "INTERPRETATION";
         const effortLabels = { low: "Lav", medium: "Middels", high: "Høy" };
-        const kindLabels = { FACT: "Fakta", INTERPRETATION: "Tolkning", HYPOTHESIS: "Hypotese" };
         const row = document.createElement("div");
         row.className = "analyst-finding priority";
-        row.innerHTML =
-          "<span class=\"analyst-icon\">" + (p.rank || "#") + "</span>" +
-          "<div class=\"analyst-priority-body\">" +
-            "<span class=\"analyst-claim\">" + p.recommendation + "</span>" +
-            "<span class=\"analyst-priority-tags\">" +
-              "<span class=\"analyst-tag effort-" + effort + "\">Innsats: " + (effortLabels[effort] || effort) + "</span>" +
-              "<span class=\"analyst-tag\">Tid: " + (p.time_horizon || "?") + " dager</span>" +
-              "<span class=\"analyst-tag kind-" + kind.toLowerCase() + "\">" + (kindLabels[kind] || kind) + "</span>" +
-            "</span>" +
-            (p.expected_effect ? "<span class=\"analyst-effect\">Forventet effekt: " + p.expected_effect + "</span>" : "") +
-            (p.uncertainties && p.uncertainties.length ? "<span class=\"analyst-why\">Usikkerhet: " + p.uncertainties.join("; ") + "</span>" : "") +
-            (p.pre_work && p.pre_work.length ? "<span class=\"analyst-why\">Før tiltak: " + p.pre_work.join("; ") + "</span>" : "") +
-            (p.evidence_refs && p.evidence_refs.length ? "<span class=\"analyst-refs\">Kilde: " + p.evidence_refs.join(", ") + "</span>" : "") +
-          "</div>";
+        row.appendChild(createTextElement("span", "analyst-icon", String(p.rank || "#")));
+        const body = document.createElement("div");
+        body.className = "analyst-priority-body";
+        body.appendChild(createTextElement("span", "analyst-claim", p.recommendation));
+        const tags = document.createElement("span");
+        tags.className = "analyst-priority-tags";
+        tags.appendChild(createTextElement("span", "analyst-tag effort-" + effort, "Innsats: " + (effortLabels[effort] || effort)));
+        tags.appendChild(createTextElement("span", "analyst-tag", "Tidshorisont: " + (p.time_horizon || "?") + " dager"));
+        tags.appendChild(createTextElement("span", "analyst-tag kind-" + kind.toLowerCase(), kindLabel(kind)));
+        body.appendChild(tags);
+        if (p.expected_effect) body.appendChild(createTextElement("span", "analyst-effect", "Forventet effekt: " + p.expected_effect));
+        if (p.uncertainties && p.uncertainties.length) body.appendChild(createTextElement("span", "analyst-why", "Usikkerhet: " + p.uncertainties.join("; ")));
+        if (p.pre_work && p.pre_work.length) body.appendChild(createTextElement("span", "analyst-why", "Før tiltak: " + p.pre_work.join("; ")));
+        if (p.evidence_refs && p.evidence_refs.length) body.appendChild(createTextElement("span", "analyst-refs", "Kilde: " + p.evidence_refs.join(", ")));
+        row.appendChild(body);
         row.appendChild(feedbackRow("priority", findingIndex));
         return row;
       }
@@ -728,8 +771,8 @@
               key: "ev" + evidences.length,
               hub: e.source,
               label: evidLabel(e),
-              sub: e.confidence,
-              obs: e.observation,
+              sub: sourceStatusLabel(e.confidence),
+              obs: evidenceObservation(e),
               meta: e.metadata || {},
             });
           });
@@ -802,22 +845,27 @@
         const nodeData = [];
         nodeData.push({ key: "company", x: CX, y: CY, r: 50, label: c.company_name, sub: "", fill: "#061A40", text: "#fff", detail: [["Org.nr", c.org_number], ["Form", c.org_form || "—"]] });
         hubs.forEach(function (h, i) {
-          nodeData.push({ key: h.key, x: hubPos[i].x, y: hubPos[i].y, r: 30, label: h.label, sub: (evByHub[h.key] || []).length + " bevis", fill: "#0066FF", text: "#fff", detail: [["Kilde", SRC_LABELS[h.key] || h.label]] });
+          nodeData.push({ key: h.key, x: hubPos[i].x, y: hubPos[i].y, r: 30, label: h.label, sub: (evByHub[h.key] || []).length + " opplysninger", fill: "#0066FF", text: "#fff", detail: [["Kilde", SRC_LABELS[h.key] || h.label]] });
         });
         evidences.forEach(function (e) {
           const p = evPos[e.key];
           if (!p) return;
-          nodeData.push({ key: e.key, x: p.x, y: p.y, r: 18, label: e.label, sub: "", fill: "#0E9F54", text: "#fff", detail: [["Observasjon", e.obs], ["Konfidens", e.sub], ["Kilde", SRC_LABELS[e.hub] || e.hub]] });
+          nodeData.push({ key: e.key, x: p.x, y: p.y, r: 18, label: e.label, sub: "", fill: "#0E9F54", text: "#fff", detail: [["Opplysning", e.obs], ["Kildestatus", e.sub], ["Kilde", SRC_LABELS[e.hub] || e.hub]] });
         });
 
         function showDetail(node) {
           detailTitle.textContent = node.label;
-          let html = "<ul>";
+          detailBody.replaceChildren();
+          const list = document.createElement("ul");
           (node.detail || []).forEach(function (row) {
-            html += "<li><strong>" + row[0] + ":</strong> " + row[1] + "</li>";
+            const item = document.createElement("li");
+            const label = document.createElement("strong");
+            label.textContent = row[0] + ":";
+            item.appendChild(label);
+            item.appendChild(document.createTextNode(" " + row[1]));
+            list.appendChild(item);
           });
-          html += "</ul>";
-          detailBody.innerHTML = html || "<p>—</p>";
+          detailBody.appendChild(list);
           detailPanel.classList.add("visible");
         }
 
@@ -862,10 +910,10 @@
         if (first) { first.classList.add("selected"); showDetail(nodeData[0]); }
       }
 
-      function evidLabel(e) {
+      function evidenceObservation(e) {
         const t = e.type || "";
         const md = e.metadata || {};
-        if (t === "PERSON") return md.person_name || e.observation;
+        if (t === "PERSON") return md.person_name || e.observation || "Registrert person";
         if (t === "FINANCIAL_EVENT") {
           const metricLabels = {
             revenue: "Omsetning",
@@ -877,9 +925,9 @@
           };
           const name = metricLabels[md.metric] || md.metric || "Resultat";
           var v = md.value;
-          return name + ": " + (v != null ? fmtMoney(v) + " NOK" : "—");
+          return name + ": " + (v != null ? fmtMoney(v) + " NOK" : "Ikke oppgitt");
         }
-        // COMPANY: kortfattet norsk etikett fra observasjonen
+        // COMPANY: kortfattet norsk formulering fra normalisert metadata.
         const obs = e.observation || "";
         const lower = obs.toLowerCase();
         if (lower.indexOf("organisation number") > -1) return "Org.nr " + (md.org_number || "");
@@ -887,7 +935,12 @@
         if (lower.indexOf("industry") > -1) return md.industry_name || "Bransje";
         if (lower.indexOf("municipality") > -1) return md.municipality || "Kommune";
         if (lower.indexOf("registered") > -1) return "Registrert";
-        return obs.length > 34 ? obs.slice(0, 34) + "…" : obs;
+        return obs || "Dokumentert opplysning";
+      }
+
+      function evidLabel(e) {
+        const observation = evidenceObservation(e);
+        return observation.length > 34 ? observation.slice(0, 34) + "…" : observation;
       }
 
       // Executive Brief — rik evidence-rapport (identitet + ledelse + regnskap + digital + kilder)
@@ -1019,7 +1072,7 @@
             b.classList.toggle("selected", b === btn);
           });
           frictionPanel.querySelector(".panel-note").textContent =
-            "Fokus: " + area + ". Arch undersøker dette området først.";
+            "Valgt område: " + area + ". Arch forbereder ett konkret oppfølgingsspørsmål.";
 
           conversationPanel.hidden = false;
           conversationPanel.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -1057,7 +1110,7 @@
               log.lastChild.appendChild(purpose);
             }
           } catch (err) {
-            if (requestId === questionRequest) addMsg("Noe gikk galt. Prøv igjen.");
+            if (requestId === questionRequest) addMsg("Vi kunne ikke hente et oppfølgingsspørsmål nå. Prøv igjen.");
           } finally {
             if (requestId === questionRequest) {
               questionLoading = false;

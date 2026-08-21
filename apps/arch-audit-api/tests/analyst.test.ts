@@ -60,6 +60,8 @@ describe("buildPrompt", () => {
     expect(prompt).toContain("HARD REGEL");
     expect(prompt).toContain("evidence_refs");
     expect(prompt).toContain("brreg-regnskap");
+    expect(prompt).toContain("driftsresultat");
+    expect(prompt).toContain("idiomatisk bokmål");
   });
 });
 
@@ -176,6 +178,21 @@ describe("parseAnalystJson", () => {
     const output = parseAnalystJson(raw, "951001880", "ALFA SKO AS", "nvidia", "nemotron", 0, 0);
     expect(output.analyst.strengths[0].evidence_refs).toEqual(["brreg-enhet"]);
     expect(output.analyst.priorities[0].evidence_refs).toEqual(["brreg-regnskap"]);
+  });
+
+  it("retter kjente feilord uten å endre beløp eller kilder", () => {
+    const raw = JSON.stringify({
+      analyst: {
+        summary: "Branchens driftsoverresult var 56 216 NOK.",
+        strengths: [{ claim: "Driftsovertaket var dokumentert.", evidence_refs: ["brreg-regnskap"], kind: "FACT" }],
+        weaknesses: [],
+        priorities: [],
+      },
+    });
+    const output = parseAnalystJson(raw, "951001880", "ALFA SKO AS", "nvidia", "nemotron", 0, 0);
+    expect(output.analyst.summary).toBe("Bransjens driftsresultat var 56 216 NOK.");
+    expect(output.analyst.strengths[0].claim).toBe("Driftsresultat var dokumentert.");
+    expect(output.analyst.strengths[0].evidence_refs).toEqual(["brreg-regnskap"]);
   });
 });
 

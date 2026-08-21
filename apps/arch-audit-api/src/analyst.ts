@@ -113,6 +113,35 @@ export type AnalystResult =
   | { ok: true; output: AnalystOutput }
   | { ok: false; error: "LLM_FAILED" | "COMPANY_NOT_FOUND" | "INVALID" };
 
+/**
+ * Smale, dokumenterte rettelser for feilord som Nemotron tidligere har produsert.
+ * Begrepene erstattes med det nøytrale regnskapsbegrepet "driftsresultat"; vi
+ * endrer aldri beløp, kildehenvisninger eller betydningen av et funn.
+ */
+const NORWEGIAN_TERM_REPAIRS: ReadonlyArray<readonly [RegExp, string]> = [
+  [/\bbranchens\b/gi, "bransjens"],
+  [/\bdriftsoverresult(?:et)?\b/gi, "driftsresultat"],
+  [/\bdriftsovertak(?:et)?\b/gi, "driftsresultat"],
+];
+
+/** Ord som ikke skal kunne leveres i et kundesvar. */
+export const DISALLOWED_ANALYST_TERMS = [
+  "branchens",
+  "driftsoverresult",
+  "driftsovertak",
+] as const;
+
+function normalizeNorwegianCopy(value: unknown): string {
+  return NORWEGIAN_TERM_REPAIRS.reduce(
+    (text, [pattern, replacement]) => text.replace(pattern, (match) => {
+      if (match === match.toUpperCase()) return replacement.toUpperCase();
+      if (/^[A-ZÆØÅ]/.test(match)) return replacement.charAt(0).toUpperCase() + replacement.slice(1);
+      return replacement;
+    }),
+    String(value ?? "").trim()
+  );
+}
+
 // ── Evidensekstraksjon fra IntelligenceReport ─────────────────
 
 export interface EvidenceBundle {
@@ -217,6 +246,12 @@ export function buildPrompt(bundle: EvidenceBundle, focusArea: FocusArea, benchm
     "Du er ArchAnalyst — en analytiker som KUN bruker dokumentert evidens.",
     "HARD REGEL: Du SKAL ALDRI finne opp tall eller påstander. Hvis evidens mangler,",
     "skriv «ukjent». Hver påstand MÅ ha minst én evidence_ref fra kildene under.",
+    "",
+    "SPRÅK: Skriv klart og idiomatisk bokmål for en norsk bedriftsleder.",
+    "Bruk nøyaktig disse regnskapsbegrepene når de finnes i evidensen: omsetning,",
+    "driftsresultat, årsresultat, egenkapital, egenkapitalandel og totale eiendeler.",
+    "Gjengi beløp med den opprinnelige metrikken, for eksempel «driftsresultatet var 56 216 NOK».",
+    "Aldri dikt opp eller bland finansord. Ikke bruk «driftsoverresult», «driftsovertak» eller «branchens».",
     "",
     "KLASSIFISER hvert funn som:",
     "- FACT: direkte observert fra kilde",
@@ -363,7 +398,7 @@ export function parseAnalystJson(raw: string, orgNumber: string, companyName: st
     if (!Array.isArray(arr)) return [];
     return arr
       .map((item) => ({
-        claim: String(item?.claim ?? item?.[field] ?? "").trim(),
+        claim: normalizeNorwegianCopy(item?.claim ?? item?.[field]),
         evidence_refs: normalizeRefs(item?.evidence_refs),
         kind: normalizeKind(item?.kind),
       }))
@@ -385,18 +420,18 @@ export function parseAnalystJson(raw: string, orgNumber: string, companyName: st
   const priorities = (Array.isArray(analyst?.priorities) ? analyst.priorities : [])
     .map((p: any, idx: number): AnalystPriority => ({
       rank: Number(p?.rank ?? idx + 1),
-      recommendation: String(p?.recommendation ?? "").trim(),
-      expected_effect: String(p?.expected_effect ?? p?.effect ?? "").trim(),
+      recommendation: normalizeNorwegianCopy(p?.recommendation),
+      expected_effect: normalizeNorwegianCopy(p?.expected_effect ?? p?.effect),
       effort: normalizeEffort(p?.effort),
       time_horizon: normalizeHorizon(p?.time_horizon ?? p?.horizon),
       evidence_refs: normalizeRefs(p?.evidence_refs),
-      uncertainties: Array.isArray(p?.uncertainties) ? p.uncertainties.map(String).filter(Boolean) : [],
-      pre_work: Array.isArray(p?.pre_work) ? p.pre_work.map(String).filter(Boolean) : [],
+      uncertainties: Array.isArray(p?.uncertainties) ? p.uncertainties.map(normalizeNorwegianCopy).filter(Boolean) : [],
+      pre_work: Array.isArray(p?.pre_work) ? p.pre_work.map(normalizeNorwegianCopy).filter(Boolean) : [],
       kind: normalizeKind(p?.kind),
     }))
     .filter((p: AnalystPriority) => p.recommendation.length > 0 && p.evidence_refs.length > 0);
   const unknowns = (Array.isArray(analyst?.unknowns) ? analyst.unknowns : [])
-    .map((u: any) => ({ question: String(u?.question ?? "").trim(), why: String(u?.why ?? "").trim() }))
+    .map((u: any) => ({ question: normalizeNorwegianCopy(u?.question), why: normalizeNorwegianCopy(u?.why) }))
     .filter((u: AnalystUnknown) => u.question.length > 0);
 
   return {
@@ -404,7 +439,7 @@ export function parseAnalystJson(raw: string, orgNumber: string, companyName: st
     company_name: companyName,
     generated_at: new Date().toISOString(),
     analyst: {
-      summary: String(analyst?.summary ?? "").trim() || "Ingen verifisert syntese tilgjengelig.",
+      summary: normalizeNorwegianCopy(analyst?.summary) || "Ingen dokumentert oppsummering er tilgjengelig.",
       strengths,
       weaknesses,
       priorities,

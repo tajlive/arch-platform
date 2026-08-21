@@ -931,7 +931,7 @@ p, h1, h2, h3, h4, a, span { overflow-wrap: anywhere; }
   margin: 20px 0 10px;
 }
 .analyst-finding {
-  display: flex; align-items: flex-start; gap: 10px;
+  display: flex; align-items: flex-start; flex-wrap: wrap; gap: 10px;
   padding: 10px 0; border-bottom: 1px solid var(--border);
 }
 .analyst-finding:last-child { border-bottom: none; }
@@ -941,6 +941,11 @@ p, h1, h2, h3, h4, a, span { overflow-wrap: anywhere; }
 .analyst-finding.priority .analyst-icon { color: var(--blue); }
 .analyst-claim { font-size: 14px; color: var(--ink); flex: 1; }
 .analyst-refs { display: block; font-size: 12px; color: var(--slate); margin-top: 2px; }
+.analyst-finding > .analyst-refs,
+.analyst-finding > .analyst-feedback {
+  flex-basis: calc(100% - 28px);
+  margin-left: 28px;
+}
 .analyst-unknown {
   padding: 10px 0; border-bottom: 1px solid var(--border);
   display: flex; flex-direction: column; gap: 2px;
@@ -977,4 +982,7 @@ p, h1, h2, h3, h4, a, span { overflow-wrap: anywhere; }
 .analyst-feedback-btn:hover { border-color: var(--blue); color: var(--blue); }
 .analyst-feedback-btn.registered {
   border-color: #0a8f3f; color: #0a8f3f; background: #e7f7ec; cursor: default;
+}
+.analyst-feedback-status {
+  flex-basis: 100%; font-size: 12px; color: var(--slate);
 }
