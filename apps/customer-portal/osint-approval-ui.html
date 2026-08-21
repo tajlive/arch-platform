@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Public Digital Visibility — Approval Workflow</title>
+<style>
+  :root{
+    --navy:#061A40; --navy-2:#0A2457; --navy-3:#0E2F6E;
+    --blue:#0066FF; --blue-light:#3D8BFF; --cyan:#22D3EE;
+    --bg:#F4F7FB; --card:#FFFFFF; --border:#E2E8F0;
+    --text:#0F172A; --muted:#64748B;
+    --green:#10B981; --amber:#F59E0B; --red:#EF4444; --purple:#8B5CF6;
+    --shadow:0 1px 3px rgba(6,26,64,.08),0 4px 16px rgba(6,26,64,.06);
+    --radius:12px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;padding:32px}
+  .container{max-width:960px;margin:0 auto}
+  h1{font-size:1.6rem;color:var(--navy);margin-bottom:4px}
+  .subtitle{color:var(--muted);margin-bottom:24px;font-size:.95rem}
+  .badge{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;font-size:.72rem;font-weight:600;letter-spacing:.02em}
+  .badge.owned{background:#ECFDF5;color:#047857}
+  .badge.authorized{background:#FEF3C7;color:#B45309}
+  .badge.tp{background:#EFF6FF;color:#1D4ED8}
+  .badge.pending{background:#FEF3C7;color:#B45309}
+  .badge.approved{background:#ECFDF5;color:#047857}
+  .badge.rejected{background:#FEE2E2;color:#B91C1C}
+  .badge.passive{background:#EFF6FF;color:#1D4ED8}
+  .badge.active{background:#FEF3C7;color:#B45309}
+  .badge.forbidden{background:#FEE2E2;color:#B91C1C}
+
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;margin-bottom:20px}
+  .card h2{font-size:1.1rem;color:var(--navy);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+  .card h3{font-size:.95rem;color:var(--navy);margin:16px 0 8px}
+
+  /* Step indicator */
+  .steps{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap}
+  .step{flex:1;min-width:180px;padding:12px 16px;border:1px solid var(--border);border-radius:10px;background:var(--card);font-size:.8rem;color:var(--muted)}
+  .step .n{display:inline-flex;width:22px;height:22px;border-radius:50%;background:var(--border);color:var(--muted);align-items:center;justify-content:center;font-weight:700;font-size:.75rem;margin-right:8px}
+  .step.active{border-color:var(--blue);background:#F0F6FF;color:var(--navy)}
+  .step.active .n{background:var(--blue);color:#fff}
+  .step.done{border-color:var(--green);background:#F0FDF9}
+  .step.done .n{background:var(--green);color:#fff}
+
+  /* Forms */
+  label{display:block;font-size:.82rem;font-weight:600;color:var(--navy);margin-bottom:6px}
+  input[type=text],input[type=email],textarea,select{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:.9rem;background:#fff;color:var(--text);margin-bottom:16px}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,102,255,.12)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .hint{font-size:.78rem;color:var(--muted);margin-top:-10px;margin-bottom:14px}
+
+  /* Target class selector */
+  .target-classes{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px}
+  .tc{border:2px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:all .15s}
+  .tc:hover{border-color:var(--blue)}
+  .tc.selected{border-color:var(--blue);background:#F0F6FF}
+  .tc .t{font-weight:700;font-size:.88rem;color:var(--navy);margin-bottom:6px}
+  .tc .d{font-size:.76rem;color:var(--muted)}
+  .tc .req{margin-top:8px;font-size:.72rem;color:var(--amber);font-weight:600;display:none}
+  .tc.selected .req{display:block}
+
+  /* Capability list */
+  .caps{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .cap{display:flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:.82rem}
+  .cap input{width:16px;height:16px;margin:0}
+  .cap .op{margin-left:auto;font-size:.68rem;font-weight:700}
+  .cap.locked{background:#F8FAFC;opacity:.6}
+
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:8px;font-weight:600;font-size:.88rem;cursor:pointer;border:none;transition:all .15s}
+  .btn-primary{background:var(--blue);color:#fff}
+  .btn-primary:hover{background:var(--navy-3)}
+  .btn-secondary{background:#fff;border:1px solid var(--border);color:var(--navy)}
+  .btn-secondary:hover{border-color:var(--blue);color:var(--blue)}
+  .btn-danger{background:#fff;border:1px solid #FECACA;color:var(--red)}
+  .btn-danger:hover{background:#FEF2F2}
+  .btn-success{background:var(--green);color:#fff}
+  .btn-sm{padding:6px 12px;font-size:.78rem}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+  .actions{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}
+
+  /* Approval card */
+  .approval{border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px;background:#fff}
+  .approval .head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px}
+  .approval .target{font-weight:700;color:var(--navy)}
+  .approval .meta{font-size:.78rem;color:var(--muted);margin-bottom:10px}
+  .approval .reason{font-size:.85rem;background:var(--bg);padding:10px 12px;border-radius:8px;margin-bottom:12px}
+  .approval .reqs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+  .approval .constraints{font-size:.78rem;color:var(--muted);border-top:1px dashed var(--border);padding-top:10px;margin-top:10px}
+  .approval .actions{justify-content:flex-end;margin-top:10px}
+
+  /* Findings */
+  .finding{display:flex;gap:12px;padding:14px;border:1px solid var(--border);border-radius:10px;margin-bottom:10px;background:#fff;align-items:flex-start}
+  .sev{width:10px;height:10px;border-radius:50%;margin-top:5px;flex-shrink:0}
+  .sev.info{background:#64748B}.sev.low{background:#94A3B8}.sev.medium{background:var(--amber)}.sev.high{background:var(--blue)}.sev.critical{background:var(--red)}
+  .finding .f-body{flex:1}
+  .finding .f-title{font-weight:600;font-size:.9rem;color:var(--navy)}
+  .finding .f-desc{font-size:.82rem;color:var(--muted);margin-top:4px}
+  .finding .f-meta{font-size:.72rem;color:var(--muted);margin-top:8px;display:flex;gap:12px;flex-wrap:wrap}
+  .pill{display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:999px;font-size:.68rem;font-weight:600}
+
+  .confirm{background:#F0FDF9;border:1px solid #A7F3D0;border-radius:10px;padding:14px 16px;font-size:.85rem;color:#065F46;margin-bottom:16px;display:none}
+  .warn{background:#FFFBEB;border:1px solid #FDE68A;border-radius:10px;padding:14px 16px;font-size:.85rem;color:#92400E;margin-bottom:16px}
+  .note{font-size:.8rem;color:var(--muted);background:var(--bg);padding:10px 14px;border-radius:8px;margin-top:16px;border-left:3px solid var(--blue)}
+
+  .hidden{display:none}
+  .toggle-step{transition:opacity .2s}
+  .tab{display:inline-block;padding:8px 18px;border-radius:8px 8px 0 0;font-size:.85rem;font-weight:600;cursor:pointer;border:1px solid var(--border);border-bottom:none;background:#F8FAFC;color:var(--muted);margin-right:4px}
+  .tab.active{background:#fff;color:var(--blue);border-color:var(--blue)}
+  .tab-panel{border:1px solid var(--border);border-radius:0 10px 10px 10px;padding:24px;background:#fff}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>🔍 Public Digital Visibility</h1>
+  <div class="subtitle">Godkjenningsflyt for eksterne eksponeringssignaler og sikkerhetsbaseline</div>
+
+  <!-- ===================== STEP INDICATOR ===================== -->
+  <div class="steps">
+    <div class="step done" id="step1-label"><span class="n">✓</span>Opprett mål</div>
+    <div class="step done" id="step2-label"><span class="n">✓</span>Velg profil</div>
+    <div class="step active" id="step3-label"><span class="n">3</span>Godkjenning</div>
+    <div class="step" id="step4-label"><span class="n">4</span>Skanning</div>
+    <div class="step" id="step5-label"><span class="n">5</span>Funn</div>
+  </div>
+
+  <!-- ===================== STEP 1: TARGET ===================== -->
+  <div class="card toggle-step" id="step1">
+    <h2>1. Opprett mål</h2>
+    <label>Identifikator (domene / IP / ASN)</label>
+    <input type="text" id="target-id" placeholder="f.eks. kunde.no eller 10.0.0.0/24" value="eget-firma.no"/>
+    <label>Visningsnavn</label>
+    <input type="text" id="target-name" placeholder="f.eks. Eget Firma AS" value="Eget Firma AS"/>
+
+    <label>Målklasse</label>
+    <div class="target-classes" id="tc-selector">
+      <div class="tc" data-class="owned">
+        <div class="t">🏢 Eget aktiv</div>
+        <div class="d">Kundens egne domener/systemer. Krever eierskapsbevis.</div>
+        <div class="req">⚠️ Krever eierskapsbevis</div>
+      </div>
+      <div class="tc" data-class="authorized">
+        <div class="t">🤝 Autorisert mål</div>
+        <div class="d">Tredjepart med eksplisitt mandat.</div>
+        <div class="req">⚠️ Krever mandat + kontaktperson</div>
+      </div>
+      <div class="tc selected" data-class="third_party_public">
+        <div class="t">📡 Offentlig markedsintelligens</div>
+        <div class="d">Kun passive, offentlig tilgjengelige data.</div>
+        <div class="req">ℹ️ Kun passive operasjoner</div>
+      </div>
+    </div>
+
+    <!-- Owned evidence -->
+    <div class="hidden" id="owned-evidence">
+      <label>Eierskapsbevis (velg minst én)</label>
+      <div class="caps">
+        <label class="cap"><input type="checkbox"/> DNS TXT-post</label>
+        <label class="cap"><input type="checkbox"/> WHOIS-match</label>
+        <label class="cap"><input type="checkbox"/> SSL-sertifikat</label>
+        <label class="cap"><input type="checkbox"/> DNS CNAME</label>
+      </div>
+    </div>
+
+    <!-- Authorized evidence -->
+    <div class="hidden" id="auth-evidence">
+      <div class="row">
+        <div><label>Oppdragsreferanse</label><input type="text" placeholder="f.eks. kontrakt-2026-014"/></div>
+        <div><label>Kontaktperson</label><input type="text" placeholder="Navn hos autorisert part"/></div>
+      </div>
+      <div class="row">
+        <div><label>E-post kontaktperson</label><input type="email" placeholder="navn@firma.no"/></div>
+        <div><label>Tidsvindu</label><input type="text" placeholder="2026-08-21 → 2026-09-21"/></div>
+      </div>
+    </div>
+
+    <div class="note">Offentlig markedsintelligens bruker <b>kun passive, offentlig tilgjengelige kilder</b>. Ingen portskanning, sårbarhetsskanning, brute force, autentiserte kall eller aggressive crawlers.</div>
+
+    <div class="actions">
+      <button class="btn btn-primary" onclick="nextStep(2)">Neste →</button>
+    </div>
+  </div>
+
+  <!-- ===================== STEP 2: PROFILE ===================== -->
+  <div class="card toggle-step hidden" id="step2">
+    <h2>2. Velg profil & kapabiliteter</h2>
+    <label>Scanprofil</label>
+    <select id="profile-select">
+      <option value="owned_security_baseline">Sikkerhetsbaseline for egne aktiv</option>
+      <option value="authorized_security_assessment">Autorisert sikkerhetsvurdering</option>
+      <option value="public_market_intelligence" selected>Offentlig markedsintelligens</option>
+    </select>
+
+    <h3>Tilgjengelige kapabiliteter</h3>
+    <div class="caps" id="cap-list">
+      <!-- populated by JS -->
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-secondary" onclick="prevStep(1)">← Tilbake</button>
+      <button class="btn btn-primary" onclick="nextStep(3)">Fortsett →</button>
+    </div>
+  </div>
+
+  <!-- ===================== STEP 3: APPROVAL ===================== -->
+  <div class="card toggle-step hidden" id="step3">
+    <h2>3. Godkjenning</h2>
+
+    <!-- Passive only - no approval needed -->
+    <div class="confirm" id="no-approval-needed">
+      ✅ Ingen godkjenning nødvendig — kun passive operasjoner valgt mot offentlige kilder.
+    </div>
+
+    <!-- Approval needed -->
+    <div id="approval-needed">
+      <div class="warn" id="approval-warn">
+        ⚠️ Følgende aktive operasjoner krever eksplisitt godkjenning:
+        <div id="approval-caps" style="margin-top:8px;display:flex;flex-wrap:wrap;gap:6px"></div>
+      </div>
+
+      <label>Begrunnelse for godkjenning</label>
+      <textarea id="approval-justification" rows="3" placeholder="Beskriv hvorfor denne aktive skanningen er nødvendig og autorisert..."></textarea>
+
+      <div class="row">
+        <div><label>Oppdragsreferanse</label><input type="text" id="approval-ref" placeholder="f.eks. mandat-2026-014"/></div>
+        <div><label>Tidsvindu</label><input type="text" id="approval-window" placeholder="2026-08-21 → 2026-08-22"/></div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-secondary" onclick="prevStep(2)">← Tilbake</button>
+      <button class="btn btn-primary" id="approval-submit" onclick="submitApproval()">Send godkjenningsforespørsel</button>
+      <button class="btn btn-success hidden" id="approval-done" onclick="nextStep(4)">Sendt — fortsett →</button>
+    </div>
+  </div>
+
+  <!-- ===================== STEP 4: SCAN ===================== -->
+  <div class="card toggle-step hidden" id="step4">
+    <h2>4. Skanning</h2>
+    <div class="note" id="scan-status">
+      <b>Status:</b> Venter på godkjenningsforespørsel...
+    </div>
+
+    <h3>Godkjenningsforespørsler (kø)</h3>
+    <div id="approval-list"></div>
+
+    <div class="actions">
+      <button class="btn btn-secondary" onclick="prevStep(3)">← Tilbake</button>
+      <button class="btn btn-primary" onclick="nextStep(5)">Vis funn →</button>
+    </div>
+  </div>
+
+  <!-- ===================== STEP 5: FINDINGS ===================== -->
+  <div class="card toggle-step hidden" id="step5">
+    <h2>5. Funn</h2>
+    <div id="findings-list"></div>
+    <div class="actions">
+      <button class="btn btn-secondary" onclick="prevStep(4)">← Tilbake</button>
+      <button class="btn btn-success" onclick="exportFindings()">⬇ Eksporter funn</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ──────────────────────────────────────────────────────────────
+// State
+// ──────────────────────────────────────────────────────────────
+const state = {
+  targetClass: 'third_party_public',
+  profile: 'public_market_intelligence',
+  capabilities: {},
+  approval: null,
+  findings: [],
+};
+
+// ──────────────────────────────────────────────────────────────
+// Capability definitions (mirror server-side policy)
+// ──────────────────────────────────────────────────────────────
+const CAPABILITIES = {
+  passive: [
+    { key:'dns_lookup', name:'DNS-oppslag', op:'passive_allowed' },
+    { key:'whois_lookup', name:'WHOIS-oppslag', op:'passive_allowed' },
+    { key:'certificate_transparency', name:'Sertifikat-transparens', op:'passive_allowed' },
+    { key:'http_headers', name:'HTTP-headere', op:'passive_allowed' },
+    { key:'technology_fingerprint', name:'Teknologi-fingeravtrykk', op:'passive_allowed' },
+    { key:'ip_reputation', name:'IP-reputasjon', op:'passive_allowed' },
+    { key:'brand_monitoring', name:'Merkevareovervåking', op:'passive_allowed' },
+    { key:'change_detection', name:'Endringsdeteksjon', op:'passive_allowed' },
+    { key:'subdomain_enumeration_passive', name:'Underdomener (passiv)', op:'passive_allowed' },
+    { key:'dns_wildcard_check', name:'DNS wildcard-sjekk', op:'passive_allowed' },
+  ],
+  active: [
+    { key:'dns_zone_transfer', name:'DNS-soneoverføring', op:'active_requires_approval' },
+    { key:'dns_bruteforce', name:'DNS-bruteforce', op:'active_requires_approval' },
+    { key:'subdomain_enumeration_active', name:'Underdomener (aktiv)', op:'active_requires_approval' },
+    { key:'port_scan_tcp', name:'Port-skanning (TCP)', op:'active_requires_approval' },
+    { key:'port_scan_udp', name:'Port-skanning (UDP)', op:'active_requires_approval' },
+    { key:'vulnerability_scan_active', name:'Sårbarhetsskanning (aktiv)', op:'active_requires_approval' },
+  ],
+  forbidden: [
+    { key:'exploit_execution', name:'Exploit-utførelse', op:'forbidden' },
+    { key:'credential_testing', name:'Kredentialtesting', op:'forbidden' },
+  ],
+};
+
+// Profile → allowed capability mapping
+const PROFILE_CAPS = {
+  owned_security_baseline: {
+    passive: CAPABILITIES.passive.map(c=>c.key),
+    active: ['dns_zone_transfer','dns_bruteforce','subdomain_enumeration_active','port_scan_tcp','port_scan_udp','vulnerability_scan_active'],
+  },
+  authorized_security_assessment: {
+    passive: CAPABILITIES.passive.map(c=>c.key),
+    active: ['dns_zone_transfer','dns_bruteforce','subdomain_enumeration_active','port_scan_tcp','port_scan_udp','vulnerability_scan_active'],
+  },
+  public_market_intelligence: {
+    passive: CAPABILITIES.passive.map(c=>c.key),
+    active: [],
+  },
+};
+
+// ──────────────────────────────────────────────────────────────
+// Step navigation
+// ──────────────────────────────────────────────────────────────
+function showStep(n){
+  [1,2,3,4,5].forEach(i=>{
+    const el=document.getElementById('step'+i);
+    const lbl=document.getElementById('step'+i+'-label');
+    if(i===n){el.classList.remove('hidden');lbl.classList.add('active');lbl.classList.remove('done');}
+    else if(i<n){el.classList.add('hidden');lbl.classList.remove('active');lbl.classList.add('done');lbl.querySelector('.n').textContent='✓';}
+    else{el.classList.add('hidden');lbl.classList.remove('active','done');lbl.querySelector('.n').textContent=i;}
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function nextStep(n){showStep(n);if(n===2)renderCaps();if(n===3)renderApproval();if(n===4)renderScan();if(n===5)renderFindings();}
+function prevStep(n){showStep(n);}
+
+// ──────────────────────────────────────────────────────────────
+// Target class selector
+// ──────────────────────────────────────────────────────────────
+document.querySelectorAll('.tc').forEach(tc=>{
+  tc.addEventListener('click',()=>{
+    document.querySelectorAll('.tc').forEach(x=>x.classList.remove('selected'));
+    tc.classList.add('selected');
+    state.targetClass=tc.dataset.class;
+    // Toggle evidence sections
+    document.getElementById('owned-evidence').classList.toggle('hidden',state.targetClass!=='owned');
+    document.getElementById('auth-evidence').classList.toggle('hidden',state.targetClass!=='authorized');
+    // Auto-select appropriate profile
+    const profileMap={owned:'owned_security_baseline',authorized:'authorized_security_assessment',third_party_public:'public_market_intelligence'};
+    document.getElementById('profile-select').value=profileMap[state.targetClass];
+    state.profile=profileMap[state.targetClass];
+  });
+});
+
+// ──────────────────────────────────────────────────────────────
+// Capability rendering
+// ──────────────────────────────────────────────────────────────
+function renderCaps(){
+  const profile=PROFILE_CAPS[state.profile]||{passive:[],active:[]};
+  const el=document.getElementById('cap-list');
+  el.innerHTML='';
+  const all=[...CAPABILITIES.passive,...CAPABILITIES.active];
+
+  // Passive (default enabled)
+  all.forEach(c=>{
+    const allowed=profile.passive.includes(c.key)||profile.active.includes(c.key);
+    if(!allowed)return;
+    const active=c.op==='active_requires_approval';
+    const defaultOn=!active;
+    const label=document.createElement('label');
+    label.className='cap';
+    const box=document.createElement('input');
+    box.type='checkbox';
+    box.checked=defaultOn;
+    box.dataset.key=c.key;
+    box.dataset.op=c.op;
+    if(active){label.classList.add('locked');box.disabled=false;}
+    box.onchange=()=>{state.capabilities[c.key]=box.checked;};
+    state.capabilities[c.key]=defaultOn;
+    const span=document.createElement('span');span.textContent=c.name;
+    const op=document.createElement('span');op.className='op';
+    op.textContent=active?'AKTIV':'PASSIV';
+    if(active){op.style.color='var(--amber)';}else{op.style.color='var(--blue)';}
+    label.appendChild(box);label.appendChild(span);label.appendChild(op);
+    el.appendChild(label);
+  });
+}
+
+// ──────────────────────────────────────────────────────────────
+// Approval rendering
+// ──────────────────────────────────────────────────────────────
+function renderApproval(){
+  const selectedActive=Object.entries(state.capabilities)
+    .filter(([k,v])=>v&&CAPABILITIES.active.some(c=>c.key===k))
+    .map(([k])=>k);
+  const isThirdParty=state.targetClass==='third_party_public';
+  const needsApproval=selectedActive.length>0 && !isThirdParty;
+
+  document.getElementById('no-approval-needed').style.display=needsApproval?'none':'block';
+  document.getElementById('approval-needed').style.display=needsApproval?'block':'none';
+  document.getElementById('approval-submit').classList.toggle('hidden',!needsApproval);
+  document.getElementById('approval-done').classList.toggle('hidden',needsApproval);
+
+  if(needsApproval){
+    const caps=document.getElementById('approval-caps');
+    caps.innerHTML='';
+    selectedActive.forEach(k=>{
+      const c=CAPABILITIES.active.find(x=>x.key===k);
+      if(c){const b=document.createElement('span');b.className='badge active';b.textContent=c.name;caps.appendChild(b);}
+    });
+  } else if(isThirdParty && selectedActive.length>0){
+    // Attempted active on third-party → block + warn
+    document.getElementById('no-approval-needed').style.display='none';
+    document.getElementById('approval-needed').style.display='block';
+    document.getElementById('approval-warn').innerHTML=
+      '⛔ Aktive operasjoner er <b>ikke tillatt</b> for offentlig markedsintelligens. '+
+      'Kun passive, offentlige kilder brukes. De aktive kapabilitetene er deaktivert server-side.';
+    document.getElementById('approval-submit').classList.add('hidden');
+    document.getElementById('approval-done').classList.add('hidden');
+  }
+}
+
+// ──────────────────────────────────────────────────────────────
+// Submit approval
+// ──────────────────────────────────────────────────────────────
+function submitApproval(){
+  const justification=document.getElementById('approval-justification').value;
+  const ref=document.getElementById('approval-ref').value;
+  const window=document.getElementById('approval-window').value;
+  const selectedActive=Object.entries(state.capabilities)
+    .filter(([k,v])=>v&&CAPABILITIES.active.some(c=>c.key===k))
+    .map(([k])=>k);
+
+  state.approval={
+    id:'APR-'+Math.random().toString(36).slice(2,8).toUpperCase(),
+    target:document.getElementById('target-name').value,
+    targetClass:state.targetClass,
+    requestedCapabilities:selectedActive,
+    justification,ref,window,
+    status:'pending',
+    requestedBy:'Tom Arne Jensen',
+    requestedAt:new Date().toISOString().slice(0,19).replace('T',' '),
+  };
+
+  document.getElementById('approval-submit').classList.add('hidden');
+  document.getElementById('approval-done').classList.remove('hidden');
+  document.getElementById('scan-status').innerHTML='<b>Status:</b> Godkjenningsforespørsel sendt — venter på godkjenning.';
+}
+
+// ──────────────────────────────────────────────────────────────
+// Scan / approval list rendering
+// ──────────────────────────────────────────────────────────────
+function renderScan(){
+  const list=document.getElementById('approval-list');
+  list.innerHTML='';
+  if(state.approval){
+    list.innerHTML=`
+      <div class="approval">
+        <div class="head">
+          <span class="target">${state.approval.target}</span>
+          <span class="badge ${state.approval.targetClass==='owned'?'owned':state.approval.targetClass==='authorized'?'authorized':'tp'}">
+            ${state.approval.targetClass==='owned'?'Eget aktiv':state.approval.targetClass==='authorized'?'Autorisert':'Offentlig intel'}
+          </span>
+          <span class="badge ${state.approval.status==='pending'?'pending':'approved'}">${state.approval.status==='pending'?'Venter':'Godkjent'}</span>
+        </div>
+        <div class="meta">ID: ${state.approval.id} · Søkt av ${state.approval.requestedBy} · ${state.approval.requestedAt}</div>
+        <div class="reason">${state.approval.justification||'(ingen begrunnelse)'}</div>
+        <div class="reqs">
+          ${state.approval.requestedCapabilities.map(k=>{
+            const c=CAPABILITIES.active.find(x=>x.key===k);
+            return `<span class="badge active">${c?c.name:k}</span>`;
+          }).join('')}
+        </div>
+        <div class="constraints">Oppdrag: ${state.approval.ref||'-'} · Tidsvindu: ${state.approval.window||'-'}</div>
+        <div class="actions">
+          <button class="btn btn-danger btn-sm" onclick="rejectApproval()">Avslå</button>
+          <button class="btn btn-success btn-sm" onclick="approveApproval()">Godkjenn</button>
+        </div>
+      </div>`;
+  } else {
+    list.innerHTML='<div class="note">Ingen godkjenningsforespørsler — passive operasjoner startet direkte.</div>';
+    // Show passive scan as running
+    list.innerHTML+=`<div class="approval"><div class="head"><span class="target">${document.getElementById('target-name').value}</span><span class="badge passive">Passiv skanning</span><span class="badge approved">Kjører</span></div><div class="meta">Kun passive, offentlige kilder · ingen godkjenning nødvendig</div></div>`;
+  }
+}
+function approveApproval(){
+  state.approval.status='approved';
+  document.getElementById('scan-status').innerHTML='<b>Status:</b> Godkjent av Tom Arne Jensen (osint_approver) · aktiv skanning starter.';
+  renderScan();
+}
+function rejectApproval(){
+  state.approval.status='rejected';
+  document.getElementById('scan-status').innerHTML='<b>Status:</b> Godkjenningsforespørsel avslått.';
+  renderScan();
+}
+
+// ──────────────────────────────────────────────────────────────
+// Findings rendering
+// ──────────────────────────────────────────────────────────────
+function renderFindings(){
+  const list=document.getElementById('findings-list');
+  const passiveFindings=[
+    {sev:'info',title:'Observert offentlig teknologiindikator',desc:'nginx 1.24.0 detektert via HTTP Server-header på eget-firma.no. Dette er en offentlig synlig teknologistack-indikator.',obs:'domain',first:'2026-08-20 14:32 UTC',last:'2026-08-21 08:15 UTC',vs:'observed'},
+    {sev:'low',title:'Sertifikat-transparens-observasjon',desc:'3 sertifikater funnet for domenet i offentlige CT-logs. Ingen utløpte sertifikater observert.',obs:'certificate',first:'2026-08-20 14:30 UTC',last:'2026-08-21 08:15 UTC',vs:'observed'},
+    {sev:'info',title:'Merkevaresignal',desc:'Merkenavn «Eget Firma» observert i 12 offentlige kilder. Ingen villedende domener funnet.',obs:'brand_signal',first:'2026-08-19',last:'2026-08-21',vs:'inferred'},
+    {sev:'medium',title:'Endring i offentlig eksponering',desc:'Ny subdomene observert i CT-logs: staging.eget-firma.no — ikke sett i forrige baseline.',obs:'subdomain',first:'2026-08-21 06:00 UTC',last:'2026-08-21 08:15 UTC',vs:'observed'},
+  ];
+  state.findings=passiveFindings;
+  list.innerHTML='';
+  passiveFindings.forEach(f=>{
+    const el=document.createElement('div');el.className='finding';
+    el.innerHTML=`
+      <span class="sev ${f.sev}"></span>
+      <div class="f-body">
+        <div class="f-title">${f.title}</div>
+        <div class="f-desc">${f.desc}</div>
+        <div class="f-meta">
+          <span class="pill"><span class="sev ${f.sev}" style="width:8px;height:8px"></span>${f.sev.toUpperCase()}</span>
+          <span class="pill">${f.vs==='observed'?'Observert signal':f.vs==='inferred'?'Konkludert signal':'Bekreftet'}</span>
+          <span>Først: ${f.first}</span><span>Sist: ${f.last}</span>
+        </div>
+      </div>`;
+    list.appendChild(el);
+  });
+}
+
+function exportFindings(){
+  alert('Funn eksportert som JSON (redaction pipeline vil maskere personopplysninger i standard visning).');
+}
+
+// ──────────────────────────────────────────────────────────────
+// Init
+// ──────────────────────────────────────────────────────────────
+showStep(1);
+</script>
+</body>
+</html>
