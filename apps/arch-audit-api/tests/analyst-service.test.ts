@@ -1,6 +1,6 @@
 // analyst-service.test.ts — enhetstest for AnalystService + computeBenchmarkDeltas
-import { describe, it, expect } from "vitest";
-import { computeBenchmarkDeltas } from "../src/analyst-service";
+import { describe, it, expect, vi } from "vitest";
+import { AnalystService, computeBenchmarkDeltas } from "../src/analyst-service";
 import type { ComparativeReport } from "../src/comparative";
 import type { IntelligenceReport } from "../src/research-orchestrator";
 
@@ -83,5 +83,40 @@ describe("computeBenchmarkDeltas", () => {
       graph: sampleReport().graph,
     }];
     expect(computeBenchmarkDeltas(sampleReport(), comparative)).toEqual([]);
+  });
+});
+
+describe("AnalystService", () => {
+  it("bruker deterministisk oppsummering og forkaster generiske tiltak uten dokumentert avvik", async () => {
+    const originalFetch = globalThis.fetch;
+    globalThis.fetch = vi.fn().mockResolvedValue(new Response(JSON.stringify({
+      choices: [{
+        message: {
+          content: JSON.stringify({
+            summary: "Modellens oppsummering skal ikke vises.",
+            strengths: [{ claim: "23 ansatte", evidence_refs: ["brreg-enhet"], kind: "FACT" }],
+            weaknesses: [{ claim: "Generisk svakhet", evidence_refs: ["brreg-regnskap"], kind: "INTERPRETATION" }],
+            priorities: [{ rank: 1, recommendation: "Overvåk driften", expected_effect: "Bedre drift", effort: "medium", time_horizon: 90, evidence_refs: ["brreg-regnskap"], uncertainties: [], pre_work: [], kind: "HYPOTHESIS" }],
+            unknowns: [],
+          }),
+        },
+      }],
+    }), { status: 200 })) as unknown as typeof fetch;
+
+    try {
+      const service = new AnalystService({ provider: "test", baseUrl: "https://model.test", apiKey: "test", model: "test-model" });
+      const result = await service.analyze("951001880", {
+        ...sampleReport(),
+        financial: { ...sampleReport().financial!, operating_result: 56216, net_result: 42271 },
+      }, "drift");
+
+      expect(result.analyst.summary).toContain("ALFA SKO AS er registrert i bransjen Produksjon av skotøy og har 23 ansatte.");
+      expect(result.analyst.summary).toContain("56");
+      expect(result.analyst.weaknesses).toEqual([]);
+      expect(result.analyst.priorities).toEqual([]);
+      expect(result.analyst.strengths).toHaveLength(1);
+    } finally {
+      globalThis.fetch = originalFetch;
+    }
   });
 });
