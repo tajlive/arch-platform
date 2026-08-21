@@ -56,9 +56,22 @@ const intelligenceResponse = {
   }
 };
 
-async function mockAuditApi(page) {
-  const calls = { questions: [] };
+const defaultSearchCandidates = [
+  { org_number: "999888777", company_name: "ROLF SOLHEIM", municipality: "TRONDHEIM" }
+];
+
+async function mockAuditApi(page, searchCandidates) {
+  const calls = { questions: [], searches: [] };
+  const candidates = searchCandidates || defaultSearchCandidates;
   await page.route("https://api.arch.axn.no/v1/public/audit/session", (route) => route.fulfill({ status: 200, body: "{}" }));
+  await page.route("https://api.arch.axn.no/v1/public/company/search", async (route) => {
+    calls.searches.push(route.request().postDataJSON());
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({ query: "rolf", count: candidates.length, candidates })
+    });
+  });
   await page.route("https://api.arch.axn.no/v1/public/company/intelligence", (route) => route.fulfill({
     status: 200,
     contentType: "application/json",
@@ -142,4 +155,30 @@ test("holder tekst og valg ryddig på mobil", async ({ page }, testInfo) => {
   expect(calls.questions).toEqual([{ context_id: "test-context", focus_area: "Administrasjon" }]);
 
   await testInfo.attach("start-mobile", { body: await page.screenshot({ fullPage: true }), contentType: "image/png" });
+});
+
+test("viser firma-velger ved flertreff og kartlegger valgt virksomhet", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  const calls = await mockAuditApi(page, [
+    { org_number: "111111111", company_name: "MELHUS BIL ORKANGER AS", municipality: "TRONDHEIM" },
+    { org_number: "944638741", company_name: "MELHUS BIL TRONDHEIM AS", municipality: "TRONDHEIM" }
+  ]);
+  await page.goto(`${baseUrl}/start.html`);
+  await page.locator("#company-input").fill("melhus bil");
+  await page.locator("#discover-btn").click();
+
+  // Velgerlisten vises med begge kandidatene
+  const picker = page.locator("#company-picker");
+  await expect(picker).toBeVisible();
+  await expect(picker).toContainText("MELHUS BIL ORKANGER AS");
+  await expect(picker).toContainText("MELHUS BIL TRONDHEIM AS");
+
+  // Velger andre kandidat → intelligence kjøres for valgt org.nr
+  await page.locator(".company-picker-item", { hasText: "MELHUS BIL TRONDHEIM AS" }).click();
+  await expect(page.locator("#brief-panel")).toBeVisible();
+  await expect(page.locator("#brief-panel")).toContainText("ROLF SOLHEIM");
+
+  // Search ble kalt med det opprinnelige søket
+  expect(calls.searches).toHaveLength(1);
+  expect(calls.searches[0].query).toBe("melhus bil");
 });

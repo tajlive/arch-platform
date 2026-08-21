@@ -60,6 +60,13 @@
           <button class="btn btn-primary" id="discover-btn">Kartlegg virksomheten</button>
         </div>
         <p class="search-note" id="status-note">Arch starter med bekreftede virksomhetsopplysninger og gjetter ikke.</p>
+        <div class="company-picker" id="company-picker" hidden>
+          <div class="company-picker-head">
+            <span>Flere virksomheter funnet — velg riktig:</span>
+            <button type="button" class="company-picker-cancel" id="company-picker-cancel">Avbryt</button>
+          </div>
+          <div class="company-picker-list" id="company-picker-list"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -278,11 +285,41 @@
           });
           if (!sessRes.ok) throw new Error("session");
 
-          // 2. Evidence Engine — rik rapport (identitet + ledelse + regnskap + digital + kilder)
-          const res = await fetch(API + "/v1/public/company/intelligence", {
+          // 2. Søk — håndter flertreff før vi kjører evidence engine
+          const searchRes = await fetch(API + "/v1/public/company/search", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ query: q }),
+          });
+          const searchData = await searchRes.json().catch(function () { return {}; });
+          const candidates = searchData.candidates || [];
+
+          if (candidates.length === 0) {
+            setState("em-company", 2);
+            setDetail("em-company-detail", "Ikke funnet i offentlige registre");
+            statusNote.textContent = "Vi fant ikke virksomheten i offentlige registre. Prøv et annet navn eller organisasjonsnummer.";
+            return;
+          }
+
+          // Bestem presis query (org.nr) — flertreff viser velger
+          let effectiveQuery;
+          if (candidates.length === 1) {
+            effectiveQuery = candidates[0].org_number;
+          } else {
+            effectiveQuery = await promptCompanyChoice(candidates);
+            if (!effectiveQuery) {  // brukeren avbrøt
+              setState("em-company", 2);
+              setDetail("em-company-detail", "Avbrutt");
+              statusNote.textContent = "Kartleggingen ble avbrutt.";
+              return;
+            }
+          }
+
+          // 3. Evidence Engine — rik rapport (identitet + ledelse + regnskap + digital + kilder)
+          const res = await fetch(API + "/v1/public/company/intelligence", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ query: effectiveQuery }),
           });
           const data = await res.json();
 
@@ -350,6 +387,49 @@
       }
 
       function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+      // Viser velgerliste ved flertreff. Resolver med valgt org.nr (eller null ved avbryt).
+      function promptCompanyChoice(candidates) {
+        const picker = document.getElementById("company-picker");
+        const list = document.getElementById("company-picker-list");
+        const cancel = document.getElementById("company-picker-cancel");
+        list.innerHTML = "";
+        candidates.forEach(function (c) {
+          const item = document.createElement("button");
+          item.type = "button";
+          item.className = "company-picker-item";
+          item.innerHTML =
+            '<span class="cpi-name"></span><span class="cpi-org"></span><span class="cpi-loc"></span>';
+          item.querySelector(".cpi-name").textContent = c.company_name;
+          item.querySelector(".cpi-org").textContent = c.org_number;
+          item.querySelector(".cpi-loc").textContent = c.municipality || "";
+          list.appendChild(item);
+        });
+        picker.hidden = false;
+        return new Promise(function (resolve) {
+          function cleanup() {
+            picker.hidden = true;
+            cancel.removeEventListener("click", onCancel);
+            list.querySelectorAll(".company-picker-item").forEach(function (b) {
+              b.removeEventListener("click", onPick);
+            });
+          }
+          function onPick() {
+            const org = this.dataset.org;
+            cleanup();
+            resolve(org);
+          }
+          function onCancel() {
+            cleanup();
+            resolve(null);
+          }
+          list.querySelectorAll(".company-picker-item").forEach(function (b, i) {
+            b.dataset.org = candidates[i].org_number;
+            b.addEventListener("click", onPick);
+          });
+          cancel.addEventListener("click", onCancel);
+        });
+      }
 
       function signalsSummary(c) {
         const parts = [];
