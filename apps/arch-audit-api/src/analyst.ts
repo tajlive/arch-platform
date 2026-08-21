@@ -218,8 +218,28 @@ const ALLOWED_EVIDENCE_SOURCES = new Set([
   "brreg-regnskap-historikk",
   "website",
   "nav-arbeidsplassen",
+  "peer-group",
   "brreg",
 ]);
+
+/** Kjente presentasjonsnavn fra modellen normaliseres til kontraktens source-ID-er. */
+const EVIDENCE_REF_ALIASES: Record<string, string> = {
+  "enhetsregisteret": "brreg-enhet",
+  "brreg enhet": "brreg-enhet",
+  "regnskapsregisteret": "brreg-regnskap",
+  "brreg regnskap": "brreg-regnskap",
+  "regnskapshistorikk": "brreg-regnskap-historikk",
+  "brreg regnskapshistorikk": "brreg-regnskap-historikk",
+  "brønnøysundregistrene": "brreg",
+  "bronnoysundregistrene": "brreg",
+  "nav": "nav-arbeidsplassen",
+  "nav arbeidsplassen": "nav-arbeidsplassen",
+  "arbeidsplassen": "nav-arbeidsplassen",
+  "nettsideanalyse": "website",
+  "nettside": "website",
+  "peer group": "peer-group",
+  "sammenligningsgruppe": "peer-group",
+};
 
 /** Filtrer evidens til KUN tillatte kilder (aldri NOT_AVAILABLE/ERROR). */
 export function allowedEvidence(bundle: EvidenceBundle): Array<{ type: string; observation: string; source: string }> {
@@ -388,10 +408,15 @@ export function parseAnalystJson(raw: string, orgNumber: string, companyName: st
 
   // Normaliser evidence_refs — fjern [brackets] og trim (LLM kopierer ofte prompt-formatet)
   const normalizeRefs = (value: unknown): string[] => {
-    if (!Array.isArray(value)) return [];
-    return value
-      .map((r) => String(r).trim().replace(/^\[|\]$/g, "").trim())
-      .filter(Boolean);
+    const rawRefs = Array.isArray(value) ? value : typeof value === "string" ? [value] : [];
+    return Array.from(new Set(
+      rawRefs
+        .flatMap((ref) => String(ref).split(/[,;]+/))
+        .map((ref) => ref.trim().replace(/^\[|\]$/g, "").trim().toLocaleLowerCase("nb-NO"))
+        .map((ref) => ref.replace(/^kilde\s*:\s*/, "").replace(/\s+/g, " "))
+        .map((ref) => EVIDENCE_REF_ALIASES[ref] ?? ref)
+        .filter((ref) => ALLOWED_EVIDENCE_SOURCES.has(ref))
+    ));
   };
 
   const clean = (arr: any[], field: string, requiredRefs = true): AnalystClaim[] => {
