@@ -43,13 +43,14 @@ export class AnalystService {
 
     const inputText = prompt;
     // Retry mot transiente overbelastning (NVIDIA 503) — 2 forsøk, kort backoff.
+    // Timeout 45s: intelligence ~6-8s + LLM ~10-16s, tillatt rom mot Workers total-limit.
     let raw: string;
     try {
-      raw = await callAnalystModel(this.model, prompt, 1200, 30_000);
+      raw = await callAnalystModel(this.model, prompt, 1200, 45_000);
     } catch (e) {
       if (!(e instanceof Error) || !/HTTP 503|overloaded/i.test(e.message)) throw e;
       await new Promise((r) => setTimeout(r, 1500));
-      raw = await callAnalystModel(this.model, prompt, 1200, 30_000);
+      raw = await callAnalystModel(this.model, prompt, 1200, 45_000);
     }
 
     const output = parseAnalystJson(
