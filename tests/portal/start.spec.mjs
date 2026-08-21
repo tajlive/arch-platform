@@ -51,13 +51,138 @@ const intelligenceResponse = {
     },
     leadership: [{ role_description: "Innehaver", person_name: "Rolf Solheim" }],
     financial: null,
+    wage_context: {
+      industry_group: { code: "55-56", label: "Overnattings- og serveringsvirksomhet" },
+      period: "2026K2",
+      regional: {
+        region_label: "Trøndelag",
+        statistics: {
+          average_monthly_salary: 42500,
+          median_monthly_salary: 39940,
+          jobs: 11587,
+          average_monthly_salary_growth_pct: 6.25
+        }
+      },
+      national: {
+        statistics: {
+          average_monthly_salary: 43640,
+          median_monthly_salary: 40240,
+          jobs: 140054
+        }
+      },
+      company_personnel_costs: {
+        status: "NOT_AVAILABLE",
+        note: "Strukturert regnskapsdata mangler personalkostnader."
+      },
+      caveats: ["Statistikken beskriver lønn i en næringsgruppe, ikke lønnen i virksomheten."]
+    },
     digital: null,
     sources: [
       { label: "Company identity", status: "AVAILABLE" },
       { label: "Leadership & governance", status: "AVAILABLE" },
+      { label: "Lønn og arbeidskraft (SSB)", status: "AVAILABLE" },
       { label: "Financial profile", status: "EMPTY" },
       { label: "Digital footprint", status: "NOT_AVAILABLE" }
     ]
+  }
+};
+
+const comparisonResponse = {
+  resolved: true,
+  unresolved: [],
+  report: {
+    companies: [
+      {
+        org_number: "999888777",
+        company_name: "ROLF SOLHEIM",
+        metrics: { operating_margin: 12, employees: 7, digital_score: 45 },
+        source_status: {
+          "brreg-enhet": "AVAILABLE",
+          "brreg-regnskap": "AVAILABLE",
+          "brreg-regnskap-historikk": "EMPTY",
+          website: "AVAILABLE",
+          "nav-arbeidsplassen": "EMPTY"
+        }
+      },
+      {
+        org_number: "111222333",
+        company_name: "TRONDHEIM SPISESTED AS",
+        metrics: { operating_margin: 4, employees: 5, digital_score: 15 },
+        source_status: {
+          "brreg-enhet": "AVAILABLE",
+          "brreg-regnskap": "AVAILABLE",
+          "brreg-regnskap-historikk": "AVAILABLE",
+          website: "EMPTY",
+          "nav-arbeidsplassen": "NOT_AVAILABLE"
+        }
+      }
+    ],
+    benchmark: {
+      peer_group: {
+        industry_name: "Drift av restauranter",
+        note: "Sammenligningen bygger på de valgte virksomhetene. Ingen kompatibel SSB-referanse var tilgjengelig."
+      },
+      metrics: [
+        {
+          key: "operating_margin",
+          label: "Driftsmargin",
+          unit: "percent",
+          values: [
+            { org_number: "999888777", value: 12 },
+            { org_number: "111222333", value: 4 }
+          ],
+          median: 8
+        },
+        {
+          key: "employees",
+          label: "Ansatte",
+          unit: "count",
+          values: [
+            { org_number: "999888777", value: 7 },
+            { org_number: "111222333", value: 5 }
+          ],
+          median: 6
+        },
+        {
+          key: "digital_score",
+          label: "Digital synlighet",
+          unit: "score",
+          values: [
+            { org_number: "999888777", value: 45 },
+            { org_number: "111222333", value: 15 }
+          ],
+          median: 30
+        }
+      ],
+      sources: [
+        { key: "selected-company-peer-set", label: "Valgt sammenligningsgruppe", status: "AVAILABLE" },
+        { key: "ssb-bransje", label: "SSB-bransjereferanse", status: "NOT_AVAILABLE", note: "Ingen kompatibel SSB-referanse ble returnert." }
+      ]
+    },
+    strengths: [{
+      company_name: "ROLF SOLHEIM",
+      metric: "operating_margin",
+      detail: "ROLF SOLHEIM har 12 mot medianen på 8 i sammenligningsgruppen.",
+      evidence_refs: ["financial|999888777|operating_result"]
+    }],
+    weaknesses: [{
+      company_name: "TRONDHEIM SPISESTED AS",
+      metric: "operating_margin",
+      detail: "TRONDHEIM SPISESTED AS har 4 mot medianen på 8 i sammenligningsgruppen.",
+      evidence_refs: ["financial|111222333|operating_result"]
+    }],
+    gaps: [{
+      company_name: "TRONDHEIM SPISESTED AS",
+      metric: "workforce_signals",
+      detail: "TRONDHEIM SPISESTED AS har ingen dokumentert verdi for rekrutteringssignaler.",
+      evidence_refs: []
+    }],
+    recommendations: [{
+      company_name: "TRONDHEIM SPISESTED AS",
+      priority: "HIGH",
+      action: "Undersøk avviket i driftsmargin mot sterkere sammenligningsvirksomheter.",
+      based_on: ["financial|111222333|operating_result"]
+    }]
   }
 };
 
@@ -72,15 +197,18 @@ const defaultSearchCandidates = [
 ];
 
 async function mockAuditApi(page, searchCandidates, options = {}) {
-  const calls = { questions: [], searches: [], analyst: [], feedback: [] };
+  const calls = { questions: [], searches: [], comparisons: [], analyst: [], feedback: [] };
   const candidates = searchCandidates || defaultSearchCandidates;
   await page.route("https://api.arch.axn.no/v1/public/audit/session", (route) => route.fulfill({ status: 200, body: "{}" }));
   await page.route("https://api.arch.axn.no/v1/public/company/search", async (route) => {
-    calls.searches.push(route.request().postDataJSON());
+    const body = route.request().postDataJSON();
+    calls.searches.push(body);
+    const queryCandidates = options.searchCandidatesByQuery && options.searchCandidatesByQuery[String(body.query || "").toLowerCase()];
+    const resolvedCandidates = queryCandidates || candidates;
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify({ query: "rolf", count: candidates.length, candidates })
+      body: JSON.stringify({ query: body.query, count: resolvedCandidates.length, candidates: resolvedCandidates })
     });
   });
   await page.route("https://api.arch.axn.no/v1/public/company/intelligence", (route) => route.fulfill({
@@ -150,6 +278,14 @@ async function mockAuditApi(page, searchCandidates, options = {}) {
       })
     });
   });
+  await page.route("https://api.arch.axn.no/v1/public/company/compare", async (route) => {
+    calls.comparisons.push(route.request().postDataJSON());
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify(options.comparisonResponse || comparisonResponse)
+    });
+  });
   await page.route("https://api.arch.axn.no/v1/public/analyst/feedback", async (route) => {
     const body = route.request().postDataJSON();
     calls.feedback.push(body);
@@ -178,6 +314,12 @@ test("viser en norsk, dokumentert virksomhetsoversikt uten tekniske statuser", a
   await expect(brief).toContainText("Datagrunnlag");
   await expect(brief).toContainText("Postnummer og poststed");
   await expect(brief).toContainText("7011 TRONDHEIM");
+  await expect(brief).toContainText("Lønn og arbeidskraft");
+  await expect(brief).toContainText("Trøndelag: gjennomsnittlig månedslønn");
+  await expect(brief).toContainText(/42\s*500 NOK/);
+  await expect(brief).toContainText("Selskapets personalkostnader");
+  await expect(brief).toContainText("Ikke tilgjengelig i den strukturerte offentlige kilden");
+  await expect(brief).toContainText("ikke lønnen i virksomheten");
   await expect(brief).toContainText("Opplysninger som ikke er dokumentert, vises ikke som fakta.");
   await expect(brief).not.toContainText("Not connected");
   await expect(brief).not.toContainText("No data");
@@ -296,7 +438,7 @@ test("viser Arch Analytiker med dokumenterte funn når fokusområde velges", asy
   await expect(analyst).toContainText("Etablert ledelse");
   await expect(analyst).toContainText("Kartlegge arbeidsprosesser");
   await expect(analyst).toContainText("Ikke dokumentert");
-  await expect(analyst).toContainText("Kilde: brreg-roller");
+  await expect(analyst).toContainText("Kilde: Styre og ledelse");
   // Ny kontrakt: innsats, tidshorisont, kind, forventet effekt, disclaimer
   await expect(analyst).toContainText("Innsats: Middels");
   await expect(analyst).toContainText("Tidshorisont: 90 dager");
@@ -342,6 +484,87 @@ test("alle fokusområder gir et konkret spørsmål og en dokumentert analyse", a
   expect(calls.analyst.map((call) => call.focus_area)).toEqual([
     "kundekommunikasjon", "administrasjon", "dokumentasjon", "drift", "salg"
   ]);
+});
+
+test("gjør sammenligning, datadekning og analyst-kontekst tilgjengelig", async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  const calls = await mockAuditApi(page, undefined, {
+    searchCandidatesByQuery: {
+      "rolf solheim": defaultSearchCandidates,
+      "spisested": [{
+        org_number: "111222333",
+        company_name: "TRONDHEIM SPISESTED AS",
+        municipality: "TRONDHEIM",
+        postal_code: "7010",
+        postal_place: "TRONDHEIM"
+      }]
+    }
+  });
+  await page.goto(`${baseUrl}/start.html`);
+
+  await page.locator("#mode-compare").click();
+  await expect(page.locator("#comparison-selection")).toBeVisible();
+  await expect(page.locator("#compare-run")).toBeDisabled();
+
+  await page.locator("#company-input").fill("Rolf Solheim");
+  await page.locator("#discover-btn").click();
+  await expect(page.locator("#comparison-selection-list")).toContainText("ROLF SOLHEIM");
+
+  await page.locator("#company-input").fill("spisested");
+  await page.locator("#discover-btn").click();
+  await expect(page.locator("#comparison-selection-list")).toContainText("TRONDHEIM SPISESTED AS");
+  await expect(page.locator("#compare-run")).toBeEnabled();
+
+  await page.locator("#compare-run").click();
+  const comparison = page.locator("#comparison-panel");
+  await expect(comparison).toBeVisible();
+  await expect(comparison).toContainText("Driftsmargin");
+  await expect(comparison).toContainText("Median i utvalget: 8 %");
+  await expect(comparison).toContainText("Dokumenterte avvik");
+  await expect(comparison).toContainText("Manglende datagrunnlag");
+  await expect(comparison).toContainText("Kildedekning");
+  await expect(comparison).toContainText("Ingen registrerte data");
+  await expect(comparison).toContainText("Ikke tilgjengelig");
+  expect(calls.comparisons).toEqual([{ companies: ["999888777", "111222333"] }]);
+
+  await page.locator("#comparison-subject").selectOption("999888777");
+  await page.locator("#comparison-focus").selectOption("drift");
+  await page.locator("#comparison-analyst-btn").click();
+  await expect(page.locator("#analyst-panel")).toContainText("Dokumentert syntese for virksomheten.");
+  expect(calls.analyst.at(-1)).toMatchObject({
+    org_number: "999888777",
+    focus_area: "drift",
+    comparative_context: ["111222333"]
+  });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
+
+  await testInfo.attach("comparison-desktop", { body: await page.screenshot({ fullPage: true }), contentType: "image/png" });
+});
+
+test("holder sammenligningsflyten lesbar på mobil", async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await mockAuditApi(page, undefined, {
+    searchCandidatesByQuery: {
+      "rolf solheim": defaultSearchCandidates,
+      "spisested": [{ org_number: "111222333", company_name: "TRONDHEIM SPISESTED AS", postal_code: "7010", postal_place: "TRONDHEIM" }]
+    }
+  });
+  await page.goto(`${baseUrl}/start.html`);
+  await page.locator("#mode-compare").click();
+  await page.locator("#company-input").fill("Rolf Solheim");
+  await page.locator("#discover-btn").click();
+  await expect(page.locator("#comparison-selection-list")).toContainText("ROLF SOLHEIM");
+  await page.locator("#company-input").fill("spisested");
+  await page.locator("#discover-btn").click();
+  await expect(page.locator("#comparison-selection-list")).toContainText("TRONDHEIM SPISESTED AS");
+  await expect(page.locator("#compare-run")).toBeEnabled();
+  await page.locator("#compare-run").click();
+
+  await expect(page.locator("#comparison-panel")).toBeVisible();
+  await expect(page.locator("#comparison-panel")).toContainText("Forklar forskjellene med ArchAnalyst");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
+
+  await testInfo.attach("comparison-mobile", { body: await page.screenshot({ fullPage: true }), contentType: "image/png" });
 });
 
 test("viser en forståelig melding når analysen er midlertidig utilgjengelig", async ({ page }) => {

@@ -20,6 +20,30 @@ function sampleReport(): IntelligenceReport {
     leadership: [],
     financial: { period_from: "2025-01-01", period_to: "2025-12-31", revenue: 146693681, operating_result: -19318991, equity: 30109263, total_assets: 133194811, currency: "NOK", audited: true },
     financial_history: { org_number: "951001880", years: [], trends: [], latest_year: "2025", data_points: 1 },
+    wage_context: {
+      industry_group: { code: "10-33", label: "Industri", based_on_nace_code: "15.200" },
+      period: "2026K2",
+      previous_period: "2025K2",
+      regional: {
+        region_code: "03",
+        region_label: "Oslo",
+        scope: "county",
+        statistics: { average_monthly_salary: 51000, median_monthly_salary: 48000, jobs: 12000, average_monthly_salary_growth_pct: 4.1 },
+        source_url: "https://data.ssb.no/example/oslo",
+      },
+      national: {
+        region_code: "Ialt",
+        region_label: "I alt",
+        scope: "country",
+        statistics: { average_monthly_salary: 50000, median_monthly_salary: 47000, jobs: 200000, average_monthly_salary_growth_pct: 3.5 },
+        source_url: "https://data.ssb.no/example/norge",
+      },
+      company_personnel_costs: {
+        status: "NOT_AVAILABLE",
+        note: "Strukturert regnskapsdata mangler personalkostnader.",
+      },
+      caveats: ["Statistikken beskriver en næringsgruppe, ikke lønnen i virksomheten."],
+    },
     digital: { website: "www.alfa.no", tech_stack: ["WordPress"], channels: ["Telefon"], has_booking: false, has_self_service: false, fetched: true },
     sources: [
       { key: "brreg-enhet", label: "Enhetsregisteret", status: "AVAILABLE" },
@@ -50,6 +74,7 @@ describe("buildEvidenceBundle", () => {
     expect(bundle.revenue).toBe(146693681);
     expect(bundle.operating_margin).toBeCloseTo(-13.17, 1);
     expect(bundle.equity_ratio).toBeCloseTo(22.61, 1);
+    expect(bundle.wage_context?.regional?.average_monthly_salary).toBe(51000);
     expect(bundle.evidence.length).toBe(2);
     const expectedAmount = new Intl.NumberFormat("nb-NO", { maximumFractionDigits: 0 }).format(-19318991);
     expect(buildDeterministicSummary(bundle)).toBe(
@@ -67,6 +92,9 @@ describe("buildPrompt", () => {
     expect(prompt).toContain("brreg-regnskap");
     expect(prompt).toContain("driftsresultat");
     expect(prompt).toContain("idiomatisk bokmål");
+    expect(prompt).toContain("LØNN OG ARBEIDSKRAFT");
+    expect(prompt).toContain("51000 NOK");
+    expect(prompt).toContain("ikke lønnen i virksomheten");
   });
 });
 

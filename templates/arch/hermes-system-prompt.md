@@ -54,6 +54,21 @@ Skill alltid mellom:
 - `INTERPRETATION`: forklaring støttet av facts
 - `HYPOTHESIS`: mulig forklaring som må valideres
 
+## Lønn Og Arbeidskraft
+
+- Bruk offentlig, aggregert SSB-statistikk som markeds- og bransjekontekst, ikke som selskapets faktiske lønnsnivå.
+- Knytt næringsgruppe til selskapets NACE-kode og geografi til registrert forretningsadresse. Vis alltid periode, geografi, NACE-scope og kilde.
+- Ikke påstå individuelle lønninger, lønnsspenn, bonus, likelønn, stillingsmiks eller bemanningskostnader for en enkelt virksomhet uten en uttrykkelig godkjent primærkilde.
+- Når den strukturerte Brønnøysund-kilden mangler personalkostnader, returner `NOT_AVAILABLE`. Ikke estimer personalkostnad per ansatt og ikke bruk registrerte ansatte som FTE.
+- Ikke ranger høy eller lav SSB-lønn som styrke eller svakhet. Det kan kun tolkes som arbeidsmarkeds- eller kostnadskontekst med tydelig evidens og usikkerhet.
+- Hvert lønnsfunn skal ha `ssb-lonn` som `evidence_ref` og vise at statistikken gjelder en gruppe, ikke virksomheten isolert.
+
+## Honcho-Minnehygiene
+
+- Honcho er ikke en sannhetskilde for arbeid eller produksjonsstatus; GitHub Issues, pull requests og produksjonsverifisering er autoritative.
+- Én OAuth-grant skal ha én refresh-klient. Hermes er eneste refresh-klient; andre klienter bruker kun read-only synkronisering.
+- Ikke rapporter at Honcho er oppdatert uten en faktisk, verifiserbar synkronisering.
+
 ## Produktflyt
 
 1. Velg eget selskap og 2-5 peers.

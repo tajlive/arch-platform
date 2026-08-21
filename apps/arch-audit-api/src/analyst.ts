@@ -182,6 +182,28 @@ export interface EvidenceBundle {
     latest_year?: string;
     revenue_trend?: Array<{ year: string; value: number | null }>;
   };
+  wage_context?: {
+    industry_group: string;
+    period: string;
+    regional?: {
+      region: string;
+      average_monthly_salary?: number;
+      median_monthly_salary?: number;
+      jobs?: number;
+      average_monthly_salary_growth_pct?: number;
+    };
+    national: {
+      average_monthly_salary?: number;
+      median_monthly_salary?: number;
+      jobs?: number;
+      average_monthly_salary_growth_pct?: number;
+    };
+    company_personnel_costs: {
+      status: "NOT_AVAILABLE";
+      note: string;
+    };
+    caveats: string[];
+  };
   sources: Array<{ key: string; label: string; status: string }>;
   evidence: Array<{ type: string; observation: string; source: string }>;
   comparative?: ComparativeReport;
@@ -197,6 +219,7 @@ export function buildEvidenceBundle(report: IntelligenceReport): EvidenceBundle 
   const workforceMetrics = report.sources?.find((s) => s.key === "nav-arbeidsplassen");
   const financial = report.financial;
   const history = report.financial_history;
+  const wageContext = report.wage_context;
 
   return {
     org_number: report.org_number,
@@ -227,6 +250,29 @@ export function buildEvidenceBundle(report: IntelligenceReport): EvidenceBundle 
           years: history.data_points,
           latest_year: history.latest_year,
           revenue_trend: history.trends?.find((t) => t.key === "revenue")?.values,
+      }
+      : undefined,
+    wage_context: wageContext
+      ? {
+          industry_group: wageContext.industry_group.label,
+          period: wageContext.period,
+          regional: wageContext.regional
+            ? {
+                region: wageContext.regional.region_label,
+                average_monthly_salary: wageContext.regional.statistics.average_monthly_salary,
+                median_monthly_salary: wageContext.regional.statistics.median_monthly_salary,
+                jobs: wageContext.regional.statistics.jobs,
+                average_monthly_salary_growth_pct: wageContext.regional.statistics.average_monthly_salary_growth_pct,
+              }
+            : undefined,
+          national: {
+            average_monthly_salary: wageContext.national.statistics.average_monthly_salary,
+            median_monthly_salary: wageContext.national.statistics.median_monthly_salary,
+            jobs: wageContext.national.statistics.jobs,
+            average_monthly_salary_growth_pct: wageContext.national.statistics.average_monthly_salary_growth_pct,
+          },
+          company_personnel_costs: wageContext.company_personnel_costs,
+          caveats: wageContext.caveats,
         }
       : undefined,
     sources: report.sources ?? [],
@@ -271,6 +317,7 @@ const ALLOWED_EVIDENCE_SOURCES = new Set([
   "brreg-regnskap-historikk",
   "website",
   "nav-arbeidsplassen",
+  "ssb-lonn",
   "peer-group",
   "brreg",
 ]);
@@ -288,6 +335,11 @@ const EVIDENCE_REF_ALIASES: Record<string, string> = {
   "nav": "nav-arbeidsplassen",
   "nav arbeidsplassen": "nav-arbeidsplassen",
   "arbeidsplassen": "nav-arbeidsplassen",
+  "ssb": "ssb-lonn",
+  "ssb lønn": "ssb-lonn",
+  "ssb lonn": "ssb-lonn",
+  "lønn og arbeidskraft": "ssb-lonn",
+  "lonn og arbeidskraft": "ssb-lonn",
   "nettsideanalyse": "website",
   "nettside": "website",
   "peer group": "peer-group",
@@ -314,6 +366,18 @@ export function buildPrompt(bundle: EvidenceBundle, focusArea: FocusArea, benchm
   const benchmarkLines = benchmarkDeltas.length
     ? benchmarkDeltas.map((d) => `- ${d.label}: selskap=${d.company_value ?? "ukjent"}, peer-median=${d.peer_median ?? "ukjent"}, avvik=${d.delta ?? "ukjent"} (${d.direction})`).join("\n")
     : "(ingen benchmark-avvik beregnet)";
+  const wage = bundle.wage_context;
+  const wageLines = wage
+    ? [
+        `- SSB-næringsgruppe: ${wage.industry_group}; periode: ${wage.period}.`,
+        ...(wage.regional ? [
+          `- ${wage.regional.region}: gjennomsnittlig månedslønn=${wage.regional.average_monthly_salary ?? "ukjent"} NOK, median=${wage.regional.median_monthly_salary ?? "ukjent"} NOK, jobber=${wage.regional.jobs ?? "ukjent"}, endring=${wage.regional.average_monthly_salary_growth_pct ?? "ukjent"}%.`,
+        ] : []),
+        `- Norge: gjennomsnittlig månedslønn=${wage.national.average_monthly_salary ?? "ukjent"} NOK, median=${wage.national.median_monthly_salary ?? "ukjent"} NOK, jobber=${wage.national.jobs ?? "ukjent"}, endring=${wage.national.average_monthly_salary_growth_pct ?? "ukjent"}%.`,
+        `- Selskapets personalkostnader: ${wage.company_personnel_costs.note}`,
+        ...wage.caveats.map((caveat) => `- Avgrensning: ${caveat}`),
+      ].join("\n")
+    : "(ingen offentlig lønnskontekst tilgjengelig)";
 
   return [
     "Du er ArchAnalyst — en analytiker som KUN bruker dokumentert evidens.",
@@ -328,6 +392,7 @@ export function buildPrompt(bundle: EvidenceBundle, focusArea: FocusArea, benchm
     "Ikke forklar hvorfor et regnskapstall ser ut som det gjør, og ikke nevn renter, skatt, kostnader eller avkastning med mindre dette står eksplisitt i evidensen.",
     "Returner weaknesses: [] med mindre evidensen viser et negativt eller fallende forhold, eller et benchmark-avvik under peer-medianen.",
     "Returner priorities: [] med mindre en dokumentert weakness eller et benchmark-avvik direkte begrunner tiltaket. Ikke gi generelle råd om overvåking, gjennomgang eller forbedring.",
+    "SSB-lønnsdata er aggregert bransje- og regionstatistikk. Du må ALDRI bruke dem til å påstå hva ansatte i dette selskapet faktisk tjener, eller til å hevde noe om bonus, lønnsspenn, likelønn eller stillingsmiks.",
     "",
     "KLASSIFISER hvert funn som:",
     "- FACT: direkte observert fra kilde",
@@ -340,6 +405,9 @@ export function buildPrompt(bundle: EvidenceBundle, focusArea: FocusArea, benchm
     "",
     "BENCHMARK-AVVIK (mot peer-median):",
     benchmarkLines,
+    "",
+    "LØNN OG ARBEIDSKRAFT (offentlig SSB-kontekst):",
+    wageLines,
     "",
     "VERIFISERT EVIDENS:",
     sourceLines || "  (ingen verifisert evidens)",
@@ -528,7 +596,7 @@ export function parseAnalystJson(raw: string, orgNumber: string, companyName: st
     },
     model: { provider, model, tokens: { input: inputTokens, output: outputTokens } },
     provenance: {
-      evidence_sources: ["brreg-enhet", "brreg-regnskap", "peer-group", "nav-arbeidsplassen", "website"],
+      evidence_sources: ["brreg-enhet", "brreg-regnskap", "peer-group", "nav-arbeidsplassen", "ssb-lonn", "website"],
       disclaimer:
         "Denne analysen er beslutningsstøtte basert på offentlige registre, ikke finansiell, juridisk eller kredittrådgivning. Verifiser forholdene mot primærkilder før beslutninger.",
       benchmark_deltas: benchmarkDeltas,

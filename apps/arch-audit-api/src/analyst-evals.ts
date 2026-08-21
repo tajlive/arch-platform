@@ -60,7 +60,7 @@ export function runAnalystEvals(output: AnalystOutput, evidenceSources?: string[
   // ── Eval 3: Evidence_refs må komme fra tillatte kilder ──
   const ALLOWED = new Set([
     "brreg-enhet", "brreg-roller", "brreg-regnskap", "brreg-regnskap-historikk",
-    "website", "nav-arbeidsplassen", "brreg", "peer-group",
+    "website", "nav-arbeidsplassen", "ssb-lonn", "brreg", "peer-group",
   ]);
   const allRefs = [
     ...allClaims.flatMap((c) => c.evidence_refs),

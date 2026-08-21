@@ -61,8 +61,11 @@ interface BrregResponse {
 }
 
 function toBrregCompany(unit: BrregResponse): BrregCompany {
-  const postalAddress = unit.postadresse;
   const businessAddress = unit.forretningsadresse;
+  const postalAddress = unit.postadresse;
+  // Arbeidsmarkeds- og lønnskontekst må følge driftsstedet når det finnes.
+  // Postadressen er kun en tydelig merket fallback.
+  const locationAddress = businessAddress ?? postalAddress;
 
   return {
     org_number: unit.organisasjonsnummer,
@@ -72,10 +75,10 @@ function toBrregCompany(unit: BrregResponse): BrregCompany {
     industry_name: unit.naeringskode1?.beskrivelse,
     employees: unit.antallAnsatte,
     website: unit.hjemmeside,
-    municipality: postalAddress?.kommune ?? businessAddress?.kommune,
-    municipality_number: postalAddress?.kommunenummer ?? businessAddress?.kommunenummer,
-    postal_code: postalAddress?.postnummer ?? businessAddress?.postnummer,
-    postal_place: postalAddress?.poststed ?? businessAddress?.poststed,
+    municipality: locationAddress?.kommune,
+    municipality_number: locationAddress?.kommunenummer,
+    postal_code: locationAddress?.postnummer,
+    postal_place: locationAddress?.poststed,
     registered_at: unit.registreringsdatoEnhetsregisteret,
   };
 }

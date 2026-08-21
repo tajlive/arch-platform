@@ -20,6 +20,8 @@ export interface ComparableCompany {
   industry_name?: string;
   metrics: Partial<Record<BenchmarkMetricKey, number>>;
   evidence: Partial<Record<BenchmarkMetricKey, string[]>>;
+  /** Offentlig lønns- og arbeidskraftkontekst per selskap. Ikke en rangeringsmetrik. */
+  wage_context?: IntelligenceReport["wage_context"];
   source_status: Record<string, string>;
   graph: CompanyIntelligenceGraph;
 }
@@ -115,12 +117,20 @@ export interface CompanyCompareResult {
 export type IntelligenceRunner = (query: string) => Promise<CompanyIntelligenceResult | null>;
 
 const METRIC_LABELS: Record<BenchmarkMetricKey, { label: string; unit: BenchmarkMetric["unit"] }> = {
-  operating_margin: { label: "Operating margin", unit: "percent" },
-  equity_ratio: { label: "Equity ratio", unit: "percent" },
-  employees: { label: "Employees", unit: "count" },
-  digital_score: { label: "Digital score", unit: "score" },
-  workforce_signals: { label: "Workforce signals", unit: "count" },
+  operating_margin: { label: "Driftsmargin", unit: "percent" },
+  equity_ratio: { label: "Egenkapitalandel", unit: "percent" },
+  employees: { label: "Ansatte", unit: "count" },
+  digital_score: { label: "Digital synlighet", unit: "score" },
+  workforce_signals: { label: "Rekrutteringssignaler", unit: "count" },
 };
+
+// Flere ansatte eller aktive stillinger er et avvik, ikke i seg selv en styrke
+// eller svakhet. Bare metrikker med entydig retning blir rangert automatisk.
+const DIRECTIONAL_METRICS = new Set<BenchmarkMetricKey>([
+  "operating_margin",
+  "equity_ratio",
+  "digital_score",
+]);
 
 const SSB_TABLE_BY_SECTION: Record<string, string> = {
   B: "08677",
@@ -336,6 +346,7 @@ export function toComparableCompany(result: CompanyIntelligenceResult): Comparab
     industry_name: report.identity.industry_name,
     metrics,
     evidence,
+    wage_context: report.wage_context ?? null,
     source_status: Object.fromEntries(report.sources.map((source) => [source.key, source.status])),
     graph: report.graph,
   };
@@ -385,15 +396,15 @@ export class BenchmarkEngine {
         industry_name: commonIndustry?.industry_name,
         company_count: graphs.length,
         note: industryBenchmark
-          ? `Selected-company benchmark enriched with SSB ${industryBenchmark.scope} reference for ${industryBenchmark.period}.`
-          : "Benchmark is calculated from the selected companies; no compatible SSB industry reference was available.",
+          ? `Sammenligningen er beriket med SSB-referanse for ${industryBenchmark.scope === "division" ? "næringsgruppe" : "næringsseksjon"} i ${industryBenchmark.period}.`
+          : "Sammenligningen bygger på de valgte virksomhetene. Ingen kompatibel SSB-referanse var tilgjengelig.",
       },
       metrics,
       sources: [
-        { key: "selected-company-peer-set", label: "Selected company peer set", status: "AVAILABLE" },
+        { key: "selected-company-peer-set", label: "Valgt sammenligningsgruppe", status: "AVAILABLE" },
         industryBenchmark
-          ? { key: "ssb-bransje", label: "SSB industry benchmark", status: "AVAILABLE", note: `Table reference for ${industryBenchmark.scope}, ${industryBenchmark.period}.` }
-          : { key: "ssb-bransje", label: "SSB industry benchmark", status: "NOT_AVAILABLE", note: commonIndustryCode ? "no compatible SSB reference returned" : "companies do not share an industry code" },
+          ? { key: "ssb-bransje", label: "SSB-bransjereferanse", status: "AVAILABLE", note: `Referanse for ${industryBenchmark.scope === "division" ? "næringsgruppe" : "næringsseksjon"}, ${industryBenchmark.period}.` }
+          : { key: "ssb-bransje", label: "SSB-bransjereferanse", status: "NOT_AVAILABLE", note: commonIndustryCode ? "Ingen kompatibel SSB-referanse ble returnert." : "Virksomhetene har ikke samme næringskode." },
       ],
     };
   }
@@ -409,20 +420,22 @@ export class ComparativeAnalyzer {
       for (const company of companies) {
         const value = company.metrics[metric.key];
         if (value === undefined) {
-          gaps.push(this.finding("GAP", company, metric.key, `Missing ${metric.label}`, `${company.company_name} lacks documented ${metric.label.toLowerCase()} evidence.`, undefined, metric, []));
+          gaps.push(this.finding("GAP", company, metric.key, `Manglende dokumentasjon for ${metric.label.toLowerCase()}`, `${company.company_name} har ingen dokumentert verdi for ${metric.label.toLowerCase()}.`, undefined, metric, []));
           continue;
         }
 
         const refs = company.evidence[metric.key] ?? [];
         if (refs.length === 0) {
-          gaps.push(this.finding("GAP", company, metric.key, `Unproven ${metric.label}`, `${company.company_name} has a ${metric.label.toLowerCase()} value, but no evidence reference was attached.`, value, metric, []));
+          gaps.push(this.finding("GAP", company, metric.key, `Udokumentert ${metric.label.toLowerCase()}`, `${company.company_name} har en verdi for ${metric.label.toLowerCase()}, men uten kildehenvisning.`, value, metric, []));
           continue;
         }
 
+        if (!DIRECTIONAL_METRICS.has(metric.key)) continue;
+
         if (value >= metric.q3 && value > metric.median) {
-          strengths.push(this.finding("STRENGTH", company, metric.key, `${metric.label} above peer median`, `${company.company_name} is at ${value} vs peer median ${metric.median}.`, value, metric, refs));
+          strengths.push(this.finding("STRENGTH", company, metric.key, `${metric.label} over medianen`, `${company.company_name} har ${value} mot medianen på ${metric.median} i sammenligningsgruppen.`, value, metric, refs));
         } else if (value <= metric.q1 && value < metric.median) {
-          weaknesses.push(this.finding("WEAKNESS", company, metric.key, `${metric.label} below peer median`, `${company.company_name} is at ${value} vs peer median ${metric.median}.`, value, metric, refs));
+          weaknesses.push(this.finding("WEAKNESS", company, metric.key, `${metric.label} under medianen`, `${company.company_name} har ${value} mot medianen på ${metric.median} i sammenligningsgruppen.`, value, metric, refs));
         }
       }
     }
@@ -455,7 +468,7 @@ export class ComparativeAnalyzer {
       metric: key,
       title,
       detail: metric.industry_reference
-        ? `${detail} SSB ${metric.industry_reference.scope} reference for ${metric.industry_reference.period}: ${metric.industry_reference.value}.`
+        ? `${detail} SSB-referanse for ${metric.industry_reference.scope === "division" ? "næringsgruppe" : "næringsseksjon"} i ${metric.industry_reference.period}: ${metric.industry_reference.value}.`
         : detail,
       value,
       benchmark: {
@@ -488,7 +501,7 @@ export class ComparativeAnalyzer {
           org_number: company.org_number,
           company_name: company.company_name,
           priority: "HIGH",
-          action: `Investigate ${companyWeaknesses[0].metric} gap against stronger peers.`,
+          action: `Undersøk avviket i ${METRIC_LABELS[companyWeaknesses[0].metric].label.toLowerCase()} mot sterkere sammenligningsvirksomheter.`,
           based_on: companyWeaknesses[0].evidence_refs,
         });
       } else if (companyGaps.length > 0) {
@@ -496,7 +509,7 @@ export class ComparativeAnalyzer {
           org_number: company.org_number,
           company_name: company.company_name,
           priority: "MEDIUM",
-          action: `Collect missing evidence for ${companyGaps[0].metric} before making a strategic claim.`,
+          action: `Innhent dokumentasjon for ${METRIC_LABELS[companyGaps[0].metric].label.toLowerCase()} før det trekkes en strategisk konklusjon.`,
           based_on: [],
         });
       }
