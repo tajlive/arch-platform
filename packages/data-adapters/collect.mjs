@@ -19,7 +19,6 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { fetchRepo, fetchCiStatus } from "./github-adapter.mjs";
-import { fetchTeamStats } from "./linear-adapter.mjs";
 import { fetchKnowledgeCounts } from "./knowledge-adapter.mjs";
 import { fetchAgents } from "./hermes-adapter.mjs";
 
@@ -47,10 +46,9 @@ function scoreProject(p) {
 const internal = { generated: new Date().toISOString(), version: "2.1", projects: [], agents: [], knowledge: null, security: null };
 
 for (const p of registry) {
-  const [repo, ci, linear] = await Promise.all([
+  const [repo, ci] = await Promise.all([
     fetchRepo(p.repository),
     p.repository === "tajlive/arch-platform" ? fetchCiStatus(p.repository) : Promise.resolve(null),
-    fetchTeamStats(p.linear_team),
   ]);
   internal.projects.push({
     project_id: p.project_id,
@@ -61,11 +59,9 @@ for (const p of registry) {
     url: p.url,
     dev_path: p.dev_path ?? null,
     repository: p.repository,
-    linear_team: p.linear_team,
     health: scoreProject(p),
     github: repo,
     ci: ci,
-    linear: linear,
   });
 }
 

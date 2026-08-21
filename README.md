@@ -21,7 +21,7 @@ Produktet er **Arch Platform**. Disse er moduler (ikke egne produkter): **Contro
 | `apps/customer-portal/` | **SANITERT** publikums-/demo-visning (default-deny) |
 | `packages/project-factory/` | `analyze-project.mjs` + `init-project.mjs` |
 | `packages/health-score/` | Health Score v2.1 (vektet + evidence) |
-| `packages/data-adapters/` | GitHub/Linear/Knowledge/Hermes-adaptere + `collect.mjs` + `audit-leak.mjs` |
+| `packages/data-adapters/` | GitHub/Knowledge/Hermes-adaptere + `collect.mjs` + `audit-leak.mjs` |
 | `packages/knowledge-engine/` | Knowledge Graph (failures/patterns/lessons/decisions/…) |
 | `packages/governance/` | `projects.json` (Project Registry, SSoT) + governance-regler |
 | `packages/audit/` | Arch Audit v1 (F4.1) — evidensbasert audit av repo/system |
@@ -73,7 +73,7 @@ som healthy (fail-safe).
 
 ## Governance
 
-- Linear = eneste oppgave-SSoT (team `ARC`, `KLA`).
-- `--approve`-gate for eksterne ressurser (repo, Linear-team).
+- GitHub Issues er oppgavekilden.
+- `--approve`-gate for eksterne ressurser (repo).
 - Factory deployer/secreter/live aldri — governed steg utenfor Factory.
 - Deploy kun etter Tom-godkjenning + grønne security-gates.

@@ -1,13 +1,12 @@
 # Arch Kostnadskontroll — plan
 
-> ARC-9 · https://linear.app/klarpakke/issue/ARC-9/arch-kostnadskontroll
-> Besluttet av Tom 2026-08-14. SSoT: Linear (ARC-9) + denne filen.
+> Besluttet av Tom 2026-08-14. SSoT: GitHub Issues + denne filen.
 
 ## Beslutninger (Tom 2026-08-14)
 
 | # | Tema | Valg |
 |---|---|---|
-| 1 | Omfang | **A** — ALLE tjenester: Cloudflare, Supabase, Resend, Linear, LLM-API, Domeneshop, GitHub, Bitwarden |
+| 1 | Omfang | **A** — ALLE tjenester: Cloudflare, Supabase, Resend, LLM-API, Domeneshop, GitHub, Bitwarden |
 | 2 | Hensikt | **C** — synlighet + budsjettvarsler + auto-optimalisering |
 | 3 | Datakilde | **C** — hybrid (API der det finnes, manuell der ikke) |
 | 4 | Plassering | Arch-plattformen (ny Kostnadskontroll-modul) — agent-beslutning |
@@ -22,7 +21,6 @@
 | Moonshot/Kimi | saldo-endpoint | ⚠️ Saldo kun |
 | Supabase | ingen faktura-API på free/pro | ❌ Manuell |
 | Resend | ingen faktura-API (dashboard) | ❌ Manuell |
-| Linear | ingen offentlig billing-API | ❌ Manuell |
 | GitHub | billing-API for org (actions/storage) — krever team/enterprise | ⚠️ Delvis |
 | Domeneshop | ingen faktura-API (kun domene-admin) | ❌ Manuell |
 | Bitwarden | ingen kostnads-API | ❌ Manuell |
@@ -34,7 +32,7 @@
 ```
 cost_entry:
   project_id    (klarpakke | autoglassgrossisten | finnbilglass | arch-platform | tronderglass)
-  service       (cloudflare | supabase | resend | linear | llm | domeneshop | github | bitwarden)
+  service       (cloudflare | supabase | resend | llm | domeneshop | github | bitwarden)
   account       (80d5b1d5 | 2266e975 | pskhryjzkobytnfwucrb | …)   # konto/prosjekt-ref per tjeneste
   period        (YYYY-MM)                                          # måned
   amount        (decimal)                                          # kostnad
@@ -49,7 +47,7 @@ cost_entry:
 - Datamodell + lagring (start: JSON/CSV i Arch-repo; senere Supabase/D1 hvis nødvendig)
 - Cloudflare-integrasjon: daglig cron → Billable Usage API → per konto per prosjekt
 - LLM-saldo: DeepSeek `/user/balance` + Moonshot-saldo (daglig)
-- Manuell input-skjema for Supabase/Resend/Linear/Domeneshop/GitHub/Bitwarden (månedlig)
+- Manuell input-skjema for Supabase/Resend/Domeneshop/GitHub/Bitwarden (månedlig)
 - Dashboard: tabell per prosjekt (kostnad per tjeneste, måned + MTD)
 
 ### Fase 2 — Budsjettvarsler

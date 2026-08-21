@@ -60,7 +60,7 @@
 **F003 Manglende alert-integrasjon**
 - **Problem:** Manglende alert-integrasjon
 - **Forretningsmessig betydning:** Når noe feiler, får ingen beskjed — nedetiden forlenges i stedet for å kortes.
-- **Anbefalt løsning:** Alert-ruting til eier (Slack/Linear/e-post) med klare eskaleringsregler.
+- **Anbefalt løsning:** Alert-ruting til eier (Slack/e-post) med klare eskaleringsregler.
 - **Forventet innsats:** Lav (timer)
 - **Arch Build-kandidat:** ✅ ja
 

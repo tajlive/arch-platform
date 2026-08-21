@@ -29,9 +29,9 @@ jobs:
   deploy:
     needs: [test-gate, security-check]
     runs-on: ubuntu-latest
-    # TODO: wrangler deploy / platform-deploy. Alert via Linear fingerprint-dedup.
+    # TODO: wrangler deploy / platform-deploy. Alert via configured notification channel.
 
   smoke:
     needs: [deploy]
     runs-on: ubuntu-latest
-    # TODO: health + landing + i18n-nøkkel-sjekk. Ved feil → auto-rollback → Linear prio 2/1.
+    # TODO: health + landing + i18n-nøkkel-sjekk. Ved feil → auto-rollback → opprett eskalering.

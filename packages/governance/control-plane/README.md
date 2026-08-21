@@ -6,7 +6,7 @@ Governance-laget. `.arch/` per prosjekt + disse reglene.
 
 | Domene | System |
 |---|---|
-| Oppgaver/krav | Linear |
+| Oppgaver/krav | GitHub Issues |
 | Kode | GitHub |
 | Data | Supabase |
 | Runtime | Cloudflare Workers |
@@ -14,9 +14,8 @@ Governance-laget. `.arch/` per prosjekt + disse reglene.
 
 ## Approval-gates
 
-- `Ready for Tom → Approved` = **kun Tom**.
-- Arkitektur-forslag = `Ready for Tom` før `init`.
-- Factory `--approve` kreves for eksterne ressurser (GitHub-repo, Linear-team).
+- Risikofylte arkitektur- og produksjonsendringer krever Tom-godkjenning.
+- Factory `--approve` kreves for eksterne ressurser (GitHub-repo).
 
 ## Secret-standard
 

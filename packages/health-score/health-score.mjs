@@ -164,7 +164,7 @@ const categories = [
     { id: "monitoring", label: "monitoring", run: () => (grepWorkflows(/monitor|uptime/i) || (existsSync(join(dir, "scripts")) && readdirSync(join(dir, "scripts")).some((f) => /monitor/i.test(f)))
       ? { result: "PASS", evidence: "monitor tilstede", source: "fil", observed_at: NOW }
       : { result: "FAIL", evidence: "ingen monitor", source: "fil", observed_at: NOW }) },
-    { id: "alerts", label: "alert-integrasjon", run: () => (grepWorkflows(/alert|linear|fingerprint|notify/i) || existsSync(join(dir, "scripts/lib/escalation-rules.mjs"))
+    { id: "alerts", label: "alert-integrasjon", run: () => (grepWorkflows(/alert|fingerprint|notify/i) || existsSync(join(dir, "scripts/lib/escalation-rules.mjs"))
       ? { result: "PASS", evidence: "alert-integrasjon", source: "fil", observed_at: NOW }
       : { result: "FAIL", evidence: "ingen alert-integrasjon", source: "fil", observed_at: NOW }) },
     { id: "rollback", label: "rollback", run: () => (grepWorkflows(/rollback/i)

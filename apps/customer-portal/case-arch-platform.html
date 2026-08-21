@@ -63,7 +63,7 @@
 │  Data         │ │  Audit        │ │  Governance   │
 │  Adapters     │ │  (F4.1/F4.2B) │ │  (projects.json│
 │  (GitHub,     │ │  Repo +       │ │  SSoT, secrets│
-│   Linear,     │ │  Website      │ │  registry)    │
+│   GitHub,     │ │  Website      │ │  registry)    │
 │   Knowledge,  │ │  Audit v1/v2) │ │               │
 │   Hermes)     │ │               │ └───────────────┘
 └───────────────┘ └───────────────┘
@@ -91,13 +91,13 @@
               <td>Produksjonssikkerhet krever menneskelig dømmekraft på risiko</td>
             </tr>
             <tr>
-              <td>Linear = eneste oppgave-SSoT</td>
-              <td>Team <code>ARC</code> (Arch) + <code>KLA</code> (Klarpakke), workflow: Triage → Ready for Tom → Approved → In Progress → In Review → Done</td>
+              <td>GitHub Issues for oppgavesporing</td>
+              <td>Repository-basert sporing med review og historikk i pull requests</td>
               <td>Ingen dobbel bokføring, ingen tapte oppgaver, audit-spor</td>
             </tr>
             <tr>
               <td>Git workflow: Issue → Branch → Review → Main</td>
-              <td>Commit-melding må referere Linear-issue. Push til <code>main</code> kun etter grønne gates</td>
+              <td>Commit-melding beskriver endringen. Push til <code>main</code> kun etter grønne gates</td>
               <td>Traceability fra beslutning til kode</td>
             </tr>
             <tr>
@@ -130,14 +130,13 @@
         </ul>
       </section>
 
-      <section class="card" id="linear-sso">
-        <h3>Linear som eneste SSO for oppgaver — Arkitektonisk valg</h3>
-        <p>Vi valgte Linear ikke for "issue tracking", men som <strong>eneste kilde til sannhet for hva som jobbes på</strong>:</p>
+      <section class="card" id="work-tracking">
+        <h3>GitHub Issues for oppgavesporing</h3>
+        <p>Arbeid og kode holdes samlet i repositoryet:</p>
         <ul>
-          <li>To team (<code>ARC</code>, <code>KLA</code>) med separate workflows — unngår "state from different team"-feil ved transitions</li>
-          <li><code>Approved</code>-state finnes KUN i KLA-teamet — ARC går direkte Ready for Tom → Done/In Progress</li>
-          <li>GraphQL-mutasjoner med <code>stateId</code>/<code>teamId</code> (ikke navn) for deterministiske transitions</li>
-          <li>Factory (<code>init-project.mjs</code>) oppretter Linear-prosjekt/team <strong>kun med <code>--approve</code></strong> — ingen auto-oppretting av eksterne ressurser</li>
+          <li>Issues, pull requests og commits gir én sammenhengende arbeidsflyt</li>
+          <li>Review og branch protection beskytter hovedgrenen</li>
+          <li>Factory oppretter GitHub-repository <strong>kun med <code>--approve</code></strong></li>
         </ul>
       </section>
 
@@ -147,7 +146,7 @@
           <div class="dim"><b>Failures</b><br>8 hendelser — incident-rapporter med rotårsak, blast radius, guard + regresjonstest</div>
           <div class="dim"><b>Patterns</b><br>4 mønster — vertikale demoer, governede deploys, evidence-ledger, secrets-registry</div>
           <div class="dim"><b>Lessons</b><br>12 læringer — edge→nodejs, route-handler, wrangler env, kapital kun aktive, registry SSoT, gov deploy verifiser verktøy</div>
-          <div class="dim"><b>Decisions</b><br>10 arkitekturvalg — COMBO-strategi, OKX live, Beta-policy, Arch-navn, Selskapsnavn, Deploy-gates, Linear-graphQL</div>
+          <div class="dim"><b>Decisions</b><br>10 arkitekturvalg — COMBO-strategi, OKX live, Beta-policy, Arch-navn, Selskapsnavn og deploy-gates</div>
           <div class="dim"><b>Customers</b><br>1 ekte kunde (Autoglass) + 8 prospects med audit-score</div>
           <div class="dim"><b>Architectures</b><br>1 referansearkitektur (Klarpakke Health Score 98 %)</div>
         </div>
@@ -164,7 +163,7 @@
           <li>HTTP smoke (prod + assets)</li>
           <li>Privacy smoke (0 lekkasjer i live <code>data.js</code>)</li>
           <li>Rollback (ved rød smoke → forrige production-deployment via CF API)</li>
-          <li>Alert (Linear ARC-team ved feil)</li>
+          <li>Alert til ansvarlig eier ved feil</li>
         </ol>
         <p class="note">TLS-håndtrykk på nytt <code>.pages.dev</code>-domene tar ~60–90s — ikke kodefeil, vent og retry.</p>
       </section>

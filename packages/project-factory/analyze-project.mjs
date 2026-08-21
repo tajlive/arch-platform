@@ -54,7 +54,7 @@ const RELEVANCE = [
   { file: "lesson-kapital-kun-aktive.md", keywords: ["trad", "fin", "crypto"], rule: "kapital/P&L kun fra aktive sesjoner" },
 ];
 
-const stack = ["Next.js", "Cloudflare", "Supabase", "Linear", "GitHub Actions"];
+const stack = ["Next.js", "Cloudflare", "Supabase", "GitHub Issues", "GitHub Actions"];
 const stackLc = stack.join(" ").toLowerCase() + " " + type.toLowerCase() + " " + name.toLowerCase();
 const inherited = RELEVANCE.filter((r) =>
   r.keywords.some((k) => stackLc.includes(k)) && lessons.includes(r.file)
@@ -85,7 +85,7 @@ const proposal = `# Architecture Proposal
 - **Frontend/App:** Next.js 16 (App Router, OpenNext → Cloudflare Workers)
 - **Runtime:** Cloudflare Workers (edge der mulig, \`nodejs\` for supabase-js-ruter)
 - **Data:** Supabase (Postgres + pg_cron)
-- **Oppgaver/krav:** Linear (eget team, key 1–4 tegn)
+- **Oppgaver/krav:** GitHub Issues
 - **CI/CD:** GitHub Actions (test-gate → deploy → smoke → auto-rollback)
 - **Secrets:** BWS + wrangler + GitHub Actions (referanser i .arch/secrets/registry.yaml)
 
@@ -109,14 +109,14 @@ ${inherited.length ? inherited.map((l) => `- **Tidligere failure/lesson:** ${l.r
 
 - «Arch lærer av systemet, men endrer aldri sikkerhetsgrenser automatisk.»
 - Factory kan lage repo/dokumentasjon/workflows/policies — aldri deploye, prod-secrets, live, betaling.
-- Eksterne ressurser (GitHub-repo, Linear-team) krever Tom-godkjenning + \`--approve\`.
+- Eksterne ressurser (GitHub-repo) krever Tom-godkjenning + \`--approve\`.
 
 ## Neste steg (etter Tom-godkjenning)
 
 \`\`\`
 node scripts/arch/init-project.mjs ${name} --dry-run
 node scripts/arch/init-project.mjs ${name}              # local scaffold
-node scripts/arch/init-project.mjs ${name} --approve --create-github <org> --create-linear <KEY>
+node scripts/arch/init-project.mjs ${name} --approve --create-github <org>
 \`\`\`
 `;
 

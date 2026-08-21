@@ -50,7 +50,7 @@ git push origin main
 | `gates` | typecheck, tester, leakage-audit, readiness, portal-e2e, git-synk |
 | `deploy` | Pages deploy (sanitert customer-portal only) |
 | `smoke` | HTTP smoke + privacy-sjekk + auto-rollback |
-| `alert` | Linear-varsel ved feil |
+| `alert` | GitHub Issue-varsel ved feil |
 
 - **Kun manuell trigger** (`workflow_dispatch`)
 - **Aldri auto-deploy på push**

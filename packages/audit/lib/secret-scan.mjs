@@ -17,8 +17,6 @@ import { join } from "node:path";
 import { execFileSync } from "node:child_process";
 
 const PATTERNS = [
-  { name: "linear-api-key", re: /lin_api_[A-Za-z0-9]{40,}/ },
-  { name: "linear-vision-key", re: /lin_vis_[A-Za-z0-9]+/ },
   { name: "github-token", re: /gh[pousr]_[A-Za-z0-9]{36,}/ },
   { name: "openai-style-key", re: /\bsk-[A-Za-z0-9_-]{20,}\b/ },
   { name: "honcho-key", re: /hch-(at|rt)-[A-Za-z0-9]{20,}/ },

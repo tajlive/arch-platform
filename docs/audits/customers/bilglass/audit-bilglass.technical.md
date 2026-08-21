@@ -124,7 +124,7 @@
 | F002 | **Etablér .arch/secrets/ governance (registry + allowlist)** | Inferert anbefaling (regelavledet) | ingen .arch/secrets/registry.yaml observert |
 | F003 | **Manglende alert-integrasjon** | Inferert anbefaling (regelavledet) | ingen alert/escalation i workflows/scripts |
 | F004 | **Manglende rollback-mekanisme** | Inferert anbefaling (regelavledet) | ingen rollback i workflow |
-| F005 | **Automasjonsmuligheter identifisert** | Inferert anbefaling (regelavledet) | alert-routing til eier (Linear/Discord); dokumentasjon (ARCHITECT/API-docs) |
+| F005 | **Automasjonsmuligheter identifisert** | Inferert anbefaling (regelavledet) | alert-routing til eier (Discord); dokumentasjon (ARCHITECT/API-docs) |
 | F006 | **Regulatorisk/juridisk vurdering (GDPR m.fl.)** | Krever menneskelig beslutning | ikke vurdert av Arch — krever kvalifisert juridisk gjennomgang |
 
 ---

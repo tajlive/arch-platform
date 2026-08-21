@@ -9,15 +9,14 @@
  *   (default)                     Scaffolder LOKALE filer (repo-struktur, .arch/,
  *                                 docs/, src/, CI-mal). Ingen eksterne side-effekter.
  *   --approve --create-github <org>   Oppretter GitHub-repo (Tom-godkjent).
- *   --approve --create-linear <KEY>   Oppretter/finner Linear team + prosjekt (Tom-godkjent).
  *
  * Idempotent: eksisterer .arch/ allerede, hoppes lokal scaffold over, men ekstern
- * opprettelse kjøres likevel (team gjenbrukes ved navn/key-match).
+ * opprettelse kjøres likevel.
  *
  * F2-regel: Factory kan lage repo-struktur/dokumentasjon/workflows/policies —
  * ALDRI deploye, prod-secrets, live-tjenester, betaling eller risiko-godkjenning.
  *
- * Bruk: node scripts/arch/init-project.mjs <prosjekt-navn> [--out <katalog>] [--dry-run] [--approve] [--create-github [org]] [--create-linear <KEY>]
+ * Bruk: node scripts/arch/init-project.mjs <prosjekt-navn> [--out <katalog>] [--dry-run] [--approve] [--create-github [org]]
  */
 import { writeFileSync, mkdirSync, existsSync, readFileSync, readdirSync } from "node:fs";
 import { join, resolve, dirname } from "node:path";
@@ -35,7 +34,7 @@ const lessonsDir = existsSync(join(repoRoot, ".arch/knowledge/lessons"))
 const args = process.argv.slice(2);
 const name = args[0];
 if (!name || !/^[a-z0-9-]+$/.test(name)) {
-  console.error("Bruk: node scripts/arch/init-project.mjs <prosjekt-navn> [--out <katalog>] [--dry-run] [--approve] [--create-github [org]] [--create-linear <KEY>]");
+  console.error("Bruk: node scripts/arch/init-project.mjs <prosjekt-navn> [--out <katalog>] [--dry-run] [--approve] [--create-github [org]]");
   console.error("Navn: små bokstaver, tall, bindestrek (f.eks. kundeportal-ai)");
   process.exit(2);
 }
@@ -73,11 +72,6 @@ if (flag("--create-github")) {
   const orgIdx = args.indexOf("--create-github");
   const org = args[orgIdx + 1] && !args[orgIdx + 1].startsWith("--") ? args[orgIdx + 1] : null;
   plan.external.push(`GitHub repository: ${org ? org + "/" + name : name} (--private)`);
-}
-if (flag("--create-linear")) {
-  const keyIdx = args.indexOf("--create-linear");
-  const key = args[keyIdx + 1] ?? "???";
-  plan.external.push(`Linear team (key ${key}) + prosjekt ${name}`);
 }
 
 // ── DRY-RUN ──
@@ -144,54 +138,11 @@ if (approve && flag("--create-github")) {
   }
 }
 
-if (approve && flag("--create-linear")) {
-  const keyIdx = args.indexOf("--create-linear");
-  const teamKey = args[keyIdx + 1];
-  if (!teamKey || !/^[A-Z0-9]{1,4}$/.test(teamKey)) {
-    console.error("--create-linear krever team-key (1-4 tegn, f.eks. AGD)");
-    process.exit(2);
-  }
-  try {
-    const key = process.env.LINEAR_API_KEY;
-    if (!key) throw new Error("LINEAR_API_KEY mangler i miljøet");
-    const gql = async (query, variables) => {
-      const res = await fetch("https://api.linear.app/graphql", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Authorization: key },
-        body: JSON.stringify({ query, variables }),
-      });
-      const j = await res.json();
-      if (j.errors) throw new Error(j.errors[0]?.message ?? "GQL-feil");
-      return j.data;
-    };
-    // Idempotent: gjenbruk team med samme key, ellers opprett.
-    const teams = await gql(`{ teams { nodes { id key } } }`);
-    let teamId = teams.teams.nodes.find((t) => t.key === teamKey)?.id;
-    if (teamId) {
-      console.log(`  ℹ️  Team ${teamKey} finnes allerede — gjenbruker.`);
-    } else {
-      const team = await gql(
-        `mutation($n: String!, $k: String!){ teamCreate(input: { name: $n, key: $k }) { success team { id } } }`,
-        { n: name, k: teamKey },
-      );
-      if (!team.teamCreate.success) throw new Error("teamCreate mislyktes");
-      teamId = team.teamCreate.team.id;
-    }
-    await gql(
-      `mutation($n: String!, $t: String!){ projectCreate(input: { name: $n, teamIds: [$t] }) { success } }`,
-      { n: name, t: teamId },
-    );
-    created.push(`Linear: team ${teamKey} + prosjekt ${name}`);
-  } catch (e) {
-    console.error(`Linear-opprettelse feilet: ${e.message.split("\n")[0]}`);
-  }
-}
-
 if (created.length) {
   console.log(`\nOpprettet (governed, Tom-godkjent):\n${created.map((c) => `  ✅ ${c}`).join("\n")}`);
 }
 
 console.log(`\nScaffold: ${alreadyScaffolded ? "eksisterte (skippet lokal)" : `fullført i ${outDir}`}.`);
 console.log(`Neste (etter Tom-godkjenning):`);
-console.log(`  node scripts/arch/init-project.mjs ${name} --approve --create-github <org> --create-linear <KEY>`);
-console.log(`Deretter: secret-namespace, CI-skarpe, monitoring (postLinearAlert).`);
+console.log(`  node scripts/arch/init-project.mjs ${name} --approve --create-github <org>`);
+console.log(`Deretter: secret-namespace, CI-skarpe og monitoring.`);

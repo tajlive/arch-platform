@@ -12,7 +12,7 @@
 | Discovery | Questionnaire + passive web | Process Mining + Task Mining + System Mining | **KRITISK** |
 | Evidence | 3-class, provenance | E0–E4 strength, system-verified, confidence calibration | **HØY** |
 | Economics | Basic ROI | Deterministic scenarios, measured/assumed classification, sensitivity | **HØY** |
-| Governance | Gates + Linear SSO | Policy-as-code (OPA/Cedar) runtime + CI enforcement | **HØY** |
+| Governance | Gates + repository-sporing | Policy-as-code (OPA/Cedar) runtime + CI enforcement | **HØY** |
 | Observability | Pre-deploy only | Full distributed trace (user→agent→tool→policy→evidence) | **KRITISK** |
 | Security | Leakage-audit + secrets ref | Zero-trust, tenant isolation, auth, OWASP ASVS L2, **Application-layer tenant isolation** | **KRITISK** |
 | UX | Case-sider + landing | Executive dashboard, interactive report, drill-down | **MEDIUM** |
@@ -138,7 +138,7 @@
 
 ### 7. UX — "Leder forstår resultatet raskt"
 
-| World-Class (Linear, Vercel, Stripe, Notion) | Arch Status | Gap |
+| World-Class referanser | Arch Status | Gap |
 |----------------------------------------------|-------------|-----|
 | **Executive Dashboard** (one-page summary) | Case-sider, ingen dashboard | **MEDIUM** |
 | **Interactive Report** (drill-down: finding → evidence → ROI) | Statisk markdown | **HØY** |

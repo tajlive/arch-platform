@@ -76,7 +76,7 @@ const KIND_META = {
   alerts_missing: {
     bucket: "High ROI",
     impact: "Når noe feiler, får ingen beskjed — nedetiden forlenges i stedet for å kortes.",
-    solution: "Alert-ruting til eier (Slack/Linear/e-post) med klare eskaleringsregler.",
+    solution: "Alert-ruting til eier (Slack/e-post) med klare eskaleringsregler.",
     effort: "S",
     build_candidate: true,
   },

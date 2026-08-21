@@ -4,7 +4,7 @@
 
 | Domene | System |
 |---|---|
-| Oppgaver/krav | Linear |
+| Oppgaver/krav | GitHub Issues |
 | Kode | GitHub |
 | Data | Supabase |
 | Runtime | Cloudflare Workers |
@@ -15,12 +15,12 @@
 - **Hermes:** arkitektur + drift (chief-architect-ops)
 - **Codex:** implementering (senior-developer)
 - **Kimi:** research (research-analyst)
-- **Tom:** prioritering (eneste som flytter Ready for Tom → Approved)
+- **Tom:** prioritering (eneste som godkjenner risikofylte endringer)
 
 ## Eskalasjon
 
-Kostnad/risiko/produksjonsendring utover tildelt oppgave → Linear-issue (label p0/incident)
-→ Ready for Tom. Aldri ta kostnadsbeslutninger autonomt.
+Kostnad/risiko/produksjonsendring utover tildelt oppgave → GitHub Issue (label p0/incident)
+→ Tom-godkjenning. Aldri ta kostnadsbeslutninger autonomt.
 
 ## Arvet kunnskap
 

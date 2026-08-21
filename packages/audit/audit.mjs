@@ -184,7 +184,7 @@ function analyzeOps() {
   const scriptsDir = join(target.path, "scripts");
   const scripts = existsSync(scriptsDir) ? readdirSync(scriptsDir) : [];
   const monitoring = /monitor/i.test(wfText) || scripts.some((f) => /monitor/i.test(f));
-  const alerts = /alert|linear|fingerprint|escalat/i.test(wfText) || scripts.some((f) => /alert|escalat|notify/i.test(f));
+  const alerts = /alert|fingerprint|escalat/i.test(wfText) || scripts.some((f) => /alert|escalat|notify/i.test(f));
   const rollback = /rollback/i.test(wfText);
   const deploy_pipeline = /deploy/i.test(wfText);
   return { monitoring, alerts, rollback, deploy_pipeline };
@@ -260,7 +260,7 @@ if (!collect.stack.test_runner || collect.stack.test_runner === "ingen test-runn
 
 const aiOpps = [];
 if (!collect.operations.monitoring) aiOpps.push("automatisk monitorering + syntetisk smoke");
-if (!collect.operations.alerts) aiOpps.push("alert-routing til eier (Linear/Discord)");
+if (!collect.operations.alerts) aiOpps.push("alert-routing til eier");
 if (!collect.ci_cd.workflows.length) aiOpps.push("CI-pipeline (test → deploy → smoke → rollback)");
 if (collect.health.categories?.Documentation?.pct !== undefined && collect.health.categories.Documentation.pct < 100) aiOpps.push("dokumentasjon (ARCHITECT/API-docs)");
 if (aiOpps.length) {

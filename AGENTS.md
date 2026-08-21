@@ -13,8 +13,8 @@ Innholdet i `templates/arch/hermes-system-prompt.md` er **den autoritative syste
 | Kildefil | Formål |
 |----------|--------|
 | `docs/ARCHITECT.md` | Roller, SSoT, eskalasjon, arvet kunnskap |
-| `templates/arch/agents.yaml.tmpl` | Agent-roller, ansvar, forbud, Linear-gates |
-| `templates/arch/policies.yaml.tmpl` | Git-workflow, Linear-SSoT, secrets-standard, knowledge-governance |
+| `templates/arch/agents.yaml.tmpl` | Agent-roller, ansvar og forbud |
+| `templates/arch/policies.yaml.tmpl` | Git-workflow, secrets-standard og knowledge-governance |
 | `packages/data-adapters/hermes-adapter.mjs` | Ærlig agent-status (provenance i praksis) |
 | `packages/data-adapters/lib/provenance.mjs` | Status-definisjoner (observed/declared/stale/unknown/error) |
 | `packages/audit/lib/readiness.mjs` | 12-punkts produksjonsklar-gate (kjøres i CI) |
@@ -26,29 +26,28 @@ Innholdet i `templates/arch/hermes-system-prompt.md` er **den autoritative syste
 
 | # | Regell | Kilde |
 |---|--------|-------|
-| 1 | **Linear = ENESTE oppgavekilde** — alt arbeid sporeres her | `policies.yaml.tmpl` |
+| 1 | **GitHub Issues er oppgavekilden** — arbeid sporeres i repositoryet | `docs/ARCHITECT.md` |
 | 2 | **Ingen secrets-håndtering** — standard `secret://...`, aldri eksponere/skrive/rotere uten godkjenning | `agents.yaml.tmpl` |
-| 3 | **Ingen selv-godkjenning av risiko** → Linear-issue (p0/incident) → `Ready for Tom` | `ARCHITECT.md` |
-| 4 | **Ingen `Ready for Tom → Approved`** — kun Tom flytter denne | `agents.yaml.tmpl` |
+| 3 | **Ingen selv-godkjenning av risiko** → GitHub-issue (p0/incident) → Tom-godkjenning | `ARCHITECT.md` |
 | 5 | **Ingen deploy uten grønne gates** — `audit:leak` (0 funn) + `audit:ready` (37/37) + CI grønn | `readiness.mjs` |
 | 6 | **Ingen publisering av `control-center`** — kun `customer-portal` (sanitert) | `policies.yaml.tmpl` |
 | 7 | **Ingen infrastruktur utenfor Cloudflare** — Workers, Pages, D1, R2, KV, DO | `policies.yaml.tmpl` |
 | 8 | **Provenance = ærlig** — status MÅ være `observed\|declared\|stale\|unknown\|error`. Hermes sin liveness = `unknown` ("ikke instrumentert for sanntidsstatus") | `provenance.mjs` |
 | 9 | **Ingen automatisk endring av sikkerhetsregler** — risiko/trading/tilgang/secrets = manuelt | `policies.yaml.tmpl` |
-| 10 | **Ingen push til `main` uten** — grønne tester + Linear-issue + commit-referanse | `policies.yaml.tmpl` |
+| 10 | **Ingen push til `main` uten** — grønne tester + review + commit-referanse | `policies.yaml.tmpl` |
 
 ---
 
 ## Arbeidsflyt (Issue → Deploy)
 
 ```
-Linear Issue (SSoT)
+GitHub Issue
     ↓
 Branch fra main (<type>/<kort-beskrivelse>)
     ↓
 Implementering + tester (vitest / playwright)
     ↓
-Commit med Linear-ID (f.eks. "ARC-10: feat: ...")
+Commit med beskrivende melding
     ↓
 CI (typecheck + tester + leak-audit + readiness)
     ↓
@@ -69,14 +68,14 @@ Smoke-test (curl/Playwright mot PROD) → 0 JS-feil + riktig innhold
 
 - **Norsk bokmål** (tekniske identifikatorer/filnavn/kode på engelsk)
 - **TypeScript strict** — ingen `any`, ingen `@ts-ignore` uten begrunnelse
-- **Evidensbasert** — hvert påstand = kilde (Linear, CI, curl, git-hash)
+- **Evidensbasert** — hvert påstand = kilde (GitHub, CI, curl, git-hash)
 - **Tabeller** for status/strategi — korte svar
 - **Ingen tidsestimater**
 - **Feil = rått** (stack trace, exit code, request-id)
 
 ---
 
-## Eskalering (Linear Issue)
+## Eskalering (GitHub Issue)
 
 Når kostnad/risiko/produksjonsendring utover tildelt oppgave:
 

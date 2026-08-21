@@ -43,10 +43,10 @@ const reg = join(root, "packages", "governance", "projects.json");
 add("PROJECT_REGISTRY", "Project Registry (SSoT)", existsSync(reg), existsSync(reg) ? reg : "mangler");
 
 // 3. Data Adapter-lag
-const adapters = ["github-adapter.mjs", "linear-adapter.mjs", "knowledge-adapter.mjs", "hermes-adapter.mjs"]
+const adapters = ["github-adapter.mjs", "knowledge-adapter.mjs", "hermes-adapter.mjs"]
   .map((f) => join(root, "packages", "data-adapters", f));
-add("DATA_ADAPTERS", "Data Adapter-lag (4 adaptere)", adapters.every(existsSync),
-  `${adapters.filter(existsSync).length}/4 adaptere`);
+add("DATA_ADAPTERS", "Data Adapter-lag (3 adaptere)", adapters.every(existsSync),
+  `${adapters.filter(existsSync).length}/3 adaptere`);
 
 // 4. Provenance-statuser
 const prov = read(join(root, "packages", "data-adapters", "lib", "provenance.mjs"));
@@ -72,7 +72,7 @@ add("AUTO_REFRESH", "Automatisert refresh (build → collect)", /"build"\s*:\s*"
 
 // 8. Leakage = 0 (publikumsartefakt)
 const pubData = read(join(root, "apps", "customer-portal", "data.js"));
-const leakPats = ["/Users/", "dev_path", "LINEAR_API_KEY", "linear_team", "repository", "Bearer", "secret://"];
+const leakPats = ["/Users/", "dev_path", "repository", "Bearer", "secret://"];
 const leaks = leakPats.filter((p) => pubData.includes(p));
 add("LEAKAGE_ZERO", "secret/path/privacy leakage = 0", leaks.length === 0,
   leaks.length === 0 ? "0 sensitive treff i public data.js" : `LEKKASJE: ${leaks.join(", ")}`);

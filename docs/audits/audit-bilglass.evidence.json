@@ -794,7 +794,7 @@
       "class": "inferred",
       "section": "ai_automation",
       "title": "Automasjonsmuligheter identifisert",
-      "evidence": "alert-routing til eier (Linear/Discord); dokumentasjon (ARCHITECT/API-docs)",
+      "evidence": "alert-routing til eier (Discord); dokumentasjon (ARCHITECT/API-docs)",
       "severity": "low",
       "priority": 5
     },

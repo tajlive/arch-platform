@@ -1,10 +1,7 @@
 # Arch policies — arch-platform
 git:
   workflow: [Issue, Branch, Implementation, Tests, Commit, CI, Review, Main, Deploy]
-  main_protection: "ingen push til main uten: grønne tester + Linear-issue + commit-referanse"
-linear:
-  sso: "Linear er ENESTE oppgavekilde"
-  gate_ready_for_tom_to_approved: "kun Tom"
+  main_protection: "ingen push til main uten: grønne tester + GitHub issue + commit-referanse"
 secrets:
   standard: "secret://arch-platform/<miljø>/<tjeneste>/<nøkkel>"
   agent_kan_ikke: [eksponere, skrive uten godkjenning]

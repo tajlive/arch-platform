@@ -80,7 +80,7 @@
 
 ## 7. AI / automasjonsmuligheter
 
-| F005 | **Automasjonsmuligheter identifisert** | Inferert anbefaling (regelavledet) | alert-routing til eier (Linear/Discord); dokumentasjon (ARCHITECT/API-docs) |
+| F005 | **Automasjonsmuligheter identifisert** | Inferert anbefaling (regelavledet) | alert-routing til eier (Discord); dokumentasjon (ARCHITECT/API-docs) |
 
 ## 8. Teknisk gjeld / risiko
 
@@ -95,7 +95,7 @@
 | P3 | **Etablér .arch/secrets/ governance (registry + allowlist)** | Inferert anbefaling (regelavledet) | ingen .arch/secrets/registry.yaml observert |
 | P3 | **Manglende rollback-mekanisme** | Inferert anbefaling (regelavledet) | ingen rollback i workflow |
 | P4 | **Manglende alert-integrasjon** | Inferert anbefaling (regelavledet) | ingen alert/escalation i workflows/scripts |
-| P5 | **Automasjonsmuligheter identifisert** | Inferert anbefaling (regelavledet) | alert-routing til eier (Linear/Discord); dokumentasjon (ARCHITECT/API-docs) |
+| P5 | **Automasjonsmuligheter identifisert** | Inferert anbefaling (regelavledet) | alert-routing til eier (Discord); dokumentasjon (ARCHITECT/API-docs) |
 
 
 ## 10. Quick wins

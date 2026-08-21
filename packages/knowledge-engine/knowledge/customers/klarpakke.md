@@ -19,5 +19,5 @@ Klarpakke-drift (august 2026).
 ## Nøkkelfakta (verifisert)
 
 - GitHub: tajlive/KP · Supabase: pskhryjzkobytnfwucrb · CF-account: 80d5b1d5
-- Linear team: KLA · Live-trading: kun dogfood (Tom)
+- Live-trading: kun dogfood (Tom)
 - P0-pengeintegritet: paper_accounts = eneste fasit

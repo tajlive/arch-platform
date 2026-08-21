@@ -46,7 +46,7 @@ Variggjort i Knowledge Graph: `failures/audit-v1-root-only-scanning.md` +
 
 ## Gjenstående legitime funn (INFERRED / RECOMMENDED)
 
-1. **Ingen alert-routing** — uptime-monitoring finnes, men ingen alert/escalation (Linear/Discord/e-post).
+1. **Ingen alert-routing** — uptime-monitoring finnes, men ingen alert/escalation (Discord/e-post).
 2. **Ingen workflow-kodet rollback** — CF Pages/Worker har dashboard/API-rollback, men deploy.yml koder den ikke.
 3. **Ingen `.arch/secrets/` governance** — Bilglass bruker ikke Arch-governance (forventet for ekstern kunde).
 4. **Ingen `ARCHITECT.md`** — arkitekturkunnskap finnes spredt i `docs/ARCHITECTURE-PLAN.md` + `docs/B2B-MODERN-FRONTEND-PLAN.md` + `docs/adr/`, men ikke konsolidert.

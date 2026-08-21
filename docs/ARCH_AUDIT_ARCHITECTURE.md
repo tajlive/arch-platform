@@ -88,7 +88,7 @@ packages/
 ├── outcomes/                 # Expected vs Actual tracking (NEW)
 ├── governance/               # Project registry, deploy gates (IMPLEMENTED)
 ├── health-score/             # Health Score v2.1 (IMPLEMENTED)
-├── data-adapters/            # GitHub, Linear, Knowledge, Hermes (IMPLEMENTED)
+├── data-adapters/            # GitHub, Knowledge, Hermes (IMPLEMENTED)
 ├── knowledge-engine/         # KG 7 domener (IMPLEMENTED)
 └── ui/                       # Shared design system (PARTIAL)
 ```

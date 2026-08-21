@@ -1,7 +1,7 @@
 # Deploy Readiness Report — Arch Platform (F3.6)
 
 **Status:** ✅ **DEPLOYET** (F3.6C First Governed Deploy) — sanitert Customer Portal live.
-**Linear:** ARC-2 · **Commit:** `2227817` (`2227817d21ea63132d282626154db80cb0380977`)
+**Commit:** `2227817` (`2227817d21ea63132d282626154db80cb0380977`)
 **Dato:** 2026-08-13 · **Prod:** https://arch-platform.pages.dev/
 
 ---
@@ -29,7 +29,7 @@
 |---|---|---|---|
 | 1 | Ingen hardkodede `/Users/`-stier i prod-laget | ✅ PASS | `deploy-ready-check.mjs` skanner adapters/collector/apps — 0 treff. Stier finnes kun som `dev_path` i registry (dev-metadata, ikke prod-identifikator) |
 | 2 | Project Registry | ✅ PASS | `packages/governance/projects.json` (SSoT, 3 prosjekter: klarpakke/arch-platform/arch-dashboard-arkivert) |
-| 3 | Data Adapter-lag | ✅ PASS | `github-adapter.mjs`, `linear-adapter.mjs`, `knowledge-adapter.mjs`, `hermes-adapter.mjs` |
+| 3 | Data Adapter-lag | ✅ PASS | `github-adapter.mjs`, `knowledge-adapter.mjs`, `hermes-adapter.mjs` |
 | 4 | observed/declared/stale/unknown/error | ✅ PASS | `lib/provenance.mjs` — alle 5 statuser; hvert datapunkt bærer `value/source/observed_at/status` |
 | 5 | Intern vs offentlig datasone (default-deny) | ✅ PASS | `apps/control-center/` (full) vs `apps/customer-portal/` (sanitert). Publikum = default-deny (kun `visibility=demo`) |
 | 6 | Health Score v2.1 med evidens | ✅ PASS | `PASS/FAIL/UNKNOWN/NOT_APPLICABLE` per sjekk + evidence + `observed_at` |

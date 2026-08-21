@@ -23,11 +23,10 @@
         <span class="p-score">${score}</span></div>
       <div class="p-meta">
         <span>repo: <code>${esc(p.repository)}</code></span>
-        <span>linear: <code>${esc(p.linear_team)}</code></span>
         ${p.dev_path ? `<span class="devpath">dev: ${esc(p.dev_path)}</span>` : ""}
       </div>
       <div class="p-prov">
-        ${prov("github", p.github)} ${prov("ci", p.ci)} ${prov("linear", p.linear)} ${prov("health", h.status === "observed" ? { status: "observed", observed_at: h.observed_at } : null)}
+        ${prov("github", p.github)} ${prov("ci", p.ci)} ${prov("health", h.status === "observed" ? { status: "observed", observed_at: h.observed_at } : null)}
       </div>
     </div>`;
   }).join("");

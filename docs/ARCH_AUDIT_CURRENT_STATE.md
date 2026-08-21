@@ -80,13 +80,12 @@
 |------------|--------|---------|
 | Project Registry (SSoT) | IMPLEMENTED | `packages/governance/projects.json` (14 prosjekter) |
 | Health Score v2.1 | IMPLEMENTED | `packages/health-score/health-score.mjs` (vekter: Gov 20, Sec 25, Eng 25, Ops 20, Doc 10) |
-| Data Adapters (4) | IMPLEMENTED | GitHub, Linear, Knowledge, Hermes |
+| Data Adapters (3) | IMPLEMENTED | GitHub, Knowledge, Hermes |
 | Deploy Readiness (12 gates) | IMPLEMENTED | `packages/governance/deploy-ready-check.mjs` |
 | Leakage Audit | IMPLEMENTED | `packages/data-adapters/audit-leak.mjs` (0 funn) |
 | CI/CD (workflow_dispatch) | IMPLEMENTED | `.github/workflows/deploy.yml` |
 | Secrets Registry | IMPLEMENTED | `.arch/secrets/registry.yaml` (referanser kun) |
 | Knowledge Graph (7 domener) | IMPLEMENTED | `.arch/knowledge/` + `packages/knowledge-engine/knowledge/` |
-| Linear Integration | IMPLEMENTED | GraphQL med stateId/teamId |
 
 ---
 
@@ -179,7 +178,6 @@ jobs:
 - Cloudflare Builds
 - Cloudflare Observability
 - GitHub
-- Linear
 - Resend
 - Stripe
 - Supabase
@@ -191,7 +189,7 @@ jobs:
 ## 10. Summary
 
 **Sterke sider (IMPLEMENTED):**
-- Governance (12 gates, Linear SSO, secrets registry, leakage audit)
+- Governance (12 gates, secrets registry, leakage audit)
 - Evidence-based audit methodology (3-class grading, provenance)
 - Website audit v1+v2 (8+9 moduler, Norge-data, AI visibility)
 - Health Score v2.1 (vekter, evidence, 4 states)
@@ -216,7 +214,7 @@ jobs:
 | Dimensjon | Score | Begrunnelse |
 |-----------|-------|-------------|
 | Architecture | 4 | Modulær monorepo, governed deploy, SSoT |
-| Governance | 4 | 12 gates, Linear SSO, secrets registry |
+| Governance | 4 | 12 gates, secrets registry |
 | Evidence | 4 | 3-class grading, provenance, customer gate |
 | Provenance | 4 | observed/declared/stale/unknown/error |
 | Auditability | 3 | Leakage audit, deploy gates, men ingen runtime audit log |

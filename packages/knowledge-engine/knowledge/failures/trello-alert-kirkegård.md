@@ -9,10 +9,10 @@ Auto-rollback + syntetisk-monitor + Max-Aggressive postet nytt kort ved hver kj�
 Rotårsak: Hver alert-kilde postet et NYTT kort per hendelse uten deduplisering.
 Ingen «løst → lukk»-flyt for varsler → kirkegård.
 
-Fix: Linear-first alert-arkitektur (KLA-279): fingerprint-dedup mot ÅPNE issues —
+Fix: Varslingsarkitektur med fingerprint-dedup mot åpne hendelser —
 samme hendelse gir alltid samme issue. Trello arkivert (Fase 4: 78 støy-kort → metadata).
 
 Permanent regel: Alle eksterne varsler har fingerprint + dedup mot åpne issues.
-Ingen spam, ingen kirkegård. Se pattern `linear-alert-dedup`.
+Ingen spam, ingen kirkegård.
 
 Arvet av: deploy.yml, synthetic-monitor.yml, max-aggressive-monitor.mjs, sentry-webhook.
