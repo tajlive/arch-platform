@@ -102,7 +102,7 @@ describe("runAnalystEvals", () => {
   });
 
   it("feiler når kundesvaret inneholder et kjent feilaktig finansord", () => {
-    const output = sampleOutput({ summary: "Restaurantbranchen har et nettresultat." });
+    const output = sampleOutput({ summary: "Restaurantbranchens har et nettresultatet." });
     const suite = runAnalystEvals(output);
     const language = suite.results.find((r) => r.id === "ANALYST_NORWEGIAN_QUALITY");
     expect(language?.passed).toBe(false);
