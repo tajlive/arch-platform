@@ -164,7 +164,8 @@ export function allowedEvidence(bundle: EvidenceBundle): Array<{ type: string; o
 
 export function buildPrompt(bundle: EvidenceBundle, focusArea: FocusArea): string {
   const evidence = allowedEvidence(bundle);
-  const sourceLines = evidence.slice(0, 30).map((e) => `- [${e.source}] ${e.observation}`).join("\n");
+  // Kap antall evidens-linjer til 12 for å holde LLM-kall innenfor Workers 30s-limit
+  const sourceLines = evidence.slice(0, 12).map((e) => `- [${e.source}] ${e.observation}`).join("\n");
   const sourceStatus = bundle.sources
     .map((s) => `${s.key}=${s.status}`)
     .filter((s) => !s.includes("NOT_AVAILABLE") && !s.includes("ERROR"))
