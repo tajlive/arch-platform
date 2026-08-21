@@ -238,9 +238,9 @@ test("viser Arch Analytiker med dokumenterte funn når fokusområde velges", asy
   await expect(analyst).toContainText("Ikke dokumentert");
   await expect(analyst).toContainText("Kilde: brreg-roller");
   // Ny kontrakt: innsats, tidshorisont, kind, forventet effekt, disclaimer
-  await expect(analyst).toContainText("Innsats: medium");
+  await expect(analyst).toContainText("Innsats: Middels");
   await expect(analyst).toContainText("Tid: 90 dager");
-  await expect(analyst).toContainText("HYPOTHESIS");
+  await expect(analyst).toContainText("Hypotese");
   await expect(analyst).toContainText("Forventet effekt: Redusert tidsbruk");
   await expect(analyst).toContainText("Beslutningsstøtte, ikke rådgivning.");
 
