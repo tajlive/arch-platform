@@ -261,8 +261,20 @@ describe("Comparative intelligence", () => {
     expect(result.unresolved).toEqual([{ query: "missing", error: "COMPANY_NOT_FOUND" }]);
     expect(result.report?.strengths.some((finding) => finding.org_number === "111111111" && finding.metric === "operating_margin")).toBe(true);
     expect(result.report?.weaknesses.some((finding) => finding.org_number === "222222222" && finding.metric === "operating_margin")).toBe(true);
-    expect(result.report?.strengths.some((finding) => finding.org_number === "111111111" && finding.metric === "workforce_signals")).toBe(true);
+    expect(result.report?.strengths.some((finding) => finding.metric === "workforce_signals")).toBe(false);
     expect(result.report?.recommendations.some((recommendation) => recommendation.org_number === "222222222")).toBe(true);
+  });
+
+  it("leverer kundevendte sammenligningsetiketter på norsk", async () => {
+    const benchmark = new BenchmarkEngine({ collect: async () => null });
+    const context = await benchmark.enrich([
+      toComparableCompany(report({ org: "111111111", name: "Alpha Glass AS", revenue: 1_000, operatingResult: 220 })),
+      toComparableCompany(report({ org: "222222222", name: "Beta Glass AS", revenue: 1_000, operatingResult: 50 })),
+    ]);
+
+    expect(context.metrics.find((metric) => metric.key === "operating_margin")?.label).toBe("Driftsmargin");
+    expect(context.sources.find((source) => source.key === "selected-company-peer-set")?.label).toBe("Valgt sammenligningsgruppe");
+    expect(context.peer_group.note).toContain("Sammenligningen bygger på de valgte virksomhetene");
   });
 
   it("does not produce a comparison when fewer than two companies resolve", async () => {

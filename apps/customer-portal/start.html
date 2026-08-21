@@ -47,6 +47,12 @@
         <span class="trust-pill">Bygger på dokumenterte kilder</span>
       </div>
 
+      <!-- Analysemodus -->
+      <div class="analysis-mode" role="group" aria-label="Velg analysemodus">
+        <button type="button" class="analysis-mode-btn selected" id="mode-single" aria-pressed="true">Analyser én virksomhet</button>
+        <button type="button" class="analysis-mode-btn" id="mode-compare" aria-pressed="false">Sammenlign virksomheter</button>
+      </div>
+
       <!-- Search -->
       <div class="search-wrap">
         <div class="search-box">
@@ -60,6 +66,17 @@
           <button class="btn btn-primary" id="discover-btn">Kartlegg virksomheten</button>
         </div>
         <p class="search-note" id="status-note" aria-live="polite">Arch starter med bekreftede virksomhetsopplysninger og gjetter ikke.</p>
+        <div class="comparison-selection" id="comparison-selection" hidden>
+          <div class="comparison-selection-head">
+            <div>
+              <strong>Virksomheter i sammenligningen</strong>
+              <p id="comparison-selection-note">Legg til 2–5 virksomheter.</p>
+            </div>
+            <span class="comparison-count" id="comparison-count">0 av 5</span>
+          </div>
+          <div class="comparison-selection-list" id="comparison-selection-list"></div>
+          <button type="button" class="btn btn-primary comparison-run-btn" id="compare-run" disabled>Sammenlign valgte virksomheter</button>
+        </div>
         <div class="company-picker" id="company-picker" hidden>
           <div class="company-picker-head">
             <span>Flere virksomheter funnet — velg riktig:</span>
@@ -173,6 +190,16 @@
         </div>
       </div>
 
+      <!-- Comparative Intelligence -->
+      <div class="engine-panel" id="comparison-panel" hidden>
+        <div class="brief-header">
+          <h2 class="panel-title">Sammenligning</h2>
+          <span class="mockup-tag">Dokumenterte avvik og datadekning</span>
+        </div>
+        <p class="panel-sub">Arch sammenligner kun opplysninger som er dokumentert for de valgte virksomhetene.</p>
+        <div id="comparison-body"></div>
+      </div>
+
     </div>
   </section>
 
@@ -210,14 +237,26 @@
       const log = document.getElementById("conversation-log");
       const analystPanel = document.getElementById("analyst-panel");
       const analystBody = document.getElementById("analyst-body");
+      const comparisonPanel = document.getElementById("comparison-panel");
+      const comparisonBody = document.getElementById("comparison-body");
+      const comparisonSelection = document.getElementById("comparison-selection");
+      const comparisonSelectionList = document.getElementById("comparison-selection-list");
+      const comparisonSelectionNote = document.getElementById("comparison-selection-note");
+      const comparisonCount = document.getElementById("comparison-count");
+      const compareRunBtn = document.getElementById("compare-run");
+      const singleModeBtn = document.getElementById("mode-single");
+      const compareModeBtn = document.getElementById("mode-compare");
 
       let contextId = null;
       let company = null;
+      let activeMode = "single";
+      let selectedCompanies = [];
       let questionLoading = false;
       let questionRequest = 0;
       let selectedArea = null;
       let analystDisclaimer = "";
       let currentAnalystFocus = null;
+      let currentAnalystOrgNumber = null;
       let analystRequest = 0;
 
       function setState(id, state) {
@@ -278,12 +317,184 @@
         return labels[purpose] || "avklare neste steg";
       }
 
+      function setAnalysisMode(mode) {
+        activeMode = mode;
+        const comparing = mode === "compare";
+        singleModeBtn.classList.toggle("selected", !comparing);
+        singleModeBtn.setAttribute("aria-pressed", String(!comparing));
+        compareModeBtn.classList.toggle("selected", comparing);
+        compareModeBtn.setAttribute("aria-pressed", String(comparing));
+        comparisonSelection.hidden = !comparing;
+        document.getElementById("company-picker").hidden = true;
+        engine.hidden = true;
+        input.placeholder = comparing
+          ? "Søk etter virksomhet som skal sammenlignes"
+          : "Organisasjonsnummer, firmanavn eller nettside";
+        discoverBtn.textContent = comparing ? "Legg til virksomhet" : "Kartlegg virksomheten";
+        statusNote.textContent = comparing
+          ? "Velg 2–5 virksomheter. Arch sammenligner bare dokumenterte opplysninger."
+          : "Arch starter med bekreftede virksomhetsopplysninger og gjetter ikke.";
+      }
+
+      function renderComparisonSelection() {
+        comparisonSelectionList.replaceChildren();
+        selectedCompanies.forEach(function (selected) {
+          const row = document.createElement("div");
+          row.className = "comparison-selected-company";
+          const details = document.createElement("div");
+          details.className = "comparison-selected-details";
+          details.appendChild(createTextElement("strong", "comparison-selected-name", selected.company_name));
+          details.appendChild(createTextElement("span", "comparison-selected-meta", selected.org_number + (postalLocation(selected) ? " · " + postalLocation(selected) : "")));
+          const remove = document.createElement("button");
+          remove.type = "button";
+          remove.className = "comparison-remove";
+          remove.textContent = "×";
+          remove.title = "Fjern " + selected.company_name;
+          remove.setAttribute("aria-label", remove.title);
+          remove.addEventListener("click", function () {
+            selectedCompanies = selectedCompanies.filter(function (item) { return item.org_number !== selected.org_number; });
+            comparisonPanel.hidden = true;
+            analystPanel.hidden = true;
+            renderComparisonSelection();
+          });
+          row.appendChild(details);
+          row.appendChild(remove);
+          comparisonSelectionList.appendChild(row);
+        });
+        comparisonCount.textContent = selectedCompanies.length + " av 5";
+        comparisonSelectionNote.textContent = selectedCompanies.length < 2
+          ? "Legg til minst " + (2 - selectedCompanies.length) + " virksomhet" + (selectedCompanies.length === 0 ? "er" : "") + " til."
+          : "Klar til å sammenligne " + selectedCompanies.length + " virksomheter.";
+        compareRunBtn.disabled = selectedCompanies.length < 2;
+      }
+
+      async function addCompanyForComparison() {
+        const query = input.value.trim();
+        if (!query) {
+          statusNote.textContent = "Søk etter en virksomhet du vil legge til i sammenligningen.";
+          input.focus();
+          return;
+        }
+        if (selectedCompanies.length >= 5) {
+          statusNote.textContent = "Du kan sammenligne maksimalt fem virksomheter om gangen.";
+          return;
+        }
+
+        discoverBtn.disabled = true;
+        discoverBtn.textContent = "Søker…";
+        statusNote.textContent = "Arch søker i offentlige virksomhetsregistre…";
+        try {
+          const response = await fetch(API + "/v1/public/company/search", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ query }),
+          });
+          const data = await response.json().catch(function () { return {}; });
+          const candidates = data.candidates || [];
+          if (candidates.length === 0) {
+            statusNote.textContent = "Vi fant ikke virksomheten i offentlige registre. Prøv et annet navn eller organisasjonsnummer.";
+            return;
+          }
+          const orgNumber = candidates.length === 1
+            ? candidates[0].org_number
+            : await promptCompanyChoice(candidates);
+          if (!orgNumber) {
+            statusNote.textContent = "Valget ble avbrutt.";
+            return;
+          }
+          const selected = candidates.find(function (candidate) { return candidate.org_number === orgNumber; });
+          if (!selected) return;
+          if (selectedCompanies.some(function (candidate) { return candidate.org_number === selected.org_number; })) {
+            statusNote.textContent = selected.company_name + " er allerede lagt til.";
+            return;
+          }
+          selectedCompanies = selectedCompanies.concat(selected);
+          input.value = "";
+          comparisonPanel.hidden = true;
+          analystPanel.hidden = true;
+          renderComparisonSelection();
+          statusNote.textContent = selected.company_name + " er lagt til i sammenligningen.";
+        } catch (error) {
+          statusNote.textContent = "Vi kunne ikke søke etter virksomheten nå. Prøv igjen.";
+        } finally {
+          discoverBtn.disabled = false;
+          discoverBtn.textContent = "Legg til virksomhet";
+        }
+      }
+
+      async function runComparison() {
+        if (selectedCompanies.length < 2) return;
+        questionRequest++;
+        analystRequest++;
+        selectedArea = null;
+        currentAnalystFocus = null;
+        currentAnalystOrgNumber = null;
+        analystDisclaimer = "";
+        company = selectedCompanies[0] || null;
+        comparisonPanel.hidden = true;
+        analystPanel.hidden = true;
+        briefPanel.hidden = true;
+        profilePanel.hidden = true;
+        frictionPanel.hidden = true;
+        conversationPanel.hidden = true;
+        const mapPanel = document.getElementById("map-panel");
+        if (mapPanel) mapPanel.hidden = true;
+        engine.hidden = false;
+        evidencePanel.hidden = false;
+        setState("em-company", 1);
+        setState("em-sources", 0);
+        setState("em-signals", 0);
+        setState("em-questions", 0);
+        setDetail("em-company-detail", selectedCompanies.length + " virksomheter valgt");
+        statusNote.textContent = "Arch henter dokumenterte opplysninger og bygger sammenligningsgrunnlaget…";
+        compareRunBtn.disabled = true;
+        compareRunBtn.textContent = "Sammenligner…";
+        engine.scrollIntoView({ behavior: "smooth", block: "start" });
+
+        try {
+          const response = await fetch(API + "/v1/public/company/compare", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ companies: selectedCompanies.map(function (item) { return item.org_number; }) }),
+          });
+          const data = await response.json().catch(function () { return {}; });
+          if (!response.ok || !data.resolved || !data.report) {
+            statusNote.textContent = "Vi kunne ikke hente et tilstrekkelig sammenligningsgrunnlag nå. Prøv igjen.";
+            return;
+          }
+          setState("em-company", 2);
+          setState("em-sources", 2);
+          setState("em-signals", 2);
+          setState("em-questions", 2);
+          setDetail("em-sources-detail", "Kilder kontrollert for " + data.report.companies.length + " virksomheter");
+          setDetail("em-signals-detail", "Peer-gruppe og avvik beregnet");
+          setDetail("em-questions-detail", "Forklar forskjellene med ArchAnalyst");
+          renderComparison(data.report, data.unresolved || []);
+          evidencePanel.hidden = true;
+          comparisonPanel.hidden = false;
+          comparisonPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+          statusNote.textContent = "Sammenligningen er klar. Velg virksomhet og fokusområde for en dokumentert forklaring.";
+        } catch (error) {
+          statusNote.textContent = "Vi kunne ikke sammenligne virksomhetene nå. Prøv igjen.";
+        } finally {
+          compareRunBtn.textContent = "Sammenlign valgte virksomheter";
+          compareRunBtn.disabled = selectedCompanies.length < 2;
+        }
+      }
+
       input.addEventListener("keydown", function (e) {
         if (e.key === "Enter") { e.preventDefault(); discover(); }
       });
       discoverBtn.addEventListener("click", discover);
+      singleModeBtn.addEventListener("click", function () { setAnalysisMode("single"); });
+      compareModeBtn.addEventListener("click", function () { setAnalysisMode("compare"); renderComparisonSelection(); });
+      compareRunBtn.addEventListener("click", runComparison);
 
       async function discover() {
+        if (activeMode === "compare") {
+          await addCompanyForComparison();
+          return;
+        }
         const q = input.value.trim();
         if (!q) {
           statusNote.textContent = "Skriv inn organisasjonsnummer, navn eller nettside for å starte kartleggingen.";
@@ -296,8 +507,9 @@
         questionRequest++;
         analystRequest++;
         currentAnalystFocus = null;
+        currentAnalystOrgNumber = null;
         analystDisclaimer = "";
-        log.innerHTML = "";
+        log.replaceChildren();
         setFrictionControlsDisabled(false);
         discoverBtn.disabled = true;
           discoverBtn.textContent = "Kartlegger…";
@@ -309,6 +521,7 @@
         frictionPanel.hidden = true;
         conversationPanel.hidden = true;
         analystPanel.hidden = true;
+        comparisonPanel.hidden = true;
         const mapPanelReset = document.getElementById("map-panel");
         if (mapPanelReset) { mapPanelReset.hidden = true; }
         const mapDetailReset = document.getElementById("map-detail");
@@ -436,16 +649,14 @@
         const picker = document.getElementById("company-picker");
         const list = document.getElementById("company-picker-list");
         const cancel = document.getElementById("company-picker-cancel");
-        list.innerHTML = "";
+        list.replaceChildren();
         candidates.forEach(function (c) {
           const item = document.createElement("button");
           item.type = "button";
           item.className = "company-picker-item";
-          item.innerHTML =
-            '<span class="cpi-name"></span><span class="cpi-org"></span><span class="cpi-loc"></span>';
-          item.querySelector(".cpi-name").textContent = c.company_name;
-          item.querySelector(".cpi-org").textContent = c.org_number;
-          item.querySelector(".cpi-loc").textContent = postalLocation(c);
+          item.appendChild(createTextElement("span", "cpi-name", c.company_name));
+          item.appendChild(createTextElement("span", "cpi-org", c.org_number));
+          item.appendChild(createTextElement("span", "cpi-loc", postalLocation(c)));
           list.appendChild(item);
         });
         picker.hidden = false;
@@ -493,7 +704,7 @@
       function renderProfile(c) {
         document.getElementById("profile-name").textContent = c.company_name;
         const grid = document.getElementById("profile-grid");
-        grid.innerHTML = "";
+        grid.replaceChildren();
         const items = [
           ["Organisasjonsnummer", c.org_number],
           ["Bransje", c.industry_name || "Ikke oppgitt"],
@@ -523,6 +734,254 @@
         return new Intl.NumberFormat("nb-NO", { maximumFractionDigits: 0 }).format(n);
       }
 
+      function comparisonMetricValue(value, metric) {
+        if (typeof value !== "number") return "Ikke dokumentert";
+        if (metric.unit === "percent") {
+          return new Intl.NumberFormat("nb-NO", { maximumFractionDigits: 2 }).format(value) + " %";
+        }
+        return new Intl.NumberFormat("nb-NO", { maximumFractionDigits: 0 }).format(value);
+      }
+
+      function sourceCoverageLabel(status) {
+        return {
+          AVAILABLE: "Data funnet",
+          EMPTY: "Ingen registrerte data",
+          NOT_AVAILABLE: "Ikke tilgjengelig",
+          ERROR: "Kunne ikke hente",
+        }[status] || "Ukjent status";
+      }
+
+      function evidenceRefsLabel(refs) {
+        const labels = (refs || []).map(function (ref) {
+          const key = String(ref).split("|")[0];
+          return {
+            financial: "Regnskapsregisteret",
+            company: "Enhetsregisteret",
+            workforce: "Arbeidsstyrke",
+            digital: "Nettsideanalyse",
+            website: "Nettsideanalyse",
+          }[key] || SRC_LABELS[key] || key;
+        });
+        return Array.from(new Set(labels)).join(", ");
+      }
+
+      function metricValueForCompany(metric, orgNumber) {
+        const entry = (metric.values || []).find(function (value) { return value.org_number === orgNumber; });
+        return entry ? entry.value : undefined;
+      }
+
+      function renderComparison(report, unresolved) {
+        comparisonBody.replaceChildren();
+        const benchmark = report.benchmark || {};
+        const peerGroup = benchmark.peer_group || {};
+
+        const overview = document.createElement("div");
+        overview.className = "comparison-overview";
+        const overviewTitle = createTextElement("h3", "comparison-overview-title", "Sammenligningsgrunnlag");
+        const industry = peerGroup.industry_name || "ulike bransjer";
+        const overviewText = createTextElement(
+          "p",
+          "comparison-overview-text",
+          report.companies.length + " virksomheter sammenlignes. Bransje: " + industry + ". " + (peerGroup.note || "")
+        );
+        overview.appendChild(overviewTitle);
+        overview.appendChild(overviewText);
+        comparisonBody.appendChild(overview);
+
+        if (unresolved.length) {
+          comparisonBody.appendChild(createTextElement(
+            "p",
+            "comparison-warning",
+            "Noen virksomheter kunne ikke hentes og er utelatt fra sammenligningen."
+          ));
+        }
+
+        const metricHeading = createTextElement("h3", "comparison-section-title", "Dokumenterte nøkkeltall");
+        comparisonBody.appendChild(metricHeading);
+        const metrics = benchmark.metrics || [];
+        metrics.forEach(function (metric) {
+          const section = document.createElement("section");
+          section.className = "comparison-metric";
+          const heading = document.createElement("div");
+          heading.className = "comparison-metric-head";
+          heading.appendChild(createTextElement("h4", "comparison-metric-title", metric.label));
+          heading.appendChild(createTextElement("span", "comparison-median", "Median i utvalget: " + comparisonMetricValue(metric.median, metric)));
+          section.appendChild(heading);
+          if (metric.industry_reference) {
+            section.appendChild(createTextElement(
+              "p",
+              "comparison-reference",
+              "SSB-referanse " + metric.industry_reference.period + ": " + comparisonMetricValue(metric.industry_reference.value, metric)
+            ));
+          }
+          const values = document.createElement("div");
+          values.className = "comparison-values";
+          report.companies.forEach(function (item) {
+            const value = metricValueForCompany(metric, item.org_number);
+            const row = document.createElement("div");
+            row.className = "comparison-value";
+            row.appendChild(createTextElement("span", "comparison-company-name", item.company_name));
+            row.appendChild(createTextElement("strong", "comparison-company-value", comparisonMetricValue(value, metric)));
+            const context = document.createElement("span");
+            context.className = "comparison-value-context";
+            if (typeof value !== "number") {
+              context.textContent = "Mangler dokumentasjon";
+            } else if ((metric.values || []).length < 2) {
+              context.textContent = "For få dokumenterte verdier til sammenligning";
+            } else if (value > metric.median) {
+              context.textContent = "Over medianen";
+              context.classList.add("is-above");
+            } else if (value < metric.median) {
+              context.textContent = "Under medianen";
+              context.classList.add("is-below");
+            } else {
+              context.textContent = "På medianen";
+            }
+            row.appendChild(context);
+            values.appendChild(row);
+          });
+          section.appendChild(values);
+          comparisonBody.appendChild(section);
+        });
+
+        appendComparisonFindings("Dokumenterte styrker", report.strengths || [], "strength");
+        appendComparisonFindings("Dokumenterte avvik", report.weaknesses || [], "weakness");
+        appendComparisonFindings("Manglende datagrunnlag", report.gaps || [], "gap");
+
+        if (report.recommendations && report.recommendations.length) {
+          const title = createTextElement("h3", "comparison-section-title", "Hva bør undersøkes nærmere");
+          comparisonBody.appendChild(title);
+          const list = document.createElement("div");
+          list.className = "comparison-findings";
+          report.recommendations.forEach(function (recommendation) {
+            const row = document.createElement("div");
+            row.className = "comparison-finding priority";
+            row.appendChild(createTextElement("strong", "comparison-finding-company", recommendation.company_name));
+            row.appendChild(createTextElement("span", "comparison-finding-text", recommendation.action));
+            row.appendChild(createTextElement("span", "comparison-finding-priority", recommendation.priority === "HIGH" ? "Høy prioritet" : "Middels prioritet"));
+            if (recommendation.based_on && recommendation.based_on.length) {
+              row.appendChild(createTextElement("span", "comparison-finding-refs", "Kilde: " + evidenceRefsLabel(recommendation.based_on)));
+            }
+            list.appendChild(row);
+          });
+          comparisonBody.appendChild(list);
+        }
+
+        renderComparisonCoverage(report.companies || [], benchmark.sources || []);
+        renderComparisonAnalystControls(report.companies || []);
+      }
+
+      function appendComparisonFindings(titleText, findings, kind) {
+        if (!findings.length) return;
+        comparisonBody.appendChild(createTextElement("h3", "comparison-section-title", titleText));
+        const list = document.createElement("div");
+        list.className = "comparison-findings";
+        findings.forEach(function (finding) {
+          const row = document.createElement("div");
+          row.className = "comparison-finding " + kind;
+          row.appendChild(createTextElement("strong", "comparison-finding-company", finding.company_name));
+          row.appendChild(createTextElement("span", "comparison-finding-text", finding.detail));
+          if (finding.evidence_refs && finding.evidence_refs.length) {
+            row.appendChild(createTextElement("span", "comparison-finding-refs", "Kilde: " + evidenceRefsLabel(finding.evidence_refs)));
+          }
+          list.appendChild(row);
+        });
+        comparisonBody.appendChild(list);
+      }
+
+      function renderComparisonCoverage(companies, benchmarkSources) {
+        comparisonBody.appendChild(createTextElement("h3", "comparison-section-title", "Kildedekning"));
+        const note = createTextElement("p", "comparison-coverage-note", "Status viser om Arch fant dokumenterte data, ingen registrerte data eller om kilden ikke er tilgjengelig.");
+        comparisonBody.appendChild(note);
+        const coverage = document.createElement("div");
+        coverage.className = "comparison-coverage";
+        companies.forEach(function (item) {
+          const column = document.createElement("section");
+          column.className = "comparison-coverage-company";
+          column.appendChild(createTextElement("h4", "comparison-coverage-name", item.company_name));
+          Object.keys(item.source_status || {}).forEach(function (key) {
+            const row = document.createElement("div");
+            row.className = "comparison-source-row";
+            row.appendChild(createTextElement("span", "comparison-source-label", SRC_LABELS[key] || key));
+            const status = item.source_status[key];
+            row.appendChild(createTextElement("span", "comparison-source-status status-" + String(status).toLowerCase(), sourceCoverageLabel(status)));
+            column.appendChild(row);
+          });
+          coverage.appendChild(column);
+        });
+        comparisonBody.appendChild(coverage);
+
+        if (benchmarkSources.length) {
+          const benchmarkNote = document.createElement("div");
+          benchmarkNote.className = "comparison-benchmark-sources";
+          benchmarkSources.forEach(function (source) {
+            const line = createTextElement("p", "comparison-benchmark-source", source.label + ": " + sourceCoverageLabel(source.status));
+            benchmarkNote.appendChild(line);
+            if (source.note) benchmarkNote.appendChild(createTextElement("p", "comparison-benchmark-note", source.note));
+          });
+          comparisonBody.appendChild(benchmarkNote);
+        }
+      }
+
+      function renderComparisonAnalystControls(companies) {
+        const section = document.createElement("section");
+        section.className = "comparison-analyst-controls";
+        section.appendChild(createTextElement("h3", "comparison-section-title", "Forklar forskjellene med ArchAnalyst"));
+        section.appendChild(createTextElement("p", "comparison-coverage-note", "Analytikeren forklarer bare dokumenterte avvik og merker usikkerhet tydelig."));
+        const controls = document.createElement("div");
+        controls.className = "comparison-control-grid";
+        const subjectLabel = createTextElement("label", "comparison-control-label", "Virksomhet som skal forklares");
+        subjectLabel.htmlFor = "comparison-subject";
+        const subject = document.createElement("select");
+        subject.id = "comparison-subject";
+        companies.forEach(function (item) {
+          const option = document.createElement("option");
+          option.value = item.org_number;
+          option.textContent = item.company_name;
+          subject.appendChild(option);
+        });
+        const focusLabel = createTextElement("label", "comparison-control-label", "Fokusområde");
+        focusLabel.htmlFor = "comparison-focus";
+        const focus = document.createElement("select");
+        focus.id = "comparison-focus";
+        [
+          ["drift", "Drift"],
+          ["salg", "Salg"],
+          ["kundekommunikasjon", "Kundekommunikasjon"],
+          ["administrasjon", "Administrasjon"],
+          ["dokumentasjon", "Dokumentasjon"],
+        ].forEach(function (entry) {
+          const option = document.createElement("option");
+          option.value = entry[0];
+          option.textContent = entry[1];
+          focus.appendChild(option);
+        });
+        controls.appendChild(subjectLabel);
+        controls.appendChild(subject);
+        controls.appendChild(focusLabel);
+        controls.appendChild(focus);
+        section.appendChild(controls);
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "btn btn-primary comparison-analyst-btn";
+        button.id = "comparison-analyst-btn";
+        button.textContent = "Forklar dokumenterte forskjeller";
+        button.addEventListener("click", function () {
+          const orgNumber = subject.value;
+          const selected = companies.find(function (item) { return item.org_number === orgNumber; });
+          if (!selected) return;
+          company = selectedCompanies.find(function (item) { return item.org_number === orgNumber; }) || selected;
+          renderAnalyst(
+            orgNumber,
+            focus.value,
+            focus.options[focus.selectedIndex].text,
+            companies.filter(function (item) { return item.org_number !== orgNumber; }).map(function (item) { return item.org_number; })
+          );
+        });
+        section.appendChild(button);
+        comparisonBody.appendChild(section);
+      }
+
       // ──────────────────────────────────────────────────────────────
       // Intelligence Map — levende evidence-graf (SVG)
       // Sentrum: selskap. Ring: kilder. Ytterst: verifiserte evidenspunkter.
@@ -546,9 +1005,10 @@
       }
 
       // ── Arch Analyst: kall LLM-ruten og render dokumentert analyse ──
-      async function renderAnalyst(orgNumber, area, areaLabel) {
+      async function renderAnalyst(orgNumber, area, areaLabel, comparativeContext) {
         if (!orgNumber) return;
         currentAnalystFocus = area.trim().toLowerCase();
+        currentAnalystOrgNumber = orgNumber;
         const requestId = ++analystRequest;
         analystPanel.hidden = false;
         analystPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
@@ -557,7 +1017,11 @@
           const res = await fetch(API + "/v1/public/company/analyst", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ org_number: orgNumber, focus_area: area.trim().toLowerCase() }),
+            body: JSON.stringify({
+              org_number: orgNumber,
+              focus_area: area.trim().toLowerCase(),
+              ...(comparativeContext && comparativeContext.length ? { comparative_context: comparativeContext } : {}),
+            }),
           });
           if (!res.ok) {
             const err = await res.json().catch(function () { return null; });
@@ -647,7 +1111,7 @@
         row.appendChild(createTextElement("span", "analyst-claim", claim));
         row.appendChild(createTextElement("span", "analyst-tag kind-" + String(findingKind || "INTERPRETATION").toLowerCase(), kindLabel(findingKind)));
         if (refs && refs.length) {
-          row.appendChild(createTextElement("span", "analyst-refs", "Kilde: " + refs.join(", ")));
+          row.appendChild(createTextElement("span", "analyst-refs", "Kilde: " + evidenceRefsLabel(refs)));
         }
         // Feedback-knapper (produktflyt-steg 7)
         row.appendChild(feedbackRow(findingType, findingIndex));
@@ -682,7 +1146,7 @@
       }
 
       async function submitFeedback(btn) {
-        if (!company || !currentAnalystFocus) return;
+        if (!currentAnalystOrgNumber || !currentAnalystFocus) return;
         const feedback = btn.dataset.feedback;
         const findingType = btn.dataset.findingType;
         const findingIndex = Number(btn.dataset.findingIndex);
@@ -694,7 +1158,7 @@
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-              org_number: company.org_number,
+              org_number: currentAnalystOrgNumber,
               focus_area: currentAnalystFocus,
               finding_type: findingType,
               finding_index: findingIndex,
@@ -736,7 +1200,7 @@
         if (p.expected_effect) body.appendChild(createTextElement("span", "analyst-effect", "Forventet effekt: " + p.expected_effect));
         if (p.uncertainties && p.uncertainties.length) body.appendChild(createTextElement("span", "analyst-why", "Usikkerhet: " + p.uncertainties.join("; ")));
         if (p.pre_work && p.pre_work.length) body.appendChild(createTextElement("span", "analyst-why", "Før tiltak: " + p.pre_work.join("; ")));
-        if (p.evidence_refs && p.evidence_refs.length) body.appendChild(createTextElement("span", "analyst-refs", "Kilde: " + p.evidence_refs.join(", ")));
+        if (p.evidence_refs && p.evidence_refs.length) body.appendChild(createTextElement("span", "analyst-refs", "Kilde: " + evidenceRefsLabel(p.evidence_refs)));
         row.appendChild(body);
         row.appendChild(feedbackRow("priority", findingIndex));
         return row;
@@ -799,7 +1263,7 @@
         }
 
         svg.setAttribute("viewBox", "0 0 760 600");
-        svg.innerHTML = "";
+        svg.replaceChildren();
 
         function hubAngle(i, n) { return -Math.PI / 2 + (i / n) * 2 * Math.PI; }
         function evAngle(i, total, hubIdx, hubCount) {
@@ -961,7 +1425,7 @@
       // Executive Brief — rik evidence-rapport (identitet + ledelse + regnskap + digital + kilder)
       function renderBrief(intel, c) {
         const body = document.getElementById("brief-body");
-        body.innerHTML = "";
+        body.replaceChildren();
         const id = intel.identity || {};
 
         function section(title, rows) {
@@ -1062,7 +1526,7 @@
           }
         }
 
-        // 6. Datagrunnlag. Vis dokumenterte kilder, ikke tekniske mangler.
+// 6. Datagrunnlag. Vis dokumenterte kilder, ikke tekniske mangler.
         const sourceLabels = {
           "Company identity": "Virksomhetsidentitet",
           "Leadership & governance": "Ledelse og roller",
@@ -1073,7 +1537,7 @@
           "Market signals": "Markedssignaler",
           "Industry context": "Bransjekontekst"
         };
-        const srcs = (intel.sources || []).filter(function (s) { return s.status === "AVAILABLE"; });
+        const srcs = intel.sources || [];
         const srcS = document.createElement("div");
         srcS.className = "brief-section";
         const srcH = document.createElement("div");
@@ -1087,9 +1551,8 @@
           l.className = "brief-label";
           l.textContent = sourceLabels[s.label] || s.label;
           const v = document.createElement("span");
-          v.className = "brief-value";
-          v.className = "brief-value brief-ok";
-          v.textContent = "✓ Bekreftet";
+          v.className = "brief-value brief-source-status brief-source-" + String(s.status || "UNKNOWN").toLowerCase();
+          v.textContent = sourceCoverageLabel(s.status);
           r.appendChild(l); r.appendChild(v);
           srcS.appendChild(r);
         });
@@ -1098,7 +1561,8 @@
         // Confidence footer
         const foot = document.createElement("p");
         foot.className = "brief-confidence";
-        foot.textContent = srcs.length + " offentlige kilder er kontrollert. Opplysninger som ikke er dokumentert, vises ikke som fakta.";
+        const availableSources = srcs.filter(function (s) { return s.status === "AVAILABLE"; }).length;
+        foot.textContent = availableSources + " av " + srcs.length + " datakilder ga dokumenterte opplysninger. Opplysninger som ikke er dokumentert, vises ikke som fakta.";
         body.appendChild(foot);
       }
 
@@ -1111,7 +1575,7 @@
           questionLoading = true;
           const requestId = ++questionRequest;
           setFrictionControlsDisabled(true);
-          log.innerHTML = "";
+          log.replaceChildren();
 
           // Marker valgt
           document.querySelectorAll(".friction-card").forEach(function (b) {
