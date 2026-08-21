@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "test": "vitest run",
+    "test": "tsx approval-service/__tests__/approval-service.test.ts && tsx policy-engine/__tests__/policy-enforcement.test.ts && tsx runner-manager/__tests__/runner-manager.test.ts && tsx runner-manager/__tests__/finding-normalizer.test.ts && tsx runner-manager/__tests__/spiderfoot-adapter.test.ts",
     "test:watch": "vitest"
   },
   "dependencies": {

@@ -13,3 +13,4 @@ test-results/
 .wrangler/
 data/cost/
 backups/
+packages/osint/dist/
