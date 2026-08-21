@@ -42,7 +42,7 @@ export class AnalystService {
     const prompt = buildPrompt(bundle, focusArea);
 
     const inputText = prompt;
-    const raw = await callAnalystModel(this.model, prompt, 1200, 15_000);
+    const raw = await callAnalystModel(this.model, prompt, 1200, 30_000);
 
     const output = parseAnalystJson(
       raw,
