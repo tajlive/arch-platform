@@ -8,6 +8,10 @@
 .analysis-mode-btn:hover { color: var(--blue); background: var(--blue-faint); }
 .analysis-mode-btn.selected { background: var(--navy); color: #fff; }
 
+/* Single-company analysis stays focused; direct comparisons use the desktop width. */
+.audit-shell.comparison-active .wrap { max-width: 1120px; }
+.audit-shell.comparison-active .engine-panel { padding: 32px; }
+
 .comparison-selection { margin-top: 16px; padding: 16px; border: 1px solid var(--border); border-radius: 8px; background: #fff; text-align: left; }
 .comparison-selection-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
 .comparison-selection-head strong { color: var(--ink); font-size: 14px; }
@@ -27,6 +31,7 @@
 .comparison-overview-title, .comparison-section-title { color: var(--ink); font-size: 15px; letter-spacing: 0; text-transform: none; }
 .comparison-overview-text, .comparison-coverage-note, .comparison-reference, .comparison-empty-state { color: var(--slate); font-size: 13px; line-height: 1.55; margin-top: 5px; }
 .comparison-empty-state { padding: 12px; border-left: 3px solid var(--blue); background: var(--blue-faint); }
+.comparison-direct-note { margin-top: 12px; padding: 10px 12px; border-left: 3px solid var(--blue); background: var(--blue-faint); color: var(--slate-dark); font-size: 13px; line-height: 1.5; }
 .comparison-warning { margin-top: 16px; padding: 10px 12px; border-left: 3px solid #b26a00; background: #fff6e6; color: #6f4800; font-size: 13px; }
 .comparison-section-title { margin: 28px 0 10px; }
 .comparison-metric { border-top: 1px solid var(--border); padding: 14px 0; }
@@ -50,9 +55,12 @@
 .comparison-finding-text { color: var(--slate-dark); font-size: 13px; }
 .comparison-finding-refs { grid-column: 2 / -1; color: var(--slate); font-size: 12px; }
 .comparison-finding-priority { align-self: start; color: var(--blue); font-size: 11px; font-weight: 700; white-space: nowrap; }
-.comparison-coverage { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; border-top: 1px solid var(--border); }
-.comparison-coverage-company { padding-top: 14px; min-width: 0; }
+.comparison-coverage { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.comparison-coverage-company { min-width: 0; padding: 14px; border: 1px solid var(--border); border-radius: 8px; background: #fff; }
 .comparison-coverage-name { color: var(--ink); font-size: 14px; letter-spacing: 0; margin-bottom: 6px; }
+.comparison-coverage-summary { color: var(--slate-dark); font-size: 13px; margin: 0; }
+.comparison-source-details { margin-top: 10px; }
+.comparison-source-summary { color: var(--blue); cursor: pointer; font-size: 12px; font-weight: 600; }
 .comparison-source-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--border); }
 .comparison-source-label { color: var(--slate-dark); font-size: 12px; }
 .comparison-source-status { color: var(--slate); font-size: 12px; font-weight: 600; text-align: right; }
@@ -63,7 +71,7 @@
 .comparison-benchmark-sources { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border); }
 .comparison-benchmark-source { color: var(--ink); font-size: 13px; font-weight: 600; }
 .comparison-benchmark-note { color: var(--slate); font-size: 12px; margin: 2px 0 8px; }
-.comparison-analyst-controls { margin-top: 28px; padding-top: 4px; border-top: 1px solid var(--border); }
+.comparison-analyst-controls { margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--border); }
 .comparison-control-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6px 14px; margin: 14px 0; }
 .comparison-control-label { color: var(--slate-dark); font-size: 12px; font-weight: 600; }
 .comparison-control-grid select { width: 100%; min-width: 0; border: 1px solid var(--border); border-radius: 6px; background: #fff; color: var(--ink); font: inherit; font-size: 14px; padding: 10px; }

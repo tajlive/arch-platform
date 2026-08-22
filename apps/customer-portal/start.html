@@ -76,7 +76,7 @@
             <span class="comparison-count" id="comparison-count">0 av 5</span>
           </div>
           <div class="comparison-selection-list" id="comparison-selection-list"></div>
-          <button type="button" class="btn btn-primary comparison-run-btn" id="compare-run" disabled>Sammenlign valgte virksomheter</button>
+          <button type="button" class="btn btn-primary comparison-run-btn" id="compare-run" disabled>Sammenlign virksomhetene</button>
         </div>
         <div class="company-picker" id="company-picker" hidden>
           <div class="company-picker-head">
@@ -195,7 +195,7 @@
       <div class="engine-panel" id="comparison-panel" hidden>
         <div class="brief-header">
           <h2 class="panel-title">Sammenligning</h2>
-          <span class="mockup-tag">Dokumenterte avvik og datadekning</span>
+          <span class="mockup-tag">Dokumenterte forskjeller og kilder</span>
         </div>
         <p class="panel-sub">Arch sammenligner kun opplysninger som er dokumentert for de valgte virksomhetene.</p>
         <div id="comparison-body"></div>
@@ -328,6 +328,7 @@
         comparisonSelection.hidden = !comparing;
         document.getElementById("company-picker").hidden = true;
         engine.hidden = true;
+        if (!comparing) engine.classList.remove("comparison-active");
         input.placeholder = comparing
           ? "Søk etter virksomhet som skal sammenlignes"
           : "Organisasjonsnummer, firmanavn eller nettside";
@@ -440,6 +441,7 @@
         conversationPanel.hidden = true;
         const mapPanel = document.getElementById("map-panel");
         if (mapPanel) mapPanel.hidden = true;
+        engine.classList.add("comparison-active");
         engine.hidden = false;
         evidencePanel.hidden = false;
         setState("em-company", 1);
@@ -468,7 +470,7 @@
           setState("em-signals", 2);
           setState("em-questions", 2);
           setDetail("em-sources-detail", "Kilder kontrollert for " + data.report.companies.length + " virksomheter");
-          setDetail("em-signals-detail", "Peer-gruppe og avvik beregnet");
+          setDetail("em-signals-detail", "Dokumenterte forskjeller beregnet");
           setDetail("em-questions-detail", "Forklar forskjellene med ArchAnalyst");
           renderComparison(data.report, data.unresolved || []);
           evidencePanel.hidden = true;
@@ -478,7 +480,7 @@
         } catch (error) {
           statusNote.textContent = "Vi kunne ikke sammenligne virksomhetene nå. Prøv igjen.";
         } finally {
-          compareRunBtn.textContent = "Sammenlign valgte virksomheter";
+          compareRunBtn.textContent = "Sammenlign virksomhetene";
           compareRunBtn.disabled = selectedCompanies.length < 2;
         }
       }
@@ -515,6 +517,7 @@
         discoverBtn.disabled = true;
         discoverBtn.textContent = "Søker…";
         statusNote.textContent = "Arch søker etter virksomheten…";
+        engine.classList.remove("comparison-active");
         engine.hidden = true;
         evidencePanel.hidden = true;
         briefPanel.hidden = true;
@@ -775,23 +778,44 @@
         return entry ? entry.value : undefined;
       }
 
+      function directDifferenceLabel(metric, value, otherValue, otherCompanyName) {
+        const difference = Math.round((value - otherValue) * 100) / 100;
+        if (Math.abs(difference) < 0.01) return "Samme dokumenterte verdi som " + otherCompanyName;
+        const amount = new Intl.NumberFormat("nb-NO", { maximumFractionDigits: 2 }).format(Math.abs(difference));
+        const direction = difference > 0 ? "høyere" : "lavere";
+        const unit = metric.unit === "percent" ? " prosentpoeng" : metric.unit === "score" ? " poeng" : "";
+        return amount + unit + " " + direction + " enn " + otherCompanyName;
+      }
+
       function renderComparison(report, unresolved) {
         comparisonBody.replaceChildren();
         const benchmark = report.benchmark || {};
         const peerGroup = benchmark.peer_group || {};
+        const companies = report.companies || [];
+        const isDirectComparison = companies.length === 2;
 
         const overview = document.createElement("div");
         overview.className = "comparison-overview";
-        const overviewTitle = createTextElement("h3", "comparison-overview-title", "Sammenligningsgrunnlag");
+        const overviewTitle = createTextElement("h3", "comparison-overview-title", isDirectComparison ? "Direkte sammenligning" : "Sammenligningsgrunnlag");
         const industry = peerGroup.industry_name || "ulike bransjer";
         const overviewText = createTextElement(
           "p",
           "comparison-overview-text",
-          report.companies.length + " virksomheter sammenlignes. Bransje: " + industry + ". " + (peerGroup.note || "")
+          isDirectComparison
+            ? "To virksomheter sammenlignes direkte. Arch viser bare nøkkeltall som er dokumentert for begge. Bransje: " + industry + "."
+            : companies.length + " virksomheter sammenlignes. Bransje: " + industry + ". " + (peerGroup.note || "")
         );
         overview.appendChild(overviewTitle);
         overview.appendChild(overviewText);
         comparisonBody.appendChild(overview);
+
+        if (isDirectComparison) {
+          comparisonBody.appendChild(createTextElement(
+            "p",
+            "comparison-direct-note",
+            "Dette er en direkte sammenligning, ikke en rangering eller en bransjebenchmark."
+          ));
+        }
 
         if (unresolved.length) {
           comparisonBody.appendChild(createTextElement(
@@ -801,10 +825,11 @@
           ));
         }
 
-        const metricHeading = createTextElement("h3", "comparison-section-title", "Dokumenterte nøkkeltall");
+        const metricHeading = createTextElement("h3", "comparison-section-title", isDirectComparison ? "Dokumenterte forskjeller" : "Dokumenterte nøkkeltall");
         comparisonBody.appendChild(metricHeading);
         const metrics = (benchmark.metrics || []).filter(function (metric) {
-          return (metric.values || []).length > 0;
+          const requiredValues = isDirectComparison ? companies.length : 2;
+          return (metric.values || []).length >= requiredValues;
         });
         if (!metrics.length) {
           comparisonBody.appendChild(createTextElement(
@@ -820,7 +845,9 @@
           heading.className = "comparison-metric-head";
           heading.appendChild(createTextElement("h4", "comparison-metric-title", metric.label));
           const documentedCount = (metric.values || []).length;
-          if (documentedCount >= 2 && typeof metric.median === "number") {
+          if (isDirectComparison) {
+            heading.appendChild(createTextElement("span", "comparison-median", "Dokumentert for begge"));
+          } else if (documentedCount >= 2 && typeof metric.median === "number") {
             heading.appendChild(createTextElement("span", "comparison-median", "Median i utvalget: " + comparisonMetricValue(metric.median, metric)));
           } else {
             heading.appendChild(createTextElement("span", "comparison-median", "Dokumentert for " + documentedCount + " av " + report.companies.length));
@@ -845,6 +872,12 @@
             context.className = "comparison-value-context";
             if (typeof value !== "number") {
               context.textContent = "Mangler dokumentasjon";
+            } else if (isDirectComparison) {
+              const otherCompany = companies.find(function (company) { return company.org_number !== item.org_number; });
+              const otherValue = otherCompany && metricValueForCompany(metric, otherCompany.org_number);
+              context.textContent = typeof otherValue === "number"
+                ? directDifferenceLabel(metric, value, otherValue, otherCompany.company_name)
+                : "Mangler dokumentasjon";
             } else if (documentedCount < 2 || typeof metric.median !== "number") {
               context.textContent = "For få dokumenterte verdier til sammenligning";
             } else if (value > metric.median) {
@@ -863,11 +896,13 @@
           comparisonBody.appendChild(section);
         });
 
-        appendComparisonFindings("Dokumenterte styrker", report.strengths || [], "strength");
-        appendComparisonFindings("Dokumenterte avvik", report.weaknesses || [], "weakness");
-        appendComparisonFindings("Manglende datagrunnlag", report.gaps || [], "gap");
+        if (!isDirectComparison) {
+          appendComparisonFindings("Dokumenterte styrker", report.strengths || [], "strength");
+          appendComparisonFindings("Dokumenterte avvik", report.weaknesses || [], "weakness");
+          appendComparisonFindings("Manglende datagrunnlag", report.gaps || [], "gap");
+        }
 
-        if (report.recommendations && report.recommendations.length) {
+        if (!isDirectComparison && report.recommendations && report.recommendations.length) {
           const title = createTextElement("h3", "comparison-section-title", "Hva bør undersøkes nærmere");
           comparisonBody.appendChild(title);
           const list = document.createElement("div");
@@ -886,8 +921,8 @@
           comparisonBody.appendChild(list);
         }
 
-        renderComparisonCoverage(report.companies || [], benchmark.sources || []);
-        renderComparisonAnalystControls(report.companies || []);
+        renderComparisonCoverage(companies, benchmark.sources || []);
+        renderComparisonAnalystControls(companies, isDirectComparison);
       }
 
       function appendComparisonFindings(titleText, findings, kind) {
@@ -910,7 +945,7 @@
 
       function renderComparisonCoverage(companies, benchmarkSources) {
         comparisonBody.appendChild(createTextElement("h3", "comparison-section-title", "Kildedekning"));
-        const note = createTextElement("p", "comparison-coverage-note", "Status viser om Arch fant dokumenterte data, ingen registrerte data eller om kilden ikke er tilgjengelig.");
+        const note = createTextElement("p", "comparison-coverage-note", "Oppsummeringen viser hvor mange offentlige kilder som har dokumenterte data. Åpne detaljene ved behov.");
         comparisonBody.appendChild(note);
         const coverage = document.createElement("div");
         coverage.className = "comparison-coverage";
@@ -918,35 +953,47 @@
           const column = document.createElement("section");
           column.className = "comparison-coverage-company";
           column.appendChild(createTextElement("h4", "comparison-coverage-name", item.company_name));
-          Object.keys(item.source_status || {}).forEach(function (key) {
+          const sources = Object.entries(item.source_status || {});
+          const available = sources.filter(function (entry) { return entry[1] === "AVAILABLE"; }).length;
+          column.appendChild(createTextElement(
+            "p",
+            "comparison-coverage-summary",
+            available + " av " + sources.length + " kilder med dokumenterte data"
+          ));
+          const details = document.createElement("details");
+          details.className = "comparison-source-details";
+          details.appendChild(createTextElement("summary", "comparison-source-summary", "Vis kildedekning"));
+          sources.forEach(function (entry) {
+            const key = entry[0];
             const row = document.createElement("div");
             row.className = "comparison-source-row";
             row.appendChild(createTextElement("span", "comparison-source-label", SRC_LABELS[key] || key));
-            const status = item.source_status[key];
+            const status = entry[1];
             row.appendChild(createTextElement("span", "comparison-source-status status-" + String(status).toLowerCase(), sourceCoverageLabel(status)));
-            column.appendChild(row);
+            details.appendChild(row);
           });
+          column.appendChild(details);
           coverage.appendChild(column);
         });
         comparisonBody.appendChild(coverage);
 
-        if (benchmarkSources.length) {
+        const industryReference = benchmarkSources.find(function (source) { return source.key === "ssb-bransje"; });
+        if (industryReference) {
           const benchmarkNote = document.createElement("div");
           benchmarkNote.className = "comparison-benchmark-sources";
-          benchmarkSources.forEach(function (source) {
-            const line = createTextElement("p", "comparison-benchmark-source", source.label + ": " + sourceCoverageLabel(source.status));
-            benchmarkNote.appendChild(line);
-            if (source.note) benchmarkNote.appendChild(createTextElement("p", "comparison-benchmark-note", source.note));
-          });
+          benchmarkNote.appendChild(createTextElement("p", "comparison-benchmark-source", industryReference.label + ": " + sourceCoverageLabel(industryReference.status)));
+          if (industryReference.note) benchmarkNote.appendChild(createTextElement("p", "comparison-benchmark-note", industryReference.note));
           comparisonBody.appendChild(benchmarkNote);
         }
       }
 
-      function renderComparisonAnalystControls(companies) {
+      function renderComparisonAnalystControls(companies, isDirectComparison) {
         const section = document.createElement("section");
         section.className = "comparison-analyst-controls";
         section.appendChild(createTextElement("h3", "comparison-section-title", "Forklar forskjellene med ArchAnalyst"));
-        section.appendChild(createTextElement("p", "comparison-coverage-note", "Analytikeren forklarer bare dokumenterte avvik og merker usikkerhet tydelig."));
+        section.appendChild(createTextElement("p", "comparison-coverage-note", isDirectComparison
+          ? "Analytikeren forklarer dokumenterte forskjeller mellom virksomhetene og merker usikkerhet tydelig."
+          : "Analytikeren forklarer bare dokumenterte avvik og merker usikkerhet tydelig."));
         const controls = document.createElement("div");
         controls.className = "comparison-control-grid";
         const subjectLabel = createTextElement("label", "comparison-control-label", "Virksomhet som skal forklares");

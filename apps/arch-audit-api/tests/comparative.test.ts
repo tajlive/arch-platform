@@ -292,17 +292,18 @@ describe("Comparative intelligence", () => {
     expect(analysis.weaknesses).toEqual([]);
   });
 
-  it("returns strengths, weaknesses and evidence gaps across companies", async () => {
+  it("returns strengths and weaknesses only across a comparison cohort", async () => {
     const fixtures = new Map<string, CompanyIntelligenceResult>([
       ["alpha", report({ org: "111111111", name: "Alpha Glass AS", revenue: 1_000, operatingResult: 220, equity: 500, totalAssets: 800, employees: 20, digitalSignals: 4, workforceOpenings: 4 })],
       ["beta", report({ org: "222222222", name: "Beta Glass AS", revenue: 1_000, operatingResult: 50, equity: 100, totalAssets: 800, employees: 6, digitalSignals: 1, workforceOpenings: 1 })],
+      ["gamma", report({ org: "333333333", name: "Gamma Glass AS", revenue: 1_000, operatingResult: 120, equity: 300, totalAssets: 800, employees: 12, digitalSignals: 2, workforceOpenings: 2 })],
     ]);
     const orchestrator = new ComparativeOrchestrator(
       async (query) => fixtures.get(query) ?? null,
       new BenchmarkEngine({ collect: async () => null })
     );
 
-    const result = await orchestrator.compare(["alpha", "beta", "missing"]);
+    const result = await orchestrator.compare(["alpha", "beta", "gamma", "missing"]);
 
     expect(result.resolved).toBe(true);
     expect(result.unresolved).toEqual([{ query: "missing", error: "COMPANY_NOT_FOUND" }]);
@@ -310,6 +311,19 @@ describe("Comparative intelligence", () => {
     expect(result.report?.weaknesses.some((finding) => finding.org_number === "222222222" && finding.metric === "operating_margin")).toBe(true);
     expect(result.report?.strengths.some((finding) => finding.metric === "workforce_signals")).toBe(false);
     expect(result.report?.recommendations.some((recommendation) => recommendation.org_number === "222222222")).toBe(true);
+  });
+
+  it("does not rank a direct comparison of two selected companies", async () => {
+    const companies = [
+      toComparableCompany(report({ org: "111111111", name: "Alpha Glass AS", revenue: 1_000, operatingResult: 220, equity: 500, totalAssets: 800 })),
+      toComparableCompany(report({ org: "222222222", name: "Beta Glass AS", revenue: 1_000, operatingResult: 50, equity: 100, totalAssets: 800 })),
+    ];
+    const benchmark = await new BenchmarkEngine({ collect: async () => null }).enrich(companies);
+    const analysis = new ComparativeAnalyzer().analyze(companies, benchmark);
+
+    expect(analysis.strengths).toEqual([]);
+    expect(analysis.weaknesses).toEqual([]);
+    expect(analysis.recommendations).toEqual([]);
   });
 
   it("leverer kundevendte sammenligningsetiketter på norsk", async () => {

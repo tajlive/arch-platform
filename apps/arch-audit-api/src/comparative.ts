@@ -434,6 +434,21 @@ export class ComparativeAnalyzer {
     const weaknesses: ComparativeFinding[] = [];
     const gaps: ComparativeFinding[] = [];
 
+    // Two selected companies are a direct comparison, not a peer cohort.
+    // Do not turn one side of a pair into an automatic strength, weakness, or
+    // recommendation. The portal presents their documented differences instead.
+    if (companies.length < 3) {
+      return {
+        generated_at: new Date().toISOString(),
+        companies,
+        benchmark,
+        strengths,
+        weaknesses,
+        gaps,
+        recommendations: [],
+      };
+    }
+
     for (const metric of benchmark.metrics) {
       // An unavailable collector must never create a false zero metric or a
       // repetitive gap for every company. Coverage communicates that state.

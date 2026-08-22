@@ -28,6 +28,10 @@ export function computeBenchmarkDeltas(report: IntelligenceReport, comparative?:
   const own = comparative.companies.find((c) => c.org_number === report.org_number);
   if (!own) return [];
 
+  // A pair gives a useful direct comparison in the UI, but not a benchmark that
+  // can justify an automated weakness or priority in the analyst output.
+  if (comparative.companies.length < 3) return [];
+
   const deltas: BenchmarkDelta[] = [];
   for (const metric of Object.values(comparative.benchmark.metrics ?? {}) as BenchmarkMetric[]) {
     // Headcount and vacancies describe a company; they do not by themselves

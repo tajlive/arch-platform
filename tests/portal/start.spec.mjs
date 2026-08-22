@@ -522,15 +522,21 @@ test("gjør sammenligning, datadekning og analyst-kontekst tilgjengelig", async 
   await page.locator("#compare-run").click();
   const comparison = page.locator("#comparison-panel");
   await expect(comparison).toBeVisible();
+  const comparisonBox = await comparison.boundingBox();
+  expect(comparisonBox.width).toBeGreaterThan(900);
+  await expect(comparison).toContainText("Direkte sammenligning");
   await expect(comparison).toContainText("Driftsmargin");
-  await expect(comparison).toContainText("Median i utvalget: 8 %");
-  await expect(comparison).toContainText("Dokumenterte avvik");
+  await expect(comparison).toContainText("Dokumenterte forskjeller");
+  await expect(comparison).toContainText("8 prosentpoeng høyere enn TRONDHEIM SPISESTED AS");
+  await expect(comparison).toContainText("Dette er en direkte sammenligning, ikke en rangering eller en bransjebenchmark.");
+  await expect(comparison).not.toContainText("Median i utvalget");
+  await expect(comparison).not.toContainText("Dokumenterte avvik");
+  await expect(comparison).not.toContainText("Høy prioritet");
   await expect(comparison).not.toContainText("Manglende datagrunnlag");
-  await expect(comparison).not.toContainText("Median i utvalget: 0 %");
   await expect(comparison).not.toContainText("Rekrutteringssignaler");
   await expect(comparison).toContainText("Kildedekning");
-  await expect(comparison).toContainText("Ingen registrerte data");
-  await expect(comparison).toContainText("Ikke tilgjengelig");
+  await expect(comparison).toContainText("3 av 5 kilder med dokumenterte data");
+  await comparison.locator(".comparison-source-summary").first().click();
   await expect(comparison.locator(".comparison-source-row").first()).toHaveCSS("display", "flex");
   expect(calls.comparisons).toEqual([{ companies: ["999888777", "111222333"] }]);
 

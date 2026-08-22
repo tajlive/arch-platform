@@ -31,6 +31,22 @@ function sampleComparative(): ComparativeReport {
         source_status: {},
         graph: sampleReport().graph,
       },
+      {
+        org_number: "111111111",
+        company_name: "BETA SKO AS",
+        metrics: { operating_margin: 5.2, equity_ratio: 30, employees: 40 },
+        evidence: {},
+        source_status: {},
+        graph: sampleReport().graph,
+      },
+      {
+        org_number: "222222222",
+        company_name: "GAMMA SKO AS",
+        metrics: { operating_margin: 8, equity_ratio: 35, employees: 30 },
+        evidence: {},
+        source_status: {},
+        graph: sampleReport().graph,
+      },
     ],
     benchmark: {
       generated_at: "2026-08-21T00:00:00Z",
@@ -81,6 +97,12 @@ describe("computeBenchmarkDeltas", () => {
       source_status: {},
       graph: sampleReport().graph,
     }];
+    expect(computeBenchmarkDeltas(sampleReport(), comparative)).toEqual([]);
+  });
+
+  it("returnerer ikke benchmark-deltas for en direkte sammenligning av to virksomheter", () => {
+    const comparative = sampleComparative();
+    comparative.companies = comparative.companies.slice(0, 2);
     expect(computeBenchmarkDeltas(sampleReport(), comparative)).toEqual([]);
   });
 });
