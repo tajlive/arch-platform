@@ -31,14 +31,30 @@ function sampleComparative(): ComparativeReport {
         source_status: {},
         graph: sampleReport().graph,
       },
+      {
+        org_number: "111111111",
+        company_name: "BETA SKO AS",
+        metrics: { operating_margin: 5.2, equity_ratio: 30, employees: 40 },
+        evidence: {},
+        source_status: {},
+        graph: sampleReport().graph,
+      },
+      {
+        org_number: "222222222",
+        company_name: "GAMMA SKO AS",
+        metrics: { operating_margin: 8, equity_ratio: 35, employees: 30 },
+        evidence: {},
+        source_status: {},
+        graph: sampleReport().graph,
+      },
     ],
     benchmark: {
       generated_at: "2026-08-21T00:00:00Z",
       peer_group: { basis: "selected_companies", industry_code: "15.200", industry_name: "Produksjon av skotøy", company_count: 3, note: "test" },
       metrics: [
-        { key: "operating_margin", label: "Operating margin", unit: "percent", values: [], median: 5.2, q1: 2, q3: 9, top_decile: 12, bottom_decile: -3 },
-        { key: "equity_ratio", label: "Equity ratio", unit: "percent", values: [], median: 30.0, q1: 20, q3: 45, top_decile: 60, bottom_decile: 10 },
-        { key: "employees", label: "Employees", unit: "count", values: [], median: 40, q1: 20, q3: 80, top_decile: 120, bottom_decile: 5 },
+        { key: "operating_margin", label: "Operating margin", unit: "percent", values: [{ org_number: "951001880", value: -13.17 }, { org_number: "111111111", value: 5.2 }], median: 5.2, q1: 2, q3: 9, top_decile: 12, bottom_decile: -3 },
+        { key: "equity_ratio", label: "Equity ratio", unit: "percent", values: [{ org_number: "951001880", value: 22.61 }, { org_number: "111111111", value: 30 }], median: 30.0, q1: 20, q3: 45, top_decile: 60, bottom_decile: 10 },
+        { key: "employees", label: "Employees", unit: "count", values: [{ org_number: "951001880", value: 23 }, { org_number: "111111111", value: 40 }], median: 40, q1: 20, q3: 80, top_decile: 120, bottom_decile: 5 },
       ],
       sources: [],
     },
@@ -50,9 +66,9 @@ function sampleComparative(): ComparativeReport {
 }
 
 describe("computeBenchmarkDeltas", () => {
-  it("beregner deltas for alle metrikker med selskap + median", () => {
+  it("beregner deltas kun for retningsbestemte metrikker med dokumenterte verdier", () => {
     const deltas = computeBenchmarkDeltas(sampleReport(), sampleComparative());
-    expect(deltas.length).toBe(3);
+    expect(deltas.length).toBe(2);
 
     const margin = deltas.find((d) => d.metric === "operating_margin");
     expect(margin?.company_value).toBe(-13.17);
@@ -63,8 +79,7 @@ describe("computeBenchmarkDeltas", () => {
     const equity = deltas.find((d) => d.metric === "equity_ratio");
     expect(equity?.direction).toBe("below");
 
-    const employees = deltas.find((d) => d.metric === "employees");
-    expect(employees?.direction).toBe("below");
+    expect(deltas.find((d) => d.metric === "employees")).toBeUndefined();
   });
 
   it("returnerer tom liste når comparative mangler", () => {
@@ -82,6 +97,12 @@ describe("computeBenchmarkDeltas", () => {
       source_status: {},
       graph: sampleReport().graph,
     }];
+    expect(computeBenchmarkDeltas(sampleReport(), comparative)).toEqual([]);
+  });
+
+  it("returnerer ikke benchmark-deltas for en direkte sammenligning av to virksomheter", () => {
+    const comparative = sampleComparative();
+    comparative.companies = comparative.companies.slice(0, 2);
     expect(computeBenchmarkDeltas(sampleReport(), comparative)).toEqual([]);
   });
 });
@@ -115,6 +136,38 @@ describe("AnalystService", () => {
       expect(result.analyst.weaknesses).toEqual([]);
       expect(result.analyst.priorities).toEqual([]);
       expect(result.analyst.strengths).toHaveLength(1);
+    } finally {
+      globalThis.fetch = originalFetch;
+    }
+  });
+
+  it("does not keep model weaknesses or priorities that are based only on headcount", async () => {
+    const originalFetch = globalThis.fetch;
+    globalThis.fetch = vi.fn().mockResolvedValue(new Response(JSON.stringify({
+      choices: [{
+        message: {
+          content: JSON.stringify({
+            summary: "Ugyldig modelloppsummering.",
+            strengths: [],
+            weaknesses: [{ claim: "Færre ansatte", evidence_refs: ["brreg-enhet"], kind: "INTERPRETATION" }],
+            priorities: [{ rank: 1, recommendation: "Ansett flere", expected_effect: "Flere ansatte", effort: "high", time_horizon: 180, evidence_refs: ["brreg-enhet"], uncertainties: [], pre_work: [], kind: "HYPOTHESIS" }],
+            unknowns: [],
+          }),
+        },
+      }],
+    }), { status: 200 })) as unknown as typeof fetch;
+
+    try {
+      const comparative = sampleComparative();
+      comparative.benchmark.metrics = [comparative.benchmark.metrics[2]];
+      const service = new AnalystService({ provider: "test", baseUrl: "https://model.test", apiKey: "test", model: "test-model" });
+      const result = await service.analyze("951001880", {
+        ...sampleReport(),
+        financial: { ...sampleReport().financial!, operating_result: 56216, net_result: 42271 },
+      }, "drift", [], comparative);
+
+      expect(result.analyst.weaknesses).toEqual([]);
+      expect(result.analyst.priorities).toEqual([]);
     } finally {
       globalThis.fetch = originalFetch;
     }

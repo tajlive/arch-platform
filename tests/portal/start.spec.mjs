@@ -152,10 +152,16 @@ const comparisonResponse = {
             { org_number: "111222333", value: 15 }
           ],
           median: 30
+        },
+        {
+          key: "workforce_signals",
+          label: "Rekrutteringssignaler",
+          unit: "count",
+          values: []
         }
       ],
       sources: [
-        { key: "selected-company-peer-set", label: "Valgt sammenligningsgruppe", status: "AVAILABLE" },
+        { key: "selected-company-peer-set", label: "Valgt sammenligningsutvalg", status: "AVAILABLE" },
         { key: "ssb-bransje", label: "SSB-bransjereferanse", status: "NOT_AVAILABLE", note: "Ingen kompatibel SSB-referanse ble returnert." }
       ]
     },
@@ -171,12 +177,7 @@ const comparisonResponse = {
       detail: "TRONDHEIM SPISESTED AS har 4 mot medianen på 8 i sammenligningsgruppen.",
       evidence_refs: ["financial|111222333|operating_result"]
     }],
-    gaps: [{
-      company_name: "TRONDHEIM SPISESTED AS",
-      metric: "workforce_signals",
-      detail: "TRONDHEIM SPISESTED AS har ingen dokumentert verdi for rekrutteringssignaler.",
-      evidence_refs: []
-    }],
+    gaps: [],
     recommendations: [{
       company_name: "TRONDHEIM SPISESTED AS",
       priority: "HIGH",
@@ -383,6 +384,7 @@ test("viser firma-velger ved flertreff og kartlegger valgt virksomhet", async ({
   // Velgerlisten vises med begge kandidatene
   const picker = page.locator("#company-picker");
   await expect(picker).toBeVisible();
+  await expect(page.locator("#engine")).toBeHidden();
   await expect(picker).toContainText("MELHUS BIL ORKANGER AS");
   await expect(picker).toContainText("MELHUS BIL TRONDHEIM AS");
   await expect(picker).toContainText("7000 TRONDHEIM");
@@ -502,6 +504,8 @@ test("gjør sammenligning, datadekning og analyst-kontekst tilgjengelig", async 
   });
   await page.goto(`${baseUrl}/start.html`);
 
+  await expect(page.locator("#mode-compare")).toHaveCSS("appearance", "none");
+  await expect(page.locator("#mode-compare")).toHaveCSS("padding-top", "10px");
   await page.locator("#mode-compare").click();
   await expect(page.locator("#comparison-selection")).toBeVisible();
   await expect(page.locator("#compare-run")).toBeDisabled();
@@ -518,13 +522,22 @@ test("gjør sammenligning, datadekning og analyst-kontekst tilgjengelig", async 
   await page.locator("#compare-run").click();
   const comparison = page.locator("#comparison-panel");
   await expect(comparison).toBeVisible();
+  const comparisonBox = await comparison.boundingBox();
+  expect(comparisonBox.width).toBeGreaterThan(900);
+  await expect(comparison).toContainText("Direkte sammenligning");
   await expect(comparison).toContainText("Driftsmargin");
-  await expect(comparison).toContainText("Median i utvalget: 8 %");
-  await expect(comparison).toContainText("Dokumenterte avvik");
-  await expect(comparison).toContainText("Manglende datagrunnlag");
+  await expect(comparison).toContainText("Dokumenterte forskjeller");
+  await expect(comparison).toContainText("8 prosentpoeng høyere enn TRONDHEIM SPISESTED AS");
+  await expect(comparison).toContainText("Dette er en direkte sammenligning, ikke en rangering eller en bransjebenchmark.");
+  await expect(comparison).not.toContainText("Median i utvalget");
+  await expect(comparison).not.toContainText("Dokumenterte avvik");
+  await expect(comparison).not.toContainText("Høy prioritet");
+  await expect(comparison).not.toContainText("Manglende datagrunnlag");
+  await expect(comparison).not.toContainText("Rekrutteringssignaler");
   await expect(comparison).toContainText("Kildedekning");
-  await expect(comparison).toContainText("Ingen registrerte data");
-  await expect(comparison).toContainText("Ikke tilgjengelig");
+  await expect(comparison).toContainText("3 av 5 kilder med dokumenterte data");
+  await comparison.locator(".comparison-source-summary").first().click();
+  await expect(comparison.locator(".comparison-source-row").first()).toHaveCSS("display", "flex");
   expect(calls.comparisons).toEqual([{ companies: ["999888777", "111222333"] }]);
 
   await page.locator("#comparison-subject").selectOption("999888777");

@@ -31,11 +31,12 @@ export interface BenchmarkMetric {
   label: string;
   unit: "percent" | "count" | "score";
   values: Array<{ org_number: string; value: number }>;
-  median: number;
-  q1: number;
-  q3: number;
-  top_decile: number;
-  bottom_decile: number;
+  /** Statistics only exist when at least one documented value exists. */
+  median?: number;
+  q1?: number;
+  q3?: number;
+  top_decile?: number;
+  bottom_decile?: number;
   industry_reference?: {
     value: number;
     period: string;
@@ -83,11 +84,11 @@ export interface ComparativeFinding {
   detail: string;
   value?: number;
   benchmark?: {
-    median: number;
-    q1: number;
-    q3: number;
-    top_decile: number;
-    bottom_decile: number;
+    median?: number;
+    q1?: number;
+    q3?: number;
+    top_decile?: number;
+    bottom_decile?: number;
   };
   evidence_refs: string[];
 }
@@ -131,6 +132,14 @@ const DIRECTIONAL_METRICS = new Set<BenchmarkMetricKey>([
   "equity_ratio",
   "digital_score",
 ]);
+
+/**
+ * Only these metrics can be automatically framed as a strength or weakness.
+ * Headcount and open vacancies are descriptive context, not quality scores.
+ */
+export function isDirectionalMetric(key: BenchmarkMetricKey): boolean {
+  return DIRECTIONAL_METRICS.has(key);
+}
 
 const SSB_TABLE_BY_SECTION: Record<string, string> = {
   B: "08677",
@@ -195,7 +204,12 @@ interface SsbDataset {
 }
 
 export class SsbIndustryBenchmarkCollector implements IndustryBenchmarkCollector {
-  constructor(private readonly fetcher: typeof fetch = fetch) {}
+  private readonly fetcher: typeof fetch;
+
+  constructor(fetcher?: typeof fetch) {
+    // Workers' fetch requires the global receiver when stored as an instance field.
+    this.fetcher = fetcher ?? fetch.bind(globalThis);
+  }
 
   async collect(industryCode?: string, industryName?: string): Promise<SsbIndustryBenchmark | null> {
     const division = industryDivision(industryCode);
@@ -261,8 +275,8 @@ function round(value: number): number {
   return Math.round(value * 100) / 100;
 }
 
-function percentile(sorted: number[], p: number): number {
-  if (sorted.length === 0) return 0;
+function percentile(sorted: number[], p: number): number | undefined {
+  if (sorted.length === 0) return undefined;
   if (sorted.length === 1) return sorted[0];
   const index = (sorted.length - 1) * p;
   const lower = Math.floor(index);
@@ -370,16 +384,20 @@ export class BenchmarkEngine {
         .filter((entry): entry is { org_number: string; value: number } => typeof entry.value === "number");
 
       const sorted = values.map((entry) => entry.value).sort((a, b) => a - b);
+      const percentileFor = (p: number) => {
+        const value = percentile(sorted, p);
+        return value === undefined ? undefined : round(value);
+      };
       metrics.push({
         key,
         label: METRIC_LABELS[key].label,
         unit: METRIC_LABELS[key].unit,
         values,
-        median: round(percentile(sorted, 0.5)),
-        q1: round(percentile(sorted, 0.25)),
-        q3: round(percentile(sorted, 0.75)),
-        top_decile: round(percentile(sorted, 0.9)),
-        bottom_decile: round(percentile(sorted, 0.1)),
+        median: percentileFor(0.5),
+        q1: percentileFor(0.25),
+        q3: percentileFor(0.75),
+        top_decile: percentileFor(0.9),
+        bottom_decile: percentileFor(0.1),
         industry_reference: key === "operating_margin" && industryBenchmark?.operating_margin !== undefined
           ? { value: industryBenchmark.operating_margin, period: industryBenchmark.period, scope: industryBenchmark.scope, source_url: industryBenchmark.source_url }
           : key === "equity_ratio" && industryBenchmark?.equity_ratio !== undefined
@@ -397,11 +415,11 @@ export class BenchmarkEngine {
         company_count: graphs.length,
         note: industryBenchmark
           ? `Sammenligningen er beriket med SSB-referanse for ${industryBenchmark.scope === "division" ? "næringsgruppe" : "næringsseksjon"} i ${industryBenchmark.period}.`
-          : "Sammenligningen bygger på de valgte virksomhetene. Ingen kompatibel SSB-referanse var tilgjengelig.",
+          : "Sammenligningen bygger på de valgte virksomhetene. Dette er et sammenligningsutvalg, ikke en bransjereferanse.",
       },
       metrics,
       sources: [
-        { key: "selected-company-peer-set", label: "Valgt sammenligningsgruppe", status: "AVAILABLE" },
+        { key: "selected-company-peer-set", label: "Valgt sammenligningsutvalg", status: "AVAILABLE" },
         industryBenchmark
           ? { key: "ssb-bransje", label: "SSB-bransjereferanse", status: "AVAILABLE", note: `Referanse for ${industryBenchmark.scope === "division" ? "næringsgruppe" : "næringsseksjon"}, ${industryBenchmark.period}.` }
           : { key: "ssb-bransje", label: "SSB-bransjereferanse", status: "NOT_AVAILABLE", note: commonIndustryCode ? "Ingen kompatibel SSB-referanse ble returnert." : "Virksomhetene har ikke samme næringskode." },
@@ -416,21 +434,38 @@ export class ComparativeAnalyzer {
     const weaknesses: ComparativeFinding[] = [];
     const gaps: ComparativeFinding[] = [];
 
+    // Two selected companies are a direct comparison, not a peer cohort.
+    // Do not turn one side of a pair into an automatic strength, weakness, or
+    // recommendation. The portal presents their documented differences instead.
+    if (companies.length < 3) {
+      return {
+        generated_at: new Date().toISOString(),
+        companies,
+        benchmark,
+        strengths,
+        weaknesses,
+        gaps,
+        recommendations: [],
+      };
+    }
+
     for (const metric of benchmark.metrics) {
+      // An unavailable collector must never create a false zero metric or a
+      // repetitive gap for every company. Coverage communicates that state.
+      if (metric.values.length === 0) continue;
+
       for (const company of companies) {
         const value = company.metrics[metric.key];
         if (value === undefined) {
-          gaps.push(this.finding("GAP", company, metric.key, `Manglende dokumentasjon for ${metric.label.toLowerCase()}`, `${company.company_name} har ingen dokumentert verdi for ${metric.label.toLowerCase()}.`, undefined, metric, []));
           continue;
         }
 
         const refs = company.evidence[metric.key] ?? [];
         if (refs.length === 0) {
-          gaps.push(this.finding("GAP", company, metric.key, `Udokumentert ${metric.label.toLowerCase()}`, `${company.company_name} har en verdi for ${metric.label.toLowerCase()}, men uten kildehenvisning.`, value, metric, []));
           continue;
         }
 
-        if (!DIRECTIONAL_METRICS.has(metric.key)) continue;
+        if (!isDirectionalMetric(metric.key) || metric.median === undefined || metric.q1 === undefined || metric.q3 === undefined) continue;
 
         if (value >= metric.q3 && value > metric.median) {
           strengths.push(this.finding("STRENGTH", company, metric.key, `${metric.label} over medianen`, `${company.company_name} har ${value} mot medianen på ${metric.median} i sammenligningsgruppen.`, value, metric, refs));
@@ -471,19 +506,21 @@ export class ComparativeAnalyzer {
         ? `${detail} SSB-referanse for ${metric.industry_reference.scope === "division" ? "næringsgruppe" : "næringsseksjon"} i ${metric.industry_reference.period}: ${metric.industry_reference.value}.`
         : detail,
       value,
-      benchmark: {
-        median: metric.median,
-        q1: metric.q1,
-        q3: metric.q3,
-        top_decile: metric.top_decile,
-        bottom_decile: metric.bottom_decile,
-      },
+      benchmark: metric.median === undefined
+        ? undefined
+        : {
+            median: metric.median,
+            q1: metric.q1,
+            q3: metric.q3,
+            top_decile: metric.top_decile,
+            bottom_decile: metric.bottom_decile,
+          },
       evidence_refs: evidenceRefs,
     };
   }
 
   private sortByDistance(finding: ComparativeFinding): number {
-    if (finding.value === undefined || !finding.benchmark) return 0;
+    if (finding.value === undefined || finding.benchmark?.median === undefined) return 0;
     return Math.abs(finding.value - finding.benchmark.median);
   }
 
