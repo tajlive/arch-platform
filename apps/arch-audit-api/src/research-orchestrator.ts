@@ -8,6 +8,11 @@ import {
 import { NavAdapter } from "./collectors/nav";
 import { BrregFinancialHistoryCollector, FinancialHistory } from "./collectors/brreg-financial-history";
 import { SsbWageContextCollector, WageContext } from "./collectors/ssb-wage-context";
+import { CompanyWebDiscoveryCollector, type DigitalFootprint } from "./collectors/company-web";
+import { NewsSignalCollector, type NewsSignal } from "./collectors/news-signals";
+
+export type { DigitalFootprint } from "./collectors/company-web";
+export type { NewsSignal } from "./collectors/news-signals";
 
 export interface FinancialProfile {
   period_from: string;
@@ -27,15 +32,6 @@ export interface LeadershipRole {
   role_type: string;
   role_description: string;
   person_name?: string;
-}
-
-export interface DigitalFootprint {
-  website: string;
-  tech_stack: string[];
-  channels: string[];
-  has_booking: boolean;
-  has_self_service: boolean;
-  fetched: boolean;
 }
 
 export type SourceStatus = "AVAILABLE" | "NOT_AVAILABLE" | "EMPTY" | "ERROR";
@@ -79,6 +75,8 @@ export interface IntelligenceReport {
   /** Offentlig, aggregert lønns- og arbeidskraftkontekst fra SSB. */
   wage_context?: WageContext | null;
   digital: DigitalFootprint | null;
+  /** Tydelig navnematchede omtaler fra en offentlig RSS-kilde. */
+  news_signals?: NewsSignal[];
   sources: EvidenceSource[];
   evidence_map: { stage: string; status: "done" | "pending" | "not_available" }[];
   graph: CompanyIntelligenceGraph;
@@ -110,32 +108,6 @@ function getNumber(obj: Record<string, unknown>, key: string): number | undefine
 function getBoolean(obj: Record<string, unknown>, key: string): boolean | undefined {
   const value = obj[key];
   return typeof value === "boolean" ? value : undefined;
-}
-
-async function readTextBounded(resp: Response, maxBytes: number): Promise<string> {
-  const reader = resp.body?.getReader();
-  if (!reader) return "";
-
-  const chunks: Uint8Array[] = [];
-  let total = 0;
-  while (total < maxBytes) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    const remaining = maxBytes - total;
-    const chunk = value.length > remaining ? value.slice(0, remaining) : value;
-    chunks.push(chunk);
-    total += chunk.length;
-    if (value.length > remaining) break;
-  }
-  await reader.cancel().catch(() => undefined);
-
-  const out = new Uint8Array(total);
-  let offset = 0;
-  for (const chunk of chunks) {
-    out.set(chunk, offset);
-    offset += chunk.length;
-  }
-  return new TextDecoder().decode(out);
 }
 
 async function fetchFinancial(orgNumber: string): Promise<FinancialProfile | null> {
@@ -173,51 +145,6 @@ async function fetchFinancial(orgNumber: string): Promise<FinancialProfile | nul
     };
   } catch {
     return null;
-  }
-}
-
-async function fetchDigital(website: string): Promise<DigitalFootprint | null> {
-  if (!website) return null;
-  const url = website.startsWith("http") ? website : `https://${website}`;
-  try {
-    const resp = await fetch(url, {
-      headers: { "User-Agent": "Mozilla/5.0 (Arch-Audit research; passive)" },
-      signal: AbortSignal.timeout(8000),
-    });
-    if (!resp.ok) {
-      return { website, tech_stack: [], channels: [], has_booking: false, has_self_service: false, fetched: false };
-    }
-
-    const html = await readTextBounded(resp, 512_000);
-    const tech: string[] = [];
-    const patterns: [RegExp, string][] = [
-      [/wp-content|wp-includes|wp-json/, "WordPress"],
-      [/shopify/, "Shopify"],
-      [/google-analytics|gtag|googletagmanager/, "Google Analytics"],
-      [/facebook|fbq\(/, "Facebook Pixel"],
-      [/hotjar/, "Hotjar"],
-      [/intercom/, "Intercom"],
-      [/crisp\.chat|crisp-client/, "Crisp chat"],
-      [/tawk\.to/, "Tawk.to"],
-      [/calendly|timebestilling|booking/, "Booking-system"],
-    ];
-    for (const [re, name] of patterns) if (re.test(html)) tech.push(name);
-
-    const channels: string[] = [];
-    if (/tel:/.test(html)) channels.push("Telefon");
-    if (/mailto:/.test(html)) channels.push("Epost");
-    if (/facebook\.com|instagram\.com|linkedin\.com/.test(html)) channels.push("Sosiale medier");
-
-    return {
-      website,
-      tech_stack: tech,
-      channels,
-      has_booking: /booking|timebestilling|calendly/i.test(html),
-      has_self_service: /min side|self.?service|portal|login/i.test(html),
-      fetched: true,
-    };
-  } catch {
-    return { website, tech_stack: [], channels: [], has_booking: false, has_self_service: false, fetched: false };
   }
 }
 
@@ -328,56 +255,14 @@ function collectFinancial(financial: FinancialProfile | null, fetchedAt: string)
   };
 }
 
-function collectDigital(digital: DigitalFootprint | null, fetchedAt: string): CollectorResult {
-  if (!digital) {
-    return { raw: [], source: { key: "website", label: "Digital footprint", status: "NOT_AVAILABLE" } };
-  }
-  if (!digital.fetched) {
-    return { raw: [], source: { key: "website", label: "Digital footprint", status: "EMPTY", fetched_at: fetchedAt } };
-  }
-
-  const raw: RawEvidence[] = [
-    ...digital.tech_stack.map((tech) => ({
-      type: "DIGITAL_SIGNAL" as const,
-      observation: `Website indicates ${tech}`,
-      source: "website",
-      observed_at: fetchedAt,
-      confidence: "MEDIUM" as const,
-      metadata: { website: digital.website, signal: tech },
-    })),
-    ...digital.channels.map((channel) => ({
-      type: "DIGITAL_SIGNAL" as const,
-      observation: `Website exposes ${channel} contact channel`,
-      source: "website",
-      observed_at: fetchedAt,
-      confidence: "MEDIUM" as const,
-      metadata: { website: digital.website, channel },
-    })),
-  ];
-
-  if (digital.has_booking) {
-    raw.push({
-      type: "DIGITAL_SIGNAL",
-      observation: "Website indicates booking capability",
-      source: "website",
-      observed_at: fetchedAt,
-      confidence: "MEDIUM",
-      metadata: { website: digital.website, signal: "booking" },
-    });
-  }
-
-  return {
-    raw,
-    source: { key: "website", label: "Digital footprint", status: raw.length ? "AVAILABLE" : "EMPTY", fetched_at: fetchedAt },
-  };
-}
-
 export class ResearchOrchestrator {
   private brreg = new BrregAdapter();
   private nav = new NavAdapter();
   private validator = new EvidenceValidator();
   private financialHistoryCollector = new BrregFinancialHistoryCollector();
   private wageContextCollector = new SsbWageContextCollector();
+  private webDiscoveryCollector = new CompanyWebDiscoveryCollector();
+  private newsSignalCollector = new NewsSignalCollector();
 
   async run(query: string): Promise<{ company: BrregCompany; report: IntelligenceReport }> {
     const result = await this.brreg.fetch({ query });
@@ -385,25 +270,27 @@ export class ResearchOrchestrator {
     const company = result.data;
 
     const financialFetchedAt = new Date().toISOString();
-    const [financial, digital, navResult, historyResult, wageResult] = await Promise.all([
+    const [financial, webResult, navResult, historyResult, wageResult, newsResult] = await Promise.all([
       fetchFinancial(company.org_number),
-      fetchDigital(company.website ?? ""),
+      this.webDiscoveryCollector.collect(company.website),
       this.nav.collect(company.org_number, company.company_name),
       this.financialHistoryCollector.collect(company.org_number, company.company_name),
       this.wageContextCollector.collect({
         industryCode: company.industry_code,
         municipalityNumber: company.municipality_number,
       }),
+      this.newsSignalCollector.collect(company.company_name, company.org_number, company.municipality),
     ]);
-    const digitalFetchedAt = new Date().toISOString();
+    const digital = webResult.digital;
 
     const collectorResults = [
       collectIdentity(company, result.fetched_at),
       collectLeadership(company, result.fetched_at),
       collectFinancial(financial, financialFetchedAt),
-      collectDigital(digital, digitalFetchedAt),
+      { raw: webResult.raw, source: webResult.source },
       navResult,
       { raw: wageResult.raw, source: wageResult.source },
+      { raw: newsResult.raw, source: newsResult.source },
     ];
     const validated = this.validator.validate(collectorResults.flatMap((r) => r.raw));
 
@@ -422,7 +309,6 @@ export class ResearchOrchestrator {
         fetched_at: financialFetchedAt,
         note: historyResult.error,
       },
-      { key: "nyheter", label: "Market signals", status: "NOT_AVAILABLE", note: "ikke koblet" },
       { key: "ssb-bransje", label: "Industry context", status: "NOT_AVAILABLE", note: "ikke koblet" },
     ];
 
@@ -434,7 +320,7 @@ export class ResearchOrchestrator {
       { stage: "Digital footprint", status: digital?.fetched ? ("done" as const) : ("pending" as const) },
       { stage: "Workforce signals", status: navResult.source.status === "AVAILABLE" ? ("done" as const) : ("pending" as const) },
       { stage: "Wage and labour context", status: wageResult.context ? ("done" as const) : ("pending" as const) },
-      { stage: "Market signals", status: "not_available" as const },
+      { stage: "Market signals", status: newsResult.source.status === "AVAILABLE" ? ("done" as const) : ("pending" as const) },
       { stage: "Industry context", status: "not_available" as const },
     ];
 
@@ -469,6 +355,7 @@ export class ResearchOrchestrator {
         financial_history: historyResult.history ?? null,
         wage_context: wageResult.context,
         digital,
+        news_signals: newsResult.signals,
         sources,
         evidence_map,
         graph,

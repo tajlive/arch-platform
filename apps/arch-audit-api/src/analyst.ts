@@ -320,6 +320,7 @@ const ALLOWED_EVIDENCE_SOURCES = new Set([
   "ssb-lonn",
   "peer-group",
   "brreg",
+  "news-rss",
 ]);
 
 /** Kjente presentasjonsnavn fra modellen normaliseres til kontraktens source-ID-er. */
@@ -342,6 +343,9 @@ const EVIDENCE_REF_ALIASES: Record<string, string> = {
   "lonn og arbeidskraft": "ssb-lonn",
   "nettsideanalyse": "website",
   "nettside": "website",
+  "nyheter": "news-rss",
+  "nyhetssignaler": "news-rss",
+  "news": "news-rss",
   "peer group": "peer-group",
   "sammenligningsgruppe": "peer-group",
 };
@@ -393,6 +397,7 @@ export function buildPrompt(bundle: EvidenceBundle, focusArea: FocusArea, benchm
     "Returner weaknesses: [] med mindre evidensen viser et negativt eller fallende forhold, eller et benchmark-avvik under peer-medianen.",
     "Returner priorities: [] med mindre en dokumentert weakness eller et benchmark-avvik direkte begrunner tiltaket. Ikke gi generelle råd om overvåking, gjennomgang eller forbedring.",
     "SSB-lønnsdata er aggregert bransje- og regionstatistikk. Du må ALDRI bruke dem til å påstå hva ansatte i dette selskapet faktisk tjener, eller til å hevde noe om bonus, lønnsspenn, likelønn eller stillingsmiks.",
+    "Nyhetssignaler dokumenterer bare at en artikkel med tydelig navnmatch finnes. Du må aldri utlede hendelsesdetaljer utover det som uttrykkelig står i tittelen, og aldri bruke en nyhetstittel alene som grunnlag for en styrke, svakhet eller anbefaling.",
     "",
     "KLASSIFISER hvert funn som:",
     "- FACT: direkte observert fra kilde",
@@ -596,7 +601,7 @@ export function parseAnalystJson(raw: string, orgNumber: string, companyName: st
     },
     model: { provider, model, tokens: { input: inputTokens, output: outputTokens } },
     provenance: {
-      evidence_sources: ["brreg-enhet", "brreg-regnskap", "peer-group", "nav-arbeidsplassen", "ssb-lonn", "website"],
+      evidence_sources: ["brreg-enhet", "brreg-regnskap", "peer-group", "nav-arbeidsplassen", "ssb-lonn", "website", "news-rss"],
       disclaimer:
         "Denne analysen er beslutningsstøtte basert på offentlige registre, ikke finansiell, juridisk eller kredittrådgivning. Verifiser forholdene mot primærkilder før beslutninger.",
       benchmark_deltas: benchmarkDeltas,
