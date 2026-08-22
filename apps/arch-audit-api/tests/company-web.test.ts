@@ -53,4 +53,16 @@ describe("CompanyWebDiscoveryCollector", () => {
     expect(result.source.status).toBe("ERROR");
     expect(result.error).toBe("UNSAFE_REDIRECT");
   });
+
+  it("bevarer norske tegn når nettstedet oppgir ISO-8859-1", async () => {
+    const latin1 = (value: string) => new Uint8Array([...value].map((character) => character.charCodeAt(0)));
+    const fetcher = vi.fn().mockResolvedValue(new Response(latin1(`
+      <html><head><title>Oska Pizzeria i Møllenberg</title></head><body></body></html>
+    `), { headers: { "content-type": "text/html; charset=iso-8859-1" } }));
+    const collector = new CompanyWebDiscoveryCollector(fetcher as unknown as typeof fetch);
+
+    const result = await collector.collect("oska.example");
+
+    expect(result.digital?.page_title).toBe("Oska Pizzeria i Møllenberg");
+  });
 });

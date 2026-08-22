@@ -279,7 +279,7 @@ export class ResearchOrchestrator {
         industryCode: company.industry_code,
         municipalityNumber: company.municipality_number,
       }),
-      this.newsSignalCollector.collect(company.company_name, company.org_number),
+      this.newsSignalCollector.collect(company.company_name, company.org_number, company.municipality),
     ]);
     const digital = webResult.digital;
 

@@ -82,9 +82,9 @@ export function normalizeRegisteredWebsite(value: string | undefined): URL | nul
   }
 }
 
-async function readTextBounded(response: Response, maxBytes: number): Promise<string> {
+async function readBytesBounded(response: Response, maxBytes: number): Promise<Uint8Array> {
   const reader = response.body?.getReader();
-  if (!reader) return "";
+  if (!reader) return new Uint8Array();
 
   const chunks: Uint8Array[] = [];
   let total = 0;
@@ -104,7 +104,27 @@ async function readTextBounded(response: Response, maxBytes: number): Promise<st
     output.set(chunk, offset);
     offset += chunk.length;
   }
-  return new TextDecoder().decode(output);
+  return output;
+}
+
+function charsetFrom(contentType: string, bytes: Uint8Array): string {
+  const headerCharset = contentType.match(/\bcharset\s*=\s*["']?([^\s;"']+)/i)?.[1];
+  if (headerCharset) return headerCharset;
+
+  // Charset declarations are ASCII, so UTF-8 is safe for this small probe even
+  // when the rest of the page uses an older single-byte character encoding.
+  const probe = new TextDecoder().decode(bytes.slice(0, 4096));
+  return probe.match(/<meta\b[^>]*\bcharset\s*=\s*["']?([^\s"'>/]+)/i)?.[1]
+    ?? probe.match(/<meta\b[^>]*\bcontent\s*=\s*["'][^"']*charset=([^\s;"']+)/i)?.[1]
+    ?? "utf-8";
+}
+
+function decodeDocument(bytes: Uint8Array, contentType: string): string {
+  try {
+    return new TextDecoder(charsetFrom(contentType, bytes)).decode(bytes);
+  } catch {
+    return new TextDecoder().decode(bytes);
+  }
 }
 
 function firstMatch(html: string, pattern: RegExp): string | undefined {
@@ -290,7 +310,8 @@ export class CompanyWebDiscoveryCollector {
         if (contentType && !/text\/html|application\/xhtml\+xml/i.test(contentType)) {
           return empty("EMPTY", "Nettstedet returnerte ikke en offentlig HTML-side.", "NON_HTML_CONTENT");
         }
-        const digital = parseDigitalFootprint(registeredWebsite, url.toString(), await readTextBounded(response, MAX_HTML_BYTES));
+        const bytes = await readBytesBounded(response, MAX_HTML_BYTES);
+        const digital = parseDigitalFootprint(registeredWebsite, url.toString(), decodeDocument(bytes, contentType));
         return {
           digital,
           raw: evidenceFor(digital, fetchedAt),

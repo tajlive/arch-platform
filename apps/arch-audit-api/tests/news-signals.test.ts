@@ -35,16 +35,28 @@ describe("NewsSignalCollector", () => {
     });
   });
 
-  it("markerer ingen treff uten å lage markedspåstander", async () => {
+  it("avviser omtale av en annen juridisk virksomhet med samme korte navn", async () => {
     const fetcher = vi.fn().mockResolvedValue(new Response(`
-      <rss><channel><item><title>Napoli vinner kamp</title><link>https://news.example/napoli</link></item></channel></rss>
+      <rss><channel><item><title>Viva Napoli AS i Namsos hadde høy omsetning</title><link>https://news.example/napoli</link></item></channel></rss>
     `));
     const collector = new NewsSignalCollector(fetcher as unknown as typeof fetch);
 
-    const result = await collector.collect("NAPOLI AS", "960486072");
+    const result = await collector.collect("NAPOLI AS", "960486072", "Trondheim");
 
     expect(result.source.status).toBe("EMPTY");
     expect(result.raw).toEqual([]);
     expect(result.signals).toEqual([]);
+  });
+
+  it("tillater et kort juridisk navn bare når kommune og fullt navn matcher", async () => {
+    const fetcher = vi.fn().mockResolvedValue(new Response(`
+      <rss><channel><item><title>Frati AS utvider tilbudet i Trondheim</title><link>https://news.example/frati</link></item></channel></rss>
+    `));
+    const collector = new NewsSignalCollector(fetcher as unknown as typeof fetch);
+
+    const result = await collector.collect("FRATI AS", "951263648", "Trondheim");
+
+    expect(result.source.status).toBe("AVAILABLE");
+    expect(result.signals).toHaveLength(1);
   });
 });

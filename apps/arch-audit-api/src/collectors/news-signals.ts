@@ -46,25 +46,35 @@ function normalize(value: string): string {
     .trim();
 }
 
-function matchesCompany(title: string, companyName: string, orgNumber: string): boolean {
+function matchesCompany(title: string, companyName: string, orgNumber: string, municipality?: string): boolean {
   const normalizedTitle = normalize(title);
   const legalName = normalize(companyName);
-  if (normalizedTitle.includes(legalName) || normalizedTitle.includes(orgNumber)) return true;
+  if (normalizedTitle.includes(orgNumber)) return true;
 
   const terms = legalName.split(" ").filter((term) => term.length >= 4 && !COMPANY_SUFFIXES.has(term));
-  if (terms.length < 2) return false;
-  const matches = terms.filter((term) => new RegExp(`(?:^|\\s)${term}(?:$|\\s)`).test(normalizedTitle));
-  return matches.length >= 2;
+  if (terms.length >= 2) {
+    return terms.every((term) => new RegExp(`(?:^|\\s)${term}(?:$|\\s)`).test(normalizedTitle));
+  }
+
+  // Korte juridiske navn som "NAPOLI AS" er ikke unike nok alene. De krever
+  // derfor både fullt selskapsnavn og samme kommune i tittelen, ellers blir
+  // funnet markert som ukjent fremfor å knyttes til feil virksomhet.
+  const normalizedMunicipality = normalize(municipality ?? "");
+  return Boolean(
+    normalizedMunicipality
+    && normalizedTitle.includes(legalName)
+    && new RegExp(`(?:^|\\s)${normalizedMunicipality}(?:$|\\s)`).test(normalizedTitle)
+  );
 }
 
-function parseSignals(xml: string, companyName: string, orgNumber: string): NewsSignal[] {
+function parseSignals(xml: string, companyName: string, orgNumber: string, municipality?: string): NewsSignal[] {
   const seen = new Set<string>();
   const signals: NewsSignal[] = [];
   const items = xml.match(/<item\b[\s\S]*?<\/item>/gi) ?? [];
   for (const item of items) {
     const title = tagValue(item, "title");
     const url = tagValue(item, "link");
-    if (!title || !url || !matchesCompany(title, companyName, orgNumber)) continue;
+    if (!title || !url || !matchesCompany(title, companyName, orgNumber, municipality)) continue;
     try {
       const parsed = new URL(url);
       if (parsed.protocol !== "https:" && parsed.protocol !== "http:") continue;
@@ -96,7 +106,7 @@ export class NewsSignalCollector {
     this.fetcher = fetcher ?? fetch.bind(globalThis);
   }
 
-  async collect(companyName: string, orgNumber: string): Promise<NewsSignalCollectorResult> {
+  async collect(companyName: string, orgNumber: string, municipality?: string): Promise<NewsSignalCollectorResult> {
     const fetchedAt = new Date().toISOString();
     const empty = (status: EvidenceSource["status"], note: string, error?: string): NewsSignalCollectorResult => ({
       signals: [],
@@ -112,7 +122,7 @@ export class NewsSignalCollector {
         signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
       });
       if (!response.ok) return empty("ERROR", `Nyhetskilden svarte med HTTP ${response.status}.`, `HTTP_${response.status}`);
-      const signals = parseSignals(await response.text(), companyName, orgNumber);
+      const signals = parseSignals(await response.text(), companyName, orgNumber, municipality);
       if (!signals.length) {
         return empty("EMPTY", "Ingen nyhetsomtaler med tydelig navnmatch ble funnet.");
       }
