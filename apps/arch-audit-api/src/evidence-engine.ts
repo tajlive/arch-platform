@@ -4,7 +4,8 @@
 // Kilder (verifisert i prod 2026-08-20):
 //   ✓ brreg-enhet    — Brønnøysund Enhetsregisteret (identitet, roller, ansatte)
 //   ✓ brreg-regnskap — Brønnøysund Regnskapsregisteret (driftsresultat, resultat, EK, gjeld, revisjon)
-//   ✓ website        — nettsideanalyse (tech stack, kanaler) — rate-limit-sensitiv, fallback
+//   ✓ website        — verifisert offentlig forside (tilbud, kanaler, bestilling) — avgrenset og rate-limit-sensitiv
+//   ✓ news-rss       — tydelig navnematchede nyhetstitler med lenke og tidspunkt
 //   ✓ nav-arbeidsplassen — NAV Arbeidsplassen feed (stillinger og kompetansesignaler)
 //   · ssb-bransje    — tilgjengelig i ComparativeAnalyzer, ikke i enkeltselskapsrapporten
 //   ✗ kunngjoringer  — 404 → markeres NOT_AVAILABLE
@@ -24,6 +25,7 @@ export type {
   FinancialProfile,
   IntelligenceReport,
   LeadershipRole,
+  NewsSignal,
   SourceStatus,
 } from "./research-orchestrator";
 

@@ -76,13 +76,31 @@ const intelligenceResponse = {
       },
       caveats: ["Statistikken beskriver lønn i en næringsgruppe, ikke lønnen i virksomheten."]
     },
-    digital: null,
+    digital: {
+      website: "https://rolf-solheim.example",
+      source_url: "https://rolf-solheim.example/",
+      page_title: "Rolf Solheim restaurant",
+      page_description: "Servering i Trondheim sentrum",
+      social_profiles: ["https://www.instagram.com/rolfsolheim"],
+      tech_stack: ["WordPress"],
+      channels: ["Telefon", "Sosiale medier"],
+      has_booking: true,
+      has_self_service: false,
+      fetched: true
+    },
+    news_signals: [{
+      title: "ROLF SOLHEIM utvider i Trondheim",
+      url: "https://news.example/rolf-solheim",
+      publisher: "Adresseavisen",
+      published_at: "2026-08-21T10:00:00.000Z"
+    }],
     sources: [
       { label: "Company identity", status: "AVAILABLE" },
       { label: "Leadership & governance", status: "AVAILABLE" },
       { label: "Lønn og arbeidskraft (SSB)", status: "AVAILABLE" },
       { label: "Financial profile", status: "EMPTY" },
-      { label: "Digital footprint", status: "NOT_AVAILABLE" }
+      { label: "Digital tilstedeværelse", status: "AVAILABLE" },
+      { label: "Nyhetssignaler", status: "AVAILABLE" }
     ]
   }
 };
@@ -321,6 +339,12 @@ test("viser en norsk, dokumentert virksomhetsoversikt uten tekniske statuser", a
   await expect(brief).toContainText("Selskapets personalkostnader");
   await expect(brief).toContainText("Ikke tilgjengelig i den strukturerte offentlige kilden");
   await expect(brief).toContainText("ikke lønnen i virksomheten");
+  await expect(brief).toContainText("Digital tilstedeværelse");
+  await expect(brief).toContainText("Rolf Solheim restaurant");
+  await expect(brief).toContainText("Dokumentert fra nettsiden");
+  await expect(brief).toContainText("Nyhetssignaler");
+  await expect(brief).toContainText("ROLF SOLHEIM utvider i Trondheim");
+  await expect(brief.locator(".brief-source-link")).toHaveAttribute("href", "https://news.example/rolf-solheim");
   await expect(brief).toContainText("Opplysninger som ikke er dokumentert, vises ikke som fakta.");
   await expect(brief).not.toContainText("Not connected");
   await expect(brief).not.toContainText("No data");

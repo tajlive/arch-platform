@@ -768,6 +768,7 @@
             digital: "Nettsideanalyse",
             digital_signal: "Nettsideanalyse",
             website: "Nettsideanalyse",
+            "news-rss": "Nyhetssignaler",
           }[key] || SRC_LABELS[key] || key;
         });
         return Array.from(new Set(labels)).join(", ");
@@ -1059,6 +1060,7 @@
         "brreg-roller": "Styre og ledelse",
         "brreg-regnskap": "Regnskapsregisteret",
         "website": "Nettsideanalyse",
+        "news-rss": "Nyhetssignaler",
         "nav-arbeidsplassen": "Arbeidsstyrke",
         "ssb-lonn": "Lønn og arbeidskraft (SSB)",
         "brreg-regnskap-historikk": "Regnskapshistorikk",
@@ -1585,22 +1587,64 @@
         if (dig && dig.fetched) {
           const digRows = [];
           if (dig.website) digRows.push(["Nettside", dig.website]);
+          if (dig.page_title) digRows.push(["Sidetittel", dig.page_title]);
+          if (dig.page_description) digRows.push(["Beskrivelse", dig.page_description]);
           if (dig.tech_stack && dig.tech_stack.length) digRows.push(["Teknologi", dig.tech_stack.join(", ")]);
           if (dig.channels && dig.channels.length) digRows.push(["Kanaler", dig.channels.join(", ")]);
+          if (dig.has_booking) digRows.push(["Bestilling", "Dokumentert fra nettsiden"]);
+          if (dig.has_self_service) digRows.push(["Selvbetjening", "Dokumentert fra nettsiden"]);
           if (digRows.length > 0) {
             section("Digital tilstedeværelse", digRows);
           }
         }
 
-// 6. Datagrunnlag. Vis dokumenterte kilder, ikke tekniske mangler.
+        // 6. Nyhetssignaler. Arch viser bare RSS-omtaler som matcher selskapsnavnet tydelig.
+        const newsSignals = intel.news_signals || [];
+        if (newsSignals.length) {
+          const newsSection = document.createElement("div");
+          newsSection.className = "brief-section";
+          newsSection.appendChild(createTextElement("div", "brief-section-title", "Nyhetssignaler"));
+          newsSignals.slice(0, 5).forEach(function (signal) {
+            const row = document.createElement("div");
+            row.className = "brief-row";
+            const label = document.createElement("span");
+            label.className = "brief-label";
+            const published = signal.published_at ? new Date(signal.published_at) : null;
+            const date = published && !Number.isNaN(published.getTime())
+              ? published.toLocaleDateString("nb-NO")
+              : "Dato ikke oppgitt";
+            label.textContent = [signal.publisher, date].filter(Boolean).join(" · ");
+            const link = document.createElement("a");
+            link.className = "brief-value brief-source-link";
+            link.textContent = signal.title;
+            try {
+              const sourceUrl = new URL(signal.url);
+              if (sourceUrl.protocol === "https:" || sourceUrl.protocol === "http:") {
+                link.href = sourceUrl.toString();
+                link.target = "_blank";
+                link.rel = "noopener noreferrer";
+              }
+            } catch (_) {
+              // Ugyldig lenke vises som tekst, aldri som en klikkbar adresse.
+            }
+            row.appendChild(label);
+            row.appendChild(link);
+            newsSection.appendChild(row);
+          });
+          body.appendChild(newsSection);
+        }
+
+// 7. Datagrunnlag. Vis dokumenterte kilder, ikke tekniske mangler.
         const sourceLabels = {
           "Company identity": "Virksomhetsidentitet",
           "Leadership & governance": "Ledelse og roller",
           "Financial profile": "Regnskapsopplysninger",
           "Financial history": "Regnskapshistorikk",
           "Digital footprint": "Digital tilstedeværelse",
+          "Digital tilstedeværelse": "Digital tilstedeværelse",
           "Workforce signals": "Arbeidsstyrkesignaler",
           "Market signals": "Markedssignaler",
+          "Nyhetssignaler": "Nyhetssignaler",
           "Industry context": "Bransjekontekst"
         };
         const srcs = intel.sources || [];

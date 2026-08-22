@@ -96,6 +96,24 @@ describe("buildPrompt", () => {
     expect(prompt).toContain("51000 NOK");
     expect(prompt).toContain("ikke lønnen i virksomheten");
   });
+
+  it("tillater navnematchede nyhetssignaler som eksplisitt evidenskilde", () => {
+    const report = sampleReport();
+    report.graph.evidence.push({
+      type: "MARKET_SIGNAL",
+      observation: "Nyhetsomtale med tydelig navnmatch: ALFA SKO AS inngar avtale",
+      source: "news-rss",
+      observed_at: new Date().toISOString(),
+      confidence: "HIGH",
+      verified: true,
+      dedupe_key: "news-1",
+    });
+
+    const prompt = buildPrompt(buildEvidenceBundle(report), "salg");
+
+    expect(prompt).toContain("[news-rss] Nyhetsomtale med tydelig navnmatch");
+    expect(prompt).toContain("Nyhetssignaler dokumenterer bare");
+  });
 });
 
 describe("parseAnalystJson", () => {
