@@ -19,6 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="axn.css" />
+  <link rel="stylesheet" href="start.css" />
 </head>
 <body>
 
@@ -512,10 +513,10 @@
         log.replaceChildren();
         setFrictionControlsDisabled(false);
         discoverBtn.disabled = true;
-          discoverBtn.textContent = "Kartlegger…";
-          statusNote.textContent = "Arch kartlegger virksomheten…";
-        engine.hidden = false;
-        evidencePanel.hidden = false;
+        discoverBtn.textContent = "Søker…";
+        statusNote.textContent = "Arch søker etter virksomheten…";
+        engine.hidden = true;
+        evidencePanel.hidden = true;
         briefPanel.hidden = true;
         profilePanel.hidden = true;
         frictionPanel.hidden = true;
@@ -526,14 +527,6 @@
         if (mapPanelReset) { mapPanelReset.hidden = true; }
         const mapDetailReset = document.getElementById("map-detail");
         if (mapDetailReset) { mapDetailReset.classList.remove("visible"); }
-        engine.scrollIntoView({ behavior: "smooth", block: "start" });
-
-        // Progressiv evidence-map-avsløring
-        setState("em-company", 1);
-        setState("em-sources", 0);
-        setState("em-signals", 0);
-        setState("em-questions", 0);
-
         try {
           // 1. Anonym session
           const sessRes = await fetch(API + "/v1/public/audit/session", {
@@ -551,8 +544,6 @@
           const candidates = searchData.candidates || [];
 
           if (candidates.length === 0) {
-            setState("em-company", 2);
-            setDetail("em-company-detail", "Ikke funnet i offentlige registre");
             statusNote.textContent = "Vi fant ikke virksomheten i offentlige registre. Prøv et annet navn eller organisasjonsnummer.";
             return;
           }
@@ -564,14 +555,21 @@
           } else {
             effectiveQuery = await promptCompanyChoice(candidates);
             if (!effectiveQuery) {  // brukeren avbrøt
-              setState("em-company", 2);
-              setDetail("em-company-detail", "Avbrutt");
               statusNote.textContent = "Kartleggingen ble avbrutt.";
               return;
             }
           }
 
           // 3. Evidence Engine — rik rapport (identitet + ledelse + regnskap + digital + kilder)
+          discoverBtn.textContent = "Kartlegger…";
+          statusNote.textContent = "Arch kartlegger virksomheten…";
+          engine.hidden = false;
+          evidencePanel.hidden = false;
+          engine.scrollIntoView({ behavior: "smooth", block: "start" });
+          setState("em-company", 1);
+          setState("em-sources", 0);
+          setState("em-signals", 0);
+          setState("em-questions", 0);
           const res = await fetch(API + "/v1/public/company/intelligence", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -753,12 +751,19 @@
 
       function evidenceRefsLabel(refs) {
         const labels = (refs || []).map(function (ref) {
-          const key = String(ref).split("|")[0];
+          const key = String(ref).split("|")[0].toLowerCase();
           return {
             financial: "Regnskapsregisteret",
+            financial_event: "Regnskapsregisteret",
+            "brreg-regnskap": "Regnskapsregisteret",
             company: "Enhetsregisteret",
+            "brreg-enhet": "Enhetsregisteret",
+            person: "Styre og ledelse",
+            "brreg-roller": "Styre og ledelse",
             workforce: "Arbeidsstyrke",
+            workforce_signal: "Arbeidsstyrkesignaler",
             digital: "Nettsideanalyse",
+            digital_signal: "Nettsideanalyse",
             website: "Nettsideanalyse",
           }[key] || SRC_LABELS[key] || key;
         });
@@ -798,14 +803,28 @@
 
         const metricHeading = createTextElement("h3", "comparison-section-title", "Dokumenterte nøkkeltall");
         comparisonBody.appendChild(metricHeading);
-        const metrics = benchmark.metrics || [];
+        const metrics = (benchmark.metrics || []).filter(function (metric) {
+          return (metric.values || []).length > 0;
+        });
+        if (!metrics.length) {
+          comparisonBody.appendChild(createTextElement(
+            "p",
+            "comparison-empty-state",
+            "Arch fant ingen dokumenterte nøkkeltall som kan sammenlignes ennå. Kildedekningen nedenfor viser hvilke opplysninger som mangler."
+          ));
+        }
         metrics.forEach(function (metric) {
           const section = document.createElement("section");
           section.className = "comparison-metric";
           const heading = document.createElement("div");
           heading.className = "comparison-metric-head";
           heading.appendChild(createTextElement("h4", "comparison-metric-title", metric.label));
-          heading.appendChild(createTextElement("span", "comparison-median", "Median i utvalget: " + comparisonMetricValue(metric.median, metric)));
+          const documentedCount = (metric.values || []).length;
+          if (documentedCount >= 2 && typeof metric.median === "number") {
+            heading.appendChild(createTextElement("span", "comparison-median", "Median i utvalget: " + comparisonMetricValue(metric.median, metric)));
+          } else {
+            heading.appendChild(createTextElement("span", "comparison-median", "Dokumentert for " + documentedCount + " av " + report.companies.length));
+          }
           section.appendChild(heading);
           if (metric.industry_reference) {
             section.appendChild(createTextElement(
@@ -826,7 +845,7 @@
             context.className = "comparison-value-context";
             if (typeof value !== "number") {
               context.textContent = "Mangler dokumentasjon";
-            } else if ((metric.values || []).length < 2) {
+            } else if (documentedCount < 2 || typeof metric.median !== "number") {
               context.textContent = "For få dokumenterte verdier til sammenligning";
             } else if (value > metric.median) {
               context.textContent = "Over medianen";

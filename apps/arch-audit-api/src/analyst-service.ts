@@ -5,7 +5,7 @@
 //  - FAIL-CLOSED: evals-gate validerer 0-fabrikasjon FØR output leveres.
 
 import type { IntelligenceReport } from "./research-orchestrator";
-import type { ComparativeReport, BenchmarkMetric, BenchmarkMetricKey } from "./comparative";
+import { isDirectionalMetric, type ComparativeReport, type BenchmarkMetric } from "./comparative";
 import {
   AnalystOutput,
   AnalystModel,
@@ -30,10 +30,13 @@ export function computeBenchmarkDeltas(report: IntelligenceReport, comparative?:
 
   const deltas: BenchmarkDelta[] = [];
   for (const metric of Object.values(comparative.benchmark.metrics ?? {}) as BenchmarkMetric[]) {
+    // Headcount and vacancies describe a company; they do not by themselves
+    // establish a business weakness, priority, or negative benchmark delta.
+    if (!isDirectionalMetric(metric.key)) continue;
     const key = metric.key;
     const companyValue = own.metrics[key];
     const median = metric.median;
-    if (companyValue === undefined || median === undefined) continue;
+    if (companyValue === undefined || median === undefined || metric.values.length < 2) continue;
     const delta = Math.round((companyValue - median) * 100) / 100;
     const direction: BenchmarkDelta["direction"] =
       Math.abs(delta) < 0.01 ? "at" : delta > 0 ? "above" : "below";

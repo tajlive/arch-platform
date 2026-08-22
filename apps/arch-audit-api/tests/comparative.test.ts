@@ -1,5 +1,6 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import {
+  ComparativeAnalyzer,
   ComparativeOrchestrator,
   BenchmarkEngine,
   SsbIndustryBenchmarkCollector,
@@ -245,6 +246,52 @@ describe("Comparative intelligence", () => {
     expect(requestedUrls[1]).toContain("valueCodes%5BNACE2007%5D=45.2");
   });
 
+  it("binds the default Workers fetch when collecting an SSB reference", async () => {
+    const originalFetch = globalThis.fetch;
+    const receivers: unknown[] = [];
+    const workerFetch = vi.fn(function (this: unknown, input: RequestInfo | URL) {
+      receivers.push(this);
+      if (input.toString().includes("/metadata")) {
+        return Promise.resolve(Response.json({
+          dimension: { Tid: { category: { index: { "2024": 0 } } } },
+        }));
+      }
+      return Promise.resolve(Response.json({
+        value: [2.6, 43.3, 7532],
+        dimension: {
+          ContentsCode: { category: { index: { Drift: 0, EgenkapAnd: 1, Antall: 2 } } },
+        },
+      }));
+    });
+    globalThis.fetch = workerFetch as unknown as typeof fetch;
+
+    try {
+      const benchmark = await new SsbIndustryBenchmarkCollector().collect("56.110", "Drift av restauranter");
+
+      expect(benchmark).toMatchObject({ operating_margin: 2.6, equity_ratio: 43.3, company_count: 7532 });
+      expect(receivers).toEqual([globalThis, globalThis]);
+    } finally {
+      globalThis.fetch = originalFetch;
+    }
+  });
+
+  it("does not turn unavailable metrics into zero medians or repeated gaps", async () => {
+    const companies = [
+      toComparableCompany(report({ org: "111111111", name: "Alpha Glass AS", employees: 12 })),
+      toComparableCompany(report({ org: "222222222", name: "Beta Glass AS", employees: 6 })),
+    ];
+    const benchmark = await new BenchmarkEngine({ collect: async () => null }).enrich(companies);
+    const operatingMargin = benchmark.metrics.find((metric) => metric.key === "operating_margin");
+
+    expect(operatingMargin?.values).toEqual([]);
+    expect(operatingMargin?.median).toBeUndefined();
+
+    const analysis = new ComparativeAnalyzer().analyze(companies, benchmark);
+    expect(analysis.gaps).toEqual([]);
+    expect(analysis.strengths).toEqual([]);
+    expect(analysis.weaknesses).toEqual([]);
+  });
+
   it("returns strengths, weaknesses and evidence gaps across companies", async () => {
     const fixtures = new Map<string, CompanyIntelligenceResult>([
       ["alpha", report({ org: "111111111", name: "Alpha Glass AS", revenue: 1_000, operatingResult: 220, equity: 500, totalAssets: 800, employees: 20, digitalSignals: 4, workforceOpenings: 4 })],
@@ -273,8 +320,9 @@ describe("Comparative intelligence", () => {
     ]);
 
     expect(context.metrics.find((metric) => metric.key === "operating_margin")?.label).toBe("Driftsmargin");
-    expect(context.sources.find((source) => source.key === "selected-company-peer-set")?.label).toBe("Valgt sammenligningsgruppe");
+    expect(context.sources.find((source) => source.key === "selected-company-peer-set")?.label).toBe("Valgt sammenligningsutvalg");
     expect(context.peer_group.note).toContain("Sammenligningen bygger på de valgte virksomhetene");
+    expect(context.peer_group.note).toContain("ikke en bransjereferanse");
   });
 
   it("does not produce a comparison when fewer than two companies resolve", async () => {
