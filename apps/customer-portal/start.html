@@ -997,6 +997,8 @@
           : "Analytikeren forklarer bare dokumenterte avvik og merker usikkerhet tydelig."));
         const controls = document.createElement("div");
         controls.className = "comparison-control-grid";
+        const subjectField = document.createElement("div");
+        subjectField.className = "comparison-control-field";
         const subjectLabel = createTextElement("label", "comparison-control-label", "Virksomhet som skal forklares");
         subjectLabel.htmlFor = "comparison-subject";
         const subject = document.createElement("select");
@@ -1007,6 +1009,11 @@
           option.textContent = item.company_name;
           subject.appendChild(option);
         });
+        subjectField.appendChild(subjectLabel);
+        subjectField.appendChild(subject);
+
+        const focusField = document.createElement("div");
+        focusField.className = "comparison-control-field";
         const focusLabel = createTextElement("label", "comparison-control-label", "Fokusområde");
         focusLabel.htmlFor = "comparison-focus";
         const focus = document.createElement("select");
@@ -1023,10 +1030,10 @@
           option.textContent = entry[1];
           focus.appendChild(option);
         });
-        controls.appendChild(subjectLabel);
-        controls.appendChild(subject);
-        controls.appendChild(focusLabel);
-        controls.appendChild(focus);
+        focusField.appendChild(focusLabel);
+        focusField.appendChild(focus);
+        controls.appendChild(subjectField);
+        controls.appendChild(focusField);
         section.appendChild(controls);
         const button = document.createElement("button");
         button.type = "button";
